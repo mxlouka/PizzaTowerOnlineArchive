@@ -106,7 +106,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_snick_firemouthstart","path":"sprites/spr_snick_firemouthstart/spr_snick_firemouthstart.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_snick_firemouthstart",
     "tags": [],
     "resourceType": "GMSequence",

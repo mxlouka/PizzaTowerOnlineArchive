@@ -20,7 +20,6 @@ if ds_list_find_index(global.saveroom, id) == -1 && global.panic
 			image_yscale = abs(other.image_yscale);
 			
 			if other.sprite_index == spr_destroyable2escape_ss
-			or other.sprite_index == spr_destroyable2escape_ss_noise
 				sprite_index = spr_debrisescape_ss
 			else
 				sprite_index = spr_debrisescape

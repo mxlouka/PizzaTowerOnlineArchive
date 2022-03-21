@@ -62,7 +62,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_pizzelleicon","path":"sprites/spr_pizzelleicon/spr_pizzelleicon.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_pizzelleicon",
     "tags": [],
     "resourceType": "GMSequence",

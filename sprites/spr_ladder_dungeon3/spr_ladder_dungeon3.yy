@@ -67,7 +67,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_ladder_dungeon3","path":"sprites/spr_ladder_dungeon3/spr_ladder_dungeon3.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_ladder_dungeon3",
     "tags": [],
     "resourceType": "GMSequence",

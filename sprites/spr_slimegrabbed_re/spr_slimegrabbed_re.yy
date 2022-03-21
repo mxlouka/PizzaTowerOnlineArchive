@@ -70,7 +70,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_slimegrabbed_re","path":"sprites/spr_slimegrabbed_re/spr_slimegrabbed_re.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_slimegrabbed_re",
     "tags": [],
     "resourceType": "GMSequence",

@@ -102,7 +102,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_pizzard_shoot_re","path":"sprites/spr_pizzard_shoot_re/spr_pizzard_shoot_re.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_pizzard_shoot_re",
     "tags": [],
     "resourceType": "GMSequence",

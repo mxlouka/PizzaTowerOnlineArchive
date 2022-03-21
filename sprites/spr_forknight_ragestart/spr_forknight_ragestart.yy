@@ -99,7 +99,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_forknight_ragestart","path":"sprites/spr_forknight_ragestart/spr_forknight_ragestart.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_forknight_ragestart",
     "tags": [],
     "resourceType": "GMSequence",

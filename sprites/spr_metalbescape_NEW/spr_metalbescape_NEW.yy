@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_metalbescape_NEW","path":"sprites/spr_metalbescape_NEW/spr_metalbescape_NEW.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_metalbescape_NEW",
     "tags": [],
     "resourceType": "GMSequence",

@@ -79,7 +79,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_toppintomato_panicidle","path":"sprites/spr_toppintomato_panicidle/spr_toppintomato_panicidle.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_toppintomato_panicidle",
     "tags": [],
     "resourceType": "GMSequence",

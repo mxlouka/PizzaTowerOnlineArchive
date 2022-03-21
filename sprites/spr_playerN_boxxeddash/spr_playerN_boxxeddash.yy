@@ -86,7 +86,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_playerN_boxxeddash","path":"sprites/spr_playerN_boxxeddash/spr_playerN_boxxeddash.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_playerN_boxxeddash",
     "tags": [],
     "resourceType": "GMSequence",

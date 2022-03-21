@@ -62,7 +62,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_trapscreensign","path":"sprites/spr_trapscreensign/spr_trapscreensign.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_trapscreensign",
     "tags": [],
     "resourceType": "GMSequence",

@@ -223,7 +223,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_font_PP","path":"sprites/spr_font_PP/spr_font_PP.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_font_PP",
     "tags": [],
     "resourceType": "GMSequence",

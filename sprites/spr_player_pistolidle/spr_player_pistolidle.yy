@@ -154,7 +154,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_player_pistolidle","path":"sprites/spr_player_pistolidle/spr_player_pistolidle.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_player_pistolidle",
     "tags": [],
     "resourceType": "GMSequence",

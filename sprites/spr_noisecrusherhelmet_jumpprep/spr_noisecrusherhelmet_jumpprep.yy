@@ -67,7 +67,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_noisecrusherhelmet_jumpprep","path":"sprites/spr_noisecrusherhelmet_jumpprep/spr_noisecrusherhelmet_jumpprep.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "",
     "tags": [],
     "resourceType": "GMSequence",

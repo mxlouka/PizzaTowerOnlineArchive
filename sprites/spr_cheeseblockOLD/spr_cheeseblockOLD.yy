@@ -95,7 +95,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_cheeseblockOLD","path":"sprites/spr_cheeseblockOLD/spr_cheeseblockOLD.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_cheeseblockOLD",
     "tags": [],
     "resourceType": "GMSequence",

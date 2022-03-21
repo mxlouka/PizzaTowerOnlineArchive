@@ -66,7 +66,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_anchobounce_re","path":"sprites/spr_anchobounce_re/spr_anchobounce_re.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_anchobounce_re",
     "tags": [],
     "resourceType": "GMSequence",

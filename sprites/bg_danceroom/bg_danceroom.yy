@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"bg_danceroom","path":"sprites/bg_danceroom/bg_danceroom.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "bg_danceroom",
     "tags": [],
     "resourceType": "GMSequence",

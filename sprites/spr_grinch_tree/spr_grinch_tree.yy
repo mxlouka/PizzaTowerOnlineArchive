@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_grinch_tree","path":"sprites/spr_grinch_tree/spr_grinch_tree.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_grinch_tree",
     "tags": [],
     "resourceType": "GMSequence",

@@ -106,7 +106,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_playerSP_ghost","path":"sprites/spr_playerSP_ghost/spr_playerSP_ghost.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_playerSP_ghost",
     "tags": [],
     "resourceType": "GMSequence",

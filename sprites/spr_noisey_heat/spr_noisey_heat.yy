@@ -107,7 +107,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_noisey_heat","path":"sprites/spr_noisey_heat/spr_noisey_heat.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_noisey_heat",
     "tags": [],
     "resourceType": "GMSequence",

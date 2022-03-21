@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_tvcomboclear","path":"sprites/spr_tvcomboclear/spr_tvcomboclear.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_tvcomboclear",
     "tags": [],
     "resourceType": "GMSequence",

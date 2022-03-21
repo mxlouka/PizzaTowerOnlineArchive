@@ -70,7 +70,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_pizzyHUDknight","path":"sprites/spr_pizzyHUDknight/spr_pizzyHUDknight.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_pizzyHUDknight",
     "tags": [],
     "resourceType": "GMSequence",

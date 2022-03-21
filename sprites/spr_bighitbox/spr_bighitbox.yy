@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_bighitbox","path":"sprites/spr_bighitbox/spr_bighitbox.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_bighitbox",
     "tags": [],
     "resourceType": "GMSequence",

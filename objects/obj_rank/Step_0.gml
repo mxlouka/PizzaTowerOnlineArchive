@@ -1,5 +1,4 @@
-if obj_player1.character == "P"
-// peppino
+if obj_player1.character == "P" // peppino
 {
 	if global.rank == "s"
 		sprite_index = spr_rankS
@@ -12,8 +11,7 @@ if obj_player1.character == "P"
 	if global.rank == "d"
 		sprite_index = spr_rankD
 }
-else if obj_player1.character == "SP"
-// pizzelle the male bitch
+else if obj_player1.character == "SP" // pizzelle
 {
 	if global.rank == "s"
 		sprite_index = spr_rankSPS
@@ -25,6 +23,19 @@ else if obj_player1.character == "SP"
 		sprite_index = spr_rankSPC
 	if global.rank == "d"
 		sprite_index = spr_rankSPD
+}
+else if obj_player1.character == "PP" // pissino the greatest
+{
+	if global.rank == "s"
+		sprite_index = spr_rankPPS
+	if global.rank == "a"
+		sprite_index = spr_rankPPA
+	if global.rank == "b"
+		sprite_index = spr_rankPPB
+	if global.rank == "c"
+		sprite_index = spr_rankPPC
+	if global.rank == "d"
+		sprite_index = spr_rankPPD
 }
 else // noise
 {
@@ -42,7 +53,7 @@ else // noise
 	if scr_checkskin(checkskin.n_nose)
 		image_index = image_number - 1;
 }
-if global.rank = "yousuck"
+if global.rank == "yousuck"
 	sprite_index = spr_yousuck
 
 if floor(image_index) >= image_number - 1

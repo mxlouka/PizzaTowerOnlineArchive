@@ -159,7 +159,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_grinch_claus","path":"sprites/spr_grinch_claus/spr_grinch_claus.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_grinch_claus",
     "tags": [],
     "resourceType": "GMSequence",

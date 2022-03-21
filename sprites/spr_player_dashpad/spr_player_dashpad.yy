@@ -94,7 +94,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_player_dashpad","path":"sprites/spr_player_dashpad/spr_player_dashpad.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_player_dashpad",
     "tags": [],
     "resourceType": "GMSequence",

@@ -1,10 +1,12 @@
-function scr_changetoppings() {
+function scr_changetoppings()
+{
 	if string_startswith(room_get_name(room), "strongcold")
 		exit;
-
-	with (obj_collect)
+	
+	/*
+	with obj_collect
 	{
-		if  ds_list_find_index(global.saveroom, id) = -1  
+		if ds_list_find_index(global.saveroom, id) = -1  
 		{
 			if obj_player1.character = "P" or obj_player1.character == "V" or obj_player1.character == "M"
 				sprite_index = choose(spr_shroomcollect,spr_tomatocollect,spr_cheesecollect,spr_sausagecollect,spr_pineapplecollect)
@@ -19,7 +21,7 @@ function scr_changetoppings() {
 			repeat (3) instance_create(x+sprite_width/2+random_range(-5,5), y +sprite_height/2+random_range(-5,5), obj_cloudeffect)
 		}
 	}
-	with (obj_bigcollect)
+	with obj_bigcollect
 	{
 		if  ds_list_find_index(global.saveroom, id) = -1  
 		{
@@ -119,6 +121,5 @@ function scr_changetoppings() {
 			repeat (3) instance_create(x+sprite_width/2+random_range(-10,10), y +sprite_height/2+random_range(-5,5), obj_cloudeffect)
 		}
 	}
-
-
+	*/
 }

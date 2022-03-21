@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_eat_cashreg_hitbox","path":"sprites/spr_eat_cashreg_hitbox/spr_eat_cashreg_hitbox.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_eat_cashreg_hitbox",
     "tags": [],
     "resourceType": "GMSequence",

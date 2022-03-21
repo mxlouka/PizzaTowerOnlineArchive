@@ -79,7 +79,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_petgrunt_idle","path":"sprites/spr_petgrunt_idle/spr_petgrunt_idle.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_petgrunt_idle",
     "tags": [],
     "resourceType": "GMSequence",

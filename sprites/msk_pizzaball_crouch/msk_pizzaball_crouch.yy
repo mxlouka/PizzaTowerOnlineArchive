@@ -62,7 +62,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"msk_pizzaball_crouch","path":"sprites/msk_pizzaball_crouch/msk_pizzaball_crouch.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "msk_pizzaball_crouch",
     "tags": [],
     "resourceType": "GMSequence",

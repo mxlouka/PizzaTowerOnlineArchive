@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_car_solid","path":"sprites/spr_car_solid/spr_car_solid.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_car_solid",
     "tags": [],
     "resourceType": "GMSequence",

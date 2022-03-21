@@ -427,7 +427,7 @@ function scr_player_jump()
 			suplexmove = true
 			if character != "SP"
 			{
-				suplexdashsnd =	audio_play_sound(sfx_suplexdash,1,0)
+				suplexdashsnd =	scr_soundeffect(sfx_suplexdash)
 				sprite_index = spr_suplexdashjumpstart
 			
 				if global.gameplay == 0

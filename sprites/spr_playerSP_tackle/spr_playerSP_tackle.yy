@@ -74,7 +74,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_playerSP_tackle","path":"sprites/spr_playerSP_tackle/spr_playerSP_tackle.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_playerSP_tackle",
     "tags": [],
     "resourceType": "GMSequence",

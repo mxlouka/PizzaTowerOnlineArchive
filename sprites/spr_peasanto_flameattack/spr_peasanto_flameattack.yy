@@ -79,7 +79,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_peasanto_flameattack","path":"sprites/spr_peasanto_flameattack/spr_peasanto_flameattack.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_peasanto_flameattack",
     "tags": [],
     "resourceType": "GMSequence",

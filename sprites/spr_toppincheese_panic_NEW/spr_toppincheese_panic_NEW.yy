@@ -91,7 +91,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_toppincheese_panic_NEW","path":"sprites/spr_toppincheese_panic_NEW/spr_toppincheese_panic_NEW.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_toppincheese_panic_NEW",
     "tags": [],
     "resourceType": "GMSequence",

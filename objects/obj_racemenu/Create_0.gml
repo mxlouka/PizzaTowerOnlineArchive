@@ -7,7 +7,7 @@ if !debug
 
 instance_destroy(obj_fadeout);
 audio_stop_all();
-audio_play_sound(mu_medievalrace, 0, true);
+scr_sound(mu_medievalrace);
 instance_deactivate_all(true);
 instance_activate_object(obj_gms);
 

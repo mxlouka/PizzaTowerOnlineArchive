@@ -62,7 +62,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_fencer_dead_re","path":"sprites/spr_fencer_dead_re/spr_fencer_dead_re.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_fencer_dead_re",
     "tags": [],
     "resourceType": "GMSequence",

@@ -48,7 +48,7 @@ if con == 1
 	
 	draw_set_halign(fa_center);
 	draw_set_valign(fa_middle);
-	draw_text(960 / 2 + random_range(-1, 1), 540 / 2, lang_string("prelogin.loading"));
+	draw_text_auto(960 / 2 + random_range(-1, 1), 540 / 2, lang_string("prelogin.loading"));
 	
 	if tryconnect >= room_speed * 7
 	{

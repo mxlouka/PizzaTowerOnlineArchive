@@ -67,7 +67,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_pigtotal","path":"sprites/spr_pigtotal/spr_pigtotal.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_pigtotal",
     "tags": [],
     "resourceType": "GMSequence",

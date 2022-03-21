@@ -103,7 +103,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_noisey_walk_NEW","path":"sprites/spr_noisey_walk_NEW/spr_noisey_walk_NEW.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_noisey_walk_NEW",
     "tags": [],
     "resourceType": "GMSequence",

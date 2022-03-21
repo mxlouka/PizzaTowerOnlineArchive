@@ -62,7 +62,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_sbombic","path":"sprites/spr_sbombic/spr_sbombic.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_sbombic",
     "tags": [],
     "resourceType": "GMSequence",

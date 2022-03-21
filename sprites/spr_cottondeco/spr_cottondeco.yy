@@ -87,7 +87,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_cottondeco","path":"sprites/spr_cottondeco/spr_cottondeco.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_cottondeco",
     "tags": [],
     "resourceType": "GMSequence",

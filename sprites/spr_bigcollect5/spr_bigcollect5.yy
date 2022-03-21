@@ -99,7 +99,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_bigcollect5","path":"sprites/spr_bigcollect5/spr_bigcollect5.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_bigcollect5",
     "tags": [],
     "resourceType": "GMSequence",

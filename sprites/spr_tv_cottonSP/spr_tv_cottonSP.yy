@@ -71,7 +71,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_tv_cottonSP","path":"sprites/spr_tv_cottonSP/spr_tv_cottonSP.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_tv_cottonSP",
     "tags": [],
     "resourceType": "GMSequence",

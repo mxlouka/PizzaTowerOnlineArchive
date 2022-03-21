@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_tv_glitching","path":"sprites/spr_tv_glitching/spr_tv_glitching.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_tv_glitching",
     "tags": [],
     "resourceType": "GMSequence",

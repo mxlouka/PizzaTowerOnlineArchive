@@ -106,7 +106,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_sweat","path":"sprites/spr_sweat/spr_sweat.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "",
     "tags": [],
     "resourceType": "GMSequence",

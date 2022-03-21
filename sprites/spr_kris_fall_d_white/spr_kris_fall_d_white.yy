@@ -67,7 +67,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_kris_fall_d_white","path":"sprites/spr_kris_fall_d_white/spr_kris_fall_d_white.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_kris_fall_d_white",
     "tags": [],
     "resourceType": "GMSequence",

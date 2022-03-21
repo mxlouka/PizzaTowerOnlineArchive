@@ -114,7 +114,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_playerN_golfswing","path":"sprites/spr_playerN_golfswing/spr_playerN_golfswing.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_playerN_golfswing",
     "tags": [],
     "resourceType": "GMSequence",

@@ -1,3 +1,4 @@
+/// @description reset tv
 showtext = false
 if global.gameplay == 0
 {

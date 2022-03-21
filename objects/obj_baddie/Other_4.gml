@@ -6,12 +6,8 @@ else
 // snap to ground
 if room != custom_lvl_room
 {
-	var j = 0;
-	for(i = y; i < room_height; i++)
+	for(i = y; i < y + 64; i++)
 	{
-		j += 1;
-		if j >= 64
-			break;
 		if scr_solid(x, i + 1)
 		{
 			y = i;

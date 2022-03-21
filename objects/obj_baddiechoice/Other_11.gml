@@ -10,4 +10,4 @@ with baddiemenu
 }
 
 scr_soundeffect(sfx_collecttoppin);
-instance_destroy();
+con = 1;

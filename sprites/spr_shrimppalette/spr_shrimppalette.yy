@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_shrimppalette","path":"sprites/spr_shrimppalette/spr_shrimppalette.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_shrimppalette",
     "tags": [],
     "resourceType": "GMSequence",

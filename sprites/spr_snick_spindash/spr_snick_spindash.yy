@@ -78,7 +78,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_snick_spindash","path":"sprites/spr_snick_spindash/spr_snick_spindash.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_snick_spindash",
     "tags": [],
     "resourceType": "GMSequence",

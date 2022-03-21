@@ -63,7 +63,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_grinch_ball","path":"sprites/spr_grinch_ball/spr_grinch_ball.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_grinch_ball",
     "tags": [],
     "resourceType": "GMSequence",

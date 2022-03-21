@@ -79,7 +79,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_xmascheesetoppin_panicidle","path":"sprites/spr_xmascheesetoppin_panicidle/spr_xmascheesetoppin_panicidle.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_xmascheesetoppin_panicidle",
     "tags": [],
     "resourceType": "GMSequence",

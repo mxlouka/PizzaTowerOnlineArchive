@@ -12,7 +12,7 @@
     "path": "audiogroups/audiogroup_default",
   },
   "soundFile": "sfx_scream5",
-  "duration": 1.285,
+  "duration": 1.28,
   "parent": {
     "name": "screams",
     "path": "folders/Sounds/sfx/screams.yy",

@@ -70,7 +70,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_fencer_stun_re","path":"sprites/spr_fencer_stun_re/spr_fencer_stun_re.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_fencer_stun_re",
     "tags": [],
     "resourceType": "GMSequence",

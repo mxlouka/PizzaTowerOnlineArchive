@@ -62,7 +62,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_nohat","path":"sprites/spr_nohat/spr_nohat.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_nohat",
     "tags": [],
     "resourceType": "GMSequence",

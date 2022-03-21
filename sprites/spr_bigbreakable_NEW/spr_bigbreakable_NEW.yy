@@ -87,7 +87,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_bigbreakable_NEW","path":"sprites/spr_bigbreakable_NEW/spr_bigbreakable_NEW.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_bigbreakable_NEW",
     "tags": [],
     "resourceType": "GMSequence",

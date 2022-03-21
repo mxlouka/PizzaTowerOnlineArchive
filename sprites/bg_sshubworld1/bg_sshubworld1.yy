@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"bg_sshubworld1","path":"sprites/bg_sshubworld1/bg_sshubworld1.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "bg_sshubworld1",
     "tags": [],
     "resourceType": "GMSequence",

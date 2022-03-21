@@ -67,7 +67,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_petmisty_idle","path":"sprites/spr_petmisty_idle/spr_petmisty_idle.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_petmisty_idle",
     "tags": [],
     "resourceType": "GMSequence",

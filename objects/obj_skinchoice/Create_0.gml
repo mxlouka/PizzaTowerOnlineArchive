@@ -13,3 +13,4 @@ with obj_player1
 selvert = true;
 
 event_user(0);
+selected = false;

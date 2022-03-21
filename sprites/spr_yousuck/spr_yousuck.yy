@@ -98,7 +98,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_yousuck","path":"sprites/spr_yousuck/spr_yousuck.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_yousuck",
     "tags": [],
     "resourceType": "GMSequence",

@@ -63,7 +63,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_dungeoncomputer_re","path":"sprites/spr_dungeoncomputer_re/spr_dungeoncomputer_re.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_dungeoncomputer_re",
     "tags": [],
     "resourceType": "GMSequence",

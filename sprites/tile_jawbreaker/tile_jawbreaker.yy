@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"tile_jawbreaker","path":"sprites/tile_jawbreaker/tile_jawbreaker.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "tile_jawbreaker",
     "tags": [],
     "resourceType": "GMSequence",

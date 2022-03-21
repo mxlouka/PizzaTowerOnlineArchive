@@ -110,7 +110,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_playerN_parry3","path":"sprites/spr_playerN_parry3/spr_playerN_parry3.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_playerN_parry3",
     "tags": [],
     "resourceType": "GMSequence",

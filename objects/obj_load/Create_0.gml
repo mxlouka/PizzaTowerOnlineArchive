@@ -1,8 +1,7 @@
 randomize();
-if !code_is_compiled()
+if !code_is_compiled() // if not yyc, warn
 	trace("!!RUNNING IN VM!!");
-if pt_online
-	window_set_caption("Pizza Tower ONLINE");
+window_set_caption("Pizza Tower ONLINE");
 
 // no shader mode
 ini_open("saveData.ini");
@@ -15,14 +14,16 @@ if !check_shaders() && !ini_read_real("online", "shitgraphs", false)
 pal_swap_init_system(shd_pal_swapper, true);
 
 // fonts
-global.bigfont = font_add_sprite_ext((repaintjokebuild ? spr_font_PP : spr_font), "ABCDEFGHIJKLMNOPQRSTUVWXYZ!.1234567890:_-?", true, 0)
-loadfont = font_add_sprite_ext(spr_font, "ABCDEFGHIJKLMNOPQRSTUVWXYZ!.1234567890:_-?", true, 0)
+global.bigfont = font_add_sprite_ext((repaintjokebuild ? spr_font_PP : spr_font), "ABCDEFGHIJKLMNOPQRSTUVWXYZ!.1234567890:_-?'▯", true, 0)
 global.smallfont = font_add_sprite_ext(spr_smallerfont, "ABCDEFGHIJKLMNOPQRSTUVWXYZ!.:?1234567890▯'", true, 0)
 global.font_small = font_add_sprite_ext(spr_smallfont, "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!._1234567890:;?▯|*/',\"()=-+@█%~ÁÉÍÓÚáéíóúÑñ[]<>$", true, -2)
 global.smallnumber = font_add_sprite_ext(spr_smallnumber, "1234567890-.", true, 0)
 global.collectfont = font_add_sprite_ext(spr_font_collect, "0123456789.-", true, 0)
 global.candyfont = font_add_sprite_ext(spr_font_candycollect, "0123456789", true, 0)
 global.combofont = font_add_sprite_ext(spr_font_combo, "0123456789.-", true, 0)
+global.sugarybigfont = font_add_sprite_ext(spr_font_ss, "ABCDEFGHIJKLMNOPQRSTUVWXYZ!.1234567890:_-?'▯", true, 0)
+global.sugarysmallfont = font_add_sprite_ext(spr_smallfont_ss, "ABCDEFGHIJKLMNOPQRSTUVWXYZ!.:?1234567890▯'", true, 0)
+loadfont = global.bigfont;
 
 // variable
 global.surfacemach = ini_read_real("online", "surfacemach", false);
@@ -34,10 +35,10 @@ global.synceffect = ini_read_real("online", "synceffect", true);
 global.richpresence = ini_read_real("online", "richpresence", false);
 global.streamer = ini_read_real("online", "streamer", false);
 global.showfps = ini_read_real("online", "showfps", false);
-global.pvp = /*ini_read_real("online", "pvp", false)*/ false;
+global.pvp = /*ini_read_real("online", "pvp", false)*/ false; // i removed most of the pvp code long ago so don't get your hopes up
 global.drawborder = ini_read_real("online", "drawborder", false);
 global.pestoanchovi = ini_read_real("online", "pestoanchovi", false);
-global.camerasmoothing = ini_read_real("online", "camerasmoothing", false);
+global.camerasmoothing = ini_read_real("online", "camerasmoothing", 0);
 global.screenshader = ini_read_real("online", "screenshader", 0);
 
 global.panicbg = ini_read_real("online", "panicbg", false); // waving background

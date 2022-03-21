@@ -2,19 +2,32 @@
 event_inherited();
 
 // draw the skins
-img += sprite_get_speed(spr_idle) * 0.35;
+var _spr = selected ? spr_select : spr_idle;
+if selected
+	_spr = spr_select;
+var _sprno = sprite_get_number(_spr);
 
-if img >= sprite_get_number(spr_idle)
-	img -= sprite_get_number(spr_idle);
-
-var _spr = spr_idle;
+img += sprite_get_speed(_spr) * 0.35;
+if img >= _sprno or (selected && img >= 10)
+{
+	if selected && con != 1
+	{
+		t = 0;
+		con = 1;
+	}
+	if img >= _sprno
+		img -= _sprno;
+}
 
 if sel[1] == "N"
 {
-	if global.gameplay == 0 && noisetype == 1
-		_spr = spr_playerN_mach;
-	if global.gameplay != 0 && noisetype == 0
-		_spr = spr_playerN_pogofall;
+	if _spr != spr_select or spr_idle == spr_select
+	{
+		if global.gameplay == 0 && noisetype == 1
+			_spr = spr_playerN_mach;
+		if global.gameplay != 0 && noisetype == 0
+			_spr = spr_playerN_pogofall;
+	}
 	
 	if sel[0] == 14 or sel[0] == 17
 	{
@@ -23,14 +36,14 @@ if sel[1] == "N"
 			_spr = spr_playerN_idle;
 			img = 0;
 		}
-		else
+		if sel[0] == 14
 			_spr = spr_playerN_chungus;
 		
 		draw_set_font(global.font_small);
 		if noisetype == 1 && global.gameplay == 0
-			draw_text((960 / 2) + xoffset, ((540 / 2) + yoffset) - sprite_get_height(_spr) + 32, "Skateboard");
+			draw_text_auto((960 / 2) + xoffset, ((540 / 2) + yoffset) - sprite_get_height(_spr) + 32, "Skateboard",,,talpha);
 		else if noisetype == 0 && global.gameplay != 0
-			draw_text((960 / 2) + xoffset, ((540 / 2) + yoffset) - sprite_get_height(_spr) + 32, "Pogo");
+			draw_text_auto((960 / 2) + xoffset, ((540 / 2) + yoffset) - sprite_get_height(_spr) + 32, "Pogo",,,talpha);
 	}
 }
 if sel[1] == "P" && sel[0] == 17
@@ -53,7 +66,7 @@ else
 	*/
 }
 if sprite_exists(_spr)
-	draw_sprite_ext(_spr, img, (960 / 2) + xoffset, (540 / 2) + yoffset, 2, 2, 0, (locked ? merge_colour(c_white, c_black, 0.75) : c_white), (100 - abs(xoffset) - abs(yoffset)) / 100);
+	draw_sprite_ext(_spr, img, (960 / 2) + xoffset, (540 / 2) + yoffset, 2, 2, 0, (locked ? merge_colour(c_white, c_black, 0.75) : c_white), ((100 - abs(xoffset) - abs(yoffset)) / 100) * talpha);
 
 draw_set_colour(c_white);
 draw_set_font(global.bigfont);
@@ -62,7 +75,7 @@ draw_set_valign(fa_top);
 
 pal_swap_reset();
 if locked
-	draw_text((960 / 2) + xoffset, ((540 / 2) + yoffset) - sprite_get_height(_spr), "LOCKED");
+	draw_text_auto((960 / 2) + xoffset, ((540 / 2) + yoffset) - sprite_get_height(_spr), "Locked",,,talpha);
 
 // text
 if sel[0] == -1
@@ -85,8 +98,8 @@ else
 	}
 	catch (e)
 	{
-		palname = "PALETTE";
-		paldesc = "loyjqz please add details";
+		palname = "Palette";
+		paldesc = "loypoll please add details";
 		e = "";
 	}
 }

@@ -82,7 +82,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_player_mortjumpstart","path":"sprites/spr_player_mortjumpstart/spr_player_mortjumpstart.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_player_mortjumpstart",
     "tags": [],
     "resourceType": "GMSequence",

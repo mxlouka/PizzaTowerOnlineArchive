@@ -83,7 +83,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_hat_snickcrown","path":"sprites/spr_hat_snickcrown/spr_hat_snickcrown.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_hat_snickcrown",
     "tags": [],
     "resourceType": "GMSequence",

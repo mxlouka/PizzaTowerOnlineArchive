@@ -75,7 +75,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_toppinNEW_startgate","path":"sprites/spr_toppinNEW_startgate/spr_toppinNEW_startgate.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_toppinNEW_startgate",
     "tags": [],
     "resourceType": "GMSequence",

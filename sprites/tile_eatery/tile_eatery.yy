@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"tile_eatery","path":"sprites/tile_eatery/tile_eatery.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "tile_eatery",
     "tags": [],
     "resourceType": "GMSequence",

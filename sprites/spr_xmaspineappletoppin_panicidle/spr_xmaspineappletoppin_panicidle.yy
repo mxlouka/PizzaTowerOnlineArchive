@@ -79,7 +79,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_xmaspineappletoppin_panicidle","path":"sprites/spr_xmaspineappletoppin_panicidle/spr_xmaspineappletoppin_panicidle.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_xmaspineappletoppin_panicidle",
     "tags": [],
     "resourceType": "GMSequence",

@@ -98,7 +98,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_player_slipbanan2","path":"sprites/spr_player_slipbanan2/spr_player_slipbanan2.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_player_slipbanan2",
     "tags": [],
     "resourceType": "GMSequence",

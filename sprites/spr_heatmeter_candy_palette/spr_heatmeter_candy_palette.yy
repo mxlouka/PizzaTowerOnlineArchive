@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_heatmeter_candy_palette","path":"sprites/spr_heatmeter_candy_palette/spr_heatmeter_candy_palette.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_heatmeter_candy_palette",
     "tags": [],
     "resourceType": "GMSequence",

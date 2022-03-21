@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sprite_tile_kungfu","path":"sprites/sprite_tile_kungfu/sprite_tile_kungfu.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sprite_tile_kungfu",
     "tags": [],
     "resourceType": "GMSequence",

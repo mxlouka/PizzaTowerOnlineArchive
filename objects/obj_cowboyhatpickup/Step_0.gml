@@ -9,4 +9,7 @@ switch hat
 	case HATS.cowboy2:
 		sprite_index = spr_hat_cowboy2;
 		break;
+	case HATS.scatman:
+		sprite_index = spr_hat_scatman;
+		break;
 }

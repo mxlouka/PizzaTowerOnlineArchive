@@ -71,7 +71,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_tv_gumballSP","path":"sprites/spr_tv_gumballSP/spr_tv_gumballSP.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_tv_gumballSP",
     "tags": [],
     "resourceType": "GMSequence",

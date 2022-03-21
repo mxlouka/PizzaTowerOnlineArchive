@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_guncrate","path":"sprites/spr_guncrate/spr_guncrate.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_guncrate",
     "tags": [],
     "resourceType": "GMSequence",

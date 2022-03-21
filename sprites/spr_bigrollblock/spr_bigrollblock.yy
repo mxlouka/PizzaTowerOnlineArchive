@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_bigrollblock","path":"sprites/spr_bigrollblock/spr_bigrollblock.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_bigrollblock",
     "tags": [],
     "resourceType": "GMSequence",

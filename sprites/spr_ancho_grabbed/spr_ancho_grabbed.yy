@@ -66,7 +66,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_ancho_grabbed","path":"sprites/spr_ancho_grabbed/spr_ancho_grabbed.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_ancho_grabbed",
     "tags": [],
     "resourceType": "GMSequence",

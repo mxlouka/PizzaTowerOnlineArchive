@@ -15,7 +15,7 @@
     "path": "audiogroups/audiogroup_default",
   },
   "soundFile": "mu_sewer_pc.ogg",
-  "duration": 139.487183,
+  "duration": 139.492523,
   "parent": {
     "name": "pizza castle",
     "path": "folders/Sounds/pizza castle.yy",

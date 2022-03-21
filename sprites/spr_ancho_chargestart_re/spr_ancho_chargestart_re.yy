@@ -98,7 +98,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_ancho_chargestart_re","path":"sprites/spr_ancho_chargestart_re/spr_ancho_chargestart_re.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_ancho_chargestart_re",
     "tags": [],
     "resourceType": "GMSequence",

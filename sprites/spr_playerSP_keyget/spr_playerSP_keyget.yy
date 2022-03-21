@@ -170,7 +170,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_playerSP_keyget","path":"sprites/spr_playerSP_keyget/spr_playerSP_keyget.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_playerSP_keyget",
     "tags": [],
     "resourceType": "GMSequence",

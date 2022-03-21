@@ -63,7 +63,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_ruincomputer_re","path":"sprites/spr_ruincomputer_re/spr_ruincomputer_re.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_ruincomputer_re",
     "tags": [],
     "resourceType": "GMSequence",

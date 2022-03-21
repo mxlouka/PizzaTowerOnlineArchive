@@ -7,3 +7,5 @@ if string_startswith(room_get_name(room), "etb_")
 	x += sprite_xoffset;
 	y += sprite_yoffset;
 }
+if check_sugary()
+	sprite_index = spr_plug_ss;

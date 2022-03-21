@@ -70,7 +70,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"bg_mainmenulight_PP","path":"sprites/bg_mainmenulight_PP/bg_mainmenulight_PP.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "bg_mainmenulight_PP",
     "tags": [],
     "resourceType": "GMSequence",

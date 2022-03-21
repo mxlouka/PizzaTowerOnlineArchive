@@ -62,7 +62,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"bg_kungfu2","path":"sprites/bg_kungfu2/bg_kungfu2.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "bg_kungfu2",
     "tags": [],
     "resourceType": "GMSequence",

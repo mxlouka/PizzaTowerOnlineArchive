@@ -91,7 +91,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_minijohn_rage1","path":"sprites/spr_minijohn_rage1/spr_minijohn_rage1.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_minijohn_rage1",
     "tags": [],
     "resourceType": "GMSequence",

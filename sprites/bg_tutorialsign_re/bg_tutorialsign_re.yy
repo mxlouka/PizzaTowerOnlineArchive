@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"bg_tutorialsign_re","path":"sprites/bg_tutorialsign_re/bg_tutorialsign_re.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "bg_tutorialsign_re",
     "tags": [],
     "resourceType": "GMSequence",

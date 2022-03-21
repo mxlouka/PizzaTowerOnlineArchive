@@ -9,8 +9,7 @@ with instance_create(x, y, obj_smallnumber)
 	number = string(25)
 scr_soundeffect(sfx_collecttopping)
 
-if sprite_index == spr_pizzaslice
-	create_collect(x, y, spr_healthpickupeaten)
+create_collect(x, y, sprite_index == spr_pizzaslice ? spr_healthpickupeaten : sprite_index)
 global.heattime = clamp(global.heattime + 25, 0, 60)
 
 instance_destroy()

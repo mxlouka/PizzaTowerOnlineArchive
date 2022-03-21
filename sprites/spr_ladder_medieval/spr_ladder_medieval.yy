@@ -67,7 +67,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_ladder_medieval","path":"sprites/spr_ladder_medieval/spr_ladder_medieval.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_ladder_medieval",
     "tags": [],
     "resourceType": "GMSequence",

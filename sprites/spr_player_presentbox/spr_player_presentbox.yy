@@ -70,7 +70,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_player_presentbox","path":"sprites/spr_player_presentbox/spr_player_presentbox.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_player_presentbox",
     "tags": [],
     "resourceType": "GMSequence",

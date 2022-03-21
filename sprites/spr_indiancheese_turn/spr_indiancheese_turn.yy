@@ -95,7 +95,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_indiancheese_turn","path":"sprites/spr_indiancheese_turn/spr_indiancheese_turn.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_indiancheese_turn",
     "tags": [],
     "resourceType": "GMSequence",

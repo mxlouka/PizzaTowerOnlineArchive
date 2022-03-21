@@ -82,7 +82,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_forknight_turn_re","path":"sprites/spr_forknight_turn_re/spr_forknight_turn_re.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_forknight_turn_re",
     "tags": [],
     "resourceType": "GMSequence",

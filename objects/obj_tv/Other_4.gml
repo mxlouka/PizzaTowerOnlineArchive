@@ -1,55 +1,31 @@
-//Ranking && milestone
-if room == entrance_1
-	global.srank = 11500
-if room == medieval_1
+/// @description ranks & level appearance
+switch room
 {
-	if !global.snickchallenge
-		global.srank = 10300
-	else
-		global.srank = 8300
+	// please redo some of these specially the old level ones
+	case entrance_1: global.srank = 11500; break;
+	case medieval_1: global.srank = 8300; break;
+	case chateau_1: global.srank = 9300; break;
+	case ruin_1: global.srank = 11200; break;
+	case ufo_1: global.srank = 10950; break;
+	case floor1_room0: global.srank = 13400; break; // desert
+	case floor2_room9: global.srank = 10000; break; // mansion
+	case floor3_room0: global.srank = 6500; break; // factory
+	case floor4_room0: global.srank = 5800; break; // sewer
+	case floor5_room1: global.srank = 7800; break; // freezer
+	case golf_room1: global.srank = (scr_stylecheck(1) ? 3200 : 4500); break;
+	case farm_1: global.srank = 10300; break;
+	case graveyard_1: case graveyard_1_NEW: global.srank = 11855; break;
+	case dungeon_1: global.srank = 10300; break;
+	case strongcold_10: global.srank = 9000; break;
+	case dragonlair_1: global.srank = 4500; break;
+	case forest_1: global.srank = 14000; break;
+	case beach_1: global.srank = 14000; break;
+	case etb_1: global.srank = 7000; break;
+	case grinch_1: global.srank = 6400; break;
+	case kungfu_1: global.srank = 15000; break;
 }
-if room == chateau_1
-	global.srank = 9300
-if room == ruin_1 && !global.snickchallenge
-	global.srank = 11200
-if room == ufo_1
-	global.srank = 10950
-if room == floor1_room0 // desert
-	global.srank = 13400
-if room == floor2_room0 // mansion
-    global.srank = 10000
-if room == floor3_room0 // factory
-    global.srank = 6500
-if room == floor4_room0 // sewer
-    global.srank = 5800
-if room == floor5_room1 // freezer
-    global.srank = 7800
-if room == golf_room1
-{
-	global.srank = 4500;
-	if global.gameplay != 0
-		global.srank = 3200;
-}
-if room == farm_1
-	global.srank = 10300
-if room == graveyard_1 or room == graveyard_1_NEW
-	global.srank = 11855
-if room == dungeon_1 && !global.snickchallenge
-	global.srank = 10300
-if room == strongcold_10
-	global.srank = 9000
-if room == dragonlair_1
-	global.srank = 4500
-if room == beach_1
-	global.srank = 14000
-if room == forest_1
-	global.srank = 14000
-if room == etb_1
-	global.srank = 7000
-if room == grinch_1
-	global.srank = 6400
-if room == kungfu_1
-	global.srank = 15000;
+if global.snickchallenge
+	global.srank = 10300;
 
 // calculate lesser ranks
 if room == custom_lvl_room

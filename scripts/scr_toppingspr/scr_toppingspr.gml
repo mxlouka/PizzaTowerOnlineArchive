@@ -24,6 +24,9 @@ function scr_collectsprite(single = false)
 			else
 				toppings = [spr_sugarycollect1_NEW, spr_sugarycollect2_NEW, spr_sugarycollect3_NEW, spr_sugarycollect4_NEW, spr_sugarycollect5_NEW, spr_sugarycollect6_NEW, spr_sugarycollect7_NEW, spr_sugarycollect8_NEW, spr_sugarycollect9_NEW, spr_sugarycollect10_NEW];
 		}
+		// pissino
+		else if char == "PP"
+			toppings = [spr_collectpiss1, spr_collectpiss2, spr_collectpiss3, spr_collectpiss4, spr_collectpiss5];
 		// default / peppino
 		else
 		{

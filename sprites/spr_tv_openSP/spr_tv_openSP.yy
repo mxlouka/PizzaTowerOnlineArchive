@@ -127,7 +127,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_tv_openSP","path":"sprites/spr_tv_openSP/spr_tv_openSP.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_tv_openSP",
     "tags": [],
     "resourceType": "GMSequence",

@@ -78,7 +78,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_playerSP_machpunch2","path":"sprites/spr_playerSP_machpunch2/spr_playerSP_machpunch2.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_playerSP_machpunch2",
     "tags": [],
     "resourceType": "GMSequence",

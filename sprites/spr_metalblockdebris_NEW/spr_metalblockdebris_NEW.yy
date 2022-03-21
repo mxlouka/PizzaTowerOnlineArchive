@@ -87,7 +87,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_metalblockdebris_NEW","path":"sprites/spr_metalblockdebris_NEW/spr_metalblockdebris_NEW.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_metalblockdebris_NEW",
     "tags": [],
     "resourceType": "GMSequence",

@@ -63,7 +63,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_entrancegate_NEW","path":"sprites/spr_entrancegate_NEW/spr_entrancegate_NEW.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_entrancegate_NEW",
     "tags": [],
     "resourceType": "GMSequence",

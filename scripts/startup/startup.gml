@@ -50,7 +50,7 @@ exception_unhandled_handler
 	function(e)
 	{
 		audio_stop_all();
-		scr_soundeffect(sfx_pephurt);
+		scr_soundeffect(sfx_pephurt_PP);
 		
 		trace(e);
 		show_message(lang_string("general.crashed") + e.longMessage);
@@ -230,8 +230,20 @@ function scr_petspr(index)
 			spr_petrun = spr_petrat_move;
 			break;
 		case 1:
+			spr_petidle = spr_petraton_idle;
+			spr_petrun = spr_petraton_move;
+			break;
+		case 2:
 			spr_petidle = spr_petspamton_idle;
 			spr_petrun = spr_petspamton_move;
+			break;
+		case 3:
+			spr_petidle = spr_petgrunt_idle;
+			spr_petrun = spr_petgrunt_move;
+			break;
+		case 4:
+			spr_petidle = spr_petslug_idle;
+			spr_petrun = spr_petslug_move;
 			break;
 	}
 }

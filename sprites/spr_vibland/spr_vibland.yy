@@ -62,7 +62,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_vibland","path":"sprites/spr_vibland/spr_vibland.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_vibland",
     "tags": [],
     "resourceType": "GMSequence",

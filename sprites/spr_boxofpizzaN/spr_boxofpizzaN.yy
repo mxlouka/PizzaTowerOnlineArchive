@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_boxofpizzaN","path":"sprites/spr_boxofpizzaN/spr_boxofpizzaN.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_boxofpizzaN",
     "tags": [],
     "resourceType": "GMSequence",

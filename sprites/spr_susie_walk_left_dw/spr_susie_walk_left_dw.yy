@@ -71,7 +71,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_susie_walk_left_dw","path":"sprites/spr_susie_walk_left_dw/spr_susie_walk_left_dw.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_susie_walk_left_dw",
     "tags": [],
     "resourceType": "GMSequence",

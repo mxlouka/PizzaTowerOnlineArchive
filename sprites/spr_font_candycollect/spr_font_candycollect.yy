@@ -95,7 +95,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_font_candycollect","path":"sprites/spr_font_candycollect/spr_font_candycollect.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_font_candycollect",
     "tags": [],
     "resourceType": "GMSequence",

@@ -94,7 +94,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_pepgoblin_kick_re","path":"sprites/spr_pepgoblin_kick_re/spr_pepgoblin_kick_re.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_pepgoblin_kick_re",
     "tags": [],
     "resourceType": "GMSequence",

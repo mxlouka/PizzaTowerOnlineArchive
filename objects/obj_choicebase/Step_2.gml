@@ -1,3 +1,5 @@
+if live_call() return live_result;
+
 scr_getinput(true);
 if room == Realtitlescreen or room == characterselect
 {
@@ -5,18 +7,23 @@ if room == Realtitlescreen or room == characterselect
 	exit;
 }
 
+xoffset = lerp(xoffset, 0, 0.25);
+yoffset = lerp(yoffset, 0, 0.25);
+
+// change the palette
+if con == 1
+	exit;
+
 if key_start or key_slap2
 {
 	keyboard_clear(global.key_start);
 	keyboard_clear(global.key_slap);
 	
 	scr_soundeffect(sfx_enemyprojectile);
-	instance_destroy();
+	con = 1;
 	exit;
 }
 
-// change the palette
-xoffset = lerp(xoffset, 0, 0.25);
 if check_shaders() or !selvert
 {
 	if (-key_left2 or (holdt == 0 && -key_left)) && sel[0] > selmin
@@ -64,9 +71,6 @@ else
 	}
 }
 
-// change character
-yoffset = lerp(yoffset, 0, 0.25);
-
 // select the palette
 if key_jump
 {
@@ -75,6 +79,8 @@ if key_jump
 	else
 	{
 		keyboard_clear(global.key_jump);
+		con = 1;
+		t = 0;
 		event_user(1);
 	}
 }

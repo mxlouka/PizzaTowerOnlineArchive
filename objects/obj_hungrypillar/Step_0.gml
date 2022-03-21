@@ -61,11 +61,11 @@ if global.musicvolume > 0
 		&& !(room == custom_lvl_room && global.disableescapemusic)
 		{
 			if global.musicgame == 1
-				song = audio_play_sound(mu_dungeondepth_pc, 10, true);
+				song = scr_soundeffect_ext(mu_dungeondepth_pc, true);
 			else if scr_checkskin(checkskin.p_anton)
-				song = audio_play_sound(mu_antondepth, 10, true);
+				song = scr_soundeffect_ext(mu_antondepth, true);
 			else
-				song = audio_play_sound(mu_dungeondepth, 10, true);
+				song = scr_soundeffect_ext(mu_dungeondepth, true);
 			audio_sound_gain(song, 0, 0);
 		}
 	}

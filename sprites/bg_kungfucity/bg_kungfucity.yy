@@ -62,7 +62,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"bg_kungfucity","path":"sprites/bg_kungfucity/bg_kungfucity.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "bg_kungfucity",
     "tags": [],
     "resourceType": "GMSequence",

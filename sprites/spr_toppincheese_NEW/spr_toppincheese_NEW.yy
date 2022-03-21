@@ -107,7 +107,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_toppincheese_NEW","path":"sprites/spr_toppincheese_NEW/spr_toppincheese_NEW.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_toppincheese_NEW",
     "tags": [],
     "resourceType": "GMSequence",

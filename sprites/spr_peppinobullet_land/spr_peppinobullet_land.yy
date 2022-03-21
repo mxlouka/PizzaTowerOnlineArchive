@@ -74,7 +74,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_peppinobullet_land","path":"sprites/spr_peppinobullet_land/spr_peppinobullet_land.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_peppinobullet_land",
     "tags": [],
     "resourceType": "GMSequence",

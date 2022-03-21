@@ -62,7 +62,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_playerN_head","path":"sprites/spr_playerN_head/spr_playerN_head.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_playerN_head",
     "tags": [],
     "resourceType": "GMSequence",

@@ -130,7 +130,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_player_pistolwalk","path":"sprites/spr_player_pistolwalk/spr_player_pistolwalk.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_player_pistolwalk",
     "tags": [],
     "resourceType": "GMSequence",

@@ -75,7 +75,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_susie_lw_fall_turn","path":"sprites/spr_susie_lw_fall_turn/spr_susie_lw_fall_turn.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_susie_lw_fall_turn",
     "tags": [],
     "resourceType": "GMSequence",

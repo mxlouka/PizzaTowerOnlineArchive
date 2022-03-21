@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_manualicon_es","path":"sprites/spr_manualicon_es/spr_manualicon_es.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_manualicon_es",
     "tags": [],
     "resourceType": "GMSequence",

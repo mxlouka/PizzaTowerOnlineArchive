@@ -62,7 +62,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"bg_trapscreen","path":"sprites/bg_trapscreen/bg_trapscreen.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "bg_trapscreen",
     "tags": [],
     "resourceType": "GMSequence",

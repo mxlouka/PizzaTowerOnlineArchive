@@ -20,6 +20,8 @@ if room != Realtitlescreen && global.gameplay != 0
 	    ds_map_set(special_prompts, "bombpep", ini_read_real("Prompts", "bombpep", 0));
 	    ds_map_set(special_prompts, "rocket", ini_read_real("Prompts", "rocket", 0));
 	    ini_close();
+		
+		// once one of the transformation texts are shown, change save file to never show them again
 	}
 }
 else
@@ -42,10 +44,10 @@ else
 	visible = true
 
 // check if sugary tv
-with obj_player1
+with obj_player
 	other.sugary = (character == "SP" or character == "SN");
 
-//Text
+// text
 panicy = 600 + (string_height(message) - 16);
 if showtext
 {
@@ -68,21 +70,21 @@ else
 
 if global.gameplay == 0
 {
+	// if recently switched from new gameplay to old.
 	if surface_exists(promptsurface)
 	{
 		surface_free(promptsurface);
 		tvsprite = spr_tvdefault;
 	}
 	
-	// More logic
-	if (instance_exists(obj_player1) && obj_player1.y < camera_get_view_y(view_camera[0]) + 200 && obj_player1.x > camera_get_view_x(view_camera[0]) + camera_get_view_width(view_camera[0]) - 200)
+	// make transparent for player
+	if (instance_exists(obj_player) && obj_player.y < camera_get_view_y(view_camera[0]) + 200 && obj_player.x > camera_get_view_x(view_camera[0]) + camera_get_view_width(view_camera[0]) - 200)
 	or manualhide
 		alpha = 0.5
-	else if !( room == rank_room or room == timesuproom or room == boss_room1 or room == Realtitlescreen or room == characterselect)
+	else if !(room == rank_room or room == timesuproom or room == boss_room1 or room == Realtitlescreen or room == characterselect)
 		alpha = 1
 
-	//TV
-	//Rank milestone
+	// FUCKING RUN
 	if instance_exists(obj_itspizzatime)
 	{
 		image_speed = 0.25
@@ -91,46 +93,47 @@ if global.gameplay == 0
 		showtext = true
 		tvsprite = spr_tvexit
 	}
-
-	else if global.collect >= global.srank && !shownranks && obj_player1.character != "S" && global.srank > 0
+	
+	// Rank milestone
+	else if global.srank > 0 && (!instance_exists(obj_player) or obj_player.character != "S")
+	&& ((global.collect >= global.srank && !shownranks)
+	or (global.collect >= global.arank && !shownranka)
+	or (global.collect >= global.brank && !shownrankb)
+	or (global.collect >= global.crank && !shownrankc))
 	{
 		image_speed = 0
-		message = "YOU GOT ENOUGH FOR RANK S"
 		showtext = true
 		alarm[0] = 200
-		tvsprite = spr_tvranks
-		shownranks = true
+		
+		// i was gonna use applemunch's code and credit it but "switch true" isn't a thing lol
+		if !shownrankc
+		{
+			message = "YOU GOT ENOUGH FOR RANK C!";
+			tvsprite = spr_tvrankc;
+			shownrankc = true;
+		}
+		else if !shownrankb
+		{
+			message = "YOU GOT ENOUGH FOR RANK B!";
+			tvsprite = spr_tvrankb;
+			shownrankb = true;
+		}
+		else if !shownranka
+		{
+			message = "YOU GOT ENOUGH FOR RANK A!";
+			tvsprite = spr_tvranka;
+			shownranka = true;
+		}
+		else if !shownranks
+		{
+			message = "YOU GOT ENOUGH FOR RANK S!!!";
+			tvsprite = spr_tvranks;
+			shownranks = true;
+		}
 	}
-	else if global.collect >= global.arank && !shownranka && obj_player1.character != "S" && global.srank > 0
-	{
-		image_speed = 0
-		message = "YOU GOT ENOUGH FOR RANK A"
-		showtext = true
-		alarm[0] = 200
-		tvsprite = spr_tvranka
-		shownranka = true
-	}
-	else if global.collect >= global.brank && !shownrankb && obj_player1.character != "S" && global.srank > 0
-	{
-		image_speed = 0
-		message = "YOU GOT ENOUGH FOR RANK B"
-		showtext = true
-		alarm[0] = 200
-		tvsprite = spr_tvrankb
-		shownrankb = true
-	}
-	else if global.collect >= global.crank && !shownrankc && obj_player1.character != "S" && global.srank > 0
-	{
-		image_speed = 0
-		message = "YOU GOT ENOUGH FOR RANK C"
-		showtext = true
-		alarm[0] = 200
-		tvsprite = spr_tvrankc
-		shownrankc = true
-	}
-	else
-	//Clap
-	if instance_exists(obj_player1) && obj_player1.sprite_index = spr_player_levelcomplete
+	
+	// good job you don't in fact suck
+	else if instance_exists(obj_player) && obj_player.sprite_index == spr_player_levelcomplete
 	{
 		image_speed = 0.1
 		alarm[0] = 50
@@ -138,74 +141,70 @@ if global.gameplay == 0
 		tvsprite = spr_tvclap
 		once = true
 	}
-	else
-
-
-	 //Hurt
-	if instance_exists(obj_player1) && obj_player1.state = states.hurt 
+	
+	// owie moans in pain uwu
+	else if instance_exists(obj_player) && obj_player.state = states.hurt 
 	{
+		if !chose
+			message = choose("OW!", "OUCH!", "OH!", "WOH!")
+		chose = true
+		
 		image_speed = 0.1
 		showtext = true
-		if chose = false
-			message = choose("OW!", "OUCH!", "OH!", "WOH!")
 		alarm[0] = 50
-		chose = true
 		tvsprite = spr_tvhurt
 		once = true
 	}
-	else //Times Up
-	if instance_exists(obj_player1)
-	&& (obj_player1.state = states.timesup or obj_player1.state = states.ejected)
+	
+	// skull emoji face ass
+	else if instance_exists(obj_player)
+	&& (obj_player.state == states.timesup or obj_player.state == states.ejected)
 	{
 		alarm[0] = 50
 		image_speed = 0.1
 		tvsprite = spr_tvskull
 	}
-
-
-	//Noise miniboss
-	else 
-	if global.miniboss = true
+	
+	// miniboss
+	else if global.miniboss
 	{
 		alarm[0] = 50
 		image_speed = 0.1
 		tvsprite = spr_tvnoise
 	}
-
-	else //Hurt message
-	if global.hurtcounter >= global.hurtmilestone
+	
+	// milestone for sucking dick
+	else if global.hurtcounter >= global.hurtmilestone
 	{
 		alarm[0] = 150
 		image_speed = 0.1
 		
-		var char = "P";
-		if instance_exists(obj_player1)
-			char = obj_player1.character;
+		var char = "";
+		if instance_exists(obj_player)
+			char = obj_player.character;
 		
-		if char == "P"
-			character = "PEPPINO"
-		else if char == "N"
-			character = "THE NOISE"
-		else if char == "S"
-			character = "SNICK"
-		else if char == "V"
-			character = "VIGILANTE"
-		else if char == "G"
-			character = "GLADE"
-		else if char == "SP"
-			character = "PIZZELLE"
-		else if char == "M"
-			character = "PEPPERMAN"
-		else
-			character = "NULLINO"
+		switch char
+		{
+			case "P": character = "PEPPINO"; break;
+			case "N": character = "THE NOISE"; break;
+			case "S": character = "SNICK"; break;
+			case "V": character = "VIGILANTE"; break;
+			case "SP": character = "PIZZELLE"; break;
+			case "SN": character = "PIZZANO"; break;
+			case "M": character = "PEPPERMAN"; break;
+			case "PP": character = "PISSINO"; break;
+			
+			default: character = "UNKNOWN"; break;
+		}
 		
-		message = "YOU HAVE HURT " + string(character) + " " + string(global.hurtmilestone) + " TIMES..."
+		message = "YOU HAVE HURT " + string(character) + " " + string(global.hurtmilestone) + " TIMES...";
 		if tvsprite != spr_tvtalking1 && tvsprite != spr_tvtalking2 && tvsprite != spr_tvtalking3 && tvsprite != spr_tvtalking4
-			tvsprite = choose(spr_tvtalking1,spr_tvtalking2,spr_tvtalking3,spr_tvtalking4)
-		global.hurtmilestone += 10
+			tvsprite = choose(spr_tvtalking1, spr_tvtalking2, spr_tvtalking3, spr_tvtalking4);
+		global.hurtmilestone += 10;
 	}
-	else //Skateboard
-	if instance_exists(obj_player1) && obj_player1.state = states.skateboard 
+	
+	// Skateboard
+	else if instance_exists(obj_player) && obj_player.state == states.skateboard
 	{
 		showtext = true
 		message = "SWEET DUDE!!"
@@ -213,75 +212,50 @@ if global.gameplay == 0
 		tvsprite = spr_tvrad
 		once = true
 	}
-
-	else //Combo
-	if global.combo != 0 && global.combotime != 0 && (tvsprite = spr_tvdefault or tvsprite = spr_tvcombo or tvsprite = spr_tvescape)
+	
+	// combo
+	else if global.combo != 0 && global.combotime != 0
+	&& (tvsprite == spr_tvdefault or tvsprite == spr_tvcombo or tvsprite == spr_tvescape)
 	{
 		tvsprite = spr_tvcombo
 		image_speed = 0
-		if global.combo >= 4 {
+		
+		if global.combo >= 4
 			imageindexstore = 3
-		}
-		else {
+		else
 			imageindexstore = global.combo -1;
-		}
 	}
-
-
-	else //Good job combo
-	if global.combotime = 0 && tvsprite = spr_tvcombo
+	
+	// good job combo
+	else if global.combotime <= 0 && tvsprite == spr_tvcombo
 	{
 		tvsprite = spr_tvcomboresult
 		image_index = imageindexstore;
 		alarm[0] = 50
 	}
-	else //Main Menu
-	if room = Realtitlescreen 
+	
+	// potassium showcase
+	else if room == Realtitlescreen
 	{
 		image_speed = 0.1
 		tvsprite = spr_tvbanana
+	}
 	
-		/*
-		if obj_mainmenuselect.selected = false
-		{
-		if obj_mainmenuselect.optionselected = 0
-		{
-		showtext = true
-	message = "START GAME"
-		}
-			if obj_mainmenuselect.optionselected = 1
-		{
-		showtext = true
-	message = "OPTION"
-		}
-			if obj_mainmenuselect.optionselected = 2
-		{
-		showtext = true
-	message = "ERASE DATA"
-		}
-		}
-		else
-			{
-		showtext = true
-	message = ""
-		}
-		*/
-	}
-
-	if instance_exists(obj_player1) && obj_player1.state = states.keyget
+	if instance_exists(obj_player) && obj_player.state == states.keyget
 	{
-	showtext = true
-	message = "GOT THE KEY!"
-	alarm[0] = 50
+		showtext = true
+		message = "GOT THE KEY!"
+		alarm[0] = 50
 	}
+	
 	if instance_exists(obj_noise_pushbutton)
 	{ 
-	if obj_noise_pushbutton.hsp != 0 && global.panic = false
-	{
-	showtext = true
-	message = "UH OH..."
-	alarm[0] = 50
-	}
+		if obj_noise_pushbutton.hsp != 0 && !global.panic
+		{
+			showtext = true
+			message = "UH OH..."
+			alarm[0] = 50
+		}
 	}
 }
 
@@ -314,7 +288,11 @@ else
 	        }
 	    }
 	}
-
+	
+	var pchar = "";
+	if instance_exists(obj_player)
+		pchar = obj_player.character;
+	
 	switch state
 	{
 	    case states.normal:
@@ -322,8 +300,7 @@ else
 	        {
 		        idlespr = spr_tv_idle;
 			
-				if !instance_exists(obj_player1)
-				or (obj_player1.character != "P" && obj_player1.character != "N" && obj_player1.character != "SP")
+				if pchar != "P" && pchar != "N" && pchar != "SP" && pchar != "SN" && pchar != "PP"
 					idlespr = spr_tv_placeholder;
 				else
 				{
@@ -367,7 +344,7 @@ else
 			            case states.knightpepattack:
 			                idlespr = spr_tv_knight;
 			                break;
-			
+						
 			            case states.bombpep:
 			                idlespr = spr_tv_bombpep;
 			                break;
@@ -544,10 +521,12 @@ else
 	            else
 	                bubblespr = noone;
 	        }
-			else if floor(image_index) == image_number - 1
+			else if floor(image_index) >= image_number - 1
 				animset = tvsprite;
 			
-			if tvsprite != spr_tv_open && animset != spr_tv_open
+			if sugary && global.panic
+				sprite_index = spr_tv_escapeSP;
+			else if tvsprite != spr_tv_open && animset != spr_tv_open
 			{
 				if instance_exists(obj_player1) && obj_player1.character != "P"
 				{
@@ -563,6 +542,11 @@ else
 							animset = spr_tv_placeholderSP;
 							sprite_index = spr_tv_placeholderSP;
 						}
+						else if pchar == "PP"
+						{
+							animset = spr_tv_placeholderPP;
+							sprite_index = spr_tv_placeholderPP;
+						}
 						else
 						{
 							animset = spr_tv_placeholder;
@@ -577,6 +561,8 @@ else
 			{
 				if sugary
 					sprite_index = spr_tv_openSP;
+				else if pchar == "PP"
+					sprite_index = spr_tv_openPP;
 				else
 					sprite_index = spr_tv_open;
 			}

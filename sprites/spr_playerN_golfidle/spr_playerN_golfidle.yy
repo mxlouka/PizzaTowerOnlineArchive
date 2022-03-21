@@ -90,7 +90,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_playerN_golfidle","path":"sprites/spr_playerN_golfidle/spr_playerN_golfidle.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_playerN_golfidle",
     "tags": [],
     "resourceType": "GMSequence",

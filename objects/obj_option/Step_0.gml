@@ -8,7 +8,7 @@ if !instance_exists(obj_keyconfig) && !instance_exists(obj_erasegame)
 	if menu == 1
 		omax = 2 + global.loaded_pc;
 	if menu == 2
-		omax = 13 + (debug * 2);
+		omax = 14;
 	
 	var mov = -(obj_player1.key_up2 or keyboard_check_pressed(vk_up)) + (obj_player1.key_down2 or keyboard_check_pressed(vk_down));
 	var movh = -(obj_player1.key_up or keyboard_check(vk_up)) + (obj_player1.key_down or keyboard_check(vk_down));
@@ -470,20 +470,15 @@ else if menu == 2 && !instance_exists(obj_erasegame)
 		}
 	}
 	
-	// camera smoothing
+	// fps count
 	if optionselected == 14
 	{
-		if select
-		{
-			global.camerasmoothing = !global.camerasmoothing;
-			scr_soundeffect(sfx_step);
-		}
-	}
-	
-	// screen shader
-	if optionselected == 15
-	{
+		if keyboard_check(vk_shift)
+			var move = (obj_player.key_left2 + obj_player.key_right2) * 0.01;
+		else
+			var move = (obj_player.key_left + obj_player.key_right) * 0.02;
 		
+		global.camerasmoothing = clamp(global.camerasmoothing + move, 0, 1);
 	}
 	
 	//Finish
@@ -498,20 +493,21 @@ else if menu == 2 && !instance_exists(obj_erasegame)
 		with obj_player
 			noisetype = (global.gameplay == 0 ? 0 : 1);
 		
-		ini_write_real("online","panicmelt",global.panicmelt)  
-		ini_write_real("online","panicbg",global.panicbg)  
-		ini_write_real("online","panicshake",global.panicshake)
-		ini_write_real("online","panicnightmare",global.panicnightmare)
+		ini_write_real("online", "panicmelt", global.panicmelt)  
+		ini_write_real("online", "panicbg", global.panicbg)  
+		ini_write_real("online", "panicshake", global.panicshake)
+		ini_write_real("online", "panicnightmare", global.panicnightmare)
 		
-		ini_write_real("online","surfacemach",global.surfacemach)
-		ini_write_real("online","secretdebris",global.secretdebris)
-		ini_write_real("online","shownames",global.shownames)
-		ini_write_real("online","chatbubbles",global.chatbubbles)
-		//ini_write_real("online","pvp",global.pvp)
-		ini_write_real("online","synceffect",global.synceffect)
-		ini_write_real("online","richpresence",global.richpresence)
-		ini_write_real("online","streamer",global.streamer)
-		ini_write_real("online","showfps",global.showfps)
+		ini_write_real("online", "surfacemach", global.surfacemach)
+		ini_write_real("online", "secretdebris", global.secretdebris)
+		ini_write_real("online", "shownames", global.shownames)
+		ini_write_real("online", "chatbubbles", global.chatbubbles)
+		//ini_write_real("online", "pvp", global.pvp)
+		ini_write_real("online", "synceffect", global.synceffect)
+		ini_write_real("online", "richpresence", global.richpresence)
+		ini_write_real("online", "streamer", global.streamer)
+		ini_write_real("online", "showfps", global.showfps)
+		ini_write_real("online", "camerasmoothing", global.camerasmoothing)
 		ini_close();
 		
 		if obj_drpc_updater.running != global.richpresence

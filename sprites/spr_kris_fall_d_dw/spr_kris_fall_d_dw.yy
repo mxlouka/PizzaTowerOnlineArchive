@@ -67,7 +67,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_kris_fall_d_dw","path":"sprites/spr_kris_fall_d_dw/spr_kris_fall_d_dw.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_kris_fall_d_dw",
     "tags": [],
     "resourceType": "GMSequence",

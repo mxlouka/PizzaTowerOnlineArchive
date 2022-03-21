@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"tile_grinch","path":"sprites/tile_grinch/tile_grinch.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "tile_grinch",
     "tags": [],
     "resourceType": "GMSequence",

@@ -8,6 +8,8 @@ if instance_exists(obj_player1)
 		sprite_index = spr_snickcollectible3
 	if obj_player.character == "SP"
 		sprite_index = spr_giantpizza_ss
+	if obj_player.character == "PP"
+		sprite_index = spr_giantpizza_PP
 }
 
 if global.snickrematch

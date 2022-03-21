@@ -71,7 +71,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_mario_walk","path":"sprites/spr_mario_walk/spr_mario_walk.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_mario_walk",
     "tags": [],
     "resourceType": "GMSequence",

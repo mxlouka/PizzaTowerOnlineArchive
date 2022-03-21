@@ -1,11 +1,11 @@
 function scr_deltamessage()
 {
 	var _alp = 0;
-    if (current_time - last_chat_time) < 300
-        _alp = (current_time - last_chat_time) / 300;
-	else if (current_time - last_chat_time) < 8000
+    if current_time - last_chat_time < 300
+        _alp = current_time - last_chat_time / 300;
+	else if current_time - last_chat_time < 8000
         _alp = 1;
-	else if (current_time - last_chat_time) < 9000
+	else if current_time - last_chat_time < 9000
         _alp = 1 - ((current_time - last_chat_time) - 8000) / 1000;
 	
     if _alp != 0
@@ -34,7 +34,4 @@ function scr_deltamessage()
 			
 		draw_set_halign(fa_left);
     }
-	
-	/*
-	*/
 }

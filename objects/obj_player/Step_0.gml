@@ -760,8 +760,8 @@ cutscene = (
 
 //SAGE2019
 //Up arrow
-if ((place_meeting(x, y, obj_door) && !place_meeting(x,y,obj_doorblocked)) or place_meeting(x,y,obj_dresser) or place_meeting(x,y,obj_menuphone) or place_meeting(x,y,obj_filedoor) or place_meeting(x, y, obj_devdoor) or place_meeting(x,y,obj_snick) or place_meeting(x,y,obj_keydoor) or place_meeting(x, y, obj_door_editor) or place_meeting(x, y, obj_keydoor_editor) or place_meeting(x, y, obj_baddiemenu) or place_meeting(x, y, obj_npcparent) or place_meeting(x, y, obj_eatery_cashreg) or place_meeting(x, y, obj_taxi) or (place_meeting(x, y, obj_hubelevator) && instance_place(x, y, obj_hubelevator).state == 0) or (place_meeting(x, y, obj_geromedoor) && global.gerome) or (place_meeting(x,y,obj_exitgate) && (global.panic or global.snickchallenge) && character != "S"))
-&& scr_solid(x, y + 1) && state == states.normal
+if ((place_meeting(x, y, obj_door) && !place_meeting(x, y, obj_doorblocked)) or place_meeting(x, y, obj_dresser) or place_meeting(x, y, obj_menuphone) or place_meeting(x, y, obj_filedoor) or place_meeting(x, y, obj_devdoor) or place_meeting(x, y, obj_arcademachine) or place_meeting(x,y,obj_snick) or place_meeting(x,y,obj_keydoor) or place_meeting(x, y, obj_door_editor) or place_meeting(x, y, obj_keydoor_editor) or place_meeting(x, y, obj_baddiemenu) or place_meeting(x, y, obj_npcparent) or place_meeting(x, y, obj_eatery_cashreg) or place_meeting(x, y, obj_taxi) or (place_meeting(x, y, obj_hubelevator) && instance_place(x, y, obj_hubelevator).state == 0) or (place_meeting(x, y, obj_geromedoor) && global.gerome) or (place_meeting(x,y,obj_exitgate) && (global.panic or global.snickchallenge) && character != "S"))
+&& grounded && vsp >= 0 && state == states.normal
 {
 	if !instance_exists(obj_uparrow)
 	{
@@ -773,13 +773,15 @@ else if instance_exists(obj_uparrow)
 	instance_destroy(obj_uparrow);
  
 // speed lines
-if !instance_exists(speedlineseffectid)
-&& (state == states.mach2 or sprite_index == spr_cotton_maxrun)
+if state == states.mach2 or sprite_index == spr_cotton_maxrun
 {
-	with instance_create(x, y, obj_speedlines)
+	if !instance_exists(speedlineseffectid)
 	{
-		playerid = other.object_index
-		other.speedlineseffectid = id
+		with instance_create(x, y, obj_speedlines)
+		{
+			playerid = other.object_index
+			other.speedlineseffectid = id
+		}
 	}
 }
 else if instance_exists(speedlineseffectid)

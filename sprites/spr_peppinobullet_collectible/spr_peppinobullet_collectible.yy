@@ -102,7 +102,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_peppinobullet_collectible","path":"sprites/spr_peppinobullet_collectible/spr_peppinobullet_collectible.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_peppinobullet_collectible",
     "tags": [],
     "resourceType": "GMSequence",

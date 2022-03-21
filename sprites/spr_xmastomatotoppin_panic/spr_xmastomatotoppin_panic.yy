@@ -79,7 +79,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_xmastomatotoppin_panic","path":"sprites/spr_xmastomatotoppin_panic/spr_xmastomatotoppin_panic.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_xmastomatotoppin_panic",
     "tags": [],
     "resourceType": "GMSequence",

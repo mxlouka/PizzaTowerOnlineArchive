@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"tile_hubsp_decor","path":"sprites/tile_hubsp_decor/tile_hubsp_decor.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "tile_hubsp_decor",
     "tags": [],
     "resourceType": "GMSequence",

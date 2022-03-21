@@ -70,7 +70,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_player_pistolshotend","path":"sprites/spr_player_pistolshotend/spr_player_pistolshotend.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_player_pistolshotend",
     "tags": [],
     "resourceType": "GMSequence",

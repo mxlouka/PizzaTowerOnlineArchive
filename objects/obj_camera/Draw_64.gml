@@ -3,10 +3,10 @@ if room == Realtitlescreen or room == rm_deltarune or !drawhud
 	exit;
 
 var sugary = false;
-with obj_player1
+with obj_player
 	if (character == "SP" or character == "SN") sugary = true;
 
-var showhud = !instance_exists(obj_player1) or (obj_player1.state != states.rotate && obj_player1.state != states.gameover);
+var showhud = !instance_exists(obj_player) or (obj_player.state != states.rotate && obj_player.state != states.gameover);
 if global.pizzadelivery && global.hp > 0
 	draw_sprite(spr_pizzahealthbar, 8 - global.hp, (global.gameplay == 0 ? 190 : 100) + healthshake, (global.gameplay == 0 ? 70 : 240) + hud_posY + healthshake)
 
@@ -17,21 +17,21 @@ if global.gameplay == 0
 	hud_posY = 0;
 	
 	//Backup Weapon
-	if instance_exists(obj_player1) && obj_player1.backupweapon
+	if instance_exists(obj_player) && obj_player.backupweapon
 		draw_sprite_ext(spr_shotgunbackup,-1,50, 100, 1, 1, 0, c_white, alpha)
 	
-	if instance_exists(obj_player1) && obj_player1.state != states.gameover
+	if instance_exists(obj_player) && obj_player.state != states.gameover
 	{
-		var _state = obj_player1.state;
+		var _state = obj_player.state;
 		if _state == states.backbreaker
-			_state = obj_player1.storedstate;
+			_state = obj_player.storedstate;
 		if _state == states.hitlag
-			_state = obj_player1.tauntstoredstate;
+			_state = obj_player.tauntstoredstate;
 		
 		var hudface = -1;
-		if obj_player1.character == "V"
+		if obj_player.character == "V"
 		{
-			if (healthshaketime > 0 && playerhealthup) or obj_player1.sprite_index == spr_playerV_keydoor or _state == states.keyget or _state == states.gottreasure 
+			if (healthshaketime > 0 && playerhealthup) or obj_player.sprite_index == spr_playerV_keydoor or _state == states.keyget or _state == states.gottreasure 
 				hudface = spr_playerV_happyHUD
 			else if _state == states.mach1 or _state == states.mach2 or _state == states.mach3 or _state == states.machslide or _state == states.machroll
 				hudface = spr_playerV_machHUD
@@ -39,53 +39,53 @@ if global.gameplay == 0
 				hudface = spr_playerV_hurtHUD
 			else if global.panic = true
 				hudface = spr_playerV_panicHUD
-			else if obj_player1.angry
+			else if obj_player.angry
 				hudface = spr_playerV_angryHUD
 			else
 				hudface = spr_playerV_normalHUD
 		}
 
-		if obj_player1.character == "P"
+		if obj_player.character == "P"
 		{
-			if obj_player1.sprite_index = spr_knightpep_thunder
+			if obj_player.sprite_index = spr_knightpep_thunder
 				hudface = spr_pepinoHUDthunder
-			else if obj_player1.sprite_index != spr_knightpep_start && (_state = states.knightpep or _state = states.knightpepslopes)
+			else if obj_player.sprite_index != spr_knightpep_start && (_state = states.knightpep or _state = states.knightpepslopes)
 				hudface = spr_pepinoHUDknight
-			else if obj_player1.sprite_index = spr_bombpep_end
+			else if obj_player.sprite_index = spr_bombpep_end
 				hudface = spr_pepinoHUDbombend
-			else if instance_exists(obj_itspizzatime)  or obj_player1.sprite_index = spr_bombpep_intro or obj_player1.sprite_index = spr_bombpep_runabouttoexplode or obj_player1.sprite_index = spr_bombpep_run or obj_player1.sprite_index = spr_player_fireass
+			else if instance_exists(obj_itspizzatime)  or obj_player.sprite_index = spr_bombpep_intro or obj_player.sprite_index = spr_bombpep_runabouttoexplode or obj_player.sprite_index = spr_bombpep_run or obj_player.sprite_index = spr_player_fireass
 				hudface = spr_pepinoHUDscream
 			else if _state = states.Sjumpland or (_state = states.freefallland && shake_mag > 0)  
 				hudface = spr_pepinoHUDstun
-			else if obj_player1.sprite_index = spr_player_victory or _state = states.keyget or _state = states.smirk or _state = states.gottreasure or (_state = states.bossintro &&  obj_player1.sprite_index = spr_player_levelcomplete)
+			else if obj_player.sprite_index = spr_player_victory or _state = states.keyget or _state = states.smirk or _state = states.gottreasure or (_state = states.bossintro &&  obj_player.sprite_index = spr_player_levelcomplete)
 				hudface = spr_pepinoHUDhappy
-			else if obj_player1.sprite_index = spr_player_machroll or obj_player1.sprite_index = spr_player_tumble
+			else if obj_player.sprite_index = spr_player_machroll or obj_player.sprite_index = spr_player_tumble
 				hudface = spr_pepinoHUDrolling
-			else if obj_player1.supercharged
+			else if obj_player.supercharged
 				hudface = spr_pepinoHUDmenacing
 			else if _state = states.mach1  or _state = states.chainsaw or _state = states.freefallprep or _state = states.freefall or  _state = states.tackle or _state = states.Sjump or _state = states.slam or  _state = states.Sjumpprep or _state = states.grab or _state = states.punch or _state = states.backbreaker or _state = states.backkick or _state = states.uppunch or _state = states.shoulder
 				hudface = spr_pepinoHUDmach1
-			else if _state = states.mach2 or obj_player1.sprite_index = spr_player_dive or obj_player1.sprite_index = spr_player_machslideboost or _state = states.climbwall or _state = states.handstandjump or _state = states.superslam 
+			else if _state = states.mach2 or obj_player.sprite_index = spr_player_dive or obj_player.sprite_index = spr_player_machslideboost or _state = states.climbwall or _state = states.handstandjump or _state = states.superslam 
 				hudface = spr_pepinoHUDmach2
-			else if _state = states.mach3 && obj_player1.sprite_index = spr_player_crazyrun 
+			else if _state = states.mach3 && obj_player.sprite_index = spr_player_crazyrun 
 				hudface = spr_pepinoHUDmach4
-			else if _state = states.mach3 or obj_player1.sprite_index = spr_player_machslideboost3
+			else if _state = states.mach3 or obj_player.sprite_index = spr_player_machslideboost3
 				hudface = spr_pepinoHUDmach3
-			else if _state = states.hurt or obj_player1.sprite_index = spr_bombpep_end or obj_player1.sprite_index = spr_player_fireassend or _state = states.timesup or _state = states.bombpep or (_state = states.bossintro &&  obj_player1.sprite_index = spr_player_bossintro) or (_state = states.bossintro &&  obj_player1.sprite_index = spr_player_idle)
+			else if _state = states.hurt or obj_player.sprite_index = spr_bombpep_end or obj_player.sprite_index = spr_player_fireassend or _state = states.timesup or _state = states.bombpep or (_state = states.bossintro &&  obj_player.sprite_index = spr_player_bossintro) or (_state = states.bossintro &&  obj_player.sprite_index = spr_player_idle)
 				hudface = spr_pepinoHUDhurt
-			else if obj_player1.angry = true 
+			else if obj_player.angry
 				hudface = spr_pepinoHUD3hp
-			else if obj_player1.sprite_index = spr_player_hurtidle or obj_player1.sprite_index = spr_player_hurtwalk
+			else if obj_player.sprite_index = spr_player_hurtidle or obj_player.sprite_index = spr_player_hurtwalk
 				hudface = spr_pepinoHUD1hp
 			else if global.panic = true or global.snickchallenge = true or global.miniboss = true
 				hudface = spr_pepinoHUDpanic
-			else if obj_player1.sprite_index = spr_shotgun_pullout
+			else if obj_player.sprite_index = spr_shotgun_pullout
 				hudface = spr_pepinoHUDmenacing
 			else
 				hudface = spr_pepinoHUD
 		}
 
-		if obj_player1.character == "S"
+		if obj_player.character == "S"
 		{
 			if _state = states.hurt
 				hudface = spr_snickHUDhurt
@@ -93,7 +93,7 @@ if global.gameplay == 0
 				hudface = spr_snickHUD
 		}
 
-		if obj_player1.character == "N"
+		if obj_player.character == "N"
 		{
 			if scr_checkskin(checkskin.n_nose)
 			{
@@ -102,72 +102,72 @@ if global.gameplay == 0
 			}
 			else
 			{
-				if obj_player1.sprite_index = obj_player1.spr_knightpepthunder
+				if obj_player.sprite_index = obj_player.spr_knightpepthunder
 					hudface = spr_noiseHUD_thunder
-				else if obj_player1.sprite_index != obj_player1.spr_knightpepstart && (_state = states.knightpep or _state = states.knightpepslopes)
+				else if obj_player.sprite_index != obj_player.spr_knightpepstart && (_state = states.knightpep or _state = states.knightpepslopes)
 					hudface = spr_noiseHUD_knight
-				else if obj_player1.sprite_index = obj_player1.spr_bombpepend
+				else if obj_player.sprite_index = obj_player.spr_bombpepend
 					hudface = spr_noiseHUD_bomb
-				else if instance_exists(obj_itspizzatime)  or obj_player1.sprite_index = obj_player1.spr_bombpepintro or obj_player1.sprite_index = obj_player1.spr_bombpeprunabouttoexplode or obj_player1.sprite_index = obj_player1.spr_bombpeprun or obj_player1.sprite_index = obj_player1.spr_fireass
+				else if instance_exists(obj_itspizzatime)  or obj_player.sprite_index = obj_player.spr_bombpepintro or obj_player.sprite_index = obj_player.spr_bombpeprunabouttoexplode or obj_player.sprite_index = obj_player.spr_bombpeprun or obj_player.sprite_index = obj_player.spr_fireass
 					hudface = spr_noiseHUD_panic
 				else if _state = states.Sjumpland or (_state = states.freefallland && shake_mag > 0)  
 					hudface = spr_noiseHUD_groundpound
-				//else if obj_player1.sprite_index = obj_player1.spr_victory or _state = states.keyget or _state = states.smirk or _state = states.gottreasure or (_state = states.bossintro &&  obj_player1.sprite_index = obj_player1.spr_player_levelcomplete)
+				//else if obj_player.sprite_index = obj_player.spr_victory or _state = states.keyget or _state = states.smirk or _state = states.gottreasure or (_state = states.bossintro &&  obj_player.sprite_index = obj_player.spr_player_levelcomplete)
 				//	hudface = spr_noiseHUD_happy
-				else if obj_player1.supercharged
+				else if obj_player.supercharged
 					hudface = spr_noiseHUD_menacing
 				else if _state = states.mach1  or _state = states.chainsaw or _state = states.freefallprep or _state = states.freefall or  _state = states.tackle or _state = states.Sjump or _state = states.slam or  _state = states.Sjumpprep or _state = states.grab or _state = states.punch or _state = states.backbreaker or _state = states.backkick or _state = states.uppunch or _state = states.shoulder
 					hudface = spr_noiseHUD_mach1
-				else if _state = states.pogo or _state = states.mach2 or obj_player1.sprite_index == obj_player1.spr_dive or obj_player1.sprite_index = obj_player1.spr_machslideboost or _state = states.climbwall or _state = states.handstandjump or _state = states.superslam 
+				else if _state = states.pogo or _state = states.mach2 or obj_player.sprite_index == obj_player.spr_dive or obj_player.sprite_index = obj_player.spr_machslideboost or _state = states.climbwall or _state = states.handstandjump or _state = states.superslam 
 					hudface = spr_noiseHUD_mach2
-				else if _state = states.mach3 && obj_player1.sprite_index == obj_player1.spr_crazyrun 
+				else if _state = states.mach3 && obj_player.sprite_index == obj_player.spr_crazyrun 
 					hudface = spr_noiseHUD_crazyrun
-				else if _state = states.mach3 or obj_player1.sprite_index == obj_player1.spr_mach3boost
+				else if _state = states.mach3 or obj_player.sprite_index == obj_player.spr_mach3boost
 					hudface = spr_noiseHUD_mach3
-				//else if _state = states.hurt or obj_player1.sprite_index = obj_player1.spr_bombpepend or obj_player1.sprite_index = obj_player1.spr_fireassend or _state = states.timesup or _state = states.bombpep or (_state = states.bossintro &&  obj_player1.sprite_index = obj_player1.spr_player_bossintro) or (_state = states.bossintro &&  obj_player1.sprite_index = obj_player1.spr_idle)
+				//else if _state = states.hurt or obj_player.sprite_index = obj_player.spr_bombpepend or obj_player.sprite_index = obj_player.spr_fireassend or _state = states.timesup or _state = states.bombpep or (_state = states.bossintro &&  obj_player.sprite_index = obj_player.spr_player_bossintro) or (_state = states.bossintro &&  obj_player.sprite_index = obj_player.spr_idle)
 				//	hudface = spr_noiseHUD_hurt
-				else if obj_player1.angry
+				else if obj_player.angry
 					hudface = spr_noiseHUD_angry
-				else if obj_player1.sprite_index == obj_player1.spr_hurtidle or obj_player1.sprite_index == obj_player1.spr_hurtwalk
+				else if obj_player.sprite_index == obj_player.spr_hurtidle or obj_player.sprite_index == obj_player.spr_hurtwalk
 					hudface = spr_noiseHUD_lowhealth
 				else if global.panic or global.snickchallenge or global.miniboss
 					hudface = spr_noiseHUD_panic
-				else if obj_player1.sprite_index == obj_player1.spr_shotgunpullout
+				else if obj_player.sprite_index == obj_player.spr_shotgunpullout
 					hudface = spr_noiseHUD_menacing
 				else
 					hudface = spr_noiseHUD_idle
 			}
 		}
 	
-		if obj_player1.character == "SP"
+		if obj_player.character == "SP"
 		{
-			if obj_player1.sprite_index == obj_player1.spr_knightpepthunder
+			if obj_player.sprite_index == obj_player.spr_knightpepthunder
 				hudface = spr_pizzyHUDthunder
-			else if obj_player1.sprite_index != obj_player1.spr_knightpepstart && (_state == states.knightpep or _state == states.knightpepslopes or _state == states.knightpepattack)
+			else if obj_player.sprite_index != obj_player.spr_knightpepstart && (_state == states.knightpep or _state == states.knightpepslopes or _state == states.knightpepattack)
 				hudface = spr_pizzyHUDknight
-			else if obj_player1.sprite_index == obj_player1.spr_bombpepend
+			else if obj_player.sprite_index == obj_player.spr_bombpepend
 				hudface = spr_pizzyHUDbombend
-			else if instance_exists(obj_itspizzatime) or obj_player1.sprite_index == obj_player1.spr_bombpepintro or obj_player1.sprite_index == obj_player1.spr_bombpeprunabouttoexplode or obj_player1.sprite_index == obj_player1.spr_bombpeprun or obj_player1.sprite_index == obj_player1.spr_fireass
+			else if instance_exists(obj_itspizzatime) or obj_player.sprite_index == obj_player.spr_bombpepintro or obj_player.sprite_index == obj_player.spr_bombpeprunabouttoexplode or obj_player.sprite_index == obj_player.spr_bombpeprun or obj_player.sprite_index == obj_player.spr_fireass
 				hudface = spr_pizzyHUD_panic // REPLACE
 			else if _state = states.Sjumpland or (_state == states.freefallland && shake_mag > 0)  
 				hudface = spr_pizzyHUDstun
-			else if obj_player1.sprite_index = obj_player1.spr_victory or _state = states.keyget or _state = states.smirk or _state = states.gottreasure or (_state = states.bossintro && obj_player1.sprite_index = spr_player_levelcomplete)
+			else if obj_player.sprite_index = obj_player.spr_victory or _state = states.keyget or _state = states.smirk or _state = states.gottreasure or (_state = states.bossintro && obj_player.sprite_index = spr_player_levelcomplete)
 				hudface = spr_pizzyHUDhappy
-			//else if obj_player1.sprite_index == obj_player1.spr_machroll or obj_player1.sprite_index == obj_player1.spr_tumble
+			//else if obj_player.sprite_index == obj_player.spr_machroll or obj_player.sprite_index == obj_player.spr_tumble
 			//	hudface = spr_pepinoHUDrolling
 			else if global.combo >= 3
 				hudface = spr_pizzyHUDmenacing
 			else if _state == states.mach1 or _state == states.tackle or _state == states.slam or _state == states.grab or _state == states.punch or _state == states.backkick or _state == states.uppunch or _state == states.shoulder
 				hudface = spr_pizzyHUDmach1
-			else if _state == states.mach2/* or obj_player1.sprite_index = obj_player1.spr_dive*/ or _state == states.machroll or obj_player1.sprite_index == obj_player1.spr_machslideboost or _state = states.climbwall or _state = states.handstandjump or _state = states.superslam or _state == states.freefallprep
+			else if _state == states.mach2/* or obj_player.sprite_index = obj_player.spr_dive*/ or _state == states.machroll or obj_player.sprite_index == obj_player.spr_machslideboost or _state = states.climbwall or _state = states.handstandjump or _state = states.superslam or _state == states.freefallprep
 				hudface = spr_pizzyHUDmach2
-			else if _state == states.mach3 && obj_player1.sprite_index == obj_player1.spr_crazyrun
+			else if _state == states.mach3 && obj_player.sprite_index == obj_player.spr_crazyrun
 				hudface = spr_pizzyHUDmach4
-			else if _state == states.mach3 or obj_player1.sprite_index == obj_player1.spr_mach3boost
+			else if _state == states.mach3 or obj_player.sprite_index == obj_player.spr_mach3boost
 				hudface = spr_pizzyHUDmach3
-			else if _state == states.hurt or obj_player1.sprite_index == obj_player1.spr_fireassend or _state = states.timesup or _state = states.bombpep or (_state = states.bossintro &&  obj_player1.sprite_index = obj_player1.spr_bossintro) or (_state = states.bossintro &&  obj_player1.sprite_index = obj_player1.spr_idle)
+			else if _state == states.hurt or obj_player.sprite_index == obj_player.spr_fireassend or _state = states.timesup or _state = states.bombpep or (_state = states.bossintro &&  obj_player.sprite_index = obj_player.spr_bossintro) or (_state = states.bossintro &&  obj_player.sprite_index = obj_player.spr_idle)
 				hudface = spr_pizzyHUDhurt
-			else if obj_player1.sprite_index == obj_player1.spr_bombpepend
+			else if obj_player.sprite_index == obj_player.spr_bombpepend
 				hudface = spr_pizzyHUDbombend
 			else if _state == states.Sjumpprep
 				hudface = spr_pizzyHUDsuperjumpprep
@@ -175,30 +175,75 @@ if global.gameplay == 0
 				hudface = spr_pizzyHUDsuperjump
 			else if _state == states.freefall
 				hudface = spr_pizzyHUDbodyslam
-			else if obj_player1.sprite_index = obj_player1.spr_bombpepend
+			else if obj_player.sprite_index = obj_player.spr_bombpepend
 				hudface = spr_pizzyHUDbombend
 			else if _state == states.bump
 				hudface = spr_pizzyHUDbump
-			else if obj_player1.angry
+			else if obj_player.angry
 				hudface = spr_pizzyHUD3hp
-			else if obj_player1.sprite_index == obj_player1.spr_hurtidle or obj_player1.sprite_index == obj_player1.spr_hurtwalk // REPLACE
+			else if obj_player.sprite_index == obj_player.spr_hurtidle or obj_player.sprite_index == obj_player.spr_hurtwalk // REPLACE
 				hudface = spr_pizzyHUDhurt // REPLACE
 			else if global.panic or global.snickchallenge or global.miniboss
 				hudface = spr_pizzyHUD // REPLACE 
-			else if obj_player1.sprite_index == obj_player1.spr_shotgunpullout
+			else if obj_player.sprite_index == obj_player.spr_shotgunpullout
 				hudface = spr_pizzyHUDmenacing
 			else if _state == states.cotton
 				hudface = spr_pizzyHUDcotton
 			else
 				hudface = spr_pizzyHUD;
 		}
+		
+		if obj_player.character == "PP"
+		{
+			if obj_player.sprite_index == obj_player.spr_knightpepthunder
+				hudface = spr_pissinoHUD_thunder
+			else if obj_player.sprite_index != obj_player.spr_knightpepstart && (_state == states.knightpep or _state == states.knightpepslopes or _state == states.knightpepattack)
+				hudface = spr_pissinoHUD_knight
+			else if obj_player.sprite_index == obj_player.spr_bombpepend
+				hudface = spr_pissinoHUD_bombend
+			else if instance_exists(obj_itspizzatime) or obj_player.sprite_index == obj_player.spr_bombpepintro or obj_player.sprite_index == obj_player.spr_bombpeprunabouttoexplode or obj_player.sprite_index == obj_player.spr_bombpeprun or obj_player.sprite_index == obj_player.spr_fireass
+				hudface = spr_pissinoHUD_panic // REPLACE
+			else if _state = states.Sjumpland or (_state == states.freefallland && shake_mag > 0)  
+				hudface = spr_pissinoHUD_stun
+			else if obj_player.sprite_index = obj_player.spr_victory or _state = states.keyget or _state = states.smirk or _state = states.gottreasure or (_state = states.bossintro && obj_player.sprite_index = spr_player_levelcomplete)
+				hudface = spr_pissinoHUD_happy
+			else if obj_player.sprite_index == obj_player.spr_machroll or obj_player.sprite_index == obj_player.spr_tumble
+				hudface = spr_pissinoHUD_rolling
+			else if global.combo >= 3
+				hudface = spr_pissinoHUD_menacing
+			else if _state == states.mach1 or _state == states.tackle or _state == states.slam or _state == states.grab or _state == states.punch or _state == states.backkick or _state == states.uppunch or _state == states.shoulder
+				hudface = spr_pissinoHUD_mach1
+			else if _state == states.mach2 or obj_player.sprite_index == obj_player.spr_dive or _state == states.machroll or obj_player.sprite_index == obj_player.spr_machslideboost or _state = states.climbwall or _state = states.handstandjump or _state = states.superslam or _state == states.freefallprep
+				hudface = spr_pissinoHUD_mach2
+			else if _state == states.mach3 && obj_player.sprite_index == obj_player.spr_crazyrun
+				hudface = spr_pissinoHUD_mach4
+			else if _state == states.mach3 or obj_player.sprite_index == obj_player.spr_mach3boost
+				hudface = spr_pissinoHUD_mach3
+			else if _state == states.hurt or obj_player.sprite_index == obj_player.spr_fireassend or _state = states.timesup or _state = states.bombpep or (_state = states.bossintro &&  obj_player.sprite_index = obj_player.spr_bossintro) or (_state = states.bossintro &&  obj_player.sprite_index = obj_player.spr_idle)
+				hudface = spr_pissinoHUD_hurt
+			else if obj_player.sprite_index == obj_player.spr_bombpepend
+				hudface = spr_pissinoHUD_bombend
+			else if obj_player.sprite_index == obj_player.spr_bombpepend
+				hudface = spr_pissinoHUD_bombend
+			else if obj_player.angry
+				hudface = spr_pepinoHUD3hp // REPLACE
+			else if obj_player.sprite_index == obj_player.spr_hurtidle or obj_player.sprite_index == obj_player.spr_hurtwalk
+				hudface = spr_pissinoHUD_1hp
+			else if global.panic or global.snickchallenge or global.miniboss
+				hudface = spr_pissinoHUD_panic
+			else if obj_player.sprite_index == obj_player.spr_shotgunpullout
+				hudface = spr_pissinoHUD_menacing
+			else
+				hudface = spr_pissinoHUD;
+		}
+		
 		if _state == states.cotton // temp
 			hudface = spr_pizzyHUDcotton
 		
 		if sprite_exists(hudface)
 		{
 			if _state != states.cotton
-				pal_swap_set(obj_player1.spr_palette, obj_player1.paletteselect, false)
+				pal_swap_set(obj_player.spr_palette, obj_player.paletteselect, false)
 			draw_sprite_ext(hudface, hudframe, 125, 100, 1, 1, 0, c_white, other.alpha)
 			pal_swap_reset();
 			
@@ -211,44 +256,51 @@ if global.gameplay == 0
 			if hudframe >= sprite_get_number(hudface)
 				hudframe -= sprite_get_number(hudface);
 		}
-
-		if (obj_player1.character == "P" or obj_player1.character == "S" or obj_player1.character == "SP" or (obj_player1.character == "N" && obj_player1.noisetype == 1))
+		
+		// speed meter
+		if !(obj_player.character == "N" && obj_player.noisetype == 0)
 		{
 			var yy = 140;
-			if obj_player1.character == "SP"
+			if obj_player.character == "SP"
 				yy = 164;
 			
-			if obj_player1.movespeed < 2.4 or !(_state = states.mach1 or _state = states.mach2 or _state = states.mach3 or _state = states.climbwall or _state = states.machslide or _state = states.machroll or _state = states.handstandjump)
-				draw_sprite_ext(spr_speedbar,0,125,yy, 1, 1, 0, c_white, alpha)
-
-			else if obj_player1.movespeed >= 2.4 && obj_player1.movespeed < 4.8 && (_state = states.mach1 or _state = states.mach2 or _state = states.mach3 or _state = states.climbwall or _state = states.machslide or _state = states.machroll or _state = states.handstandjump)
-				draw_sprite_ext(spr_speedbar,1,125,yy, 1, 1, 0, c_white, alpha)
-
-			else if obj_player1.movespeed >= 4.8 && obj_player1.movespeed < 7.2 && (_state = states.mach1 or _state = states.mach2 or _state = states.mach3 or _state = states.climbwall or _state = states.machslide or _state = states.machroll or _state = states.handstandjump)
-				draw_sprite_ext(spr_speedbar,2,125,yy, 1, 1, 0, c_white, alpha)
-
-			else if obj_player1.movespeed >= 7.2 && obj_player1.movespeed < 9.6 && (_state = states.mach1 or _state = states.mach2 or _state = states.mach3 or _state = states.climbwall or _state = states.machslide or _state = states.machroll or _state = states.handstandjump)
-				draw_sprite_ext(spr_speedbar,3,125,yy, 1, 1, 0, c_white, alpha)
-
-			else if obj_player1.movespeed >= 9.6 && obj_player1.movespeed < 12 && (_state = states.mach1 or _state = states.mach2 or _state = states.mach3 or _state = states.climbwall or _state = states.machslide or _state = states.machroll or _state = states.handstandjump)
-				draw_sprite_ext(spr_speedbar,4,125,yy, 1, 1, 0, c_white, alpha)
-
-			else if obj_player1.movespeed >= 12 && (_state = states.mach1 or _state = states.mach2 or _state = states.mach3 or _state = states.climbwall or _state = states.machslide or _state = states.machroll or _state = states.handstandjump)
-				draw_sprite_ext(spr_speedbarmax,-1,125,yy, 1, 1, 0, c_white, alpha)
+			var speedbaractive = _state == states.mach1 or _state == states.mach2 or _state == states.mach3 or _state == states.climbwall or _state == states.machslide or _state == states.machroll or _state == states.handstandjump;
+			var frame = 0;
+			
+			if obj_player.movespeed < 2.4 or !speedbaractive
+				frame = 0;
+			else if speedbaractive
+			{
+				if obj_player.movespeed >= 2.4 && obj_player.movespeed < 4.8
+					frame = 1;
+				else if obj_player.movespeed >= 4.8 && obj_player.movespeed < 7.2
+					frame = 2;
+				else if obj_player.movespeed >= 7.2 && obj_player.movespeed < 9.6
+					frame = 3;
+				else if obj_player.movespeed >= 9.6 && obj_player.movespeed < 12
+					frame = 4;
+				else if obj_player.movespeed >= 12
+				{
+					frame = -1;
+					draw_sprite_ext(spr_speedbarmax, -1, 125, yy, 1, 1, 0, c_white, alpha);
+				}
+			}
+			if frame >= 0
+				draw_sprite_ext(spr_speedbar, frame, 125, yy, 1, 1, 0, c_white, alpha);
 		}
 		
 		// pogo noise bullshit
-		with obj_player1
+		with obj_player
 		{
 			if character == "N" && noisetype == 0
 			{
 				with other
 				{
-					if obj_player1.pogospeed < 10
+					if obj_player.pogospeed < 10
 						draw_sprite_ext(spr_speedbar,0,125,140, 1, 1, 0, c_white, alpha)
-					else if obj_player1.pogospeed >= 10 && obj_player1.pogospeed < 14 
+					else if obj_player.pogospeed >= 10 && obj_player.pogospeed < 14 
 						draw_sprite_ext(spr_speedbar,3,125,140, 1, 1, 0, c_white, alpha)
-					else if obj_player1.pogospeed >= 14
+					else if obj_player.pogospeed >= 14
 						draw_sprite_ext(spr_speedbarmax,-1,125,140, 1, 1, 0, c_white, alpha)
 				}
 
@@ -256,7 +308,7 @@ if global.gameplay == 0
 		}
 		
 		// fade
-		if (obj_player1.y < camera_get_view_y(view_camera[0]) + 200 && obj_player1.x < camera_get_view_x(view_camera[0]) + 200)
+		if (obj_player.y < camera_get_view_y(view_camera[0]) + 200 && obj_player.x < camera_get_view_x(view_camera[0]) + 200)
 		or (instance_exists(obj_gms) && ds_queue_size(global.__xmessage_queue) > 0 && global.__xms_waittime > 0)
 			alpha = 0.5
 		else
@@ -271,11 +323,11 @@ if global.gameplay == 0
 
 else
 {
-	if (!instance_exists(obj_player1) or obj_player1.state != states.gameover) && showhud
+	if (!instance_exists(obj_player) or obj_player.state != states.gameover) && showhud
 	{
-		if ((instance_exists(obj_player1)
-		&& obj_player1.x < camera_get_view_x(view_camera[0]) + 250
-		&& obj_player1.y < camera_get_view_y(view_camera[0]) + 169)
+		if ((instance_exists(obj_player)
+		&& obj_player.x < camera_get_view_x(view_camera[0]) + 250
+		&& obj_player.y < camera_get_view_y(view_camera[0]) + 169)
 		or manualhide) && !instance_exists(obj_fadeout)
 			hud_posY = Approach(hud_posY, -300, 15);
 		else
@@ -382,9 +434,9 @@ else
 	    pal_swap_reset();
 		
 		// bullet
-		if instance_exists(obj_player1)
+		if instance_exists(obj_player)
 		{
-			var char = obj_player1.character;
+			var char = obj_player.character;
 			if (char == "P" or char == "N")
 			&& !scr_checkskin(checkskin.p_anton)
 			{
@@ -419,7 +471,7 @@ else
 #endregion
 
 //Draw Text
-draw_set_font(global.bigfont)
+draw_set_font(check_sugary() ? global.sugarybigfont : global.bigfont)
 draw_set_halign(fa_center);
 draw_set_color(c_white)
 
@@ -440,7 +492,7 @@ if global.panic or global.snickchallenge or global.miniboss or global.timedgate
 	draw_text_color(xx, random_range(1, -1) + (global.gameplay == 0 ? 65 : min(obj_tv.yi - 70, 540 - 60)), string(_minutes) + _middletext + string(_seconds), _color, _color, _color, _color, image_alpha);
 }
 
-if instance_exists(obj_player1) && obj_player1.character == "V" && showhud
+if instance_exists(obj_player) && obj_player.character == "V" && showhud
 {
 	draw_set_colour(c_white);
 	draw_text(200 + healthshake, 100 + healthshake + (global.gameplay == 0 ? 0 : 25), global.playerhealth)

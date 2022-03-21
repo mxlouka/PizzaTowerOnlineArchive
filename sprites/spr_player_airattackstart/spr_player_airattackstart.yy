@@ -78,7 +78,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_player_airattackstart","path":"sprites/spr_player_airattackstart/spr_player_airattackstart.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_player_airattackstart",
     "tags": [],
     "resourceType": "GMSequence",

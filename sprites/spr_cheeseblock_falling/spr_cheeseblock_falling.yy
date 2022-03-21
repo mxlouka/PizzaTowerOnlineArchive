@@ -91,7 +91,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_cheeseblock_falling","path":"sprites/spr_cheeseblock_falling/spr_cheeseblock_falling.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_cheeseblock_falling",
     "tags": [],
     "resourceType": "GMSequence",

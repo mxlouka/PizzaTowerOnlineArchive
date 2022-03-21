@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_phone_PP","path":"sprites/spr_phone_PP/spr_phone_PP.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_phone_PP",
     "tags": [],
     "resourceType": "GMSequence",

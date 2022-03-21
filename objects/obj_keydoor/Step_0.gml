@@ -1,4 +1,4 @@
-if (obj_player1.state = states.normal or obj_player1.state = states.mach1 or obj_player1.state == states.pogo or obj_player1.state = states.mach2 or obj_player1.state = states.mach3 or obj_player1.state = states.Sjumpprep)  && sprite_index = spr_doorkey && obj_player1.key_up && obj_player1.grounded && global.key_inv == true && place_meeting(x,y,obj_player1) 
+if (obj_player1.state == states.normal or obj_player1.state == states.mach1 or obj_player1.state == states.pogo or obj_player1.state == states.mach2 or obj_player1.state == states.mach3 or obj_player1.state == states.Sjumpprep) && (sprite_index == spr_doorkey or sprite_index == spr_keydoor_ss) && obj_player1.key_up && obj_player1.grounded && global.key_inv == true && place_meeting(x,y,obj_player1) 
 {
 	ds_list_add(global.saveroom, id) 
 
@@ -26,29 +26,29 @@ if (obj_player1.state = states.normal or obj_player1.state = states.mach1 or obj
 if sprite_index == spr_doorkeyopen && floor(image_index) >= 2
 	sprite_index = spr_doorvisited
 
-if floor(obj_player1.image_index) >= obj_player1.image_number - 1 && obj_player1.state = states.victory && place_meeting(x, y, obj_player1)
+if floor(obj_player1.image_index) >= obj_player1.image_number - 1 && obj_player1.state == states.victory && place_meeting(x, y, obj_player1)
 {
 	with obj_player1
 	{
-		obj_player1.targetDoor = other.targetDoor
-		obj_player1.targetRoom = other.targetRoom
+		targetDoor = other.targetDoor
+		targetRoom = other.targetRoom
 		
 		if !instance_exists(obj_fadeout)
 		{
 			scr_soundeffect(sfx_door)
-			instance_create(x,y,obj_fadeout)
+			instance_create(x, y, obj_fadeout)
 		}
 	}
 }
 
 
-if place_meeting(x,y,obj_doorA)
+if place_meeting(x, y, obj_doorA)
 	targetDoor = "A"
-if place_meeting(x,y,obj_doorB)
+if place_meeting(x, y, obj_doorB)
 	targetDoor = "B"
-if place_meeting(x,y,obj_doorC)
+if place_meeting(x, y, obj_doorC)
 	targetDoor = "C"
-if place_meeting(x,y,obj_doorD)
+if place_meeting(x, y, obj_doorD)
 	targetDoor = "D"
-if place_meeting(x,y,obj_doorE)
+if place_meeting(x, y, obj_doorE)
 	targetDoor = "E"

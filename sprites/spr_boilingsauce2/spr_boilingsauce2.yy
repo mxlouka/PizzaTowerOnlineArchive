@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_boilingsauce2","path":"sprites/spr_boilingsauce2/spr_boilingsauce2.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_boilingsauce2",
     "tags": [],
     "resourceType": "GMSequence",

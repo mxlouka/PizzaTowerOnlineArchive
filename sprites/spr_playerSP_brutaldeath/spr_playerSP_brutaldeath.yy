@@ -102,7 +102,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_playerSP_brutaldeath","path":"sprites/spr_playerSP_brutaldeath/spr_playerSP_brutaldeath.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_playerSP_brutaldeath",
     "tags": [],
     "resourceType": "GMSequence",

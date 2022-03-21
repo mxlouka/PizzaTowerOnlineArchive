@@ -63,7 +63,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_snick_exhattack","path":"sprites/spr_snick_exhattack/spr_snick_exhattack.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_snick_exhattack",
     "tags": [],
     "resourceType": "GMSequence",

@@ -13,16 +13,24 @@ with obj_baddie
 {
 	if place_meeting(x, y + 1, other)
 	{
-		stunned = 200
-		state = states.stun
-		hsp = sign(other.image_xscale) * 16
-	
-		if !(instance_exists(obj_balloonpop)) && grounded
-		with instance_create(x,y,obj_balloonpop)
+		hsp = sign(other.image_xscale) * 16;
+		if stunnable
 		{
-			image_xscale = other.image_xscale
-			sprite_index = spr_watereffect
+			stunned = 200
+			state = states.stun
+			
+			if (!variable_instance_exists(id, "watereffect") or !instance_exists(watereffect))
+			&& grounded
+			{
+				with instance_create(x, y, obj_balloonpop)
+				{
+					image_xscale = other.image_xscale;
+					sprite_index = spr_watereffect;
+				}
+			}
 		}
+		else
+			instance_destroy();
 	}
 }
 

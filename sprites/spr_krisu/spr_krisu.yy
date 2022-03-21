@@ -71,7 +71,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_krisu","path":"sprites/spr_krisu/spr_krisu.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_krisu",
     "tags": [],
     "resourceType": "GMSequence",

@@ -119,7 +119,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_petmario_idle","path":"sprites/spr_petmario_idle/spr_petmario_idle.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_petmario_idle",
     "tags": [],
     "resourceType": "GMSequence",

@@ -62,7 +62,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_jail","path":"sprites/spr_jail/spr_jail.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_jail",
     "tags": [],
     "resourceType": "GMSequence",

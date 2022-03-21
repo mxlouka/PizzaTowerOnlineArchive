@@ -62,7 +62,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"bg_minigolf4","path":"sprites/bg_minigolf4/bg_minigolf4.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "bg_minigolf4",
     "tags": [],
     "resourceType": "GMSequence",

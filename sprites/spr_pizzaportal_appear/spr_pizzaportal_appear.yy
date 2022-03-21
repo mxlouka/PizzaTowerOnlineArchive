@@ -75,7 +75,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_pizzaportal_appear","path":"sprites/spr_pizzaportal_appear/spr_pizzaportal_appear.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_pizzaportal_appear",
     "tags": [],
     "resourceType": "GMSequence",

@@ -199,7 +199,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_noise_throwbomb","path":"sprites/spr_noise_throwbomb/spr_noise_throwbomb.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "",
     "tags": [],
     "resourceType": "GMSequence",

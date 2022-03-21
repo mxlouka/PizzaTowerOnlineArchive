@@ -99,7 +99,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_ancho_rage1_re","path":"sprites/spr_ancho_rage1_re/spr_ancho_rage1_re.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_ancho_rage1_re",
     "tags": [],
     "resourceType": "GMSequence",

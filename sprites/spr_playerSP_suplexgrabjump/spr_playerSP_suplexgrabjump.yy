@@ -62,7 +62,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_playerSP_suplexgrabjump","path":"sprites/spr_playerSP_suplexgrabjump/spr_playerSP_suplexgrabjump.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_playerSP_suplexgrabjump",
     "tags": [],
     "resourceType": "GMSequence",

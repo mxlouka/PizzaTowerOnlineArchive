@@ -4,6 +4,8 @@ with obj_player1
 		other.sprite_index = choose(spr_pizzacollect1halloween, spr_pizzacollect2halloween, spr_pizzacollect3halloween);
 	else if character == "SP"
 		other.sprite_index = choose(spr_pizzacollect1_ss, spr_pizzacollect2_ss, spr_pizzacollect3_ss);
+	else if character == "PP"
+		other.sprite_index = choose(spr_pizzacollect1_PP, spr_pizzacollect2_PP, spr_pizzacollect3_PP);
 	else if character == "S"
 		other.sprite_index = spr_snickcollectible2;
 	else

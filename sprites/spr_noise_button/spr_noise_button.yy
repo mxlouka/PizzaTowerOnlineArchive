@@ -467,7 +467,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_noise_button","path":"sprites/spr_noise_button/spr_noise_button.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "",
     "tags": [],
     "resourceType": "GMSequence",

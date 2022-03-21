@@ -107,7 +107,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_heatmeter_candyfill","path":"sprites/spr_heatmeter_candyfill/spr_heatmeter_candyfill.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_heatmeter_candyfill",
     "tags": [],
     "resourceType": "GMSequence",

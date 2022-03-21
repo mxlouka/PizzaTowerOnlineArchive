@@ -67,7 +67,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_ladder_ruin","path":"sprites/spr_ladder_ruin/spr_ladder_ruin.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_ladder_ruin",
     "tags": [],
     "resourceType": "GMSequence",

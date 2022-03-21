@@ -122,7 +122,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_player_attackdash","path":"sprites/spr_player_attackdash/spr_player_attackdash.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_player_attackdash",
     "tags": [],
     "resourceType": "GMSequence",

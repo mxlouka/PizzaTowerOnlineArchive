@@ -1,10 +1,13 @@
-image_speed = 0.35
-depth = 104
-createdpizza = false
-content = obj_pizzakinshroom
+image_speed = 0.35;
+depth = 99;
+if place_meeting(x, y, obj_secretblock) or place_meeting(x, y, obj_secretbigblock)
+	depth += 100;
 
-if obj_player.character = "S"
-	instance_destroy()
+createdpizza = false;
+content = obj_pizzakinshroom;
+
+with obj_player
+	if character == "S" instance_destroy(other);
 
 spr_closed = spr_pizzaboxunopen;
 spr_open = spr_pizzaboxopen;

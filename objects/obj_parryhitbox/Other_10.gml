@@ -1,5 +1,4 @@
 var myplayer = obj_player1.id
-
 with myplayer
 {
 	scr_soundeffect(sfx_parry);

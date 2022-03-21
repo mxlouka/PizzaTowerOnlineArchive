@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_cottonplatform","path":"sprites/spr_cottonplatform/spr_cottonplatform.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_cottonplatform",
     "tags": [],
     "resourceType": "GMSequence",

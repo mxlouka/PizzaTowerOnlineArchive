@@ -83,7 +83,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_grinch_gnome","path":"sprites/spr_grinch_gnome/spr_grinch_gnome.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_grinch_gnome",
     "tags": [],
     "resourceType": "GMSequence",

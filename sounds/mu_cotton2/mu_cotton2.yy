@@ -12,7 +12,7 @@
     "path": "audiogroups/audiogroup_default",
   },
   "soundFile": "mu_cotton2.wav",
-  "duration": 155.07692,
+  "duration": 147.6923,
   "parent": {
     "name": "sugary spire",
     "path": "folders/Sounds/pto extra/sugary spire.yy",

@@ -63,7 +63,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_tv_squishedN","path":"sprites/spr_tv_squishedN/spr_tv_squishedN.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_tv_squishedN",
     "tags": [],
     "resourceType": "GMSequence",

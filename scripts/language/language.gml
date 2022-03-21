@@ -77,8 +77,8 @@ function lang_load(lang)
 		ds_map_add(global.langmap, "options.sound.machold", "OLD");
 		ds_map_add(global.langmap, "options.sound.machnew", "NEW");
 		ds_map_add(global.langmap, "options.sound.game", "MUSIC TYPE");
-		ds_map_add(global.langmap, "options.sound.normal", "NORMAL");
-		ds_map_add(global.langmap, "options.sound.castle", "MIDIS");
+		ds_map_add(global.langmap, "options.sound.normal", "TOWER");
+		ds_map_add(global.langmap, "options.sound.castle", "CASTLE");
 		
 		ds_map_add(global.langmap, "options.erase.text", "ARE YOU SURE?");
 		ds_map_add(global.langmap, "options.erase.no", "NO");
@@ -113,7 +113,7 @@ function lang_load(lang)
 		ds_map_add(global.langmap, "options.other.gameplay.final", "FINAL");
 		ds_map_add(global.langmap, "options.other.gameplay.old.desc", "Moveset mostly from before the April 2021 Patreon build.");
 		ds_map_add(global.langmap, "options.other.gameplay.final.desc", "Recreation of the final version of the game.");
-		ds_map_add(global.langmap, "options.other.gameplay.remix.desc", "Makes the \"perfect mix\" between the two gameplay styles.\nYou can suggest non-OP changes for this one.\n\n(Unfinished. Very similar to NEW gameplay currently.)");
+		ds_map_add(global.langmap, "options.other.gameplay.remix.desc", "Makes the \"perfect mix\" between the other two gameplay styles. (WIP)\nYou can suggest changes for this style in the Discord.");
 		
 		ds_map_add(global.langmap, "options.other.wavybg.title", "WAVY BACKGROUND");
 		ds_map_add(global.langmap, "options.other.wavybg.desc", "When it's Pizza Time, the background slowly distorts\nand tints red depending on your time left.");
@@ -169,10 +169,7 @@ function lang_load(lang)
 		ds_map_add(global.langmap, "options.other.screenshader.desc", "Full screen shader effect.");
 		
 		// manual
-		if pt_online
-			ds_map_add(global.langmap, "manual.welcome", "Welcome to the Pizza Tower ONLINE manual!");
-		else
-			ds_map_add(global.langmap, "manual.welcome", "Welcome to the Pizza Tower Network manual!");
+		ds_map_add(global.langmap, "manual.welcome", "Welcome to the Pizza Tower ONLINE manual!");
 		
 		ds_map_add(global.langmap, "manual.controls", "Controls");
 		ds_map_add(global.langmap, "manual.controls.content", "You can see and change the controls in the options,\nbut there are extra controls exclusive to the mod:\n\n- T to open the chat\n- ENTER to begin typing and again to send a message\n- ESCAPE to exit the chat, if it's open");
@@ -191,13 +188,13 @@ function lang_load(lang)
 		ds_map_add(global.langmap, "manual.credits.fuckoffptd", "You can't see the credits\nin streamer mode. For safety.");
 		
 		// prelogin
-		ds_map_add(global.langmap, "prelogin.offline", "OFFLINE");
-		ds_map_add(global.langmap, "prelogin.online", "ONLINE");
-		ds_map_add(global.langmap, "prelogin.nonet", "CONNECT TO NETWORK");
+		ds_map_add(global.langmap, "prelogin.offline", "Offline");
+		ds_map_add(global.langmap, "prelogin.online", "Online");
+		ds_map_add(global.langmap, "prelogin.nonet", "Connect To Network");
 		ds_map_add(global.langmap, "prelogin.skip", "SKIP");
-		ds_map_add(global.langmap, "prelogin.loading", "LOADING");
-		ds_map_add(global.langmap, "prelogin.loadfail", "CANNOT CONNECT TO NETWORK");
-		ds_map_add(global.langmap, "prelogin.back", "BACK");
+		ds_map_add(global.langmap, "prelogin.loading", "Loading");
+		ds_map_add(global.langmap, "prelogin.loadfail", "Can't Connect To Network");
+		ds_map_add(global.langmap, "prelogin.back", "Back");
 		
 		// logging in
 		ds_map_add(global.langmap, "login.headlogin", "LOGIN");
@@ -210,33 +207,33 @@ function lang_load(lang)
 		ds_map_add(global.langmap, "login.email", "E-mail");
 		ds_map_add(global.langmap, "login.passrepeat", "Repeat password");
 		ds_map_add(global.langmap, "login.buildtime", "Build datetime");
-		ds_map_add(global.langmap, "login.wait", "WAIT");
+		ds_map_add(global.langmap, "login.wait", "Wait...");
 		
 		// online messages
-		ds_map_add(global.langmap, "online.disconnected", "DISCONNECTED!");
-		ds_map_add(global.langmap, "online.reconnecting", "DISCONNECTED PLEASE WAIT");
-		ds_map_add(global.langmap, "online.outdated", "OUTDATED VERSION!");
-		ds_map_add(global.langmap, "online.loggedout", "LOGGED OUT");
+		ds_map_add(global.langmap, "online.disconnected", "Disconnected?!");
+		ds_map_add(global.langmap, "online.reconnecting", "Reconnecting...");
+		ds_map_add(global.langmap, "online.outdated", "Outdated Version!");
+		ds_map_add(global.langmap, "online.loggedout", "Logged Out");
 		ds_map_add(global.langmap, "online.chat", "Press ENTER to start typing, and again to send\nPress ESCAPE to exit the chat");
 		ds_map_add(global.langmap, "online.toolong", "Message length must be below 2000 characters long");
 		ds_map_add(global.langmap, "online.global", "Global Message");
 		ds_map_add(global.langmap, "online.global.says", "says...");
 		ds_map_add(global.langmap, "online.global.error", "(error)");
-		ds_map_add(global.langmap, "online.playersonline", " PLAYERS ONLINE");
-		ds_map_add(global.langmap, "online.playeronline", " PLAYER ONLINE");
+		ds_map_add(global.langmap, "online.playersonline", " Players Online");
+		ds_map_add(global.langmap, "online.playeronline", " Player Online");
 		
 		// level editor
-		ds_map_add(global.langmap, "editor.menu.online", "ONLINE");
-		ds_map_add(global.langmap, "editor.menu.load", "LOAD");
-		ds_map_add(global.langmap, "editor.menu.build", "BUILD");
-		ds_map_add(global.langmap, "editor.menu.back", "BACK");
-		ds_map_add(global.langmap, "editor.menu.wip", "UNFINISHED!!!");
+		ds_map_add(global.langmap, "editor.menu.online", "Online");
+		ds_map_add(global.langmap, "editor.menu.load", "Load");
+		ds_map_add(global.langmap, "editor.menu.build", "Build");
+		ds_map_add(global.langmap, "editor.menu.back", "Back");
+		ds_map_add(global.langmap, "editor.menu.wip", "Unfinished!");
 		ds_map_add(global.langmap, "editor.menu.filefilter", "Level File (*.ptlv)|*.ptlv|All Files (*.*)|*.*");
 		ds_map_add(global.langmap, "editor.menu.loadtitle", "Load Level");
 		ds_map_add(global.langmap, "editor.menu.savetitle", "Download Level");
-		ds_map_add(global.langmap, "editor.menu.online.official", "BROWSE");
-		ds_map_add(global.langmap, "editor.menu.online.featured", "FEATURED");
-		ds_map_add(global.langmap, "editor.menu.online.pto", "PTNETWORK");
+		ds_map_add(global.langmap, "editor.menu.online.official", "Browse");
+		ds_map_add(global.langmap, "editor.menu.online.featured", "Featured");
+		ds_map_add(global.langmap, "editor.menu.online.pto", "PTONLINE");
 		ds_map_add(global.langmap, "editor.menu.search.preid", "ID, ");
 		ds_map_add(global.langmap, "editor.menu.search.prelikes", " LIKES, ");
 		ds_map_add(global.langmap, "editor.menu.search.predislikes", " DISLIKES, ");
@@ -244,95 +241,122 @@ function lang_load(lang)
 		ds_map_add(global.langmap, "editor.menu.search.preuserid", "USERID, ");
 		ds_map_add(global.langmap, "editor.menu.search.page1", "Page ");
 		ds_map_add(global.langmap, "editor.menu.search.page2", " of ");
-		ds_map_add(global.langmap, "editor.menu.search.pagnext", "NEXT");
-		ds_map_add(global.langmap, "editor.menu.search.pagprev", "PREV");
-		ds_map_add(global.langmap, "editor.menu.search.search", "SEARCH");
-		ds_map_add(global.langmap, "editor.menu.search.upload", "UPLOAD");
+		ds_map_add(global.langmap, "editor.menu.search.pagnext", "Next");
+		ds_map_add(global.langmap, "editor.menu.search.pagprev", "Prev");
+		ds_map_add(global.langmap, "editor.menu.search.search", "Search");
+		ds_map_add(global.langmap, "editor.menu.search.upload", "Upload");
 		ds_map_add(global.langmap, "editor.menu.level.author", "By ");
-		ds_map_add(global.langmap, "editor.menu.level.play", "PLAY");
-		ds_map_add(global.langmap, "editor.menu.level.download", "DOWNLOAD");
-		ds_map_add(global.langmap, "editor.menu.level.downloaded", "LEVEL DOWNLOADED!");
-		ds_map_add(global.langmap, "editor.menu.level.debug", "DETAILS");
+		ds_map_add(global.langmap, "editor.menu.level.play", "Play");
+		ds_map_add(global.langmap, "editor.menu.level.download", "Download");
+		ds_map_add(global.langmap, "editor.menu.level.downloaded", "Level Downloaded!");
+		ds_map_add(global.langmap, "editor.menu.level.debug", "Details");
 		ds_map_add(global.langmap, "editor.menu.level.debugmap", "CTRL C to copy full map");
-		ds_map_add(global.langmap, "editor.menu.level.debugcopied", "COPIED");
+		ds_map_add(global.langmap, "editor.menu.level.debugcopied", "Copied");
 		ds_map_add(global.langmap, "editor.menu.login.password", "Password");
-		ds_map_add(global.langmap, "editor.menu.login.reenter", "Reenter password");
-		ds_map_add(global.langmap, "editor.menu.login.login", "LOG IN");
-		ds_map_add(global.langmap, "editor.menu.login.register", "REGISTER");
-		ds_map_add(global.langmap, "editor.menu.login.dumbfuck", "INPUT A PASSWORD");
-		ds_map_add(global.langmap, "editor.menu.login.dumbfuck2", "PASSWORDS DONT MATCH!");
-		ds_map_add(global.langmap, "editor.menu.login.success", "LOGGED IN!");
-		ds_map_add(global.langmap, "editor.menu.async.invalid", "INVALID DATA");
-		ds_map_add(global.langmap, "editor.menu.async.unexpected", "GOT UNEXPECTED RESULTS");
-		ds_map_add(global.langmap, "editor.menu.async.unauthorized", "UNAUTHORIZED");
+		ds_map_add(global.langmap, "editor.menu.login.reenter", "Re-enter Password");
+		ds_map_add(global.langmap, "editor.menu.login.login", "Log In");
+		ds_map_add(global.langmap, "editor.menu.login.register", "Register");
+		ds_map_add(global.langmap, "editor.menu.login.dumbfuck", "Input a Password");
+		ds_map_add(global.langmap, "editor.menu.login.dumbfuck2", "Passwords Don't Match!");
+		ds_map_add(global.langmap, "editor.menu.login.success", "Logged In!");
+		ds_map_add(global.langmap, "editor.menu.async.invalid", "Invalid Data");
+		ds_map_add(global.langmap, "editor.menu.async.unexpected", "Got Unexpected Results");
+		ds_map_add(global.langmap, "editor.menu.async.unauthorized", "Unauthorized");
 		
 		// messages
-		ds_map_add(global.langmap, "msg.titleoption", "OPTIONS");
-		ds_map_add(global.langmap, "msg.titlesel.0", "START GAME");
-		ds_map_add(global.langmap, "msg.titlesel.1", "OPTIONS");
-		ds_map_add(global.langmap, "msg.titlesel.2", "QUIT");
+		ds_map_add(global.langmap, "msg.titleoption", "Options");
+		ds_map_add(global.langmap, "msg.titlesel.0", "Start Game");
+		ds_map_add(global.langmap, "msg.titlesel.1", "Options");
+		ds_map_add(global.langmap, "msg.titlesel.2", "Quit");
 		
 		// level names
-		ds_map_add(global.langmap, "msg.level.entrance", "ENTRANCE");
-		ds_map_add(global.langmap, "msg.level.medieval", "PIZZASCAPE");
-		ds_map_add(global.langmap, "msg.level.ruin", "THE ANCIENT CHEESE");
-		ds_map_add(global.langmap, "msg.level.dungeon", "BLOODSAUCE DUNGEON");
-		ds_map_add(global.langmap, "msg.level.desert", "OREGANO DESERT");
-		ds_map_add(global.langmap, "msg.level.graveyard", "THE WASTEYARD");
-		ds_map_add(global.langmap, "msg.level.farm", "FUN FARM WIP");
-		ds_map_add(global.langmap, "msg.level.ufo", "SPACE PINBALL");
-		ds_map_add(global.langmap, "msg.level.forest", "GNOME FOREST WIP");
-		ds_map_add(global.langmap, "msg.level.beach", "PINEAPPLE BEACH WIP");
-		ds_map_add(global.langmap, "msg.level.kungfu", "KUNG FU");
-		ds_map_add(global.langmap, "msg.level.minigolf", "GOLF");
-		ds_map_add(global.langmap, "msg.level.space", "SPACE");
-		ds_map_add(global.langmap, "msg.level.city", "CITY");
-		ds_map_add(global.langmap, "msg.level.sewer", "SEWERS");
-		ds_map_add(global.langmap, "msg.level.war", "WAR");
-		ds_map_add(global.langmap, "msg.level.factory", "FACTORY");
-		ds_map_add(global.langmap, "msg.level.mansion", "MANSION");
-		ds_map_add(global.langmap, "msg.level.freezer", "FREEZER");
-		ds_map_add(global.langmap, "msg.level.kidsparty", "KIDS PARTY");
-		ds_map_add(global.langmap, "msg.level.dragonlair", "DRAGON LAIR");
-		ds_map_add(global.langmap, "msg.level.chateau", "PIZZASCARE");
-		ds_map_add(global.langmap, "msg.level.strongcold", "STRONGCOLD");
-		ds_map_add(global.langmap, "msg.level.exit", "EXIT");
+		ds_map_add(global.langmap, "msg.level.entrance", "Entrance");
+		ds_map_add(global.langmap, "msg.level.medieval", "Pizzascape");
+		ds_map_add(global.langmap, "msg.level.ruin", "The Ancient Cheese");
+		ds_map_add(global.langmap, "msg.level.dungeon", "Bloodsauce Dungeon");
+		ds_map_add(global.langmap, "msg.level.desert", "Oregano Desert");
+		ds_map_add(global.langmap, "msg.level.graveyard", "The Wasteyard");
+		ds_map_add(global.langmap, "msg.level.farm", "Fun Farm WIP");
+		ds_map_add(global.langmap, "msg.level.ufo", "Space Pinball");
+		ds_map_add(global.langmap, "msg.level.forest", "Gnome Forest WIP");
+		ds_map_add(global.langmap, "msg.level.beach", "Pineapple Beach WIP");
+		ds_map_add(global.langmap, "msg.level.kungfu", "Kung Fu");
+		ds_map_add(global.langmap, "msg.level.minigolf", "Golf");
+		ds_map_add(global.langmap, "msg.level.space", "Space");
+		ds_map_add(global.langmap, "msg.level.city", "City");
+		ds_map_add(global.langmap, "msg.level.sewer", "Sewers");
+		ds_map_add(global.langmap, "msg.level.war", "War");
+		ds_map_add(global.langmap, "msg.level.factory", "Factory");
+		ds_map_add(global.langmap, "msg.level.mansion", "Mansion");
+		ds_map_add(global.langmap, "msg.level.freezer", "Freezer");
+		ds_map_add(global.langmap, "msg.level.kidsparty", "Kids Party");
+		ds_map_add(global.langmap, "msg.level.dragonlair", "Dragon Lair");
+		ds_map_add(global.langmap, "msg.level.chateau", "Pizzascare");
+		ds_map_add(global.langmap, "msg.level.strongcold", "Strongcold");
+		ds_map_add(global.langmap, "msg.level.exit", "Exit");
 		
-		ds_map_add(global.langmap, "msg.level.golf", "GOLF");
-		ds_map_add(global.langmap, "msg.level.snickchallenge", "SNICK CHALLENGE");
-		ds_map_add(global.langmap, "msg.level.snickrematch", "SNICKS REMATCH");
-		ds_map_add(global.langmap, "msg.level.medieval_re", "SNICK CASTLE");
-		ds_map_add(global.langmap, "msg.level.ruin_re", "RUINS OF THE TEMPLE");
-		ds_map_add(global.langmap, "msg.level.dungeon_re", "BLOODBATH DUNGEON");
-		ds_map_add(global.langmap, "msg.level.etb", "EARLY TEST BUILD");
-		ds_map_add(global.langmap, "msg.level.ancient", "ANCIENT TOWER WIP");
-		ds_map_add(global.langmap, "msg.level.grinch", "GRINCH");
+		ds_map_add(global.langmap, "msg.level.golf", "Golf");
+		ds_map_add(global.langmap, "msg.level.snickchallenge", "Snick Challenge");
+		ds_map_add(global.langmap, "msg.level.snickrematch", "Snick Rematch");
+		ds_map_add(global.langmap, "msg.level.medieval_re", "Snick Castle");
+		ds_map_add(global.langmap, "msg.level.ruin_re", "Ruins Of The Temple");
+		ds_map_add(global.langmap, "msg.level.dungeon_re", "Bloodbath Dungeon");
+		ds_map_add(global.langmap, "msg.level.etb", "Early Test Build");
+		ds_map_add(global.langmap, "msg.level.ancient", "Ancient Tower WIP");
+		ds_map_add(global.langmap, "msg.level.grinch", "Grinch");
 		
-		ds_map_add(global.langmap, "msg.level.cotton", "COTTONTOWN WIP");
-		ds_map_add(global.langmap, "msg.level.jawbreaker", "JAWBREAKER MINES WIP");
+		ds_map_add(global.langmap, "msg.level.cotton", "Cottontown WIP");
+		ds_map_add(global.langmap, "msg.level.jawbreaker", "Jawbreaker Mines WIP");
 		
 		// roomname
-		ds_map_add(global.langmap, "roomname.characterselect", "MODE SELECT");
+		ds_map_add(global.langmap, "roomname.characterselect", "Mode Select");
 		
-		ds_map_add(global.langmap, "roomname.hub_room1", "TOWER FLOOR 1");
-		ds_map_add(global.langmap, "roomname.hub_room2", "TOWER FLOOR 2");
-		ds_map_add(global.langmap, "roomname.hub_roomE", "OTHER LEVELS");
-		ds_map_add(global.langmap, "roomname.hub_roomE2", "DRESSER");
-		ds_map_add(global.langmap, "roomname.hub_roomE3", "DANCE ROOM");
-		ds_map_add(global.langmap, "roomname.hub_roomMOD", "ARCADE");
-		ds_map_add(global.langmap, "roomname.hub_roomSP", "SPIRE FLOOR 1");
-		ds_map_add(global.langmap, "roomname.hub_roomPLN", "NIGHTMARE HUB");
+		ds_map_add(global.langmap, "roomname.hub_room1", "Tower Floor 1");
+		ds_map_add(global.langmap, "roomname.hub_room2", "Tower Floor 2");
+		ds_map_add(global.langmap, "roomname.hub_roomE", "Other Levels");
+		ds_map_add(global.langmap, "roomname.hub_roomE2", "Dresser");
+		ds_map_add(global.langmap, "roomname.hub_roomE3", "Dance Room");
+		ds_map_add(global.langmap, "roomname.hub_roomMOD", "Arcade");
+		ds_map_add(global.langmap, "roomname.hub_roomSP", "Spire Floor 1");
+		ds_map_add(global.langmap, "roomname.hub_roomPLN", "Nightmare Hub");
 		
-		ds_map_add(global.langmap, "roomname.hub_outside2", "OUTSIDE");
-		ds_map_add(global.langmap, "roomname.hub_outside3", "HUB OF FUN");
-		ds_map_add(global.langmap, "roomname.hub_outside3b", "WAITING ROOM");
-		ds_map_add(global.langmap, "roomname.hub_outside3b2", "BATTLE DUNGEON");
-		ds_map_add(global.langmap, "roomname.hub_outside3c", "GRAVITY RAILS");
-		ds_map_add(global.langmap, "roomname.hub_outside3d", "SUPLEX MUSEUM");
-		ds_map_add(global.langmap, "roomname.hub_outside3e", "FREERUN");
-		ds_map_add(global.langmap, "roomname.rm_peic", "SOMEWHERE");
+		ds_map_add(global.langmap, "roomname.hub_outside2", "Outside");
+		ds_map_add(global.langmap, "roomname.hub_outside3", "Hub Of Fun");
+		ds_map_add(global.langmap, "roomname.hub_outside3b", "Lounge");
+		ds_map_add(global.langmap, "roomname.hub_outside3b2", "Battle Dungeon");
+		ds_map_add(global.langmap, "roomname.hub_outside3c", "Gravitational Rails");
+		ds_map_add(global.langmap, "roomname.hub_outside3d", "Suplex Museum");
+		ds_map_add(global.langmap, "roomname.hub_outside3e", "Freerun");
 		
-		ds_map_add(global.langmap, "roomname.eatery_1", "DINING ROOM");
+		ds_map_add(global.langmap, "roomname.entryway_secret1", "Gumslime Paradise");
+		ds_map_add(global.langmap, "roomname.entryway_secret2", "Wet Floor");
+		ds_map_add(global.langmap, "roomname.entryway_secret3", "Fine China");
+		ds_map_add(global.langmap, "roomname.entryway_1", "Operation Crunch Creak Construct");
+		ds_map_add(global.langmap, "roomname.entryway_2", "Hard Hat Required");
+		ds_map_add(global.langmap, "roomname.entryway_3", "Orange City");
+		ds_map_add(global.langmap, "roomname.entryway_4", "Construction Conglomerate");
+		ds_map_add(global.langmap, "roomname.entryway_5", "Had A Joke But I'm Still Working On It");
+		ds_map_add(global.langmap, "roomname.entryway_6", "Down And Around");
+		ds_map_add(global.langmap, "roomname.entryway_7", "Wires And Boxes");
+		ds_map_add(global.langmap, "roomname.entryway_8", "City Outskirts");
+		ds_map_add(global.langmap, "roomname.entryway_9", "Nailed It");
+		ds_map_add(global.langmap, "roomname.entryway_10", "Beary Careful");
+		
+		ds_map_add(global.langmap, "roomname.cotton_secret1", "Rocky Road");
+		ds_map_add(global.langmap, "roomname.cotton_secret2", "Digging For Cotton");
+		ds_map_add(global.langmap, "roomname.cotton_secret3", "Kick Gum And Chew Gum");
+		ds_map_add(global.langmap, "roomname.cotton_1", "Welcome to Cottontown!");
+		ds_map_add(global.langmap, "roomname.cotton_2", "Scary Monsters Nice Sights");
+		ds_map_add(global.langmap, "roomname.cotton_3", "Boiler Room");
+		ds_map_add(global.langmap, "roomname.cotton_4", "Cakewalk");
+		ds_map_add(global.langmap, "roomname.cotton_5", "Steamy Cotton Candy");
+		ds_map_add(global.langmap, "roomname.cotton_6", "Skyhigh");
+		ds_map_add(global.langmap, "roomname.cotton_7", "Grand Gateau");
+		ds_map_add(global.langmap, "roomname.cotton_8", "A Clockwork Worm");
+		ds_map_add(global.langmap, "roomname.cotton_9", "Clocks And Candies");
+		ds_map_add(global.langmap, "roomname.cotton_10", "Race Around The Clock");
+		ds_map_add(global.langmap, "roomname.cotton_11", "Froghop");
+		ds_map_add(global.langmap, "roomname.cotton_12", "Pillars Break Room");
 	}
 	
 	#endregion

@@ -62,7 +62,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"bg_hubsp1","path":"sprites/bg_hubsp1/bg_hubsp1.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "bg_hubsp1",
     "tags": [],
     "resourceType": "GMSequence",

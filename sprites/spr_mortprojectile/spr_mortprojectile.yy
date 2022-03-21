@@ -70,7 +70,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_mortprojectile","path":"sprites/spr_mortprojectile/spr_mortprojectile.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_mortprojectile",
     "tags": [],
     "resourceType": "GMSequence",

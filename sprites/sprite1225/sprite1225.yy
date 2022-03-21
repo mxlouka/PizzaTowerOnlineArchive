@@ -138,7 +138,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sprite1225","path":"sprites/sprite1225/sprite1225.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sprite1225",
     "tags": [],
     "resourceType": "GMSequence",

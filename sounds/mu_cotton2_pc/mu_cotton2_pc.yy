@@ -11,8 +11,8 @@
     "name": "audiogroup_default",
     "path": "audiogroups/audiogroup_default",
   },
-  "soundFile": "mu_cotton2_pc.wav",
-  "duration": 155.07692,
+  "soundFile": "mu_cotton2_pc.ogg",
+  "duration": 147.6923,
   "parent": {
     "name": "sugary spire",
     "path": "folders/Sounds/pto extra/pizza castle/sugary spire.yy",

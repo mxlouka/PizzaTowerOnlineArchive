@@ -355,7 +355,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_grinch_grinch2","path":"sprites/spr_grinch_grinch2/spr_grinch_grinch2.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_grinch_grinch2",
     "tags": [],
     "resourceType": "GMSequence",

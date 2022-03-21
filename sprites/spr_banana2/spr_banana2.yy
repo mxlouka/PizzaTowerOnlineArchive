@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_banana2","path":"sprites/spr_banana2/spr_banana2.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_banana2",
     "tags": [],
     "resourceType": "GMSequence",

@@ -70,7 +70,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_playerSP_knightfall","path":"sprites/spr_playerSP_knightfall/spr_playerSP_knightfall.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_playerSP_knightfall",
     "tags": [],
     "resourceType": "GMSequence",

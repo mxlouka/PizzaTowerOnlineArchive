@@ -1,19 +1,21 @@
 function scr_enemy_chase()
 {
-	if object_index == obj_minijohn or object_index == obj_banditochicken
+	//if object_index == obj_minijohn or object_index == obj_banditochicken or object_index == obj_charcherry
 	{
 		//Identify the player
-		var targetplayer = obj_player1
+		var targetplayer = obj_player
 	
 		//Face the player
-		if x != targetplayer.x && !(image_xscale = -sign(x - targetplayer.x))
+		if x != targetplayer.x && !(image_xscale == -sign(x - targetplayer.x))
 		{
-			movespeed = 4
+			movespeed = 4;
 			if global.gameplay == 0
-				movespeed = 7
+				movespeed = 7;
+			if object_index == obj_charcherry
+				movespeed = 10;
 			
-			image_xscale = -sign(x - targetplayer.x)
-			momentum = -image_xscale * (movespeed + 4)
+			image_xscale = -sign(x - targetplayer.x);
+			momentum = -image_xscale * (movespeed + 4);
 		}
 		
 		hsp = image_xscale * movespeed + momentum
@@ -21,18 +23,16 @@ function scr_enemy_chase()
 		if railmeet then hsp += railmeet.spdh;
 		
 		//Slow down
-		if momentum > 0
-			momentum -= 0.1
-		if momentum <= 0
-			momentum += 0.1
+		if abs(momentum) > 0
+			momentum = max(abs(momentum) - 0.1, 0) * sign(momentum);
 		
 		//Effect
-		if scr_solid(x, y + 1)
-			steppy--
+		if grounded
+			steppy--;
 		if steppy <= 0
 		{
-			instance_create(x,y+43,obj_cloudeffect)
-			steppy = 20
+			instance_create(x, y + 43, obj_cloudeffect);
+			steppy = 20;
 		}
 	}
 }

@@ -87,7 +87,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_spitcheese_rage","path":"sprites/spr_spitcheese_rage/spr_spitcheese_rage.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_spitcheese_rage",
     "tags": [],
     "resourceType": "GMSequence",

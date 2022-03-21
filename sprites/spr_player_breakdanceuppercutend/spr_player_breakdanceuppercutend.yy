@@ -62,7 +62,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_player_breakdanceuppercutend","path":"sprites/spr_player_breakdanceuppercutend/spr_player_breakdanceuppercutend.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_player_breakdanceuppercutend",
     "tags": [],
     "resourceType": "GMSequence",

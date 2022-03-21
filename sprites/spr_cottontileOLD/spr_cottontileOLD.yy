@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_cottontileOLD","path":"sprites/spr_cottontileOLD/spr_cottontileOLD.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_cottontileOLD",
     "tags": [],
     "resourceType": "GMSequence",

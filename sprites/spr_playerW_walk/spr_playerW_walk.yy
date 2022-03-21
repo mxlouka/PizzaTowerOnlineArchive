@@ -82,7 +82,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_playerW_walk","path":"sprites/spr_playerW_walk/spr_playerW_walk.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_playerW_walk",
     "tags": [],
     "resourceType": "GMSequence",
@@ -93,7 +93,7 @@
   "nineSlice": null,
   "parent": {
     "name": "peter",
-    "path": "folders/Sprites/players/peter.yy",
+    "path": "folders/Sprites/players/JOKE/peter.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_playerW_walk",

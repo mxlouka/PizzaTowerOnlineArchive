@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_snick_exh_shadow","path":"sprites/spr_snick_exh_shadow/spr_snick_exh_shadow.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_snick_exh_shadow",
     "tags": [],
     "resourceType": "GMSequence",

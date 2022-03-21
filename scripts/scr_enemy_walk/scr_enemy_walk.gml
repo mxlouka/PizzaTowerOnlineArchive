@@ -46,7 +46,7 @@ function scr_enemy_walk()
 	if place_meeting(x + hsp * 2, y, obj_hallway)
 	or (sold && !inst_relation(sold, obj_slope))
 	{
-		if object_index == obj_forknight
+		if object_index == obj_forknight or object_index == obj_smurfknight
 		{
 			image_xscale *= -1
 			image_index = 0
@@ -93,7 +93,7 @@ function scr_enemy_walk()
 					image_xscale = -sign(x - obj_player.x)
 					state = states.charge
 				}
-				else if object_index == obj_forknight
+				else if object_index == obj_forknight or object_index == obj_smurfknight
 				{
 					image_xscale *= -1
 					image_index = 0

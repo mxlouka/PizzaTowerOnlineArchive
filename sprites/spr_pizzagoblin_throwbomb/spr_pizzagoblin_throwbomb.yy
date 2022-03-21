@@ -130,7 +130,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_pizzagoblin_throwbomb","path":"sprites/spr_pizzagoblin_throwbomb/spr_pizzagoblin_throwbomb.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "",
     "tags": [],
     "resourceType": "GMSequence",

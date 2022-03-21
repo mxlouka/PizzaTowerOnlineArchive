@@ -1,5 +1,6 @@
 function scr_characterentrance(argument0)
 {
+	/*
 	// entrance
 	if audio_is_playing(mu_entrance) && argument0 != "P"
 	{
@@ -41,4 +42,5 @@ function scr_characterentrance(argument0)
 		with obj_music
 			event_perform(ev_other, ev_room_start);
 	}
+	*/
 }

@@ -67,7 +67,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_ladder_chateau","path":"sprites/spr_ladder_chateau/spr_ladder_chateau.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_ladder_chateau",
     "tags": [],
     "resourceType": "GMSequence",

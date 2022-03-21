@@ -23,10 +23,10 @@ function scr_player_taunt()
 			else
 				scr_soundeffect(sfx_taunt)
 			
-			if supercharged && character != "S" && character != "V" && character != "G"
+			if supercharged && character != "S" && character != "V" && character != "PP"
 			{
 				image_index = 0
-				sprite_index = choose(spr_supertaunt1,spr_supertaunt2,spr_supertaunt3,spr_supertaunt4)
+				sprite_index = choose(spr_supertaunt1, spr_supertaunt2, spr_supertaunt3, spr_supertaunt4)
 			}
 			else
 			{

@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_meatball_dead","path":"sprites/spr_meatball_dead/spr_meatball_dead.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_meatball_dead",
     "tags": [],
     "resourceType": "GMSequence",

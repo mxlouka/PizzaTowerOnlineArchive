@@ -63,7 +63,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_diagcontinue","path":"sprites/spr_diagcontinue/spr_diagcontinue.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_diagcontinue",
     "tags": [],
     "resourceType": "GMSequence",

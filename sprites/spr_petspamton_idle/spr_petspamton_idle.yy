@@ -67,7 +67,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_petspamton_idle","path":"sprites/spr_petspamton_idle/spr_petspamton_idle.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_petspamton_idle",
     "tags": [],
     "resourceType": "GMSequence",

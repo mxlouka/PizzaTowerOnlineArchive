@@ -210,7 +210,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_playerSP_victory","path":"sprites/spr_playerSP_victory/spr_playerSP_victory.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_playerSP_victory",
     "tags": [],
     "resourceType": "GMSequence",

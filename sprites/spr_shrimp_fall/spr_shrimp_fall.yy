@@ -67,7 +67,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_shrimp_fall","path":"sprites/spr_shrimp_fall/spr_shrimp_fall.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_shrimp_fall",
     "tags": [],
     "resourceType": "GMSequence",

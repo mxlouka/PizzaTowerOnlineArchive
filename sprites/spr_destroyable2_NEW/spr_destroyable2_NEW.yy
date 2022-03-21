@@ -95,7 +95,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_destroyable2_NEW","path":"sprites/spr_destroyable2_NEW/spr_destroyable2_NEW.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_destroyable2_NEW",
     "tags": [],
     "resourceType": "GMSequence",

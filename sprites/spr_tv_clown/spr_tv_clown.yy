@@ -63,7 +63,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_tv_clown","path":"sprites/spr_tv_clown/spr_tv_clown.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_tv_clown",
     "tags": [],
     "resourceType": "GMSequence",

@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"tile_danceroom","path":"sprites/tile_danceroom/tile_danceroom.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "tile_danceroom",
     "tags": [],
     "resourceType": "GMSequence",

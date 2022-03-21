@@ -162,7 +162,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_archergoblin_shoot","path":"sprites/spr_archergoblin_shoot/spr_archergoblin_shoot.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "",
     "tags": [],
     "resourceType": "GMSequence",

@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_hatdresser","path":"sprites/spr_hatdresser/spr_hatdresser.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_hatdresser",
     "tags": [],
     "resourceType": "GMSequence",

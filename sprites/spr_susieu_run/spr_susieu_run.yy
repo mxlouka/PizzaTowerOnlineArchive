@@ -71,7 +71,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_susieu_run","path":"sprites/spr_susieu_run/spr_susieu_run.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_susieu_run",
     "tags": [],
     "resourceType": "GMSequence",

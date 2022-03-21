@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_doorblack","path":"sprites/spr_doorblack/spr_doorblack.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_doorblack",
     "tags": [],
     "resourceType": "GMSequence",

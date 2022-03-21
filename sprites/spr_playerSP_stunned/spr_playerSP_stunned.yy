@@ -154,7 +154,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_playerSP_stunned","path":"sprites/spr_playerSP_stunned/spr_playerSP_stunned.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_playerSP_stunned",
     "tags": [],
     "resourceType": "GMSequence",

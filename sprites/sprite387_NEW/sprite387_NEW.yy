@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sprite387_NEW","path":"sprites/sprite387_NEW/sprite387_NEW.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sprite387_NEW",
     "tags": [],
     "resourceType": "GMSequence",

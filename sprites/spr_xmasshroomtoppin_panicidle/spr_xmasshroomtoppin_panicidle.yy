@@ -79,7 +79,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_xmasshroomtoppin_panicidle","path":"sprites/spr_xmasshroomtoppin_panicidle/spr_xmasshroomtoppin_panicidle.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_xmasshroomtoppin_panicidle",
     "tags": [],
     "resourceType": "GMSequence",

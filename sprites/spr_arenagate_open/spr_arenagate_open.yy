@@ -83,7 +83,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_arenagate_open","path":"sprites/spr_arenagate_open/spr_arenagate_open.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_arenagate_open",
     "tags": [],
     "resourceType": "GMSequence",

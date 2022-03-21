@@ -7,9 +7,9 @@
   "edgeFiltering": false,
   "collisionTolerance": 0,
   "swfPrecision": 2.525,
-  "bbox_left": 20,
-  "bbox_right": 89,
-  "bbox_top": 48,
+  "bbox_left": 7,
+  "bbox_right": 88,
+  "bbox_top": 38,
   "bbox_bottom": 97,
   "HTile": false,
   "VTile": false,
@@ -24,9 +24,9 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"2ca26095-1159-4ec8-b37c-a77f8c803f9a","path":"sprites/spr_gumslime_dead/spr_gumslime_dead.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"2ca26095-1159-4ec8-b37c-a77f8c803f9a","path":"sprites/spr_gumslime_dead/spr_gumslime_dead.yy",},"LayerId":{"name":"e303244e-f58d-4780-a95e-5ecff20c4f12","path":"sprites/spr_gumslime_dead/spr_gumslime_dead.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"spr_gumslime_dead","path":"sprites/spr_gumslime_dead/spr_gumslime_dead.yy",},"resourceVersion":"1.0","name":"2ca26095-1159-4ec8-b37c-a77f8c803f9a","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"46decc0b-c95a-4d28-bb1a-5de9c0683c07","path":"sprites/spr_gumslime_dead/spr_gumslime_dead.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"46decc0b-c95a-4d28-bb1a-5de9c0683c07","path":"sprites/spr_gumslime_dead/spr_gumslime_dead.yy",},"LayerId":{"name":"9cb944b3-64e0-48d6-a972-c9c0b9925d9e","path":"sprites/spr_gumslime_dead/spr_gumslime_dead.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"spr_gumslime_dead","path":"sprites/spr_gumslime_dead/spr_gumslime_dead.yy",},"resourceVersion":"1.0","name":"46decc0b-c95a-4d28-bb1a-5de9c0683c07","tags":[],"resourceType":"GMSpriteFrame",},
   ],
   "sequence": {
     "spriteId": {"name":"spr_gumslime_dead","path":"sprites/spr_gumslime_dead/spr_gumslime_dead.yy",},
@@ -41,7 +41,7 @@
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
       {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"c59ef3b1-23cd-416b-bedb-88b8d84e9453","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"2ca26095-1159-4ec8-b37c-a77f8c803f9a","path":"sprites/spr_gumslime_dead/spr_gumslime_dead.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"e4518f14-d7a0-404d-b132-e46be491e589","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"46decc0b-c95a-4d28-bb1a-5de9c0683c07","path":"sprites/spr_gumslime_dead/spr_gumslime_dead.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
           ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
     ],
     "visibleRange": null,
@@ -59,18 +59,18 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_gumslime_dead","path":"sprites/spr_gumslime_dead/spr_gumslime_dead.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_gumslime_dead",
     "tags": [],
     "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"e303244e-f58d-4780-a95e-5ecff20c4f12","tags":[],"resourceType":"GMImageLayer",},
+    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"9cb944b3-64e0-48d6-a972-c9c0b9925d9e","tags":[],"resourceType":"GMImageLayer",},
   ],
   "nineSlice": null,
   "parent": {
     "name": "gumslime",
-    "path": "folders/Sprites/baddie/SUGARY SPIRE/gumslime.yy",
+    "path": "folders/Sprites/sugary spire/baddie/gumslime.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_gumslime_dead",

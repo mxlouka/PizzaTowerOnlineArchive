@@ -62,7 +62,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_playerSP_ghostdash","path":"sprites/spr_playerSP_ghostdash/spr_playerSP_ghostdash.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_playerSP_ghostdash",
     "tags": [],
     "resourceType": "GMSequence",

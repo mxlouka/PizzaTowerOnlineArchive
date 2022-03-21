@@ -26,7 +26,7 @@ if !dbg_live
 }
 
 //Draw Text
-draw_set_font(global.bigfont)
+draw_set_font(global.bigfont);
 draw_set_halign(fa_center);
 draw_set_color(c_white)
 
@@ -145,11 +145,7 @@ if menu == 2
 	
 	draw_text_colour(72, ybase + (16 * 16), lang_string("options.other.drpc"), c_white, c_white, c_white, c_white, (optionselected == 12 ? 1 : 0.5));
 	draw_text_colour(72, ybase + (16 * 17), lang_string("options.other.fpscount"), c_white, c_white, c_white, c_white, (optionselected == 13 ? 1 : 0.5));
-	if debug
-	{
-		draw_text_colour(72, ybase + (16 * 18), lang_string("options.other.camsmooth"), c_white, c_white, c_white, c_white, (optionselected == 14 ? 1 : 0.5));
-		draw_text_colour(72, ybase + (16 * 19), lang_string("options.other.screenshader"), c_white, c_white, c_white, c_white, (optionselected == 15 ? 1 : 0.5));
-	}
+	draw_text_colour(72, ybase + (16 * 18), lang_string("options.other.camsmooth"), c_white, c_white, c_white, c_white, (optionselected == 14 ? 1 : 0.5));
 	
 	switch optionselected
 	{
@@ -186,9 +182,9 @@ if menu == 2
 				var sagecol = (global.gameplay == 0 ? merge_colour(c_lime, c_white, 0.5) : c_white);
 				var finalcol = (global.gameplay == 1 ? merge_colour(c_lime, c_white, 0.5) : c_white);
 				var mixcol = (global.gameplay == 2 ? merge_colour(c_lime, c_white, 0.5) : c_white);
-				draw_text_colour(640 - 75, 100, lang_string("options.other.gameplay.old"), sagecol, sagecol, sagecol, sagecol, (global.gameplay == 0 ? 1 : 0.5));
-				draw_text_colour(640 + 75, 100, lang_string("options.other.gameplay.remix"), mixcol, mixcol, mixcol, mixcol, (global.gameplay == 2 ? 1 : 0.5));
-				draw_text_colour(640, 100, lang_string("options.other.gameplay.final"), finalcol, finalcol, finalcol, finalcol, (global.gameplay == 1 ? 1 : 0.5));
+				draw_text_colour(640 - 75, 100, string_upper(lang_string("options.other.gameplay.old")), sagecol, sagecol, sagecol, sagecol, (global.gameplay == 0 ? 1 : 0.5));
+				draw_text_colour(640 + 75, 100, string_upper(lang_string("options.other.gameplay.remix")), mixcol, mixcol, mixcol, mixcol, (global.gameplay == 2 ? 1 : 0.5));
+				draw_text_colour(640, 100, string_upper(lang_string("options.other.gameplay.final")), finalcol, finalcol, finalcol, finalcol, (global.gameplay == 1 ? 1 : 0.5));
 			}
 			
 			draw_set_font(global.font_small);
@@ -741,7 +737,7 @@ if menu == 2
 				draw_set_colour(c_white);
 				draw_set_halign(fa_left);
 				draw_set_font(font1);
-				draw_text(600, 240, "Pizza Tower Network");
+				draw_text(600, 240, "Pizza Tower ONLINE");
 				draw_set_font(fnt_gms_small);
 				draw_text(600, 260, lang_string("options.other.drpc.example1"));
 			}
@@ -788,24 +784,17 @@ if menu == 2
 			draw_set_colour(c_ltgray);
 			draw_text(640, 96, lang_string("options.other.camsmooth.desc"));
 			
+			var slidery = 280;
+			draw_set_font(global.font_small);
+			draw_text_transformed(640, slidery - 48, string(floor(global.camerasmoothing * 100)) + "%", 2, 2, 0);
+			
+			draw_set_colour(c_gray);
+			draw_rectangle_colour(450, slidery, 850 - 1, slidery + 16, c_white, c_red, c_red, c_white, false);
+			draw_rectangle(850, slidery, 450 + (global.camerasmoothing * 400), slidery + 16, false);
+			draw_set_colour(c_black);
+			draw_circle(450 + (global.camerasmoothing * 400), slidery + 8, 21, false);
 			draw_set_colour(c_white);
-			
-			/*
-			var go = 0;
-			if !global.camerasmoothing
-			{
-				if floor(img / 30) % 2 == 0
-					go = img % 30;
-				else
-					go = 30 - (img % 30);
-				go -= 15;
-			}
-			else
-				go = 15 * sin(img / 10);
-			
-			var w = 960 / 3, h = 540 / 3;
-			draw_rectangle(640 - w / 2 + go * 3, 260 - h / 2, 640 + w / 2 + go * 3, 260 + h / 2, false);
-			*/
+			draw_circle(450 + (global.camerasmoothing * 400), slidery + 8, 20, false);
 			break;
 		
 		#endregion

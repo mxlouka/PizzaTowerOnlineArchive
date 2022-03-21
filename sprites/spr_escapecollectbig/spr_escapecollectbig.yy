@@ -151,7 +151,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_escapecollectbig","path":"sprites/spr_escapecollectbig/spr_escapecollectbig.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_escapecollectbig",
     "tags": [],
     "resourceType": "GMSequence",

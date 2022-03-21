@@ -145,11 +145,6 @@ else
 	else if string_startswith(r, "jawbreaker")
 		det = "Jawbreaker Mines";
 	
-	else if room == rm_peic
-	{
-		det = "Hub";
-		state = "Room of a Mistake";
-	}
 	else if room == rm_test
 	{
 		det = "Test Room";

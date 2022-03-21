@@ -70,7 +70,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_snick_firemouthrun","path":"sprites/spr_snick_firemouthrun/spr_snick_firemouthrun.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_snick_firemouthrun",
     "tags": [],
     "resourceType": "GMSequence",

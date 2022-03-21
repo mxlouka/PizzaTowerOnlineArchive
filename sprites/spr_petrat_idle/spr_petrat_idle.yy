@@ -95,7 +95,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_petrat_idle","path":"sprites/spr_petrat_idle/spr_petrat_idle.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_petrat_idle",
     "tags": [],
     "resourceType": "GMSequence",

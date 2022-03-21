@@ -62,7 +62,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_slimedead_re","path":"sprites/spr_slimedead_re/spr_slimedead_re.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_slimedead_re",
     "tags": [],
     "resourceType": "GMSequence",

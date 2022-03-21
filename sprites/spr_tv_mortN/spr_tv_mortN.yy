@@ -63,7 +63,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_tv_mortN","path":"sprites/spr_tv_mortN/spr_tv_mortN.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_tv_mortN",
     "tags": [],
     "resourceType": "GMSequence",

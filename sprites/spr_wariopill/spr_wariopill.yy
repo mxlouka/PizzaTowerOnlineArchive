@@ -67,7 +67,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_wariopill","path":"sprites/spr_wariopill/spr_wariopill.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_wariopill",
     "tags": [],
     "resourceType": "GMSequence",

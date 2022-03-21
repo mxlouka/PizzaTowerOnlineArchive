@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_playerSP_deez","path":"sprites/spr_playerSP_deez/spr_playerSP_deez.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_playerSP_deez",
     "tags": [],
     "resourceType": "GMSequence",

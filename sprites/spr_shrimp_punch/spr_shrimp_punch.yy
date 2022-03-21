@@ -127,7 +127,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_shrimp_punch","path":"sprites/spr_shrimp_punch/spr_shrimp_punch.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_shrimp_punch",
     "tags": [],
     "resourceType": "GMSequence",

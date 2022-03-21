@@ -63,7 +63,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_barpop","path":"sprites/spr_barpop/spr_barpop.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_barpop",
     "tags": [],
     "resourceType": "GMSequence",

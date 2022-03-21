@@ -86,7 +86,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_playerSP_fireass","path":"sprites/spr_playerSP_fireass/spr_playerSP_fireass.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_playerSP_fireass",
     "tags": [],
     "resourceType": "GMSequence",

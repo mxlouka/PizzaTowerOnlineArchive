@@ -1,32 +1,13 @@
-/*
-if fade == 1
+if selected
 {
-	fadealpha += 0.1;
-	if fadealpha >= 1
-	{
-		// init
-		fadealpha = 1;
-		show = true;
-		
-		character = obj_player1.character;
-		paletteselect = obj_player1.paletteselect;
-		
-		fade = 0;
-	}
+	xoffset = lerp(xoffset, 0, 0.25);
+	yoffset = lerp(yoffset, 0, 0.25);
+	exit;
 }
-
-if fade == 0
-{
-	fadealpha -= 0.1;
-	if fadealpha <= 0
-	{
-		fadealpha = 0;
-		fade = -1;
-	}
-}
-*/
-
 event_inherited();
+if con == 1
+	exit;
+
 if sel[1] == "N" && key_taunt2
 {
 	scr_soundeffect(sfx_step);
@@ -35,12 +16,6 @@ if sel[1] == "N" && key_taunt2
 
 // change character
 var lastchar = "SP";
-/*
-if (instance_exists(obj_gms) && gms_info_isloggedin() && string_lower(gms_self_name()) == "peic")
-or debug
-	lastchar = "G";
-*/
-
 if key_down2 && sel[1] != lastchar
 {
 	surface_free(palsurf);
@@ -59,17 +34,13 @@ if key_down2 && sel[1] != lastchar
 			sel[1] = "S";
 			break;
 		case "S":
-			sel[1] = "SP";
+			sel[1] = "PP"; // to pissino
+			break;
+		case "PP":
+			sel[1] = "SP"; // to pizzelle
 			break;
 		case "SP":
-			if debug
-				sel[1] = "SN";
-			else
-				sel[1] = "G";
-			break;
-		case "SN":
-			if debug
-				sel[1] = "G";
+			sel[1] = "SN"; // to pizzano
 			break;
 		
 		/*
@@ -99,17 +70,14 @@ else if key_up2 && sel[1] != "P"
 		case "S":
 			sel[1] = "V";
 			break;
-		case "SP":
+		case "PP":
 			sel[1] = "S";
 			break;
-		case "SN":
-			sel[1] = "SP";
+		case "SP":
+			sel[1] = "PP";
 			break;
-		case "G":
-			if debug
-				sel[1] = "SN";
-			else
-				sel[1] = "SP";
+		case "SN": // from pizzano
+			sel[1] = "SP"; // to pizzelle
 			break;
 	}
 	event_user(0);

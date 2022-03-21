@@ -82,7 +82,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_playerN_cheeseball","path":"sprites/spr_playerN_cheeseball/spr_playerN_cheeseball.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_playerN_cheeseball",
     "tags": [],
     "resourceType": "GMSequence",

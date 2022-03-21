@@ -4,6 +4,7 @@ switch sel[1]
 	default:
 		spr_palette = spr_peppalette;
 		spr_idle = spr_player_idle;
+		spr_select = spr_player_skinselect;
 		selarray = [
 			["YELLOW", "Palette zero.\nLegends say he was pissed on..."],
 			["PEPPINO", "A somewhat overweight Italian chef."],
@@ -25,7 +26,7 @@ switch sel[1]
 			["PETER", "Griffin"],
 			["SAGE", "PTSD. \"Pizza Tower Stress Disorder\"."],
 			["BLACK", "Not the clothes."],
-			["MASSACRE", "Forgot his chainsaw at home, but still unstable."],
+			["MASSACRE", "It's all just a bad dream..."],
 			["BURNT PIZZA", "Oh, god damn it."],
 			["DREXYL", "D'AW HELL NAH"],
 			["GB", "One of his greatest achievements."],
@@ -41,6 +42,7 @@ switch sel[1]
 	case "N":
 		spr_palette = spr_noisepalette;
 		spr_idle = spr_playerN_idle;
+		spr_select = spr_playerN_panicidle;
 		selarray = [
 			["THE NOISE", "The mischievous gremlin."],
 			["HALLOWEEN", "Scary."],
@@ -67,6 +69,7 @@ switch sel[1]
 	case "V":
 		spr_palette = spr_vigipalette;
 		spr_idle = spr_playerV_idle;
+		spr_select = spr_playerV_gate;
 		selarray = [
 			["THE VIGILANTE", "AKA Vigert Ebenezer Lantte."],
 			["HALLOWEEN", "Trick or treat.\nThis is a threat."],
@@ -93,6 +96,7 @@ switch sel[1]
 	case "S":
 		spr_palette = spr_snickpalette;
 		spr_idle = spr_snick_idle;
+		spr_select = spr_snick_victory;
 		selarray = [
 			["SNICK", "It's him."],
 			["TAIL", "A single tail."],
@@ -124,6 +128,7 @@ switch sel[1]
 	case "SP":
 		spr_palette = spr_pizzpalette;
 		spr_idle = spr_playerSP_idle;
+		spr_select = spr_playerSP_stunned;
 		selarray = [
 			["YELLOW", "Take the first 4 letters of Pizzelle."],
 			["PIZZELLE", "It's the Candy-making patisje!"],
@@ -174,6 +179,7 @@ switch sel[1]
 	case "SN":
 		spr_palette = spr_creampalette;
 		spr_idle = spr_playerSN_idle;
+		spr_select = spr_playerSN_idle;
 		selarray = [
 			["YELLOW", "Piss ano"],
 			["PIZZANO", "YAH-HAH!"],
@@ -191,20 +197,31 @@ switch sel[1]
 		];
 	break;
 	
-	#region joke
-	
 	case "PP":
-		spr_palette = spr_peppalette;
+		spr_palette = spr_pisspalette;
 		spr_idle = spr_playerPP_idle;
+		spr_select = spr_playerPP_skinselect;
 		selarray = [
 			["PISSINO", "God is dead and we killed him."],
-			["GO BACK", "reatrd"],
+			["WHITE", "A somewhat overweight italian failure."],
+			["RED", "It could also be-a him, for all we know."],
+			["BLUE", "The day he forgot his purpose."],
+			["FREDDY", "hor hor horhor hor hor horhor horhor"],
+			["SKETCH", "He wouldn't have crashed into somebody.\nHe would've shot a whole convenience store down."],
+			["GRAND DAD", "FLINTSTONES HAHAHAHA"],
+			["DORITO", "Undertale"],
+			["BLACK", "Don't show this to Denchick."],
+			["METAL", "Balls of Steel."],
+			["???", "You can't get blacker than this."],
 		]
 		break;
+	
+	#region joke
 	
 	case "CHEESESLIME":
 		spr_palette = palette_cheeseslime;
 		spr_idle = spr_slimemove;
+		spr_select = spr_slimebounce;
 		selarray = [
 			["CHEESESLIME", "Totally useless. Cannon fodder."],
 			["HALLOWEEN", "Don't worry, he'll be dead soon."],
@@ -213,6 +230,7 @@ switch sel[1]
 	case "FORKNIGHT":
 		spr_palette = palette_forknight;
 		spr_idle = spr_forknight_walk;
+		spr_select = spr_forknight_scared;
 		selarray = [
 			["FORKNIGHT", "His variant is Battle Royale."],
 			["HALLOWEEN", "Slightly darker, ooga booga."],

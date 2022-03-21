@@ -75,7 +75,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_goop","path":"sprites/spr_goop/spr_goop.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_goop",
     "tags": [],
     "resourceType": "GMSequence",

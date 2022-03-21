@@ -67,7 +67,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_props_strongcold2","path":"sprites/spr_props_strongcold2/spr_props_strongcold2.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "",
     "tags": [],
     "resourceType": "GMSequence",
@@ -78,7 +78,7 @@
   "nineSlice": null,
   "parent": {
     "name": "Props",
-    "path": "folders/Sprites/editor/Props.yy",
+    "path": "folders/Sprites/sertif's editor/Props.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_props_strongcold2",

@@ -79,7 +79,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_manual_PP","path":"sprites/spr_manual_PP/spr_manual_PP.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_manual_PP",
     "tags": [],
     "resourceType": "GMSequence",

@@ -82,7 +82,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_snick_weeniemount","path":"sprites/spr_snick_weeniemount/spr_snick_weeniemount.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_snick_weeniemount",
     "tags": [],
     "resourceType": "GMSequence",

@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_rollblock","path":"sprites/spr_rollblock/spr_rollblock.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_rollblock",
     "tags": [],
     "resourceType": "GMSequence",

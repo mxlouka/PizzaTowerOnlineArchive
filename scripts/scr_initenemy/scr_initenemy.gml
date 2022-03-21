@@ -1,5 +1,6 @@
 function scr_initenemy()
 {
+	basegrav = 0.5;
 	grav = 0.5;
 	hsp = 0;
 	vsp = 0;
@@ -48,6 +49,7 @@ function scr_initenemy()
 	stunnable = true
 	parryable = true
 	destroyable = true
+	killreward = true
 	
 	pepperman_grab = false
 	stagger_buffer = -1
@@ -80,4 +82,6 @@ function scr_initenemy()
 	haspalette = false;
 	spr_palette = palette_cheeseslime;
 	paletteselect = 0;
+	
+	custom_death_fnc = -1;
 }

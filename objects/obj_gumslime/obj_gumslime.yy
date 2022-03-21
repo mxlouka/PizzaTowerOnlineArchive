@@ -33,7 +33,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "sugary spire",
-    "path": "folders/Objects/baddie/enemies/sugary spire.yy",
+    "path": "folders/Objects/baddie/sugary spire.yy",
   },
   "resourceVersion": "1.0",
   "name": "obj_gumslime",

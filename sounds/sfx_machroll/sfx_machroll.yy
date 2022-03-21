@@ -12,7 +12,7 @@
     "path": "audiogroups/audiogroup_default",
   },
   "soundFile": "sfx_machroll",
-  "duration": 3.197,
+  "duration": 3.192,
   "parent": {
     "name": "sfx",
     "path": "folders/Sounds/sfx.yy",

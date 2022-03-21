@@ -134,7 +134,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_tv_idleanim2SP","path":"sprites/spr_tv_idleanim2SP/spr_tv_idleanim2SP.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_tv_idleanim2SP",
     "tags": [],
     "resourceType": "GMSequence",

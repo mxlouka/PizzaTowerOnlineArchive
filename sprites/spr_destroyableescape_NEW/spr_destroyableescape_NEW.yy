@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_destroyableescape_NEW","path":"sprites/spr_destroyableescape_NEW/spr_destroyableescape_NEW.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_destroyableescape_NEW",
     "tags": [],
     "resourceType": "GMSequence",

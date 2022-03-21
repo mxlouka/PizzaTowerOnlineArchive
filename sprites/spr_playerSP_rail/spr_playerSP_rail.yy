@@ -102,7 +102,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_playerSP_rail","path":"sprites/spr_playerSP_rail/spr_playerSP_rail.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_playerSP_rail",
     "tags": [],
     "resourceType": "GMSequence",

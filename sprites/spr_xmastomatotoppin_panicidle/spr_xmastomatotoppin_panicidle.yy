@@ -79,7 +79,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_xmastomatotoppin_panicidle","path":"sprites/spr_xmastomatotoppin_panicidle/spr_xmastomatotoppin_panicidle.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_xmastomatotoppin_panicidle",
     "tags": [],
     "resourceType": "GMSequence",

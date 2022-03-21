@@ -90,7 +90,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_playerW_idle","path":"sprites/spr_playerW_idle/spr_playerW_idle.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_playerW_idle",
     "tags": [],
     "resourceType": "GMSequence",
@@ -101,7 +101,7 @@
   "nineSlice": null,
   "parent": {
     "name": "peter",
-    "path": "folders/Sprites/players/peter.yy",
+    "path": "folders/Sprites/players/JOKE/peter.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_playerW_idle",

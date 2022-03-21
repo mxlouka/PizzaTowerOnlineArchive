@@ -70,5 +70,10 @@ if obj_player1.state == states.normal
 		scr_characterentrance(sel[1]);
 	}
 	
-	instance_destroy();
+	selected = true;
+	if spr_select != spr_idle
+		img = 0;
+	
+	t = 2;
+	con = 0;
 }

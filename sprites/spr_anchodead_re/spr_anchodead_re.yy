@@ -62,7 +62,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_anchodead_re","path":"sprites/spr_anchodead_re/spr_anchodead_re.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_anchodead_re",
     "tags": [],
     "resourceType": "GMSequence",

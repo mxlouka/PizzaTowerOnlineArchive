@@ -62,7 +62,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_peppinoicon","path":"sprites/spr_peppinoicon/spr_peppinoicon.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_peppinoicon",
     "tags": [],
     "resourceType": "GMSequence",

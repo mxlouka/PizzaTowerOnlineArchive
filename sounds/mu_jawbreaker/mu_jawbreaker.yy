@@ -12,7 +12,7 @@
     "path": "audiogroups/audiogroup_default",
   },
   "soundFile": "mu_jawbreaker.wav",
-  "duration": 208.004929,
+  "duration": 208.0,
   "parent": {
     "name": "sugary spire",
     "path": "folders/Sounds/pto extra/sugary spire.yy",

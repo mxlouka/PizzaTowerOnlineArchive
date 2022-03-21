@@ -1,3 +1,1 @@
-
-with obj_solid
-	visible = true
+audio_stop_sound(global.music);

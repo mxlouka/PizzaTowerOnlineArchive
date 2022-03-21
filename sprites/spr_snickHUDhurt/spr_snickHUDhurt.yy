@@ -70,7 +70,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_snickHUDhurt","path":"sprites/spr_snickHUDhurt/spr_snickHUDhurt.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_snickHUDhurt",
     "tags": [],
     "resourceType": "GMSequence",

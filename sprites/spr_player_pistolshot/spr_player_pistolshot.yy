@@ -106,7 +106,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_player_pistolshot","path":"sprites/spr_player_pistolshot/spr_player_pistolshot.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_player_pistolshot",
     "tags": [],
     "resourceType": "GMSequence",

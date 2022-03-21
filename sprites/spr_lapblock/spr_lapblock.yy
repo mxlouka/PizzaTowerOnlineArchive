@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_lapblock","path":"sprites/spr_lapblock/spr_lapblock.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_lapblock",
     "tags": [],
     "resourceType": "GMSequence",

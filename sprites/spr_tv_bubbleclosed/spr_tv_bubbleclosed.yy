@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_tv_bubbleclosed","path":"sprites/spr_tv_bubbleclosed/spr_tv_bubbleclosed.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_tv_bubbleclosed",
     "tags": [],
     "resourceType": "GMSequence",

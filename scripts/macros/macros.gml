@@ -4,8 +4,7 @@ if live_call() return live_result;
 #macro debug false
 #macro debug:debug true
 #macro repaintjokebuild false
-#macro patron true
-#macro pt_online false
+#macro patron true // my attempt at making a non-patreon version of this in the same project, doesn't work
 
 // macros
 #macro c_owner merge_colour(c_blue, c_white, 0.75)
@@ -156,5 +155,6 @@ states = {
 	rotate : 128,
 	frozen : 129,
 	spindash : 130,
-	cotton : 131
+	cotton : 131,
+	cherrywait : 132, // cherry enemy
 }

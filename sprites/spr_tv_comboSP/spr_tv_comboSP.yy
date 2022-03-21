@@ -62,7 +62,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_tv_comboSP","path":"sprites/spr_tv_comboSP/spr_tv_comboSP.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_tv_comboSP",
     "tags": [],
     "resourceType": "GMSequence",

@@ -35,3 +35,6 @@ holdt = -1;
 titlefont = global.bigfont;
 descfont = global.font_small;
 basetext = true;
+
+con = 0;
+t = 0;

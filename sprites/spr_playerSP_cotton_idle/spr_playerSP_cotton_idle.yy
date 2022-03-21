@@ -146,7 +146,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_playerSP_cotton_idle","path":"sprites/spr_playerSP_cotton_idle/spr_playerSP_cotton_idle.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_playerSP_cotton_idle",
     "tags": [],
     "resourceType": "GMSequence",

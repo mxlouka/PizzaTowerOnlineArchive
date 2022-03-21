@@ -91,7 +91,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_rematchplugwoke","path":"sprites/spr_rematchplugwoke/spr_rematchplugwoke.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_rematchplugwoke",
     "tags": [],
     "resourceType": "GMSequence",

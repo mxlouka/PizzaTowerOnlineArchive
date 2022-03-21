@@ -99,7 +99,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_banditochicken_projectile_NEW","path":"sprites/spr_banditochicken_projectile_NEW/spr_banditochicken_projectile_NEW.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_banditochicken_projectile_NEW",
     "tags": [],
     "resourceType": "GMSequence",

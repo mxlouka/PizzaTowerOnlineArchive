@@ -135,7 +135,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_gerome_idle1","path":"sprites/spr_gerome_idle1/spr_gerome_idle1.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_gerome_idle1",
     "tags": [],
     "resourceType": "GMSequence",

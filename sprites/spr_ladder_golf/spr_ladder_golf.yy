@@ -67,7 +67,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_ladder_golf","path":"sprites/spr_ladder_golf/spr_ladder_golf.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_ladder_golf",
     "tags": [],
     "resourceType": "GMSequence",

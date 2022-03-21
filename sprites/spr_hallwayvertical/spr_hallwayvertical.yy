@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_hallwayvertical","path":"sprites/spr_hallwayvertical/spr_hallwayvertical.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_hallwayvertical",
     "tags": [],
     "resourceType": "GMSequence",

@@ -98,7 +98,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_playerN_barrel","path":"sprites/spr_playerN_barrel/spr_playerN_barrel.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_playerN_barrel",
     "tags": [],
     "resourceType": "GMSequence",

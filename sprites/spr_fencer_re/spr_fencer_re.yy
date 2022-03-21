@@ -122,7 +122,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_fencer_re","path":"sprites/spr_fencer_re/spr_fencer_re.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_fencer_re",
     "tags": [],
     "resourceType": "GMSequence",

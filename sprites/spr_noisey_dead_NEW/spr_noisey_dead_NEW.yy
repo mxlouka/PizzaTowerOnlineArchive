@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_noisey_dead_NEW","path":"sprites/spr_noisey_dead_NEW/spr_noisey_dead_NEW.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_noisey_dead_NEW",
     "tags": [],
     "resourceType": "GMSequence",

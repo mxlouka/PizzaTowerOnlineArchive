@@ -111,7 +111,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_petgerald_move","path":"sprites/spr_petgerald_move/spr_petgerald_move.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_petgerald_move",
     "tags": [],
     "resourceType": "GMSequence",

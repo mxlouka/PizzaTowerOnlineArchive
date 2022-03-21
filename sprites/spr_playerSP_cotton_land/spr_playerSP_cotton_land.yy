@@ -82,7 +82,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_playerSP_cotton_land","path":"sprites/spr_playerSP_cotton_land/spr_playerSP_cotton_land.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_playerSP_cotton_land",
     "tags": [],
     "resourceType": "GMSequence",

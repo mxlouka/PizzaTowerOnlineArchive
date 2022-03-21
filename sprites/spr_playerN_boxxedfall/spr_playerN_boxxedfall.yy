@@ -70,7 +70,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_playerN_boxxedfall","path":"sprites/spr_playerN_boxxedfall/spr_playerN_boxxedfall.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_playerN_boxxedfall",
     "tags": [],
     "resourceType": "GMSequence",

@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_doorvisited_PP","path":"sprites/spr_doorvisited_PP/spr_doorvisited_PP.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_doorvisited_PP",
     "tags": [],
     "resourceType": "GMSequence",

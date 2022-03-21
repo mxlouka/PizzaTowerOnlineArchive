@@ -79,7 +79,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_xmassausagetoppin_panicidle","path":"sprites/spr_xmassausagetoppin_panicidle/spr_xmassausagetoppin_panicidle.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_xmassausagetoppin_panicidle",
     "tags": [],
     "resourceType": "GMSequence",

@@ -127,7 +127,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_gerome_keyidle","path":"sprites/spr_gerome_keyidle/spr_gerome_keyidle.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_gerome_keyidle",
     "tags": [],
     "resourceType": "GMSequence",

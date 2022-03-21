@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_desert_slope2","path":"sprites/spr_desert_slope2/spr_desert_slope2.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "",
     "tags": [],
     "resourceType": "GMSequence",
@@ -70,7 +70,7 @@
   "nineSlice": null,
   "parent": {
     "name": "Slopes",
-    "path": "folders/Sprites/editor/Slopes.yy",
+    "path": "folders/Sprites/sertif's editor/Slopes.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_desert_slope2",

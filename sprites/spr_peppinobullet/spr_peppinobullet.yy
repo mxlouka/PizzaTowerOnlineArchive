@@ -78,7 +78,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_peppinobullet","path":"sprites/spr_peppinobullet/spr_peppinobullet.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_peppinobullet",
     "tags": [],
     "resourceType": "GMSequence",

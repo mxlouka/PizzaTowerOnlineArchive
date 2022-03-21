@@ -30,8 +30,8 @@ if con == 1
 
 	draw_set_colour(merge_colour(c_red, c_white, 0.25));
 	draw_set_font(global.bigfont);
-	draw_text((960 / 2) + random_range(-1, 1), 100, lang_string("disclaimer.title"));
-
+	draw_text_auto((960 / 2) + random_range(-1, 1), 100, lang_string("disclaimer.title"));
+	
 	// actual text
 	draw_set_colour(c_white);
 	draw_set_font(font1);

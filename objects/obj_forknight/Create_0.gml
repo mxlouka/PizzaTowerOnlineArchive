@@ -23,7 +23,7 @@ grounded = true
 
 idlespr = spr_forknight_idle
 stunfallspr = spr_forknight_stun
-walkspr =spr_forknight_walk
+walkspr = spr_forknight_walk
 grabbedspr = spr_forknight_grabbed
 scaredspr = spr_forknight_scared
 turnspr = spr_forknight_turn

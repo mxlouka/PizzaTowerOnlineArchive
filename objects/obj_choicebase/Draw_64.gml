@@ -1,29 +1,101 @@
+if live_call() return live_result;
+
+// smooth
+function outback(arg0, arg1, arg2, arg3)
+{
+	var _s = 1;
+
+	arg0 = arg0/arg3 - 1;
+	return arg2 * (arg0 * arg0 * ((_s + 1) * arg0 + _s) + 1) + arg1;
+}
+function incubic(arg0, arg1, arg2, arg3) {
+	return arg2 * power(arg0/arg3, 3) + arg1;
+}
+
 // background
 var color = make_color_rgb(121, 103, 151);
-draw_set_alpha(0.85);
-draw_rectangle_color(0, 0, 960 - 1, 540 - 1, color, color, color, color, 0);
 
-if surface_exists(pizzasurf)
+if con == 0
 {
-	surface_set_target(pizzasurf);
+	if t == 0
+		scr_soundeffect(sfx_diagopen);
+	t = min(t + 0.05, 2);
 	
-	draw_clear_alpha(c_black, 0);
-	draw_sprite_tiled(pizza, 0, floor(x), floor(y));
-	
-	surface_reset_target();
-	draw_surface_ext(pizzasurf, 0, 0, 1, 1, 0, c_white, 0.25);
+	if surface_exists(pizzasurf)
+	{
+		surface_set_target(pizzasurf);
+		draw_clear_alpha(c_black, 0);
+		
+		var size = outback(min(t, 1), 0, 1, 1) * 560;
+		draw_set_alpha(0.9);
+		draw_circle_color(960 / 2, 540 / 2, size, color, color, false);
+		
+		var f1 = ceil(960 / 64) + 1, f2 = ceil(540 / 64) + 1, xx = floor(x), yy = floor(y);
+		if t < 2
+		{
+			for(var i = -1; i < f1; i++)
+			{
+				for(var j = -1; j < f2; j++)
+				{
+					var size2 = outback(clamp(t - (i / 15), 0, 1), 0, 1, 1);
+					draw_sprite_ext(pizza, 0, xx + i * 64, yy + j * 64, size2, size2, 0, c_white, 0.25);
+				}
+			}
+		}
+		else
+			draw_sprite_tiled_ext(pizza, 0, xx - 32, yy - 32, 1, 1, c_white, 0.25);
+		
+		surface_reset_target();
+		draw_surface_ext(pizzasurf, 0, 0, 1, 1, 0, c_white, 1);
+	}
+	else
+		pizzasurf = surface_create(960, 540);
 }
-else
-	pizzasurf = surface_create(960, 540);
+else if con == 1
+{
+	t = min(t + 0.1, 1);
+	
+	if surface_exists(pizzasurf)
+	{
+		surface_set_target(pizzasurf);
+		draw_clear_alpha(c_black, 0);
+		
+		var size = outback(1 - t, 0, 1, 1) * 560;
+		draw_set_alpha(0.9);
+		draw_circle_color(960 / 2, 540 / 2, size, color, color, false);
+		
+		draw_sprite_tiled_ext(pizza, 0, floor(x) - 32, floor(y) - 32, 1, 1, c_white, 0.25 * (1 - clamp(t, 0, 1)));
+		
+		surface_reset_target();
+		draw_surface_ext(pizzasurf, 0, 0, 1, 1, 0, c_white, 1);
+	}
+	else
+		pizzasurf = surface_create(960, 540);
+	
+	if t >= 1
+		instance_destroy();
+}
+if keyboard_check_pressed(ord("Q"))
+{
+	t = 0;
+	con = 1;
+}
+if keyboard_check_pressed(ord("W"))
+{
+	t = 0;
+	con = 0;
+}
 
-y -= 0.5;
-x += 0.5;
+y = (y - 0.5) % 64;
+x = (x + 0.5) % 64;
 
+talpha = abs(-con + clamp(t, 0, 1));
 if basetext
 {
 	// text
 	draw_set_font(titlefont);
-	draw_text((960 / 2) + random_range(-1, 1), 540 - 100, palname);
+	draw_text_auto((960 / 2) + random_range(-1, 1), 540 - 100, palname,,,talpha);
 	draw_set_font(descfont);
-	draw_text_ext(960 / 2, 540 - 64, paldesc, 16, 960 - 32);
+	draw_text_auto(960 / 2, 540 - 64, paldesc, 16, 960 - 32, talpha);
 }
+draw_set_alpha(1);

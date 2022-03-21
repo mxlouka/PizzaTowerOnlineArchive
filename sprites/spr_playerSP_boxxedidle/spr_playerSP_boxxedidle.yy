@@ -118,7 +118,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_playerSP_boxxedidle","path":"sprites/spr_playerSP_boxxedidle/spr_playerSP_boxxedidle.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_playerSP_boxxedidle",
     "tags": [],
     "resourceType": "GMSequence",

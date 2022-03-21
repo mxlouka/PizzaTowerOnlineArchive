@@ -134,11 +134,7 @@ function scr_player_normal()
 									else if angry && global.gameplay == 0
 					                    sprite_index = spr_3hpidle
 									else
-									{
-										if sprite_index != spr_idle && character == "G"
-											image_index = choose(0, 8);
 										sprite_index = spr_idle
-									}
 								}
 							}
 							else
@@ -414,7 +410,7 @@ function scr_player_normal()
 		{
 			suplexmove = true
 			if character != "SP"
-				suplexdashsnd =	audio_play_sound(sfx_suplexdash,1,0)
+				suplexdashsnd =	scr_soundeffect(sfx_suplexdash);
 			else
 				scr_soundeffect(sfx_suplexdashSP);
 	
@@ -787,7 +783,7 @@ function scr_player_normal()
 		step2 = 5;
 	}
 
-	if move != 0 && (floor(image_index) = step1 or floor(image_index) = step2) && steppy = false && character != "V"
+	if move != 0 && (floor(image_index) == step1 or floor(image_index) == step2) && steppy = false && character != "V"
 	{
 		if scr_checkskin(checkskin.p_anton)
 		{

@@ -91,7 +91,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_bigbreakableescapedes_NEW","path":"sprites/spr_bigbreakableescapedes_NEW/spr_bigbreakableescapedes_NEW.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_bigbreakableescapedes_NEW",
     "tags": [],
     "resourceType": "GMSequence",

@@ -63,7 +63,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_exitgate_NEW","path":"sprites/spr_exitgate_NEW/spr_exitgate_NEW.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_exitgate_NEW",
     "tags": [],
     "resourceType": "GMSequence",

@@ -103,7 +103,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_indiancheese_axe","path":"sprites/spr_indiancheese_axe/spr_indiancheese_axe.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_indiancheese_axe",
     "tags": [],
     "resourceType": "GMSequence",

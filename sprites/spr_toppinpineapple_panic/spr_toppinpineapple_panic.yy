@@ -79,7 +79,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_toppinpineapple_panic","path":"sprites/spr_toppinpineapple_panic/spr_toppinpineapple_panic.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_toppinpineapple_panic",
     "tags": [],
     "resourceType": "GMSequence",

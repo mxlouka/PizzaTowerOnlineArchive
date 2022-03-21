@@ -2,7 +2,7 @@
 if instance_exists(baddieID) && instance_exists(other.baddieID)
 && baddieID.state != states.grabbed && baddieID.object_index != obj_pizzaballOLD
 {
-	with (other)
+	with other
 	{
 		if baddieID != other.baddieID && id != other.id && other.baddieID.killbyenemy
 		{

@@ -107,7 +107,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_candyscore","path":"sprites/spr_candyscore/spr_candyscore.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_candyscore",
     "tags": [],
     "resourceType": "GMSequence",

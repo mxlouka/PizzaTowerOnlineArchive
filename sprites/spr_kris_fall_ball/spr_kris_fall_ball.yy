@@ -71,7 +71,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_kris_fall_ball","path":"sprites/spr_kris_fall_ball/spr_kris_fall_ball.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_kris_fall_ball",
     "tags": [],
     "resourceType": "GMSequence",

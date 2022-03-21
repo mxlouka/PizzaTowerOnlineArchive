@@ -4,6 +4,8 @@ vsp = 0;
 grav = 0;
 grounded = false;
 
+depth = 250;
+
 image_speed = 0;
 image_index = 0;
 
@@ -24,7 +26,7 @@ if object_index == obj_title
 		depth = other.depth - 1;
 	}
 }
-else if pt_online
+else
 	sprite_index = spr_title2_old;
 
 sel = 0;

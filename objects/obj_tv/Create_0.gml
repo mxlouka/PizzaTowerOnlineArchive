@@ -1,5 +1,6 @@
 image_speed = 0.1
 chose = false
+
 //Text & TV
 message = ""
 showtext = false

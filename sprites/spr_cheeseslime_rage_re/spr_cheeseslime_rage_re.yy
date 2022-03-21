@@ -127,7 +127,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_cheeseslime_rage_re","path":"sprites/spr_cheeseslime_rage_re/spr_cheeseslime_rage_re.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_cheeseslime_rage_re",
     "tags": [],
     "resourceType": "GMSequence",

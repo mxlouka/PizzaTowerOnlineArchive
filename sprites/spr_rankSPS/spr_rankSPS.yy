@@ -98,7 +98,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_rankSPS","path":"sprites/spr_rankSPS/spr_rankSPS.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_rankSPS",
     "tags": [],
     "resourceType": "GMSequence",

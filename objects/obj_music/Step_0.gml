@@ -83,6 +83,8 @@ if global.panic && !(room == custom_lvl_room && global.disableescapemusic)
 				musplay = global.gameplay == 0 ? mu_noiseescape_OLD : mu_noiseescape;
 			else if obj_player1.character == "S"
 				musplay = mu_snickescape;
+			else if obj_player1.character == "PP"
+				musplay = mu_pizzatime_PP;
 			else if obj_player1.character == "SP"
 				musplay = global.gameplay == 0 ? mu_pizzyescape_OLD : mu_pizzyescape;
 			else // peppino, etc
@@ -106,16 +108,19 @@ if global.miniboss
 else if audio_is_playing(mu_miniboss)
 	audio_stop_sound(global.music);
 
-// pizza castle
-if global.musicgame == 1
-	musplay = scr_getmidi(musplay);
-
-// actually play the song
-if audio_exists(musplay) && !audio_is_playing(musplay)
-&& !obj_pause.pause && !obj_camera.ded
+if musplay > -1
 {
-	audio_stop_sound(global.music);
-	scr_sound(musplay);
+	// pizza castle
+	if global.musicgame == 1
+		musplay = scr_getmidi(musplay);
+
+	// actually play the song
+	if audio_exists(musplay) && !audio_is_playing(musplay)
+	&& !obj_pause.pause && !obj_camera.ded
+	{
+		audio_stop_sound(global.music);
+		scr_sound(musplay);
+	}
 }
 
 // last music position

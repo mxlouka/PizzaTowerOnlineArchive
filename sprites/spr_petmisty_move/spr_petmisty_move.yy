@@ -67,7 +67,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_petmisty_move","path":"sprites/spr_petmisty_move/spr_petmisty_move.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_petmisty_move",
     "tags": [],
     "resourceType": "GMSequence",

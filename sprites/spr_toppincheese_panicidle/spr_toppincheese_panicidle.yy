@@ -79,7 +79,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_toppincheese_panicidle","path":"sprites/spr_toppincheese_panicidle/spr_toppincheese_panicidle.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_toppincheese_panicidle",
     "tags": [],
     "resourceType": "GMSequence",

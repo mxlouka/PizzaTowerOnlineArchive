@@ -74,7 +74,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_playerSP_cotton_drill","path":"sprites/spr_playerSP_cotton_drill/spr_playerSP_cotton_drill.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_playerSP_cotton_drill",
     "tags": [],
     "resourceType": "GMSequence",

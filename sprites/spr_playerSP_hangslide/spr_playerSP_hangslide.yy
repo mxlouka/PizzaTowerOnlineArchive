@@ -70,7 +70,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_playerSP_hangslide","path":"sprites/spr_playerSP_hangslide/spr_playerSP_hangslide.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_playerSP_hangslide",
     "tags": [],
     "resourceType": "GMSequence",

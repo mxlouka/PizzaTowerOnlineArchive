@@ -103,7 +103,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_toppinshroom_NEW","path":"sprites/spr_toppinshroom_NEW/spr_toppinshroom_NEW.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_toppinshroom_NEW",
     "tags": [],
     "resourceType": "GMSequence",

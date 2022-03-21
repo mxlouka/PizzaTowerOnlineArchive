@@ -122,7 +122,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_playerSP_cotton_run","path":"sprites/spr_playerSP_cotton_run/spr_playerSP_cotton_run.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_playerSP_cotton_run",
     "tags": [],
     "resourceType": "GMSequence",

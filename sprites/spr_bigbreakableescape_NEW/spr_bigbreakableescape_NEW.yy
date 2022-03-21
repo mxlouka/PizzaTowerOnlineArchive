@@ -87,7 +87,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_bigbreakableescape_NEW","path":"sprites/spr_bigbreakableescape_NEW/spr_bigbreakableescape_NEW.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_bigbreakableescape_NEW",
     "tags": [],
     "resourceType": "GMSequence",

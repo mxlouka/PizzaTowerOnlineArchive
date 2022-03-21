@@ -107,7 +107,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_petgerald_idle","path":"sprites/spr_petgerald_idle/spr_petgerald_idle.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_petgerald_idle",
     "tags": [],
     "resourceType": "GMSequence",

@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"bg_jawbreaker3","path":"sprites/bg_jawbreaker3/bg_jawbreaker3.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "bg_jawbreaker3",
     "tags": [],
     "resourceType": "GMSequence",

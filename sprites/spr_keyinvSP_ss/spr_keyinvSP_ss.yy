@@ -62,7 +62,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_keyinvSP_ss","path":"sprites/spr_keyinvSP_ss/spr_keyinvSP_ss.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_keyinvSP_ss",
     "tags": [],
     "resourceType": "GMSequence",

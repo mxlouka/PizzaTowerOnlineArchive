@@ -79,7 +79,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_xmassausagetoppin_panic","path":"sprites/spr_xmassausagetoppin_panic/spr_xmassausagetoppin_panic.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_xmassausagetoppin_panic",
     "tags": [],
     "resourceType": "GMSequence",

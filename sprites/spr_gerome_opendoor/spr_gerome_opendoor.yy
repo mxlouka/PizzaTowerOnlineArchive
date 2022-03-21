@@ -147,7 +147,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_gerome_opendoor","path":"sprites/spr_gerome_opendoor/spr_gerome_opendoor.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_gerome_opendoor",
     "tags": [],
     "resourceType": "GMSequence",

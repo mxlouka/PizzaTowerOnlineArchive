@@ -135,7 +135,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_phone","path":"sprites/spr_phone/spr_phone.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_phone",
     "tags": [],
     "resourceType": "GMSequence",

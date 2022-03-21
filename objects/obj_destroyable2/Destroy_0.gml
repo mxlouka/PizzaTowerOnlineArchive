@@ -22,12 +22,11 @@ if ds_list_find_index(global.saveroom, id) == -1 && !global.snickchallenge
 		
 			if other.sprite_index == spr_halloweensmallblock
 			or other.sprite_index == spr_xmasblock
-			or other.sprite_index == spr_destroyable2_ss_noise
 				sprite_index = spr_halloweendebris;
 			else if other.sprite_index == spr_destroyable2_ss
 				sprite_index = spr_pizzadebris_ss;
-			else if other.sprite_index == spr_destroyable2_ss_pizza
-				sprite_index = spr_pizzadebris_ss_pizza;
+			else if other.sprite_index == spr_destroyable2_PP
+				sprite_index = spr_pizzadebris_PP;
 			else
 				sprite_index = spr_pizzadebris;
 		}

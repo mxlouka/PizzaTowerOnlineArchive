@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"bg_cotton6","path":"sprites/bg_cotton6/bg_cotton6.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "bg_cotton6",
     "tags": [],
     "resourceType": "GMSequence",

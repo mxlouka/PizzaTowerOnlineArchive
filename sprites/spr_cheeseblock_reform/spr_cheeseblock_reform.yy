@@ -71,7 +71,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_cheeseblock_reform","path":"sprites/spr_cheeseblock_reform/spr_cheeseblock_reform.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_cheeseblock_reform",
     "tags": [],
     "resourceType": "GMSequence",

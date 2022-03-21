@@ -35,7 +35,7 @@ function scr_player_freefallland()
 	else
 	{
 		var img = image_number - 1;
-		if character == "P" or character == "SP" or character == "G"
+		if character == "P" or character == "SP" or character == "PP"
 			img = 4;
 		if character == "N" or character == "S"
 			img = 3;

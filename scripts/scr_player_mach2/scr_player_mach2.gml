@@ -164,19 +164,20 @@ function scr_player_mach2()
 	
 	//Effect
 	if !(instance_exists(dashcloudid)) && grounded
-	with instance_create(x,y,obj_dashcloud)
+	with instance_create(x, y, obj_dashcloud)
 	{
 		image_xscale = other.xscale
 		other.dashcloudid = id
 	}
+	
 	if !(instance_exists(speedlineseffectid)) && grounded && global.gameplay != 0
-	with instance_create(x,y,obj_speedlines)
+	with instance_create(x, y, obj_speedlines)
 	{
 		image_xscale = other.xscale
 		other.speedlineseffectid = id
 	}
 	
-	if grounded && floor(image_index) = image_number - 1 && sprite_index = spr_rollgetup
+	if grounded && floor(image_index) >= image_number - 1 && sprite_index == spr_rollgetup
 	{
 		if character == "P" && scr_stylecheck(2)
 			sprite_index = spr_player_machhit

@@ -83,7 +83,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_presentbox_activate","path":"sprites/spr_presentbox_activate/spr_presentbox_activate.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_presentbox_activate",
     "tags": [],
     "resourceType": "GMSequence",

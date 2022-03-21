@@ -17,22 +17,47 @@ else
 {
 	// get rank music
 	var ranksound = mu_ranka;
-	if global.rank == "s"
-		ranksound = mu_ranks;
-	if global.rank == "b" or global.rank == "c"
-		ranksound = mu_rankc;
-	if global.rank == "d"
-		ranksound = mu_rankd;
+	if instance_exists(obj_player) && (obj_player.character == "SP" or obj_player.character == "SN")
+	{
+		// sugary spire's shitty one
+		ranksound = mu_ranka_ss;
+		if global.rank == "s" or global.rank == "yousuck"
+			ranksound = mu_ranks_ss;
+		if global.rank == "b"
+			ranksound = mu_rankb_ss;
+		if global.rank == "c"
+			ranksound = mu_rankc_ss;
+		if global.rank == "d"
+			ranksound = mu_rankd_ss;
+		alarm[0] = room_speed * 3.55;
+	}
+	else
+	{
+		if global.rank == "s" or global.rank == "yousuck"
+			ranksound = mu_ranks;
+		if global.rank == "b" or global.rank == "c"
+			ranksound = mu_rankc;
+		if global.rank == "d"
+			ranksound = mu_rankd;
+	}
+	
+	/* nothing related to this cunt deserves to be anywhere near my game
+	
 	if global.rank == "yousuck"
 	{
 		ranksound = mu_ranksuck;
 		if global.musicgame != 1
 			alarm[0] = room_speed * 3.5;
 	}
+	*/
 	
 	// apply pizza castle
 	if global.musicgame == 1
 		ranksound = scr_getmidi(ranksound);
+	
+	// pp
+	if instance_exists(obj_player) && obj_player.character == "PP"
+		ranksound = mu_ranks_PP;
 	
 	// play
 	audio_stop_sound(sfx_escaperumble);

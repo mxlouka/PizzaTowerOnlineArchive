@@ -74,7 +74,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_playerN_superspring","path":"sprites/spr_playerN_superspring/spr_playerN_superspring.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_playerN_superspring",
     "tags": [],
     "resourceType": "GMSequence",

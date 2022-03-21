@@ -75,7 +75,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_emoji","path":"sprites/spr_emoji/spr_emoji.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_emoji",
     "tags": [],
     "resourceType": "GMSequence",

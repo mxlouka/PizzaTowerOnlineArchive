@@ -67,7 +67,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_noisey_bouncefall","path":"sprites/spr_noisey_bouncefall/spr_noisey_bouncefall.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_noisey_bouncefall",
     "tags": [],
     "resourceType": "GMSequence",

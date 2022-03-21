@@ -6,6 +6,7 @@ enum HATS
 	cowboy1,
 	snickcrown,
 	cowboy2,
+	scatman,
 	
 	length
 }

@@ -67,7 +67,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_kris_fall_smear","path":"sprites/spr_kris_fall_smear/spr_kris_fall_smear.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_kris_fall_smear",
     "tags": [],
     "resourceType": "GMSequence",

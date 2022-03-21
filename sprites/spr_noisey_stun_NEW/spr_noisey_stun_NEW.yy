@@ -67,7 +67,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_noisey_stun_NEW","path":"sprites/spr_noisey_stun_NEW/spr_noisey_stun_NEW.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_noisey_stun_NEW",
     "tags": [],
     "resourceType": "GMSequence",

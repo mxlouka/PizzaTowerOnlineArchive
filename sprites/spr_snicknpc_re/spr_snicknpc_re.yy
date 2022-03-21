@@ -67,7 +67,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_snicknpc_re","path":"sprites/spr_snicknpc_re/spr_snicknpc_re.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_snicknpc_re",
     "tags": [],
     "resourceType": "GMSequence",

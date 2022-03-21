@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_beach_slope1","path":"sprites/spr_beach_slope1/spr_beach_slope1.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "",
     "tags": [],
     "resourceType": "GMSequence",
@@ -70,7 +70,7 @@
   "nineSlice": null,
   "parent": {
     "name": "Slopes",
-    "path": "folders/Sprites/editor/Slopes.yy",
+    "path": "folders/Sprites/sertif's editor/Slopes.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_beach_slope1",

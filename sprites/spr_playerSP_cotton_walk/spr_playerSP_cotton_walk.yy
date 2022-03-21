@@ -154,7 +154,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_playerSP_cotton_walk","path":"sprites/spr_playerSP_cotton_walk/spr_playerSP_cotton_walk.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_playerSP_cotton_walk",
     "tags": [],
     "resourceType": "GMSequence",

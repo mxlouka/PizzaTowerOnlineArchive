@@ -79,7 +79,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_sidespringblock_bounce","path":"sprites/spr_sidespringblock_bounce/spr_sidespringblock_bounce.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_sidespringblock_bounce",
     "tags": [],
     "resourceType": "GMSequence",

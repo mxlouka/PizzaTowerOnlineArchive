@@ -1,20 +1,16 @@
-function scr_sound(snd)
+function scr_sound(mus, loop = true)
 {
-	/// @param music
-	/// @param <loops>
-	var loop = (argument_count > 1 ? argument[1] : true);
-	
-	global.music = audio_play_sound(snd, 10, loop);
-	
-	if room != rm_disclaimer
+	if instance_exists(obj_player)
 	{
-		/*
-		if global.musicgame == 1
-			audio_sound_gain(global.music, min(global.musicvolume * 1.6, 1), 1);
-		else
-		*/
-			audio_sound_gain(global.music, global.musicvolume, 1);
+		if obj_player.character == "PP"
+		{
+			if asset_get_type(audio_get_name(mus) + "_PP") == asset_sound
+				mus = asset_get_index(audio_get_name(mus) + "_PP");
+		}
 	}
 	
+	global.music = audio_play_sound(mus, 1, loop);
+	if room != rm_disclaimer
+		audio_sound_gain(global.music, global.musicvolume, 0);
 	return global.music;
 }

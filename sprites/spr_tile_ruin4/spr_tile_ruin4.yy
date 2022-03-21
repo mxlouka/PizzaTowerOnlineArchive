@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_tile_ruin4","path":"sprites/spr_tile_ruin4/spr_tile_ruin4.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "",
     "tags": [],
     "resourceType": "GMSequence",
@@ -70,7 +70,7 @@
   "nineSlice": null,
   "parent": {
     "name": "Tiles",
-    "path": "folders/Sprites/editor/Tiles.yy",
+    "path": "folders/Sprites/sertif's editor/Tiles.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_tile_ruin4",

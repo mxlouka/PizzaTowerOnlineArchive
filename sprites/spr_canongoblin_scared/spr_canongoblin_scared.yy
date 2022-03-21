@@ -75,7 +75,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_canongoblin_scared","path":"sprites/spr_canongoblin_scared/spr_canongoblin_scared.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_canongoblin_scared",
     "tags": [],
     "resourceType": "GMSequence",

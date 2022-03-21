@@ -63,7 +63,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_tv_cheesepepN","path":"sprites/spr_tv_cheesepepN/spr_tv_cheesepepN.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_tv_cheesepepN",
     "tags": [],
     "resourceType": "GMSequence",

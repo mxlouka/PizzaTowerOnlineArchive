@@ -106,7 +106,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_playerSP_fireassground","path":"sprites/spr_playerSP_fireassground/spr_playerSP_fireassground.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_playerSP_fireassground",
     "tags": [],
     "resourceType": "GMSequence",

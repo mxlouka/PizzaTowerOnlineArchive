@@ -83,7 +83,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_smurfknight_walk","path":"sprites/spr_smurfknight_walk/spr_smurfknight_walk.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_smurfknight_walk",
     "tags": [],
     "resourceType": "GMSequence",
@@ -94,7 +94,7 @@
   "nineSlice": null,
   "parent": {
     "name": "knight",
-    "path": "folders/Sprites/baddie/SUGARY SPIRE/knight.yy",
+    "path": "folders/Sprites/sugary spire/baddie/knight.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_smurfknight_walk",

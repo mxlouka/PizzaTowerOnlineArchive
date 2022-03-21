@@ -82,7 +82,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_snick_cheeseball","path":"sprites/spr_snick_cheeseball/spr_snick_cheeseball.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_snick_cheeseball",
     "tags": [],
     "resourceType": "GMSequence",

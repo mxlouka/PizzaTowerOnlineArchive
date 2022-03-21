@@ -90,7 +90,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_playerN_mortthrow","path":"sprites/spr_playerN_mortthrow/spr_playerN_mortthrow.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_playerN_mortthrow",
     "tags": [],
     "resourceType": "GMSequence",

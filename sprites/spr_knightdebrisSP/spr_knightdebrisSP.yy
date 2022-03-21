@@ -78,7 +78,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_knightdebrisSP","path":"sprites/spr_knightdebrisSP/spr_knightdebrisSP.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_knightdebrisSP",
     "tags": [],
     "resourceType": "GMSequence",

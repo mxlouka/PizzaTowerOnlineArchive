@@ -162,7 +162,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_playerV_gotkey_ss","path":"sprites/spr_playerV_gotkey_ss/spr_playerV_gotkey_ss.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_playerV_gotkey_ss",
     "tags": [],
     "resourceType": "GMSequence",

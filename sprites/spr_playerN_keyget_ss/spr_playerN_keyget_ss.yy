@@ -194,7 +194,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_playerN_keyget_ss","path":"sprites/spr_playerN_keyget_ss/spr_playerN_keyget_ss.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_playerN_keyget_ss",
     "tags": [],
     "resourceType": "GMSequence",

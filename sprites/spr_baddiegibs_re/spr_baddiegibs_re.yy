@@ -115,7 +115,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_baddiegibs_re","path":"sprites/spr_baddiegibs_re/spr_baddiegibs_re.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_baddiegibs_re",
     "tags": [],
     "resourceType": "GMSequence",

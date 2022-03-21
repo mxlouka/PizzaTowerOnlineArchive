@@ -119,7 +119,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_shroomcollect_NEW","path":"sprites/spr_shroomcollect_NEW/spr_shroomcollect_NEW.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_shroomcollect_NEW",
     "tags": [],
     "resourceType": "GMSequence",

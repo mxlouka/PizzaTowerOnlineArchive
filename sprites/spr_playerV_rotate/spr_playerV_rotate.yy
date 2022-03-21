@@ -74,7 +74,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_playerV_rotate","path":"sprites/spr_playerV_rotate/spr_playerV_rotate.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_playerV_rotate",
     "tags": [],
     "resourceType": "GMSequence",

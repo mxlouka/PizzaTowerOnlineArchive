@@ -67,7 +67,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_susie_dw_fall_d","path":"sprites/spr_susie_dw_fall_d/spr_susie_dw_fall_d.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_susie_dw_fall_d",
     "tags": [],
     "resourceType": "GMSequence",

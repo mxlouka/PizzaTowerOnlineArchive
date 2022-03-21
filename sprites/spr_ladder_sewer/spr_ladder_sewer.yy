@@ -67,7 +67,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_ladder_sewer","path":"sprites/spr_ladder_sewer/spr_ladder_sewer.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_ladder_sewer",
     "tags": [],
     "resourceType": "GMSequence",

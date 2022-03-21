@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_rematchplugsleep","path":"sprites/spr_rematchplugsleep/spr_rematchplugsleep.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_rematchplugsleep",
     "tags": [],
     "resourceType": "GMSequence",

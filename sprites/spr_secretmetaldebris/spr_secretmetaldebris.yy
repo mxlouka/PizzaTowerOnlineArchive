@@ -71,7 +71,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_secretmetaldebris","path":"sprites/spr_secretmetaldebris/spr_secretmetaldebris.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_secretmetaldebris",
     "tags": [],
     "resourceType": "GMSequence",

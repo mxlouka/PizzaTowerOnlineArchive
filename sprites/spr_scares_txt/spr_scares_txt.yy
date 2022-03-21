@@ -79,7 +79,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_scares_txt","path":"sprites/spr_scares_txt/spr_scares_txt.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_scares_txt",
     "tags": [],
     "resourceType": "GMSequence",

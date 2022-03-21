@@ -87,7 +87,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_bigcollect2","path":"sprites/spr_bigcollect2/spr_bigcollect2.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_bigcollect2",
     "tags": [],
     "resourceType": "GMSequence",

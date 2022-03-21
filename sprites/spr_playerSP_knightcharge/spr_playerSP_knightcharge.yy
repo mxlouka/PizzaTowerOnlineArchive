@@ -70,7 +70,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_playerSP_knightcharge","path":"sprites/spr_playerSP_knightcharge/spr_playerSP_knightcharge.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_playerSP_knightcharge",
     "tags": [],
     "resourceType": "GMSequence",

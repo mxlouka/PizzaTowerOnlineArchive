@@ -3,7 +3,7 @@ image_speed = 0.5
 image_xscale = obj_player1.xscale
 sprite_index = spr_supercharge
 
-if obj_player1.character == "S" or obj_player1.character == "G"
+if obj_player1.character == "S" or obj_player1.character == "PP"
 {
 	image_speed = 0;
 	sprite_index = obj_player1.sprite_index;

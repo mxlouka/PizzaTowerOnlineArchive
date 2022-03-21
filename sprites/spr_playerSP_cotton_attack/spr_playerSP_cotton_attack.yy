@@ -74,7 +74,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_playerSP_cotton_attack","path":"sprites/spr_playerSP_cotton_attack/spr_playerSP_cotton_attack.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_playerSP_cotton_attack",
     "tags": [],
     "resourceType": "GMSequence",

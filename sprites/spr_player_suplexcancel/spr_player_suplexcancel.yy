@@ -98,7 +98,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_player_suplexcancel","path":"sprites/spr_player_suplexcancel/spr_player_suplexcancel.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_player_suplexcancel",
     "tags": [],
     "resourceType": "GMSequence",

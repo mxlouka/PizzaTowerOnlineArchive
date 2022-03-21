@@ -150,7 +150,7 @@ function scr_collide_destructibles()
 		}
 		
 		// Superjump destroy metal
-		if state == states.Sjump && springsjump
+		if state == states.Sjump && (springsjump or check_sugary())
 		{
 			if place_meeting(x, y - 1, obj_metalblock)
 			{

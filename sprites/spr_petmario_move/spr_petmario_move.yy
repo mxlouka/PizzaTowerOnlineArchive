@@ -71,7 +71,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_petmario_move","path":"sprites/spr_petmario_move/spr_petmario_move.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_petmario_move",
     "tags": [],
     "resourceType": "GMSequence",

@@ -74,7 +74,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_playerN_golflook3","path":"sprites/spr_playerN_golflook3/spr_playerN_golflook3.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_playerN_golflook3",
     "tags": [],
     "resourceType": "GMSequence",

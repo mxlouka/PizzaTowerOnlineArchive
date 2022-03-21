@@ -67,7 +67,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_gerome_keymove","path":"sprites/spr_gerome_keymove/spr_gerome_keymove.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_gerome_keymove",
     "tags": [],
     "resourceType": "GMSequence",

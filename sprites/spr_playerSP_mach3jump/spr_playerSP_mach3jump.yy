@@ -78,7 +78,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_playerSP_mach3jump","path":"sprites/spr_playerSP_mach3jump/spr_playerSP_mach3jump.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_playerSP_mach3jump",
     "tags": [],
     "resourceType": "GMSequence",

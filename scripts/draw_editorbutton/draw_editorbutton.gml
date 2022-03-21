@@ -20,7 +20,7 @@ function draw_editorbutton()
 	draw_set_halign(fa_center);
 	draw_set_valign(fa_middle);
 	
-	draw_text(xx + 192 / 2, yy + 48 / 2, str);
+	draw_text_auto(xx + 192 / 2, yy + 48 / 2, str);
 	
 	draw_set_halign(fa_left);
 	draw_set_valign(fa_top);

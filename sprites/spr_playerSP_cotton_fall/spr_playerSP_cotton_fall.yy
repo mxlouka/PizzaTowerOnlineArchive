@@ -138,7 +138,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_playerSP_cotton_fall","path":"sprites/spr_playerSP_cotton_fall/spr_playerSP_cotton_fall.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_playerSP_cotton_fall",
     "tags": [],
     "resourceType": "GMSequence",

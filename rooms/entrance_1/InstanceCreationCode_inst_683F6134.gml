@@ -2,7 +2,7 @@ prompt_condition = function()
 {
 	with obj_player1
 	{
-	    if ((sprite_index == spr_Timesup && floor(image_index) == image_number - 2) or state == states.normal)
+	    if ((sprite_index == spr_Timesup && floor(image_index) >= image_number - 2) or state == states.normal)
 		&& (place_meeting(x, y, obj_exitgate) or character == "S")
 	        return true;
 	}
@@ -18,6 +18,7 @@ if instance_exists(obj_player1)
 	switch obj_player1.character
 	{
 		case "SP":
+		case "SN":
 			str1 = "It seems the gate behind the candyman has slammed shut! No way around it.";
 			break;
 		case "N":
@@ -30,6 +31,10 @@ if instance_exists(obj_player1)
 		case "S":
 			str1 = "It seems the gate has magically disappeared when this porcupine came around! No way around it.";
 			str2 = "Looks like this odd-looking creature will have to explore this deeply strange place...";
+			break;
+		case "PP":
+			str1 = "It seems the gate behind the dripping piss man has slammed shut! No way around it.";
+			str2 = "Looks like this odd man will have to explore this deeply strange place...";
 			break;
 	}
 }

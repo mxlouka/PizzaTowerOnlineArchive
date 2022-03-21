@@ -106,7 +106,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_tv_idleSP","path":"sprites/spr_tv_idleSP/spr_tv_idleSP.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_tv_idleSP",
     "tags": [],
     "resourceType": "GMSequence",

@@ -63,7 +63,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_tv_barrel","path":"sprites/spr_tv_barrel/spr_tv_barrel.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_tv_barrel",
     "tags": [],
     "resourceType": "GMSequence",

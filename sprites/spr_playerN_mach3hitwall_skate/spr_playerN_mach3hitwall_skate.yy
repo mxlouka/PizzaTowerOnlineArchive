@@ -126,7 +126,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_playerN_mach3hitwall_skate","path":"sprites/spr_playerN_mach3hitwall_skate/spr_playerN_mach3hitwall_skate.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_playerN_mach3hitwall_skate",
     "tags": [],
     "resourceType": "GMSequence",

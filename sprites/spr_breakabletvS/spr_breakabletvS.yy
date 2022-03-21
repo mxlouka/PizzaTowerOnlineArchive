@@ -123,7 +123,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_breakabletvS","path":"sprites/spr_breakabletvS/spr_breakabletvS.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_breakabletvS",
     "tags": [],
     "resourceType": "GMSequence",

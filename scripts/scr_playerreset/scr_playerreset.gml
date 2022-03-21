@@ -330,5 +330,7 @@ function scr_playerreset()
 		mort = false;
 		shot = false;
 		endtumble = false
+		
+		konami = "";
 	}
 }

@@ -202,7 +202,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_googlyeyes","path":"sprites/spr_googlyeyes/spr_googlyeyes.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "",
     "tags": [],
     "resourceType": "GMSequence",

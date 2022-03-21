@@ -70,7 +70,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_playerSP_present","path":"sprites/spr_playerSP_present/spr_playerSP_present.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_playerSP_present",
     "tags": [],
     "resourceType": "GMSequence",

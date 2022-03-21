@@ -1,4 +1,4 @@
-/// @description 
+/// @description custom level rank
 if room == custom_lvl_room
 {
 	global.srank = obj_score_set.x

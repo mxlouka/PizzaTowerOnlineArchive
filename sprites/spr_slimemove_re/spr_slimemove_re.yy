@@ -94,7 +94,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_slimemove_re","path":"sprites/spr_slimemove_re/spr_slimemove_re.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_slimemove_re",
     "tags": [],
     "resourceType": "GMSequence",

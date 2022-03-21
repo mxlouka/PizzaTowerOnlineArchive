@@ -369,7 +369,7 @@ switch menu
 		draw_set_valign(fa_middle);
 		
 		draw_set_font(global.bigfont);
-		draw_text(960 / 2, 128, string_upper(string(level_name))); // level name
+		draw_text_auto(960 / 2, 128, string_upper(string(level_name))); // level name
 		
 		draw_set_font(global.font_small);
 		draw_text(960 / 2, 192, lang_string("editor.menu.level.author") + string(level_author)); // by whoever

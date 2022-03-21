@@ -70,7 +70,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_playerSP_knightidle","path":"sprites/spr_playerSP_knightidle/spr_playerSP_knightidle.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_playerSP_knightidle",
     "tags": [],
     "resourceType": "GMSequence",

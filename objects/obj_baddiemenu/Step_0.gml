@@ -38,7 +38,8 @@ if !instance_exists(baddieid)
 if refresh <= 0 && content != noone
 {
 	showbaddie = false;
-	image_speed = 0.35
+	image_speed = 0.35;
+	
 	if floor(image_index) == 5
 	{
 		var _c = content;
@@ -48,16 +49,16 @@ if refresh <= 0 && content != noone
 		with instance_create(x, y - 20, _c)
 		{
 			image_xscale = other.image_xscale;
-			state = states.stun
-			stunned = 50
-			vsp = -5
-			other.baddieid = id
-			important = true
+			state = states.stun;
+			stunned = 50;
+			vsp = -5;
+			other.baddieid = id;
+			important = true;
 			
 			if other.content == "special1"
 				cigar = true;
 		}
 		
-		refresh = 100
+		refresh = 100;
 	}
 }

@@ -67,7 +67,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_petraton_idle","path":"sprites/spr_petraton_idle/spr_petraton_idle.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_petraton_idle",
     "tags": [],
     "resourceType": "GMSequence",

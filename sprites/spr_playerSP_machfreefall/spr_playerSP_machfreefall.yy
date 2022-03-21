@@ -74,7 +74,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_playerSP_machfreefall","path":"sprites/spr_playerSP_machfreefall/spr_playerSP_machfreefall.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_playerSP_machfreefall",
     "tags": [],
     "resourceType": "GMSequence",

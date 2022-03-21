@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_tv_cotton","path":"sprites/spr_tv_cotton/spr_tv_cotton.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_tv_cotton",
     "tags": [],
     "resourceType": "GMSequence",

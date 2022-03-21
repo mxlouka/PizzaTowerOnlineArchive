@@ -68,6 +68,8 @@ else if (!global.panic or string_letters(roomname) == "dragonlair" or string_let
 		musplay = mu_hub2
 	if string_startswith(roomname, "hub_roomMOD")
 		musplay = mu_hubarcade
+	if string_startswith(roomname, "hub_roomSP")
+		musplay = mu_sugarytitle
 	if string_startswith(roomname, "hub_roomE")
 	{
 		if room == hub_roomE2
@@ -292,13 +294,12 @@ else if (!global.panic or string_letters(roomname) == "dragonlair" or string_let
 				if audio_is_playing(mu_tutorial)
 					fadeoff = 0;
 				
-				if scr_checkskin(checkskin.p_peter)
+				if scr_checkskin(checkskin.p_peter) && global.musicgame != 1
 					musplay = music_onepizzaatatime
 				else
 					musplay = mu_ruin
 			}
 			else if roomname == "etb_secret" + string(i)
-			//&& global.gameplay == 0
 				musplay = mu_ruinsecret
 		}
 	}
@@ -407,24 +408,27 @@ else if (!global.panic or string_letters(roomname) == "dragonlair" or string_let
 
 #endregion
 
-// repaint joke build
-if repaintjokebuild
+if musplay > -1
 {
-	var sndrep = asset_get_index(audio_get_name(musplay) + "_PP");
-	if audio_exists(sndrep)
-		musplay = sndrep;
-}
+	// repaint joke build
+	if repaintjokebuild
+	{
+		var sndrep = asset_get_index(audio_get_name(musplay) + "_PP");
+		if audio_exists(sndrep)
+			musplay = sndrep;
+	}
 
-// pizza castle
-if global.musicgame == 1
-	musplay = scr_getmidi(musplay);
-
-// play the song
-if musplay > -1 && !audio_is_playing(musplay)
-{
-	audio_stop_sound(global.music);
-	pausedmusic = scr_sound(musplay);
-	audio_sound_set_track_position(global.music, fadeoff % audio_sound_length(musplay));
+	// pizza castle
+	if global.musicgame == 1
+		musplay = scr_getmidi(musplay);
+	
+	// play the song
+	if !audio_is_playing(musplay)
+	{
+		audio_stop_sound(global.music);
+		pausedmusic = scr_sound(musplay);
+		audio_sound_set_track_position(global.music, fadeoff % audio_sound_length(musplay));
+	}
 }
 
 if forcefadeoff != -1
@@ -432,5 +436,4 @@ if forcefadeoff != -1
 	audio_sound_set_track_position(global.music, forcefadeoff);
 	forcefadeoff = -1;
 }
-
 audio_sound_pitch(global.music, musicpitch);

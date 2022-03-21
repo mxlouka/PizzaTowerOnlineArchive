@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"tile_warslope","path":"sprites/tile_warslope/tile_warslope.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "tile_warslope",
     "tags": [],
     "resourceType": "GMSequence",

@@ -98,7 +98,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_playerSP_slipnslide","path":"sprites/spr_playerSP_slipnslide/spr_playerSP_slipnslide.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_playerSP_slipnslide",
     "tags": [],
     "resourceType": "GMSequence",

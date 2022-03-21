@@ -70,7 +70,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_snick_idle","path":"sprites/spr_snick_idle/spr_snick_idle.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_snick_idle",
     "tags": [],
     "resourceType": "GMSequence",

@@ -118,6 +118,8 @@ if instance_exists(player) && player.state != states.timesup && player.state != 
 	var cam_view = view_camera[0];
 	var cam_width = camera_get_view_width(cam_view);
 	var cam_height = camera_get_view_height(cam_view);
+	var cam_xprev = camera_get_view_x(cam_view);
+	var cam_yprev = camera_get_view_y(cam_view);
 	
 	// calculate shaking
 	if shake_mag != 0
@@ -147,7 +149,7 @@ if instance_exists(player) && player.state != states.timesup && player.state != 
 		yy += movev * chspd;
 		
 		targetgoingback = true;
-		camera_set_view_pos(cam_view, xx, yy);
+		camera_set_view_pos(cam_view, lerp(xx, cam_xprev, (0.9 * global.camerasmoothing) * !frameone), lerp(yy, cam_yprev, (0.9 * global.camerasmoothing) * !frameone));
 	}
 	else
 	{
@@ -235,7 +237,6 @@ if instance_exists(player) && player.state != states.timesup && player.state != 
 				// go to position
 				var xx = Approach(camera_get_view_x(cam_view), tx, maxspeed);
 				var yy = Approach(camera_get_view_y(cam_view), ty, maxspeed);
-				camera_set_view_pos(cam_view, xx, yy);
 			
 				// stop when done
 				if xx == tx && yy == ty
@@ -244,11 +245,10 @@ if instance_exists(player) && player.state != states.timesup && player.state != 
 			else
 			{
 				// normal camera
-				camera_set_view_pos(cam_view,
-					 target.x - (cam_width / 2) + chargecamera + chargesmooth + pancur[0],
-					 target.y - (cam_height / 2) + floor(crouchcamera) + pancur[1]
-				);
+				var xx = target.x - (cam_width / 2) + chargecamera + chargesmooth + pancur[0];
+				var yy = target.y - (cam_height / 2) + floor(crouchcamera) + pancur[1];
 			}
+			camera_set_view_pos(cam_view, lerp(xx, cam_xprev, (0.9 * global.camerasmoothing) * !frameone), lerp(yy, cam_yprev, (0.9 * global.camerasmoothing) * !frameone));
 		}
 		else
 		{
@@ -291,11 +291,13 @@ if instance_exists(player) && player.state != states.timesup && player.state != 
 			{
 				with obj_baddiecollisionbox
 				{
-					if instance_exists(baddieID) && !baddieID.thrown && baddieID.state != states.grabbed
-					{
-						instance_deactivate_object(self);
-						instance_deactivate_object(baddieID);
-					}
+					if !instance_exists(baddieID) or (!baddieID.thrown && baddieID.state != states.grabbed)
+						instance_deactivate_object(id);
+				}
+				with obj_baddie
+				{
+					if !thrown && state != states.grabbed
+						instance_deactivate_object(id);
 				}
 				instance_deactivate_object(obj_forkhitbox);
 				instance_deactivate_object(obj_cheesedragon);
@@ -349,3 +351,5 @@ if global.panic or global.snickchallenge
 	
 	global.wave = max(global.maxwave - (global.minutes * 60 + global.seconds + camsmooth) * 60, 0);
 }
+
+frameone = false;

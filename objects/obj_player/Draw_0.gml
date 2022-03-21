@@ -89,8 +89,6 @@ if instance_exists(obj_gms) && gms_info_isloggedin()
 	// apply color
 	if gms_self_isowner()
 		draw_set_colour(make_colour_hsv(color_get_hue(c_owner), color_get_saturation(c_owner), color_get_value(c_owner) * (color_get_value(col) / 255)));
-	else if string_lower(gms_self_name()) == "spectralpeic"
-		draw_set_colour(make_colour_hsv(color_get_hue(c_peicy), color_get_saturation(c_peicy), color_get_value(c_peicy) * (color_get_value(col) / 255)));
 	else if gms_self_admin_rights()
 		draw_set_colour(make_colour_hsv(color_get_hue(c_admin), color_get_saturation(c_admin), color_get_value(c_admin) * (color_get_value(col) / 255)));
 	else if global.pvp

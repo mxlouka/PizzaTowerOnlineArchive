@@ -87,7 +87,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_pizzaportal_disappear","path":"sprites/spr_pizzaportal_disappear/spr_pizzaportal_disappear.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_pizzaportal_disappear",
     "tags": [],
     "resourceType": "GMSequence",

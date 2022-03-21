@@ -94,7 +94,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_playerSP_machfreefallland","path":"sprites/spr_playerSP_machfreefallland/spr_playerSP_machfreefallland.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_playerSP_machfreefallland",
     "tags": [],
     "resourceType": "GMSequence",

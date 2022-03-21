@@ -146,7 +146,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_shrimp_idlepaltest","path":"sprites/spr_shrimp_idlepaltest/spr_shrimp_idlepaltest.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_shrimp_idlepaltest",
     "tags": [],
     "resourceType": "GMSequence",

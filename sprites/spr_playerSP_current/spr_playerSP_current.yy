@@ -74,7 +74,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_playerSP_current","path":"sprites/spr_playerSP_current/spr_playerSP_current.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_playerSP_current",
     "tags": [],
     "resourceType": "GMSequence",

@@ -90,7 +90,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_playerSP_boxxedmove","path":"sprites/spr_playerSP_boxxedmove/spr_playerSP_boxxedmove.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_playerSP_boxxedmove",
     "tags": [],
     "resourceType": "GMSequence",

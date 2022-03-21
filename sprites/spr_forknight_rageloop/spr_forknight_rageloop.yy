@@ -71,7 +71,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_forknight_rageloop","path":"sprites/spr_forknight_rageloop/spr_forknight_rageloop.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_forknight_rageloop",
     "tags": [],
     "resourceType": "GMSequence",

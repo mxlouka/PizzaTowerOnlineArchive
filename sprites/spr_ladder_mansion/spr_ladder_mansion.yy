@@ -67,7 +67,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_ladder_mansion","path":"sprites/spr_ladder_mansion/spr_ladder_mansion.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_ladder_mansion",
     "tags": [],
     "resourceType": "GMSequence",

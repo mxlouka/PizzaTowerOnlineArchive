@@ -198,7 +198,7 @@ function scr_player_mach3()
 			}
 			
 			//Bump
-			if (scr_solidwall(x + xscale, y)) && !scr_slope() && (!place_meeting(x + sign(hsp), y, obj_slope) or place_meeting(x + sign(hsp), y, obj_solid)) && !place_meeting(x + sign(hsp), y, obj_metalblock) && !place_meeting(x + sign(hsp), y, obj_destructibles) && (grounded or fightball)
+			if (scr_solidwall(x + xscale, y)) && !scr_slope() && (!place_meeting(x + sign(hsp), y, obj_slope) or place_meeting(x + sign(hsp), y, obj_solid) or place_meeting(x, y - 32, obj_solid)) && !place_meeting(x + sign(hsp), y, obj_metalblock) && !place_meeting(x + sign(hsp), y, obj_destructibles) && (grounded or fightball)
 			{
 				if !fightball
 				{

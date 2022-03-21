@@ -4,7 +4,7 @@ if global.timeattack && !(instance_exists(obj_gms) && global.__chat)
 	if global.taseconds < 10
 		middletext = ":0";
 	
-	draw_set_font(global.bigfont)
+	draw_set_font(check_sugary() ? global.sugarybigfont : global.bigfont)
 	draw_set_halign(fa_center);
 	draw_set_color(c_yellow)
 	

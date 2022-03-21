@@ -66,7 +66,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"bg_freezer1escape","path":"sprites/bg_freezer1escape/bg_freezer1escape.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "bg_freezer1escape",
     "tags": [],
     "resourceType": "GMSequence",

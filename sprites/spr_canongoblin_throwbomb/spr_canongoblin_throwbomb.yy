@@ -118,7 +118,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_canongoblin_throwbomb","path":"sprites/spr_canongoblin_throwbomb/spr_canongoblin_throwbomb.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "",
     "tags": [],
     "resourceType": "GMSequence",

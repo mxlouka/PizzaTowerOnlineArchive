@@ -98,7 +98,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_playerN_mortjump","path":"sprites/spr_playerN_mortjump/spr_playerN_mortjump.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_playerN_mortjump",
     "tags": [],
     "resourceType": "GMSequence",

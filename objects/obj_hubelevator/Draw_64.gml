@@ -48,6 +48,8 @@ if state == 1
 	{
 		var c = sel == i ? c_white : c_gray;
         var txt = hub_array[i][0];
-        draw_text_color(480, yy + (sepy * i), txt, c, c, c, c, 1);
+		
+		draw_set_colour(c);
+        draw_text_auto(480, yy + (sepy * i), txt);
 	}
 }

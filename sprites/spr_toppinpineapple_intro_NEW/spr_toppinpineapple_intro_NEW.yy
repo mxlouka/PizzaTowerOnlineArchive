@@ -99,7 +99,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_toppinpineapple_intro_NEW","path":"sprites/spr_toppinpineapple_intro_NEW/spr_toppinpineapple_intro_NEW.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_toppinpineapple_intro_NEW",
     "tags": [],
     "resourceType": "GMSequence",

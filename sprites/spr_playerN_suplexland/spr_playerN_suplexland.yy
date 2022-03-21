@@ -122,7 +122,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_playerN_suplexland","path":"sprites/spr_playerN_suplexland/spr_playerN_suplexland.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_playerN_suplexland",
     "tags": [],
     "resourceType": "GMSequence",

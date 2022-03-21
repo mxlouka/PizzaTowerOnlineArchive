@@ -81,7 +81,7 @@ if drawing
 		{
 			if sprite_index == spr_entrancegate && obj_player1.state == states.normal
 				obj_camera.panto = [0, -32];
-			draw_text(x, y - 200, string(secret) + " OF " + string(outof) + " SECRET");
+			draw_text_auto(x, y - 200, string(secret) + " of " + string(outof) + " Secrets");
 		}
 		
 		// sugary spire toppins
@@ -122,8 +122,6 @@ if drawing
 		{
 			if level == "strongcold"
 				draw_sprite(spr_xmascheesetoppin_idle, -1, x - 35, y - 120)
-			else if sugary
-				draw_sprite(spr_toppinchoc, -1, x - 35, y - 120)
 			else
 			{
 				if global.gameplay == 0

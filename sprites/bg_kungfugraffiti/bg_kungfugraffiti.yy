@@ -62,7 +62,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"bg_kungfugraffiti","path":"sprites/bg_kungfugraffiti/bg_kungfugraffiti.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "bg_kungfugraffiti",
     "tags": [],
     "resourceType": "GMSequence",

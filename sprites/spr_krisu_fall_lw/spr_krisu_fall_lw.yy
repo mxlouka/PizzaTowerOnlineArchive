@@ -67,7 +67,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_krisu_fall_lw","path":"sprites/spr_krisu_fall_lw/spr_krisu_fall_lw.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_krisu_fall_lw",
     "tags": [],
     "resourceType": "GMSequence",

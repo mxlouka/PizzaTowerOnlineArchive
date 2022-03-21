@@ -86,7 +86,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_pizzaball_walk","path":"sprites/spr_pizzaball_walk/spr_pizzaball_walk.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_pizzaball_walk",
     "tags": [],
     "resourceType": "GMSequence",

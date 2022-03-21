@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"tile_war4","path":"sprites/tile_war4/tile_war4.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "tile_war4",
     "tags": [],
     "resourceType": "GMSequence",

@@ -68,6 +68,7 @@ blurpreview = false;
 
 manualhide = false;
 zoom = 1
+frameone = false;
 
 // new shit
 lastcollect = -1;

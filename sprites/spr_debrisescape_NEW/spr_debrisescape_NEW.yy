@@ -87,7 +87,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_debrisescape_NEW","path":"sprites/spr_debrisescape_NEW/spr_debrisescape_NEW.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_debrisescape_NEW",
     "tags": [],
     "resourceType": "GMSequence",

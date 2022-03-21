@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_eat_cashreg","path":"sprites/spr_eat_cashreg/spr_eat_cashreg.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_eat_cashreg",
     "tags": [],
     "resourceType": "GMSequence",

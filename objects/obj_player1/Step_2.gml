@@ -1,12 +1,7 @@
 /// @description online
-var glade = false;
-
 // sync variables
 if instance_exists(obj_gms) && gms_info_isloggedin()
 {
-	if gms_self_admin_rights()
-		glade = true;
-	
 	gms_self_set("xscale", xscale);
 	gms_self_set("yscale", yscale);
 	
@@ -80,18 +75,6 @@ if instance_exists(obj_gms) && gms_info_isloggedin()
 	
 	gms_self_set("img_angle", img_angle);
 }
-
-// glade drm
-/*
-if !glade && !debug
-{
-	if character == "G"
-	{
-		character = "P";
-		scr_characterspr();
-	}
-}
-*/
 
 // chat
 if instance_exists(obj_gms) && gms_info_isloggedin() && state != states.titlescreen && state != -1

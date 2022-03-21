@@ -74,7 +74,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_player_airattack","path":"sprites/spr_player_airattack/spr_player_airattack.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_player_airattack",
     "tags": [],
     "resourceType": "GMSequence",

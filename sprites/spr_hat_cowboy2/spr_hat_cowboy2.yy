@@ -83,7 +83,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_hat_cowboy2","path":"sprites/spr_hat_cowboy2/spr_hat_cowboy2.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_hat_cowboy2",
     "tags": [],
     "resourceType": "GMSequence",

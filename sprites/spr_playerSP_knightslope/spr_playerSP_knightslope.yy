@@ -70,7 +70,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_playerSP_knightslope","path":"sprites/spr_playerSP_knightslope/spr_playerSP_knightslope.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_playerSP_knightslope",
     "tags": [],
     "resourceType": "GMSequence",

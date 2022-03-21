@@ -5,4 +5,4 @@ with obj_player1
 	hatsprite = other.spr_idle;
 
 scr_soundeffect(sfx_collecttoppin);
-instance_destroy();
+con = 1;

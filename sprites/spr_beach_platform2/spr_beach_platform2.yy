@@ -67,7 +67,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_beach_platform2","path":"sprites/spr_beach_platform2/spr_beach_platform2.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "",
     "tags": [],
     "resourceType": "GMSequence",
@@ -78,7 +78,7 @@
   "nineSlice": null,
   "parent": {
     "name": "Platform",
-    "path": "folders/Sprites/editor/Platform.yy",
+    "path": "folders/Sprites/sertif's editor/Platform.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_beach_platform2",

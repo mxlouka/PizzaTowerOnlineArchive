@@ -98,7 +98,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_playerN_boxxedmove","path":"sprites/spr_playerN_boxxedmove/spr_playerN_boxxedmove.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_playerN_boxxedmove",
     "tags": [],
     "resourceType": "GMSequence",

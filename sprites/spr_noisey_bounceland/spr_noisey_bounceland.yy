@@ -83,7 +83,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_noisey_bounceland","path":"sprites/spr_noisey_bounceland/spr_noisey_bounceland.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_noisey_bounceland",
     "tags": [],
     "resourceType": "GMSequence",

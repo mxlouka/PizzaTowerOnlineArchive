@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_metalb_NEW","path":"sprites/spr_metalb_NEW/spr_metalb_NEW.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_metalb_NEW",
     "tags": [],
     "resourceType": "GMSequence",

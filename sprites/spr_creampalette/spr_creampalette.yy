@@ -62,7 +62,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_creampalette","path":"sprites/spr_creampalette/spr_creampalette.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_creampalette",
     "tags": [],
     "resourceType": "GMSequence",

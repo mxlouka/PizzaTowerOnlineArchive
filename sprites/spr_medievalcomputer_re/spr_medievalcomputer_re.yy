@@ -63,7 +63,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_medievalcomputer_re","path":"sprites/spr_medievalcomputer_re/spr_medievalcomputer_re.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_medievalcomputer_re",
     "tags": [],
     "resourceType": "GMSequence",

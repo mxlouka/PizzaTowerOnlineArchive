@@ -1,9 +1,9 @@
-If you have any questions ask Loypoll#7683 on Discord
+If you have any questions ask loypoll#7683 on Discord
 
-This is a guide for the console, which is only usable in offline mode
+This is a guide for the console, which is only usable in offline mode or in debug mode
 
 * The console works on the object obj_wcmod
-* The Pizza Tower font doesn't display all letters so you might make typos (shows with a red question mark)
+* The Pizza Tower font doesn't display all letters so you might make typos (shows with a red question mark in PTO, invisible in other ports)
 * You can click a command in the console to repeat it
 
 --CONTROLS--

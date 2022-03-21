@@ -102,7 +102,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_pepgoblin_re","path":"sprites/spr_pepgoblin_re/spr_pepgoblin_re.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_pepgoblin_re",
     "tags": [],
     "resourceType": "GMSequence",

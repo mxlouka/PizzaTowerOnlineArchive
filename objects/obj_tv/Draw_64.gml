@@ -23,14 +23,16 @@ if jumpscare > -1
         draw_sprite(spr_scares, jumpscareimage, 0, 0);
 }
 
-//Draw Text
-draw_set_font(global.bigfont)
+// draw Text
+var sg = check_sugary();
+
+draw_set_font(sg ? global.sugarybigfont : global.bigfont)
 draw_set_halign(fa_center);
 draw_set_color(c_white)
 
-//Text Event
+// text Event
 draw_set_valign(fa_bottom);
-draw_text(xi, yi, string(message))
+draw_text_auto(xi, yi, string(message))
 draw_set_valign(fa_top);
 
 #region old hud
@@ -54,16 +56,16 @@ if global.gameplay == 0
 	else if room != strongcold_endscreen && room != Realtitlescreen
 		draw_sprite_ext(tvsprite, -1, 832, 74, 1, 1, 0, c_white, alpha);
 
-	if global.combo != 0 && global.combotime != 0 && (tvsprite = spr_tvdefault or tvsprite = spr_tvcombo)
+	if global.combo != 0 && global.combotime > 0 && (tvsprite = spr_tvdefault or tvsprite = spr_tvcombo)
 		draw_text(852,75, string(global.combo))
 	
-	if tvsprite == spr_tvdefault && room != strongcold_endscreen && !global.miniboss //Default 
+	if tvsprite == spr_tvdefault && room != strongcold_endscreen && !global.miniboss
 	{
 		chose = false
-		draw_text(832,60, string(global.collect))
+		draw_text(832, 60, string(global.collect))
 	}
 	else if global.miniboss
-		draw_text(832,60, string(global.boxhp))
+		draw_text(832, 60, string(global.boxhp))
 }
 
 #endregion
@@ -92,26 +94,34 @@ else
 		var collect_y = irandom_range(-collect_shake, collect_shake);
 		if room != strongcold_endscreen && room != Realtitlescreen
 		{
-			//if obj_player1.character != "S" && obj_player1.character != "V"
-			//	pal_swap_set(obj_player1.spr_palette, obj_player1.paletteselect, false);
-			
+			// tv
 			if sprite_exists(sprite_index)
 			{
-				if sprite_index != spr_tv_placeholder && sprite_index != spr_tv_placeholderSP && sprite_index != spr_tv_off && sprite_index != spr_tv_offSP && sprite_index != spr_tv_open && sprite_index != spr_tv_openSP
+				// apply player palette
+				if sprite_index != spr_tv_placeholder && sprite_index != spr_tv_placeholderSP && sprite_index != spr_tv_placeholderPP 
+				&& sprite_index != spr_tv_off && sprite_index != spr_tv_offSP && sprite_index != spr_tv_offPP
+				&& sprite_index != spr_tv_open && sprite_index != spr_tv_openSP && sprite_index != spr_tv_openPP
 				{
 					with obj_player1
 						pal_swap_set(spr_palette, paletteselect, false);
 				}
 				
-			    draw_sprite_ext(sprite_index, image_index, 833 + collect_x, 107 + collect_y + hud_posY, 1, 1, 0, c_white, alpha)
+			    draw_sprite_ext(sprite_index, -1, 833 + collect_x, 107 + collect_y + hud_posY, 1, 1, 0, c_white, alpha)
 				pal_swap_reset();
 			}
 			
 			// draw combo
-			if global.combo != 0 && sprite_index != spr_tv_open && sprite_index != spr_tv_off && sprite_index != spr_tv_openSP && sprite_index != spr_tv_offSP
+			if global.combo != 0 && global.combotime > 0
+			&& sprite_index != spr_tv_open && sprite_index != spr_tv_off && sprite_index != spr_tv_openSP && sprite_index != spr_tv_offSP && sprite_index != spr_tv_openPP && sprite_index != spr_tv_offPP
 			{
-			    draw_sprite_ext(sugary ? spr_tv_comboSP : spr_tv_combo, image_index, 833 + collect_x, 107 + collect_y + hud_posY, 1, 1, 0, c_white, alpha)
-	    
+				var tvcombo = spr_tv_combo;
+				if sugary
+					tvcombo = spr_tv_comboSP;
+				if instance_exists(obj_player) && obj_player.character == "PP"
+					tvcombo = spr_tv_comboPP;
+				
+			    draw_sprite_ext(tvcombo, -1, 833 + collect_x, 107 + collect_y + hud_posY, 1, 1, 0, c_white, alpha)
+				
 				var str = string(global.combo);
 			    if global.combo < 10 && global.combo > -1
 			        str = "0" + str;
@@ -171,7 +181,7 @@ else
 		draw_surface(promptsurface, 350 - (sugary * 65), hud_posY);
 	}
 	
-	draw_set_font(global.bigfont)
+	draw_set_font(sg ? global.sugarybigfont : global.bigfont)
 }
 
 #endregion

@@ -1,13 +1,9 @@
 if obj_player1.character == "N"
-{
 	sprite_index = spr_halloweensmallblock
-	if check_sugary()
-		sprite_index = spr_destroyable2_ss_noise
-}
 else if obj_player1.character == "SP"
 	sprite_index = spr_destroyable2_ss
-else if check_sugary()
-	sprite_index = spr_destroyable2_ss_pizza
+else if obj_player1.character == "PP"
+	sprite_index = spr_destroyable2_PP
 else if !scr_stylecheck(0, 2)
 	sprite_index = spr_destroyable2_NEW
 

@@ -106,7 +106,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_player_backflip","path":"sprites/spr_player_backflip/spr_player_backflip.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_player_backflip",
     "tags": [],
     "resourceType": "GMSequence",

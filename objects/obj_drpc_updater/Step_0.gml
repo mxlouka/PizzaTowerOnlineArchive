@@ -21,6 +21,9 @@ if running
 				case "S":
 					rousr_dissonance_set_small_image("char_s", "Snick");
 					break;
+				case "PP":
+					rousr_dissonance_set_small_image("char_pp", "Pissino");
+					break;
 				case "SP":
 					rousr_dissonance_set_small_image("char_sp", "Pizzelle");
 					break;

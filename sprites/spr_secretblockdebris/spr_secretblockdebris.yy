@@ -79,7 +79,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_secretblockdebris","path":"sprites/spr_secretblockdebris/spr_secretblockdebris.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_secretblockdebris",
     "tags": [],
     "resourceType": "GMSequence",

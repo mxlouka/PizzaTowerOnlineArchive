@@ -5,7 +5,10 @@
   },
   "solid": false,
   "visible": true,
-  "spriteMaskId": null,
+  "spriteMaskId": {
+    "name": "spr_giantpizza",
+    "path": "sprites/spr_giantpizza/spr_giantpizza.yy",
+  },
   "persistent": false,
   "parentObjectId": null,
   "physicsObject": false,

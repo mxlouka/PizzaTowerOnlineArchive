@@ -1,18 +1,16 @@
 event_inherited();
 
 selarray = [
-	[spr_nohat, "NO HAT", "Don't you already have a hat?"],
-	[spr_cowboyhat1, "COWBOY HAT", "Yeehaw."],
-	[spr_hat_snickcrown, "SNICK CROWN", "For the king of the 4 Snicks."],
-	[spr_hat_cowboy2, "SHERIFF HAT", "Weirdly western."]
+	[spr_nohat, "Empty", "Don't you already have a hat?"],
+	[spr_cowboyhat1, "Cowboy Hat", "Yeehaw."],
+	[spr_hat_snickcrown, "Snick Crown", "For the king of the 4 Snicks."],
+	[spr_hat_cowboy2, "Sheriff Hat", "Weirdly western."],
+	[spr_hat_scatman, "JPEG Top Hat", "Strangely, it smells like a public bathroom.\nI wonder where this came from."]
 ];
 spr_idle = selarray[0][0];
 
-with obj_player1
+with obj_player
 {
-	if character == "G"
-		other.selarray[0][2] = "Go Bald";
-	
 	// auto select current hat
 	if hatsprite != -1
 	{

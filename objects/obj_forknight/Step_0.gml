@@ -70,7 +70,7 @@ if global.stylethreshold >= 3 && ragecooldown == 0 && object_index == obj_forkni
 if ragecooldown > 0
     ragecooldown--;
 
-if hitboxcreate == false && ((state == states.walk && !rematchscare) or state == states.rage)
+if !hitboxcreate && ((state == states.walk && !rematchscare) or state == states.rage)
 {
 	hitboxcreate = true
 	with instance_create(x, y, obj_forkhitbox)
@@ -85,7 +85,7 @@ if state != states.stun
 
 if !boundbox
 {
-	with instance_create(x,y,obj_baddiecollisionbox)
+	with instance_create(x, y, obj_baddiecollisionbox)
 	{
 		sprite_index = spr_forknight_walk
 		mask_index = sprite_index

@@ -5,7 +5,7 @@ if room != rm_mario
 }
 
 audio_stop_all();
-audio_play_sound(mu_darkscreen, 0, true);
+scr_sound(mu_darkscreen);
 with all
 	if id != other.id instance_destroy(id, false);
 image_alpha = 0;

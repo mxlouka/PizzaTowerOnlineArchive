@@ -127,7 +127,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_toppinsausage_NEW","path":"sprites/spr_toppinsausage_NEW/spr_toppinsausage_NEW.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_toppinsausage_NEW",
     "tags": [],
     "resourceType": "GMSequence",

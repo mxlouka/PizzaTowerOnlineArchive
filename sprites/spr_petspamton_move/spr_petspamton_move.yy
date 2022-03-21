@@ -71,7 +71,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_petspamton_move","path":"sprites/spr_petspamton_move/spr_petspamton_move.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_petspamton_move",
     "tags": [],
     "resourceType": "GMSequence",

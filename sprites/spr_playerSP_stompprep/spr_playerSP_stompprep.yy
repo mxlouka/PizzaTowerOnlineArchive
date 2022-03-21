@@ -70,7 +70,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_playerSP_stompprep","path":"sprites/spr_playerSP_stompprep/spr_playerSP_stompprep.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_playerSP_stompprep",
     "tags": [],
     "resourceType": "GMSequence",

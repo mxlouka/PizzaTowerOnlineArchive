@@ -6,6 +6,11 @@ if scr_checkskin(checkskin.p_anton)
 else
 {
 	alarm[0] = 500;
+	if obj_player.character == "SP" or obj_player.character == "SN"
+		alarm[0] += room_speed * 3;
+	if obj_player.character == "PP"
+		alarm[0] += room_speed;
+	
 	if audio_is_playing(mu_rankd)
 	or audio_is_playing(mu_rankd_pc)
 	{

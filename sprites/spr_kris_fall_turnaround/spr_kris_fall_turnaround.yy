@@ -75,7 +75,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_kris_fall_turnaround","path":"sprites/spr_kris_fall_turnaround/spr_kris_fall_turnaround.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_kris_fall_turnaround",
     "tags": [],
     "resourceType": "GMSequence",

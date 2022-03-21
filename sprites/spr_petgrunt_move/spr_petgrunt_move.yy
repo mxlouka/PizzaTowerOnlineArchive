@@ -71,7 +71,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_petgrunt_move","path":"sprites/spr_petgrunt_move/spr_petgrunt_move.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_petgrunt_move",
     "tags": [],
     "resourceType": "GMSequence",

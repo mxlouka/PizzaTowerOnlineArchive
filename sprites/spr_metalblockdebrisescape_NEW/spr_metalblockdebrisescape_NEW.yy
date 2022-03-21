@@ -87,7 +87,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_metalblockdebrisescape_NEW","path":"sprites/spr_metalblockdebrisescape_NEW/spr_metalblockdebrisescape_NEW.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_metalblockdebrisescape_NEW",
     "tags": [],
     "resourceType": "GMSequence",

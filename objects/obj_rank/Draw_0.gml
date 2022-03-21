@@ -7,4 +7,5 @@ draw_sprite_ext(sprite_index, image_index, x, y, image_xscale, image_yscale, ima
 shader_reset()
 
 // the text
-draw_sprite_ext(asset_get_index(sprite_get_name(sprite_index) + "_text"), image_index, x, y, image_xscale, image_yscale, image_angle, image_blend, image_alpha);
+if asset_get_type(sprite_get_name(sprite_index) + "_text") == asset_sprite
+	draw_sprite_ext(asset_get_index(sprite_get_name(sprite_index) + "_text"), image_index, x, y, image_xscale, image_yscale, image_angle, image_blend, image_alpha);

@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_modtrigger","path":"sprites/spr_modtrigger/spr_modtrigger.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_modtrigger",
     "tags": [],
     "resourceType": "GMSequence",

@@ -1,4 +1,5 @@
-function scr_set_background_trigger(argument0) {
+function scr_set_background_trigger(argument0)
+{
 	var lay_id_bg1 = layer_get_id("Backgrounds_1")
 	var back_id_bg1 = layer_background_get_id(lay_id_bg1)
 

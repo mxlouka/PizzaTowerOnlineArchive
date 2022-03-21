@@ -62,7 +62,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_peppinobullet_dead","path":"sprites/spr_peppinobullet_dead/spr_peppinobullet_dead.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_peppinobullet_dead",
     "tags": [],
     "resourceType": "GMSequence",

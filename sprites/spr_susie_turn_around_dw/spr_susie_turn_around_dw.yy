@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_susie_turn_around_dw","path":"sprites/spr_susie_turn_around_dw/spr_susie_turn_around_dw.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_susie_turn_around_dw",
     "tags": [],
     "resourceType": "GMSequence",

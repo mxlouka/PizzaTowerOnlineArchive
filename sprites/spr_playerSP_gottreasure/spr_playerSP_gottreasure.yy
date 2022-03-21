@@ -90,7 +90,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_playerSP_gottreasure","path":"sprites/spr_playerSP_gottreasure/spr_playerSP_gottreasure.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_playerSP_gottreasure",
     "tags": [],
     "resourceType": "GMSequence",

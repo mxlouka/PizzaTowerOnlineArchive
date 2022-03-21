@@ -138,7 +138,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_playerSP_idlegesture2","path":"sprites/spr_playerSP_idlegesture2/spr_playerSP_idlegesture2.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_playerSP_idlegesture2",
     "tags": [],
     "resourceType": "GMSequence",

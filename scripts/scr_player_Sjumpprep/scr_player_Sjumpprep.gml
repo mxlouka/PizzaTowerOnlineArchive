@@ -118,44 +118,42 @@ function scr_player_Sjumpprep() {
 			pogochargeactive = false
 			pogocharge = 50
 
-			if floor(image_index) = image_number-1
+			if floor(image_index) >= image_number-1
 			{
-				if sprite_index = spr_playerN_jetpackstart
+				if sprite_index == spr_playerN_jetpackstart
 				{
-					if pizzapepper = 0
+					if !pizzapepper
 					{
-			state =states.mach3
-			sprite_index = spr_playerN_jetpackboost
-			instance_create(x,y,obj_jumpdust)
-			movespeed = 15
+						state = states.mach3
+						sprite_index = spr_playerN_jetpackboost
+						instance_create(x, y, obj_jumpdust)
+						movespeed = 15
 					}
-			else
-			{
-				state =states.mach3
-			sprite_index = spr_crazyrun
-			instance_create(x,y,obj_jumpdust)
-			movespeed = 21
-			}
+					else
+					{
+						state = states.mach3
+						sprite_index = spr_crazyrun
+						instance_create(x, y, obj_jumpdust)
+						movespeed = 21
+					}
 				}
-			else if sprite_index = spr_superjumpprep
-			{
-			scr_soundeffect(sfx_superjumprelease)
-			instance_create(x,y,obj_explosioneffect)
-			sprite_index = spr_superjump
-			state = states.Sjump
-			vsp = -15
+				else if sprite_index == spr_superjumpprep
+				{
+					scr_soundeffect(sfx_superjumprelease)
+					instance_create(x, y, obj_explosioneffect)
+					sprite_index = spr_superjump
+					state = states.Sjump
+					vsp = -15
+				}
 			}
 
-			}
-
-			if sprite_index = spr_playerN_jetpackstart
-			image_speed = 0.5
+			if sprite_index == spr_playerN_jetpackstart
+				image_speed = 0.5
 			else
-			image_speed = 0.3
+				image_speed = 0.3
 		}
-
-		break
+		break;
 	}
 	if !audio_is_playing(superjumpholdsnd) && !audio_is_playing(sfx_superjumpprep)
-		superjumpholdsnd = audio_play_sound(sfx_superjumphold,1,0)
+		superjumpholdsnd = scr_soundeffect_ext(sfx_superjumphold, true);
 }

@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_snickpizza","path":"sprites/spr_snickpizza/spr_snickpizza.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_snickpizza",
     "tags": [],
     "resourceType": "GMSequence",

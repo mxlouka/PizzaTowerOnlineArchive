@@ -12,11 +12,12 @@ function scr_player_backbreaker()
 	move = key_right2 + key_left2
 
 	landAnim = false
+	
 	//Tower Intro
-	if sprite_index = spr_player_machfreefall && scr_solid(x,y+1)
+	if sprite_index == spr_machfreefall && grounded
 	{
 		state = states.machslide
-		sprite_index = spr_player_crouchslide
+		sprite_index = spr_crouchslide
 	}
 	
 	if !visible
@@ -34,9 +35,9 @@ function scr_player_backbreaker()
 		else
 			image_speed = 0.4;
 		
-		if character != "V" && character != "S"
+		if character != "V" && character != "S" && character != "PP"
 		{
-			if instance_exists(parry_inst) == false && taunttimer > parry_max
+			if !instance_exists(parry_inst) && taunttimer > parry_max
 		    {
 		        parry_inst = instance_create(x, y, obj_parryhitbox);
 		        with parry_inst
@@ -69,69 +70,22 @@ function scr_player_backbreaker()
 		}
 
 		// supertaunt kill
-		if (supercharged or ((character == "S" or character == "G") && global.combo >= 3)) && !instance_exists(obj_tauntaftereffectspawner)
+		if (supercharged or ((character == "S" or character == "PP") && global.combo >= 3)) && !instance_exists(obj_tauntaftereffectspawner)
 		{
 			vsp = 0
-			with instance_create(x,y,obj_tauntaftereffectspawner)
+			with instance_create(x, y, obj_tauntaftereffectspawner)
 			{
-				if other.character == "S" or other.character == "G"
+				if other.character == "S" or other.character == "PP"
 					legacy = true;
 			}
 			
-			if character != "S"
+			if character != "S" && character != "PP"
 			{
 				supercharged = false;
 				supercharge = 0;
 			}
 			
-			with obj_baddie
-			{
-				if object_index != obj_pizzaballOLD && object_index != obj_grandpa && instance_in_camera(id, view_camera[0])
-				{
-					if global.gameplay == 0
-						instance_destroy();
-					else
-					{
-						global.combo += 1;
-						
-						if hp <= 0
-							instance_destroy();
-						else
-						{
-							hp = 0;
-							state = states.hit;
-							hitLag = 20;
-							hitX = x;
-							hitY = y;
-						
-							instance_create(x, y, obj_parryeffect);
-							alarm[3] = 3;
-						
-							repeat 3
-							{
-								instance_create(x, y, obj_slapstar);
-								create_particle(x, y, particles.baddiegibs);
-							}
-						}
-					}
-				}
-			}
-			with obj_snickexe
-			{
-				if point_in_camera(x, y, view_camera[0])
-				{
-					if global.snickrematch
-					{
-						repeat(6) with instance_create(x+random_range(-100,100), y+random_range(-100,100),obj_balloonpop)
-							sprite_index= spr_shotgunimpact
-						
-						deactivate = true;
-						alarm[1] = room_speed * 5;
-					}
-					else
-						event_perform(ev_alarm, 0);
-				}
-			}
+			scr_baddie_screenclear();
 			
 			with obj_camera
 			{
@@ -147,8 +101,8 @@ function scr_player_backbreaker()
 	else
 		image_speed = 0.4;
 
-	if floor(image_index) >= image_number - 1 && (sprite_index = spr_supertaunt1 or sprite_index = spr_supertaunt2 or
-	sprite_index = spr_supertaunt3 or sprite_index = spr_supertaunt4) && character != "S" && character != "G"
+	if floor(image_index) >= image_number - 1 && (sprite_index == spr_supertaunt1 or sprite_index == spr_supertaunt2
+	or sprite_index == spr_supertaunt3 or sprite_index == spr_supertaunt4) && character != "S" && character != "PP"
 	{
 		if global.gameplay == 0
 		&& global.combotime != 0 && global.combo > 0
