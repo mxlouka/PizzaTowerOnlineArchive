@@ -1,6 +1,6 @@
 {
   "ConfigValues": {
-    "debug": {"audioGroupId":"{\"name\":\"ag_pcmusic\",\"path\":\"audiogroups/ag_pcmusic\"}",},
+    "debug": {"audioGroupId":"{\"name\":\"audiogroup_default\",\"path\":\"audiogroups/audiogroup_default\"}",},
   },
   "conversionMode": 0,
   "compression": 1,
@@ -14,8 +14,8 @@
     "name": "audiogroup_default",
     "path": "audiogroups/audiogroup_default",
   },
-  "soundFile": "mu_snickchallenge_pc.wav",
-  "duration": 217.341339,
+  "soundFile": "mu_snickchallenge_pc.ogg",
+  "duration": 171.653564,
   "parent": {
     "name": "pizza castle",
     "path": "folders/Sounds/pizza castle.yy",

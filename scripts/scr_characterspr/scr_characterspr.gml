@@ -1415,7 +1415,8 @@ function scr_characterspr(char = character)
 				
 				spr_mach2jump = spr_playerPP_mach2jump
 				spr_Timesup = spr_playerPP_timesup
-				spr_deathend = spr_player_deathend // REPLACE
+				spr_deathend = spr_playerPP_death;
+				spr_dead = spr_playerPP_death;
 				spr_machpunch1 = spr_playerPP_machpunch1
 				spr_machpunch2 = spr_playerPP_machpunch2
 				spr_hurtjump = spr_playerPP_jumphurt
@@ -1544,10 +1545,19 @@ function scr_characterspr(char = character)
 				spr_shotguncrawl = spr_playerPP_shotguncrawl
 				spr_shotgungoduck = spr_playerPP_shotgungoduck
 				
-				spr_taunt = spr_playerPP_taunt
+				spr_taunt = spr_playerPP_taunt;
+				spr_parry1 = spr_playerPP_parry1;
+				spr_parry2 = spr_playerPP_parry1;
+				spr_parry3 = spr_playerPP_parry3;
 				
 				spr_suplexbump = spr_playerPP_suplexbump;
 				spr_suplexcancel = spr_playerPP_suplexcancel;
+				spr_suplexland = spr_playerPP_backflip;
+				spr_slipbanan1 = spr_playerPP_slipbanan1;
+				spr_slipbanan2 = spr_playerPP_slipbanan2;
+				
+				spr_firemouth = spr_playerPP_firemouth;
+				spr_firemouthshoot = spr_playerPP_firemouth;
 				
 				snd_fireass = sfx_scream5_PP;
 				break;
