@@ -28,7 +28,6 @@ switch sel[1]
 			["BLACK", "Not the clothes."],
 			["MASSACRE", "It's all just a bad dream..."],
 			["BURNT PIZZA", "Oh, god damn it."],
-			["DREXYL", "D'AW HELL NAH"],
 			["GB", "One of his greatest achievements."],
 			["HYPOTHERMIA", "Don't bathe inside a freezer."],
 		];

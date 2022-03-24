@@ -228,14 +228,19 @@ if global.shownames
 		nickname = "Player" + string(player_id);
 	
 	// apply the color
-	if gms_other_isowner(player_id)
-		draw_set_colour(make_colour_hsv(color_get_hue(c_owner), color_get_saturation(c_owner), color_get_value(c_owner) * (color_get_value(col) / 255)));
-	else if gms_other_admin_rights(player_id)
-		draw_set_colour(make_colour_hsv(color_get_hue(c_admin), color_get_saturation(c_admin), color_get_value(c_admin) * (color_get_value(col) / 255)));
-	else if gms_other_get_real(player_id, "pvp") == true
-		draw_set_colour(make_colour_hsv(color_get_hue(c_pvp), color_get_saturation(c_pvp), color_get_value(c_pvp) * (color_get_value(col) / 255)));
-	else
-		draw_set_colour(col);
+if gms_other_isowner(player_id)
+    draw_set_colour(make_colour_hsv(color_get_hue(c_owner), color_get_saturation(c_owner), color_get_value(c_owner) * (color_get_value(col) / 255)));
+else if nickname == "DenchickMario"
+{
+    draw_set_colour(make_colour_hsv(color_get_hue(c_pvp), color_get_saturation(c_pvp), color_get_value(c_pvp) * (color_get_value(col) / 255)));
+}
+else if gms_other_admin_rights(player_id) && nickname != "DenchickMario"
+    draw_set_colour(make_colour_hsv(color_get_hue(c_admin), color_get_saturation(c_admin), color_get_value(c_admin) * (color_get_value(col) / 255)));
+else if gms_other_get_real(player_id, "pvp") == true
+    draw_set_colour(make_colour_hsv(color_get_hue(c_pvp), color_get_saturation(c_pvp), color_get_value(c_pvp) * (color_get_value(col) / 255)));
+
+else
+    draw_set_colour(col);
 	
 	// setup
 	draw_set_font(global.font_small);

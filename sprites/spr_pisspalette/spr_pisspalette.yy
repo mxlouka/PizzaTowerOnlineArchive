@@ -1,6 +1,6 @@
 {
   "ConfigValues": {
-    "debug": {"textureGroupId":"{\"name\":\"tg_player\",\"path\":\"texturegroups/tg_player\"}",},
+    "debug": {"textureGroupId":"{\"name\":\"tg_palette\",\"path\":\"texturegroups/tg_palette\"}",},
   },
   "bboxMode": 0,
   "collisionKind": 1,

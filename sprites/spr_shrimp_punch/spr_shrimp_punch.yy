@@ -1,4 +1,7 @@
 {
+  "ConfigValues": {
+    "debug": {"textureGroupId":"{\"name\":\"tg_baddie\",\"path\":\"texturegroups/tg_baddie\"}",},
+  },
   "bboxMode": 0,
   "collisionKind": 1,
   "type": 0,

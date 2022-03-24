@@ -1,6 +1,6 @@
 {
   "ConfigValues": {
-    "debug": {"textureGroupId":"{\"name\":\"tg_baddie\",\"path\":\"texturegroups/tg_baddie\"}",},
+    "debug": {"textureGroupId":"{\"name\":\"tg_palette\",\"path\":\"texturegroups/tg_palette\"}",},
   },
   "bboxMode": 0,
   "collisionKind": 1,

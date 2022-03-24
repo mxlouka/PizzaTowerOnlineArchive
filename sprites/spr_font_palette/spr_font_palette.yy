@@ -1,4 +1,7 @@
 {
+  "ConfigValues": {
+    "debug": {"textureGroupId":"{\"name\":\"tg_palette\",\"path\":\"texturegroups/tg_palette\"}",},
+  },
   "bboxMode": 0,
   "collisionKind": 1,
   "type": 0,
