@@ -6,16 +6,7 @@ if gms_other_get_real(player_id, "room") != scr_gms_room()
 
 // player color
 var col = image_blend;
-
-// coming out of gate, dye white instead of black
-var alp = image_alpha;
-/*
-if (place_meeting(x, y, obj_exitgate) or place_meeting(x, y, obj_startgate)) && col != c_white
-{
-	alp *= color_get_value(col) / 255;
-	col = c_white;
-}
-*/
+var alp = image_alpha; // leftover because i'm lazy. don't delete unless you are willing to clean this code.
 
 // pln hub color
 if room == hub_roomPLN
@@ -166,7 +157,7 @@ else
 	pal_swap_reset();
 	
 	draw_set_flash(false);
-
+	
 	// pizza shield
 	if gms_other_get_real(player_id, "pizzashield")
 	{
@@ -228,19 +219,17 @@ if global.shownames
 		nickname = "Player" + string(player_id);
 	
 	// apply the color
-if gms_other_isowner(player_id)
-    draw_set_colour(make_colour_hsv(color_get_hue(c_owner), color_get_saturation(c_owner), color_get_value(c_owner) * (color_get_value(col) / 255)));
-else if nickname == "DenchickMario"
-{
-    draw_set_colour(make_colour_hsv(color_get_hue(c_pvp), color_get_saturation(c_pvp), color_get_value(c_pvp) * (color_get_value(col) / 255)));
-}
-else if gms_other_admin_rights(player_id) && nickname != "DenchickMario"
-    draw_set_colour(make_colour_hsv(color_get_hue(c_admin), color_get_saturation(c_admin), color_get_value(c_admin) * (color_get_value(col) / 255)));
-else if gms_other_get_real(player_id, "pvp") == true
-    draw_set_colour(make_colour_hsv(color_get_hue(c_pvp), color_get_saturation(c_pvp), color_get_value(c_pvp) * (color_get_value(col) / 255)));
-
-else
-    draw_set_colour(col);
+	var nickcol = col;
+	if gms_other_isowner(player_id)
+	    nickcol = c_owner;
+	else if nickname == "DenchickMario"
+	    nickcol = c_pvp;
+	else if gms_other_admin_rights(player_id)
+	    nickcol = c_admin;
+	else if gms_other_get_real(player_id, "pvp")
+	    nickcol = c_pvp;
+	    
+	draw_set_colour(make_colour_hsv(color_get_hue(nickcol), color_get_saturation(nickcol), color_get_value(nickcol) * (color_get_value(col) / 255)));
 	
 	// setup
 	draw_set_font(global.font_small);

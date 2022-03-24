@@ -12,7 +12,7 @@ image_index = 0;
 alarm[0] = room_speed;
 if object_index == obj_title
 {
-	with obj_player1
+	with obj_player
 	{
 		sprite_index = spr_file2;
 		image_speed = 0.35;

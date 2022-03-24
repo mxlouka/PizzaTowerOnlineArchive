@@ -1,3 +1,4 @@
+/// @description trust me
 // main
 scr_movingsolid(obj_player1, scr_solid_player);
 with all
