@@ -35,7 +35,7 @@ function scr_player_backbreaker()
 		else
 			image_speed = 0.4;
 		
-		if character != "V" && character != "S" && character != "PP"
+		if character != "V" && character != "S"
 		{
 			if !instance_exists(parry_inst) && taunttimer > parry_max
 		    {

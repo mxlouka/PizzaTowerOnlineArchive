@@ -7,11 +7,14 @@ if !live_enabled
 }
 
 // this is a simple safeguard against making multiple obj_gmlive instances
-while instance_number(obj_gmlive) > 1
+if instance_number(object_index) > 1
 {
-	var find = instance_find(obj_gmlive, 0);
+	var find = instance_find(object_index, 0);
 	if id != find.id
+	{
 		instance_destroy();
+		exit;
+	}
 }
 
 // change the IP/port here if gmlive-server isn't running on the same device as the game

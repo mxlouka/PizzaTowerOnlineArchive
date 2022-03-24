@@ -1,6 +1,3 @@
-if repaintjokebuild
-	window_set_caption("Piss Towel Online");
-
 // logged out message
 if instance_exists(obj_gms)
 {
@@ -20,7 +17,7 @@ while instance_number(obj_player) > 1
 	instance_destroy(instance_find(obj_player, instance_number(obj_player) - 1));
 
 // reset player properly
-with obj_player1
+with obj_player
 {
 	global.modifier = -1;
 	global.hatunlock = [true];
