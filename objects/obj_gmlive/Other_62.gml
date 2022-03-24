@@ -1,1 +1,2 @@
-live_async_http();
+if live_enabled
+	live_async_http();

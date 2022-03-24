@@ -3,7 +3,6 @@ if live_call() return live_result;
 // config macros
 #macro debug false
 #macro debug:debug true
-#macro repaintjokebuild false
 #macro patron true // my attempt at making a non-patreon version of this in the same project, doesn't work
 
 // macros

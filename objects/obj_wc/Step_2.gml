@@ -4,8 +4,7 @@ if instance_exists(obj_login)
 or (instance_exists(obj_gms) && global.__chat)
 or (instance_exists(obj_onlinemenu) && (obj_onlinemenu.selectedsearch or obj_onlinemenu.selectedpassword))
 	exit;
-if ((instance_exists(obj_gms) && gms_info_isloggedin() && !gms_self_admin_rights())
-or repaintjokebuild) && !debug
+if (instance_exists(obj_gms) && gms_info_isloggedin() && !gms_self_admin_rights()) && !debug
 {
 	instance_destroy();
 	exit;
@@ -18,16 +17,20 @@ WC_modkp = -1; // reset keybind
 WC_mx = device_mouse_x_to_gui(0);
 WC_my = device_mouse_y_to_gui(0);
 
-// add scripts to gmlive
-if live_enabled && variable_global_exists("g_gml_func_script_id") && depth == 0
+// add all functions to gmlive
+if live_enabled
 {
-	for (var i = 0; script_exists(i); i++)
+	if variable_global_exists("g_gml_func_script_id") && !WC_gmlivedone
 	{
-		var s = script_get_name(i);
-		gml_func_add(s + "(...)", i);
-		global.g_gml_func_script_id[?s] = i;
+		for (var i = 0; script_exists(i); i++)
+		{
+			var s = script_get_name(i);
+			gml_func_add(s + "(...)", i);
+			global.g_gml_func_script_id[?s] = i;
+		}
+		global.g_live_request_url = undefined;
+		WC_gmlivedone = true;
 	}
-	global.g_live_request_url = undefined;
 }
 
 // set depth

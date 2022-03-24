@@ -12,9 +12,6 @@ image_index = 0;
 alarm[0] = room_speed;
 if object_index == obj_title
 {
-	if repaintjokebuild
-		sprite_index = spr_title_PP;
-	
 	with obj_player1
 	{
 		sprite_index = spr_file2;

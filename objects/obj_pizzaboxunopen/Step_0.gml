@@ -100,13 +100,13 @@ if (place_meeting(x,y,obj_player1) or place_meeting(x,y,obj_antonball)) && obj_p
 	
 		if content == obj_pizzakinshroom or content == obj_toppinmallow
 			global.shroomfollow = true;
-		if content == obj_pizzakincheese
+		if content == obj_pizzakincheese or content == obj_toppinchoco
 			global.cheesefollow = true;
-		if content == obj_pizzakintomato
+		if content == obj_pizzakintomato or content == obj_toppincrack
 			global.tomatofollow = true;
-		if content == obj_pizzakinsausage
+		if content == obj_pizzakinsausage or content == obj_toppinworm
 			global.sausagefollow = true;
-		if content == obj_pizzakinpineapple
+		if content == obj_pizzakinpineapple or content == obj_toppincandy
 			global.pineapplefollow = true;
 	}
 	

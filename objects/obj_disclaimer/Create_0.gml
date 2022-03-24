@@ -5,12 +5,6 @@ if room != rm_disclaimer
 }
 global.onlinemode = debug;
 
-if repaintjokebuild
-{
-	event_user(0);
-	exit;
-}
-
 con = -1;
 size = 0;
 cancon = false;

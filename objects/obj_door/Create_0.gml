@@ -8,7 +8,5 @@ if place_meeting(x, y, obj_destructibles)
 targetDoor = "A"
 targetRoom = room
 
-if repaintjokebuild
-	sprite_index = spr_doorunvisited_PP
 if check_sugary()
 	sprite_index = spr_doorunvisited_ss

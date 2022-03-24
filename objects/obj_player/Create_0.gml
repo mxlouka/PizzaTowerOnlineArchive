@@ -152,8 +152,6 @@ character = "P"
 
 scr_characterspr()
 paletteselect = check_shaders()
-if repaintjokebuild
-	paletteselect = 0
 
 global.panic = false
 global.snickchallenge = false

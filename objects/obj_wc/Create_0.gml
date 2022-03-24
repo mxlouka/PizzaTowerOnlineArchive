@@ -72,3 +72,4 @@ WC_oobcam = false;
 WC_prioritizebaddies = true;
 WC_pausebinds = true;
 WC_livestep = undefined;
+WC_gmlivedone = false;

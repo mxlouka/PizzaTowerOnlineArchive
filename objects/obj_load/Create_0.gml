@@ -14,7 +14,7 @@ if !check_shaders() && !ini_read_real("online", "shitgraphs", false)
 pal_swap_init_system(shd_pal_swapper, true);
 
 // fonts
-global.bigfont = font_add_sprite_ext((repaintjokebuild ? spr_font_PP : spr_font), "ABCDEFGHIJKLMNOPQRSTUVWXYZ!.1234567890:_-?'▯", true, 0)
+global.bigfont = font_add_sprite_ext(spr_font, "ABCDEFGHIJKLMNOPQRSTUVWXYZ!.1234567890:_-?'▯", true, 0)
 global.smallfont = font_add_sprite_ext(spr_smallerfont, "ABCDEFGHIJKLMNOPQRSTUVWXYZ!.:?1234567890▯'", true, 0)
 global.font_small = font_add_sprite_ext(spr_smallfont, "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!._1234567890:;?▯|*/',\"()=-+@█%~ÁÉÍÓÚáéíóúÑñ[]<>$", true, -2)
 global.smallnumber = font_add_sprite_ext(spr_smallnumber, "1234567890-.", true, 0)
@@ -51,12 +51,6 @@ global.musicvolume = ini_read_real("online", "musicvolume", 0.6);
 global.mastervolume = ini_read_real("online", "mastervolume", 1);
 global.machsound = ini_read_real("online", "machsound", 0);
 global.musicgame = ini_read_real("online", "musicgame", 0);
-if repaintjokebuild
-{
-	global.musicgame = 0;
-	global.musicvolume = max(global.musicvolume, 0.5);
-	global.mastervolume = 1;
-}
 
 audio_master_gain(global.mastervolume);
 

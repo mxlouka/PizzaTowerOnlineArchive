@@ -31,8 +31,6 @@ with obj_player1
 	character = "P";
 	
 	paletteselect = check_shaders();
-	if repaintjokebuild
-		paletteselect = 0;
 	
 	petfollow = -1;
 	hatsprite = -1;

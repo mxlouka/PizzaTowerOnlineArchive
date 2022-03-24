@@ -53,7 +53,7 @@
     "spriteId": {"name":"spr_toppinmallow","path":"sprites/spr_toppinmallow/spr_toppinmallow.yy",},
     "timeUnits": 1,
     "playback": 1,
-    "playbackSpeed": 16.0,
+    "playbackSpeed": 1.0,
     "playbackSpeedType": 1,
     "autoRecord": true,
     "volume": 1.0,

@@ -8,8 +8,6 @@ if instance_exists(obj_player)
 		with obj_tv
 		{
 			message = lang_string("msg.titleoption")
-			if repaintjokebuild
-				message = "CBT SETTINGS"
 			showtext = true
 			alarm[0] = 2
 		}
