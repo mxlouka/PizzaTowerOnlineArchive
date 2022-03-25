@@ -39,7 +39,7 @@ global.pvp = /*ini_read_real("online", "pvp", false)*/ false; // i removed most 
 global.drawborder = ini_read_real("online", "drawborder", false);
 global.pestoanchovi = ini_read_real("online", "pestoanchovi", false);
 global.camerasmoothing = ini_read_real("online", "camerasmoothing", 0);
-global.screenshader = ini_read_real("online", "screenshader", 0);
+global.pauseblur = ini_read_real("online", "pauseblur", true);
 
 global.panicbg = ini_read_real("online", "panicbg", false); // waving background
 global.panicmelt = ini_read_real("online", "panicmelt", false); // motion blur

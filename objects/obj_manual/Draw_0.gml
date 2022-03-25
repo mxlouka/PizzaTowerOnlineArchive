@@ -74,6 +74,9 @@ if i == 5
 	draw_set_colour(c_red);
 	draw_text_transformed(960 / 2, 56, lang_string("manual.credits"), 2, 2, 0);
 	
+	draw_text(960 / 2, 132, "Nobody deserves to be credited.");
+	
+	/*
 	if global.streamer
 		draw_text(960 / 2, 132, lang_string("manual.credits.fuckoffptd"));
 	else
@@ -82,4 +85,5 @@ if i == 5
 		//draw_text(680, 132, "- Other -\nSnick Escape - [c]ness\nSmart Debris - MrUnown\nExtra rooms - bepmaster\nLadders - Blugar23\nSugary Blocks - Randy\n\n- Cosmetic -\nPalettes - Planet Pizza Discord\nGlade, Noik & Peic - Sanssul\nNoah - lightninghawk, Sanssul\nGerald, Misty - Random\nCaptions - Croatian Commander, Potato\nSneck - StS\nLeith - Laterance");
 		draw_text(680, 132, "- Other -\nSnick Escape Theme - [c]ness\nTiled Debris - MrUnown\nAncient Tower Midi - VGMusic\n\n- Cosmetic -\nSpamton Pet - Kelp");
 	}
+	*/
 }

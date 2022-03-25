@@ -19,17 +19,6 @@ function lang_sprite(spr)
 
 function lang_load(lang)
 {
-	/*
-	try
-	{
-		var _buf = buffer_load("lang/lang-" + global.language + ".json");
-		if _buf > -1
-		{
-			global.langmap = json_decode(string(buffer_read(_buf, buffer_string)));
-			buffer_delete(_buf);
-		}
-	}
-	*/
 	global.langmap = ds_map_create();
 	global.langspr = ds_map_create();
 	
@@ -102,6 +91,7 @@ function lang_load(lang)
 		ds_map_add(global.langmap, "options.other.fpscount", "Other - FPS Counter");
 		ds_map_add(global.langmap, "options.other.camsmooth", "Other - Smooth Camera");
 		ds_map_add(global.langmap, "options.other.screenshader", "Other - Screen Shader");
+		ds_map_add(global.langmap, "options.other.pauseblur", "Other - Pause Blur");
 		
 		// other options descriptions and stuff
 		ds_map_add(global.langmap, "options.other.erase.desc", "All your progress, gone. Game will restart.");
@@ -164,6 +154,9 @@ function lang_load(lang)
 		
 		ds_map_add(global.langmap, "options.other.camsmooth.title", "SMOOTH CAMERA");
 		ds_map_add(global.langmap, "options.other.camsmooth.desc", "Smooths out the camera movement, just for fun.\nIf you unironically use this you are sick.");
+		
+		ds_map_add(global.langmap, "options.other.pauseblur.title", "PAUSE BLUR");
+		ds_map_add(global.langmap, "options.other.pauseblur.desc", "Makes the pause menu background a blur effect.\nCauses mild lag.");
 		
 		ds_map_add(global.langmap, "options.other.screenshader.title", "SCREEN SHADER");
 		ds_map_add(global.langmap, "options.other.screenshader.desc", "Full screen shader effect.");

@@ -5,7 +5,7 @@ if debug or room == characterselect
 if !global.pastdisclaimer
 	room_goto(room_of_dog);
 
-if instance_exists(obj_gms) && gms_info_isloggedin()
+if check_online()
 {
 	var ver = real(gms_ini_game_read("game", "version"));
 	if ver > obj_gms.gameversion

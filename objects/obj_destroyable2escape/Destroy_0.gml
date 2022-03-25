@@ -28,7 +28,7 @@ if ds_list_find_index(global.saveroom, id) == -1 && global.panic
 	create_baddiegibsticks(x + sprite_width / 2, y + sprite_height / 2);
 		
 	with instance_create(x, y, obj_collect)
-		sprite_index = choose(spr_fishcollect, spr_bananacollect, spr_eggcollect, spr_shrimpcollect, spr_baconcollect);
+		sprite_index = scr_collectsprite(false, true);
 	tile_layer_delete_at(1, x, y);
 		
 	if audio_is_playing(sfx_breakblock1) or audio_is_playing(sfx_breakblock2)

@@ -246,3 +246,7 @@ function scr_petspr(index)
 			break;
 	}
 }
+
+function check_online() {
+	return instance_exists(obj_gms) && gms_info_isloggedin();
+}

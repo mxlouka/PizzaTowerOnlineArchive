@@ -1,6 +1,6 @@
 if !debug
 {
-	if (!instance_exists(obj_gms) or !gms_info_isloggedin() or gms_ini_game_read("game", "leveleditor") == false)
+	if !check_online() or gms_ini_game_read("game", "leveleditor") == false
 	{
 		event_perform(ev_alarm, 2);
 		exit;
@@ -71,7 +71,7 @@ registering = false;
 passconfirm1 = "";
 
 regedit = false;
-if instance_exists(obj_gms) && gms_info_isloggedin()
+if check_online()
 {
 	if gms_ini_player_exists("saveData", "regedit")
 		regedit = gms_ini_player_read("saveData", "regedit");

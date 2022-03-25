@@ -13,6 +13,8 @@ function scr_getmidi(mus)
 		mus = mu_medievalsecret_re_pc;
 	else if mus == mu_dungeonsecret_re
 		mus = mu_medievalsecret_re_pc;
+	else if mus == mu_dungeondepth_re
+		mus = mu_dungeondepth_pc;
 	else if mus == mu_mall
 		mus = mu_mall;
 	else

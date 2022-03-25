@@ -40,13 +40,8 @@ if global.musicvolume > 0
 				obj_player1.cam.x, obj_player1.cam.y, obj_player1.cam.x + obj_player1.cam_width, obj_player1.cam.y + obj_player1.cam_height)
 					vol = 0;
 			}
-			var mult = 1;
-			/*
-			if global.musicgame == 1
-				mult = 1.7;
-			*/
-		
-			var mv = global.musicvolume * mult;
+			
+			var mv = global.musicvolume;
 			audio_sound_gain(song, vol * mv, 0);
 			audio_sound_gain(global.music, mv - (vol * mv), 0);
 		}
@@ -66,6 +61,7 @@ if global.musicvolume > 0
 				song = scr_soundeffect_ext(mu_antondepth, true);
 			else
 				song = scr_soundeffect_ext(mu_dungeondepth, true);
+			
 			audio_sound_gain(song, 0, 0);
 		}
 	}

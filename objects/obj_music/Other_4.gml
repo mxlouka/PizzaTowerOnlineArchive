@@ -123,6 +123,8 @@ else if (!global.panic or string_letters(roomname) == "dragonlair" or string_let
 			{
 				fadeoff = 0;
 				musplay = mu_dungeondepth;
+				if global.snickrematch
+					musplay = mu_dungeondepth_re;
 			}
 		}
 	}
@@ -307,8 +309,6 @@ else if (!global.panic or string_letters(roomname) == "dragonlair" or string_let
 				else
 					musplay = mu_ruin
 			}
-			else if roomname == "etb_secret" + string(i)
-				musplay = mu_ruinsecret
 		}
 	}
 	
@@ -347,71 +347,56 @@ else if (!global.panic or string_letters(roomname) == "dragonlair" or string_let
 	}
 
 	// secrets
-	//if global.gameplay == 0
+	if string_letters(roomname) == "entrancesecret"
 	{
-		if string_letters(roomname) == "entrancesecret"
-		{
-			musplay = mu_entrancesecret
-			with obj_player1
-				if character == "SP" musplay = mu_entrancesecretSP;
-		}
-		if string_letters(roomname) == "medievalsecret"
-		or string_letters(roomname) == "ancientsecret"
-		{
-			musplay = mu_medievalsecret
-			if global.snickrematch
-				musplay = mu_medievalsecret_re;
-		}
-		if string_letters(roomname) == "ruinsecret"
-		{
-			musplay = mu_ruinsecret
-			if global.snickrematch
-				musplay = mu_ruinsecret_re;
-		}
-		if string_letters(roomname) == "dungeonsecret"
-		{
-			musplay = mu_dungeonsecret
-			if global.snickrematch
-				musplay = mu_dungeonsecret_re
-		}
-		if string_letters(roomname) == "chateausecret" 
-			musplay = mu_chateausecret
-		if string_letters(roomname) == "strongcoldsecret"
-			musplay = mu_strongcoldsecret
-		if string_startswith(roomname, "floor1_secret")
-			musplay = mu_desertsecret
-		if string_letters(roomname) == "graveyardsecret" 
-			musplay = mu_graveyardsecret
-		if string_letters(roomname) == "farmsecret" 
-			musplay = mu_farmsecret
-		if string_letters(roomname) == "ufosecret" 
-			musplay = mu_pinballsecret
-		if string_letters(roomname) == "kungfusecret" 
-			musplay = mu_kungfusecret
-		if string_letters(roomname) == "forestsecret" 
-		or string_startswith(roomname, "floor2_secret")
-			musplay = mu_forestsecret
+		musplay = mu_entrancesecret
+		with obj_player1
+			if character == "SP" musplay = mu_entrancesecretSP;
 	}
+	if string_letters(roomname) == "medievalsecret"
+	or string_letters(roomname) == "ancientsecret"
+	{
+		musplay = mu_medievalsecret
+		if global.snickrematch
+			musplay = mu_medievalsecret_re;
+	}
+	if string_letters(roomname) == "ruinsecret"
+	or string_letters(roomname) == "etbsecret"
+	{
+		musplay = mu_ruinsecret
+		if global.snickrematch
+			musplay = mu_ruinsecret_re;
+	}
+	if string_letters(roomname) == "dungeonsecret"
+	{
+		musplay = mu_dungeonsecret
+		if global.snickrematch
+			musplay = mu_dungeonsecret_re
+	}
+	if string_letters(roomname) == "chateausecret" 
+		musplay = mu_chateausecret
+	if string_letters(roomname) == "strongcoldsecret"
+		musplay = mu_strongcoldsecret
+	if string_startswith(roomname, "floor1_secret")
+		musplay = mu_desertsecret
+	if string_letters(roomname) == "graveyardsecret" 
+		musplay = mu_graveyardsecret
+	if string_letters(roomname) == "farmsecret" 
+		musplay = mu_farmsecret
+	if string_letters(roomname) == "ufosecret" 
+		musplay = mu_pinballsecret
+	if string_letters(roomname) == "kungfusecret" 
+		musplay = mu_kungfusecret
+	if string_letters(roomname) == "forestsecret" 
+	or string_startswith(roomname, "floor2_secret")
+		musplay = mu_forestsecret
 	if string_letters(roomname) == "cottonsecret"
 		musplay = mu_cottonsecret
 	if string_letters(roomname) == "jawbreakersecret"
 		musplay = mu_jawbreakersecret
 	
-	/*
-	if obj_player1.character == "SP" && string_endswith(audio_get_name(musplay), "secret")
-	&& global.musicgame == 0
-	{
-		var sndrep = asset_get_index(audio_get_name(musplay) + "SP");
-		if audio_exists(sndrep)
-			musplay = sndrep
-		else
-			musplay = mu_steamccsecretSP
-	}
-	*/
-	
-	if room == custom_lvl_room {
+	if room == custom_lvl_room
 		alarm[0] = 4;
-	}
 }
 
 #endregion
@@ -425,6 +410,12 @@ if musplay > -1
 	// play the song
 	if !audio_is_playing(musplay)
 	{
+		// try to remedy secret song looping main song
+		if string_contains(audio_get_name(musplay), "secret")
+			secretfadeoff = fadeoff - (fadeoff % audio_sound_length(musplay));
+		else if string_contains(audio_get_name(global.music), "secret")
+			fadeoff += secretfadeoff;
+		
 		audio_stop_sound(global.music);
 		pausedmusic = scr_sound(musplay);
 		audio_sound_set_track_position(global.music, fadeoff % audio_sound_length(musplay));

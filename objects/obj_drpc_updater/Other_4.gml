@@ -226,7 +226,7 @@ if state == -1
 	state = roomname == "" ? "???" : roomname;
 
 var detf = det;
-if instance_exists(obj_gms) && gms_info_isloggedin()
+if check_online()
 	detf = gms_self_name() + " - " + det;
 
 rousr_dissonance_set_details(detf);

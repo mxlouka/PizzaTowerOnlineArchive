@@ -9,7 +9,7 @@ if shotgun
 	}
 }
 
-with instance_place(x+spd,y,obj_destructibles)
+with instance_place(x + spd, y, obj_destructibles)
 {
 	if object_index != obj_hungrypillar or !other.pistol
 	{
@@ -23,7 +23,7 @@ with instance_place(x+spd,y,obj_destructibles)
 	}
 }
 
-with instance_place(x+spd,y,obj_mortblock)
+with instance_place(x + spd, y, obj_mortblock)
 {
 	if other.sprite_index == spr_mortprojectile
 		instance_destroy();

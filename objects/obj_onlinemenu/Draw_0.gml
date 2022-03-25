@@ -117,8 +117,7 @@ switch menu
 			}
 		}
 		
-		if (instance_exists(obj_gms) && gms_info_isloggedin())
-		or debug
+		if check_online() or debug
 		{
 			if draw_editorbutton(384, 200 + 64 + (debug * 64), lang_string("editor.menu.online.pto"))
 			{
@@ -494,7 +493,7 @@ switch menu
 	case menutypes.login:
 	{
 		var lg_name = "";
-		if instance_exists(obj_gms) && gms_info_isloggedin()
+		if check_online()
 			lg_name = string_copy(gms_self_name(), 1, 30);
 		if debug
 			lg_name = "admin";

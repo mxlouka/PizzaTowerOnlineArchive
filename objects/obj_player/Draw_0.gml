@@ -79,7 +79,7 @@ if hatsprite > -1
 }
 
 // Draw name
-if instance_exists(obj_gms) && gms_info_isloggedin()
+if check_online()
 {
 	// get player name
 	var nick = (nickname == "" ? gms_self_name() : nickname);

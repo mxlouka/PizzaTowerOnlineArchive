@@ -1,4 +1,4 @@
-if instance_exists(obj_gms) && gms_info_isloggedin()
+if check_online()
 	gms_self_set("pause", pause);
 
 if instance_exists(obj_pausefadeout) && (instance_exists(obj_fadeout) or !canpause)

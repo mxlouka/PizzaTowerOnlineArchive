@@ -6,7 +6,7 @@ if ((room == dungeon_10 or room == dungeon_9 or room == snick_challengeend) && g
     instance_destroy(obj_baddiespawner, false);
 }
 
-if room == rm_deltarune
+if room == rm_deltarune or room == rm_darkreveal
 	exit;
 
 // snick rematch jumpscare
@@ -73,7 +73,7 @@ if global.gameplay == 0
 
 else
 {
-	if !(instance_exists(obj_player1) && obj_player1.state == states.rotate)
+	if !(instance_exists(obj_player) && obj_player.state == states.rotate)
 	{
 		/*
 		if global.use_temperature
@@ -102,12 +102,15 @@ else
 				&& sprite_index != spr_tv_off && sprite_index != spr_tv_offSP && sprite_index != spr_tv_offPP
 				&& sprite_index != spr_tv_open && sprite_index != spr_tv_openSP && sprite_index != spr_tv_openPP
 				{
-					with obj_player1
+					with obj_player
 						pal_swap_set(spr_palette, paletteselect, false);
 				}
 				
-			    draw_sprite_ext(sprite_index, -1, 833 + collect_x, 107 + collect_y + hud_posY, 1, 1, 0, c_white, alpha)
+			    draw_sprite_ext(sprite_index, -1, 833 + collect_x, 107 + collect_y + hud_posY, 1, 1, 0, c_white, alpha);
 				pal_swap_reset();
+				
+				if !sg && obj_player.character != "PP"
+					draw_sprite_ext(spr_tv_frame, -1, 833 + collect_x, 107 + collect_y + hud_posY, 1, 1, 0, c_white, alpha);
 			}
 			
 			// draw combo
@@ -188,7 +191,7 @@ else
 
 // pizzacoin in the hub
 draw_set_valign(fa_top);
-if room == hub_room1 && !(instance_exists(obj_player1) && obj_player1.state == states.victory)
+if check_online() && room == hub_room1 && !(instance_exists(obj_player) && obj_player.state == states.victory)
 {
 	draw_set_halign(fa_right);
 	pizzacoinframe = (pizzacoinframe + 0.35) % sprite_get_number(spr_pizzacoin);

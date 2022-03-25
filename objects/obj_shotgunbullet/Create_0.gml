@@ -1,12 +1,11 @@
+playerid = obj_player;
+image_xscale = playerid.xscale;
 image_speed = 0.5
-image_xscale = obj_player1.xscale
 
 spd = image_xscale * 25
 spdh = 0
 
 pistol = false;
-playerid = obj_player1;
-
 shotgun = false;
 
 oob = false;

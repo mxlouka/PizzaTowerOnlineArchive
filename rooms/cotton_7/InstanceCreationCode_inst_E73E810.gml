@@ -1,1 +1,1 @@
-targetRoom = cotton_secret3
+targetRoom = cotton_secret3;

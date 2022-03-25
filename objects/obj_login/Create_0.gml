@@ -4,7 +4,7 @@ if room != characterselect
 	exit;
 }
 
-if !(instance_exists(obj_gms) && gms_info_isloggedin()) && room == characterselect
+if !check_online() && room == characterselect
 {
 	keyboard_string = "";
 	gms_show_set_allowguest(debug ? 1 : 0); // is_real no longer works with bools!!!

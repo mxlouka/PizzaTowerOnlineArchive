@@ -1,6 +1,6 @@
 x += hsp
 
-if obj_player1.state == states.taxi && sprite_index == spr_taximove && instance_exists(obj_gms) && gms_info_isloggedin()
+if obj_player1.state == states.taxi && sprite_index == spr_taximove && check_online()
 {
 	gms_self_set("taxix", x);
 	gms_self_set("taxiy", y);

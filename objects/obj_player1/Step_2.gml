@@ -1,6 +1,6 @@
 /// @description online
 // sync variables
-if instance_exists(obj_gms) && gms_info_isloggedin()
+if check_online()
 {
 	gms_self_set("xscale", xscale);
 	gms_self_set("yscale", yscale);
@@ -77,7 +77,7 @@ if instance_exists(obj_gms) && gms_info_isloggedin()
 }
 
 // chat
-if instance_exists(obj_gms) && gms_info_isloggedin() && state != states.titlescreen && state != -1
+if check_online() && state != states.titlescreen && state != -1
 && !instance_exists(obj_skinchoice) && !instance_exists(obj_hatchoice)
 && !(instance_exists(obj_hubelevator) && obj_hubelevator.state != 0)
 && !(instance_exists(obj_wc) && obj_wc.WC_consoleopen)

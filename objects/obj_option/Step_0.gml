@@ -470,7 +470,7 @@ else if menu == 2 && !instance_exists(obj_erasegame)
 		}
 	}
 	
-	// fps count
+	// camera smoothing slider
 	if optionselected == 14
 	{
 		if keyboard_check(vk_shift)
@@ -502,12 +502,12 @@ else if menu == 2 && !instance_exists(obj_erasegame)
 		ini_write_real("online", "secretdebris", global.secretdebris)
 		ini_write_real("online", "shownames", global.shownames)
 		ini_write_real("online", "chatbubbles", global.chatbubbles)
-		//ini_write_real("online", "pvp", global.pvp)
 		ini_write_real("online", "synceffect", global.synceffect)
 		ini_write_real("online", "richpresence", global.richpresence)
 		ini_write_real("online", "streamer", global.streamer)
 		ini_write_real("online", "showfps", global.showfps)
 		ini_write_real("online", "camerasmoothing", global.camerasmoothing)
+		ini_write_real("online", "pauseblur", global.pauseblur)
 		ini_close();
 		
 		if obj_drpc_updater.running != global.richpresence

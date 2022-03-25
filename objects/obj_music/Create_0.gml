@@ -9,3 +9,5 @@ continuous = false;
 wait = false
 musicpitch = 1
 lemusic = -1
+
+secretfadeoff = 0;

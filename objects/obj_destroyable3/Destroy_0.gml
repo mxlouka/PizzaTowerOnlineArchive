@@ -42,12 +42,11 @@ if ds_list_find_index(global.saveroom, id) = -1
 	ds_list_add(global.saveroom, id) 
 
 	var roomname = room_get_name(room)
-	if string_letters(roomname) != "PProom" && room != custom_lvl_room
+	if string_letters(roomname) != "PProom" && room != custom_lvl_room && check_online()
 	{
 		var pizzacoin = irandom_range(0, 25)
 		if pizzacoin == 5
-			with instance_create(x+16,y+16,obj_pizzacoin)
+			with instance_create(x + 16, y + 16, obj_pizzacoin)
 				hsp = choose(-2, 2)
 	}
 }
-

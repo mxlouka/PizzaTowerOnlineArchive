@@ -279,16 +279,10 @@ switch sel[1]
 }
 pal_swap_index_palette(spr_palette);
 
-/*
-custompal_update(palcolors);
-if instance_exists(obj_gms) && gms_info_isloggedin()
-	gms_self_set("palcolors", dsread);
-*/
-
 switch sel[1]
 {
 	default:
-		if instance_exists(obj_gms) && gms_info_isloggedin()
+		if check_online()
 			locked = gms_ini_player_read("saveData", "customlock") == sel[1];
 		else
 			locked = false;
@@ -299,12 +293,6 @@ switch sel[1]
 		break;
 	
 	case "SP":
-		/*
-		if instance_exists(obj_gms) && gms_info_isloggedin()
-			locked = !(gms_ini_player_read("saveData", "pizzelle") == true);
-		else
-			locked = !debug;
-		*/
 		locked = false;
 		break;
 }

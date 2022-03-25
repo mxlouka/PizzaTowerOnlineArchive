@@ -10,7 +10,7 @@ if hsp != 0
 	}
 }
 
-if instance_exists(obj_gms) && gms_info_isloggedin()
+if check_online()
 {
 	gms_self_set("taxix", x);
 	gms_self_set("taxiy", y);

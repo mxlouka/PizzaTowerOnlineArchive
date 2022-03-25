@@ -8,5 +8,6 @@ grabbedspr = spr_cottonwitch_stunned
 scaredspr = spr_cottonwitch_scared
 spr_dead = spr_cottonwitch_dead
 throwspr = spr_cottonwitch_shoot
+sprite_index = walkspr
 
 sugaryenemy = true

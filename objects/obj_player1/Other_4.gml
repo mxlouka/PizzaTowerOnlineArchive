@@ -1,7 +1,7 @@
 event_inherited();
 
 // correct online position
-if instance_exists(obj_gms) && gms_info_isloggedin()
+if check_online()
 {
 	gms_self_set("x", x);
 	gms_self_set("y", y);

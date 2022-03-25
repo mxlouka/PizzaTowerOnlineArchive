@@ -2,7 +2,7 @@
 if room == editor_entrance
 {
 	gmsroom = -1;
-	if instance_exists(obj_gms) && gms_info_isloggedin()
+	if check_online()
 		gms_chat_toggle(false);
 	
 	var lbg = layer_get_id("Background");

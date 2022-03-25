@@ -8,6 +8,10 @@ if (obj_player1.state == states.normal or obj_player1.state == states.mach1 or o
 	
 	obj_player1.doorx = x + 50;
 	
+	with instance_create(x + 50, y + 50, obj_lock)
+		if other.sprite_index == spr_keydoor_ss
+			sprite_index = spr_lock_ss
+	
 	image_index = 0
 	if sprite_index == spr_keydoor_ss
 		sprite_index = spr_door_ss
@@ -15,10 +19,6 @@ if (obj_player1.state == states.normal or obj_player1.state == states.mach1 or o
 		sprite_index = spr_doorkeyopen
 	
 	image_speed = 0.35
-	
-	with instance_create(x + 50, y + 50, obj_lock)
-		if other.sprite_index == spr_keydoor_ss
-			sprite_index = spr_lock_ss
 	
 	global.key_inv = false
 }

@@ -44,7 +44,7 @@ else
 	yoffset = 0;
 
 // sync
-if instance_exists(obj_gms) && gms_info_isloggedin()
+if check_online()
 {
 	gms_self_set("petx", x);
 	gms_self_set("pety", y + yoffset + yslope);

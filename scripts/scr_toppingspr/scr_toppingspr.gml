@@ -1,9 +1,9 @@
-function scr_collectsprite(single = false)
+function scr_collectsprite(single = false, escape = false)
 {
 	var spr = -1, toppings = [spr_sausagecollect];
 	var char = (instance_exists(obj_player1) ? obj_player1.character : "P");
 	
-	if object_index == obj_collectescape
+	if object_index == obj_collectescape or escape
 	{
 		//toppings = [spr_fishcollect, spr_bananacollect, spr_eggcollect, spr_shrimpcollect, spr_baconcollect];
 		toppings = [spr_escapecollect];

@@ -1,10 +1,12 @@
 /// @description world control mod
+
 // pt online exclusive
 if instance_exists(obj_login)
 or (instance_exists(obj_gms) && global.__chat)
 or (instance_exists(obj_onlinemenu) && (obj_onlinemenu.selectedsearch or obj_onlinemenu.selectedpassword))
 	exit;
-if (instance_exists(obj_gms) && gms_info_isloggedin() && !gms_self_admin_rights()) && !debug
+
+if check_online() && !gms_self_admin_rights() && !debug
 {
 	instance_destroy();
 	exit;

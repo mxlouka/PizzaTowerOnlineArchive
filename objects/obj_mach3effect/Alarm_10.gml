@@ -1,5 +1,5 @@
 /// @description sync
-if !(instance_exists(obj_gms) && gms_info_isloggedin())
+if !check_online()
 	exit;
 
 if check_bysync() == false && sync == false && instance_number(object_index) < 100

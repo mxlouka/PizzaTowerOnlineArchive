@@ -12,7 +12,7 @@ if global.gameplay == 0
 		repeat (8) with instance_create(x+random_range(50,-50),y+random_range(50,-50),obj_cloudeffect)
 		{
 			sprite_index=  spr_teleporteffect
-			if instance_exists(obj_gms) && gms_info_isloggedin()
+			if check_online()
 				gms_instance_sync(id, is_onetime | isc_local);
 		}
 		alarm[0] = 25

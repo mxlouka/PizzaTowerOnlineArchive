@@ -36,10 +36,6 @@ if fadealpha >= 1 && !fadein
 			pause = true;
 			pausefad = 1;
 			pausealpha = 0;
-			
-			if sprite_exists(pausebg)
-				sprite_delete(pausebg);
-			pausebg = sprite_create_from_surface(application_surface, 0, 0, surface_get_width(application_surface), surface_get_height(application_surface), false, false, 0, 0);
 		}
 		
 		with all

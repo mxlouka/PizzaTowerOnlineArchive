@@ -1,6 +1,6 @@
 image_speed = 0.35
 
-if !(instance_exists(obj_gms) && gms_info_isloggedin())
+if !check_online()
 	exit;
 
 if check_bysync() == false

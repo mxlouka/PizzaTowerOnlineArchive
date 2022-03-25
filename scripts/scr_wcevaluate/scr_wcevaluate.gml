@@ -2740,13 +2740,14 @@ function scr_wcevaluate(argument0)
 			{
 				audio_stop_all();
 				instance_destroy(obj_music);
+				audio_group_load(ag_sfx_);
 				audio_group_set_gain(audiogroup_default, 0, 0);
 				scr_soundeffect_ext(sfx_, true);
-				ds_list_insert(WC_consolelist, 0, "Enjoy");
 			}
 			else
 			{
 				audio_stop_all();
+				audio_group_unload(ag_sfx_);
 				audio_group_set_gain(audiogroup_default, 1, 0);
 				if !instance_exists(obj_music)
 				{

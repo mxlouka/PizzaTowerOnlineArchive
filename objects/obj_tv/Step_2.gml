@@ -351,11 +351,12 @@ else
 			
 			            case states.fireass:
 			                idlespr = spr_tv_fireass;
-							with obj_player1
+							with obj_player
 							{
-								if sprite_index == spr_scaredjump1
+								if (sprite_index == spr_scaredjump1
 								or sprite_index == spr_scaredjump2
-								or sprite_index == spr_scaredjump3
+								or sprite_index == spr_scaredjump3)
+								&& spr_scaredjump2 != spr_fireass
 									other.idlespr = spr_tv_scaredjump;
 							}
 			                break;
@@ -528,12 +529,12 @@ else
 				sprite_index = spr_tv_escapeSP;
 			else if tvsprite != spr_tv_open && animset != spr_tv_open
 			{
-				if instance_exists(obj_player1) && obj_player1.character != "P"
+				if instance_exists(obj_player) && obj_player.character != "P"
 				{
 				    var spr = sprite_get_name(animset);
-				    spr = asset_get_index(spr + obj_player1.character);
-				
-				    if spr > -1
+				    spr = asset_get_index(spr + string_upper(string(obj_player.character)));
+					
+				    if sprite_exists(spr)
 				        sprite_index = spr;
 					else
 					{

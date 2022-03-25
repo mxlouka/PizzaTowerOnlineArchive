@@ -29,6 +29,16 @@ switch loadwhat
 				texture_prefetch(_tex_array[i]);
 			trace("tg_baddie texture group prefetched");
 			
+			_tex_array = texturegroup_get_textures("tg_palette");
+			for (var i = 0; i < array_length(_tex_array); ++i)
+				texture_prefetch(_tex_array[i]);
+			trace("tg_palette texture group prefetched");
+			
+			_tex_array = texturegroup_get_textures("tg_hud");
+			for (var i = 0; i < array_length(_tex_array); ++i)
+				texture_prefetch(_tex_array[i]);
+			trace("tg_hud texture group prefetched");
+			
 			_tex_array = texturegroup_get_textures("Default");
 			for (var i = 0; i < array_length(_tex_array); ++i)
 				texture_prefetch(_tex_array[i]);
