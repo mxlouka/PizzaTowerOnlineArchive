@@ -343,8 +343,8 @@ function lang_load(lang)
 		ds_map_add(global.langmap, "roomname.entryway_10", "Beary Careful");
 		
 		ds_map_add(global.langmap, "roomname.cotton_secret1", "Rocky Road");
-		ds_map_add(global.langmap, "roomname.cotton_secret2", "Digging For Cotton");
-		ds_map_add(global.langmap, "roomname.cotton_secret3", "Kick Gum And Chew Gum");
+		ds_map_add(global.langmap, "roomname.cotton_secret2", "Kick Gum And Chew Gum");
+		ds_map_add(global.langmap, "roomname.cotton_secret3", "Digging For Cotton");
 		ds_map_add(global.langmap, "roomname.cotton_1", "Welcome to Cottontown!");
 		ds_map_add(global.langmap, "roomname.cotton_2", "Scary Monsters Nice Sights");
 		ds_map_add(global.langmap, "roomname.cotton_3", "Boiler Room");
