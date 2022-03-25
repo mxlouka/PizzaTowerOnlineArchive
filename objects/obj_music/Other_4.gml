@@ -229,8 +229,20 @@ else if (!global.panic or string_letters(roomname) == "dragonlair" or string_let
 			musplay = mu_war
 	}
 	
-	if string_letters(roomname) == "cotton"
-		musplay = mu_cotton
+	if (string_letters(roomname) == "cotton") // <- tranny
+    {
+        for (i = 0; i < 20; i++)
+        {
+            if (roomname == ("cotton_" + string(i)) && i < 7)
+            {
+				musplay = mu_cotton
+            }
+            if (roomname == ("cotton_" + string(i)) && i >= 7)
+            {
+				musplay = mu_cotton2
+            }
+        }
+    }
 	if string_letters(roomname) == "jawbreaker"
 		musplay = mu_jawbreaker
 

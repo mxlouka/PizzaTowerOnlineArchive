@@ -1,2 +1,2 @@
-targetRoom = cotton_6
+targetRoom = cotton_7
 visible = false
