@@ -1,4 +1,4 @@
-if (place_meeting(x,y,obj_player1) or place_meeting(x,y,obj_antonball)) && obj_player1.state != states.gameover
+if (place_meeting(x, y, obj_player1) or place_meeting(x, y, obj_antonball)) && obj_player1.state != states.gameover
 && sprite_index == spr_closed
 {
 	global.heattime = 60;
@@ -24,7 +24,7 @@ if (place_meeting(x,y,obj_player1) or place_meeting(x,y,obj_antonball)) && obj_p
 			sprite_index = spr_player_bossintro
 			image_index = 0
 		}
-		with instance_create(x,y-25,content)
+		with instance_create(x, y - 25, content)
 			sprite_index = spr_intro
 		
 		/*

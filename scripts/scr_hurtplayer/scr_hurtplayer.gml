@@ -1,9 +1,6 @@
-function scr_hurtplayer(argument0)
+function scr_hurtplayer(argument0 = obj_player)
 {
-	if is_undefined(argument0)
-		argument0 = obj_player1;
-	
-	with (argument0)
+	with argument0
 	{
 		// Auto parry
 		if (state == states.mach3 or state == states.grab && sprite_index == spr_swingding)

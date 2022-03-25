@@ -112,7 +112,7 @@ if !patron
 // background
 if object_index == obj_title
 {
-	var lay_id = layer_get_id("Backgrounds_2");
+	var lay_id = layer_get_id("Backgrounds_1");
 	var back_id = layer_background_get_id(lay_id);
 	
 	if patron

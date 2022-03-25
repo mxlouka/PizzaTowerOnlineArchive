@@ -1,3 +1,4 @@
+scr_initenemy();
 image_speed = 0.35
 
 arenalayer = layer
@@ -21,3 +22,4 @@ sugaryenemy = false
 
 with obj_player1
 	if character == "S" instance_destroy(other.id, false);
+killreward = true;

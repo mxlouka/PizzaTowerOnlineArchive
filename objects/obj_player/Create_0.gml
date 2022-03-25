@@ -349,9 +349,9 @@ transformation[14] = states.ghost
 transformation[15] = states.mort
 transformation[16] = states.hitlag
 transformation[17] = states.knightpepattack
+transformation[18] = states.cotton
 
-
-global.giantkey =false
+global.giantkey = false
 
 c = 0
 

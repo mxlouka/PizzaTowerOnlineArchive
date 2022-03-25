@@ -2735,6 +2735,27 @@ function scr_wcevaluate(argument0)
 			ds_list_insert(WC_consolelist, 0, "Rebinded default keys");
 			break;
 		
+		case "fart": // pto exclusive
+			if !audio_is_playing(sfx_)
+			{
+				audio_stop_all();
+				instance_destroy(obj_music);
+				audio_group_set_gain(audiogroup_default, 0, 0);
+				scr_soundeffect_ext(sfx_, true);
+				ds_list_insert(WC_consolelist, 0, "Enjoy");
+			}
+			else
+			{
+				audio_stop_all();
+				audio_group_set_gain(audiogroup_default, 1, 0);
+				if !instance_exists(obj_music)
+				{
+					with instance_create(0, 0, obj_music)
+						event_perform(ev_other, ev_room_start);
+				}
+			}
+			break;
+		
 		default: // no command
 			WC_consoleopen = true;
 			ds_list_insert(WC_consolelist, 0, "Invalid command " + arg0);

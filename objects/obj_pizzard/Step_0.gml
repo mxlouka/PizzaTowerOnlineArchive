@@ -14,15 +14,15 @@ switch (state)
 }
 
 
-if  state = states.stun && stunned > 100 && birdcreated = false
+if state == states.stun && stunned > 100 && !birdcreated
 {
-birdcreated = true
-with instance_create(x,y, obj_enemybird)
-ID = other.id
+	birdcreated = true
+	with instance_create(x,y, obj_enemybird)
+		ID = other.id
 }
 
 if state != states.stun
-birdcreated = false
+	birdcreated = false
 
 
 //Flash
@@ -32,11 +32,11 @@ if (flash == true && alarm[2] <= 0) {
 
 
 if state != states.grabbed
-depth = 0
+	depth = 0
 
 
 if state != states.stun
-thrown= false
+	thrown = false
 
 //Scared
 scr_scareenemy()
@@ -45,19 +45,16 @@ if bombreset > 0
 	bombreset = max(bombreset - 1, 0);
 
 //Identify the player
-var targetplayer = instance_nearest(x,y ,obj_player)
-
+var targetplayer = instance_nearest(x, y, obj_player)
 
 //Throw Bomb at
-if x != targetplayer.x && state != states.pizzagoblinthrow && bombreset = 0 && grounded && !rematchscare
+if x != targetplayer.x && state != states.pizzagoblinthrow && bombreset <= 0 && grounded && !rematchscare
 {
 	if ((targetplayer.x > x - 400) && (targetplayer.x < x + 400)) && (y <= targetplayer.y+20 && y >= targetplayer.y- 20)
 	{
-		if (state == states.walk or state == states.idle) 
+		if state == states.walk or state == states.idle
 		{
-			sprite_index = spr_pizzard_shoot
-			if global.snickrematch
-				sprite_index = spr_pizzard_shoot_re
+			sprite_index = throwspr
 			image_index = 0
 			image_xscale = -sign(x - targetplayer.x)
 			state = states.pizzagoblinthrow
@@ -77,13 +74,13 @@ stunned = 0
 }
 */
 
-if boundbox = false
+if !boundbox
 {
-with instance_create(x,y,obj_baddiecollisionbox)
-{
-sprite_index = other.sprite_index
-mask_index = sprite_index
-baddieID = other.id
-other.boundbox = true
-}
+	with instance_create(x, y, obj_baddiecollisionbox)
+	{
+		sprite_index = other.sprite_index
+		mask_index = sprite_index
+		baddieID = other.id
+		other.boundbox = true
+	}
 }

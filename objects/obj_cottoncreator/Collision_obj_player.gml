@@ -1,6 +1,6 @@
 with other
 {
-	if state != states.cotton
+	if character != "V" && scr_transformationcheck() && state != states.cotton
 	{
 		state = states.cotton;
 		sprite_index = spr_cotton_idle;

@@ -104,7 +104,7 @@ else if (!global.panic or string_letters(roomname) == "dragonlair" or string_let
 		else if obj_player1.character == "S"
 			musplay = mu_snickentrance
 		else if obj_player1.character == "SP"
-			musplay = mu_pizzyentrance
+			musplay = mu_waffle
 		else
 			musplay = mu_entrance
 	}
@@ -229,18 +229,14 @@ else if (!global.panic or string_letters(roomname) == "dragonlair" or string_let
 			musplay = mu_war
 	}
 	
-	if (string_letters(roomname) == "cotton") // <- tranny
+	if string_letters(roomname) == "cotton" // little tranngus
     {
         for (i = 0; i < 20; i++)
         {
-            if (roomname == ("cotton_" + string(i)) && i < 7)
-            {
+            if roomname == "cotton_" + string(i) && i < 7
 				musplay = mu_cotton
-            }
-            if (roomname == ("cotton_" + string(i)) && i >= 7)
-            {
+            else if roomname == "cotton_" + string(i) && i >= 7
 				musplay = mu_cotton2
-            }
         }
     }
 	if string_letters(roomname) == "jawbreaker"
@@ -252,10 +248,10 @@ else if (!global.panic or string_letters(roomname) == "dragonlair" or string_let
 	{
 		for (i = 0; i < 20; ++i)
 		{
-			if roomname = "floor1_room" + string(i) && i <= 9
+			if roomname == "floor1_room" + string(i) && i <= 9
 			or string_startswith(roomname, "floor1_mart")
 				musplay = mu_desert
-			else if roomname = "floor1_room" + string(i) && i > 9
+			else if roomname == "floor1_room" + string(i) && i > 9
 				musplay = mu_ufo
 		}
 	}

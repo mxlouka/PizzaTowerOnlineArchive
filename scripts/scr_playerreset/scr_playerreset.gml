@@ -124,12 +124,10 @@ function scr_playerreset()
 		idleanim = 180
 		collect_shake = 0
 	}
-
-	// SAGE2019
-	global.SAGEshotgunsnicknumber = 0
-	obj_music.fadeoff = 0
-	//audio_stop_all()
-
+	
+	with obj_music
+		fadeoff = 0
+	
 	if instance_exists(obj_timesup)
 		instance_destroy(obj_timesup, false)
 	global.seconds = 59

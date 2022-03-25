@@ -361,8 +361,8 @@
     "PhysicsWorldPixToMetres": 0.1,
   },
   "parent": {
-    "name": "old",
-    "path": "folders/Rooms/Extra Levels/Sugary Spire/Cotton Town/old.yy",
+    "name": "old (fucked up tiles)",
+    "path": "folders/Rooms/Extra Levels/Sugary Spire/Cotton Town/old (fucked up tiles).yy",
   },
   "resourceVersion": "1.0",
   "name": "cottonOLD_1",

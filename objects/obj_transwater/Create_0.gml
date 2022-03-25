@@ -6,7 +6,7 @@ col = $F8A830;
 if check_sugary()
 {
 	sprite_index = spr_sswater;
-	col = $F7A830;
+	col = #9850F8;
 	image_alpha = 0.8;
 }
 else

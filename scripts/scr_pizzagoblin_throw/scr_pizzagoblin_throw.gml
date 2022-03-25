@@ -18,7 +18,8 @@ function scr_pizzagoblin_throw()
 		global.throw_frame[obj_rancher] = 3
 		global.throw_frame[obj_pickle] = 2
 		global.throw_frame[obj_tankOLD] = 6
-
+		global.throw_frame[obj_cottonwitch] = 7
+		
 		// What sprite should the enemy go to when throwing
 		global.throw_sprite[obj_pizzagoblin] = spr_pizzagoblin_throwbomb
 		global.throw_sprite[obj_canongoblin] = spr_canongoblin_throwbomb
@@ -35,7 +36,8 @@ function scr_pizzagoblin_throw()
 		global.throw_sprite[obj_rancher] = spr_ranch_shoot
 		global.throw_sprite[obj_pickle] = spr_pickle_attack
 		global.throw_sprite[obj_tankOLD] = spr_tank_shoot
-	
+		global.throw_sprite[obj_cottonwitch] = spr_cottonwitch_shoot
+		
 		// How long before the enemy throws something again
 		global.reset_timer[obj_pizzagoblin] = 200
 		global.reset_timer[obj_canongoblin] = 200
@@ -52,6 +54,7 @@ function scr_pizzagoblin_throw()
 		global.reset_timer[obj_rancher] = 100
 		global.reset_timer[obj_pickle] = 120
 		global.reset_timer[obj_tankOLD] = 100
+		global.reset_timer[obj_cottonwitch] = 100
 	}
 	
 	// Stop moving
@@ -101,7 +104,7 @@ function scr_pizzagoblin_throw()
 			switch object_index
 			{
 				case obj_pizzagoblin:
-					with instance_create(x,y,obj_pizzagoblinbomb)
+					with instance_create(x, y, obj_pizzagoblinbomb)
 					{
 						hsp = other.image_xscale * 10
 						vsp = -8
@@ -109,19 +112,17 @@ function scr_pizzagoblin_throw()
 					break
 		
 				case obj_canongoblin:
-					with instance_create(x,y,obj_canongoblinbomb)
-					{
+					with instance_create(x, y, obj_canongoblinbomb)
 						image_xscale = other.image_xscale
-					}
 					break;
 	
 				case obj_noisegoblin:
-					with instance_create(x + 22,y + 24,obj_noisegoblin_arrow)
+					with instance_create(x + 22, y + 24, obj_noisegoblin_arrow)
 						_id = other.id;
 					break
 		
 				case obj_cheeserobot:
-					with instance_create(x,y,obj_cheeseblob)
+					with instance_create(x, y, obj_cheeseblob)
 					{
 						sprite_index = spr_cheeserobot_goop
 						image_xscale = other.image_xscale
@@ -132,7 +133,7 @@ function scr_pizzagoblin_throw()
 					break
 		
 				case obj_spitcheese:
-					with instance_create(x +image_xscale * 6,y - 6,obj_spitcheesespike)
+					with instance_create(x + image_xscale * 6, y - 6, obj_spitcheesespike)
 					{
 						image_xscale = other.image_xscale
 						hsp = other.image_xscale * 5
@@ -142,7 +143,7 @@ function scr_pizzagoblin_throw()
 		
 				case obj_trash:
 				case obj_invtrash:
-					with instance_create(x +image_xscale * 6,y - 6,obj_cheeseball)
+					with instance_create(x + image_xscale * 6, y - 6, obj_cheeseball)
 					{
 						image_xscale = other.image_xscale
 						hsp = other.image_xscale * 5
@@ -151,7 +152,7 @@ function scr_pizzagoblin_throw()
 					break
 		
 				case obj_robot:
-					with instance_create(x + (8 * image_xscale),y,obj_robotknife) 
+					with instance_create(x + 8 * image_xscale, y, obj_robotknife) 
 					{
 						image_xscale = other.image_xscale
 						hsp = other.image_xscale * 5
@@ -160,15 +161,17 @@ function scr_pizzagoblin_throw()
 					break
 			
 				case obj_kentukykenny:
-					with instance_create(x,y,obj_kentukykenny_projectile)
-					{
-			
+					with instance_create(x, y, obj_kentukykenny_projectile)
 						image_xscale = other.image_xscale
-					}
 					break
-		
+				
 				case obj_pizzard:
-					with instance_create(x,y,obj_pizzard_bolt)
+					with instance_create(x, y, obj_pizzard_bolt)
+						image_xscale = other.image_xscale
+					break
+				
+				case obj_cottonwitch:
+					with instance_create(x, y, obj_cottonwitch_projectile)
 						image_xscale = other.image_xscale
 					break
 		
