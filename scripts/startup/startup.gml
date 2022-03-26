@@ -55,7 +55,7 @@ exception_unhandled_handler
 	function(e)
 	{
 		audio_stop_all();
-		scr_soundeffect(sfx_pephurt_PP);
+		audio_play_sound(sfx_pephurt, 0, false);
 		
 		trace(e);
 		show_message(lang_string("general.crashed") + e.longMessage);

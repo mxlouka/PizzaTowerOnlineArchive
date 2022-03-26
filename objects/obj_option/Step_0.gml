@@ -1,17 +1,21 @@
 if live_call() return live_result;
+scr_getinput();
 
 //Move Up and down
-var move = obj_player1.key_left2 + obj_player1.key_right2;
 if !instance_exists(obj_keyconfig) && !instance_exists(obj_erasegame)
 {
-	var omax = 4;
+	if !(instance_exists(obj_pause) && obj_pause.pause)
+		var omax = 4;
+	else
+		omax = 3;
+	
 	if menu == 1
 		omax = 2 + global.loaded_pc;
 	if menu == 2
 		omax = 14;
 	
-	var mov = -(obj_player1.key_up2 or keyboard_check_pressed(vk_up)) + (obj_player1.key_down2 or keyboard_check_pressed(vk_down));
-	var movh = -(obj_player1.key_up or keyboard_check(vk_up)) + (obj_player1.key_down or keyboard_check(vk_down));
+	var mov = -(key_up2 or keyboard_check_pressed(vk_up)) + (key_down2 or keyboard_check_pressed(vk_down));
+	var movh = -(key_up or keyboard_check(vk_up)) + (key_down or keyboard_check(vk_down));
 	
 	if movh == 0
 		holdkey = -1;
@@ -67,19 +71,19 @@ if !instance_exists(obj_keyconfig) && !instance_exists(obj_erasegame)
 if menu == 0
 {
 	//Full Screen
-	if optionselected = 0 
+	if optionselected == 0 
 	{
-		if (obj_player1.key_right2 or keyboard_check_pressed(vk_right)) && optionsaved_fullscreen = 0
+		if (key_right2 or keyboard_check_pressed(vk_right)) && optionsaved_fullscreen == 0
 			optionsaved_fullscreen = 1
-		if (-obj_player1.key_left2 or keyboard_check_pressed(vk_left)) && optionsaved_fullscreen = 1
+		if (-key_left2 or keyboard_check_pressed(vk_left)) && optionsaved_fullscreen == 1
 			optionsaved_fullscreen = 0
 
-		if (obj_player1.key_jump or keyboard_check_pressed(vk_enter)) && optionsaved_fullscreen = 0
+		if (key_jump or keyboard_check_pressed(vk_enter)) && optionsaved_fullscreen == 0
 		{
 			window_set_fullscreen(true);
 			ini_open("saveData.ini");
 			global.option_fullscreen = 0
-			ini_write_real("Option","fullscreen",0)  
+			ini_write_real("Option", "fullscreen", 0)  
 			ini_close();
 			
 			with obj_roomname
@@ -89,12 +93,12 @@ if menu == 0
 				alarm[0] = 60;
 			}
 		}
-		if (obj_player1.key_jump or keyboard_check_pressed(vk_enter)) && optionsaved_fullscreen = 1
+		if (key_jump or keyboard_check_pressed(vk_enter)) && optionsaved_fullscreen == 1
 		{
 			window_set_fullscreen(false);
 			ini_open("saveData.ini");
 			global.option_fullscreen = 1
-			ini_write_real("Option","fullscreen",1)  
+			ini_write_real("Option", "fullscreen", 1)  
 			ini_close();
 			
 			with obj_roomname
@@ -107,15 +111,15 @@ if menu == 0
 	}
 
 	//Resolution
-	if optionselected = 1
+	if optionselected == 1
 	{
-		if (obj_player1.key_right2 or keyboard_check_pressed(vk_right)) && optionsaved_resolution < 2
+		if (key_right2 or keyboard_check_pressed(vk_right)) && optionsaved_resolution < 2
 			optionsaved_resolution += 1
 
-		if (-obj_player1.key_left2 or keyboard_check_pressed(vk_left)) && optionsaved_resolution > 0
+		if (-key_left2 or keyboard_check_pressed(vk_left)) && optionsaved_resolution > 0
 			optionsaved_resolution -= 1
 
-		if (obj_player1.key_jump or keyboard_check_pressed(vk_enter)) && optionsaved_resolution = 0
+		if (key_jump or keyboard_check_pressed(vk_enter)) && optionsaved_resolution == 0
 		{
 			ini_open("saveData.ini");
 			global.option_resolution = 0
@@ -130,7 +134,7 @@ if menu == 0
 				alarm[0] = 60;
 			}
 		}
-		if (obj_player1.key_jump or keyboard_check_pressed(vk_enter)) && optionsaved_resolution = 1
+		if (key_jump or keyboard_check_pressed(vk_enter)) && optionsaved_resolution == 1
 		{
 			window_set_size( 960, 540 );
 			ini_open("saveData.ini");
@@ -145,7 +149,7 @@ if menu == 0
 				alarm[0] = 60;
 			}
 		}
-		if (obj_player1.key_jump or keyboard_check_pressed(vk_enter)) && optionsaved_resolution = 2
+		if (key_jump or keyboard_check_pressed(vk_enter)) && optionsaved_resolution == 2
 		{
 			window_set_size( 1920, 1080 );
 			ini_open("saveData.ini");
@@ -163,23 +167,26 @@ if menu == 0
 	}
 
 	if optionselected == 2 && !instance_exists(obj_keyconfig)
-	&& ((obj_player1.key_jump or keyboard_check_pressed(vk_enter)) or keyboard_check_pressed(vk_enter))
+	&& ((key_jump or keyboard_check_pressed(vk_enter)))
 	{
 		scr_soundeffect(sfx_step)
 		visible = false
-		instance_create(x,y,obj_keyconfig)
+		instance_create(x, y, obj_keyconfig)
 	}
 	
 	if optionselected == 3 && !instance_exists(obj_keyconfig)
-	&& ((obj_player1.key_jump or keyboard_check_pressed(vk_enter)) or keyboard_check_pressed(vk_enter))
+	&& ((key_jump or keyboard_check_pressed(vk_enter)))
 	{
 		scr_soundeffect(sfx_step)
 		menu = 1
 		optionselected = 0
+		
+		if instance_exists(obj_music)
+			music = global.music;
 	}
 
 	if optionselected == 4 && !instance_exists(obj_keyconfig)
-	&& ((obj_player1.key_jump or keyboard_check_pressed(vk_enter)) or keyboard_check_pressed(vk_enter))
+	&& ((key_jump or keyboard_check_pressed(vk_enter)))
 	{
 		scr_soundeffect(sfx_step)
 		menu = 2
@@ -187,13 +194,16 @@ if menu == 0
 	}
 
 	//Finish
-	if (obj_player1.key_slap2 or keyboard_check_pressed(vk_escape)) && !instance_exists(obj_keyconfig)
+	if (key_slap2 or keyboard_check_pressed(vk_escape)) && !instance_exists(obj_keyconfig)
 	{
 		scr_soundeffect(sfx_enemyprojectile)
 		with obj_mainmenuselect
 			selected = false
-		obj_player1.state = 0;
+		with obj_player
+			state = 0;
+		
 		instance_destroy()
+		audio_stop_sound(mu_editor);
 	}
 }
 #endregion
@@ -204,9 +214,9 @@ else if menu == 1
 	if optionselected == 0
 	{
 		if keyboard_check(vk_shift)
-			var move = (obj_player1.key_left2 + obj_player1.key_right2) * 0.01;
+			var move = (key_left2 + key_right2) * 0.01;
 		else
-			var move = (obj_player1.key_left + obj_player1.key_right) * 0.02;
+			var move = (key_left + key_right) * 0.02;
 		
 		global.mastervolume = clamp(global.mastervolume + move, 0, 1);
 		if keyboard_check_pressed(ord("R"))
@@ -215,25 +225,33 @@ else if menu == 1
 	audio_master_gain(global.mastervolume);
 	
 	// music volume slider
-	if optionselected = 1
+	if optionselected == 1
 	{
 		if keyboard_check(vk_shift)
-			var move = (obj_player1.key_left2 + obj_player1.key_right2) * 0.01;
+			var move = (key_left2 + key_right2) * 0.01;
 		else
-			var move = (obj_player1.key_left + obj_player1.key_right) * 0.02;
+			var move = (key_left + key_right) * 0.02;
 		
 		global.musicvolume = clamp(global.musicvolume + move, 0, 1);
-		audio_sound_gain(global.music, global.musicvolume, 0);
+		audio_sound_gain(music, global.musicvolume, 0);
 		
 		if keyboard_check_pressed(ord("R"))
 			global.musicvolume = 0.6;
 		
-		if global.musicvolume > 0 && !audio_is_playing(global.music)
+		if global.musicvolume > 0 && !audio_is_playing(music)
 		{
-			with obj_music
+			if !instance_exists(obj_music)
+				music = scr_soundeffect_ext(mu_editor);
+			else
 			{
-				forcefadeoff = 4.8;
-				event_perform(ev_other, ev_room_start);
+				var musprev = global.music;
+				with obj_music
+				{
+					forcefadeoff = 4.8;
+					event_perform(ev_other, ev_room_start);
+				}
+				music = global.music;
+				global.music = musprev;
 			}
 		}
 	}
@@ -242,9 +260,9 @@ else if menu == 1
 	if optionselected == 2
 	{
 		audio_sound_gain(global.music, min(global.musicvolume, 0.2), 100);
-		if (obj_player1.key_right2 or keyboard_check_pressed(vk_right)) && global.machsound = 1
+		if (key_right2 or keyboard_check_pressed(vk_right)) && global.machsound == 1
 			global.machsound = 0
-		if (-obj_player1.key_left2 or keyboard_check_pressed(vk_left)) && global.machsound = 0
+		if (-key_left2 or keyboard_check_pressed(vk_left)) && global.machsound == 0
 			global.machsound = 1
 		
 		var _sfx_mach2 = global.machsound == 0 ? sfx_mach2 : sfx_mach2_old
@@ -269,24 +287,50 @@ else if menu == 1
 	// tower and castle
 	if optionselected == 3
 	{
-		if (obj_player1.key_right2 or keyboard_check_pressed(vk_right)) && global.musicgame = 0
+		if (key_right2 or keyboard_check_pressed(vk_right)) && global.musicgame == 0
 		{
-			global.musicgame = 1
-			audio_stop_sound(global.music);
-			with obj_music
-				event_perform(ev_other, ev_room_start);
+			global.musicgame = 1;
+			
+			if instance_exists(obj_music)
+			{
+				audio_stop_sound(global.music);
+				audio_stop_sound(music);
+				
+				with obj_music
+					event_perform(ev_other, ev_room_start);
+				music = global.music;
+			}
+			else
+			{
+				audio_stop_sound(global.music);
+				global.music = -4;
+				scr_soundeffect(sfx_step);
+			}
 		}
-		if (-obj_player1.key_left2 or keyboard_check_pressed(vk_left)) && global.musicgame = 1
+		if (-key_left2 or keyboard_check_pressed(vk_left)) && global.musicgame == 1
 		{
-			global.musicgame = 0
-			audio_stop_sound(global.music);
-			with obj_music
-				event_perform(ev_other, ev_room_start);
+			global.musicgame = 0;
+			
+			if instance_exists(obj_music)
+			{
+				audio_stop_sound(global.music);
+				audio_stop_sound(music);
+				
+				with obj_music
+					event_perform(ev_other, ev_room_start);
+				music = global.music;
+			}
+			else
+			{
+				audio_stop_sound(global.music);
+				global.music = -4;
+				scr_soundeffect(sfx_step);
+			}
 		}
 	}
 	
 	//Finish
-	if (obj_player1.key_slap2 or keyboard_check_pressed(vk_escape)) && !instance_exists(obj_keyconfig)
+	if (key_slap2 or keyboard_check_pressed(vk_escape)) && !instance_exists(obj_keyconfig)
 	{
 		scr_soundeffect(sfx_enemyprojectile)
 		menu = 0
@@ -318,7 +362,7 @@ else if menu == 1
 #region other options
 else if menu == 2 && !instance_exists(obj_erasegame)
 {
-	var select = obj_player.key_jump or keyboard_check_pressed(vk_enter);
+	var select = key_jump or keyboard_check_pressed(vk_enter);
 	
 	// erase game
 	if optionselected == 0 && select
@@ -331,6 +375,7 @@ else if menu == 2 && !instance_exists(obj_erasegame)
 	// gameplay style
 	if optionselected == 1
 	{
+		var move = key_left2 + key_right2;
 		if select
 		{
 			global.gameplay++;
@@ -474,15 +519,15 @@ else if menu == 2 && !instance_exists(obj_erasegame)
 	if optionselected == 14
 	{
 		if keyboard_check(vk_shift)
-			var move = (obj_player.key_left2 + obj_player.key_right2) * 0.01;
+			var move = (key_left2 + key_right2) * 0.01;
 		else
-			var move = (obj_player.key_left + obj_player.key_right) * 0.02;
+			var move = (key_left + key_right) * 0.02;
 		
 		global.camerasmoothing = clamp(global.camerasmoothing + move, 0, 1);
 	}
 	
 	//Finish
-	if (obj_player.key_slap2 or keyboard_check_pressed(vk_escape)) && !instance_exists(obj_keyconfig)
+	if (key_slap2 or keyboard_check_pressed(vk_escape)) && !instance_exists(obj_keyconfig)
 	{
 		scr_soundeffect(sfx_enemyprojectile)
 		menu = 0

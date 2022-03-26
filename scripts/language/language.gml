@@ -1,3 +1,5 @@
+if live_call() return live_result;
+
 // language
 function lang_string(str)
 {
@@ -49,6 +51,12 @@ function lang_load(lang)
 		ds_map_add(global.langmap, "disclaimer.errornodrm", "Status not success, error.\nServers might be unavailable.\n\nRunning in offline mode.");
 		ds_map_add(global.langmap, "disclaimer.offline", "You have stumbled upon the asshole version of this disclaimer.\n\nYou can't start the game offline.\nConnect to the internet, then we're talkin'.");
 		ds_map_add(global.langmap, "disclaimer.offlinenodrm", "You are playing offline.\nSome features will be disabled.");
+		
+		// pause screen
+		ds_map_add(global.langmap, "pause.continue", "Continue");
+		ds_map_add(global.langmap, "pause.retry", "Retry Level");
+		ds_map_add(global.langmap, "pause.exit", "Exit Level");
+		ds_map_add(global.langmap, "pause.options", "Options");
 		
 		// options 1
 		ds_map_add(global.langmap, "options.fullscreen", "FULLSCREEN");

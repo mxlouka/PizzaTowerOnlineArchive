@@ -3,7 +3,7 @@ if live_call() return live_result;
 #macro MAX_BLUR 0.66
 
 var drawshit = false;
-if global.panic or blurpreview
+if global.panic
 {
 	var ang = 0;
 	if global.panictilt
@@ -14,7 +14,7 @@ if global.panic or blurpreview
 	
 	//DDP Generate crazy motion blur effect
 	var appa = 1;
-	if global.panicmelt or blurpreview
+	if global.panicmelt
 	{
 		drawshit = true;
 		appa = max(lerp(1.0, 1.0 - MAX_BLUR, global.wave / global.maxwave), 0.01);
@@ -26,7 +26,6 @@ if drawshit
 	var winw = window_get_width();
 	var apph = window_get_height();
 	var appw = apph * (960 / 540);
-	//var appx = (winw - appw) / 2;
 	
 	draw_set_colour(c_black);
 	application_surface_draw_enable(false);
@@ -43,12 +42,6 @@ if drawshit
 		draw_rectangle(0, 0, winw, apph, false);
 	draw_surface_ext(application_surface, _xx, _yy, (appw / 960) / 2, (apph / 540) / 2, ang, c_white, appa);
 	draw_set_alpha(1);
-	
-	/*
-	draw_set_colour(c_black);
-	draw_rectangle(0, 0, appx, apph, false);
-	draw_rectangle(appx + appw, 0, winw, apph, false);
-	*/
 }
 else if room != rm_deltarune
 	application_surface_draw_enable(true);

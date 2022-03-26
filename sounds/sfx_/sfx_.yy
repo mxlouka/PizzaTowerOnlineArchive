@@ -1,6 +1,6 @@
 {
   "ConfigValues": {
-    "debug": {"audioGroupId":"{\"name\":\"ag_sfx_\",\"path\":\"audiogroups/ag_sfx_\"}",},
+    "debug": {"audioGroupId":"{\"name\":\"audiogroup_default\",\"path\":\"audiogroups/audiogroup_default\"}",},
   },
   "conversionMode": 0,
   "compression": 0,

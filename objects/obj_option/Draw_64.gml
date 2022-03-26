@@ -4,23 +4,26 @@ if live_call()
 	return live_result;
 }
 
-var s = 32;
-var c1 = c_black;
+var s = 100;
+var c1 = dbg_live ? c2 : c_black;
 
 // square backgrund
-draw_set_colour(c1);
-draw_rectangle(camera_get_view_x(view_camera[0]), camera_get_view_y(view_camera[0]), camera_get_view_x(view_camera[0]) + camera_get_view_width(view_camera[0]), camera_get_view_y(view_camera[0]) + camera_get_view_height(view_camera[0]), false);
-draw_set_colour(c2);
-
-if !dbg_live
+if !(instance_exists(obj_pause) && obj_pause.pause)
 {
-	mo = (mo + 0.5) % s;
-	for(var i = -s; i < camera_get_view_x(view_camera[0]) + camera_get_view_width(view_camera[0]); i += s)
+	draw_set_colour(c1);
+	draw_rectangle(0, 0, 960, 540, false);
+	draw_set_colour(c2);
+	
+	if !dbg_live
 	{
-		for(var j = -s; j < camera_get_view_y(view_camera[0]) + camera_get_view_height(view_camera[0]); j += s)
+		mo = (mo + 0.5) % s;
+		for(var ii = -1; ii < 960 / s; ii += 1)
 		{
-			if (i + j) % (s * 2) != 0
-				draw_rectangle(i + mo, j + mo, i + s + mo, j + s + mo, false)
+			for(var j = -1; j < 540 / s; j += 1)
+			{
+				if (ii + j) % 2 != 0
+					draw_roundrect_ext(ii * s + mo, j * s + mo, ii * s + s + mo - 1, j * s + s + mo - 1, 16, 16, false);
+			}
 		}
 	}
 }
@@ -28,38 +31,40 @@ if !dbg_live
 //Draw Text
 draw_set_font(global.bigfont);
 draw_set_halign(fa_center);
-draw_set_color(c_white)
+draw_set_color(c_white);
 
 #region option
 if menu == 0
-{
-	draw_text_colour(camera_get_view_width(view_camera[0]) / 2, 100, lang_string("options.fullscreen"), c_white, c_white, c_white, c_white, (optionselected == 0 ? 1 : 0.5))
-	draw_text_colour(camera_get_view_width(view_camera[0]) / 2 - 100, 150, lang_string("options.on"), c_white, c_white, c_white, c_white, (optionsaved_fullscreen == 0 ? 1 : 0.5));
-	draw_text_colour(camera_get_view_width(view_camera[0]) / 2 + 100, 150, lang_string("options.off"), c_white, c_white, c_white, c_white, (optionsaved_fullscreen == 1 ? 1 : 0.5));
+{	
+	draw_text_colour(960 / 2, 100, lang_string("options.fullscreen"), c_white, c_white, c_white, c_white, (optionselected == 0 ? 1 : 0.5))
+	draw_text_colour(960 / 2 - 100, 150, lang_string("options.on"), c_white, c_white, c_white, c_white, (optionsaved_fullscreen == 0 ? 1 : 0.5));
+	draw_text_colour(960 / 2 + 100, 150, lang_string("options.off"), c_white, c_white, c_white, c_white, (optionsaved_fullscreen == 1 ? 1 : 0.5));
 	
-	draw_text_colour(camera_get_view_width(view_camera[0]) / 2, 250, lang_string("options.resolution"), c_white, c_white, c_white, c_white, (optionselected == 1 ? 1 : 0.5))
-	draw_text_colour(camera_get_view_width(view_camera[0]) / 2 - 180, 300, "480X270", c_white, c_white, c_white, c_white, (optionsaved_resolution == 0 ? 1 : 0.5));
-	draw_text_colour(camera_get_view_width(view_camera[0]) / 2 , 300, "960X540", c_white, c_white, c_white, c_white, (optionsaved_resolution == 1 ? 1 : 0.5));
-	draw_text_colour(camera_get_view_width(view_camera[0]) / 2 + 200, 300, "1920X1080", c_white, c_white, c_white, c_white, (optionsaved_resolution == 2 ? 1 : 0.5));
+	draw_text_colour(960 / 2, 250, lang_string("options.resolution"), c_white, c_white, c_white, c_white, (optionselected == 1 ? 1 : 0.5))
+	draw_text_colour(960 / 2 - 180, 300, "480X270", c_white, c_white, c_white, c_white, (optionsaved_resolution == 0 ? 1 : 0.5));
+	draw_text_colour(960 / 2 , 300, "960X540", c_white, c_white, c_white, c_white, (optionsaved_resolution == 1 ? 1 : 0.5));
+	draw_text_colour(960 / 2 + 200, 300, "1920X1080", c_white, c_white, c_white, c_white, (optionsaved_resolution == 2 ? 1 : 0.5));
 	
 	// key config
-	draw_text_colour(camera_get_view_width(view_camera[0]) / 2, 375, lang_string("options.keyconfig"), c_white, c_white, c_white, c_white, (optionselected == 2 ? 1 : 0.5))
+	draw_text_colour(960 / 2, 375, lang_string("options.keyconfig"), c_white, c_white, c_white, c_white, (optionselected == 2 ? 1 : 0.5))
 	
 	// sound config
-	draw_text_colour(camera_get_view_width(view_camera[0]) / 2, 415, lang_string("options.soundconfig"), c_white, c_white, c_white, c_white, (optionselected == 3 ? 1 : 0.5))
+	draw_text_colour(960 / 2, 415, lang_string("options.soundconfig"), c_white, c_white, c_white, c_white, (optionselected == 3 ? 1 : 0.5))
 	
 	// other config
-	draw_text_colour(camera_get_view_width(view_camera[0]) / 2, 455, lang_string("options.otherconfig"), c_white, c_white, c_white, c_white, (optionselected == 4 ? 1 : 0.5))
+	if !(instance_exists(obj_pause) && obj_pause.pause)
+		draw_text_colour(960 / 2, 455, lang_string("options.otherconfig"), c_white, c_white, c_white, c_white, (optionselected == 4 ? 1 : 0.5))
 }
 #endregion
+
 #region sound options
 if menu == 1
 {
 	var m1y = 50;
 	var m2y = m1y + 100;
 	
-	draw_text_colour(camera_get_view_width(view_camera[0]) / 2, m1y, lang_string("options.sound.master"), c_white, c_white, c_white, c_white, (optionselected == 0 ? 1 : 0.5));
-	draw_text_colour(camera_get_view_width(view_camera[0]) / 2, m2y, lang_string("options.sound.music"), c_white, c_white, c_white, c_white, (optionselected == 1 ? 1 : 0.5));
+	draw_text_colour(960 / 2, m1y, lang_string("options.sound.master"), c_white, c_white, c_white, c_white, (optionselected == 0 ? 1 : 0.5));
+	draw_text_colour(960 / 2, m2y, lang_string("options.sound.music"), c_white, c_white, c_white, c_white, (optionselected == 1 ? 1 : 0.5));
 	
 	draw_set_colour(c_gray);
 	draw_rectangle(230, m1y + 56, 730, m1y + 56 + 16, false);
@@ -92,16 +97,16 @@ if menu == 1
 		draw_set_font(global.bigfont);
 	}
 	
-	draw_text_colour(camera_get_view_width(view_camera[0]) / 2, m2y + 125, lang_string("options.sound.mach"), c_white, c_white, c_white, c_white, (optionselected == 2 ? 1 : 0.5))
-	draw_text_colour(camera_get_view_width(view_camera[0]) / 2 - 100, m2y + 175, lang_string("options.sound.machold"), c_white, c_white, c_white, c_white, (global.machsound == 1 ? 1 : 0.5));
-	draw_text_colour(camera_get_view_width(view_camera[0]) / 2 + 100, m2y + 175, lang_string("options.sound.machnew"), c_white, c_white, c_white, c_white, (global.machsound == 0 ? 1 : 0.5));
+	draw_text_colour(960 / 2, m2y + 125, lang_string("options.sound.mach"), c_white, c_white, c_white, c_white, (optionselected == 2 ? 1 : 0.5))
+	draw_text_colour(960 / 2 - 100, m2y + 175, lang_string("options.sound.machold"), c_white, c_white, c_white, c_white, (global.machsound == 1 ? 1 : 0.5));
+	draw_text_colour(960 / 2 + 100, m2y + 175, lang_string("options.sound.machnew"), c_white, c_white, c_white, c_white, (global.machsound == 0 ? 1 : 0.5));
 	
 	if global.loaded_pc
 	{
-		draw_text_colour(camera_get_view_width(view_camera[0]) / 2, m2y + 250, lang_string("options.sound.game"), c_white, c_white, c_white, c_white, (optionselected == 3 ? 1 : 0.5));
+		draw_text_colour(960 / 2, m2y + 250, lang_string("options.sound.game"), c_white, c_white, c_white, c_white, (optionselected == 3 ? 1 : 0.5));
 	
-		draw_text_colour(camera_get_view_width(view_camera[0]) / 2 - 100, m2y + 300, lang_string("options.sound.normal"), c_white, c_white, c_white, c_white, (global.musicgame == 0 ? 1 : 0.5));
-		draw_text_colour(camera_get_view_width(view_camera[0]) / 2 + 100, m2y + 300, lang_string("options.sound.castle"), c_white, c_white, c_white, c_white, (global.musicgame == 1 ? 1 : 0.5));
+		draw_text_colour(960 / 2 - 100, m2y + 300, lang_string("options.sound.normal"), c_white, c_white, c_white, c_white, (global.musicgame == 0 ? 1 : 0.5));
+		draw_text_colour(960 / 2 + 100, m2y + 300, lang_string("options.sound.castle"), c_white, c_white, c_white, c_white, (global.musicgame == 1 ? 1 : 0.5));
 	}
 }
 #endregion
@@ -289,82 +294,102 @@ if menu == 2
 			draw_set_colour(c_ltgray);
 			draw_text(640, 96, lang_string("options.other.blur.desc"));
 			
-			// player
-			if !variable_instance_exists(id, "movespeed") or (keyboard_check_pressed(ord("R")) && debug)
+			if !surface_exists(surf)
+				surf = surface_create(960, 540);
+			else
 			{
-				state = 0;
-				movespeed = 0;
-			}
-			
-			var spr = spr_player_idle;
-			var isp = 0.35;
-			switch floor(state)
-			{
-				default:
+				var appa = max(lerp(1.0, 1.0 - MAX_BLUR, global.wave / global.maxwave), 0.01);
+				
+				surface_set_target(surf);
+				if global.panicmelt or global.wave > 0.1
+				{
+					gpu_set_blendmode(bm_subtract);
+					draw_set_alpha(appa);
+					draw_rectangle(0, 0, 960, 540, false);
+					gpu_set_blendmode(bm_normal);
+					draw_set_alpha(1);
+				}
+				else
+					draw_clear_alpha(c_black, 0);
+				
+				// player
+				if !variable_instance_exists(id, "movespeed") or (keyboard_check_pressed(ord("R")) && debug)
+				{
 					state = 0;
-					
-				case 0:
-					spr = spr_player_mach1;
-					movespeed += 0.3;
-					if movespeed >= 12
-						state = 1;
-					break;
-				
-				case 1:
-					spr = spr_player_mach;
-					movespeed += 0.1;
-					if movespeed >= 16
-						state = 2;
-					
-					isp = 0.4;
-					break;
-				
-				case 2:
-					movespeed += 0.001;
-					if movespeed >= 24
-					{
-						spr = spr_player_crazyrun;
-						isp = 0.4;
-					}
-					else
-					{
-						spr = spr_player_mach4;
-						isp = 0.35;
-					}
-					break;
-				
-				case 3:
 					movespeed = 0;
+				}
+			
+				var spr = spr_player_idle;
+				var isp = 0.35;
+				switch floor(state)
+				{
+					default:
+						state = 0;
 					
-					img2 += 0.35;
-					if state == 3.1
-					{
-						spr = spr_player_machslidestart;
-						if img2 >= 6
-							state = 3;
-					}
-					else
-						spr = spr_player_machslide;
+					case 0:
+						spr = spr_player_mach1;
+						movespeed += 0.3;
+						if movespeed >= 12
+							state = 1;
+						break;
+				
+					case 1:
+						spr = spr_player_mach;
+						movespeed += 0.1;
+						if movespeed >= 16
+							state = 2;
 					
-					x = lerp(x, 660, 0.1);
-					movespeed = floor(min(x - xprevious, 24));
-					x = xprevious;
+						isp = 0.4;
+						break;
+				
+					case 2:
+						movespeed += 0.001;
+						if movespeed >= 24
+						{
+							spr = spr_player_crazyrun;
+							isp = 0.4;
+						}
+						else
+						{
+							spr = spr_player_mach4;
+							isp = 0.35;
+						}
+						break;
+				
+					case 3:
+						movespeed = 0;
 					
-					if floor(x) >= 650 && floor(x) <= 670 && state != 3.1
-						state = 4;
-					break;
+						img2 += 0.35;
+						if state == 3.1
+						{
+							spr = spr_player_machslidestart;
+							if img2 >= 6
+								state = 3;
+						}
+						else
+							spr = spr_player_machslide;
+					
+						x = lerp(x, 660, 0.1);
+						movespeed = floor(min(x - xprevious, 24));
+						x = xprevious;
+					
+						if floor(x) >= 650 && floor(x) <= 670 && state != 3.1
+							state = 4;
+						break;
+				}
+				x = wrap(x + movespeed, -100, 960 + 100);
+			
+				pal_swap_set(spr_peppalette, 1, false);
+				draw_sprite_ext(spr, (floor(state) == 3 ? img2 : (state == 0 ? lerp(0, sprite_get_number(spr), movespeed / 12) : img * isp)), x, 280, 2, 2, 0, c_white, 1)
+				pal_swap_reset();
+			
+				// blur
+				global.wave = lerp(global.wave, global.panicmelt * 1.25, 0.05);
+				global.maxwave = 1;
+				
+				surface_reset_target();
+				draw_surface(surf, 0, 0);
 			}
-			x = wrap(x + movespeed, -100, 960 + 100);
-			
-			pal_swap_set(spr_peppalette, 1, false);
-			draw_sprite_ext(spr, (floor(state) == 3 ? img2 : (state == 0 ? lerp(0, sprite_get_number(spr), movespeed / 12) : img * isp)), x, 280, 2, 2, 0, c_white, 1)
-			pal_swap_reset();
-			
-			// blur
-			global.wave = lerp(global.wave, global.panicmelt * 1.25, 0.05);
-			global.maxwave = 1;
-			
-			obj_camera.blurpreview = global.wave > 0;
 			break;
 		
 		#endregion
@@ -801,8 +826,12 @@ if menu == 2
 	}
 	if optionselected != 3
 	{
-		obj_camera.blurpreview = false;
-		
+		if global.wave > 0
+		{
+			surface_free(surf);
+			surf = -1;
+			global.wave = 0;
+		}
 		if optionselected != 4
 		{
 			x = 660;
@@ -818,8 +847,6 @@ if menu == 2
 	}
 }
 else
-{
 	camy = 0;
-	obj_camera.blurpreview = false;
-}
+
 #endregion

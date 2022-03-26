@@ -109,7 +109,7 @@ else
 			    draw_sprite_ext(sprite_index, -1, 833 + collect_x, 107 + collect_y + hud_posY, 1, 1, 0, c_white, alpha);
 				pal_swap_reset();
 				
-				if !sugary && obj_player.character != "PP"
+				if !sugary && instance_exists(obj_player) && obj_player.character != "PP"
 					draw_sprite_ext(spr_tv_frame, -1, 833 + collect_x, 107 + collect_y + hud_posY, 1, 1, 0, c_white, alpha);
 			}
 			

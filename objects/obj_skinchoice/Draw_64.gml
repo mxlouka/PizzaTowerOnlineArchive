@@ -29,13 +29,8 @@ if sel[1] == "N"
 			_spr = spr_playerN_pogofall;
 	}
 	
-	if sel[0] == 14 or sel[0] == 17
+	if sel[0] == 14
 	{
-		if sel[0] == 17
-		{
-			_spr = spr_playerN_idle;
-			img = 0;
-		}
 		if sel[0] == 14
 			_spr = spr_playerN_chungus;
 		

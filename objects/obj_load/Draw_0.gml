@@ -14,50 +14,50 @@ switch loadwhat
 			prog++;
 		else
 		{
+			// load texture groups
 			var _tex_array = texturegroup_get_textures("tg_player");
 			for (var i = 0; i < array_length(_tex_array); ++i)
 				texture_prefetch(_tex_array[i]);
-			trace("tg_player texture group prefetched");
 			
 			_tex_array = texturegroup_get_textures("tg_background");
 			for (var i = 0; i < array_length(_tex_array); ++i)
 				texture_prefetch(_tex_array[i]);
-			trace("tg_background texture group prefetched");
 			
 			_tex_array = texturegroup_get_textures("tg_baddie");
 			for (var i = 0; i < array_length(_tex_array); ++i)
 				texture_prefetch(_tex_array[i]);
-			trace("tg_baddie texture group prefetched");
 			
 			_tex_array = texturegroup_get_textures("tg_palette");
 			for (var i = 0; i < array_length(_tex_array); ++i)
 				texture_prefetch(_tex_array[i]);
-			trace("tg_palette texture group prefetched");
 			
 			_tex_array = texturegroup_get_textures("tg_hud");
 			for (var i = 0; i < array_length(_tex_array); ++i)
 				texture_prefetch(_tex_array[i]);
-			trace("tg_hud texture group prefetched");
 			
 			_tex_array = texturegroup_get_textures("Default");
 			for (var i = 0; i < array_length(_tex_array); ++i)
 				texture_prefetch(_tex_array[i]);
-			trace("Default texture group prefetched");
 			
-			loadwhat = -1;
-			alarm[1] = 2;
+			loadwhat = 2;
 		}
 		break;
-}
-
-/*
-if loadwhat == 1
-{
-	draw_set_font(global.font_small);
 	
-	draw_text((960 / 2) + random_range(-1, 1), (540 / 2) + 35, audio_group_name(agload) + " " + string(audio_group_load_progress(agload)) + "%");
+	case 1:
+		// load audio groups
+		for (var i = 1; audio_group_name(i) != undefined; i++)
+		{
+			if !audio_group_is_loaded(i)
+			{
+				if !audio_group_load(i)
+					show_error("Audio group " + audio_group_name(i) + " is missing!", true);
+			}
+		}
+		loadwhat = 2;
+		break;
 	
-	draw_set_halign(fa_left);
-	draw_text(0, 0, log);
+	case 2:
+		loadwhat = -1;
+		alarm[1] = 2;
+		break;
 }
-*/

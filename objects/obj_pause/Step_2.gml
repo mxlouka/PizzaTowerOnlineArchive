@@ -1,3 +1,6 @@
+if live_call()
+	return live_result;
+
 if check_online()
 	gms_self_set("pause", pause);
 
@@ -32,18 +35,17 @@ if !pause && !instance_exists(obj_fadeout) && !instance_exists(obj_pausefadeout)
     }
 }
 
-if pause
+if pause && !instance_exists(obj_option)
 {
 	if !string_startswith(konami, "UUDDLRLR")
 	    scr_getinput();
 	
 	//DDP Always draw normally while paused
 	application_surface_draw_enable(true)
-	
 	if instance_exists(obj_pausefadeout) && !obj_pausefadeout.fadein
 		exit;
 	
-    if key_down2 && selected < 2
+    if key_down2 && selected < 3
 	{
         selected += 1
 		scr_soundeffect(sfx_step)
@@ -102,16 +104,26 @@ if pause
 		}
 	}
 
-    if key_jump2 && selected == 2
+    if key_jump && selected == 2
 	{
 		instance_activate_all();
 		alarm[1] = 1;
     }
 
-    if key_jump2 && selected == 0
+    if key_jump && selected == 0
 	{
         if !instance_exists(obj_pausefadeout)
 			instance_create(x, y, obj_pausefadeout);
+    }
+	
+	if key_jump && selected == 3 && !instance_exists(obj_option)
+	{
+		scr_soundeffect(sfx_step);
+		with instance_create(0, 0, obj_option)
+		{
+			music = scr_soundeffect_ext(mu_editor, true);
+			audio_sound_gain(music, global.musicvolume, 0);
+		}
     }
 	
 	// konami code

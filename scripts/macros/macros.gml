@@ -12,10 +12,10 @@ if live_call() return live_result;
 #macro c_beebawp merge_colour(c_fuchsia, c_white, 0.5)
 #macro c_pvp merge_colour(c_red, c_white, 0.3)
 
-#macro _camx camera_get_view_x(view_camera[view_current])
-#macro _camy camera_get_view_y(view_camera[view_current])
-#macro _camw camera_get_view_width(view_camera[view_current])
-#macro _camh camera_get_view_height(view_camera[view_current])
+#macro _camx camera_get_view_x(view_camera[0])
+#macro _camy camera_get_view_y(view_camera[0])
+#macro _camw camera_get_view_width(view_camera[0])
+#macro _camh camera_get_view_height(view_camera[0])
 
 // states enum
 globalvar states;

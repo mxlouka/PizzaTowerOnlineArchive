@@ -37,3 +37,10 @@ with obj_hiddenobject
 			instance_deactivate_object(deactivatedlist[| i]);
 	}
 }
+
+// unpause music after option menu
+if global.music == -4 with obj_music
+{
+	forcefadeoff = fadeoff;
+	event_perform(ev_other, ev_room_start);
+}

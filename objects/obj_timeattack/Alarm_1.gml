@@ -15,4 +15,3 @@ if global.timeattack
 	}
 	alarm[1] = 60;
 }
- 

@@ -64,7 +64,6 @@ lastx = 0
 lasty = 0
 
 depth = -9998;
-blurpreview = false;
 
 manualhide = false;
 zoom = 1

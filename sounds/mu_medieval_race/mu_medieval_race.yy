@@ -1,6 +1,6 @@
 {
   "ConfigValues": {
-    "debug": {"audioGroupId":"{\"name\":\"ag_music\",\"path\":\"audiogroups/ag_music\"}",},
+    "debug": {"audioGroupId":"{\"name\":\"audiogroup_default\",\"path\":\"audiogroups/audiogroup_default\"}",},
   },
   "conversionMode": 0,
   "compression": 1,

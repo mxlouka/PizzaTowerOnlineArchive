@@ -1315,7 +1315,7 @@ function scr_characterspr(char = character)
 				spr_pmortland = spr_player_mortland;
 				spr_pmortthrow = spr_player_mortthrow;
 				
-				spr_superspringplayer = spr_playerSP_present;
+				spr_superspringplayer = spr_playerSP_superjump;
 				
 				spr_pistolidle = spr_player_pistolidle;
 				spr_pistolwalk = spr_player_pistolwalk;

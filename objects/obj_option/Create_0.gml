@@ -1,7 +1,7 @@
 optionselected = 0
 optionsaved_fullscreen = global.option_fullscreen
 optionsaved_resolution = global.option_resolution
-depth  = -99
+depth = -99
 
 menu = 0;
 
@@ -24,6 +24,4 @@ dbg_live = false;
 camy = 0;
 holdkey = -1;
 holdkeyt = 0;
-
-if room != Realtitlescreen && !instance_exists(obj_wc)
-	room_goto(room_of_dog);
+music = -1;

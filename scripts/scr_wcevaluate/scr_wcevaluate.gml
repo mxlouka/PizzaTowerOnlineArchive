@@ -2736,25 +2736,7 @@ function scr_wcevaluate(argument0)
 			break;
 		
 		case "fart": // pto exclusive
-			if !audio_is_playing(sfx_)
-			{
-				audio_stop_all();
-				instance_destroy(obj_music);
-				audio_group_load(ag_sfx_);
-				audio_group_set_gain(audiogroup_default, 0, 0);
-				scr_soundeffect_ext(sfx_, true);
-			}
-			else
-			{
-				audio_stop_all();
-				audio_group_unload(ag_sfx_);
-				audio_group_set_gain(audiogroup_default, 1, 0);
-				if !instance_exists(obj_music)
-				{
-					with instance_create(0, 0, obj_music)
-						event_perform(ev_other, ev_room_start);
-				}
-			}
+			game_end();
 			break;
 		
 		default: // no command
