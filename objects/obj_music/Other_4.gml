@@ -416,7 +416,7 @@ if musplay > -1
 		else if string_contains(audio_get_name(global.music), "secret")
 		{
 			if fadeoff < secretfadeoff
-				fadeoff += floor(secretfadeoff / audio_sound_length(global.music)) * audio_sound_length(global.music);
+				fadeoff += round(secretfadeoff / audio_sound_length(global.music)) * audio_sound_length(global.music);
 		}
 		
 		audio_stop_sound(global.music);
