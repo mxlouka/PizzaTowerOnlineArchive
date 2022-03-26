@@ -25,3 +25,5 @@ camy = 0;
 holdkey = -1;
 holdkeyt = 0;
 music = -1;
+
+instance_activate_object(obj_roomname);

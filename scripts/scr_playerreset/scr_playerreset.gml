@@ -75,6 +75,12 @@ function scr_playerreset()
 	
 	with obj_timeattack
 		stop = false
+	
+	with obj_roomname
+	{
+		yi = -50;
+		showtext = false;
+	}
 		
 	global.timedgate = false
 	global.taseconds = 0

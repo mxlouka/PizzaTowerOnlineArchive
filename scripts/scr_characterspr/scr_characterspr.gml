@@ -1422,7 +1422,7 @@ function scr_characterspr(char = character)
 				spr_hurtjump = spr_playerPP_jumphurt
 				spr_entergate = spr_playerPP_entergate
 				spr_gottreasure = spr_playerPP_gottreasure
-				spr_bossintro = spr_player_bossintro // REPLACE
+				spr_bossintro = spr_playerPP_bossintro
 				spr_hurtidle = spr_playerPP_hurtidle
 				spr_hurtwalk = spr_playerPP_hurtwalk
 				spr_suplexmash1 = spr_playerPP_suplexmash1
@@ -1558,6 +1558,8 @@ function scr_characterspr(char = character)
 				
 				spr_firemouth = spr_playerPP_firemouth;
 				spr_firemouthshoot = spr_playerPP_firemouth;
+				
+				spr_cheeseballed = spr_playerPP_cheeseball;
 				
 				snd_fireass = sfx_scream5_PP;
 				break;
