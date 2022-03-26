@@ -30,6 +30,7 @@ switch sel[1]
 			["BURNT PIZZA", "Oh, god damn it."],
 			["GB", "One of his greatest achievements."],
 			["HYPOTHERMIA", "Don't bathe inside a freezer."],
+			["BONMARIO", "Hello this is Bonmario INC."],
 		];
 		if global.streamer
 		{

@@ -1,2 +1,2 @@
-targetRoom = cotton_8
+targetRoom = cotton_9
 targetDoor = "A"

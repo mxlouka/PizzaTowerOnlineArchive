@@ -3888,6 +3888,7 @@
     {"id":{"name":"scr_requestlevel_alt","path":"scripts/scr_requestlevel_alt/scr_requestlevel_alt.yy",},"order":3,},
     {"id":{"name":"scr_requestlogin_alt","path":"scripts/scr_requestlogin_alt/scr_requestlogin_alt.yy",},"order":4,},
     {"id":{"name":"obj_dialoguebox","path":"objects/obj_dialoguebox/obj_dialoguebox.yy",},"order":1,},
+    {"id":{"name":"cotton_9","path":"rooms/cotton_9/cotton_9.yy",},"order":13,},
     {"id":{"name":"scr_requestregister_alt","path":"scripts/scr_requestregister_alt/scr_requestregister_alt.yy",},"order":5,},
     {"id":{"name":"spr_toppinshroom_NEW","path":"sprites/spr_toppinshroom_NEW/spr_toppinshroom_NEW.yy",},"order":17,},
     {"id":{"name":"scr_heatup","path":"scripts/scr_heatup/scr_heatup.yy",},"order":26,},
@@ -5936,6 +5937,7 @@
     {"roomId":{"name":"cotton_7","path":"rooms/cotton_7/cotton_7.yy",},},
     {"roomId":{"name":"cotton_secret3","path":"rooms/cotton_secret3/cotton_secret3.yy",},},
     {"roomId":{"name":"cotton_8","path":"rooms/cotton_8/cotton_8.yy",},},
+    {"roomId":{"name":"cotton_9","path":"rooms/cotton_9/cotton_9.yy",},},
   ],
   "Folders": [
     {"folderPath":"folders/Sprites.yy","order":0,"resourceVersion":"1.0","name":"Sprites","tags":[],"resourceType":"GMFolder",},
