@@ -557,8 +557,8 @@
     "PhysicsWorldPixToMetres": 0.1,
   },
   "parent": {
-    "name": "Cotton Town",
-    "path": "folders/Rooms/Extra Levels/Sugary Spire/Cotton Town.yy",
+    "name": "Cottontown",
+    "path": "folders/Rooms/Extra Levels/Sugary Spire/Cottontown.yy",
   },
   "resourceVersion": "1.0",
   "name": "cotton_7",

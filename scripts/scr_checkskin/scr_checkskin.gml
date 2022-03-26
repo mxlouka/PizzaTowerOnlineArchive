@@ -32,7 +32,8 @@ function scr_checkskin(argument0)
 	if argument0 == checkskin.n_big
 		return obj_player.character == "N" && obj_player.paletteselect == 14;
 	if argument0 == checkskin.n_nose
-		return obj_player.character == "N" && obj_player.paletteselect == 17;
+		//return obj_player.character == "N" && obj_player.paletteselect == 17;
+		return false;
 	if argument0 == checkskin.s_shit
 		return obj_player.character == "S" && obj_player.paletteselect == 11;
 	if argument0 == checkskin.s_sbombic

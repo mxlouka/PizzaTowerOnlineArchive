@@ -1,3 +1,45 @@
+// prepare
+function draw_mask(xx = x, yy = y)
+{
+	var _mask = mask_index == -1 ? sprite_index : mask_index;
+	
+	// Get the unmodified mask data
+	var _b1 = sprite_get_bbox_left(_mask) * image_xscale;
+	var _b2 = sprite_get_bbox_top(_mask) * image_yscale;
+	var _b3 = (sprite_get_bbox_right(_mask) + 1) * image_xscale;
+	var _b4 = (sprite_get_bbox_bottom(_mask) + 1) * image_yscale;
+	
+	var _xoff = sprite_get_xoffset(_mask) * image_xscale;
+	var _yoff = sprite_get_yoffset(_mask) * image_yscale;
+	
+	// Get the unmodified vector for each corner
+	var _dis1 = point_distance(_xoff, _yoff, _b1, _b2);
+	var _dir1 = point_direction(_xoff, _yoff, _b1, _b2);
+	var _dis2 = point_distance(_xoff, _yoff, _b3, _b2);
+	var _dir2 = point_direction(_xoff, _yoff, _b3, _b2);
+	var _dis3 = point_distance(_xoff, _yoff, _b3, _b4);
+	var _dir3 = point_direction(_xoff, _yoff, _b3, _b4);
+	var _dis4 = point_distance(_xoff, _yoff, _b1, _b4);
+	var _dir4 = point_direction(_xoff, _yoff, _b1, _b4);
+
+	// Now modify the vectors using the current position and image angle
+	var _x1 = lengthdir_x(_dis1, image_angle + _dir1);
+	var _y1 = lengthdir_y(_dis1, image_angle + _dir1);
+	var _x2 = lengthdir_x(_dis2, image_angle + _dir2);
+	var _y2 = lengthdir_y(_dis2, image_angle + _dir2);
+	var _x3 = lengthdir_x(_dis3, image_angle + _dir3);
+	var _y3 = lengthdir_y(_dis3, image_angle + _dir3);
+	var _x4 = lengthdir_x(_dis4, image_angle + _dir4);
+	var _y4 = lengthdir_y(_dis4, image_angle + _dir4);
+			
+	draw_primitive_begin(pr_trianglefan);
+	draw_vertex(xx + _x1, yy + _y1);
+	draw_vertex(xx + _x2, yy + _y2);
+	draw_vertex(xx + _x3, yy + _y3);
+	draw_vertex(xx + _x4, yy + _y4);
+	draw_primitive_end();
+}
+
 /// @description world control draw
 draw_set_font(global.font_small); // pt exclusive
 draw_set_halign(fa_center);
@@ -43,7 +85,7 @@ if instance_exists(WC_debugselected) && WC_debugselected != global && WC_debugin
 		draw_set_alpha(0.5);
 		draw_set_colour(c_red);
 		with WC_debugselected
-		    draw_rectangle(bbox_left, bbox_top, bbox_right, bbox_bottom, false);
+			draw_mask();
 		draw_set_alpha(1);
 	}
 	
@@ -79,14 +121,14 @@ draw_set_color(c_white)
 // creating object
 if WC_creatingobj
 {
-	if !sprite_exists(object_get_sprite(WC_bepisobj))
+	if !sprite_exists(object_get_sprite(WC_tempobj))
 	{
 	    draw_set_valign(fa_middle);
 	    draw_text(floor(mouse_x / WC_draggrid) * WC_draggrid, floor(mouse_y / WC_draggrid) * WC_draggrid, "Spawn Here");
 	    draw_set_valign(fa_top);
 	}
 	else
-	    draw_sprite_ext(object_get_sprite(WC_bepisobj), 0, floor(mouse_x / WC_draggrid) * WC_draggrid, floor(mouse_y / WC_draggrid) * WC_draggrid, 1, 1, 0, c_white, 0.5);
+	    draw_sprite_ext(object_get_sprite(WC_tempobj), 0, floor(mouse_x / WC_draggrid) * WC_draggrid, floor(mouse_y / WC_draggrid) * WC_draggrid, 1, 1, 0, c_white, 0.5);
 }
 
 // dragging
@@ -113,7 +155,8 @@ if instance_exists(WC_dragobj)
 	{
 		draw_set_colour(c_red);
 		draw_set_alpha(0.25);
-		draw_rectangle(WC_dragobj.bbox_left, WC_dragobj.bbox_top, WC_dragobj.bbox_right, WC_dragobj.bbox_bottom, false);
+		with WC_dragobj
+			draw_mask();
 		draw_set_alpha(1);
 	}
 }
@@ -140,11 +183,11 @@ if WC_fakedragobj != noone
 	// mask
 	draw_set_colour(c_aqua);
 	draw_set_alpha(0.25);
-	draw_rectangle(
-	WC_fakedragobj.bbox_left - WC_fakedragobj.x + (floor((mouse_x - WC_moffsetx) / WC_draggrid) * WC_draggrid), 
-	WC_fakedragobj.bbox_top - WC_fakedragobj.y + (floor((mouse_y - WC_moffsety) / WC_draggrid) * WC_draggrid), 
-	WC_fakedragobj.bbox_right - WC_fakedragobj.x + (floor((mouse_x - WC_moffsetx) / WC_draggrid) * WC_draggrid), 
-	WC_fakedragobj.bbox_bottom - WC_fakedragobj.y + (floor((mouse_y - WC_moffsety) / WC_draggrid) * WC_draggrid), false);
+	var xoffset = -WC_fakedragobj.x + (floor((mouse_x - WC_moffsetx) / WC_draggrid) * WC_draggrid);
+	var yoffset = -WC_fakedragobj.y + (floor((mouse_y - WC_moffsety) / WC_draggrid) * WC_draggrid);
+	
+	with WC_fakedragobj
+		draw_mask(x + xoffset, y + yoffset);
 	draw_set_alpha(1);
 }
 
@@ -175,10 +218,10 @@ if WC_selectobj != 0
 			break;
 	}
 	
-	if !instance_exists(WC_bepisobj)
+	if !instance_exists(WC_tempobj)
 	    draw_text(mouse_x, mouse_y, "Select Object");
 	else
-	    draw_text(mouse_x + choose(1, -1), mouse_y, object_get_name(WC_bepisobj.object_index));
+	    draw_text(mouse_x + choose(1, -1), mouse_y, object_get_name(WC_tempobj.object_index));
 	
 	draw_set_valign(fa_top);
 }

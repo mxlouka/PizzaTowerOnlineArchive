@@ -32,7 +32,9 @@ WC_modkp = -1;
 WC_consoleopen = false;
 
 WC_consolelist = ds_list_create();
-ds_list_insert(WC_consolelist, 0, lang_string("general.wc"));
+function console_log(log) {
+	ds_list_insert(WC_consolelist, 0, string(log));
+}
 
 WC_consoletext = "";
 WC_consoleenter = "%startup";
@@ -73,3 +75,5 @@ WC_prioritizebaddies = true;
 WC_pausebinds = true;
 WC_livestep = undefined;
 WC_gmlivedone = false;
+
+console_log(lang_string("general.wc"));

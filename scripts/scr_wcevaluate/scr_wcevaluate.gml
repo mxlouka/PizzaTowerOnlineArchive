@@ -43,14 +43,14 @@ function scr_wcevaluate(argument0)
 			if arg1 == "1"
 			{
 				WC_consoleopen = true;
-				ds_list_insert(WC_consolelist, 0, "thats not funny");
+				console_log("thats not funny");
 			}
 			else if arg1 == "0"
 				instance_destroy();
 			else
 			{
 				WC_consoleopen = true;
-				ds_list_insert(WC_consolelist, 0, arg1 + " is not a valid bool");
+				console_log(arg1 + " is not a valid bool");
 			}
 			break;
 			
@@ -58,13 +58,13 @@ function scr_wcevaluate(argument0)
 			if !WC_consoleopen // pt exclusive
 				window_mouse_set(obj_player1.x - _camx, obj_player1.y - _camy + 10);
 			else
-				ds_list_insert(WC_consolelist, 0, "Tip: Click an object to drag it!");
+				console_log("Tip: Click an object to drag it!");
 			break;
 			
 		case "help":
 		case "?":
 			WC_consoleopen = true;
-			ds_list_insert(WC_consolelist, 0, "Command help can be found in console-commands.txt");
+			console_log("Command help can be found in console-commands.txt");
 			break;
 	
 		case "impulse": // pt exclusive
@@ -78,7 +78,7 @@ function scr_wcevaluate(argument0)
 			else
 			{
 				WC_consoleopen = true;
-				ds_list_insert(WC_consolelist, 0, "Invalid command " + arg0);
+				console_log("Invalid command " + arg0);
 			}
 			break;
 			
@@ -90,7 +90,7 @@ function scr_wcevaluate(argument0)
 			if is_undefined(arg1)
 			{
 				WC_consoleopen = true;
-			    ds_list_insert(WC_consolelist, 0, "Usage: consolesize SIZE");
+			    console_log("Usage: consolesize SIZE");
 			}
 			else if string_digits(arg1) == arg1 // index
 			{
@@ -100,7 +100,7 @@ function scr_wcevaluate(argument0)
 			else
 			{
 				WC_consoleopen = true;
-				ds_list_insert(WC_consolelist, 0, "Size parameter must be a whole number");
+				console_log("Size parameter must be a whole number");
 			}
 			break;
 			
@@ -113,7 +113,7 @@ function scr_wcevaluate(argument0)
 				
 			if is_undefined(arg1) or is_undefined(arg2) or is_undefined(arg3)
 			{
-				ds_list_insert(WC_consolelist, 0, "Usage: consolecolor R G B");
+				console_log("Usage: consolecolor R G B");
 				WC_consoleopen = true;
 			}
 			else
@@ -131,7 +131,7 @@ function scr_wcevaluate(argument0)
 				}
 				else
 				{
-					ds_list_insert(WC_consolelist, 0, "Parameters must be numbers");
+					console_log("Parameters must be numbers");
 					WC_consoleopen = true;
 				}
 			}
@@ -143,9 +143,9 @@ function scr_wcevaluate(argument0)
 			if WC_consoleopen
 			{
 				if WC_prioritizebaddies
-					ds_list_insert(WC_consolelist, 0, "Now prioritizing baddies over their collision when dragging");
+					console_log("Now prioritizing baddies over their collision when dragging");
 				else
-					ds_list_insert(WC_consolelist, 0, "Prioritize baddies OFF");
+					console_log("Prioritize baddies OFF");
 			}
 			else
 			{
@@ -170,9 +170,9 @@ function scr_wcevaluate(argument0)
 			if WC_consoleopen
 			{
 				if WC_candrag
-					ds_list_insert(WC_consolelist, 0, "Dragging ON");
+					console_log("Dragging ON");
 				else
-					ds_list_insert(WC_consolelist, 0, "Dragging OFF");
+					console_log("Dragging OFF");
 			}
 			else
 			{
@@ -196,12 +196,12 @@ function scr_wcevaluate(argument0)
 				if __tempsomething <= 0
 				{
 					WC_consoleopen = true;
-					ds_list_insert(WC_consolelist, 0, "Parameter must be greater than 0");
+					console_log("Parameter must be greater than 0");
 				}
 				else
 				{
 					WC_draggrid = __tempsomething;
-					ds_list_insert(WC_consolelist, 0, "Set grid to " + string(__tempsomething));
+					console_log("Set grid to " + string(__tempsomething));
 				}
 			}
 			else if is_undefined(arg1)
@@ -211,10 +211,10 @@ function scr_wcevaluate(argument0)
 					if WC_draggrid != 1
 					{
 						WC_draggrid = 1;
-						ds_list_insert(WC_consolelist, 0, "Disabled grid");
+						console_log("Disabled grid");
 					}
 					else
-						ds_list_insert(WC_consolelist, 0, "Usage: grid SIZE");
+						console_log("Usage: grid SIZE");
 				}
 				else
 				{
@@ -234,7 +234,7 @@ function scr_wcevaluate(argument0)
 			else
 			{
 				WC_consoleopen = true;
-				ds_list_insert(WC_consolelist, 0, "Parameter must be a number");
+				console_log("Parameter must be a number");
 			}
 		
 			if WC_draggrid == 0
@@ -263,13 +263,21 @@ function scr_wcevaluate(argument0)
 			audio_stop_all();
 			game_end();
 			break;
-			
+		
 		case "restartgame":
 			audio_resume_all();
 			audio_stop_all();
+			
+			// try to reset all persisting stuff
+			for(var i = 0; !is_undefined(audio_group_name(i)); i++)
+			{
+				audio_group_set_gain(i, 1, 0);
+				audio_group_unload(i);
+			}
+			
 			game_restart();
 			break;
-			
+		
 		case "live_snippet":
 		case "live_execute":
 		case "execute_string": // gmlive exclusive
@@ -296,14 +304,14 @@ function scr_wcevaluate(argument0)
 						}
 					}
 					else
-						ds_list_insert(WC_consolelist, 0, "Usage: live_execute CODE");
+						console_log("Usage: live_execute CODE");
 				}
 				else
 				{
 					livesnip = live_snippet_create(commandargs);
 					if livesnip != undefined
 					{
-						ds_list_insert(WC_consolelist, 0, "Executing " + commandargs);
+						console_log("Executing " + commandargs);
 				
 						live_snippet_call(livesnip);
 						live_snippet_destroy(livesnip);
@@ -311,14 +319,14 @@ function scr_wcevaluate(argument0)
 					else
 					{
 						WC_consoleopen = true;
-						ds_list_insert(WC_consolelist, 0, "ERROR: " + string(live_result));
+						console_log("ERROR: " + string(live_result));
 					}
 				}
 			}
 			else
 			{
 				WC_consoleopen = true;
-				ds_list_insert(WC_consolelist, 0, "GMLive is not enabled");
+				console_log("GMLive is not enabled");
 			}
 			break;
 	
@@ -344,28 +352,28 @@ function scr_wcevaluate(argument0)
 						if WC_livestep != undefined
 						{
 							WC_livestep = undefined;
-							ds_list_insert(WC_consolelist, 0, "Stopped live_step");
+							console_log("Stopped live_step");
 						}
 						else
-							ds_list_insert(WC_consolelist, 0, "Usage: live_step CODE");
+							console_log("Usage: live_step CODE");
 					}
 				}
 				else
 				{
 					WC_livestep = live_snippet_create(commandargs);
 					if WC_livestep != undefined
-						ds_list_insert(WC_consolelist, 0, "Now executing " + commandargs + " every frame");
+						console_log("Now executing " + commandargs + " every frame");
 					else
 					{
 						WC_consoleopen = true;
-						ds_list_insert(WC_consolelist, 0, "ERROR: " + string(live_result));
+						console_log("ERROR: " + string(live_result));
 					}
 				}
 			}
 			else
 			{
 				WC_consoleopen = true;
-				ds_list_insert(WC_consolelist, 0, "GMLive is not enabled");
+				console_log("GMLive is not enabled");
 			}
 			break;
 				
@@ -386,7 +394,7 @@ function scr_wcevaluate(argument0)
 			{
 				if string_char_at(commandargs, 1) == "%"
 					commandargs = string_replace(commandargs, "%", "");
-				ds_list_insert(WC_consolelist, 0, commandargs);
+				console_log(commandargs);
 			}
 			break;
 			
@@ -396,7 +404,7 @@ function scr_wcevaluate(argument0)
 			if is_undefined(arg1)
 			{
 				if WC_consoleopen
-				    ds_list_insert(WC_consolelist, 0, "Usage: sleep MILISECONDS");
+				    console_log("Usage: sleep MILISECONDS");
 				else
 				{
 					__tempsomething = get_integer("Input miliseconds to sleep", 0);
@@ -408,19 +416,11 @@ function scr_wcevaluate(argument0)
 			    scr_sleep(real(arg1));
 			else
 			{
-			    ds_list_insert(WC_consolelist, 0, "Parameter must be a number");
+			    console_log("Parameter must be a number");
 				WC_consoleopen = true;
 			}
 			break;
-			
-		case "swapfont": // pt exclusive
-			WC_swapconsolefont = !WC_swapconsolefont;
-			if WC_swapconsolefont
-				ds_list_insert(WC_consolelist, 0, "Changed console font to font0");
-			else
-				ds_list_insert(WC_consolelist, 0, "Changed console font back to global.font_small");
-			break;
-	
+		
 		case "repeat":
 			arg1 = ds_list_find_value(arg, 1);
 			if !is_undefined(arg1) && !is_undefined(ds_list_find_value(arg, 2))
@@ -430,7 +430,7 @@ function scr_wcevaluate(argument0)
 					if real(arg1) <= 0
 					{
 						WC_consoleopen = true;
-						ds_list_insert(WC_consolelist, 0, "Times parameter must be greater than zero");
+						console_log("Times parameter must be greater than zero");
 					}
 					else
 					{
@@ -442,7 +442,7 @@ function scr_wcevaluate(argument0)
 			else
 			{
 				WC_consoleopen = true;
-				ds_list_insert(WC_consolelist, 0, "Usage: repeat TIMES COMMAND");
+				console_log("Usage: repeat TIMES COMMAND");
 			}
 			break;
 			
@@ -457,7 +457,7 @@ function scr_wcevaluate(argument0)
 				
 			if is_undefined(arg1)
 			{
-			    ds_list_insert(WC_consolelist, 0, "Usage: playsound SOUND LOOP"); // pt exclusive
+			    console_log("Usage: playsound SOUND LOOP"); // pt exclusive
 				WC_consoleopen = true;
 			}
 			else if string_length(string_digits(arg1)) + string_count("-", arg1) + string_count(".", arg1) == string_length(arg1) // index
@@ -468,19 +468,19 @@ function scr_wcevaluate(argument0)
 					if arg2 != "1" && arg2 != "loop"
 					{
 				        audio_play_sound(tempsound, 0, false);
-				        ds_list_insert(WC_consolelist, 0, "Playing " + audio_get_name(tempsound) + " with index " + string(tempsound));
+				        console_log("Playing " + audio_get_name(tempsound) + " with index " + string(tempsound));
 					}
 					else // pt exclusive
 					{
 						scr_sound(tempsound);
 						with obj_music
 							pausedmusic = tempsound;
-						ds_list_insert(WC_consolelist, 0, "Looping " + audio_get_name(tempsound) + " with index " + string(tempsound));
+						console_log("Looping " + audio_get_name(tempsound) + " with index " + string(tempsound));
 					}
 				}
 			    else
 				{
-			        ds_list_insert(WC_consolelist, 0, "Sound index out of range");
+			        console_log("Sound index out of range");
 					WC_consoleopen = true;
 				}
 			}
@@ -491,7 +491,7 @@ function scr_wcevaluate(argument0)
 			    {
 					if asset_get_type(arg1) != asset_sound
 					{
-						ds_list_insert(WC_consolelist, 0, "The asset " + arg1 + " isn't a sound");
+						console_log("The asset " + arg1 + " isn't a sound");
 						WC_consoleopen = true;
 					}
 			        else if audio_exists(tempsound)
@@ -499,25 +499,25 @@ function scr_wcevaluate(argument0)
 						if arg2 != "1" && arg2 != "loop"
 						{
 				            audio_play_sound(tempsound, 0, false);
-				            ds_list_insert(WC_consolelist, 0, "Playing " + arg1 + " with index " + string(tempsound));
+				            console_log("Playing " + arg1 + " with index " + string(tempsound));
 						}
 						else // pt exclusive
 						{
 							scr_sound(tempsound);
 							with obj_music
 								pausedmusic = tempsound;
-							ds_list_insert(WC_consolelist, 0, "Looping " + arg1 + " with index " + string(tempsound));
+							console_log("Looping " + arg1 + " with index " + string(tempsound));
 						}
 					}
 			        else
 					{
-			            ds_list_insert(WC_consolelist, 0, "Sound " + arg1 + " doesn't exist. Check for typos");
+			            console_log("Sound " + arg1 + " doesn't exist. Check for typos");
 						WC_consoleopen = true;
 					}
 			    }
 			    else
 				{
-			        ds_list_insert(WC_consolelist, 0, "Asset " + arg1 + " doesn't exist. Check for typos");
+			        console_log("Asset " + arg1 + " doesn't exist. Check for typos");
 					WC_consoleopen = true;
 				}
 			}
@@ -529,7 +529,7 @@ function scr_wcevaluate(argument0)
 				
 			if is_undefined(arg1)
 			{
-			    ds_list_insert(WC_consolelist, 0, "Usage: stopsound SOUND");
+			    console_log("Usage: stopsound SOUND");
 				WC_consoleopen = true;
 			}
 			else if string_length(string_digits(arg1)) + string_count("-", arg1) + string_count(".", arg1) == string_length(arg1) // index
@@ -540,14 +540,14 @@ function scr_wcevaluate(argument0)
 					if audio_is_playing(tempsound)
 					{
 				        audio_stop_sound(tempsound);
-				        ds_list_insert(WC_consolelist, 0, "Stopped " + audio_get_name(tempsound));
+				        console_log("Stopped " + audio_get_name(tempsound));
 					}
 					else
-						ds_list_insert(WC_consolelist, 0, "Sound " + audio_get_name(tempsound) + " isn't playing");
+						console_log("Sound " + audio_get_name(tempsound) + " isn't playing");
 			    }
 			    else
 				{
-			        ds_list_insert(WC_consolelist, 0, "Sound index out of range");
+			        console_log("Sound index out of range");
 					WC_consoleopen = true;
 				}
 			}
@@ -555,7 +555,7 @@ function scr_wcevaluate(argument0)
 			{
 				audio_resume_all();
 				audio_stop_all();
-				ds_list_insert(WC_consolelist, 0, "Stopped all sounds");
+				console_log("Stopped all sounds");
 			}
 			else // asset
 			{
@@ -564,7 +564,7 @@ function scr_wcevaluate(argument0)
 			    {
 					if asset_get_type(arg1) != asset_sound
 					{
-						ds_list_insert(WC_consolelist, 0, "The asset " + arg1 + " isn't a sound");
+						console_log("The asset " + arg1 + " isn't a sound");
 						WC_consoleopen = true;
 					}
 			        else if audio_exists(tempsound)
@@ -572,24 +572,24 @@ function scr_wcevaluate(argument0)
 						if audio_is_playing(tempsound)
 						{
 				            audio_stop_sound(tempsound);
-				            ds_list_insert(WC_consolelist, 0, "Stopped " + arg1);
+				            console_log("Stopped " + arg1);
 						}
 						else
 						{
-							ds_list_insert(WC_consolelist, 0, "Sound " + arg1 + " isn't playing");
+							console_log("Sound " + arg1 + " isn't playing");
 							WC_consoleopen = true;
 						}
 			        }
 			        else
 					{
 						WC_consoleopen = true;
-			            ds_list_insert(WC_consolelist, 0, "Sound " + arg1 + " doesn't exist. Check for typos");
+			            console_log("Sound " + arg1 + " doesn't exist. Check for typos");
 					}
 			    }
 			    else
 				{
 					WC_consoleopen = true;
-			        ds_list_insert(WC_consolelist, 0, "Asset " + arg1 + " doesn't exist. Check for typos");
+			        console_log("Asset " + arg1 + " doesn't exist. Check for typos");
 				}
 			}
 			break;
@@ -604,13 +604,13 @@ function scr_wcevaluate(argument0)
 				if !WC_consoleopen
 				    WC_modkp = vk_tab;
 				else
-					ds_list_insert(WC_consolelist, 0, "Current room: " + string(room) + " " + room_get_name(room));
+					console_log("Current room: " + string(room) + " " + room_get_name(room));
 			}
 			else if string_length(string_digits(arg1)) + string_count("-", arg1) + string_count(".", arg1) == string_length(arg1)
 			{
 			    if room_exists(real(arg1))
 			    {
-			        ds_list_insert(WC_consolelist, 0, "Successfully traveled to " + room_get_name(real(arg1)) + " with index: " + arg1);
+			        console_log("Successfully traveled to " + room_get_name(real(arg1)) + " with index: " + arg1);
 			        room_goto(real(arg1));
 			        with obj_player // pt exclusive
 			            targetDoor = "none";
@@ -618,7 +618,7 @@ function scr_wcevaluate(argument0)
 			    else
 				{
 					WC_consoleopen = true;
-			        ds_list_insert(WC_consolelist, 0, "Room index out of range");
+			        console_log("Room index out of range");
 				}
 			}
 			else
@@ -628,16 +628,16 @@ function scr_wcevaluate(argument0)
 			    if temproom == -1
 				{
 					WC_consoleopen = true;
-			        ds_list_insert(WC_consolelist, 0, "The room " + arg1 + " doesn't exist. Check for typos");
+			        console_log("The room " + arg1 + " doesn't exist. Check for typos");
 				}
 			    else if asset_get_type(arg1) != asset_room
 				{
 					WC_consoleopen = true;
-			        ds_list_insert(WC_consolelist, 0, "The asset " + arg1 + " isn't a room");
+			        console_log("The asset " + arg1 + " isn't a room");
 				}
 			    else
 			    {
-			        ds_list_insert(WC_consolelist, 0, "Successfully traveled to " + arg1 + " with index: " + string(temproom));
+			        console_log("Successfully traveled to " + arg1 + " with index: " + string(temproom));
 			        room_goto(temproom);
 						
 			        with obj_player // pt exclusive
@@ -650,7 +650,7 @@ function scr_wcevaluate(argument0)
 		case "restart":
 		case "roomrestart":
 			room_restart();
-			ds_list_insert(WC_consolelist, 0, "Restarted the room");
+			console_log("Restarted the room");
 			break;
 			
 		case "fps":
@@ -682,7 +682,7 @@ function scr_wcevaluate(argument0)
 						show_message("Value must be a number");
 				}
 				else
-					ds_list_insert(WC_consolelist, 0, "Usage: speed NUMBER");
+					console_log("Usage: speed NUMBER");
 			}
 			else
 			{
@@ -691,18 +691,18 @@ function scr_wcevaluate(argument0)
 					if real(arg1) < 1
 					{
 						WC_consoleopen = true;
-						ds_list_insert(WC_consolelist, 0, "Room speed must be greater than zero");
+						console_log("Room speed must be greater than zero");
 					}
 					else
 					{
 						room_speed = real(arg1);
-						ds_list_insert(WC_consolelist, 0, "Set room speed to " + arg1);
+						console_log("Set room speed to " + arg1);
 					}
 				}
 				else
 				{
 					WC_consoleopen = true;
-					ds_list_insert(WC_consolelist, 0, "Value must be a number");
+					console_log("Value must be a number");
 				}
 			}
 			break;
@@ -717,27 +717,27 @@ function scr_wcevaluate(argument0)
 				if !WC_consoleopen
 					WC_modkp = ord("1");
 				else
-					ds_list_insert(WC_consolelist, 0, "Usage: object OBJECT X Y");
+					console_log("Usage: object OBJECT X Y");
 			}
 			else
 			{
 				var __isindex = false;
 				if string_length(string_digits(arg1)) + string_count("-", arg1) + string_count(".", arg1) == string_length(arg1)
 				{
-					WC_bepisobj = real(arg1);
+					WC_tempobj = real(arg1);
 					__isindex = true;
 				}
 				else
-					WC_bepisobj = asset_get_index(arg1);
+					WC_tempobj = asset_get_index(arg1);
 			
-			    if WC_bepisobj == -1 or !object_exists(WC_bepisobj)
+			    if WC_tempobj == -1 or !object_exists(WC_tempobj)
 			    {
-			        ds_list_insert(WC_consolelist, 0, "Asset " + arg1 + " doesn't exist. Check for typos");
+			        console_log("Asset " + arg1 + " doesn't exist. Check for typos");
 					WC_consoleopen = true;
 			    }
 				else if asset_get_type(arg1) != asset_object && !__isindex
 			    {
-			        ds_list_insert(WC_consolelist, 0, "The asset " + arg1 + " isn't an object");
+			        console_log("The asset " + arg1 + " isn't an object");
 					WC_consoleopen = true;
 			    }
 				else
@@ -753,25 +753,25 @@ function scr_wcevaluate(argument0)
 				    else if is_undefined(arg3)
 					{
 						WC_consoleopen = true;
-				        ds_list_insert(WC_consolelist, 0, "Usage: object OBJECT X Y");
+				        console_log("Usage: object OBJECT X Y");
 					}
 				    else if string_length(string_digits(arg2)) + string_count("-", arg2) + string_count(".", arg2) == string_length(arg2)
 				    {
 				        if string_length(string_digits(arg3)) + string_count("-", arg3) + string_count(".", arg3) == string_length(arg3)
 				        {
-				            var __objname = object_get_name(instance_create(real(arg2), real(arg3), WC_bepisobj).object_index);
-				            ds_list_insert(WC_consolelist, 0, "Successfully created object " + __objname + " at x" + arg2 + " y" + arg3);
+				            var __objname = object_get_name(instance_create(real(arg2), real(arg3), WC_tempobj).object_index);
+				            console_log("Successfully created object " + __objname + " at x" + arg2 + " y" + arg3);
 				        }
 				        else
 						{
 							WC_consoleopen = true;
-				            ds_list_insert(WC_consolelist, 0, "Y parameter must be a number");
+				            console_log("Y parameter must be a number");
 						}
 				    }
 				    else
 					{
 						WC_consoleopen = true;
-				        ds_list_insert(WC_consolelist, 0, "X parameter must be a number");
+				        console_log("X parameter must be a number");
 					}
 				}
 			}
@@ -787,7 +787,7 @@ function scr_wcevaluate(argument0)
 			if !WC_consoleopen
 				show_message(string_replace_all(string_replace_all(temp_fetchobjects, ", ", "\n"), "room: ", "room:\n"));
 			else
-				ds_list_insert(WC_consolelist, 0, temp_fetchobjects);
+				console_log(temp_fetchobjects);
 			break
 		
 		case "playerstate":
@@ -810,12 +810,12 @@ function scr_wcevaluate(argument0)
 						}
 					}
 					else
-						ds_list_insert(WC_consolelist, 0, "Usage: state NUMBER");
+						console_log("Usage: state NUMBER");
 			    }
 			    else if string_length(string_digits(arg1)) + string_count("-", arg1) + string_count(".", arg1) == string_length(arg1)
 			    {
 			        obj_player1.state = real(arg1);
-			        ds_list_insert(WC_consolelist, 0, "Set player 1 state to " + arg1);
+			        console_log("Set player 1 state to " + arg1);
 			    }
 				else if string_startswith(arg1, "states.") && variable_global_exists("states") && is_struct(states)
 				// pt online exclusive
@@ -824,24 +824,24 @@ function scr_wcevaluate(argument0)
 					if variable_instance_exists(states, stat)
 					{
 						obj_player1.state = variable_instance_get(states, stat);
-				        ds_list_insert(WC_consolelist, 0, "Set player 1 state to " + arg1 + " (state " + string(obj_player1.state) + ")");
+				        console_log("Set player 1 state to " + arg1 + " (state " + string(obj_player1.state) + ")");
 					}
 					else
 					{
 						WC_consoleopen = true;
-						ds_list_insert(WC_consolelist, 0, arg1 + " doesn't exist. Check for typos");
+						console_log(arg1 + " doesn't exist. Check for typos");
 					}
 				}
 			    else
 				{
 					WC_consoleopen = true;
-			        ds_list_insert(WC_consolelist, 0, "State parameter must be a number");
+			        console_log("State parameter must be a number");
 				}
 			}
 			else
 			{
 				WC_consoleopen = true;
-			    ds_list_insert(WC_consolelist, 0, "Player 1 object doesn't exist");
+			    console_log("Player 1 object doesn't exist");
 			}
 			break;
 		
@@ -863,23 +863,23 @@ function scr_wcevaluate(argument0)
 						}
 					}
 					else
-						ds_list_insert(WC_consolelist, 0, "Usage: state2 NUMBER");
+						console_log("Usage: state2 NUMBER");
 			    }
 			    else if string_length(string_digits(arg1)) + string_count("-", arg1) + string_count(".", arg1) == string_length(arg1)
 			    {
 			        obj_player2.state = real(arg1);
-			        ds_list_insert(WC_consolelist, 0, "Set player 2 state to " + arg1);
+			        console_log("Set player 2 state to " + arg1);
 			    }
 			    else
 				{
 					WC_consoleopen = true;
-			        ds_list_insert(WC_consolelist, 0, "State parameter must be a number");
+			        console_log("State parameter must be a number");
 				}
 			}
 			else
 			{
 				WC_consoleopen = true;
-			    ds_list_insert(WC_consolelist, 0, "Player 2 object doesn't exist");
+			    console_log("Player 2 object doesn't exist");
 			}
 			break;
 			
@@ -902,9 +902,9 @@ function scr_wcevaluate(argument0)
 			else
 			{
 				if WC_oobcam
-				    ds_list_insert(WC_consolelist, 0, "Limitless camera ON");
+				    console_log("Limitless camera ON");
 				else
-				    ds_list_insert(WC_consolelist, 0, "Limitless camera OFF");
+				    console_log("Limitless camera OFF");
 			}
 			break;
 			
@@ -921,13 +921,13 @@ function scr_wcevaluate(argument0)
 				if !WC_consoleopen
 					WC_modkp = ord("3");
 				else
-					ds_list_insert(WC_consolelist, 0, "Usage: variable global VARIABLE VALUE or variable OBJECT FIND VARIABLE VALUE");
+					console_log("Usage: variable global VARIABLE VALUE or variable OBJECT FIND VARIABLE VALUE");
 			}
 			else
 			{
 			    if is_undefined(tempvar) or is_undefined(tempval)
 			    {
-			        ds_list_insert(WC_consolelist, 0, "Usage: variable global VARIABLE VALUE or variable OBJECT FIND VARIABLE VALUE");
+			        console_log("Usage: variable global VARIABLE VALUE or variable OBJECT FIND VARIABLE VALUE");
 					WC_consoleopen = true;
 			    }
 			    else if tempobj == "global" // global
@@ -939,7 +939,7 @@ function scr_wcevaluate(argument0)
 					if variable_global_exists(tempvar)
 					&& is_array(variable_global_get(tempvar))
 					{
-						ds_list_insert(WC_consolelist, 0, "The global variable " + tempvar + " is an array. Set arrays with the array command");
+						console_log("The global variable " + tempvar + " is an array. Set arrays with the array command");
 						WC_consoleopen = true;
 					}
 					else
@@ -950,24 +950,24 @@ function scr_wcevaluate(argument0)
 				        if asset_get_index(tempval) != -1 // asset
 				        {
 				            variable_global_set(tempvar, asset_get_index(tempval));
-				            ds_list_insert(WC_consolelist, 0, setmsg + "global variable global." + string(tempvar) + " to asset " + tempval);
+				            console_log(setmsg + "global variable global." + string(tempvar) + " to asset " + tempval);
 				        }
 				        else if string_length(string_digits(tempval)) + string_count("-", tempval) + string_count(".", tempval) == string_length(tempval)
 						// number
 				        {
 				            variable_global_set(tempvar, real(tempval));
-				            ds_list_insert(WC_consolelist, 0, setmsg + "global variable global." + string(tempvar) + " to number " + tempval);
+				            console_log(setmsg + "global variable global." + string(tempvar) + " to number " + tempval);
 				        }
 						else if tempval == "undefined" // undefined
 						{
 					        variable_global_set(tempvar, undefined);
-					        ds_list_insert(WC_consolelist, 0, setmsg + "global variable global." + string(tempvar) + " to undefined");
+					        console_log(setmsg + "global variable global." + string(tempvar) + " to undefined");
 						}
 				        else // string
 				        {
 							tempval = string_replace(tempval, "\\", "");
 				            variable_global_set(tempvar, tempval);
-				            ds_list_insert(WC_consolelist, 0, setmsg + "global variable global." + string(tempvar) + " to string " + tempval);
+				            console_log(setmsg + "global variable global." + string(tempvar) + " to string " + tempval);
 				        }
 				
 						// set variable if frozen
@@ -985,12 +985,12 @@ function scr_wcevaluate(argument0)
 					if string_length(string_digits(temp_objfind)) + string_count("-", temp_objfind) + string_count(".", temp_objfind) != string_length(temp_objfind)
 					&& string_lower(temp_objfind) != "all"
 					{
-						ds_list_insert(WC_consolelist, 0, "FIND parameter must be a number");
+						console_log("FIND parameter must be a number");
 						WC_consoleopen = true;
 					}
 			        else if is_undefined(temp_objfind)
 			        {
-			            ds_list_insert(WC_consolelist, 0, "Usage: variable OBJECT FIND VARIABLE VALUE");
+			            console_log("Usage: variable OBJECT FIND VARIABLE VALUE");
 						WC_consoleopen = true;
 			        }
 					else
@@ -1000,7 +1000,7 @@ function scr_wcevaluate(argument0)
 					
 						if is_undefined(tempval)
 						{
-							ds_list_insert(WC_consolelist, 0, "Usage: variable OBJECT FIND VARIABLE VALUE");
+							console_log("Usage: variable OBJECT FIND VARIABLE VALUE");
 							WC_consoleopen = true;
 						}
 						else
@@ -1015,12 +1015,12 @@ function scr_wcevaluate(argument0)
 					        __tempsomething = asset_get_index(tempobj);
 					        if __tempsomething == -1
 					        {
-					            ds_list_insert(WC_consolelist, 0, "Asset " + tempobj + " doesn't exist. Check for typos");
+					            console_log("Asset " + tempobj + " doesn't exist. Check for typos");
 								WC_consoleopen = true;
 					        }
 					        else if asset_get_type(tempobj) != asset_object
 					        {
-					            ds_list_insert(WC_consolelist, 0, "The asset " + tempobj + " isn't an object");
+					            console_log("The asset " + tempobj + " isn't an object");
 								WC_consoleopen = true;
 					        }
 							else
@@ -1030,13 +1030,13 @@ function scr_wcevaluate(argument0)
 							
 						        if !instance_exists(__tempsomething)
 						        {
-						            ds_list_insert(WC_consolelist, 0, "Instance " + tempobj + " doesn't exist in room");
+						            console_log("Instance " + tempobj + " doesn't exist in room");
 									WC_consoleopen = true;
 						        }
 								else if variable_instance_exists(__tempsomething, tempvar) && is_array(variable_instance_get(__tempsomething, tempvar))
 								&& temp_objfind != all
 								{
-									ds_list_insert(WC_consolelist, 0, "The variable " + tempvar + " is an array. Set arrays with the array command");
+									console_log("The variable " + tempvar + " is an array. Set arrays with the array command");
 									WC_consoleopen = true;
 								}
 								else
@@ -1087,24 +1087,24 @@ function scr_wcevaluate(argument0)
 								        if asset_get_index(tempval) != -1 // asset
 								        {
 								            variable_instance_set(__tempsomething, tempvar, asset_get_index(tempval))
-								            ds_list_insert(WC_consolelist, 0, setmsg + "variable " + string(tempvar) + " to asset " + tempval + " in " + tempobj);
+								            console_log(setmsg + "variable " + string(tempvar) + " to asset " + tempval + " in " + tempobj);
 								        }
 								        else if string_length(string_digits(tempval)) + string_count("-", tempval) + string_count(".", tempval) == string_length(tempval)
 								        // number
 										{
 								            variable_instance_set(__tempsomething, tempvar, real(tempval));	
-								            ds_list_insert(WC_consolelist, 0, setmsg + "variable " + string(tempvar) + " to number " + tempval + " in " + tempobj);
+								            console_log(setmsg + "variable " + string(tempvar) + " to number " + tempval + " in " + tempobj);
 								        }
 										else if tempval == "undefined" // undefined
 										{
 									        variable_instance_set(__tempsomething, tempvar, undefined);
-									        ds_list_insert(WC_consolelist, 0, setmsg + "variable " + string(tempvar) + " to undefined");
+									        console_log(setmsg + "variable " + string(tempvar) + " to undefined");
 										}
 								        else // string
 								        {
 											tempval = string_replace(tempval, "\\", "");
 								            variable_instance_set(__tempsomething, tempvar, tempval);
-								            ds_list_insert(WC_consolelist, 0, setmsg + "variable " + string(tempvar) + " to string " + tempval + " in " + tempobj);
+								            console_log(setmsg + "variable " + string(tempvar) + " to string " + tempval + " in " + tempobj);
 								        }
 							
 										// set variable if frozen
@@ -1135,20 +1135,20 @@ function scr_wcevaluate(argument0)
 				if !WC_consoleopen
 					WC_modkp = ord("0");
 				else
-					ds_list_insert(WC_consolelist, 0, "Usage: array global VARIABLE INDEX VALUE or variable OBJECT FIND VARIABLE INDEX VALUE");
+					console_log("Usage: array global VARIABLE INDEX VALUE or variable OBJECT FIND VARIABLE INDEX VALUE");
 			}
 			else
 			{
 			    if is_undefined(tempvar) or is_undefined(tempval) or is_undefined(tempind)
 			    {
-			        ds_list_insert(WC_consolelist, 0, "Usage: array global VARIABLE INDEX VALUE or variable OBJECT FIND VARIABLE INDEX VALUE");
+			        console_log("Usage: array global VARIABLE INDEX VALUE or variable OBJECT FIND VARIABLE INDEX VALUE");
 					WC_consoleopen = true;
 			    }
 			    else if tempobj == "global" // global
 			    {
 					if string_digits(tempind) != tempind
 					{
-						ds_list_insert(WC_consolelist, 0, "Index parameter must be a number");
+						console_log("Index parameter must be a number");
 						WC_consoleopen = true;
 					}
 					else
@@ -1162,7 +1162,7 @@ function scr_wcevaluate(argument0)
 						if variable_global_exists(tempvar)
 						&& !is_array(variable_global_get(tempvar))
 						{
-							ds_list_insert(WC_consolelist, 0, "The global variable " + tempvar + " is not an array.");
+							console_log("The global variable " + tempvar + " is not an array.");
 							WC_consoleopen = true;
 						}
 						else
@@ -1177,7 +1177,7 @@ function scr_wcevaluate(argument0)
 								temparray[tempind] = asset_get_index(tempval);
 							
 					            variable_global_set(tempvar, temparray);
-					            ds_list_insert(WC_consolelist, 0, setmsg + "global array global." + string(tempvar) + "[" + string(tempind) + "] to asset " + tempval);
+					            console_log(setmsg + "global array global." + string(tempvar) + "[" + string(tempind) + "] to asset " + tempval);
 					        }
 					        else if string_length(string_digits(tempval)) + string_count("-", tempval) + string_count(".", tempval) == string_length(tempval)
 							// number
@@ -1185,21 +1185,21 @@ function scr_wcevaluate(argument0)
 								temparray[tempind] = real(tempval);
 							
 					            variable_global_set(tempvar, temparray);
-					            ds_list_insert(WC_consolelist, 0, setmsg + "global array global." + string(tempvar) + "[" + string(tempind) + "] to number " + tempval);
+					            console_log(setmsg + "global array global." + string(tempvar) + "[" + string(tempind) + "] to number " + tempval);
 					        }
 							else if tempval == "undefined" // undefined
 							{
 								temparray[tempind] = undefined;
 							
 						        variable_global_set(tempvar, temparray);
-						        ds_list_insert(WC_consolelist, 0, setmsg + "global array global." + string(tempvar) + "[" + string(tempind) + "] to undefined");
+						        console_log(setmsg + "global array global." + string(tempvar) + "[" + string(tempind) + "] to undefined");
 							}
 					        else // string
 					        {
 								temparray[tempind] = string_replace(tempval, "\\", "");
 							
 					            variable_global_set(tempvar, temparray);
-					            ds_list_insert(WC_consolelist, 0, setmsg + "global array global." + string(tempvar) + "[" + string(tempind) + "] to string " + temparray[tempind]);
+					            console_log(setmsg + "global array global." + string(tempvar) + "[" + string(tempind) + "] to string " + temparray[tempind]);
 					        }
 				
 							// set variable if frozen
@@ -1218,12 +1218,12 @@ function scr_wcevaluate(argument0)
 					if string_length(string_digits(temp_objfind)) + string_count("-", temp_objfind) + string_count(".", temp_objfind) != string_length(temp_objfind)
 					&& string_lower(temp_objfind) != "all"
 					{
-						ds_list_insert(WC_consolelist, 0, "FIND parameter must be a number");
+						console_log("FIND parameter must be a number");
 						WC_consoleopen = true;
 					}
 			        else if is_undefined(temp_objfind)
 			        {
-			            ds_list_insert(WC_consolelist, 0, "Usage: array OBJECT FIND VARIABLE INDEX VALUE");
+			            console_log("Usage: array OBJECT FIND VARIABLE INDEX VALUE");
 						WC_consoleopen = true;
 			        }
 					else
@@ -1234,12 +1234,12 @@ function scr_wcevaluate(argument0)
 						
 						if is_undefined(tempval)
 						{
-							ds_list_insert(WC_consolelist, 0, "Usage: array OBJECT FIND VARIABLE INDEX VALUE");
+							console_log("Usage: array OBJECT FIND VARIABLE INDEX VALUE");
 							WC_consoleopen = true;
 						}
 						else if string_digits(tempind) != tempind
 						{
-							ds_list_insert(WC_consolelist, 0, "Index parameter must be a number");
+							console_log("Index parameter must be a number");
 							WC_consoleopen = true;
 						}
 						else
@@ -1256,12 +1256,12 @@ function scr_wcevaluate(argument0)
 					        __tempsomething = asset_get_index(tempobj);
 					        if __tempsomething == -1
 					        {
-					            ds_list_insert(WC_consolelist, 0, "Asset " + tempobj + " doesn't exist. Check for typos");
+					            console_log("Asset " + tempobj + " doesn't exist. Check for typos");
 								WC_consoleopen = true;
 					        }
 					        else if asset_get_type(tempobj) != asset_object
 					        {
-					            ds_list_insert(WC_consolelist, 0, "The asset " + tempobj + " isn't an object");
+					            console_log("The asset " + tempobj + " isn't an object");
 								WC_consoleopen = true;
 					        }
 							else
@@ -1271,13 +1271,13 @@ function scr_wcevaluate(argument0)
 							
 						        if !instance_exists(__tempsomething)
 						        {
-						            ds_list_insert(WC_consolelist, 0, "Instance " + tempobj + " doesn't exist in room");
+						            console_log("Instance " + tempobj + " doesn't exist in room");
 									WC_consoleopen = true;
 						        }
 								else if variable_instance_exists(__tempsomething, tempvar) && !is_array(variable_instance_get(__tempsomething, tempvar))
 								&& temp_objfind != all
 								{
-									ds_list_insert(WC_consolelist, 0, "The variable " + tempvar + " is not an array.");
+									console_log("The variable " + tempvar + " is not an array.");
 									WC_consoleopen = true;
 								}
 								else
@@ -1413,9 +1413,9 @@ function scr_wcevaluate(argument0)
 			    if WC_consoleopen
 			    {
 			        if global.panic
-						ds_list_insert(WC_consolelist, 0, "Toggled Pizza Time ON with default timer");
+						console_log("Toggled Pizza Time ON with default timer");
 			        else
-			            ds_list_insert(WC_consolelist, 0, "Toggled Pizza Time OFF");
+			            console_log("Toggled Pizza Time OFF");
 			    }
 			}
 			else
@@ -1434,21 +1434,21 @@ function scr_wcevaluate(argument0)
 			            if WC_consoleopen
 			            {
 			                if global.panic
-								ds_list_insert(WC_consolelist, 0, "Toggled Pizza Time ON with timer " + arg1 + ":" + arg2);
+								console_log("Toggled Pizza Time ON with timer " + arg1 + ":" + arg2);
 			                else
-			                    ds_list_insert(WC_consolelist, 0, "Toggled Pizza Time OFF");
+			                    console_log("Toggled Pizza Time OFF");
 			            }
 			        }
 			        else
 					{
 						WC_consoleopen = true;
-			            ds_list_insert(WC_consolelist, 0, "Seconds parameter must be a number");
+			            console_log("Seconds parameter must be a number");
 					}
 			    }
 			    else
 				{
 					WC_consoleopen = true;
-			        ds_list_insert(WC_consolelist, 0, "Minutes parameter must be a number");
+			        console_log("Minutes parameter must be a number");
 				}
 			}
 			global.maxwave = (global.minutes * 60 + global.seconds) * 60;
@@ -1464,7 +1464,7 @@ function scr_wcevaluate(argument0)
 			    global.snickchallenge = false;
 			    with obj_music
 			        event_perform(ev_other, ev_room_start);
-			    ds_list_insert(WC_consolelist, 0, "Toggled Snick Challenge OFF");
+			    console_log("Toggled Snick Challenge OFF");
 			}
 			else
 			{
@@ -1490,7 +1490,7 @@ function scr_wcevaluate(argument0)
 			    arg1 = ds_list_find_value(arg, 1)
 				
 			    if is_undefined(arg1)
-			        ds_list_insert(WC_consolelist, 0, "Toggled Snick Challenge ON");
+			        console_log("Toggled Snick Challenge ON");
 			    else
 			    {
 			        arg2 = ds_list_find_value(arg, 2);
@@ -1503,18 +1503,18 @@ function scr_wcevaluate(argument0)
 			            {
 			                global.minutes = real(arg1);
 			                global.seconds = real(arg2);
-			                ds_list_insert(WC_consolelist, 0, "Toggled Snick Challenge ON with timer " + arg1 + ":" + arg2);
+			                console_log("Toggled Snick Challenge ON with timer " + arg1 + ":" + arg2);
 			            }
 			            else
 						{
 							WC_consoleopen = true;
-			                ds_list_insert(WC_consolelist, 0, "Seconds parameter must be a number");
+			                console_log("Seconds parameter must be a number");
 						}
 			        }
 			        else
 					{
 						WC_consoleopen = true;
-			            ds_list_insert(WC_consolelist, 0, "Minutes parameter must be a number");
+			            console_log("Minutes parameter must be a number");
 					}
 			    }
 			}
@@ -1531,14 +1531,14 @@ function scr_wcevaluate(argument0)
 				if !WC_consoleopen
 					WC_modkp = ord("6");
 				else
-					ds_list_insert(WC_consolelist, 0, "Usage: freeze global VARIABLE or freeze OBJECT FIND VARIABLE");
+					console_log("Usage: freeze global VARIABLE or freeze OBJECT FIND VARIABLE");
 			}
 			else
 			{
 				// variable parameter left out
 			    if is_undefined(tempvar)
 			    {
-			        ds_list_insert(WC_consolelist, 0, "Usage: freeze global VARIABLE or freeze OBJECT FIND VARIABLE");
+			        console_log("Usage: freeze global VARIABLE or freeze OBJECT FIND VARIABLE");
 					WC_consoleopen = true;
 			    }
 			
@@ -1560,7 +1560,7 @@ function scr_wcevaluate(argument0)
 			                    WC_frozenval[i] = undefined;
 			                    WC_consoleenter = "";
 								
-			                    ds_list_insert(WC_consolelist, 0, "UNFROZEN global." + tempvar);
+			                    console_log("UNFROZEN global." + tempvar);
 			                    __tempsomething = true;
 			                }
 			            }
@@ -1579,7 +1579,7 @@ function scr_wcevaluate(argument0)
 				            WC_frozenobj[frz] = noone;
 				            WC_frozenvar[frz] = "__WC_GLOBAL__" + tempvar;
 				            WC_frozenval[frz] = variable_global_get(tempvar);
-				            ds_list_insert(WC_consolelist, 0, "Frozen global." + tempvar + " to value of " + string(WC_frozenval[frz]));
+				            console_log("Frozen global." + tempvar + " to value of " + string(WC_frozenval[frz]));
 						}
 					}
 				
@@ -1587,7 +1587,7 @@ function scr_wcevaluate(argument0)
 			        else
 					{
 						WC_consoleopen = true;
-			            ds_list_insert(WC_consolelist, 0, "Global variable global." + tempvar + " doesn't exist. Check for typos");
+			            console_log("Global variable global." + tempvar + " doesn't exist. Check for typos");
 					}
 				}
 				
@@ -1599,53 +1599,53 @@ function scr_wcevaluate(argument0)
 					if string_length(string_digits(temp_objfind)) + string_count("-", temp_objfind) + string_count(".", temp_objfind) != string_length(temp_objfind)
 					&& string_lower(temp_objfind) != "all"
 					{
-						ds_list_insert(WC_consolelist, 0, "FIND parameter must be a number");
+						console_log("FIND parameter must be a number");
 						WC_consoleopen = true;
 					}
 			        else if is_undefined(temp_objfind)
 			        {
-			            ds_list_insert(WC_consolelist, 0, "Usage: freeze OBJECT FIND VARIABLE");
+			            console_log("Usage: freeze OBJECT FIND VARIABLE");
 						WC_consoleopen = true;
 			        }
 					else
 					{
 				        tempvar = ds_list_find_value(arg, 3);
 				        tempvar = string_replace(tempvar, "global.", "");
-				        WC_bepisobj = asset_get_index(tempobj);
+				        WC_tempobj = asset_get_index(tempobj);
 					
 						if string_lower(temp_objfind) == "all"
 							temp_objfind = all;
 					
 				        if is_undefined(tempvar)
 				        {
-				            ds_list_insert(WC_consolelist, 0, "Usage: freeze OBJECT FIND VARIABLE");
+				            console_log("Usage: freeze OBJECT FIND VARIABLE");
 							WC_consoleopen = true;
 				        }
-				        else if WC_bepisobj == -1
+				        else if WC_tempobj == -1
 				        {
-				            ds_list_insert(WC_consolelist, 0, "Asset " + tempobj + " doesn't exist. Check for typos");
+				            console_log("Asset " + tempobj + " doesn't exist. Check for typos");
 							WC_consoleopen = true;
 				        }
 				        else if asset_get_type(tempobj) != asset_object
 				        {
-				            ds_list_insert(WC_consolelist, 0, "The asset " + tempobj + " isn't an object");
+				            console_log("The asset " + tempobj + " isn't an object");
 							WC_consoleopen = true;
 				        }
 						else
 						{
 							if temp_objfind != all
-								WC_bepisobj = instance_find(WC_bepisobj, real(temp_objfind));
+								WC_tempobj = instance_find(WC_tempobj, real(temp_objfind));
 						
-					        if !instance_exists(WC_bepisobj)
+					        if !instance_exists(WC_tempobj)
 					        {
-					            ds_list_insert(WC_consolelist, 0, "Instance " + tempobj + " doesn't exist in room");
+					            console_log("Instance " + tempobj + " doesn't exist in room");
 								WC_consoleopen = true;
 					        }
 					        else
 							{
 								if temp_objfind == all
 								{
-									with WC_bepisobj
+									with WC_tempobj
 									{
 										if variable_instance_exists(self, tempvar)
 								        {
@@ -1681,23 +1681,23 @@ function scr_wcevaluate(argument0)
 								        else
 										{
 											WC_consoleopen = true;
-								            ds_list_insert(WC_consolelist, 0, "Variable " + tempvar + " doesn't exist. Check for typos");
+								            console_log("Variable " + tempvar + " doesn't exist. Check for typos");
 										}
 									}
 								}
-								else if variable_instance_exists(WC_bepisobj, tempvar)
+								else if variable_instance_exists(WC_tempobj, tempvar)
 						        {
 						            frz = array_length_1d(WC_frozenobj);
 									__tempsomething = false;
 						            for (i = 0; i < frz; i++)
 						            {
 										// unfreeze variable
-						                if WC_bepisobj == WC_frozenobj[i] && tempvar == WC_frozenvar[i]
+						                if WC_tempobj == WC_frozenobj[i] && tempvar == WC_frozenvar[i]
 						                {
 						                    WC_frozenobj[i] = noone;
 						                    WC_frozenvar[i] = undefined;
 						                    WC_frozenval[i] = undefined;
-						                    ds_list_insert(WC_consolelist, 0, "UNFROZEN variable " + tempvar + " in object " + object_get_name(WC_bepisobj.object_index));
+						                    console_log("UNFROZEN variable " + tempvar + " in object " + object_get_name(WC_tempobj.object_index));
 						                    __tempsomething = true;
 						                }
 						            }
@@ -1710,16 +1710,16 @@ function scr_wcevaluate(argument0)
 												frz = i;
 										}
 							
-							            WC_frozenobj[frz] = WC_bepisobj;
+							            WC_frozenobj[frz] = WC_tempobj;
 							            WC_frozenvar[frz] = tempvar;
-							            WC_frozenval[frz] = variable_instance_get(WC_bepisobj, tempvar);
-							            ds_list_insert(WC_consolelist, 0, "Frozen variable " + tempvar + " in object " + object_get_name(WC_bepisobj.object_index) + " to value of " + string(WC_frozenval[frz]));
+							            WC_frozenval[frz] = variable_instance_get(WC_tempobj, tempvar);
+							            console_log("Frozen variable " + tempvar + " in object " + object_get_name(WC_tempobj.object_index) + " to value of " + string(WC_frozenval[frz]));
 									}
 								}
 						        else
 								{
 									WC_consoleopen = true;
-						            ds_list_insert(WC_consolelist, 0, "Variable " + tempvar + " doesn't exist. Check for typos");
+						            console_log("Variable " + tempvar + " doesn't exist. Check for typos");
 								}
 							}
 						}
@@ -1737,7 +1737,7 @@ function scr_wcevaluate(argument0)
 			}
 			WC_frozenvar[0] = "";
 			WC_frozenval[0] = "";
-			ds_list_insert(WC_consolelist, 0, "Unfrozen all variables");
+			console_log("Unfrozen all variables");
 			break;
 		
 		//case "freezeall":
@@ -1765,7 +1765,7 @@ function scr_wcevaluate(argument0)
 		//		other.WC_frozenval[ind] = variable_global_get(__tempsomething[i]);
 		//	}
 			
-		//    ds_list_insert(WC_consolelist, 0, "Frozen all variables");
+		//    console_log("Frozen all variables");
 		//    break;
 			
 		case "showhidden":
@@ -1773,7 +1773,7 @@ function scr_wcevaluate(argument0)
 		case "showinv":
 			WC_showinvisible = !WC_showinvisible;
 			if WC_showinvisible && WC_consoleopen
-			    ds_list_insert(WC_consolelist, 0, "Now showing invisible objects");
+			    console_log("Now showing invisible objects");
 			break
 			
 		case "script":
@@ -1785,7 +1785,7 @@ function scr_wcevaluate(argument0)
 			if is_undefined(tempobj)
 			{
 			    if WC_consoleopen
-			        ds_list_insert(WC_consolelist, 0, "Usage: script OBJECT FIND SCRIPT ARGUMENTS")
+			        console_log("Usage: script OBJECT FIND SCRIPT ARGUMENTS")
 			    else
 			        WC_modkp = ord("8");
 			}
@@ -1793,12 +1793,12 @@ function scr_wcevaluate(argument0)
 			{
 			    if is_undefined(temp_objfind) or is_undefined(tempscript)
 			    {
-			        ds_list_insert(WC_consolelist, 0, "Usage: script OBJECT FIND SCRIPT ARGUMENTS");
+			        console_log("Usage: script OBJECT FIND SCRIPT ARGUMENTS");
 					WC_consoleopen = true;
 			    }
 				else if string_length(string_digits(temp_objfind)) + string_count("-", temp_objfind) + string_count(".", temp_objfind) != string_length(temp_objfind)
 				{
-					ds_list_insert(WC_consolelist, 0, "FIND parameter must be a number");
+					console_log("FIND parameter must be a number");
 					WC_consoleopen = true;
 				}
 				else
@@ -1806,12 +1806,12 @@ function scr_wcevaluate(argument0)
 				    __tempsomething = asset_get_index(tempobj);
 				    if __tempsomething == -1
 				    {
-				        ds_list_insert(WC_consolelist, 0, "Asset " + tempobj + " doesn't exist. Check for typos");
+				        console_log("Asset " + tempobj + " doesn't exist. Check for typos");
 						WC_consoleopen = true;
 				    }
 				    else if asset_get_type(tempobj) != asset_object
 				    {
-				        ds_list_insert(WC_consolelist, 0, "The asset " + tempobj + " isn't an object");
+				        console_log("The asset " + tempobj + " isn't an object");
 						WC_consoleopen = true;
 				    }
 					else
@@ -1819,7 +1819,7 @@ function scr_wcevaluate(argument0)
 					    __tempsomething = instance_find(__tempsomething, real(temp_objfind));
 					    if !instance_exists(__tempsomething)
 					    {
-					        ds_list_insert(WC_consolelist, 0, "Instance " + tempobj + " doesn't exist in room");
+					        console_log("Instance " + tempobj + " doesn't exist in room");
 							WC_consoleopen = true;
 					    }
 						else
@@ -1827,12 +1827,12 @@ function scr_wcevaluate(argument0)
 						    var get_script = asset_get_index(tempscript);
 						    if get_script == -1
 						    {
-						        ds_list_insert(WC_consolelist, 0, "Asset " + tempscript + " doesn't exist. Check for typos");
+						        console_log("Asset " + tempscript + " doesn't exist. Check for typos");
 								WC_consoleopen = true;
 						    }
 						    else if asset_get_type(tempscript) != asset_script
 						    {
-						        ds_list_insert(WC_consolelist, 0, "The asset " + tempscript + " isn't a script");
+						        console_log("The asset " + tempscript + " isn't a script");
 								WC_consoleopen = true;
 						    }
 							else
@@ -1847,7 +1847,7 @@ function scr_wcevaluate(argument0)
 							    scrarg[7] = ds_list_find_value(arg, 11);
 							    scrarg[8] = ds_list_find_value(arg, 12);
 							    scrarg[9] = ds_list_find_value(arg, 13);
-					
+								
 							    for (i = 0; i <= 9; i++)
 							    {
 							        if !is_undefined(scrarg[i])
@@ -1864,7 +1864,7 @@ function scr_wcevaluate(argument0)
 							
 							    with __tempsomething
 							        script_execute(get_script, scrarg[0], scrarg[1], scrarg[2], scrarg[3], scrarg[4], scrarg[5], scrarg[6], scrarg[7], scrarg[8], scrarg[9]);
-							    ds_list_insert(WC_consolelist, 0, "Executed script " + tempscript + " on " + tempobj);
+							    console_log("Executed script " + tempscript + " on " + tempobj);
 							}
 						}
 					}
@@ -1886,9 +1886,9 @@ function scr_wcevaluate(argument0)
 					if WC_consoleopen
 					{
 				        if WC_debuginfo
-				            ds_list_insert(WC_consolelist, 0, "Debug view ON");
+				            console_log("Debug view ON");
 				        else
-				            ds_list_insert(WC_consolelist, 0, "Debug view OFF");
+				            console_log("Debug view OFF");
 					}
 						
 			        if !WC_debuginfo
@@ -1908,7 +1908,7 @@ function scr_wcevaluate(argument0)
 			            WC_debugselected = global
 						
 			        WC_debugvarstart = 0;
-			        ds_list_insert(WC_consolelist, 0, "Now showing global variables with debug view");
+			        console_log("Now showing global variables with debug view");
 			    }
 			    else
 			    {
@@ -1917,12 +1917,12 @@ function scr_wcevaluate(argument0)
 						
 			        if is_undefined(tempobj) or is_undefined(temp_objfind)
 			        {
-			            ds_list_insert(WC_consolelist, 0, "Usage: debugview OBJECT FIND");
+			            console_log("Usage: debugview OBJECT FIND");
 						WC_consoleopen = true;
 			        }	
 					else if string_length(string_digits(temp_objfind)) + string_count("-", temp_objfind) + string_count(".", temp_objfind) != string_length(temp_objfind)
 					{
-						ds_list_insert(WC_consolelist, 0, "FIND parameter must be a number");
+						console_log("FIND parameter must be a number");
 						WC_consoleopen = true;
 					}
 					else
@@ -1930,12 +1930,12 @@ function scr_wcevaluate(argument0)
 				        __tempsomething = asset_get_index(tempobj)
 				        if __tempsomething == -1
 				        {
-				            ds_list_insert(WC_consolelist, 0, "Asset " + tempobj + " doesn't exist. Check for typos");
+				            console_log("Asset " + tempobj + " doesn't exist. Check for typos");
 							WC_consoleopen = true;
 				        }
 				        else if asset_get_type(tempobj) != asset_object
 				        {
-				            ds_list_insert(WC_consolelist, 0, "The asset " + tempobj + " isn't an object");
+				            console_log("The asset " + tempobj + " isn't an object");
 							WC_consoleopen = true;
 				        }
 						else
@@ -1943,7 +1943,7 @@ function scr_wcevaluate(argument0)
 					        __tempsomething = instance_find(__tempsomething, real(temp_objfind))
 					        if !instance_exists(__tempsomething)
 					        {
-					            ds_list_insert(WC_consolelist, 0, "Instance " + tempobj + " doesn't exist in room");
+					            console_log("Instance " + tempobj + " doesn't exist in room");
 								WC_consoleopen = true;
 					        }
 							else
@@ -1954,7 +1954,7 @@ function scr_wcevaluate(argument0)
 						            WC_debugselected = __tempsomething;
 						
 						        WC_debugvarstart = 0;
-						        ds_list_insert(WC_consolelist, 0, "Now debugging " + tempobj);
+						        console_log("Now debugging " + tempobj);
 							}
 						}
 					}
@@ -1988,7 +1988,7 @@ function scr_wcevaluate(argument0)
 				}
 			}
 			else
-				ds_list_insert(WC_consolelist, 0, "Saveroom and Baddieroom reset");
+				console_log("Saveroom and Baddieroom reset");
 			break
 			
 		case "delete":
@@ -1997,7 +1997,7 @@ function scr_wcevaluate(argument0)
 			if is_undefined(arg1)
 			{
 			    if WC_consoleopen
-			        ds_list_insert(WC_consolelist, 0, "Usage: delete OBJECT");
+			        console_log("Usage: delete OBJECT");
 			    else
 				    WC_modkp = vk_numpad4;
 			}
@@ -2009,29 +2009,29 @@ function scr_wcevaluate(argument0)
 			    {
 			        if __tempsomething == -1
 			        {
-			            ds_list_insert(WC_consolelist, 0, "Asset " + arg1 + " doesn't exist. Check for typos");
+			            console_log("Asset " + arg1 + " doesn't exist. Check for typos");
 						WC_consoleopen = true;
 			        }
 			        else if asset_get_type(arg1) != asset_object
 			        {
-			            ds_list_insert(WC_consolelist, 0, "The asset " + arg1 + " isn't an object");
+			            console_log("The asset " + arg1 + " isn't an object");
 						WC_consoleopen = true;
 			        }
 			        else if instance_number(__tempsomething) == 0
 					{
-			            ds_list_insert(WC_consolelist, 0, "The object " + arg1 + " isn't in the room");
+			            console_log("The object " + arg1 + " isn't in the room");
 						WC_consoleopen = true;
 					}
 			        else if instance_number(__tempsomething) >= 1
 			        {
 						if __tempsomething == object_index
 						{
-							ds_list_insert(WC_consolelist, 0, "You shouldnt do that");
+							console_log("You shouldnt do that");
 							WC_consoleopen = true;
 						}
 						else
 						{
-				            ds_list_insert(WC_consolelist, 0, "Deleted " + string(instance_number(__tempsomething)) + " objects with name or parent " + arg1);
+				            console_log("Deleted " + string(instance_number(__tempsomething)) + " objects with name or parent " + arg1);
 				            instance_destroy(__tempsomething);
 						}
 			        }
@@ -2043,26 +2043,26 @@ function scr_wcevaluate(argument0)
 				
 			        if __tempsomething == noone
 					{
-			            ds_list_insert(WC_consolelist, 0, "The object " + arg1 + " isn't in the room");
+			            console_log("The object " + arg1 + " isn't in the room");
 						WC_consoleopen = true;
 					}
 			        else
 			        {
 						if __tempsomething == self
 						{
-							ds_list_insert(WC_consolelist, 0, "You shouldnt do that");
+							console_log("You shouldnt do that");
 							WC_consoleopen = true;
 						}
 						else
 						{
-				            ds_list_insert(WC_consolelist, 0, "Deleted object " + object_get_name(__tempsomething.object_index));
+				            console_log("Deleted object " + object_get_name(__tempsomething.object_index));
 				            instance_destroy(__tempsomething);
 						}
 			        }
 			    }
 			    else
 				{
-			        ds_list_insert(WC_consolelist, 0, "FIND parameter must be a whole number");
+			        console_log("FIND parameter must be a whole number");
 					WC_consoleopen = true;
 				}
 			}
@@ -2076,7 +2076,7 @@ function scr_wcevaluate(argument0)
 				
 				if is_undefined(arg1)
 				{
-				    ds_list_insert(WC_consolelist, 0, "Usage: character STRING");
+				    console_log("Usage: character STRING");
 					WC_consoleopen = true;
 				}
 				else
@@ -2140,12 +2140,12 @@ function scr_wcevaluate(argument0)
 						obj_player1.character = arg1;
 					}
 				
-				    ds_list_insert(WC_consolelist, 0, "Set player 1 character to " + arg1 + __tempsomething);
+				    console_log("Set player 1 character to " + arg1 + __tempsomething);
 				}
 			}
 			else
 			{
-			    ds_list_insert(WC_consolelist, 0, "Player 1 object doesn't exist");
+			    console_log("Player 1 object doesn't exist");
 				WC_consoleopen = true;
 			}
 			break;
@@ -2159,7 +2159,7 @@ function scr_wcevaluate(argument0)
 				
 				if is_undefined(arg1)
 				{
-				    ds_list_insert(WC_consolelist, 0, "Usage: character2 STRING");
+				    console_log("Usage: character2 STRING");
 					WC_consoleopen = true;
 				}
 				else
@@ -2213,12 +2213,12 @@ function scr_wcevaluate(argument0)
 						obj_player2.character = arg1;
 					}
 				
-				    ds_list_insert(WC_consolelist, 0, "Set player 2 character to " + arg1 + __tempsomething);
+				    console_log("Set player 2 character to " + arg1 + __tempsomething);
 				}
 			}
 			else
 			{
-			    ds_list_insert(WC_consolelist, 0, "Player 2 object doesn't exist");
+			    console_log("Player 2 object doesn't exist");
 				WC_consoleopen = true;
 			}
 			break;
@@ -2242,7 +2242,7 @@ function scr_wcevaluate(argument0)
 				}
 			}
 			else
-				ds_list_insert(WC_consolelist, 0, "Window resolution reset");
+				console_log("Window resolution reset");
 			break;
 	
 		case "beatlevel": // pt exclusive
@@ -2271,9 +2271,9 @@ function scr_wcevaluate(argument0)
 		//	else
 		//	{
 		//      if WC_showcollision
-		//          ds_list_insert(WC_consolelist, 0, "Collision view ON");
+		//          console_log("Collision view ON");
 		//      else
-		//          ds_list_insert(WC_consolelist, 0, "Collision view OFF");
+		//          console_log("Collision view OFF");
 		//	}
 		//  break
 			
@@ -2283,7 +2283,7 @@ function scr_wcevaluate(argument0)
 				
 			if is_undefined(tempvar) or is_undefined(tempobj)
 			{
-			    ds_list_insert(WC_consolelist, 0, "Usage: checkvar global VARIABLE or checkvar OBJECT FIND VARIABLE");
+			    console_log("Usage: checkvar global VARIABLE or checkvar OBJECT FIND VARIABLE");
 				WC_consoleopen = true;
 			}
 			else if tempobj == "global"
@@ -2293,7 +2293,7 @@ function scr_wcevaluate(argument0)
 			    if variable_global_exists(tempvar)
 				{
 					if WC_consoleopen
-						ds_list_insert(WC_consolelist, 0, "Global variable global." + tempvar + " is " + string(variable_global_get(tempvar)));
+						console_log("Global variable global." + tempvar + " is " + string(variable_global_get(tempvar)));
 					else // pt exclusive
 					{
 						with obj_tv
@@ -2306,7 +2306,7 @@ function scr_wcevaluate(argument0)
 				}
 				else
 				{
-			        ds_list_insert(WC_consolelist, 0, "Global variable global." + tempvar + " doesn't exist. Check for typos");
+			        console_log("Global variable global." + tempvar + " doesn't exist. Check for typos");
 					WC_consoleopen = true;
 				}
 			}
@@ -2316,12 +2316,12 @@ function scr_wcevaluate(argument0)
 					
 				if string_length(string_digits(temp_objfind)) + string_count("-", temp_objfind) + string_count(".", temp_objfind) != string_length(temp_objfind)
 				{
-					ds_list_insert(WC_consolelist, 0, "FIND parameter must be a number");
+					console_log("FIND parameter must be a number");
 					WC_consoleopen = true;
 				}	
 			    else if is_undefined(temp_objfind)
 			    {
-			        ds_list_insert(WC_consolelist, 0, "Usage: checkvar OBJECT FIND VARIABLE");
+			        console_log("Usage: checkvar OBJECT FIND VARIABLE");
 					WC_consoleopen = true;
 			    }
 				else
@@ -2331,17 +2331,17 @@ function scr_wcevaluate(argument0)
 				
 				    if is_undefined(tempvar)
 				    {
-				        ds_list_insert(WC_consolelist, 0, "Usage: checkvar OBJECT FIND VARIABLE");
+				        console_log("Usage: checkvar OBJECT FIND VARIABLE");
 						WC_consoleopen = true;
 				    }
 				    else if __tempsomething == -1
 				    {
-				        ds_list_insert(WC_consolelist, 0, "Asset " + tempobj + " doesn't exist. Check for typos");
+				        console_log("Asset " + tempobj + " doesn't exist. Check for typos");
 						WC_consoleopen = true;
 				    }
 				    else if asset_get_type(tempobj) != asset_object
 				    {
-				        ds_list_insert(WC_consolelist, 0, "The asset " + tempobj + " isn't an object");
+				        console_log("The asset " + tempobj + " isn't an object");
 						WC_consoleopen = true;
 				    }
 					else
@@ -2349,13 +2349,13 @@ function scr_wcevaluate(argument0)
 					    __tempsomething = instance_find(__tempsomething, real(temp_objfind));
 					    if !instance_exists(__tempsomething)
 					    {
-					        ds_list_insert(WC_consolelist, 0, "Instance " + tempobj + " doesn't exist in room");
+					        console_log("Instance " + tempobj + " doesn't exist in room");
 							WC_consoleopen = true;
 					    }
 					    else if variable_instance_exists(__tempsomething, tempvar)
 						{
 							if WC_consoleopen
-								ds_list_insert(WC_consolelist, 0, object_get_name(__tempsomething.object_index) + "." + tempvar + " is " + string(variable_instance_get(__tempsomething, tempvar)));
+								console_log(object_get_name(__tempsomething.object_index) + "." + tempvar + " is " + string(variable_instance_get(__tempsomething, tempvar)));
 							else // pt exclusive
 							{
 								with obj_tv
@@ -2369,7 +2369,7 @@ function scr_wcevaluate(argument0)
 						else
 						{
 							WC_consoleopen = true;
-					        ds_list_insert(WC_consolelist, 0, "Variable " + tempvar + " doesn't exist. Check for typos");
+					        console_log("Variable " + tempvar + " doesn't exist. Check for typos");
 						}
 					}
 				}
@@ -2383,7 +2383,7 @@ function scr_wcevaluate(argument0)
 			{
 			    if WC_varmonitor != undefined
 			    {
-			        ds_list_insert(WC_consolelist, 0, "Stopped monitoring variables");
+			        console_log("Stopped monitoring variables");
 			        WC_varmonitor = undefined;
 			        WC_varobj = undefined;
 			    }
@@ -2395,7 +2395,7 @@ function scr_wcevaluate(argument0)
 				        WC_consoleopen = false;
 					}
 					else
-						ds_list_insert(WC_consolelist, 0, "Usage: monitorvar global VARIABLE or monitorvar OBJECT FIND VARIABLE");
+						console_log("Usage: monitorvar global VARIABLE or monitorvar OBJECT FIND VARIABLE");
 			    }
 			}
 			else
@@ -2403,7 +2403,7 @@ function scr_wcevaluate(argument0)
 			    tempvar = ds_list_find_value(arg, 2);
 			    if is_undefined(tempvar)
 			    {
-			        ds_list_insert(WC_consolelist, 0, "Usage: monitorvar global VARIABLE or monitorvar OBJECT FIND VARIABLE");
+			        console_log("Usage: monitorvar global VARIABLE or monitorvar OBJECT FIND VARIABLE");
 					WC_consoleopen = true;
 			    }
 				else if tempobj == "global"
@@ -2413,12 +2413,12 @@ function scr_wcevaluate(argument0)
 			        {
 			            WC_varmonitor = tempvar;
 			            WC_varobj = global;
-			            ds_list_insert(WC_consolelist, 0, "Now monitoring global." + tempvar);
+			            console_log("Now monitoring global." + tempvar);
 			        }
 			        else
 					{
 						WC_consoleopen = true;
-			            ds_list_insert(WC_consolelist, 0, "Global variable global." + tempvar + " doesn't exist. Check for typos");
+			            console_log("Global variable global." + tempvar + " doesn't exist. Check for typos");
 					}
 			    }
 			    else
@@ -2427,12 +2427,12 @@ function scr_wcevaluate(argument0)
 				
 					if is_undefined(temp_objfind)
 			        {
-			            ds_list_insert(WC_consolelist, 0, "Usage: monitorvar global VARIABLE or monitorvar OBJECT FIND VARIABLE");
+			            console_log("Usage: monitorvar global VARIABLE or monitorvar OBJECT FIND VARIABLE");
 						WC_consoleopen = true;
 			        }
 					else if string_length(string_digits(temp_objfind)) + string_count("-", temp_objfind) + string_count(".", temp_objfind) != string_length(temp_objfind)
 					{
-						ds_list_insert(WC_consolelist, 0, "FIND parameter must be a number");
+						console_log("FIND parameter must be a number");
 						WC_consoleopen = true;
 					}	
 					else
@@ -2442,17 +2442,17 @@ function scr_wcevaluate(argument0)
 						
 				        if is_undefined(tempvar)
 				        {
-				            ds_list_insert(WC_consolelist, 0, "Usage: monitorvar global VARIABLE or monitorvar OBJECT FIND VARIABLE");
+				            console_log("Usage: monitorvar global VARIABLE or monitorvar OBJECT FIND VARIABLE");
 							WC_consoleopen = true;
 				        }
 				        else if __tempsomething == -1
 				        {
-				            ds_list_insert(WC_consolelist, 0, "Asset " + tempobj + " doesn't exist. Check for typos");
+				            console_log("Asset " + tempobj + " doesn't exist. Check for typos");
 							WC_consoleopen = true;
 				        }
 				        else if asset_get_type(tempobj) != asset_object
 				        {
-				            ds_list_insert(WC_consolelist, 0, "The asset " + tempobj + " isn't an object");
+				            console_log("The asset " + tempobj + " isn't an object");
 							WC_consoleopen = true;
 				        }
 						else
@@ -2460,19 +2460,19 @@ function scr_wcevaluate(argument0)
 					        __tempsomething = instance_find(__tempsomething, real(temp_objfind));	
 					        if !instance_exists(__tempsomething)
 					        {
-					            ds_list_insert(WC_consolelist, 0, "Instance " + tempobj + " doesn't exist in room");
+					            console_log("Instance " + tempobj + " doesn't exist in room");
 								WC_consoleopen = true;
 					        }
 					        else if variable_instance_exists(__tempsomething, tempvar)
 					        {
 					            WC_varmonitor = tempvar;
 					            WC_varobj = __tempsomething;
-					            ds_list_insert(WC_consolelist, 0, "Now monitoring " + object_get_name(__tempsomething.object_index) + "." + tempvar);
+					            console_log("Now monitoring " + object_get_name(__tempsomething.object_index) + "." + tempvar);
 					        }
 					        else
 							{
 								WC_consoleopen = true;
-					            ds_list_insert(WC_consolelist, 0, "Variable " + tempvar + " doesn't exist. Check for typos");
+					            console_log("Variable " + tempvar + " doesn't exist. Check for typos");
 							}
 						}
 					}
@@ -2485,7 +2485,7 @@ function scr_wcevaluate(argument0)
 			arg1 = ds_list_find_value(arg, 1);
 			if is_undefined(arg1)
 			{
-				ds_list_insert(WC_consolelist, 0, "Usage: list ASSET SORT");
+				console_log("Usage: list ASSET SORT");
 				WC_consoleopen = true;
 			}
 			else
@@ -2520,7 +2520,7 @@ function scr_wcevaluate(argument0)
 				{
 					WC_assetfinder = -1;
 					
-					ds_list_insert(WC_consolelist, 0, "Asset list for " + arg1 + " doesn't exist. Check for typos");
+					console_log("Asset list for " + arg1 + " doesn't exist. Check for typos");
 					WC_consoleopen = true;
 				}
 				keyboard_clear(vk_enter);
@@ -2543,7 +2543,7 @@ function scr_wcevaluate(argument0)
 		
 			if is_undefined(arg1) or is_undefined(arg2)
 			{
-			    ds_list_insert(WC_consolelist, 0, "Usage: bind KEY COMMAND");
+			    console_log("Usage: bind KEY COMMAND");
 				WC_consoleopen = true;
 			}
 			else
@@ -2558,13 +2558,13 @@ function scr_wcevaluate(argument0)
 					if command == "openconsole"
 					{
 						WC_togglekey = finalkey;
-						ds_list_insert(WC_consolelist, 0, "Rebound " + (keycode ? "keycode " : "") + string_upper(arg1) + " to open the console");
+						console_log("Rebound " + (keycode ? "keycode " : "") + string_upper(arg1) + " to open the console");
 					}
 					else
 					{
 					    ds_list_add(WC_bindkey, finalkey);
 					    ds_list_add(WC_bindmap, command);
-						ds_list_insert(WC_consolelist, 0, "Bound " + (keycode ? "keycode " : "") + string_upper(arg1) + " to execute " + command);
+						console_log("Bound " + (keycode ? "keycode " : "") + string_upper(arg1) + " to execute " + command);
 					}
 				}
 			}
@@ -2594,16 +2594,16 @@ function scr_wcevaluate(argument0)
 					
 					if !__tempsomething
 					{
-						ds_list_insert(WC_consolelist, 0, "Bind not found. You can try unbinding all.");
+						console_log("Bind not found. You can try unbinding all.");
 						WC_consoleopen = true;
 					}
 					else
-						ds_list_insert(WC_consolelist, 0, "Unbinded " + arg1);
+						console_log("Unbinded " + arg1);
 				}
 			}
 			else
 			{
-				ds_list_insert(WC_consolelist, 0, "Usage: unbind KEY");
+				console_log("Usage: unbind KEY");
 				WC_consoleopen = true;
 			}
 			break;
@@ -2611,7 +2611,7 @@ function scr_wcevaluate(argument0)
 		case "unbindall":
 			ds_list_clear(WC_bindkey);
 			ds_list_clear(WC_bindmap);
-			ds_list_insert(WC_consolelist, 0, "Unbinded all keys");
+			console_log("Unbinded all keys");
 			break;
 			
 		case "%startup": // pt exclusive
@@ -2650,7 +2650,7 @@ function scr_wcevaluate(argument0)
 				WC_togglekey = file_text_read_real(wc_save);
 			
 				file_text_readln(wc_save)
-				WC_swapconsolefont = file_text_read_real(wc_save); // pt exclusive
+				WC_swapconsolefont = file_text_read_real(wc_save); // pt exclusive, deprecated
 			
 				file_text_readln(wc_save)
 				WC_candrag = file_text_read_real(wc_save);
@@ -2672,7 +2672,7 @@ function scr_wcevaluate(argument0)
 			scr_wcsave();
 			
 			if !WC_consolesilence
-				ds_list_insert(WC_consolelist, 0, "Saved settings");
+				console_log("Saved settings");
 			break;
 		
 		case "defaultbinds": // pt exclusive
@@ -2732,7 +2732,7 @@ function scr_wcevaluate(argument0)
 			ds_list_add(WC_bindkey, vk_numpad5);
 			ds_list_add(WC_bindmap, "list room 1");
 			
-			ds_list_insert(WC_consolelist, 0, "Rebinded default keys");
+			console_log("Rebinded default keys");
 			break;
 		
 		case "fart": // pto exclusive
@@ -2759,11 +2759,11 @@ function scr_wcevaluate(argument0)
 		
 		default: // no command
 			WC_consoleopen = true;
-			ds_list_insert(WC_consolelist, 0, "Invalid command " + arg0);
+			console_log("Invalid command " + arg0);
 			break;
 	}
 	ds_list_destroy(arg);
-		
+	
 	if WC_consoleopen && WC_consoleenter == eval
 		keyboard_string = "";
 	keyboard_clear(vk_enter);
@@ -2856,7 +2856,7 @@ function scr_wckeycode(key)
 				// string
 				if string_length(key) > 1
 				{
-					ds_list_insert(WC_consolelist, 0, "Unknown key " + string(key));
+					console_log("Unknown key " + string(key));
 					WC_consoleopen = true;
 				}
 				else

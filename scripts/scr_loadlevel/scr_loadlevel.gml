@@ -186,6 +186,4 @@ function scr_loadlevel(argument0)
 	// finally return the loaded json (ds map)
 	ds_map_destroy(_wrapper);
 	return _wrapper;
-
-
 }

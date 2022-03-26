@@ -24,7 +24,7 @@ function scr_wcsave()
 	file_text_write_real(wc_save, WC_togglekey);
 					
 	file_text_writeln(wc_save);
-	file_text_write_real(wc_save, WC_swapconsolefont); // pt exclusive
+	file_text_write_real(wc_save, WC_swapconsolefont); // pt exclusive, deprecated
 			
 	file_text_writeln(wc_save);
 	file_text_write_real(wc_save, WC_candrag);

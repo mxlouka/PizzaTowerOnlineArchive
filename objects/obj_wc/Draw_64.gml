@@ -3,7 +3,7 @@ if live_enabled
 	if live_call() return live_result;
 
 // dragging text
-draw_set_font(global.font_small);
+draw_set_font(-1);
 draw_set_valign(fa_top);
 draw_set_halign(fa_center);
 draw_set_color(c_white);
@@ -12,26 +12,28 @@ if instance_exists(WC_dragobj)
 {
 	// dragging
 	draw_set_color(c_white);
-	draw_text(display_get_gui_width() / 2, 0, "Dragging " + object_get_name(WC_dragobj.object_index));
+	draw_text_outline(display_get_gui_width() / 2, 0, "Dragging " + object_get_name(WC_dragobj.object_index));
+	draw_text_outline(display_get_gui_width() / 2, 0, "\nx" + string(WC_dragobj.x) + " y" + string(WC_dragobj.y));
 }
 
 if instance_exists(WC_fakedragobj)
 {
 	// alt drag
 	draw_set_color(merge_colour(c_aqua, c_white, 0.75));
-	draw_text(display_get_gui_width() / 2, 0, "Dragging " + object_get_name(WC_fakedragobj.object_index));
+	draw_text_outline(display_get_gui_width() / 2, 0, "Dragging " + object_get_name(WC_fakedragobj.object_index));
+	draw_text_outline(display_get_gui_width() / 2, 0, "\nx" + string(floor((mouse_x - WC_moffsetx) / WC_draggrid) * WC_draggrid) + " y" + string(floor((mouse_y - WC_moffsety) / WC_draggrid) * WC_draggrid));
 }
 
 // tactical hud
 if WC_debuginfo
 {
 	draw_set_halign(fa_left);
-	draw_set_font(WC_swapconsolefont ? font0 : global.font_small);
+	draw_set_font(-1);
 	var i = 0;
 	draw_set_halign(fa_left);
 	draw_set_colour(c_white);
 	
-	draw_text(4, 24 + i, "room: " + string(room) + " " + room_get_name(room) + 
+	draw_text_outline(4, 24 + i, "room: " + string(room) + " " + room_get_name(room) + 
 	"\nfps: " + string(fps) + " objects: " + string(instance_number(all)));
 	
 	if instance_exists(WC_debugselected) or WC_debugselected == global
@@ -40,8 +42,8 @@ if WC_debuginfo
 		{
 		    var str = "\n\n\nSelected " + object_get_name(WC_debugselected.object_index) + 
 			"\nid: " + string(WC_debugselected.id) + 
-			"\nx: " + string_replace(string(WC_debugselected.x), (WC_swapconsolefont ? "" : "-"), "M") + 
-			"\ny: " + string_replace(string(WC_debugselected.y), (WC_swapconsolefont ? "" : "-"), "M") + 
+			"\nx: " + string(WC_debugselected.x) + 
+			"\ny: " + string(WC_debugselected.y) + 
 			"\nsprite_index: " + string(WC_debugselected.sprite_index) + 
 			" (" + sprite_get_name(WC_debugselected.sprite_index) + ")" + 
 			"\nmask_index: " + string_replace(string(WC_debugselected.mask_index), "-1", "none") + 
@@ -57,16 +59,16 @@ if WC_debuginfo
 		            str += "\nalarm " + string(c) + ": " + string(WC_debugselected.alarm[c]);
 		    }
             
-			draw_text(4, 24 + i, str);
+			draw_text_outline(4, 24 + i, str);
 		}
 		else
-		    draw_text(4, 24 + i, "\n\n\nShowing global variables");
+		    draw_text_outline(4, 24 + i, "\n\n\nShowing global variables");
 		
 		draw_set_halign(fa_right);
 		var objvars = variable_instance_get_names(WC_debugselected);
 		
 		if array_length(objvars) <= 0
-		    draw_text(display_get_gui_width(), 4 + i, "No variables");
+		    draw_text_outline(display_get_gui_width(), 4 + i, "No variables");
 		else
 		{
 		    WC_debugvarstart = clamp(WC_debugvarstart, 0, max(array_length(objvars) - 32, 0));
@@ -89,12 +91,12 @@ if WC_debuginfo
 					draw_set_colour(c_white);
 					if string_char_at(string(getvar), 1) == "-"
 						draw_set_colour(merge_colour(c_white, c_red, 0.5));
-		            todraw = string_replace(string(getvar), (WC_swapconsolefont ? "" : "-"), "M");
+		            todraw = string(getvar);
 		        }
 				
 		        todraw = string_replace_all(todraw, "\n", "#");
 		        if b <= 32 + WC_debugvarstart
-		            draw_text(956, (((b - WC_debugvarstart) * 16) + 4) + i, objvars[b] + ": " + todraw);
+		            draw_text_outline(956, (((b - WC_debugvarstart) * 16) + 4) + i, objvars[b] + ": " + todraw);
 		    }
 				
 			if keyboard_check_pressed(vk_pageup)
@@ -121,12 +123,12 @@ if WC_varobj != undefined && (instance_exists(WC_varobj) or WC_varobj == global)
 	draw_set_valign(fa_bottom);
 	draw_set_colour(c_white);
 	
-	draw_set_font(WC_swapconsolefont ? font0 : global.font_small);
+	draw_set_font(-1);
 	
 	if WC_varobj == global
-	    draw_text_ext(display_get_gui_width() / 2, display_get_gui_height() - 4, "global." + WC_varmonitor + ": " + string_replace(string(variable_global_get(WC_varmonitor)), (WC_swapconsolefont ? "" : "-"), "M"), 20, display_get_gui_width() - 4);
+	    draw_text_ext(display_get_gui_width() / 2, display_get_gui_height() - 4, "global." + WC_varmonitor + ": " + string(variable_global_get(WC_varmonitor)), 20, display_get_gui_width() - 4);
 	else
-	    draw_text_ext(display_get_gui_width() / 2, display_get_gui_height() - 4, object_get_name(WC_varobj.object_index) + "." + WC_varmonitor + ": " + string_replace(string(variable_instance_get(WC_varobj, WC_varmonitor)), (WC_swapconsolefont ? "" : "-"), "M"), 20, display_get_gui_width() - 4);
+	    draw_text_ext(display_get_gui_width() / 2, display_get_gui_height() - 4, object_get_name(WC_varobj.object_index) + "." + WC_varmonitor + ": " + string(variable_instance_get(WC_varobj, WC_varmonitor)), 20, display_get_gui_width() - 4);
     
 	draw_set_valign(fa_top);
 }
@@ -140,9 +142,6 @@ else if WC_varobj != undefined
 // the console
 if WC_consoleopen
 {
-	// pt exclusive
-	draw_set_font(WC_swapconsolefont ? font0 : global.font_small);
-	
 	// console box
 	draw_set_colour(WC_consolecolor);
 	draw_set_alpha(0.75);
@@ -185,9 +184,6 @@ if WC_consoleopen
 			context = string_replace(context, "%...", "...");
 		}
 		
-		//if !WC_swapconsolefont
-		//	context = string_replace_all(context, "-", "M");
-		
 	    draw_text_ext(4, cony, context, g, 960 - 4); // draw the logs
 	}
 	
@@ -210,9 +206,6 @@ if WC_assetfinder > -1
 	draw_set_alpha(0.75);
 	draw_rectangle(0, 0, 960, 540, 0);
 	draw_set_alpha(1);
-	
-	// pt exclusive
-	draw_set_font(WC_swapconsolefont ? font0 : global.font_small);
 	
 	// asset finder 2000
 	draw_set_colour(c_white);

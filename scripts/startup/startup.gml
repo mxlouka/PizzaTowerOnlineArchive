@@ -21,8 +21,13 @@ function trace(txt = "trace() at " + string(self))
 		with obj_wc
 		{
 			// trace to console
-			if variable_instance_exists(id, "WC_consolelist")
-				ds_list_insert(WC_consolelist, 0, "[DEBUG] " + txt);
+			try
+				console_log("[DEBUG] " + txt);
+			catch (e)
+			{
+				// do nothing
+				e = 0; // avoid unused variable warn
+			}
 		}
 	}
 }

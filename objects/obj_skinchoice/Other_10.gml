@@ -10,32 +10,32 @@ switch sel[1]
 			["PEPPINO", "A somewhat overweight Italian chef."],
 			["BLUE", "He's rocking a blue outfit."],
 			["RED", "That's right, he's rocking a red outfit."],
-			["GREEN", "Woah, he's rocking a green outfit."],
-			["GRAY", "A Leaning Nightmare."],
-			["GBC", "What a ripoff."],
+			["GREEN", "Shockingly, he's rocking a green outfit."],
+			["GRAY", "It's just a Leaning Nightmare..."],
+			["GAMEBOY COLOR", "What a ripoff."],
 			["GRAYSCALE", "Depresso spaghetto."],
 			["XMAS", "Give me a break."],
 			["THE NOISE", "...woag?"],
 			["SKETCH", "He crashed into somebody."],
 			["GRINCH", "It's Claus!!!!"],
-			["PURPLE", "No, he wasn't involved in slaughter."],
-			["ANTON", "I hate him."],
+			["PURPLE", "He wasn't involved in slaughter."],
+			["ANTON", "Ugh, I HATE him."],
 			["UNFINISHED", "i found a hole in this sprite"],
-			["LIGHT", "Shiny!"],
+			["LIGHT", "People also look for Fluorescent Peppino."],
 			["AETHER", "Where's a coder when you need one?"],
 			["PETER", "Griffin"],
-			["SAGE", "PTSD. \"Pizza Tower Stress Disorder\"."],
+			["SAGE", "PTSD actually stands for \"Pizza Tower Sage Demo\"."],
 			["BLACK", "Not the clothes."],
 			["MASSACRE", "It's all just a bad dream..."],
-			["BURNT PIZZA", "Oh, god damn it."],
-			["GB", "One of his greatest achievements."],
-			["HYPOTHERMIA", "Don't bathe inside a freezer."],
-			["BONMARIO", "Hello this is Bonmario INC."],
+			["BURNT PIZZA", "Papa Louie would not be proud."],
+			["GAMEBOY", "One of his greatest achievements."],
+			["HYPOTHERMIA", "Lesson learned. Don't bathe inside of a freezer."],
+			["BONMARIO", "Property of Bonmario of America INC."],
 		];
 		if global.streamer
 		{
 			selarray[0][1] = "Palette zero.\nDon't make comparisons.";
-			selarray[22] = ["BLACK N RED", "That's a cool one."];
+			selarray[22] = ["EVIL", "Do you ever just suddenly become very evil and like your skin starts turning pitch black."];
 		}
 		break;
 	
@@ -47,7 +47,7 @@ switch sel[1]
 			["THE NOISE", "The mischievous gremlin."],
 			["HALLOWEEN", "Scary."],
 			["PEPPINO", "...The classic?"],
-			["SNICK", "Legends say he was involved in slaughter..."],
+			["SNICK", "Legends say he WAS involved in slaughter..."],
 			["XMAS", "Merry!!!"],
 			["INVERTED", ".yracS"],
 			["NAKED", "Hell yeah! Public indecency!"],
@@ -58,10 +58,9 @@ switch sel[1]
 			["SKETCH", "He's closing his eyes...!"],
 			["THE NOID", "Avoid him."],
 			["GALAXY", "Stunning."],
-			["CHUNGUS", "A fine chungus, of the big variety."],
+			["CHUNGUS", "A fine Chungus, of the big variety."],
 			["MR ORANGE", "I'm seeing double! Four Noise!"],
-			["DR.B.B.", "Snoo-ping( )as usual, I see."],
-			["NOSE", "It is rumored that this skin allows you to moon jump.\nWe've yet to prove that theory."],
+			["DR.B.B.", "Snooping as usual, I see."],
 			["SALAD", "You fat bald bastard you piece of subhuman trash\n2000 years of constant human evolution to create a hairless fucking coconut"],
 		];
 		break;
@@ -74,23 +73,23 @@ switch sel[1]
 			["THE VIGILANTE", "AKA Vigert Ebenezer Lantte."],
 			["HALLOWEEN", "Trick or treat.\nThis is a threat."],
 			["MM8BDM", "A very exciting night."],
-			["CHOCOLANTE", "It's still cheese. Just... with, uh, chocolate flavor."],
+			["CHOCOLANTE", "It's still cheese. Just... with, uh, chocolate flavoring?"],
 			["JOHN", "A hungry slime."],
 			["GOLDEN", "Something, something, carrots."],
 			["CHEDDAR", "Cheddar cheese is a relatively hard, off-white (or orange if colourings such as annatto are added),\nsometimes sharp-tasting, natural cheese. Originating in the English village of Cheddar in Somerset,\ncheeses of this style are now produced beyond the region and in several countries around the world."],
 			["SEPIA", "Undertale intro sequence."],
-			["SNICK", "It's not him. Never trust purple cheese."],
+			["SNICK", "It's NOT him. Never trust purple cheese."],
 			["EMERALD", "Hmm."],
 			["HOLIDAY", "Merry Cheesemas."],
 			["CHEESE MAN", "A gag of the Johnson subject."],
-			["VIGILECHE", "Chocolate milk."],
-			["BLOODSAUCE", "Who dipped the cheese in ketchup?!"],
+			["VIGILATTE", "Chocolate milk."],
+			["BLOODSAUCE", "Who the hell dipped cheese in ketchup?!"],
 			["VIGILATEX", "What the fuck"],
 			["THE BARTENDER", "Give me a drink, Bartender."],
 			["MORSHU", "It's yours, my friend."],
 		];
 		if global.streamer
-			selarray[14][1] = "What";
+			selarray[14][1] = "no no no no no no no no no no no no no no no no no no no";
 		break;
 	
 	case "S":
@@ -101,27 +100,27 @@ switch sel[1]
 			["SNICK", "It's him."],
 			["TAIL", "A single tail."],
 			["SHADER", "im the greatest living thing my duderino"],
-			["BOOTS", "Unlike Snick..."],
+			["BOOTS", "Unlike Snick."],
 			["SNICKETTE", "Not to be confused with Satan."],
-			["MASTER SYSTEM", "Brought to you by Snicksoft."],
-			["SHADOW", "Obligatory edgy palette."],
-			["CYAN", "RGB 0 255 255"],
-			["TRANSPARENT", "(cough sound)"],
-			["MANUAL", "This is Snick the porcupine.\nHe hosts his own event."],
+			["MASTER SYSTEM", "Brought to you by Snicksoft!"],
+			["SHADOW", "The obligatory edgy palette."],
+			["CYAN", "Don't you dare."],
+			["TRANSPARENT", "SNICK NO"],
+			["MANUAL", "He hosts his own event."],
 			["SKETCH", "Let's just say he likes burgers."],
 			["SHITK", "Acting sus!"],
-			["HALLOWEEN", "Don't worry, he's not dead yet."],
+			["HALLOWEEN", "Haha don't worry, he's not dead yet."],
 			["SOCK", "Sock is without description."],
 			["ELMO", "Homosexual, the sixty-ninth."],
-			["GB", "Wait, what?"],
+			["GAMEBOY", "That's not right..."],
 			["HELLSNICK", "Si."],
 			["MAJIN", "Fun is infinite."],
 			["NEON", "I've seen OC's brighter than this."],
 		];
 		if global.streamer
 		{
-			selarray[4][1] = "No, not that one."; // snickette
-			selarray[14][1] = "Hilarious."; // elmo
+			selarray[4][1] = "No, not THAT one."; // snickette
+			selarray[14][1] = "Hilarity ensues."; // elmo
 		}
 		break;
 	
@@ -132,46 +131,42 @@ switch sel[1]
 		selarray = [
 			["YELLOW", "Take the first 4 letters of Pizzelle."],
 			["PIZZELLE", "It's the Candy-making patisje!"],
-			["WILD STRAWBERRY", "Also known as \"pink\"."],
+			["WILD STRAWBERRY", "Also known as pink."],
 			["CHERRY", "Lucky!"],
-			["LIME", "Make margaritas, I guess?"],
+			["LIME", "Uhhh, make margaritas, I think."],
 			["VIOLET", "Now in grape flavor."],
 			["ORANGE", "The color or the fruit?"],
 			["GUM", "Don't actually chew it please."],
-			["CANDY CANE", "It's the Candy"],
-			["PUMPKIN", "Uh, a sugary one. Yeah."],
+			["CANDY CANE", "It's the Candy               !"],
+			["PUMPKIN", "Now with 30% less fiber."],
 			["FAMILIAR GREMLIN", "Something's wrong."],
 			["SAGE", "If it ever happens I will shit bricks."],
 			["DOOM", "It's the rip and tearing patisje!"],
-			["ANNIE", "Ball-busting time."],
-			["SCOOTER", "I- ..wh- what?"],
-			["BLURPLE", "Also known as \"test\"."],
-			["PAINTLAD", "Very original name there, Jacko."],
-			["ENA", "Cheese and rice, Moony!"],
+			["ANNIE", "It's ball-busting time."],
+			["SCOOTER", "I- ...wh- what?"],
+			["BLURPLE", "Also known as test."],
+			["PAINTLAD", "Very original name there."],
 			["COTTON CANDY", "Not to say something else."],
 			["GREEN APPLE", "Why is this the least favorite candy flavor?"],
 			["SECRET", "Lookie! You've found a pretty sweet surprise."],
 			["STUPID RAT", "Their beloved, I suppose."],
-			["PASTEL", "Soft on the eyes!"],
+			["PASTEL", "Soft on the eyes."],
 			["BURNT", "You fucking DONKEY."],
 			["CRAZY FROG", "Ding ding."],
 			["FACTORY", "DOOR STUCK"],
 			["PINK", "Bismuth subsalicylate."],
 			["SUGAR", "Obviously sugar is green."],
-			["MASSACRE", "SUGARY SPIRE 2: The Quest for Diabetes"],
+			["MASSACRE", "SUGARY SPIRE 2: The Quest for Diabetes."],
 			["RIVALS", "Did we find a coder yet?"],
-			["OLD SCHOOL", "Also known as \"grayscale\"."],
+			["OLD SCHOOL", "Also known as grayscale."],
 			["ZOMBIFIED", "Ricochet, eh? I sense some inspiration-ception."],
 			["FORESTATION", "Made of sugarcane plants."],
 			["LAMDA", "I have nothing to say about this."],
-			["GOLDEN", "Unlocks the ability to SHINE, which is bound to no key."],
+			["GOLDEN", "Unlocks the ability to SHINE... which is bound to no key."],
 			["GNOME WIZARD", "Despite being a wizard, he has no redeeming qualities."],
 		]
 		if global.streamer
-		{
-			selarray[16][1] = "Very original name there.";
 			selarray[23][1] = "You effing DONKEY.";
-		}
 		
 		//["PAINTLAD", "Did you know Jacko suggested the name Paintlad\nand is probably never going to be credited for it?"],
 		break;
@@ -181,7 +176,7 @@ switch sel[1]
 		spr_idle = spr_playerSN_idle;
 		spr_select = spr_playerSN_idle;
 		selarray = [
-			["YELLOW", "Piss ano"],
+			["YELLOW", "Piss ano."],
 			["PIZZANO", "YAH-HAH!"],
 			["FAMILIAR GREMLIN", "Close enough, but not quite."],
 			["FAMILIAR CHEF", "A somewhat overweight Italian nuisance."],
@@ -216,45 +211,6 @@ switch sel[1]
 		]
 		break;
 	
-	#region joke
-	
-	case "CHEESESLIME":
-		spr_palette = palette_cheeseslime;
-		spr_idle = spr_slimemove;
-		spr_select = spr_slimebounce;
-		selarray = [
-			["CHEESESLIME", "Totally useless. Cannon fodder."],
-			["HALLOWEEN", "Don't worry, he'll be dead soon."],
-		]
-		break;
-	case "FORKNIGHT":
-		spr_palette = palette_forknight;
-		spr_idle = spr_forknight_walk;
-		spr_select = spr_forknight_scared;
-		selarray = [
-			["FORKNIGHT", "His variant is Battle Royale."],
-			["HALLOWEEN", "Slightly darker, ooga booga."],
-		]
-		break;
-	case "PEPGOBLIN":
-		spr_palette = palette_pepgoblin;
-		spr_idle = spr_pepgoblin;
-		selarray = [
-			["PEPPERONI GOBLIN", "He will take any opportunity to practice kicks."],
-			["HALLOWEEN", "A nice purple tint, somehow meant to be scary."],
-		]
-		break;
-	case "PIZZARD":
-		spr_palette = palette_pizzard;
-		spr_idle = spr_pizzard_walk;
-		selarray = [
-			["PIZZARD", "The pizzard circle studies pizzamancy."],
-			["HALLOWEEN", "Inverted colors! Did you shit yourself yet?"],
-			["DOUGIE", "Bowtie."],
-		]
-		break;
-	
-	#endregion
 	#region scrapped (for now)
 	
 	case "M":

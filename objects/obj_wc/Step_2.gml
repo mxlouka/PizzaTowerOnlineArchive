@@ -53,7 +53,7 @@ if WC_consoleopen
 		if keyboard_check_pressed(ord("C")) && string_replace_all(keyboard_string, " ", "") != ""
 		{
 			clipboard_set_text(keyboard_string);
-			ds_list_insert(WC_consolelist, 0, "Copied command to clipboard");
+			console_log("Copied command to clipboard");
 			keyboard_string = "";
 		}
 		
@@ -163,7 +163,7 @@ if keyboard_check_pressed(WC_togglekey) && !WC_creatingobj && !WC_selectobj && W
 if WC_consoleenter != ""
 {
 	if !WC_consolesilence && WC_consoleopen
-	    ds_list_insert(WC_consolelist, 0, "%..." + WC_consoleenter);
+	    console_log("%..." + WC_consoleenter);
 	
 	if string_replace_all(WC_consoleenter, " ", "") != ""
 	{
@@ -456,8 +456,8 @@ if WC_modkp == ord("1")
 	    if tempobj == ""
 	        exit;
 		
-	    WC_bepisobj = asset_get_index(tempobj);
-	    if WC_bepisobj == -1
+	    WC_tempobj = asset_get_index(tempobj);
+	    if WC_tempobj == -1
 	    {
 	        show_message("Asset " + tempobj + " doesn't exist. Check for typos");
 	        exit;
@@ -480,7 +480,7 @@ if WC_creatingobj
 	WC_fakedragobj = noone;
 	
 	if mouse_check_button_pressed(mb_left) or (mouse_check_button(mb_left) && keyboard_check(vk_control))
-	    instance_create(floor(mouse_x / WC_draggrid) * WC_draggrid, floor(mouse_y / WC_draggrid) * WC_draggrid, WC_bepisobj);
+	    instance_create(floor(mouse_x / WC_draggrid) * WC_draggrid, floor(mouse_y / WC_draggrid) * WC_draggrid, WC_tempobj);
 	
 	if mouse_check_button_pressed(mb_right)
 	    WC_creatingobj = false;
@@ -541,7 +541,7 @@ if WC_modkp == ord("3")
 	else
 	{
 	    WC_selectobj = 1;
-	    WC_bepisobj = noone;
+	    WC_tempobj = noone;
 	}
 }
 
@@ -563,7 +563,7 @@ if WC_selectobj != 0
 			tempobj = tempobj.baddieID;
 	}
 	
-	WC_bepisobj = tempobj;
+	WC_tempobj = tempobj;
 	var selected = false;
 	
 	// manual input
@@ -573,7 +573,7 @@ if WC_selectobj != 0
 	    if tempobj_name == ""
 	    {
 	        WC_selectobj = 0;
-			WC_bepisobj = noone;
+			WC_tempobj = noone;
 	        exit;
 	    }
 	    else
@@ -584,14 +584,14 @@ if WC_selectobj != 0
 	        {
 	            show_message("Object " + tempobj_name + " doesn't exist. Check for typos");
 	            WC_selectobj = 0;
-				WC_bepisobj = noone;
+				WC_tempobj = noone;
 	            exit;
 	        }
 			else if asset_get_type(tempobj_name) != asset_object
 	        {
 	            show_message("The asset " + tempobj_name + " isn't an object");
 	            WC_selectobj = 0;
-				WC_bepisobj = noone;
+				WC_tempobj = noone;
 	            exit;
 	        }
 	        else
@@ -605,7 +605,7 @@ if WC_selectobj != 0
 	            {
 	                show_message("The object isn't in the room.");
 	                WC_selectobj = 0;
-					WC_bepisobj = noone;
+					WC_tempobj = noone;
 	                exit;
 	            }
 	            else if instance_number(tempobj) > 1
@@ -616,7 +616,7 @@ if WC_selectobj != 0
 	                {
 	                    show_message("The object isn't in the room.");
 	                    WC_selectobj = 0;
-						WC_bepisobj = noone;
+						WC_tempobj = noone;
 	                    exit;
 	                }
 	                selected = true;
@@ -627,7 +627,7 @@ if WC_selectobj != 0
 	
 	if (mouse_check_button_pressed(mb_left) or selected) && instance_exists(tempobj)
 	{
-		WC_bepisobj = noone;
+		WC_tempobj = noone;
 	    switch WC_selectobj
 	    {
 	        case 1: // set variable
@@ -1017,7 +1017,7 @@ if WC_modkp == ord("6")
 	}
 	else
 	{
-	    WC_bepisobj = noone;
+	    WC_tempobj = noone;
 	    WC_selectobj = 2;
 	}
 }
@@ -1029,7 +1029,7 @@ if WC_modkp == ord("7")
 // execute script
 if WC_modkp == ord("8")
 {
-	WC_bepisobj = noone;
+	WC_tempobj = noone;
 	WC_selectobj = 3;
 }
 
@@ -1046,7 +1046,7 @@ if WC_modkp == ord("9")
 	{
 		if keyboard_check(vk_control)
 		{
-			WC_bepisobj = noone;
+			WC_tempobj = noone;
 			WC_selectobj = 4;
 		}
 		else if keyboard_check(vk_shift)
@@ -1128,7 +1128,7 @@ if WC_modkp == ord("0")
 	else
 	{
 	    WC_selectobj = 5;
-	    WC_bepisobj = noone;
+	    WC_tempobj = noone;
 	}
 }
 
@@ -1222,30 +1222,30 @@ if WC_modkp == vk_numpad4
 	tempobj = get_string("Manual object deletion:\nInput the object's name", "")
 	if tempobj != ""
 	{
-	    WC_bepisobj = asset_get_index(tempobj)
-	    if !object_exists(WC_bepisobj)
+	    WC_tempobj = asset_get_index(tempobj)
+	    if !object_exists(WC_tempobj)
 	        show_message("Object " + tempobj + " doesn't exist. Check for typos");
 	    else
 	    {
-	        if instance_number(WC_bepisobj) == 1
+	        if instance_number(WC_tempobj) == 1
 	        {
-	            WC_bepisobj = instance_find(WC_bepisobj, 0);
-		        show_message("Deleted object " + object_get_name(WC_bepisobj.object_index));
-		        instance_destroy(WC_bepisobj);
+	            WC_tempobj = instance_find(WC_tempobj, 0);
+		        show_message("Deleted object " + object_get_name(WC_tempobj.object_index));
+		        instance_destroy(WC_tempobj);
 	        }
-	        else if instance_number(WC_bepisobj) <= 0
+	        else if instance_number(WC_tempobj) <= 0
 	            show_message("The object isn't in the room");
-	        else if instance_number(WC_bepisobj) > 1
+	        else if instance_number(WC_tempobj) > 1
 	        {
-	            temp_objfind = get_integer("Multiple instances of this object were found. Specify which (0 to " + string(instance_number(WC_bepisobj) - 1) + ")", 0);
-	            WC_bepisobj = instance_find(WC_bepisobj, temp_objfind);
+	            temp_objfind = get_integer("Multiple instances of this object were found. Specify which (0 to " + string(instance_number(WC_tempobj) - 1) + ")", 0);
+	            WC_tempobj = instance_find(WC_tempobj, temp_objfind);
                 
-				if WC_bepisobj == noone
+				if WC_tempobj == noone
 	                show_message("The object isn't in the room");
 				else
 				{
-			        show_message("Deleted object " + object_get_name(WC_bepisobj.object_index));
-			        instance_destroy(WC_bepisobj);
+			        show_message("Deleted object " + object_get_name(WC_tempobj.object_index));
+			        instance_destroy(WC_tempobj);
 				}
 	        }
 	    }
@@ -1277,7 +1277,7 @@ if WC_modkp == vk_numpad6
 	else
 	{
 	    WC_selectobj = 6;
-	    WC_bepisobj = noone;
+	    WC_tempobj = noone;
 	}
 }
 

@@ -9,6 +9,7 @@ if ds_list_find_index(global.saveroom, id) == -1
 		ds_list_add(deactivatedlist, obj.id);
 		instance_deactivate_object(obj);
 	}
+	ds_list_destroy(objectlist);
 }
 else
 	instance_destroy();

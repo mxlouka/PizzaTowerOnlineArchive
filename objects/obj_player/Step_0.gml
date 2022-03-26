@@ -448,7 +448,6 @@ if state == states.gameover && y > room_height * 2
     }
 }
 
-
 //Out of grab
 if (baddiegrabbedID == obj_null or !instance_exists(baddiegrabbedID) or baddiegrabbedID == 0 or baddiegrabbedID == -1) && (state == states.grab or state == states.superslam or state == states.tacklecharge)
 	state = states.normal

@@ -362,7 +362,7 @@
   },
   "parent": {
     "name": "old (fucked up tiles)",
-    "path": "folders/Rooms/Extra Levels/Sugary Spire/Cotton Town/old (fucked up tiles).yy",
+    "path": "folders/Rooms/Extra Levels/Sugary Spire/Cottontown/old (fucked up tiles).yy",
   },
   "resourceVersion": "1.0",
   "name": "cottonOLD_1",

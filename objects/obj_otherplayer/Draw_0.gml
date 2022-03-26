@@ -120,6 +120,8 @@ else
 		if spr_palette == spr_snickpalette && paletteselect == 13
 			sprit = spr_sbombic;
 		
+		// nose
+		/*
 		if spr_palette == spr_noisepalette && paletteselect == 17
 		&& !(instance_exists(obj_pause) && obj_pause.pause)
 		{
@@ -140,6 +142,7 @@ else
 				}
 			}
 		}
+		*/
 	}
 	
 	// draw the player

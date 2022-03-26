@@ -1,3 +1,4 @@
+// disgusting smooth 60 fps rotation fuck sugary spire
 if !global.panic
     image_angle += abs(sin(current_time / 500) * rotspd) * sign(image_xscale);
 else
