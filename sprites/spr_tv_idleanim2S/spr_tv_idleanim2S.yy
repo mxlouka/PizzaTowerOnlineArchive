@@ -80,8 +80,8 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "snick (demo 3)",
-    "path": "folders/Sprites/HUD/new hud/tv/snick (demo 3).yy",
+    "name": "snick (d3)",
+    "path": "folders/Sprites/HUD/new hud/tv/snick (d3).yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_tv_idleanim2S",

@@ -412,9 +412,12 @@ if musplay > -1
 	{
 		// try to remedy secret song looping main song
 		if string_contains(audio_get_name(musplay), "secret")
-			secretfadeoff = fadeoff - (fadeoff % audio_sound_length(musplay));
+			secretfadeoff = fadeoff;
 		else if string_contains(audio_get_name(global.music), "secret")
-			fadeoff += secretfadeoff;
+		{
+			if fadeoff < secretfadeoff
+				fadeoff += floor(secretfadeoff / audio_sound_length(global.music)) * audio_sound_length(global.music);
+		}
 		
 		audio_stop_sound(global.music);
 		pausedmusic = scr_sound(musplay);

@@ -12,7 +12,7 @@
     "path": "audiogroups/audiogroup_default",
   },
   "soundFile": "mu_dungeon_re_pc.ogg",
-  "duration": 228.061569,
+  "duration": 228.0771,
   "parent": {
     "name": "snick's rematch",
     "path": "folders/Sounds/pto extra/pizza castle/snick's rematch.yy",

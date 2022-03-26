@@ -1,11 +1,17 @@
 // cottontown generate foreground
-if string_startswith(room_get_name(room), "cotton_")
-&& !string_startswith(room_get_name(room), "cotton_secret")
+var roomname = room_get_name(room);
+if string_startswith(roomname, "cotton_")
 {
-	var l = layer_create(-100, "Backgrounds_steamcc3");
-	var l2 = layer_background_create(l, bg_cotton5);
-	layer_background_htiled(l2, true);
-	layer_hspeed(l, -0.75);
+	for(var i = 0; i < 20; i++)
+	{
+		if roomname == "cotton_" + string(i) && i < 7
+		{
+			var l = layer_create(-100, "Backgrounds_steamcc3");
+			var l2 = layer_background_create(l, bg_cotton5);
+			layer_background_htiled(l2, true);
+			layer_hspeed(l, -0.75);
+		}
+	}
 }
 
 // tile layer depths
