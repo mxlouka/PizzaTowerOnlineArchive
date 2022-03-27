@@ -63,8 +63,6 @@ function scr_collide_player()
 		
 		// Check if a wall is below me	
 		grounded |= scr_solid_player(x, y + 1)
-		// Check if I'm on a platform
-		grounded |= !place_meeting(x, y, obj_platform) && place_meeting(x, y + 1, obj_platform)
 		// Check if I'm on a grindrail
 		grinding = !place_meeting(x, y, obj_grindrail) && place_meeting(x, y + 1, obj_grindrail)
 		grounded |= grinding
