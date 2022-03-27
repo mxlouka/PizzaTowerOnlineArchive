@@ -14,7 +14,7 @@ switch room
 	case floor5_room1: global.srank = 7800; break; // freezer
 	case golf_room1: global.srank = (scr_stylecheck(1) ? 3200 : 4500); break;
 	case farm_1: global.srank = 10300; break;
-	case graveyard_1: case graveyard_1_NEW: global.srank = 11855; break;
+	case graveyard_1: case graveyard_1_NEW: global.srank = 11850; break;
 	case dungeon_1: global.srank = 10300; break;
 	case strongcold_10: global.srank = 9000; break;
 	case dragonlair_1: global.srank = 4500; break;
@@ -23,6 +23,7 @@ switch room
 	case etb_1: global.srank = 7000; break;
 	case grinch_1: global.srank = 6400; break;
 	case kungfu_1: global.srank = 15000; break;
+	case cotton_1: global.srank = 12400; break;
 }
 if global.snickchallenge
 	global.srank = 10300;

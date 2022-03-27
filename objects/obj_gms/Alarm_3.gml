@@ -19,7 +19,7 @@ if loadsave
 		scr_setcoin(0);
 	}
 	global.pizzacoinstart = global.pizzacoin;
-
+	
 	// hat unlocks
 	global.hatunlock = [true];
 	for(var i = 0; i < HATS.length; i++)

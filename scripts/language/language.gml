@@ -359,6 +359,31 @@ function lang_load(lang)
 		ds_map_add(global.langmap, "roomname.cotton_10", "Race Around The Clock");
 		ds_map_add(global.langmap, "roomname.cotton_11", "Froghop");
 		ds_map_add(global.langmap, "roomname.cotton_12", "Pillars Break Room");
+		
+		ds_map_add(global.langmap, "roomname.sanctum_1", "Temple of the Pizza Tower");
+		ds_map_add(global.langmap, "roomname.sanctum_2", "Ruinous Road");
+		ds_map_add(global.langmap, "roomname.sanctum_3", "Bizzarely Dissimilar");
+		ds_map_add(global.langmap, "roomname.sanctum_4", "Cheesy Smell");
+		ds_map_add(global.langmap, "roomname.sanctum_5", "Sticky Ruin");
+		ds_map_add(global.langmap, "roomname.sanctum_6", "Tourist Trap");
+		ds_map_add(global.langmap, "roomname.sanctum_7", "Ocean of Cheese");
+		ds_map_add(global.langmap, "roomname.sanctum_7_1", "You found a Super Secret!");
+		ds_map_add(global.langmap, "roomname.sanctum_7_2", "Spaghetti Junction");
+		ds_map_add(global.langmap, "roomname.sanctum_8", "Something Wicked");
+		ds_map_add(global.langmap, "roomname.sanctum_9", "Blue Cheese");
+		ds_map_add(global.langmap, "roomname.sanctum_10", "Sanctum of Cheese");
+		ds_map_add(global.langmap, "roomname.sanctum_11", "Ancient Gods and PB 2");
+		ds_map_add(global.langmap, "roomname.sanctum_12", "Daily Stains");
+		ds_map_add(global.langmap, "roomname.sanctum_12_1", "and Dirty Surfaces!");
+		ds_map_add(global.langmap, "roomname.sanctum_13", "Escape Pit");
+		ds_map_add(global.langmap, "roomname.sanctum_treasure", "Kitchen Object!?");
+		ds_map_add(global.langmap, "roomname.sanctum_pizzamart", "Modern Convenience");
+		ds_map_add(global.langmap, "roomname.sanctum_secret1", "Bizzarely Familiar");
+		ds_map_add(global.langmap, "roomname.sanctum_secret2", "Hidden and Ancient Box");
+		ds_map_add(global.langmap, "roomname.sanctum_secret3", "Action Block Destruction");
+		ds_map_add(global.langmap, "roomname.sanctum_secret4", "Spectacular Man of Ball");
+		ds_map_add(global.langmap, "roomname.sanctum_secret5", "All Cheese Here");
+		ds_map_add(global.langmap, "roomname.sanctum_secret6", "Dashing Psycho");
 	}
 	
 	#endregion

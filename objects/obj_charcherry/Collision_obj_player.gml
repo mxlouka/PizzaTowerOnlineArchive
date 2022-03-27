@@ -1,4 +1,4 @@
-if state == states.chase
+if state == states.chase && !other.cutscene
 {
 	instance_destroy();
 	

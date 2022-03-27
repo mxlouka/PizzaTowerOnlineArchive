@@ -1,11 +1,11 @@
-if place_meeting(x,y, obj_player1)
+if place_meeting(x, y, obj_player)
 {
 	// rematch comuter flicker
 	if sprite_index == spr_snickrematchcomputer or sprite_index == spr_medievalcomputer_re
 	or sprite_index == spr_ruincomputer_re or sprite_index == spr_dungeoncomputer_re
 		image_index = choose(0, 0, 0, 0, 0, 0, 0, 1);
 	else
-		image_speed = 0.35
+		image_speed = 0.35;
 }
 else
 {
@@ -13,7 +13,7 @@ else
 	image_index = 0
 }
 if sprite_index == spr_exitgate
-	image_index = 1
+	image_index = 1;
 
 // rematch computer slow down music
 /*

@@ -65,6 +65,7 @@ if drawing
 	if level == "etb"
 		outof = 2;
 	if level == "mansion"
+	or level == "cotton"
 		outof = 3;
 	
 	// where the score number should be displayed
@@ -95,7 +96,12 @@ if drawing
 			if level == "strongcold"
 				draw_sprite(spr_xmasshroomtoppin_idle, -1, x - 75, y - 120)
 			else if sugary
-				draw_sprite(spr_toppinmallow, -1, x - 75, y - 120)
+			{
+				if global.gameplay == 0
+					draw_sprite(spr_toppinmallow, -1, x - 75, y - 120)
+				else
+					draw_sprite(spr_toppinmallow_NEW, 2, x - 75, y - 120)
+			}
 			else
 			{
 				if global.gameplay == 0
@@ -122,6 +128,8 @@ if drawing
 		{
 			if level == "strongcold"
 				draw_sprite(spr_xmascheesetoppin_idle, -1, x - 35, y - 120)
+			else if sugary
+				draw_sprite(spr_toppinchoco, -1, x - 75, y - 120)
 			else
 			{
 				if global.gameplay == 0
@@ -148,6 +156,8 @@ if drawing
 		{
 			if level == "strongcold"
 				draw_sprite(spr_xmastomatotoppin_idle, -1, x, y - 120)
+			else if sugary
+				draw_sprite(spr_toppincrack, -1, x - 75, y - 120)
 			else
 			{
 				if global.gameplay == 0
@@ -174,6 +184,8 @@ if drawing
 		{
 			if level == "strongcold"
 				draw_sprite(spr_xmassausagetoppin_idle, -1, x + 35, y - 120)
+			else if sugary
+				draw_sprite(spr_toppinworm, -1, x - 75, y - 120)
 			else
 			{
 				if global.gameplay == 0
@@ -200,6 +212,8 @@ if drawing
 		{
 			if level == "strongcold"
 				draw_sprite(spr_xmaspineappletoppin_idle, -1, x + 75, y - 120)
+			else if sugary
+				draw_sprite(spr_toppincandy, image_index + 1, x - 75, y - 120)
 			else
 			{
 				if global.gameplay == 0

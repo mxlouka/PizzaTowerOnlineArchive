@@ -96,8 +96,8 @@
     "PhysicsWorldPixToMetres": 0.1,
   },
   "parent": {
-    "name": "Ancient Tower (STILL WIP)",
-    "path": "folders/Rooms/Extra Levels/Ancient Tower (STILL WIP).yy",
+    "name": "Ancient Tower",
+    "path": "folders/Rooms/Extra Levels/Ancient Tower.yy",
   },
   "resourceVersion": "1.0",
   "name": "ancient_3",

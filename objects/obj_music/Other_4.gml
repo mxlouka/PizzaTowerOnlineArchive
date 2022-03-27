@@ -320,16 +320,9 @@ else if (!global.panic or string_letters(roomname) == "dragonlair" or string_let
 	if string_letters(roomname) == "grinch"
 		musplay = mu_christmas;
 	
-	/*
-	if string_startswith(roomname, "eatery_")
-	{
-		for (i = 0; i < 20; ++i)
-		{
-			if roomname == "eatery_" + string(i)
-				musplay = mu_kidsparty
-		}
-	}
-	*/
+	// la burrata temple
+	if string_letters(roomname) == "sanctum"
+		musplay = mu_sanctum;
 	
 	// mansion
 	if string_startswith(roomname, "floor2_room")
@@ -350,7 +343,7 @@ else if (!global.panic or string_letters(roomname) == "dragonlair" or string_let
 	if string_letters(roomname) == "entrancesecret"
 	{
 		musplay = mu_entrancesecret
-		with obj_player1
+		with obj_player
 			if character == "SP" musplay = mu_entrancesecretSP;
 	}
 	if string_letters(roomname) == "medievalsecret"
@@ -394,6 +387,8 @@ else if (!global.panic or string_letters(roomname) == "dragonlair" or string_let
 		musplay = mu_cottonsecret
 	if string_letters(roomname) == "jawbreakersecret"
 		musplay = mu_jawbreakersecret
+	if string_letters(roomname) == "sanctumsecret"
+		musplay = mu_sanctumsecret
 	
 	if room == custom_lvl_room
 		alarm[0] = 4;
