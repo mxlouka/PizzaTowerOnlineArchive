@@ -214,6 +214,11 @@ if room == rm_editor exit;
 				global.minutes = 2
 				global.seconds = 59
 				break
+				
+		    case "cotton_12": // <---- tranny
+				global.minutes = 3
+				global.seconds = 59
+				break
 			
 			case "custom_lvl_room":
 				with obj_destroyableescape
