@@ -3,7 +3,9 @@ target_x = 0
 target_y = 0
 
 image_speed = 0
-depth = 150
+depth = 50
+if place_meeting(x, y, obj_destructibles) or place_meeting(x, y, obj_metalblock)
+	depth += 100;
 
 targetDoor = "A"
 

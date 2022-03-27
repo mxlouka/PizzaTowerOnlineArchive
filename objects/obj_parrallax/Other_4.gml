@@ -4,7 +4,7 @@ if string_startswith(roomname, "cotton_")
 {
 	for(var i = 0; i < 20; i++)
 	{
-		if roomname == "cotton_" + string(i) && i < 7
+		if roomname == "cotton_" + string(i) && i < 4
 		{
 			var l = layer_create(-100, "Backgrounds_steamcc3");
 			var l2 = layer_background_create(l, bg_cotton5);
@@ -35,16 +35,10 @@ if layer_exists("Tiles_3_NEW")
 
 // setup vars
 bgscrollx = 0;
-bgscrolly = 0;
-
 bgscroll2x = 0;
-bgscroll2y = 0;
-
 bgscroll3x = 0;
-bgscroll3y = 0;
-
 bgscroll4x = 0;
-bgscroll4y = 0;
+bgscroll5x = 0;
 
 ground1x = layer_get_x("Backgrounds_Ground1");
 ground1y = layer_get_y("Backgrounds_Ground1");

@@ -52,7 +52,6 @@ if layer_exists("Backgrounds_steamcc1")
 	layer_x("Backgrounds_steamcc1", (_cam_x * 0.95) + bgscroll2x);
 	layer_y("Backgrounds_steamcc1", (_cam_y * 0.95) + bgscroll2y);
 	bgscroll2x = (bgscroll2x + layer_get_hspeed("Backgrounds_steamcc1")) % (sprite_get_width(layer_background_get_sprite(layer_background_get_id("Backgrounds_steamcc1"))));
-	bgscroll2y = (bgscroll2y + layer_get_vspeed("Backgrounds_steamcc1")) % (sprite_get_height(layer_background_get_sprite(layer_background_get_id("Backgrounds_steamcc1"))));
 }
 
 if layer_exists("Backgrounds_steamcc2")
@@ -60,7 +59,6 @@ if layer_exists("Backgrounds_steamcc2")
 	layer_x("Backgrounds_steamcc2", (_cam_x * 0.8) + bgscroll3x);
 	layer_y("Backgrounds_steamcc2", (_cam_y * 0.8) + bgscroll3y);
 	bgscroll3x = (bgscroll3x + layer_get_hspeed("Backgrounds_steamcc2")) % (sprite_get_width(layer_background_get_sprite(layer_background_get_id("Backgrounds_steamcc2"))));
-	bgscroll3y = (bgscroll3y + layer_get_vspeed("Backgrounds_steamcc2")) % (sprite_get_height(layer_background_get_sprite(layer_background_get_id("Backgrounds_steamcc2"))));
 }
 
 if layer_exists("Backgrounds_steamcc3")
@@ -74,6 +72,13 @@ if layer_exists("Backgrounds_steamcc4")
 {
 	layer_x("Backgrounds_steamcc4", _cam_x * 0.4);
 	layer_y("Backgrounds_steamcc4", (room_height - 540) + ((room_height - (_cam_y + _camh)) * -0.4));
+}
+
+if layer_exists("Backgrounds_steamcc5")
+{
+	layer_x("Backgrounds_steamcc5", (_cam_x * 0.7) + bgscroll5x);
+	layer_y("Backgrounds_steamcc5", (_cam_y * 0.7) + bgscroll5y);
+	bgscroll5x = (bgscroll5x + layer_get_hspeed("Backgrounds_steamcc5")) % (sprite_get_width(layer_background_get_sprite(layer_background_get_id("Backgrounds_steamcc5"))));
 }
 
 #endregion
@@ -99,6 +104,11 @@ if layer_exists("Backgrounds_still1")
 {
 	layer_x("Backgrounds_still1", _cam_x - clamp(_cam_x2 * 0.15 * (960 / roomwidth), 0, sprite_get_width(layer_background_get_sprite(layer_background_get_id(layer_get_id("Backgrounds_still1")))) - 960));
 	layer_y("Backgrounds_still1", _cam_y - clamp(_cam_y2 * 0.15 * (540 / roomheight), 0, sprite_get_height(layer_background_get_sprite(layer_background_get_id(layer_get_id("Backgrounds_still1")))) - 540));
+}
+if layer_exists("Backgrounds_still2")
+{
+	layer_x("Backgrounds_still2", _cam_x - clamp(_cam_x2 * 0.25 * (960 / roomwidth), 0, sprite_get_width(layer_background_get_sprite(layer_background_get_id(layer_get_id("Backgrounds_still1")))) - 960));
+	layer_y("Backgrounds_still2", _cam_y - clamp(_cam_y2 * 0.25 * (540 / roomheight), 0, sprite_get_height(layer_background_get_sprite(layer_background_get_id(layer_get_id("Backgrounds_still1")))) - 540));
 }
 if layer_exists("Backgrounds_stillH1")
 {

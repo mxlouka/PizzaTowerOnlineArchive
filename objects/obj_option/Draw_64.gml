@@ -28,7 +28,7 @@ if !(instance_exists(obj_pause) && obj_pause.pause)
 	}
 }
 
-//Draw Text
+// draw text
 draw_set_font(global.bigfont);
 draw_set_halign(fa_center);
 draw_set_color(c_white);

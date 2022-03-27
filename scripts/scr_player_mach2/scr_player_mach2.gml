@@ -6,16 +6,14 @@ function scr_player_mach2()
 	var railh = 0, railmeet = instance_place(x, y + 1, obj_railparent);
 	if railmeet then railh = railmeet.spdh;
 	hsp = xscale * movespeed + railh;
-
-
+	
 	move2 = key_right2 + key_left2
 	move = key_right + key_left
 
 	crouchslideAnim = true
-	
 
 	//Jump Stop
-	if (!key_jump2) && jumpstop = false && vsp < 0.5 
+	if !key_jump2 && !jumpstop && vsp < 0.5 
 	{
 		vsp /= 10
 		jumpstop = true
@@ -220,6 +218,7 @@ function scr_player_mach2()
 	}
 	
 	// pizzelle faceplant roll
+	/*
 	if !grounded && key_slap2 && global.gameplay != 0 && character == "SP"
 	{
 		scr_soundeffect(sfx_suplexdashSP);
@@ -244,6 +243,7 @@ function scr_player_mach2()
 		}
 		exit;
 	}
+	*/
 	
 	//Vigilante revolver
 	if key_slap2 && character == "V"
@@ -265,7 +265,7 @@ function scr_player_mach2()
 		state = states.dynamite
 		image_index = 0
 		sprite_index = spr_playerV_dynamitethrow
-		with instance_create(x,y,obj_dynamite)
+		with instance_create(x, y, obj_dynamite)
 		{
 			image_xscale = other.xscale
 			movespeed = other.movespeed + 4
@@ -279,7 +279,7 @@ function scr_player_mach2()
 		{
 			scr_soundeffect(sfx_step)
 			landAnim = true
-			instance_create(x,y,obj_landcloud)
+			instance_create(x, y, obj_landcloud)
 		    input_buffer_secondjump = 0
 		    state = states.normal
 		    jumpAnim = true

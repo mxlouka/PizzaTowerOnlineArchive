@@ -5,7 +5,10 @@
   },
   "solid": false,
   "visible": true,
-  "spriteMaskId": null,
+  "spriteMaskId": {
+    "name": "spr_dashpad",
+    "path": "sprites/spr_dashpad/spr_dashpad.yy",
+  },
   "persistent": false,
   "parentObjectId": null,
   "physicsObject": false,

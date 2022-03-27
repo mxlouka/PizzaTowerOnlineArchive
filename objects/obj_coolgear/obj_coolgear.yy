@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_coolgear",
-    "path": "sprites/spr_coolgear/spr_coolgear.yy",
+    "name": "spr_cottongear",
+    "path": "sprites/spr_cottongear/spr_cottongear.yy",
   },
   "solid": false,
   "visible": true,

@@ -135,13 +135,11 @@ function offline_travel()
 	
 	// hat unlocks
 	global.hatunlock = [true];
-	var i = 1;
-	while ini_key_exists("online", "hat" + string(i))
+	for(var i = 0; i < HATS.length; i++)
 	{
-		global.hatunlock[i] = true;
-		i++;
+		if ini_key_exists("online", "hat" + string(i))
+			global.hatunlock[i] = true;
 	}
-	
 	ini_close();
 	
 	// travel

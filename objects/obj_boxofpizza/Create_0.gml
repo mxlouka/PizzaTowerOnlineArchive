@@ -1,7 +1,10 @@
 image_speed = 0.35
-depth = 104
+depth = 4;
+if place_meeting(x, y, obj_destructibles) or place_meeting(x, y, obj_metalblock)
+	depth += 100;
 
-targetDoor = "A"
+targetRoom = room;
+targetDoor = "A";
 
 if obj_player1.character == "N"
 	sprite_index = spr_boxofpizzaN

@@ -6,6 +6,8 @@ function scr_collectsprite(single = false, escape = false)
 	if object_index == obj_collectescape or escape
 	{
 		//toppings = [spr_fishcollect, spr_bananacollect, spr_eggcollect, spr_shrimpcollect, spr_baconcollect];
+		if check_sugary()
+			toppings = [spr_collectescape1_ss, spr_collectescape2_ss, spr_collectescape3_ss, spr_collectescape4_ss, spr_collectescape5_ss];
 		toppings = [spr_escapecollect];
 	}
 	else

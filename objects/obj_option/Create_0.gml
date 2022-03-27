@@ -26,4 +26,6 @@ holdkey = -1;
 holdkeyt = 0;
 music = -1;
 
-instance_activate_object(obj_roomname);
+roomname = noone;
+if !instance_exists(obj_roomname)
+	roomname = instance_create(0, 0, obj_roomname);

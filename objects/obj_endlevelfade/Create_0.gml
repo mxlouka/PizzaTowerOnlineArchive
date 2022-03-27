@@ -33,23 +33,19 @@ else
 	}
 	else
 	{
-		if global.rank == "s" or global.rank == "yousuck"
+		if global.rank == "s"
 			ranksound = mu_ranks;
 		if global.rank == "b" or global.rank == "c"
 			ranksound = mu_rankc;
 		if global.rank == "d"
 			ranksound = mu_rankd;
 	}
-	
-	/* nothing related to this cunt deserves to be anywhere near my game
-	
 	if global.rank == "yousuck"
 	{
 		ranksound = mu_ranksuck;
 		if global.musicgame != 1
 			alarm[0] = room_speed * 3.5;
 	}
-	*/
 	
 	// apply pizza castle
 	if global.musicgame == 1

@@ -24,12 +24,12 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"bf3ec9bf-1141-464b-823f-3becf35aec45","path":"sprites/spr_coolgear/spr_coolgear.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"bf3ec9bf-1141-464b-823f-3becf35aec45","path":"sprites/spr_coolgear/spr_coolgear.yy",},"LayerId":{"name":"09e35972-8917-4ac5-ac0b-c29e6bfa3e04","path":"sprites/spr_coolgear/spr_coolgear.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"spr_coolgear","path":"sprites/spr_coolgear/spr_coolgear.yy",},"resourceVersion":"1.0","name":"bf3ec9bf-1141-464b-823f-3becf35aec45","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"bf3ec9bf-1141-464b-823f-3becf35aec45","path":"sprites/spr_cottongear/spr_cottongear.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"bf3ec9bf-1141-464b-823f-3becf35aec45","path":"sprites/spr_cottongear/spr_cottongear.yy",},"LayerId":{"name":"09e35972-8917-4ac5-ac0b-c29e6bfa3e04","path":"sprites/spr_cottongear/spr_cottongear.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"spr_cottongear","path":"sprites/spr_cottongear/spr_cottongear.yy",},"resourceVersion":"1.0","name":"bf3ec9bf-1141-464b-823f-3becf35aec45","tags":[],"resourceType":"GMSpriteFrame",},
   ],
   "sequence": {
-    "spriteId": {"name":"spr_coolgear","path":"sprites/spr_coolgear/spr_coolgear.yy",},
+    "spriteId": {"name":"spr_cottongear","path":"sprites/spr_cottongear/spr_cottongear.yy",},
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 1.0,
@@ -41,7 +41,7 @@
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
       {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"887e7496-c842-4384-9d77-9b61c2689dde","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"bf3ec9bf-1141-464b-823f-3becf35aec45","path":"sprites/spr_coolgear/spr_coolgear.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"887e7496-c842-4384-9d77-9b61c2689dde","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"bf3ec9bf-1141-464b-823f-3becf35aec45","path":"sprites/spr_cottongear/spr_cottongear.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
           ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
     ],
     "visibleRange": null,
@@ -58,9 +58,9 @@
     "yorigin": 200,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"spr_coolgear","path":"sprites/spr_coolgear/spr_coolgear.yy",},
+    "parent": {"name":"spr_cottongear","path":"sprites/spr_cottongear/spr_cottongear.yy",},
     "resourceVersion": "1.4",
-    "name": "spr_coolgear",
+    "name": "spr_cottongear",
     "tags": [],
     "resourceType": "GMSequence",
   },
@@ -69,11 +69,11 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "sugary spire",
-    "path": "folders/Sprites/sugary spire.yy",
+    "name": "cotton",
+    "path": "folders/Sprites/tilesets/SUGARY SPIRE/cotton.yy",
   },
   "resourceVersion": "1.0",
-  "name": "spr_coolgear",
+  "name": "spr_cottongear",
   "tags": [],
   "resourceType": "GMSprite",
 }

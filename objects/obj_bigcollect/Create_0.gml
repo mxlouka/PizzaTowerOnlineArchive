@@ -3,7 +3,12 @@ with obj_player1
 	if character == "N"
 		other.sprite_index = choose(spr_pizzacollect1halloween, spr_pizzacollect2halloween, spr_pizzacollect3halloween);
 	else if character == "SP"
-		other.sprite_index = choose(spr_pizzacollect1_ss, spr_pizzacollect2_ss, spr_pizzacollect3_ss);
+	{
+		if global.gameplay == 0
+			other.sprite_index = choose(spr_pizzacollect1_ss, spr_pizzacollect2_ss, spr_pizzacollect3_ss);
+		else
+			other.sprite_index = spr_bigcollect1_ss;
+	}
 	else if character == "PP"
 		other.sprite_index = choose(spr_pizzacollect1_PP, spr_pizzacollect2_PP, spr_pizzacollect3_PP);
 	else if character == "S"
@@ -23,5 +28,7 @@ if global.snickrematch
 	sprite_index = choose(spr_pizzacollect1_re, spr_pizzacollect2_re, spr_pizzacollect3_re);
 
 image_speed = 0.35;
-depth = 104;
+depth = 4;
+if place_meeting(x, y, obj_destructibles) or place_meeting(x, y, obj_metalblock)
+	depth += 100;
 owner = id;

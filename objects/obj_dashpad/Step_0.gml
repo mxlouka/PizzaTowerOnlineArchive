@@ -3,4 +3,5 @@ if global.panic && !turned
 	image_xscale *= -1
 	turned = true
 }
-scr_collide()
+if sprite_index != spr_dashpad_ss
+	scr_collide();

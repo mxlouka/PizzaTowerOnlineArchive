@@ -248,15 +248,14 @@ function scr_player_grab()
 		if swingdingbuffer > 0
 			swingdingbuffer -= 1;
 		
-		if sprite_index = spr_swingding && swingdingbuffer < 150
+		if sprite_index == spr_swingding && swingdingbuffer < 150
 			state = states.normal
 		
 		if swingdingbuffer > 300 && sprite_index != spr_swingding
 		{
 			sprite_index = spr_swingding
-
-			with instance_create(x,y,obj_swingdinghitbox)
-			playerid = other.object_index
+			with instance_create(x, y, obj_swingdinghitbox)
+				playerid = other.object_index
 			flash = true
 		}
 	}
@@ -286,7 +285,7 @@ function scr_player_grab()
 		
 		if baddiegrabbedID.object_index == obj_pizzaballOLD
 			global.golfhit += 1;
-		with instance_create(x,y,obj_jumpdust)
+		with instance_create(x, y, obj_jumpdust)
 			image_xscale = other.xscale
 	}
 	
@@ -298,18 +297,19 @@ function scr_player_grab()
 	}
 	
 	//Throws
-	if key_slap2 && (sprite_index != spr_swingding or global.gameplay == 0)
+	if key_slap2 && (sprite_index != spr_swingding or global.gameplay == 0 or character == "SP")
 	{
 		if move != 0
 			move = xscale
+		
 		state = states.finishingblow
-		if sprite_index = spr_swingding
+		if sprite_index == spr_swingding
 			sprite_index = spr_swingdingend
 		else if !key_up
-			sprite_index = choose(spr_finishingblow1,spr_finishingblow2,spr_finishingblow3,spr_finishingblow4,spr_finishingblow5)
+			sprite_index = choose(spr_finishingblow1, spr_finishingblow2, spr_finishingblow3, spr_finishingblow4, spr_finishingblow5)
 		else if key_up
 			sprite_index = spr_uppercutfinishingblow
-	
+		
 		image_index = 0
 		hsp = 0
 		movespeed = 0

@@ -51,7 +51,7 @@ global.mastervolume = ini_read_real("online", "mastervolume", 1);
 global.machsound = ini_read_real("online", "machsound", 0);
 global.musicgame = ini_read_real("online", "musicgame", 0);
 
-audio_master_gain(global.mastervolume);
+audio_master_gain(!code_is_compiled() ? global.mastervolume / 2 : global.mastervolume);
 
 // loaded?
 global.loaded_mus = true;

@@ -1207,7 +1207,7 @@ function scr_characterspr(char = character)
 				spr_rollgetup = spr_playerSP_rollgetup
 				
 				spr_swingding = spr_playerSP_swingding
-				spr_swingdingend = spr_player_swingdingend
+				spr_swingdingend = spr_playerSP_swingdingend
 				spr_haulingjump = spr_playerSP_haulingjump
 				spr_haulingidle = spr_playerSP_haulingidle
 				spr_haulingwalk = spr_playerSP_haulingwalk

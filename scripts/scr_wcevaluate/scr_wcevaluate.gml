@@ -596,9 +596,11 @@ function scr_wcevaluate(argument0)
 			
 		case "room":
 		case "goto":
-		case "map":
+		case "room_goto":
+		case "rm":
 			arg1 = ds_list_find_value(arg, 1);
-		
+			arg2 = ds_list_find_value(arg, 2);
+			
 			if is_undefined(arg1)
 			{
 				if !WC_consoleopen
@@ -612,8 +614,12 @@ function scr_wcevaluate(argument0)
 			    {
 			        console_log("Successfully traveled to " + room_get_name(real(arg1)) + " with index: " + arg1);
 			        room_goto(real(arg1));
-			        with obj_player // pt exclusive
-			            targetDoor = "none";
+					
+					// pt exclusive
+					if is_undefined(arg2) with obj_player
+				        targetDoor = "none";
+					else with obj_player
+						targetDoor = arg2;
 			    }
 			    else
 				{
@@ -640,8 +646,11 @@ function scr_wcevaluate(argument0)
 			        console_log("Successfully traveled to " + arg1 + " with index: " + string(temproom));
 			        room_goto(temproom);
 						
-			        with obj_player // pt exclusive
-			            targetDoor = "none";
+			        // pt exclusive
+					if is_undefined(arg2) with obj_player
+				        targetDoor = "none";
+					else with obj_player
+						targetDoor = arg2;
 			    }
 			}
 			break;
@@ -650,7 +659,7 @@ function scr_wcevaluate(argument0)
 		case "restart":
 		case "roomrestart":
 			room_restart();
-			console_log("Restarted the room");
+			console_log("Restarted the current room (" + string(room_get_name(room)) + ")");
 			break;
 			
 		case "fps":
@@ -706,11 +715,11 @@ function scr_wcevaluate(argument0)
 				}
 			}
 			break;
-			
+		
+		case "obj":
 		case "object":
-		case "spawn":
 		case "create":
-		case "createobj":
+		case "instancecreate":
 			arg1 = ds_list_find_value(arg, 1);
 			if is_undefined(arg1)
 			{
@@ -729,7 +738,7 @@ function scr_wcevaluate(argument0)
 				}
 				else
 					WC_tempobj = asset_get_index(arg1);
-			
+				
 			    if WC_tempobj == -1 or !object_exists(WC_tempobj)
 			    {
 			        console_log("Asset " + arg1 + " doesn't exist. Check for typos");
@@ -793,9 +802,7 @@ function scr_wcevaluate(argument0)
 		case "playerstate":
 		case "state":
 		case "setstate": // pt exclusive
-			if keyboard_check(vk_shift)
-				scr_wcevaluate("state2");
-			else if instance_exists(obj_player1)
+			if instance_exists(obj_player1)
 			{
 			    arg1 = ds_list_find_value(arg, 1);
 			    if is_undefined(arg1)
@@ -841,53 +848,14 @@ function scr_wcevaluate(argument0)
 			else
 			{
 				WC_consoleopen = true;
-			    console_log("Player 1 object doesn't exist");
+			    console_log("Player object doesn't exist");
 			}
 			break;
 		
-		case "player2state":
-		case "state2":
-		case "setstate2": // pt exclusive
-			if instance_exists(obj_player2)
-			{
-				arg1 = ds_list_find_value(arg, 1);
-			    if is_undefined(arg1)
-			    {
-					if !WC_consoleopen
-					{
-						__tempsomething = get_integer("Input player 2 state", obj_player2.state);
-						if __tempsomething != undefined
-						{
-							with obj_player2
-								state = __tempsomething;
-						}
-					}
-					else
-						console_log("Usage: state2 NUMBER");
-			    }
-			    else if string_length(string_digits(arg1)) + string_count("-", arg1) + string_count(".", arg1) == string_length(arg1)
-			    {
-			        obj_player2.state = real(arg1);
-			        console_log("Set player 2 state to " + arg1);
-			    }
-			    else
-				{
-					WC_consoleopen = true;
-			        console_log("State parameter must be a number");
-				}
-			}
-			else
-			{
-				WC_consoleopen = true;
-			    console_log("Player 2 object doesn't exist");
-			}
-			break;
-			
 		case "oobcam":
-		case "oobcamera":
-		case "boundarybreak": // pt exclusive
+		case "oobcamera": // pt exclusive
 			WC_oobcam = !WC_oobcam;
-			if !WC_consoleopen // pt exclusive
+			if !WC_consoleopen
 			{
 				with obj_tv
 				{
@@ -971,7 +939,7 @@ function scr_wcevaluate(argument0)
 				        }
 				
 						// set variable if frozen
-				        for (i = 0; i < array_length_1d(WC_frozenobj); i++)
+				        for (i = 0; i < array_length(WC_frozenobj); i++)
 				        {
 				            if "__WC_GLOBAL__" + tempvar == WC_frozenvar[i]
 				                WC_frozenval[i] = variable_global_get(tempvar);
@@ -1072,7 +1040,7 @@ function scr_wcevaluate(argument0)
 									        }
 							
 											// set variable if frozen
-									        for (i = 0; i < array_length_1d(other.WC_frozenobj); i++)
+									        for (i = 0; i < array_length(other.WC_frozenobj); i++)
 									        {
 									            if self == other.WC_frozenobj[i] && tempvar == other.WC_frozenvar[i]
 									                other.WC_frozenval[i] = variable_instance_get(self, tempvar);
@@ -1108,7 +1076,7 @@ function scr_wcevaluate(argument0)
 								        }
 							
 										// set variable if frozen
-								        for (i = 0; i < array_length_1d(WC_frozenobj); i++)
+								        for (i = 0; i < array_length(WC_frozenobj); i++)
 								        {
 								            if __tempsomething == WC_frozenobj[i] && tempvar == WC_frozenvar[i]
 								                WC_frozenval[i] = variable_instance_get(__tempsomething, tempvar);
@@ -1203,7 +1171,7 @@ function scr_wcevaluate(argument0)
 					        }
 				
 							// set variable if frozen
-					        for (i = 0; i < array_length_1d(WC_frozenobj); i++)
+					        for (i = 0; i < array_length(WC_frozenobj); i++)
 					        {
 					            if "__WC_GLOBAL__" + tempvar == WC_frozenvar[i]
 					                WC_frozenval[i] = variable_global_get(tempvar);
@@ -1322,7 +1290,7 @@ function scr_wcevaluate(argument0)
 									        }
 							
 											// set variable if frozen
-									        for (i = 0; i < array_length_1d(other.WC_frozenobj); i++)
+									        for (i = 0; i < array_length(other.WC_frozenobj); i++)
 									        {
 									            if self == other.WC_frozenobj[i] && tempvar == other.WC_frozenvar[i]
 									                other.WC_frozenval[i] = variable_instance_get(self, tempvar);
@@ -1367,7 +1335,7 @@ function scr_wcevaluate(argument0)
 									    }
 							
 										// set variable if frozen
-									    for (i = 0; i < array_length_1d(other.WC_frozenobj); i++)
+									    for (i = 0; i < array_length(other.WC_frozenobj); i++)
 									    {
 									        if __tempsomething == other.WC_frozenobj[i] && tempvar == other.WC_frozenvar[i]
 									            other.WC_frozenval[i] = variable_instance_get(__tempsomething, tempvar);
@@ -1382,7 +1350,8 @@ function scr_wcevaluate(argument0)
 			break;
 		
 		case "panic":
-		case "pizzatime": // pt exclusive
+		case "pizzatime":
+		case "escape": // pt exclusive
 			if global.panic
 			{
 				// it is no longer pizza time
@@ -1455,7 +1424,7 @@ function scr_wcevaluate(argument0)
 			break;
 			
 		case "snickchallenge":
-		case "panic2": // pt exclusive
+		case "snickschallenge": // pt exclusive
 			if global.snickchallenge
 			{
 			    obj_camera.alarm[1] = -1;
@@ -1740,37 +1709,39 @@ function scr_wcevaluate(argument0)
 			console_log("Unfrozen all variables");
 			break;
 		
-		//case "freezeall":
-		//    with all
-		//	{
-		//		if id != other.id
-		//		{
-		//			var __tempsomething = variable_instance_get_names(id);
-		//			for(var i = 0; i < array_length_1d(__tempsomething); i++)
-		//			{
-		//				var ind = array_length_1d(other.WC_frozenobj);
-		//				other.WC_frozenobj[ind] = self;
-		//				other.WC_frozenvar[ind] = __tempsomething[i];
-		//				other.WC_frozenval[ind] = variable_instance_get(id, __tempsomething[i]);
-		//			}
-		//		}
-		//	}
+		/*
+		case "freezeall":
+		    with all
+			{
+				if id != other.id
+				{
+					var __tempsomething = variable_instance_get_names(id);
+					for(var i = 0; i < array_length_1d(__tempsomething); i++)
+					{
+						var ind = array_length_1d(other.WC_frozenobj);
+						other.WC_frozenobj[ind] = self;
+						other.WC_frozenvar[ind] = __tempsomething[i];
+						other.WC_frozenval[ind] = variable_instance_get(id, __tempsomething[i]);
+					}
+				}
+			}
 			
-		//	__tempsomething = variable_instance_get_names(global);
-		//	for(var i = 0; i < array_length_1d(__tempsomething); i++)
-		//	{
-		//		var ind = array_length_1d(other.WC_frozenobj);
-		//		other.WC_frozenobj[ind] = noone;
-		//		other.WC_frozenvar[ind] = "__WC_GLOBAL__" + __tempsomething[i];
-		//		other.WC_frozenval[ind] = variable_global_get(__tempsomething[i]);
-		//	}
+			__tempsomething = variable_instance_get_names(global);
+			for(var i = 0; i < array_length_1d(__tempsomething); i++)
+			{
+				var ind = array_length_1d(other.WC_frozenobj);
+				other.WC_frozenobj[ind] = noone;
+				other.WC_frozenvar[ind] = "__WC_GLOBAL__" + __tempsomething[i];
+				other.WC_frozenval[ind] = variable_global_get(__tempsomething[i]);
+			}
 			
-		//    console_log("Frozen all variables");
-		//    break;
+		    console_log("Frozen all variables");
+		    break;
+		*/
 			
 		case "showhidden":
+		case "showall":
 		case "showinvisible":
-		case "showinv":
 			WC_showinvisible = !WC_showinvisible;
 			if WC_showinvisible && WC_consoleopen
 			    console_log("Now showing invisible objects");
@@ -1963,7 +1934,8 @@ function scr_wcevaluate(argument0)
 			break;
 			
 		case "clearsaveroom":
-		case "resetsaveroom": // pt exclusive
+		case "resetsaveroom":
+		case "extreset": // pt exclusive
 			if variable_global_exists("saveroom") && ds_exists(global.saveroom, ds_type_list)
 				ds_list_clear(global.saveroom);
 			if variable_global_exists("baddieroom") && ds_exists(global.baddieroom, ds_type_list)
@@ -1971,7 +1943,7 @@ function scr_wcevaluate(argument0)
 			if variable_global_exists("baddietomb") && ds_exists(global.baddietomb, ds_type_list) // april build
 				ds_list_clear(global.baddietomb);
 			
-			with obj_player1
+			with obj_player
 				targetDoor = "none";
 			with all
 				if !persistent && id != other.id then instance_destroy(id, false);
@@ -2102,6 +2074,8 @@ function scr_wcevaluate(argument0)
 				            __tempsomething = " with Pizzelle sprites";
 				        else if arg2 == "SN" // pt online exclusive
 				            __tempsomething = " with Pizzano sprites";
+				        else if arg2 == "PP" // pt online exclusive
+				            __tempsomething = " with Pissino sprites";
 				        else
 						{
 				            __tempsomething = " with unchanged sprites";
@@ -2231,7 +2205,7 @@ function scr_wcevaluate(argument0)
 			    window_set_size(960, 540);
 			if global.option_resolution == 2
 			    window_set_size(1920, 1080);
-				
+			
 			if !WC_consoleopen
 			{
 				with obj_tv
@@ -2249,34 +2223,36 @@ function scr_wcevaluate(argument0)
 			WC_consoleopen = false;
 			WC_modkp = vk_numpad2;
 			break;
+		
+		/*
+		case "collisionview":
+		case "showcollision":
+		case "showcol": // pt exclusive
+		    WC_showcollision = !WC_showcollision;
 			
-		//case "collisionview":
-		//case "showcollision":
-		//case "showcol": // pt exclusive
-		//    WC_showcollision = !WC_showcollision;
-		//	
-		//	if !WC_consoleopen
-		//	{
-		//		with obj_tv
-		//		{
-		//			showtext = true;
-		//		    alarm[0] = 100;
-		//		
-		//			if other.WC_showcollision
-		//                message = "COLLISION VIEW ON";
-		//            else
-		//                message = "COLLISION VIEW OFF";
-		//		}
-		//	}
-		//	else
-		//	{
-		//      if WC_showcollision
-		//          console_log("Collision view ON");
-		//      else
-		//          console_log("Collision view OFF");
-		//	}
-		//  break
-			
+			if !WC_consoleopen
+			{
+				with obj_tv
+				{
+					showtext = true;
+				    alarm[0] = 100;
+				
+					if other.WC_showcollision
+		                message = "COLLISION VIEW ON";
+		            else
+		                message = "COLLISION VIEW OFF";
+				}
+			}
+			else
+			{
+		      if WC_showcollision
+		          console_log("Collision view ON");
+		      else
+		          console_log("Collision view OFF");
+			}
+			break
+		*/
+		
 		case "checkvar":
 			tempobj = ds_list_find_value(arg, 1);
 			tempvar = ds_list_find_value(arg, 2);
@@ -2378,6 +2354,7 @@ function scr_wcevaluate(argument0)
 			
 		case "monitorvar":
 		case "monitorvariable":
+		case "monitor":
 			tempobj = ds_list_find_value(arg, 1);
 			if is_undefined(tempobj)
 			{
@@ -2733,10 +2710,6 @@ function scr_wcevaluate(argument0)
 			ds_list_add(WC_bindmap, "list room 1");
 			
 			console_log("Rebinded default keys");
-			break;
-		
-		case "fart": // pto exclusive
-			game_end();
 			break;
 		
 		default: // no command

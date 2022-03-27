@@ -222,7 +222,7 @@ else if menu == 1
 		if keyboard_check_pressed(ord("R"))
 			global.mastervolume = 1;
 	}
-	audio_master_gain(global.mastervolume);
+	audio_master_gain(!code_is_compiled() ? global.mastervolume / 2 : global.mastervolume);
 	
 	// music volume slider
 	if optionselected == 1

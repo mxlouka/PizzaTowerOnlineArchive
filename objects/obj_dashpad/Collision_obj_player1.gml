@@ -24,9 +24,8 @@ with other
 				sprite_index = spr_mach4
 				alarm[0] = 20
 			}
-		
 			instance_create(x, y, obj_jumpdust)
-		
+			
 			if movespeed < 14
 				movespeed = 14
 		
@@ -39,7 +38,7 @@ with other
 			flash = true
 			if movespeed < 14
 				movespeed = 14
-			instance_create(x,y,obj_jumpdust)
+			instance_create(x, y, obj_jumpdust)
 		}
 
 		if grounded && state == states.pogo && key_attack
@@ -61,4 +60,3 @@ with other
 			y = other.y - 14;
 	}
 }
-

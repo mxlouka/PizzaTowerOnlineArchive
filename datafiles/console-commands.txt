@@ -45,7 +45,7 @@ This is a guide for the console, which is only usable in offline mode or in debu
 	playsound <sound> (loop) - Plays a sound, works with indexes or sound names. If the second argument is "loop" it considers the sound as level music (applies music volume and loops)
 	stopsound <sound> - Same as playsound but stops the sound instead (all instances of the sound)
 
-	room <room> - Warps you to a room, works with indexes or room names
+	room <room> (<targetDoor>) - Warps you to a room, works with indexes or room names
 	restart - Restarts the current room
 	speed <number> - Sets the maximum FPS for the current room
 
