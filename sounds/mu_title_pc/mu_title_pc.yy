@@ -14,8 +14,8 @@
     "name": "audiogroup_default",
     "path": "audiogroups/audiogroup_default",
   },
-  "soundFile": "mu_title_pc.wav",
-  "duration": 135.175018,
+  "soundFile": "mu_title_pc.ogg",
+  "duration": 134.4,
   "parent": {
     "name": "pizza castle",
     "path": "folders/Sounds/pizza castle.yy",
