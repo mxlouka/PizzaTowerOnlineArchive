@@ -15,7 +15,7 @@
     "path": "audiogroups/audiogroup_default",
   },
   "soundFile": "mu_pizzatime_PP_pc.ogg",
-  "duration": 167.517365,
+  "duration": 165.333328,
   "parent": {
     "name": "REPAINT",
     "path": "folders/Sounds/REPAINT.yy",

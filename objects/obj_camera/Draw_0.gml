@@ -22,7 +22,7 @@ while !ds_queue_empty(edge_indicator)
     _y = ds_queue_dequeue(edge_indicator);
     _an = ds_queue_dequeue(edge_indicator);
 	
-	if instance_exists(player)
+	if instance_exists(player) && room != rm_darkreveal
 	{
 		var spr_arrow = spr_peppinoicon;
 		switch player.character
@@ -38,6 +38,9 @@ while !ds_queue_empty(edge_indicator)
 				break;
 			case "SP":
 				spr_arrow = spr_pizzelleicon;
+				break;
+			case "PP":
+				spr_arrow = spr_pissinoicon;
 				break;
 		}
 		

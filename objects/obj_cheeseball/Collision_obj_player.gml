@@ -9,7 +9,8 @@ if !(other.state == states.knightpep or other.state == states.knightpepattack or
 	{
 		other.xscale = image_xscale
 		other.hsp = hsp
-		other.vsp = vsp
+		if other.vsp >= 0
+			other.vsp = vsp
 		other.x = x
 		other.y = y
 		other.state = states.cheeseball

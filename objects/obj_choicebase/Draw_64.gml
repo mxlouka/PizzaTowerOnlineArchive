@@ -93,6 +93,8 @@ talpha = abs(-con + clamp(t, 0, 1));
 if basetext
 {
 	// text
+	draw_set_halign(fa_center);
+	draw_set_valign(fa_top);
 	draw_set_font(titlefont);
 	draw_text_auto((960 / 2) + random_range(-1, 1), 540 - 100, palname,,,talpha);
 	draw_set_font(descfont);

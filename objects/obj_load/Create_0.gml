@@ -1,7 +1,6 @@
 randomize();
 if !code_is_compiled() // if not yyc, warn
 	trace("!!RUNNING IN VM!!");
-window_set_caption("Pizza Tower ONLINE");
 
 // no shader mode
 ini_open("saveData.ini");
