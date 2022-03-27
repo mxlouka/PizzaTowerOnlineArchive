@@ -16,5 +16,5 @@ if global.snickrematch
 	sprite_index = spr_giantpizza_re
 
 depth = 4
-if place_meeting(x, y, obj_destructibles) or place_meeting(x, y, obj_metalblock)
+if scr_depthcheck()
 	depth += 100;

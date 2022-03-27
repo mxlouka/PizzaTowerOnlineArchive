@@ -1,6 +1,6 @@
 image_speed = 0.35;
-depth = 20;
-if place_meeting(x, y, obj_destructibles) or place_meeting(x, y, obj_metalblock)
+depth = 60;
+if scr_depthcheck()
 	depth += 100;
 
 createdpizza = false;

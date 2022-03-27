@@ -70,12 +70,12 @@ if (place_meeting(x, y, obj_player1) or place_meeting(x, y, obj_antonball)) && o
 	
 	if object_get_parent(content) == obj_pizzakinparent
 	{
-		with instance_create(x,y,obj_smallnumber)
+		with instance_create(x, y, obj_smallnumber)
 			number = "1000";
 		global.collect += 1000;
 		
-		instance_create(x,y,obj_localtaunteffect);
-		with instance_create(x,y-25,content)
+		instance_create(x, y, obj_localtaunteffect);
+		with instance_create(x, y - 25, content)
 		{
 			if sc_check()
 				sprite_index = spr_intro_strongcold;
@@ -83,7 +83,7 @@ if (place_meeting(x, y, obj_player1) or place_meeting(x, y, obj_antonball)) && o
 				sprite_index = spr_intro;
 		}
 		
-		var toppinname = "TOPPINS";
+		var toppinname = "TOPPIN" + (5 - global.toppintotal == 1 ? "" : "S");
 		if check_sugary()
 			toppinname = "CONFECTI";
 		

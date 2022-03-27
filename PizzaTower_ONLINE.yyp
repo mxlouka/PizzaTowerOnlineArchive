@@ -2402,6 +2402,7 @@
     {"id":{"name":"tile_etb","path":"sprites/tile_etb/tile_etb.yy",},"order":4,},
     {"id":{"name":"tile_dirt","path":"sprites/tile_dirt/tile_dirt.yy",},"order":5,},
     {"id":{"name":"spr_playerN_bossintroloop","path":"sprites/spr_playerN_bossintroloop/spr_playerN_bossintroloop.yy",},"order":2,},
+    {"id":{"name":"scr_checklayer","path":"scripts/scr_checklayer/scr_checklayer.yy",},"order":61,},
     {"id":{"name":"spr_null","path":"sprites/spr_null/spr_null.yy",},"order":0,},
     {"id":{"name":"spr_fakepeppino_idle","path":"sprites/spr_fakepeppino_idle/spr_fakepeppino_idle.yy",},"order":0,},
     {"id":{"name":"spr_fakepeppino_walk","path":"sprites/spr_fakepeppino_walk/spr_fakepeppino_walk.yy",},"order":1,},
