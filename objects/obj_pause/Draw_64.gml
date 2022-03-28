@@ -119,6 +119,22 @@ if (pause or pausefad == 2 or pausefad == 4)
 					_spr_exit = spr_playerPP_winding;
 					_spr_palette = spr_pizzpalette;
 					break;
+					
+				case "V":
+					_spr_resume = _ppanic ? spr_playerV_panic : spr_playerV_idle;
+					_spr_options = spr_playerV_crouch;
+					_spr_retry = _ppanic ? spr_playerV_angryidle : spr_playerV_crazyrun;
+					_spr_exit = spr_playerV_winding;
+					_spr_palette = spr_vigipalette;
+					break;
+				
+				case "S":
+					var _spr_resume = _ppanic ? spr_snick_idle : spr_snick_idle;
+					var _spr_options = spr_snick_idleanim;
+					var _spr_retry = _ppanic ? spr_snick_superpeelout : spr_snick_mach3;
+					var _spr_exit = spr_snick_bump;
+					var _spr_palette = spr_snickpalette;
+					break;
 			}
 			
 			switch selected
