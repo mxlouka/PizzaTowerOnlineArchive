@@ -24,13 +24,12 @@ if live_enabled
 {
 	if variable_global_exists("g_gml_func_script_id") && !WC_gmlivedone
 	{
-		for (var i = 0; script_exists(i); i++)
+		for (var i = 100001; script_exists(i); i++)
 		{
-			var s = script_get_name(i);
-			gml_func_add(s + "(...)", i);
-			global.g_gml_func_script_id[?s] = i;
+		    var s = script_get_name(i);
+		    if (gml_func_sig.h_exists(s)) continue;
+		    gml_func_add(":::" + s + "(...):", i);
 		}
-		global.g_live_request_url = undefined;
 		WC_gmlivedone = true;
 	}
 }
