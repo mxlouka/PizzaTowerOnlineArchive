@@ -11,7 +11,7 @@ if falling
 else with obj_player
 {
 	// trigger
-	if x > other.x - 8 && x < other.x + 8
+	if x > other.x - 8 + hsp * 2 && x < other.x + 8 + hsp * 2
 	&& y > other.y && y < other.y + 540 / 2
 	{
 		with other

@@ -61,8 +61,8 @@ switch sel[1]
 			["CHUNGUS", "A fine Chungus, of the big variety."],
 			["MR ORANGE", "I'm seeing double! Four Noise!"],
 			["DR.B.B.", "Snooping as usual, I see."],
-			["SALAD", "You fat bald bastard you piece of subhuman trash\n2000 years of constant human evolution to create a hairless fucking coconut"],
-			["BLACKFACE", "what the fuck is wrong with you"],
+			["SALAD", "You fat bald bastard you piece of subhuman trash\n2000 years of constant human evolution to create a hairless fucking coconut."],
+			["BLACKFACE", "That's not nice."],
 		];
 		break;
 	
