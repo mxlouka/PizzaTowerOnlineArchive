@@ -117,7 +117,7 @@ if (pause or pausefad == 2 or pausefad == 4)
 					_spr_options = spr_playerPP_gottreasure;
 					_spr_retry = _ppanic ? spr_playerPP_3hpidle : spr_playerPP_mach;
 					_spr_exit = spr_playerPP_winding;
-					_spr_palette = spr_pizzpalette;
+					_spr_palette = spr_pisspalette;
 					break;
 					
 				case "V":
