@@ -384,6 +384,8 @@ function lang_load(lang)
 		ds_map_add(global.langmap, "roomname.sanctum_secret4", "Spectacular Man of Ball");
 		ds_map_add(global.langmap, "roomname.sanctum_secret5", "All Cheese Here");
 		ds_map_add(global.langmap, "roomname.sanctum_secret6", "Dashing Psycho");
+		
+		ds_map_add(global.langmap, "roomname.ancient_1", "ass");
 	}
 	
 	#endregion

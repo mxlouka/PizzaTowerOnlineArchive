@@ -24,6 +24,7 @@ switch room
 	case grinch_1: global.srank = 6400; break;
 	case kungfu_1: global.srank = 15000; break;
 	case cotton_1: global.srank = 12400; break;
+	case sanctum_1: global.srank = 19800; break;
 }
 if global.snickchallenge
 	global.srank = 10300;
@@ -85,7 +86,7 @@ for (var i = 0; i < array_length(layers); i++;)
 }
 
 // make solids visible and stuff
-if (string_startswith(room_get_name(room), "ancient_")) or (string_startswith(room_get_name(room), "cotton_"))
+if (string_startswith(room_get_name(room), "ancient_")) or (string_startswith(room_get_name(room), "cotton_")) or (string_startswith(room_get_name(room), "sanctum_"))
 {
 	var hastiles = false;
 	for (var i = 0; i < array_length(layers); i++;)
