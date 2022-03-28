@@ -53,7 +53,7 @@ if drawing
 		var middle = ":";
 		if tasec < 10
 			middle = ":0";
-		draw_text(x,y-60, string(tamin) + middle + string(tasec) + " (" + tachar + ")")
+		draw_text(x, y - 60, string(tamin) + middle + string(tasec) + " (" + tachar + ")")
 	}
 	
 	// setup
@@ -87,7 +87,7 @@ if drawing
 		
 		// sugary spire toppins
 		var sugary = false;
-		if level == "cotton" or level == "jawbreaker"
+		if level == "cotton" or level == "jawbreaker" or level == "waffle"
 			sugary = true;
 		
 		// shroom
@@ -129,7 +129,7 @@ if drawing
 			if level == "strongcold"
 				draw_sprite(spr_xmascheesetoppin_idle, -1, x - 35, y - 120)
 			else if sugary
-				draw_sprite(spr_toppinchoco, -1, x - 75, y - 120)
+				draw_sprite(spr_toppinchoco, -1, x - 35, y - 120)
 			else
 			{
 				if global.gameplay == 0
@@ -157,7 +157,7 @@ if drawing
 			if level == "strongcold"
 				draw_sprite(spr_xmastomatotoppin_idle, -1, x, y - 120)
 			else if sugary
-				draw_sprite(spr_toppincrack, -1, x - 75, y - 120)
+				draw_sprite(spr_toppincrack, -1, x, y - 120)
 			else
 			{
 				if global.gameplay == 0
@@ -185,7 +185,7 @@ if drawing
 			if level == "strongcold"
 				draw_sprite(spr_xmassausagetoppin_idle, -1, x + 35, y - 120)
 			else if sugary
-				draw_sprite(spr_toppinworm, -1, x - 75, y - 120)
+				draw_sprite(spr_toppinworm, -1, x + 35, y - 120)
 			else
 			{
 				if global.gameplay == 0
@@ -213,7 +213,7 @@ if drawing
 			if level == "strongcold"
 				draw_sprite(spr_xmaspineappletoppin_idle, -1, x + 75, y - 120)
 			else if sugary
-				draw_sprite(spr_toppincandy, image_index + 1, x - 75, y - 120)
+				draw_sprite(spr_toppincandy, image_index + 1, x + 75, y - 120)
 			else
 			{
 				if global.gameplay == 0

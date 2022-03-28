@@ -15,16 +15,15 @@ switch (state)
 }
 
 
-if  state = states.stun && stunned > 100 && birdcreated = false
+if state == states.stun && stunned > 100 && !birdcreated
 {
-birdcreated = true
-with instance_create(x,y, obj_enemybird)
-ID = other.id
+	birdcreated = true
+	with instance_create(x, y, obj_enemybird)
+		ID = other.id
 }
 
 if state != states.stun
-birdcreated = false
-
+	birdcreated = false
 
 //Flash
 if (flash == true && alarm[2] <= 0) {
@@ -46,13 +45,7 @@ if state != states.chase && image_alpha >= 1
 if bombreset > 0
 	bombreset = max(bombreset - 1, 0);
 
-
-
-
-
-
 //Fade
-
 if bombreset = 0 && state == states.walk
 {
 	attacking = false;

@@ -1,6 +1,6 @@
 function scr_enemy_chase()
 {
-	//if object_index == obj_minijohn or object_index == obj_banditochicken or object_index == obj_charcherry
+	if object_index == obj_minijohn or object_index == obj_banditochicken or object_index == obj_charcherry
 	{
 		//Identify the player
 		var targetplayer = obj_player
