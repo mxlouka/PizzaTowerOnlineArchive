@@ -4,7 +4,7 @@ with other
 	{
 		scr_knightbump(true, false);
 		if state == states.bombpep
-			instance_create(x,y,obj_bombexplosion)
+			instance_create(x, y, obj_bombexplosion)
 		
 		audio_stop_sound(sfx_superjumprelease)
 		scr_soundeffect(sfx_superjumprelease)

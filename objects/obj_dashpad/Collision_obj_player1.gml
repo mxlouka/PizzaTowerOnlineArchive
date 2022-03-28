@@ -10,6 +10,7 @@ with other
 		if (grounded && (state == states.mach1 or state == states.mach2 or (state == states.handstandjump && (-key_left or key_right) && character == "S")) && key_attack)
 		or (global.gameplay != 0 && (sprite_index != spr_dashpadmach or spr_dashpadmach == spr_move) && alarm[0] <= 0)
 		{
+			scr_knightbump(true, false);
 			if other.image_xscale != 0
 				xscale = sign(other.image_xscale)
 			
@@ -43,6 +44,7 @@ with other
 
 		if grounded && state == states.pogo && key_attack
 		{
+			scr_knightbump(true, false);
 			if other.image_xscale != 0
 				xscale = sign(other.image_xscale)
 			flash = true

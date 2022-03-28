@@ -1,4 +1,4 @@
-if !drop
+if !drop && !other.godmode
 {
 	scr_soundeffect(sfx_bumpwall)
 	scr_soundeffect(sfx_pephurt)
@@ -12,9 +12,10 @@ if !drop
 	vsp = -5
 	hsp = 3
 	
-	with (obj_camera) {
-	    shake_mag=10;
-	    shake_mag_acc=30/room_speed;
+	with obj_camera
+	{
+	    shake_mag = 10;
+	    shake_mag_acc = 30 / room_speed;
 	}
 	drop = true
 }

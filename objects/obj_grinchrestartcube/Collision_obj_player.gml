@@ -7,7 +7,7 @@ if !instance_exists(obj_fadeout) && other.state != states.gameover && !other.cut
 	{
 		c = 0;
 		state = states.comingoutdoor;
-		targetDoor = "C";
+		targetDoor = "A";
 	}
-	room = hub_roomE;
+	room_goto(grinch_1);
 }
