@@ -36,11 +36,18 @@ if !oldhallway
 			x = doortarget.x + 32;
 		else
 			x = doortarget.x + 16;
-		
 		y = doortarget.y - 14;
 		
 		if targetDoor == "A" && place_meeting(x, y, obj_exitgate)
 			x -= 16;
+	}
+	
+	// avoid spawning inside of a hallway
+	var hallwayprotect = instance_place(x, y, obj_hallway);
+	if hallwayprotect && hallwayprotect.image_xscale != 0
+	{
+		xscale = sign(-hallwayprotect.image_xscale);
+		x += xscale * 100;
 	}
 	
 	if verticalhallway

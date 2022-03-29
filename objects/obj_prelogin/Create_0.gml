@@ -23,3 +23,5 @@ if !debug
 
 tryconnect = 0;
 alpha = 0;
+
+sel = 0;

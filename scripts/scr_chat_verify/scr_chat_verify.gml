@@ -155,7 +155,7 @@ function scr_chat_verify(argument0)
 				"But nobody came.",
 				"There is 1 user online: You",
 				"Sorry, it's currently Pizza Tower Offline.",
-				obj_player1.character != "S" ? "You're alone. Snick is here for you." : "You're alone. Sneck is here for you.",
+				obj_player.character != "S" ? "You're alone. Snick is here for you." : "You're alone. Sneck is here for you.",
 				"The list is empty.",
 				//"List? What list?",
 				//"Nope.",
@@ -169,10 +169,9 @@ function scr_chat_verify(argument0)
 				//"Relatably empty.",
 				//"Try again.",
 				//"Don't you have anything better to do?",
-				"Nobody. You're better off playing offline mode.",
+				"Nobody. You're better off playing sandbox mode.",
 				"Nobody. You don't count.",
 				"Nobody. Sounds like you need friends.",
-				"Nobody. Insert passive aggressive comment here.",
 			]
 			
 			// conditional

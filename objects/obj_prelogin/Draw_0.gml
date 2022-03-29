@@ -1,8 +1,24 @@
+scr_getinput();
+
 if con == 0
 {
 	tryconnect = 0;
-	if draw_editorbutton((room_width / 2) - (192 / 2) - 120, (room_height / 2) - 48 / 2, lang_string("prelogin.offline"))
-	or !global.onlinemode
+	
+	var move = key_left2 + key_right2;
+	if move != 0
+	{
+		sel += move;
+		
+		if sel < 0
+			sel = 0;
+		else if sel > 1
+			sel = 1;
+		else
+			scr_soundeffect(sfx_step);
+	}
+	
+	if draw_editorbutton((room_width / 2) - (192 / 2) - 120, (room_height / 2) - 48 / 2, lang_string("prelogin.offline"), sel == 0)
+	or !global.onlinemode or (sel == 0 && key_jump)
 	{
 		if global.onlinemode
 			scr_soundeffect(sfx_step);
@@ -18,8 +34,8 @@ if con == 0
 		instance_create(0, 71, obj_peppinoselect);
 		instance_create(371, 170, obj_noiseselect);
 	}
-	if draw_editorbutton((room_width / 2) - (192 / 2) + 120, (room_height / 2) - 48 / 2, lang_string("prelogin.online"))
-	&& global.onlinemode
+	else if (draw_editorbutton((room_width / 2) - (192 / 2) + 120, (room_height / 2) - 48 / 2, lang_string("prelogin.online"), sel == 1)
+	or (sel == 1 && key_jump)) && global.onlinemode
 	{
 		scr_soundeffect(sfx_step);
 		
@@ -52,7 +68,7 @@ if con == 1
 	
 	if tryconnect >= room_speed * 7
 	{
-		if draw_editorbutton(64, 32, lang_string("prelogin.back"))
+		if draw_editorbutton(64, 32, lang_string("prelogin.back")) or key_slap2
 		{
 			scr_soundeffect(sfx_step);
 			instance_destroy(obj_gms);
@@ -67,7 +83,7 @@ if con == 2
 {
 	if !(instance_exists(obj_characterselect) && obj_characterselect.ready) && global.onlinemode
 	{
-		if draw_editorbutton(64, 32, lang_string("prelogin.back"))
+		if draw_editorbutton(64, 32, lang_string("prelogin.back")) or key_slap2
 		{
 			scr_soundeffect(sfx_step);
 			with obj_characterselect
@@ -83,16 +99,3 @@ if con == 2
 		}
 	}
 }
-
-/*
-if debug && !instance_exists(obj_fadeout)
-{
-	if draw_editorbutton(64, 32, lang_string("prelogin.skip"))
-	{
-		instance_destroy(obj_login);
-		con = -1;
-		
-		offline_travel();
-	}
-}
-*/

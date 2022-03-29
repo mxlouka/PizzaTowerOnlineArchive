@@ -33,8 +33,8 @@ function lang_load(lang)
 		
 		// TEXT
 		ds_map_add(global.langmap, "load.loading", "LOADING");
-		ds_map_add(global.langmap, "load.txgrp", "PRE-LOADING SPRITES");
-		ds_map_add(global.langmap, "load.unusual", "This is taking unusually long to load.\nEither wait or restart the game.");
+		ds_map_add(global.langmap, "load.txgrp", "PRE-LOADING TEXTURES");
+		ds_map_add(global.langmap, "load.unusual", "The disclaimer is taking unusually long to load.\nYou can either keep waiting or restart the game.");
 		
 		ds_map_add(global.langmap, "general.wc", "Welcome to the developer console");
 		ds_map_add(global.langmap, "general.crash", "The game crashed last time.");
@@ -48,8 +48,8 @@ function lang_load(lang)
 		ds_map_add(global.langmap, "disclaimer.continue", "Press ENTER to play");
 		ds_map_add(global.langmap, "disclaimer.outdated", "Outdated version!\n\nUsually this means something really bad happened and\nthe creator wants to block an older version from working.");
 		ds_map_add(global.langmap, "disclaimer.error", "Server error!\nI can't do anything about this, so just wait and try again.");
-		ds_map_add(global.langmap, "disclaimer.errornodrm", "Status not success, error.\nServers might be unavailable.\n\nRunning in offline mode.");
-		ds_map_add(global.langmap, "disclaimer.offline", "You have stumbled upon the asshole version of this disclaimer.\n\nYou can't start the game offline.\nConnect to the internet, then we're talkin'.");
+		ds_map_add(global.langmap, "disclaimer.errornodrm", "Status not success, error.\nServers might be unavailable.\n\nRunning in offline mode. Some features will naturally be disabled.");
+		ds_map_add(global.langmap, "disclaimer.offline", "You can't start the game offline because of the disclaimer check.\nConnect to the internet, even just for this screen.");
 		ds_map_add(global.langmap, "disclaimer.offlinenodrm", "You are playing offline.\nSome features will be disabled.");
 		
 		// pause screen
@@ -102,16 +102,16 @@ function lang_load(lang)
 		ds_map_add(global.langmap, "options.other.pauseblur", "Other - Pause Blur");
 		
 		// other options descriptions and stuff
-		ds_map_add(global.langmap, "options.other.erase.desc", "All your progress, gone. Game will restart.");
+		ds_map_add(global.langmap, "options.other.erase.desc", "All your progress and configurations will be cleansed.\nThe game has to restart after this.");
 		
-		ds_map_add(global.langmap, "options.other.gameplay.desc", "The game changed a lot throughout development.\nSome people may prefer older moveset and music.");
-		ds_map_add(global.langmap, "options.other.gameplay.nonpatron", "This option is reserved for Patrons only.");
+		ds_map_add(global.langmap, "options.other.gameplay.desc", "Pizza Tower changed a lot throughout development.\nSome people may prefer the moveset and music from older builds.");
+		ds_map_add(global.langmap, "options.other.gameplay.nonpatron", "This option is reserved for Patrons only."); // haha this idea failed
 		ds_map_add(global.langmap, "options.other.gameplay.old", "OLD");
 		ds_map_add(global.langmap, "options.other.gameplay.remix", "REMIX");
 		ds_map_add(global.langmap, "options.other.gameplay.final", "FINAL");
 		ds_map_add(global.langmap, "options.other.gameplay.old.desc", "Moveset mostly from before the April 2021 Patreon build.");
 		ds_map_add(global.langmap, "options.other.gameplay.final.desc", "Recreation of the final version of the game.");
-		ds_map_add(global.langmap, "options.other.gameplay.remix.desc", "Makes the \"perfect mix\" between the other two gameplay styles. (WIP)\nYou can suggest changes for this style in the Discord.");
+		ds_map_add(global.langmap, "options.other.gameplay.remix.desc", "The \"perfect mix\" between the other two gameplay styles. (WIP)");
 		
 		ds_map_add(global.langmap, "options.other.wavybg.title", "WAVY BACKGROUND");
 		ds_map_add(global.langmap, "options.other.wavybg.desc", "When it's Pizza Time, the background slowly distorts\nand tints red depending on your time left.");
@@ -189,12 +189,12 @@ function lang_load(lang)
 		ds_map_add(global.langmap, "manual.credits.fuckoffptd", "You can't see the credits\nin streamer mode. For safety.");
 		
 		// prelogin
-		ds_map_add(global.langmap, "prelogin.offline", "Offline");
+		ds_map_add(global.langmap, "prelogin.offline", "Sandbox");
 		ds_map_add(global.langmap, "prelogin.online", "Online");
-		ds_map_add(global.langmap, "prelogin.nonet", "Connect To Network");
+		ds_map_add(global.langmap, "prelogin.nonet", "Connect to Network");
 		ds_map_add(global.langmap, "prelogin.skip", "SKIP");
 		ds_map_add(global.langmap, "prelogin.loading", "Loading");
-		ds_map_add(global.langmap, "prelogin.loadfail", "Can't Connect To Network");
+		ds_map_add(global.langmap, "prelogin.loadfail", "Can't connect to Network");
 		ds_map_add(global.langmap, "prelogin.back", "Back");
 		
 		// logging in
@@ -212,10 +212,10 @@ function lang_load(lang)
 		
 		// online messages
 		ds_map_add(global.langmap, "online.disconnected", "Disconnected?!");
-		ds_map_add(global.langmap, "online.reconnecting", "Reconnecting...");
+		ds_map_add(global.langmap, "online.reconnecting", "Reconnecting..."); // i don't think this even works
 		ds_map_add(global.langmap, "online.outdated", "Outdated Version!");
-		ds_map_add(global.langmap, "online.loggedout", "Logged Out");
-		ds_map_add(global.langmap, "online.chat", "Press ENTER to start typing, and again to send\nPress ESCAPE to exit the chat");
+		ds_map_add(global.langmap, "online.loggedout", "Logged out");
+		ds_map_add(global.langmap, "online.chat", "Press ENTER to start typing, and again to send.\nPress ESCAPE to exit the chat.");
 		ds_map_add(global.langmap, "online.toolong", "Message length must be below 2000 characters long");
 		ds_map_add(global.langmap, "online.global", "Global Message");
 		ds_map_add(global.langmap, "online.global.says", "says...");
@@ -323,7 +323,7 @@ function lang_load(lang)
 		ds_map_add(global.langmap, "roomname.hub_roomPLN", "Nightmare Hub");
 		
 		ds_map_add(global.langmap, "roomname.hub_outside2", "Outside");
-		ds_map_add(global.langmap, "roomname.hub_outside3", "Hub Of Fun");
+		ds_map_add(global.langmap, "roomname.hub_outside3", "Hub of Fun");
 		ds_map_add(global.langmap, "roomname.hub_outside3b", "Lounge");
 		ds_map_add(global.langmap, "roomname.hub_outside3b2", "Battle Dungeon");
 		ds_map_add(global.langmap, "roomname.hub_outside3c", "Gravitational Rails");
@@ -385,7 +385,7 @@ function lang_load(lang)
 		ds_map_add(global.langmap, "roomname.sanctum_secret5", "All Cheese Here");
 		ds_map_add(global.langmap, "roomname.sanctum_secret6", "Dashing Psycho");
 		
-		ds_map_add(global.langmap, "roomname.ancient_1", "ass");
+		ds_map_add(global.langmap, "roomname.ancient_1", "WELCOME TO PIZZA TOWER...?");
 	}
 	
 	#endregion

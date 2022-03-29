@@ -1,19 +1,15 @@
 /// @param {real} x
 /// @param {real} y
 /// @param {string} string
-function draw_editorbutton()
+function draw_editorbutton(xx, yy, str, sel = false)
 {
-	var xx = argument[0];
-	var yy = argument[1];
-	var str = argument[2];
-
 	var hover = false;
-
+	
 	if mouse_x >= xx && mouse_y >= yy
 	&& mouse_x < xx + 192 && mouse_y < yy + 48
 		hover = true;
 	
-	draw_sprite(spr_editormenu_button, hover, xx, yy);
+	draw_sprite(spr_editormenu_button, hover or sel, xx, yy);
 	draw_set_font(global.bigfont);
 	draw_set_colour(c_white);
 	
