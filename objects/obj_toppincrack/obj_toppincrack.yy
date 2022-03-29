@@ -33,7 +33,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "sugary spire",
-    "path": "folders/Objects/level_structure/followers/sugary spire.yy",
+    "path": "folders/Objects/level_structure/pto/followers/sugary spire.yy",
   },
   "resourceVersion": "1.0",
   "name": "obj_toppincrack",
