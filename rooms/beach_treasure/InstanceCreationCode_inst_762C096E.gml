@@ -1,4 +1,4 @@
-targetRoom = beach_4
+targetRoom = beach_11
 visible = false
 
 if global.gameplay != 0

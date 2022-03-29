@@ -37,7 +37,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "followers",
-    "path": "folders/Objects/level_structure/followers.yy",
+    "path": "folders/Objects/level_structure/pto/followers.yy",
   },
   "resourceVersion": "1.0",
   "name": "obj_geromefollow",

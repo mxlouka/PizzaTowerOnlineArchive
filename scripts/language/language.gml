@@ -307,7 +307,7 @@ function lang_load(lang)
 		ds_map_add(global.langmap, "msg.level.grinch", "Grinch");
 		ds_map_add(global.langmap, "msg.level.sanctum", "La Burrata Temple");
 		
-		ds_map_add(global.langmap, "msg.level.cotton", "Cottontown WIP");
+		ds_map_add(global.langmap, "msg.level.cotton", "Cottontown");
 		ds_map_add(global.langmap, "msg.level.jawbreaker", "Jawbreaker Mines WIP");
 		
 		// roomname
