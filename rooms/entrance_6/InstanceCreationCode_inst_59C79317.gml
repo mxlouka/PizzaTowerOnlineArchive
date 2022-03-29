@@ -1,1 +1,2 @@
- targetRoom = entrance_secret4 
+targetRoom = entrance_secret4;
+depth += 100;

@@ -5197,6 +5197,7 @@
     {"id":{"name":"spr_bigcollect2","path":"sprites/spr_bigcollect2/spr_bigcollect2.yy",},"order":6,},
     {"id":{"name":"beach_treasure","path":"rooms/beach_treasure/beach_treasure.yy",},"order":4,},
     {"id":{"name":"beach_5","path":"rooms/beach_5/beach_5.yy",},"order":5,},
+    {"id":{"name":"mu_sanctumsecret_pc","path":"sounds/mu_sanctumsecret_pc/mu_sanctumsecret_pc.yy",},"order":16,},
     {"id":{"name":"spr_rankPPC_text","path":"sprites/spr_rankPPC_text/spr_rankPPC_text.yy",},"order":7,},
     {"id":{"name":"beach_6","path":"rooms/beach_6/beach_6.yy",},"order":6,},
     {"id":{"name":"beach_secret1","path":"rooms/beach_secret1/beach_secret1.yy",},"order":7,},

@@ -110,7 +110,7 @@ function scr_player_mach3()
 				if sprite_index = spr_mach3jump && floor(image_index) == image_number - 1 
 					sprite_index = spr_mach4
 
-				if floor(image_index) = image_number - 1 && (sprite_index = spr_rollgetup or sprite_index = spr_mach3hit or sprite_index == spr_dashpadmach)
+				if floor(image_index) == image_number - 1 && (sprite_index = spr_rollgetup or sprite_index = spr_mach3hit or sprite_index == spr_dashpadmach)
 					sprite_index = spr_mach4
 
 				if sprite_index = spr_mach2jump && grounded && vsp > 0
@@ -179,11 +179,11 @@ function scr_player_mach3()
 				state = states.machroll
 				vsp = 10
 				
-				if character = "V"
+				if character == "V"
 					sprite_index = spr_playerV_divekickstart
 			}
 
-			//Climbwall
+			// Climbwall
 			if (!grounded && !place_meeting(x + hsp, y, obj_destructibles) && !place_meeting(x + hsp, y, obj_metalblock) && !place_meeting(x + sign(hsp), y, obj_slope))
 			or (grounded && !place_meeting(x + hsp, y, obj_destructibles) && !place_meeting(x + hsp, y, obj_metalblock) && scr_slope())
 			{
@@ -198,7 +198,7 @@ function scr_player_mach3()
 			}
 			
 			//Bump
-			if (scr_solidwall(x + xscale, y)) && !scr_slope() && (!place_meeting(x + sign(hsp), y, obj_slope) or place_meeting(x + sign(hsp), y, obj_solid) or place_meeting(x, y - 32, obj_solid)) && !place_meeting(x + sign(hsp), y, obj_metalblock) && !place_meeting(x + sign(hsp), y, obj_destructibles) && (grounded or fightball)
+			if scr_solidwall(x + xscale, y) && ((!scr_slope() && !place_meeting(x + sign(hsp), y, obj_slope)) or scr_solidwall(x + sign(hsp), y) or scr_solidwall(x, y - 32)) && !place_meeting(x + sign(hsp), y, obj_metalblock) && !place_meeting(x + sign(hsp), y, obj_destructibles) && (grounded or fightball)
 			{
 				if !fightball
 				{

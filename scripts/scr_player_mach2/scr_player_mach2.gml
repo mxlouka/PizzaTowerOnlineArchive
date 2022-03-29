@@ -18,7 +18,7 @@ function scr_player_mach2()
 		vsp /= 10
 		jumpstop = true
 	}
-
+	
 	if grounded && vsp > 0
 		jumpstop = false
 	
@@ -132,29 +132,28 @@ function scr_player_mach2()
 	}
 	
 	// Climbwall
-	if (!grounded && (!place_meeting(x + hsp, y, obj_destructibles) or character == "V") && !place_meeting(x + sign(hsp), y, obj_slope))
-	or (grounded && (!place_meeting(x + hsp, y, obj_destructibles) or character == "V") && scr_slope())
+	if ((!grounded && !place_meeting(x + sign(hsp), y, obj_slope))
+	or (grounded && scr_slope())) && (!place_meeting(x + hsp, y, obj_destructibles) or character == "V")
+	&& ((!grounded && scr_solidwall(x + hsp, y))
+	or (scr_solidwall(x + hsp, y) && scr_solidwall(x + hsp, y - 32) && !scr_solidwall(x, y - 32)))
 	{
-		if (!grounded && scr_solidwall(x + hsp, y))
-		or (scr_solidwall(x + hsp, y) && scr_solidwall(x + hsp, y - 32) && !scr_solidwall(x, y - 32))
+		if (!key_attack && character != "S") or (character == "S" && move == 0)
 		{
-			if (!key_attack && character != "S") or (character == "S" && move == 0)
-			{
-				instance_create(x, y + 43, obj_cloudeffect)
+			instance_create(x, y + 43, obj_cloudeffect)
 			
-				vsp = -movespeed
-				state = states.normal
-				movespeed = 0
-			}
-			else
-			{
-				wallspeed = movespeed
-				state = states.climbwall
-			}
+			vsp = -movespeed
+			state = states.normal
+			movespeed = 0
+		}
+		else
+		{
+			wallspeed = movespeed
+			vsp = -wallspeed
+			state = states.climbwall
 		}
 	}
-	
-	if grounded && !scr_slope() && scr_solid(x + hsp, y, false) && (!place_meeting(x+hsp,y,obj_destructibles) or character == "V") && !place_meeting(x+sign(hsp),y,obj_slope)
+	else if grounded && scr_solidwall(x + hsp, y) && (!place_meeting(x + hsp, y, obj_destructibles) or character == "V")
+	&& ((!scr_slope() && !place_meeting(x + sign(hsp), y, obj_slope)) or scr_solidwall(x, y - 32))
 	{
 		movespeed = 0
 		state = states.normal

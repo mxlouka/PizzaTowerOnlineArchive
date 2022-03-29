@@ -1,6 +1,6 @@
 function scr_player_climbwall()
 {
-	switch (character)
+	switch character
 	{
 		default:
 		if character != "N" or noisetype == 1
