@@ -17,8 +17,8 @@
   "soundFile": "mu_graveyard_pc.wav",
   "duration": 135.551468,
   "parent": {
-    "name": "pizza castle",
-    "path": "folders/Sounds/pizza castle.yy",
+    "name": "PIZZA CASTLE",
+    "path": "folders/Sounds/PIZZA CASTLE.yy",
   },
   "resourceVersion": "1.0",
   "name": "mu_graveyard_pc",

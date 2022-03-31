@@ -51,6 +51,11 @@ if (flash == true && alarm[2] <= 0) {
 if state != states.chase
 	momentum = 0
 
+if state == states.cherrywait
+	depth = 101;
+else
+	depth = 0;
+
 //Chase
 if state == states.walk or state == states.idle
 {

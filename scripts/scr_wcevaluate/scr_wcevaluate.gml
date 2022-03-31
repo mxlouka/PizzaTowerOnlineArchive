@@ -267,14 +267,6 @@ function scr_wcevaluate(argument0)
 		case "restartgame":
 			audio_resume_all();
 			audio_stop_all();
-			
-			// try to reset all persisting stuff
-			for(var i = 0; !is_undefined(audio_group_name(i)); i++)
-			{
-				audio_group_set_gain(i, 1, 0);
-				audio_group_unload(i);
-			}
-			
 			game_restart();
 			break;
 		

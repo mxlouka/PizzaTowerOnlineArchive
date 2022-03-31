@@ -10,7 +10,7 @@ if ds_list_find_index(global.saveroom, id) == -1
 		{
 			sprite_index = spr_metaldebris_ss;
 			image_index = random_range(0, 7);
-			hsp = random_range(-8, 8);
+			//hsp = random_range(-8, 8);
 		}
 		else if other.sprite_index == spr_metalbescape
 			sprite_index = spr_metalblockdebrisescape;
@@ -18,14 +18,9 @@ if ds_list_find_index(global.saveroom, id) == -1
 			sprite_index = spr_metalblockdebrisescape_NEW;
 		else if global.gameplay != 0
 			sprite_index = spr_metalblockdebris_NEW;
+		
+		hsp2 = other.hsp2;
 	}
-	
-	/*
-	tile_layer_delete_at(1, x, y);
-	tile_layer_delete_at(1, x+32, y);
-	tile_layer_delete_at(1, x+32, y+32);
-	tile_layer_delete_at(1, x, y+32);
-	*/
 	
 	with obj_camera
 	{

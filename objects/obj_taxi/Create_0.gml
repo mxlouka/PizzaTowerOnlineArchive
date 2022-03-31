@@ -1,5 +1,5 @@
 image_speed = 0.35
-playerid = obj_null
+playerid = noone
 hsp = 0
 vsp = 0
 grav = 0

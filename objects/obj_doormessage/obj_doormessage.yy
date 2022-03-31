@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "sprite1034",
-    "path": "sprites/sprite1034/sprite1034.yy",
+    "name": "spr_placeholderblock",
+    "path": "sprites/spr_placeholderblock/spr_placeholderblock.yy",
   },
   "solid": false,
   "visible": false,

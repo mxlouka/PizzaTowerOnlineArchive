@@ -14,7 +14,7 @@ function scr_player_crouch()
 	turning = false
 	
 	//Fall off
-	if !(grounded) && !key_jump  
+	if !grounded && !key_jump  
 	{
 		jumpAnim = false
 		state = states.crouchjump
@@ -22,7 +22,6 @@ function scr_player_crouch()
 		crouchAnim = true
 		image_index = 0
 	}
-	
 	
 	///Back to other states
 	//Normal

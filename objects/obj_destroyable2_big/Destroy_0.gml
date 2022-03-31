@@ -30,10 +30,12 @@ if ds_list_find_index(global.saveroom, id) = -1 && !global.snickchallenge
 				sprite_index = spr_bigpizzadebris_PP
 			else
 				sprite_index = spr_bigpizzadebris
+			
+			hsp2 = other.hsp2;
 		}
 	}
 	
-	if content == obj_null
+	if content == noone
 	{
 		with instance_create(x + sprite_width / 2, y + sprite_height / 2, obj_pizzaslice)
 			hsp = 2

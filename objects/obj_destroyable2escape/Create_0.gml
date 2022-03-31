@@ -10,3 +10,5 @@ else if global.gameplay != 0
 depth = 1
 image_speed = 0.35;
 image_index = random(image_number);
+
+hsp2 = 0;

@@ -1,23 +1,14 @@
-vsp = random_range(-5, -10);
+vsp = random_range(-4, -7);
+hsp = 0;
 
-if instance_exists(obj_player)
-{
-	var sig = sign(x - obj_player.x);
-	if sig == 0
-		sig = obj_player.xscale;
-}
-else
-	sig = 1;
+grav = 0.4;
+alarm[0] = 5;
+cigar = false;
+stomped = false;
 
-hsp = sig * random_range(5, 10)
-if sig != 0
-	image_xscale = -sig;
-
-grav = 0.4
-alarm[0] = 5
-cigar = false
-stomped = false
-
-paletteselect = 0
-spr_palette = -1
+paletteselect = 0;
+spr_palette = -1;
 haspalette = false;
+
+sugary = false;
+deadrot = choose(4, 5, 8, 10); // courtesy of pitchmaster's incompetency

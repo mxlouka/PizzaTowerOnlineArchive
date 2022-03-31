@@ -85,6 +85,7 @@ function scr_playerreset()
 	global.timedgate = false
 	global.taseconds = 0
 	global.taminutes = 0
+	global.tadecimal = 0
 	
 	global.miniboss = false
 	
@@ -152,9 +153,10 @@ function scr_playerreset()
 	
 	with obj_player
 	{
-		state = states.comingoutdoor
-		visible = true
-		spotlight = true
+		state = states.comingoutdoor;
+		image_index = 0;
+		visible = true;
+		spotlight = true;
 		image_blend = c_white;
 		canfall = true;
 		

@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "sprite103411",
-    "path": "sprites/sprite103411/sprite103411.yy",
+    "name": "spr_gravityrect",
+    "path": "sprites/spr_gravityrect/spr_gravityrect.yy",
   },
   "solid": false,
   "visible": true,

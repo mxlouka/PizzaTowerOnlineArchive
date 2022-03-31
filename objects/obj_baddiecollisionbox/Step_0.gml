@@ -4,11 +4,14 @@ if !instance_exists(baddieID)
 	exit;
 }
 
-if instance_exists(baddieID)
+x = baddieID.x;
+y = baddieID.y;
+image_xscale = baddieID.image_xscale;
+
+with obj_baddiecollisionbox
 {
-	x = baddieID.x;
-	y = baddieID.y;
-	image_xscale = baddieID.image_xscale;
+	if id != other.id && baddieID == other.baddieID
+		instance_destroy();
 }
 
 if instance_exists(baddieID) && place_meeting(x, y, obj_player1) && !obj_player1.cutscene

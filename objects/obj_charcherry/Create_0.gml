@@ -63,7 +63,10 @@ custom_death_fnc = function()
 	instance_create(x, y, obj_bangeffect);
 	
 	with instance_create(x, y, obj_sausageman_dead)
+	{
 		sprite_index = other.spr_dead;
+		sugary = true;
+	}
 }
 
 sugaryenemy = true;

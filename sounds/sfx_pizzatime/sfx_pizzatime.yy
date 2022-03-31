@@ -17,8 +17,8 @@
   "soundFile": "sfx_pizzatime",
   "duration": 2.303562,
   "parent": {
-    "name": "pizza castle",
-    "path": "folders/Sounds/pizza castle.yy",
+    "name": "PIZZA CASTLE",
+    "path": "folders/Sounds/PIZZA CASTLE.yy",
   },
   "resourceVersion": "1.0",
   "name": "sfx_pizzatime",

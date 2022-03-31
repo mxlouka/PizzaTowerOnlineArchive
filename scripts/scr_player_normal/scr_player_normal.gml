@@ -43,14 +43,6 @@ function scr_player_normal()
 			
 			var mv = movespeed / 6;
 			image_speed = lerp(0.35, 0.6, floor(mv) + (floor(frac(mv) * 100) / 100)); // limit to 2 decimal places
-			/*
-		    if movespeed < 3
-		        image_speed = 0.35;
-		    else if movespeed > 3 && movespeed < 6
-		        image_speed = 0.45;
-		    else
-		        image_speed = 0.6;
-			*/
 			
 			if sprite_index == spr_land
 				landAnim = false;
@@ -97,8 +89,10 @@ function scr_player_normal()
 							sprite_index = choose(spr_idle1, spr_idle2, spr_idle3, spr_idle4, spr_idle5, spr_idle6);
 						    image_index = 0
 							
+							/*
 							if global.key_inv && character == "SP" && irandom_range(1, 100) <= 25 && check_sugary()
 								sprite_index = spr_playerSP_keyidle;
+							*/
 					    }
 						else if floor(image_index) >= image_number - 1
 						{
@@ -287,7 +281,7 @@ function scr_player_normal()
 				image_index = 0
 			}
 			
-			with instance_create(x,y,obj_highjumpcloud2)
+			with instance_create(x, y, obj_highjumpcloud2)
 				image_xscale = other.xscale
 			
 			stompAnim = false

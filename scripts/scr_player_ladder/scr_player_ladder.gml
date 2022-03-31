@@ -60,19 +60,16 @@ function scr_player_ladder()
 		state = states.normal
 		image_index = 0
 		
-		if vsp < 0 && place_meeting(x, y + abs(vsp), obj_ladder) && !hooked
+		if vsp <= 0 && place_meeting(x, y + abs(vsp), obj_ladder) && !hooked
 		{
-			var ytry = y;
-			while !scr_solid(x, ytry + 1)
+			for(var i = 0; i < 32; i++)
 			{
-				if ++ytry > y + 32
+				if scr_solid(x, y + i + 1)
 				{
-					ytry = y;
+					y += i;
 					break;
 				}
 			}
-			y = ytry;
-			
 			grounded = true;
 		}
 		vsp = 0

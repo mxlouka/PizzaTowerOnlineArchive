@@ -20,7 +20,7 @@ WC_mx = device_mouse_x_to_gui(0);
 WC_my = device_mouse_y_to_gui(0);
 
 // add all functions to gmlive
-if live_enabled
+if live_enabled && os_type != os_switch
 {
 	if variable_global_exists("g_gml_func_script_id") && !WC_gmlivedone
 	{
@@ -28,7 +28,8 @@ if live_enabled
 		{
 		    var s = script_get_name(i);
 		    if (gml_func_sig.h_exists(s)) continue;
-		    gml_func_add(":::" + s + "(...):", i);
+			if live_enabled
+				gml_func_add(":::" + s + "(...):", i);
 		}
 		WC_gmlivedone = true;
 	}

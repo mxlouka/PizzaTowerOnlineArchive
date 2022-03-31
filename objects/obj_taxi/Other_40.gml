@@ -1,6 +1,6 @@
 if sprite_index == spr_taximove && !instance_exists(obj_fadeout)
 {
-	with obj_player1
+	with playerid
 	{
 		lastroom = room;
 		scr_soundeffect(sfx_door);

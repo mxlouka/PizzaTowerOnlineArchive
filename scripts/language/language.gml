@@ -56,6 +56,7 @@ function lang_load(lang)
 		ds_map_add(global.langmap, "pause.continue", "Continue");
 		ds_map_add(global.langmap, "pause.retry", "Retry Level");
 		ds_map_add(global.langmap, "pause.exit", "Exit Level");
+		ds_map_add(global.langmap, "pause.title", "Title Screen");
 		ds_map_add(global.langmap, "pause.options", "Options");
 		
 		// options 1
@@ -100,6 +101,7 @@ function lang_load(lang)
 		ds_map_add(global.langmap, "options.other.camsmooth", "Other - Smooth Camera");
 		ds_map_add(global.langmap, "options.other.screenshader", "Other - Screen Shader");
 		ds_map_add(global.langmap, "options.other.pauseblur", "Other - Pause Blur");
+		ds_map_add(global.langmap, "options.other.inputdisplay", "Other - Input Display");
 		
 		// other options descriptions and stuff
 		ds_map_add(global.langmap, "options.other.erase.desc", "All your progress and configurations will be cleansed.\nThe game has to restart after this.");
@@ -168,6 +170,9 @@ function lang_load(lang)
 		
 		ds_map_add(global.langmap, "options.other.screenshader.title", "SCREEN SHADER");
 		ds_map_add(global.langmap, "options.other.screenshader.desc", "Full screen shader effect.");
+		
+		ds_map_add(global.langmap, "options.other.inputdisplay.title", "INPUT DISPLAY");
+		ds_map_add(global.langmap, "options.other.inputdisplay.desc", "Shows what keys you are pressing on the GUI.");
 		
 		// manual
 		ds_map_add(global.langmap, "manual.welcome", "Welcome to the Pizza Tower ONLINE manual!");
@@ -280,7 +285,7 @@ function lang_load(lang)
 		ds_map_add(global.langmap, "msg.level.farm", "Fun Farm WIP");
 		ds_map_add(global.langmap, "msg.level.ufo", "Space Pinball");
 		ds_map_add(global.langmap, "msg.level.forest", "Gnome Forest WIP");
-		ds_map_add(global.langmap, "msg.level.beach", "Pineapple Beach WIP");
+		ds_map_add(global.langmap, "msg.level.beach", "Pineapple Beach");
 		ds_map_add(global.langmap, "msg.level.kungfu", "Kung Fu");
 		ds_map_add(global.langmap, "msg.level.minigolf", "Golf");
 		ds_map_add(global.langmap, "msg.level.space", "Space");

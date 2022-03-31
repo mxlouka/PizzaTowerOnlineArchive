@@ -1,11 +1,4 @@
 /// @description title screen
-var title = true;
-with obj_player1
-{
-	if place_meeting(x, y, obj_startgate) && state == states.victory
-		title = false;
-}
-
 with all
 	if !persistent instance_destroy(id, false);
 
@@ -13,7 +6,7 @@ instance_destroy(obj_hallway);
 instance_destroy(obj_fadeout);
 audio_stop_all();
 
-if (room == hub_room1 or room == cowboytask or room == Titlescreen or room == Scootertransition) && title
+if gototitle
 {
 	pause = false
 	instance_activate_all();

@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "sprite1024",
-    "path": "sprites/sprite1024/sprite1024.yy",
+    "name": "spr_doorD",
+    "path": "sprites/spr_doorD/spr_doorD.yy",
   },
   "solid": false,
   "visible": false,

@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "sprite1033",
-    "path": "sprites/sprite1033/sprite1033.yy",
+    "name": "spr_temporarysquare",
+    "path": "sprites/spr_temporarysquare/spr_temporarysquare.yy",
   },
   "solid": false,
   "visible": true,

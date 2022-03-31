@@ -25,7 +25,7 @@ function scr_initenemy()
 	arenalayer = layer
 	depth = 0
 	
-	grabbedby= 0
+	grabbedby = 0
 	paletteselect = 1
 	stuntouchbuffer = 0
 	scaredbuffer = 0

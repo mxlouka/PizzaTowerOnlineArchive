@@ -1,11 +1,12 @@
 if state == states.hang
 	state = states.normal;
 
-if place_meeting(x, y, obj_boxofpizza) or place_meeting(x, y - 1, obj_boxofpizza)
+if place_meeting(x, y + 1, obj_boxofpizza) or place_meeting(x, y - 1, obj_boxofpizza)
 {
     box = true;
     hallway = false;
-    state = states.crouch;
+    state = states.crouchjump;
+	jumpstop = true;
 }
 
 if !oldhallway

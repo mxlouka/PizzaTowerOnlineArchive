@@ -29,6 +29,8 @@ if ds_list_find_index(global.saveroom, id) == -1 && !global.snickchallenge
 				sprite_index = spr_pizzadebris_PP;
 			else
 				sprite_index = spr_pizzadebris;
+			
+			hsp2 = other.hsp2;
 		}
 	}
 	create_baddiegibsticks(x + sprite_width / 2, y + sprite_height / 2);

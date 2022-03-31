@@ -13,3 +13,4 @@ if string_startswith(room_get_name(room), "strongcold")
 depth = 1;
 image_speed = 0.35;
 image_index = random(image_number);
+hsp2 = 0;

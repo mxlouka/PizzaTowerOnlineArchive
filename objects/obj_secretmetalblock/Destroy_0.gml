@@ -31,15 +31,17 @@ if ds_list_find_index(global.saveroom, id) == -1
 			
 			if data_ != 0
 			{
-				with instance_create(x + 32, y + 32,obj_secretdebris)
+				with instance_create(x + 32, y + 32, obj_secretdebris)
 				{
 					tile_dataid = data_
 					tile_dataset = tilemap_get_tileset(map_id)
 					sprite_index = spr_secretmetaldebris
+					hsp2 = other.hsp2
 				}
 			}
 			else if data_ == -1
-				instance_create(x + 32, y + 32, obj_metaldebris)
+				with instance_create(x + 32, y + 32, obj_metaldebris)
+					hsp2 = other.hsp2
 		
 			if data2_ != 0
 			{
@@ -48,10 +50,12 @@ if ds_list_find_index(global.saveroom, id) == -1
 					tile_dataid = data2_
 					tile_dataset = tilemap_get_tileset(map_id)
 					sprite_index = spr_secretmetaldebris
+					hsp2 = other.hsp2
 				}
 			}
 			else if data2_ == -1
-				instance_create(x + 32, y + 32, obj_metaldebris)
+				with instance_create(x + 32, y + 32, obj_metaldebris)
+					hsp2 = other.hsp2
 	
 			if data3_ != 0
 			{
@@ -60,10 +64,12 @@ if ds_list_find_index(global.saveroom, id) == -1
 					tile_dataid = data3_
 					tile_dataset = tilemap_get_tileset(map_id)
 					sprite_index = spr_secretmetaldebris
+					hsp2 = other.hsp2
 				}
 			}
 			else if data3_ == -1
-				instance_create(x + 32, y + 32, obj_metaldebris)
+				with instance_create(x + 32, y + 32, obj_metaldebris)
+					hsp2 = other.hsp2
 	
 			if data4_ != 0
 			{
@@ -72,10 +78,12 @@ if ds_list_find_index(global.saveroom, id) == -1
 					tile_dataid = data4_
 					tile_dataset = tilemap_get_tileset(map_id)
 					sprite_index = spr_secretmetaldebris
+					hsp2 = other.hsp2
 				}
 			}
 			else if data4_ == -1
-				instance_create(x + 32, y + 32, obj_metaldebris)
+				with instance_create(x + 32, y + 32, obj_metaldebris)
+					hsp2 = other.hsp2
 		}
 		
 		map_id = layer_tilemap_get_id(get_layer("Tiles_2"));

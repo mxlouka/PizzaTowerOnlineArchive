@@ -2,7 +2,7 @@ if room == rm_editor exit;
 
 x += hsp
 
-if obj_player1.state == states.taxi && sprite_index == spr_taximove && check_online()
+if instance_exists(obj_player) && check_online() && obj_player.state == states.taxi && sprite_index == spr_taximove
 {
 	gms_self_set("taxix", x);
 	gms_self_set("taxiy", y);

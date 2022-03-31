@@ -5,16 +5,17 @@ if global.timeattack && !(instance_exists(obj_gms) && global.__chat)
 		middletext = ":0";
 	
 	// i don't know how speedrun timers work but i hope this is close enough
-	var precise = floor((alarm[1] / 60) * 99);
-	if stop or (instance_exists(obj_pause) && obj_pause.pause)
-		precise = 0;
+	if alarm[1] > -1 && !stop && !(instance_exists(obj_pause) && obj_pause.pause)
+		global.tadecimal = floor(100 - ((alarm[1] / 60) * 100));
 	
+	var precise = clamp(global.tadecimal, 0, 99);
 	var precisertext = ".";
-	if global.taseconds < 10
+	if precise < 10
 		precisertext = ".0";
 	
 	draw_set_font(check_sugary() ? global.sugarybigfont : global.bigfont)
 	draw_set_halign(fa_center);
+	draw_set_valign(fa_top);
 	draw_set_color(c_yellow)
 	
 	var yy = min(obj_tv.yi - 70, 540 - 60);
@@ -28,5 +29,11 @@ if global.timeattack && !(instance_exists(obj_gms) && global.__chat)
 		yy += random_range(1, -1);
 	}
 	
-	draw_text(960 / 2 + random_range(1, -1), yy, string(global.taminutes) + middletext + string(global.taseconds) + precisertext + string(precise));
+	var finalstr = string(global.taminutes) + middletext + string(global.taseconds);
+	draw_text(xx, yy, finalstr);
+	
+	var strw = string_width(finalstr) / 2;
+	draw_set_font(global.font_small);
+	draw_set_halign(fa_left);
+	draw_text(xx + strw, yy + 16, precisertext + string(precise));
 }

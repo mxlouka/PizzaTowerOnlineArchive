@@ -1,3 +1,2 @@
-image_speed = 0.5
-ID = 0
-
+image_speed = 0.35
+ID = noone

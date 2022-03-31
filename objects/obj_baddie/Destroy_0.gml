@@ -29,15 +29,17 @@ if ds_list_find_index(global.baddieroom, id) == -1
 		with instance_create(x, y, obj_sausageman_dead)
 		{
 			sprite_index = other.spr_dead;
-			if global.gameplay != 0
-				hsp = other.hsp;
-		
+			if global.gameplay != 0 && other.hsp != 0
+				hsp = clamp(other.hsp, -12, 12);
+			
 			if variable_instance_exists(other, "haspalette") && other.haspalette
 			{
 				haspalette = other.haspalette;
 				spr_palette = other.spr_palette;
 				paletteselect = other.paletteselect;
 			}
+			if variable_instance_exists(other, "sugaryenemy")
+				sugary = other.sugaryenemy;
 		}
 		
 		if !important

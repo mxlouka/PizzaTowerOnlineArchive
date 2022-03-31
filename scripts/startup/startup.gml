@@ -204,6 +204,9 @@ function check_hat(index)
 
 function room_goto_new(index)
 {
+	// room_goto but accounts for rooms with _NEW postfix
+	// in this case it will redirect you to these in NEW and REMIX gameplay
+	
 	if global.gameplay != 0 && !global.snickchallenge
 	{
 		if asset_get_type(room_get_name(index) + "_NEW") == asset_room
@@ -216,7 +219,10 @@ function room_goto_new(index)
 			index = asset_get_index(r);
 	}
 	
-	room_goto(index);
+	if index == room
+		room_restart();
+	else
+		room_goto(index);
 	return index;
 }
 

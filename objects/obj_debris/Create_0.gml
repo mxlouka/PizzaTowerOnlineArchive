@@ -2,9 +2,11 @@ image_speed = 0;
 
 vsp = random_range(-4, 0);
 hsp = random_range(-4, 4);
-if global.gameplay != 0
+
+if !scr_stylecheck(0)
 {
-	hsp = random_range(-5, 5);
+	if !scr_stylecheck(2)
+		hsp = random_range(-5, 5);
 	vsp = random_range(-7, -3);
 }
 

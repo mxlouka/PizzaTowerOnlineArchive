@@ -76,17 +76,17 @@ scr_scareenemy()
 
 
 if state != states.stun
-thrown= false
+	thrown = false
 
-if boundbox = false
+if boundbox
 {
-with instance_create(x,y,obj_baddiecollisionbox)
-{
-sprite_index = other.sprite_index
-mask_index = sprite_index
-baddieID = other.id
-other.boundbox = true
-}
+	with instance_create(x, y, obj_baddiecollisionbox)
+	{
+		sprite_index = other.sprite_index
+		mask_index = sprite_index
+		baddieID = other.id
+		other.boundbox = true
+	}
 }
 
 

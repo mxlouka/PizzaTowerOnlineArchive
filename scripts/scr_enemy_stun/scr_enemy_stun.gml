@@ -1,9 +1,9 @@
 function scr_enemy_stun()
 {
-	//Animation
 	if object_index == obj_ninja
 		attack = true
 	
+	// april build bullshit
 	switch hp
 	{
 	    case -1:
@@ -45,7 +45,7 @@ function scr_enemy_stun()
 	
 	if object_index != obj_tankOLD or sprite_index != spr_tank_hitwall
 		sprite_index = stunfallspr
-	else if floor(image_index) == image_number - 1 && sprite_index == spr_tank_hitwall && global.gameplay != 0
+	else if floor(image_index) >= image_number - 1 && sprite_index == spr_tank_hitwall && global.gameplay != 0
 	{
 	    state = states.walk
 	    stunned = 0
@@ -53,15 +53,15 @@ function scr_enemy_stun()
 	}
 	
 	image_speed = 0.35
-	
 	if grounded && vsp > 0
 	{ 
 		if thrown == true && hp <= 0 && object_index != obj_pizzaballOLD
-			instance_destroy()
+			instance_destroy();
+		else
+			hsp = 0;
 
 		thrown = false
 		grav = 0.5
-		hsp = 0
 	}
 	
 	var railmeet = instance_place(x, y + 1, obj_railparent);
@@ -73,15 +73,16 @@ function scr_enemy_stun()
 	
 	if scr_solid(x + xx, y) && !place_meeting(x + xx, y, obj_destructibles)
 	{
-		with instance_create(x,y,obj_bulletimpact)
+		with instance_create(x, y, obj_bulletimpact)
 			image_xscale = -other.image_xscale
-
-		if thrown && hp <= 0 && object_index != obj_pizzaballOLD
-			instance_destroy()
 		
-		grav = 0.5
-		image_xscale *= -1
-		hsp = -image_xscale * 4
+		if thrown && hp <= 0 && object_index != obj_pizzaballOLD
+			instance_destroy();
+		else
+			image_xscale *= -1;
+		
+		hsp = -image_xscale * 4;
+		grav = 0.5;
 	}
 	
 	if floor(image_index) == image_number - 1 && stunned <= 0 && (object_index != obj_peasanto or angry)

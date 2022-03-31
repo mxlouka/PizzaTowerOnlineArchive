@@ -193,6 +193,7 @@ function scr_player_mach3()
 					wallspeed = movespeed;
 					if global.gameplay == 0
 						wallspeed = 10;
+					vsp = -wallspeed;
 					state = states.climbwall;
 				}
 			}
@@ -737,10 +738,19 @@ function scr_player_mach3()
 			image_xscale = other.xscale
 			other.dashcloudid = id
 		}
-		if place_meeting(x, y + 1, obj_water) or place_meeting(x, y + 1, obj_transwater)
+		
+		if place_meeting(x, y + 1, obj_water)
 			dashcloud.sprite_index = spr_watereffect;
+		
+		var transgenderjokehere = instance_place(x, y + 1, obj_transwater);
+		if transgenderjokehere
+		{
+			dashcloud.sprite_index = spr_watereffect;
+			if transgenderjokehere.sprite_index == spr_water_ss
+				dashcloud.sprite_index = spr_watereffect_ss;
+		}
 	}
-
+	
 	// charge effect
 	if !instance_exists(chargeeffectid)
 	{

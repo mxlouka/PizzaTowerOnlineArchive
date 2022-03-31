@@ -41,8 +41,30 @@ function scr_player_Sjump()
 	
 	//Back to other states
 	//Freefallland
-	if (scr_solid(x,y-1)) && !place_meeting(x,y-1,obj_destructibles) && ((springsjump && !place_meeting(x,y-1,obj_metalblock)) or !springsjump)
+	if scr_solid(x, y - 1) && !place_meeting(x, y - 1, obj_destructibles) && ((springsjump && !place_meeting(x, y - 1, obj_metalblock)) or !springsjump)
 	{
+		// attempt to push player slightly
+		var closest = 0;
+		for(var i = 0; i < 8; i++)
+		{
+			if !scr_solid(x + i, y - 1)
+			{
+				closest = i;
+				break;
+			}
+		}
+		for(var i = 0; i < 8; i++)
+		{
+			if !scr_solid(x - i, y - 1)
+			{
+				if abs(i) > closest
+					closest = i;
+				break;
+			}
+		}
+		x += closest;
+		
+		// you CLEARLY hit the ceiling there is no forgiveness
 		springsjump = false;
 		a = 0;
 		

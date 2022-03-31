@@ -153,7 +153,7 @@ function scr_player_mach2()
 		}
 	}
 	else if grounded && scr_solidwall(x + hsp, y) && (!place_meeting(x + hsp, y, obj_destructibles) or character == "V")
-	&& ((!scr_slope() && !place_meeting(x + sign(hsp), y, obj_slope)) or scr_solidwall(x, y - 32))
+	&& ((!scr_slope() && !place_meeting(x + sign(hsp), y, obj_slope)) or scr_solidwall(x, y - 1))
 	{
 		movespeed = 0
 		state = states.normal

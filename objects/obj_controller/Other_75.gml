@@ -1,3 +1,10 @@
+if os_type == os_switch
+{
+	// switch code here
+	
+	exit;
+}
+
 if async_load[? "event_type"] == "gamepad discovered"
 {
 	var ind = async_load[? "pad_index"];

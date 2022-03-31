@@ -13,6 +13,8 @@ if string_startswith(room_get_name(room), "strongcold")
 	sprite_index = spr_xmasbigblock
 
 depth = 1
-content = obj_null
+content = noone
 image_speed = 0.35;
 image_index = random(image_number);
+
+hsp2 = 0;

@@ -29,7 +29,8 @@ if drawing
 		
 		tamin = ini_read_real("TAmin", string(level), -1);
 		tasec = ini_read_real("TAsec", string(level), -1);
-		tachar = ini_read_string("TAchar", string(level), "???");
+		tadec = ini_read_real("TAdec", string(level), 0);
+		tachar = ini_read_string("TAchar", string(level), "?");
 		
 		toppin1 = ini_read_real("Toppin", string(level) + "1", 0);
 		toppin2 = ini_read_real("Toppin", string(level) + "2", 0);
@@ -53,7 +54,11 @@ if drawing
 		var middle = ":";
 		if tasec < 10
 			middle = ":0";
-		draw_text(x, y - 60, string(tamin) + middle + string(tasec) + " (" + tachar + ")")
+		
+		var precisertext = ".";
+		if tadec < 10
+			precisertext = ".0";
+		draw_text(x, y - 60, string(tamin) + middle + string(tasec) + precisertext + string(tadec) + " (" + tachar + ")");
 	}
 	
 	// setup
@@ -157,7 +162,7 @@ if drawing
 			if level == "strongcold"
 				draw_sprite(spr_xmastomatotoppin_idle, -1, x, y - 120)
 			else if sugary
-				draw_sprite(spr_toppincrack, -1, x, y - 120)
+				draw_sprite(spr_toppincrack, image_index + 1, x, y - 120)
 			else
 			{
 				if global.gameplay == 0

@@ -25,6 +25,7 @@ function scr_collide_player()
 			    }
 			}
 		}
+		x = floor(x);
 		
 		// Horizontal
 		if abs(_hsp) > 0
@@ -60,6 +61,7 @@ function scr_collide_player()
 			    }
 			}
 		}
+		y = floor(y);
 		
 		// Check if a wall is below me	
 		grounded |= scr_solid_player(x, y + 1)

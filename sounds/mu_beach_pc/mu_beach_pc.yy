@@ -17,8 +17,8 @@
   "soundFile": "mu_beach_pc.wav",
   "duration": 165.522629,
   "parent": {
-    "name": "pizza castle",
-    "path": "folders/Sounds/pizza castle.yy",
+    "name": "PIZZA CASTLE",
+    "path": "folders/Sounds/PIZZA CASTLE.yy",
   },
   "resourceVersion": "1.0",
   "name": "mu_beach_pc",

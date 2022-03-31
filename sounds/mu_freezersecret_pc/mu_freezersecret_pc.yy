@@ -18,7 +18,7 @@
   "duration": 71.4893646,
   "parent": {
     "name": "secret",
-    "path": "folders/Sounds/pizza castle/secret.yy",
+    "path": "folders/Sounds/PIZZA CASTLE/secret.yy",
   },
   "resourceVersion": "1.0",
   "name": "mu_freezersecret_pc",

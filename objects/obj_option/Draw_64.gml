@@ -101,13 +101,17 @@ if menu == 1
 	draw_text_colour(960 / 2 - 100, m2y + 175, lang_string("options.sound.machold"), c_white, c_white, c_white, c_white, (global.machsound == 1 ? 1 : 0.5));
 	draw_text_colour(960 / 2 + 100, m2y + 175, lang_string("options.sound.machnew"), c_white, c_white, c_white, c_white, (global.machsound == 0 ? 1 : 0.5));
 	
-	if global.loaded_pc
-	{
-		draw_text_colour(960 / 2, m2y + 250, lang_string("options.sound.game"), c_white, c_white, c_white, c_white, (optionselected == 3 ? 1 : 0.5));
+	draw_text_colour(960 / 2, m2y + 250, lang_string("options.sound.game"), c_white, c_white, c_white, c_white, (optionselected == 3 ? 1 : 0.5));
 	
-		draw_text_colour(960 / 2 - 100, m2y + 300, lang_string("options.sound.normal"), c_white, c_white, c_white, c_white, (global.musicgame == 0 ? 1 : 0.5));
-		draw_text_colour(960 / 2 + 100, m2y + 300, lang_string("options.sound.castle"), c_white, c_white, c_white, c_white, (global.musicgame == 1 ? 1 : 0.5));
+	var mus1pos = -100, mus2pos = 100;
+	if debug or global.musicgame == 2
+	{
+		mus1pos = -200;
+		mus2pos = 0;
+		draw_text_colour(960 / 2 + 200, m2y + 300, "HILARIOUS", c_white, c_white, c_white, c_white, (global.musicgame == 2 ? 1 : 0.5));
 	}
+	draw_text_colour(960 / 2 + mus1pos, m2y + 300, lang_string("options.sound.normal"), c_white, c_white, c_white, c_white, (global.musicgame == 0 ? 1 : 0.5));
+	draw_text_colour(960 / 2 + mus2pos, m2y + 300, lang_string("options.sound.castle"), c_white, c_white, c_white, c_white, (global.musicgame == 1 ? 1 : 0.5));
 }
 #endregion
 #region other option
@@ -116,7 +120,7 @@ if menu == 2
 	draw_set_font(global.font_small);
 	draw_set_halign(fa_left);
 	draw_set_valign(fa_top);
-		
+	
 	img += 1;
 	if img >= (60 * 60) * 10
 		img = 0;
@@ -151,6 +155,7 @@ if menu == 2
 	draw_text_colour(72, ybase + (16 * 16), lang_string("options.other.drpc"), c_white, c_white, c_white, c_white, (optionselected == 12 ? 1 : 0.5));
 	draw_text_colour(72, ybase + (16 * 17), lang_string("options.other.fpscount"), c_white, c_white, c_white, c_white, (optionselected == 13 ? 1 : 0.5));
 	draw_text_colour(72, ybase + (16 * 18), lang_string("options.other.camsmooth"), c_white, c_white, c_white, c_white, (optionselected == 14 ? 1 : 0.5));
+	draw_text_colour(72, ybase + (16 * 19), lang_string("options.other.inputdisplay"), c_white, c_white, c_white, c_white, (optionselected == 15 ? 1 : 0.5));
 	
 	switch optionselected
 	{
@@ -820,6 +825,20 @@ if menu == 2
 			draw_circle(450 + (global.camerasmoothing * 400), slidery + 8, 21, false);
 			draw_set_colour(c_white);
 			draw_circle(450 + (global.camerasmoothing * 400), slidery + 8, 20, false);
+			break;
+		
+		#endregion
+		#region input display
+		
+		case 15:
+			draw_set_colour(global.inputdisplay ? merge_colour(c_lime, c_white, 0.5) : c_white);
+			draw_set_font(global.bigfont);
+			draw_set_halign(fa_center);
+			draw_text(640 + random_range(-1, 1), 64, string_upper(lang_string("options.other.inputdisplay.title")));
+			
+			draw_set_font(global.font_small);
+			draw_set_colour(c_ltgray);
+			draw_text(640, 96, lang_string("options.other.inputdisplay.desc"));
 			break;
 		
 		#endregion

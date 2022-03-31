@@ -77,7 +77,7 @@ if (pause or pausefad == 2 or pausefad == 4)
 		
 			draw_text_auto(960 / 2 , 100, lang_string("pause.continue"),,, selected == 0 ? 1 : 0.5);
 			draw_text_auto(960 / 2, 150, lang_string("pause.retry"),,, selected == 1 ? 1 : 0.5);
-			draw_text_auto(960 / 2, 200, lang_string("pause.exit"),,, selected == 2 ? 1 : 0.5);
+			draw_text_auto(960 / 2, 200, gototitle ? lang_string("pause.title") : lang_string("pause.exit"),,, selected == 2 ? 1 : 0.5);
 			draw_text_auto(960 / 2, 250, lang_string("pause.options"),,, selected == 3 ? 1 : 0.5);
 			draw_sprite(spr_cursor, i, 960 / 2 - 42, 116 + 50 * selected);
 			

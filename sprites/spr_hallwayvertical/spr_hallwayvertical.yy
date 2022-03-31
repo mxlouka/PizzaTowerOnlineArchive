@@ -69,8 +69,8 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "debug blocks",
-    "path": "folders/Sprites/debug blocks.yy",
+    "name": "debug sprites",
+    "path": "folders/Sprites/debug sprites.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_hallwayvertical",

@@ -9,6 +9,8 @@ else if global.gameplay != 0
 	sprite_index = spr_bigbreakableescape_NEW
 
 depth = 1
-content = obj_null
+content = noone
 image_speed = 0.35;
 image_index = random(image_number);
+
+hsp2 = 0;

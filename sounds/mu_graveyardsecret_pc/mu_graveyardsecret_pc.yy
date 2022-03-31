@@ -18,7 +18,7 @@
   "duration": 72.03458,
   "parent": {
     "name": "secret",
-    "path": "folders/Sounds/pizza castle/secret.yy",
+    "path": "folders/Sounds/PIZZA CASTLE/secret.yy",
   },
   "resourceVersion": "1.0",
   "name": "mu_graveyardsecret_pc",

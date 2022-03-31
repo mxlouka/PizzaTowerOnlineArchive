@@ -1087,7 +1087,7 @@ function scr_characterspr(char = character)
 				spr_Ladder = spr_playerSP_ladder
 				spr_laddermove = spr_playerSP_laddermove
 				spr_ladderdown = spr_playerSP_ladderdown
-				spr_keyget = spr_playerSP_keyget
+				spr_keyget = spr_playerSP_keyidle
 				spr_keyget_ss = spr_playerSP_keyget_ss
 				spr_crouchslip = spr_playerSP_crouchslip
 				
@@ -1270,9 +1270,9 @@ function scr_characterspr(char = character)
 				spr_parry2 = spr_playerSP_parry2;
 				spr_parry3 = spr_playerSP_parry3;
 				
-				spr_Current = spr_playerSP_current;
+				spr_Current = spr_player_current;
 				spr_suplexcancel = spr_player_suplexcancel;
-				spr_suplexbump = spr_playerSP_suplexbump;
+				spr_suplexbump = spr_player_suplexbump;
 				
 				spr_firemouth = spr_player_firemouth;
 				spr_firemouthintro = spr_player_firemouthintro;

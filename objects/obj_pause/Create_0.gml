@@ -24,3 +24,6 @@ pausesurf = -1;
 
 character = "P";
 paletteselect = 1;
+
+gototitle = false;
+gotoroom = -1;

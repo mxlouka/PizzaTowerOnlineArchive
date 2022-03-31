@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "sprite1225",
-    "path": "sprites/sprite1225/sprite1225.yy",
+    "name": "spr_doorANY",
+    "path": "sprites/spr_doorANY/spr_doorANY.yy",
   },
   "solid": false,
   "visible": false,

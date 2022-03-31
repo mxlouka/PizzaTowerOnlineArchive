@@ -189,7 +189,7 @@ function gml_std_Std_parseInt(l_value){
 	if(l_n&&l_n==string_length(l_value)-(string_ord_at(l_value,1)==45))return real(l_value); else return undefined;
 }
 
-if(live_enabled)
+//if(live_enabled)
 function gml_std_string_pos_ext_haxe(l_this,l_sub,l_startPos){
 	if(l_startPos==undefined)l_startPos=0;
 	if(false)show_debug_message(argument[1]);
@@ -210,7 +210,7 @@ function gml_std_string_pos_last(l_this,l_sub,l_startPos){
 	return l_out;
 }
 
-if(live_enabled)
+//if(live_enabled)
 function gml_std_string_split(l_this,l_del){
 	var l_str=l_this;
 	var l_num=0;
@@ -231,7 +231,7 @@ function gml_std_string_substr(l_this,l_pos,l_len){
 	if(l_len==undefined)return string_delete(l_this,1,l_pos); else return string_copy(l_this,1+l_pos,l_len);
 }
 
-if(live_enabled)
+//if(live_enabled)
 function gml_std_string_substring(l_this,l_start,l_end){
 	if(false)show_debug_message(argument[1]);
 	if(l_end==undefined){
@@ -258,7 +258,7 @@ function gml_std_StringTools_startsWith(l_s,l_start){
 	return string_length(l_s)>=l_n&&string_copy(l_s,1,l_n)==l_start;
 }
 
-if(live_enabled)
+//if(live_enabled)
 function gml_std_StringTools_trim(l_s){
 	var l_char;
 	var l_len=string_length(l_s);
@@ -543,7 +543,7 @@ function gml_source(l_name,l_code,l_main,l_opt)constructor{
 	static __class__=mt_gml_source;
 }
 
-if(live_enabled)
+//if(live_enabled)
 function gml_parse_name(l_s,l_i){
 	var l_c=string_ord_at(l_s,l_i+1);
 	if(l_c>=97&&l_c<=122||l_c>=65&&l_c<=90||l_c==95){
@@ -557,8 +557,9 @@ function gml_parse_name(l_s,l_i){
 	} else throw gml_std_haxe_Exception_thrown("API.parseName: wrong format in "+l_s);
 }
 
-if(live_enabled)
-function gml_func_add(l_signature,l_func){
+//if(live_enabled)
+function gml_func_add(l_signature,l_func)
+{
 	var l_s=l_signature;
 	var l_p0=gml_std_string_pos_ext_haxe(l_s,"(")+1;
 	var l_p1=gml_std_string_pos_ext_haxe(l_s,")");
@@ -1239,7 +1240,7 @@ function gml_std_haxe_Exception_caught(l_value){
 	return l_e;
 }
 
-if(live_enabled)
+//if(live_enabled)
 function gml_std_haxe_Exception_thrown(l_value){
 	if(is_struct(l_value)&&variable_struct_get(l_value,"__exception__")==true)return l_value;
 	var l_e={
@@ -1599,7 +1600,7 @@ function gml_type_check_init(){
 	return l_r;
 }
 
-if(live_enabled)
+//if(live_enabled)
 function gml_type_check_any(l_v){
 	return "";
 }

@@ -30,9 +30,4 @@ with instance_place(x, y - 1, obj_player1)
     }
 }
 with instance_place(x, y - 1, obj_baddie)
-{
-	if object_index != obj_pizzaballOLD
-		instance_destroy();
-	else
-		event_perform(ev_collision, obj_boilingsauce);
-}
+	event_perform(ev_collision, obj_boilingsauce);

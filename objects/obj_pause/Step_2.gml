@@ -1,6 +1,13 @@
 if live_call()
 	return live_result;
 
+gototitle = room == hub_room1 or room == cowboytask or room == Titlescreen or room == Scootertransition;
+with obj_player
+{
+	if place_meeting(x, y, obj_startgate) && state == states.victory
+		gototitle = false;
+}
+
 if check_online()
 	gms_self_set("pause", pause);
 
@@ -45,6 +52,7 @@ if pause && !instance_exists(obj_option)
 	if instance_exists(obj_pausefadeout) && !obj_pausefadeout.fadein
 		exit;
 	
+	// move
     if key_down2 && selected < 3
 	{
         selected += 1
@@ -56,46 +64,77 @@ if pause && !instance_exists(obj_option)
 		selected -= 1
 		scr_soundeffect(sfx_step)
     }
-
+	
+	// RESTART LEVEL
 	if key_jump && selected == 1
 	{
 		if !global.snickchallenge
 		{
-			var roomname = room_get_name(room)
-
+			var roomname = room_get_name(room);
+			gotoroom = -1;
+			
 			if string_startswith(roomname, "entrance")
-			or string_startswith(roomname, "medieval")
-			or string_startswith(roomname, "chateau")
-			or string_startswith(roomname, "ruin")
-			or string_startswith(roomname, "dungeon")
-			or string_startswith(roomname, "floor1_")
-			or string_startswith(roomname, "floor2_")
-			or string_startswith(roomname, "floor3_")
-			or string_startswith(roomname, "floor4_")
-			or string_startswith(roomname, "floor5_")
-			or string_startswith(roomname, "golf")
-			or string_startswith(roomname, "graveyard")
-			or string_startswith(roomname, "farm")
-			or string_startswith(roomname, "ufo")
-			or string_startswith(roomname, "dragonlair")
-			or string_startswith(roomname, "strongcold")
-			or string_startswith(roomname, "beach")
-			or string_startswith(roomname, "forest")
-			or string_startswith(roomname, "kungfu")
-			or string_startswith(roomname, "minigolf")
-			or string_startswith(roomname, "war")
-			or string_startswith(roomname, "etb")
-			or string_startswith(roomname, "ancient")
-			or string_startswith(roomname, "grinch")
-			or string_startswith(roomname, "cotton")
-			or string_startswith(roomname, "jawbreaker")
-			or room == custom_lvl_room
+				gotoroom = entrance_1;
+			else if string_startswith(roomname, "medieval")
+				gotoroom = medieval_1;
+			if string_startswith(roomname, "chateau")
+				gotoroom = chateau_1;
+			else if string_startswith(roomname, "ruin")
+				gotoroom = ruin_1;
+			else if string_startswith(roomname, "dungeon")
+				gotoroom = dungeon_1;
+			else if string_startswith(roomname, "floor1_")
+				gotoroom = floor1_room0;
+			else if string_startswith(roomname, "floor2_")
+				gotoroom = floor2_room9;
+			else if string_startswith(roomname, "floor3_")
+				gotoroom = floor3_room0;
+			else if string_startswith(roomname, "floor4_")
+				gotoroom = floor4_room0;
+			else if string_startswith(roomname, "floor5_")
+				gotoroom = floor5_room1;
+			else if string_startswith(roomname, "golf_")
+				gotoroom = golf_room1;
+			else if string_startswith(roomname, "graveyard")
+				gotoroom = graveyard_1;
+			else if string_startswith(roomname, "farm")
+				gotoroom = farm_1;
+			else if string_startswith(roomname, "ufo")
+				gotoroom = ufo_1;
+			else if string_startswith(roomname, "dragonlair")
+				gotoroom = dragonlair_1;
+			else if string_startswith(roomname, "strongcold")
+				gotoroom = strongcold_10;
+			else if string_startswith(roomname, "beach")
+				gotoroom = beach_1;
+			else if string_startswith(roomname, "forest")
+				gotoroom = forest_1;
+			else if string_startswith(roomname, "kungfu")
+				gotoroom = kungfu_1;
+			else if string_startswith(roomname, "war")
+				gotoroom = war_1;
+			else if string_startswith(roomname, "etb")
+				gotoroom = etb_1;
+			else if string_startswith(roomname, "ancient")
+				gotoroom = ancient_1;
+			else if string_startswith(roomname, "grinch")
+				gotoroom = grinch_1;
+			else if string_startswith(roomname, "cotton")
+				gotoroom = cotton_1;
+			else if string_startswith(roomname, "jawbreaker")
+				gotoroom = jawbreaker_1;
+			else if string_startswith(roomname, "sanctum")
+				gotoroom = sanctum_1;
+			else if room == custom_lvl_room
+				gotoroom = room;
+			
+			if gotoroom != -1
 			{
 				instance_activate_all();
 				alarm[0] = 1;
 			}
 			else
-				scr_soundeffect(sfx_enemyprojectile)
+				scr_soundeffect(sfx_enemyprojectile);
 		}
 		else if global.snickchallenge or global.snickrematch
 		{
@@ -103,19 +142,22 @@ if pause && !instance_exists(obj_option)
 			alarm[2] = 1;
 		}
 	}
-
+	
+	// EXIT TO TITLE
     if key_jump && selected == 2
 	{
 		instance_activate_all();
 		alarm[1] = 1;
     }
-
+	
+	// RESUME
     if key_jump && selected == 0
 	{
         if !instance_exists(obj_pausefadeout)
 			instance_create(x, y, obj_pausefadeout);
     }
 	
+	// OPTIONS
 	if key_jump && selected == 3 && !instance_exists(obj_option)
 	{
 		scr_soundeffect(sfx_step);
@@ -126,7 +168,7 @@ if pause && !instance_exists(obj_option)
 		}
     }
 	
-	// konami code
+	// konami code for old golf level funmode
 	if alarm[0] == -1 && alarm[1] == -1 && alarm[2] == -1 && !global.funmode && string_startswith(room_get_name(room), "golf") && !global.timeattack
 	{
 		switch keyboard_lastkey

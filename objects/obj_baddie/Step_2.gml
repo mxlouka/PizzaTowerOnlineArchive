@@ -2,6 +2,23 @@
 if global.gameplay == 0 && hp > 1
 	hp = 1;
 
+// attempt to resolve instance region issue
+if room == custom_lvl_room
+{
+	if boundbox && !place_meeting(x, y, obj_baddiecollisionbox)
+	{
+		var tryfix = true;
+		with obj_baddiecollisionbox
+		{
+			if baddieID == other.id
+				tryfix = false;
+		}
+		
+		if tryfix
+			boundbox = false;
+	}
+}
+
 if thrown && state != states.hit
 {
 	with obj_destructibles
@@ -9,7 +26,7 @@ if thrown && state != states.hit
 		if place_meeting(x - other.hsp, y, other)
 		{
 			if scr_stylecheck(2)
-				hsp2 = other.hsp / 2;
+				hsp2 = other.hsp / 3;
 			instance_destroy();
 		}
 	}

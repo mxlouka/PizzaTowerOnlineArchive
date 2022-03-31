@@ -10,9 +10,9 @@ if !instance_exists(obj_keyconfig) && !instance_exists(obj_erasegame)
 		omax = 3;
 	
 	if menu == 1
-		omax = 2 + global.loaded_pc;
+		omax = 3;
 	if menu == 2
-		omax = 14;
+		omax = 15;
 	
 	var mov = -(key_up2 or keyboard_check_pressed(vk_up)) + (key_down2 or keyboard_check_pressed(vk_down));
 	var movh = -(key_up or keyboard_check(vk_up)) + (key_down or keyboard_check(vk_down));
@@ -287,30 +287,15 @@ else if menu == 1
 	// tower and castle
 	if optionselected == 3
 	{
-		if (key_right2 or keyboard_check_pressed(vk_right)) && global.musicgame == 0
+		var mgprev = global.musicgame;
+		if (key_right2 or keyboard_check_pressed(vk_right)) && global.musicgame < 1 + debug
+			global.musicgame++;
+		if (-key_left2 or keyboard_check_pressed(vk_left)) && global.musicgame > 0
+			global.musicgame--;
+		
+		// refresh music
+		if global.musicgame != mgprev
 		{
-			global.musicgame = 1;
-			
-			if instance_exists(obj_music)
-			{
-				audio_stop_sound(global.music);
-				audio_stop_sound(music);
-				
-				with obj_music
-					event_perform(ev_other, ev_room_start);
-				music = global.music;
-			}
-			else
-			{
-				audio_stop_sound(global.music);
-				global.music = -4;
-				scr_soundeffect(sfx_step);
-			}
-		}
-		if (-key_left2 or keyboard_check_pressed(vk_left)) && global.musicgame == 1
-		{
-			global.musicgame = 0;
-			
 			if instance_exists(obj_music)
 			{
 				audio_stop_sound(global.music);
@@ -526,6 +511,16 @@ else if menu == 2 && !instance_exists(obj_erasegame)
 		global.camerasmoothing = clamp(global.camerasmoothing + move, 0, 1);
 	}
 	
+	// input display
+	if optionselected == 15
+	{
+		if select
+		{
+			global.inputdisplay = !global.inputdisplay;
+			scr_soundeffect(sfx_step);
+		}
+	}
+	
 	//Finish
 	if (key_slap2 or keyboard_check_pressed(vk_escape)) && !instance_exists(obj_keyconfig)
 	{
@@ -553,6 +548,7 @@ else if menu == 2 && !instance_exists(obj_erasegame)
 		ini_write_real("online", "showfps", global.showfps)
 		ini_write_real("online", "camerasmoothing", global.camerasmoothing)
 		ini_write_real("online", "pauseblur", global.pauseblur)
+		ini_write_real("online", "inputdisplay", global.inputdisplay)
 		ini_close();
 		
 		if obj_drpc_updater.running != global.richpresence

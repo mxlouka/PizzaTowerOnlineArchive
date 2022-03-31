@@ -17,8 +17,8 @@
   "soundFile": "mu_null_pc.ogg",
   "duration": 44.74576,
   "parent": {
-    "name": "pizza castle",
-    "path": "folders/Sounds/pizza castle.yy",
+    "name": "PIZZA CASTLE",
+    "path": "folders/Sounds/PIZZA CASTLE.yy",
   },
   "resourceVersion": "1.0",
   "name": "mu_null_pc",

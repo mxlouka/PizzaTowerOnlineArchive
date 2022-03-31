@@ -306,6 +306,10 @@ if instance_exists(player) && player.state != states.timesup && player.state != 
 				var offset = 64;
 				instance_activate_region(player.cam.x - offset, player.cam.y - offset, player.cam_width + offset, player.cam_height + offset, true);
 			}
+			else
+			{
+				instance_activate_object(obj_baddiecollisionbox);
+			}
 		}
 		else
 			camera_set_view_pos(cam_view, camera_get_view_x(cam_view) + shkh, camera_get_view_y(cam_view) + shkv);

@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "sprite1030",
-    "path": "sprites/sprite1030/sprite1030.yy",
+    "name": "spr_secretbigblock",
+    "path": "sprites/spr_secretbigblock/spr_secretbigblock.yy",
   },
   "solid": false,
   "visible": false,

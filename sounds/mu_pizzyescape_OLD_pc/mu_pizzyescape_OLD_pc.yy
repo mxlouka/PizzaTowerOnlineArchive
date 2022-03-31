@@ -17,8 +17,8 @@
   "soundFile": "mu_pizzyescape_OLD_pc.ogg",
   "duration": 200.028961,
   "parent": {
-    "name": "pizza castle",
-    "path": "folders/Sounds/pizza castle.yy",
+    "name": "PIZZA CASTLE",
+    "path": "folders/Sounds/PIZZA CASTLE.yy",
   },
   "resourceVersion": "1.0",
   "name": "mu_pizzyescape_OLD_pc",

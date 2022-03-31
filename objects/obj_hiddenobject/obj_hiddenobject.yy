@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "sprite1030",
-    "path": "sprites/sprite1030/sprite1030.yy",
+    "name": "spr_hiddenobject",
+    "path": "sprites/spr_hiddenobject/spr_hiddenobject.yy",
   },
   "solid": false,
   "visible": false,

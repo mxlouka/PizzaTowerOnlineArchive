@@ -57,18 +57,19 @@ function scr_savescore(namestring)
 
 function scr_savetatime(namestring)
 {
-	if ini_read_real("TAmin", namestring, -1) == -1
-	or ((ini_read_real("TAmin", namestring, -1) * 60) + ini_read_real("TAsec", namestring, -1) > (global.taminutes * 60) + global.taseconds)
+	if ini_read_real("TAmin", namestring, -1) == -1 // no record set yet
+	or ((ini_read_real("TAmin", namestring, 0) * 60) + ini_read_real("TAsec", namestring, 0) + (ini_read_real("TAdec", namestring, 0) / 100) > (global.taminutes * 60) + global.taseconds + (global.tadecimal / 100))
 	{
 		ini_write_real("TAsec", namestring, global.taseconds);
 		ini_write_real("TAmin", namestring, global.taminutes);
+		ini_write_real("TAdec", namestring, global.tadecimal);
 		
 		var char = string(obj_player.character);
 		if char == "N" && obj_player.noisetype == 1
 			char += "S";
 		if global.gameplay == 2
 			char += "-REMIX";
-		else if global.gameplay != 0
+		else if global.gameplay == 1
 			char += "-NEW";
 				
 		ini_write_string("TAchar", namestring, char);

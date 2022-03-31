@@ -1,5 +1,9 @@
 function scr_secretdebris(debris = true, blend = c_white)
 {
+	var hspapply = 0;
+	if variable_instance_exists(id, "hsp2")
+		hspapply = hsp2;
+	
 	var lay_id = get_layer("Tiles_1");
 	if lay_id == -1
 	{
@@ -39,6 +43,7 @@ function scr_secretdebris(debris = true, blend = c_white)
 					sprite_index = spr_secretdebris
 		            tile_dataid = data2
 		            tile_dataset = tilemap_get_tileset(map_id2)
+					hsp2 = hspapply
 				}
 			}
 			else if data != 0 && data != -1
@@ -48,6 +53,7 @@ function scr_secretdebris(debris = true, blend = c_white)
 					sprite_index = spr_secretdebris
 		            tile_dataid = data
 		            tile_dataset = tilemap_get_tileset(map_id)
+					hsp2 = hspapply
 				}
 			}
 			else with instance_create(x + sprite_width / 2, y + sprite_height / 2, obj_debris)
@@ -57,6 +63,7 @@ function scr_secretdebris(debris = true, blend = c_white)
 					sprite_index = spr_secretdebris;
 					image_blend = blend;
 				}
+				hsp2 = hspapply
 				image_xscale = abs(other.image_xscale);
 				image_yscale = abs(other.image_yscale);
 			}
@@ -66,6 +73,10 @@ function scr_secretdebris(debris = true, blend = c_white)
 
 function scr_secretbigdebris(debris = true, blend = c_white)
 {
+	var hspapply = 0;
+	if variable_instance_exists(id, "hsp2")
+		hspapply = hsp2;
+	
 	var lay_id = get_layer("Tiles_1");
 	var lay_id2 = get_layer("Tiles_2");
 	

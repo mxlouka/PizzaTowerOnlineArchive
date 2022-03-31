@@ -80,8 +80,9 @@ function scr_enemy_walk()
 	// on platform and about to fall, turn around
 	if object_index != obj_ancho && object_index != obj_miniufo
 	{
-		if !scr_solid(x + hsp * 5, y + 30) && !scr_solid(x + hsp * 5, y + 1)
-		&& !place_meeting(x + hsp, y + 30, obj_slope)
+		if (!scr_solid(x + hsp * 5, y + 30) && !scr_solid(x + hsp * 5, y + 1)
+		&& !place_meeting(x + hsp, y + 30, obj_slope))
+		or place_meeting(x + hsp * 5, y + 30, obj_water)
 		{
 			if movespeed > 0 && grounded
 			{

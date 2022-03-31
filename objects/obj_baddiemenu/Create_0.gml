@@ -1,5 +1,5 @@
 image_speed = 0
-baddieid = obj_null
+baddieid = noone
 content = noone
 refresh = 20
 depth = 1

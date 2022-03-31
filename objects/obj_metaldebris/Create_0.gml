@@ -6,3 +6,4 @@ grav = 0.4
 image_angle = random_range(0, 360)
 
 depth = -1
+hsp2 = 0;

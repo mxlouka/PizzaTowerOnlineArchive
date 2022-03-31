@@ -11,13 +11,16 @@ if onlinemode != global.onlinemode && !debug
 
 // hub outside barrier
 if !global.timeattack && global.modifier == -1
-	instance_deactivate_object(inst_4FF95D36);
+{
+	if instance_exists(tabarrier)
+		instance_deactivate_object(tabarrier);
+}
 else
 {
-	instance_activate_object(inst_4FF95D36);
-	if instance_exists(inst_4FF95D36)
+	instance_activate_object(tabarrier);
+	if instance_exists(tabarrier)
 	{
-		with obj_player while place_meeting(x, y, inst_4FF95D36)
+		with obj_player while place_meeting(x, y, other.tabarrier)
 			x++;
 	}
 }

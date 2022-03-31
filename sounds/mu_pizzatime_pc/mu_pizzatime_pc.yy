@@ -17,8 +17,8 @@
   "soundFile": "mu_pizzatime_pc.ogg",
   "duration": 227.3231,
   "parent": {
-    "name": "pizza castle",
-    "path": "folders/Sounds/pizza castle.yy",
+    "name": "PIZZA CASTLE",
+    "path": "folders/Sounds/PIZZA CASTLE.yy",
   },
   "resourceVersion": "1.0",
   "name": "mu_pizzatime_pc",

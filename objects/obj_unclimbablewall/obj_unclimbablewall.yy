@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "sprite1020",
-    "path": "sprites/sprite1020/sprite1020.yy",
+    "name": "spr_noclimbwall",
+    "path": "sprites/spr_noclimbwall/spr_noclimbwall.yy",
   },
   "solid": false,
   "visible": false,

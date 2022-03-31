@@ -24,6 +24,8 @@ if ds_list_find_index(global.saveroom, id) = -1
 				sprite_index = spr_bigdebris;
 			else
 				sprite_index = spr_debris_NEW;
+			
+			hsp2 = other.hsp2;
 		}
 	}
 	

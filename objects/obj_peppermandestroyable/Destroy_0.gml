@@ -7,6 +7,7 @@ if ds_list_find_index(global.saveroom, id) = -1
 		
 		sprite_index = spr_secretdebris;
 		image_blend = $0030E0;
+		hsp2 = other.hsp2;
 	}
 
 	scr_soundeffect(sfx_breakblock1, sfx_breakblock2)
@@ -18,4 +19,3 @@ if ds_list_find_index(global.saveroom, id) = -1
 	data = tile_set_empty(data)
 	tilemap_set_at_pixel(map_id, data, x, y);
 }
-

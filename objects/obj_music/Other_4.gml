@@ -20,7 +20,7 @@ var musplay = -1;
 
 #region antonball
 
-if scr_checkskin(checkskin.p_anton) && global.loaded_anton
+if scr_checkskin(checkskin.p_anton)
 {
 	if !global.panic && !global.snickchallenge
 	{

@@ -41,11 +41,7 @@ function scr_collide_destructibles()
 			{
 				with instance_place(x + hsp, y, obj_destructibles)
 				{
-					if !inst_relation(self, obj_bigdestructibles) or other.state != states.handstandjump
-					{
-						
-					}
-					else
+					if inst_relation(self, obj_bigdestructibles) && other.state == states.handstandjump
 					{
 						// grab on big blocks
 						with other
@@ -71,7 +67,7 @@ function scr_collide_destructibles()
 						}
 					}
 					if scr_stylecheck(2)
-						hsp2 = other.hsp / 2;
+						hsp2 = other.hsp / 3;
 					instance_destroy();
 				}
 				
@@ -172,14 +168,25 @@ function scr_collide_destructibles()
 		// Destroy tnt block
 		var block = instance_place(x + hsp, y, obj_tntblock);
 		if block && ((state == states.firemouth && global.gameplay != 0) or state == states.handstandjump)
-			instance_destroy(block);
+		{
+			with block
+			{
+				if scr_stylecheck(2)
+					hsp2 = other.hsp / 3;
+				instance_destroy();
+			}
+		}
 		
 		// Roll blocks
 		if (state == states.tumble or ((state == states.mach2 or state == states.mach3) && sprite_index == spr_snick_tumble))
 		&& place_meeting(x + hsp, y, obj_rollblock)
 		{
 			with instance_place(x + hsp, y, obj_rollblock)
+			{
+				if scr_stylecheck(2)
+					hsp2 = other.hsp / 3;
 				instance_destroy();
+			}
 		}
 	}
 }
