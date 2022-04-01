@@ -1,4 +1,4 @@
 if global.modifier == mods.no_toppings
-	sprite_index = sprite1034;
+	sprite_index = spr_temporarysquare;
 else
-	sprite_index = sprite1033;
+	sprite_index = spr_temporarysquare;
