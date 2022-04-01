@@ -172,7 +172,7 @@ function lang_load(lang)
 		ds_map_add(global.langmap, "options.other.screenshader.desc", "Full screen shader effect.");
 		
 		ds_map_add(global.langmap, "options.other.inputdisplay.title", "INPUT DISPLAY");
-		ds_map_add(global.langmap, "options.other.inputdisplay.desc", "Shows what keys you are pressing on the GUI.");
+		ds_map_add(global.langmap, "options.other.inputdisplay.desc", "Shows what keys you are pressing in the HUD.");
 		
 		// manual
 		ds_map_add(global.langmap, "manual.welcome", "Welcome to the Pizza Tower ONLINE manual!");
