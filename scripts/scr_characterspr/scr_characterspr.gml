@@ -1087,8 +1087,8 @@ function scr_characterspr(char = character)
 				spr_Ladder = spr_playerSP_ladder
 				spr_laddermove = spr_playerSP_laddermove
 				spr_ladderdown = spr_playerSP_ladderdown
-				spr_keyget = spr_playerSP_keyidle
-				spr_keyget_ss = spr_playerSP_keyget_ss
+				spr_keyget = spr_playerSP_keyget
+				spr_keyget_ss = spr_playerSP_keyidle
 				spr_crouchslip = spr_playerSP_crouchslip
 				
 				spr_mach1 = spr_playerSP_mach1

@@ -63,6 +63,7 @@ switch sel[1]
 			["DR.B.B.", "Snooping as usual, I see."],
 			["SALAD", "You fat bald bastard you piece of subhuman trash\n2000 years of constant human evolution to create a hairless fucking coconut."],
 			["BLACKFACE", "That's not nice."],
+			["NOIK", "He's canon."],
 		];
 		break;
 	

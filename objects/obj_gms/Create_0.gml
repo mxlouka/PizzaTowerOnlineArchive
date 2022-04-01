@@ -34,7 +34,7 @@ gms_settings_declare_syncable_object(obj_baddiegibs);
 */
 
 // settings
-gameversion = 8.3;
+gameversion = 8.5;
 gms_settings(true, gameversion, obj_player1, obj_otherplayer);
 
 // scripts
@@ -49,7 +49,6 @@ gms_optimize_set_spc(spc_none); // don't smooth out movement
 global.__chat_bubbles = global.chatbubbles;
 global.showcollision = false;
 global.minichat = false;
-global.eatery = false;
 chatopen = false;
 disconnected = false;
 

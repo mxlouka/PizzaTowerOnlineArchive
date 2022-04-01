@@ -25,16 +25,13 @@ if keyboard_check_pressed(global.__chat_submitkey) && global.__chat_typing
 			
 			if !string_startswith(str, "/ban ")
 			{
-				message = "this code originally handled sending chat messages to the pto server, but has since been removed";
-				
-				/*
 				// emojis
 				var strnew = string_replace_all(str, ":", "\\:");
-				strnew = string_replace_all(strnew, "\\:fedora\\:", "<:fedora:832333701886246922>");
-				strnew = string_replace_all(strnew, "\\:awful\\:", "<:awful:845378459206811729>");
-				strnew = string_replace_all(strnew, "\\:trolled\\:", "<:ptotroll:845378529738620965>");
-				strnew = string_replace_all(strnew, "\\:really\\:", "<:really:832333701882052669>");
-				strnew = string_replace_all(strnew, "\\:nice\\:", "<:nice:832333702184042577>");
+				strnew = string_replace_all(strnew, "\\:fedora\\:", "<:fedora:955553861861539840>");
+				strnew = string_replace_all(strnew, "\\:awful\\:", "<:awful:959564092597755924>");
+				strnew = string_replace_all(strnew, "\\:trolled\\:", "<:trolled:959564092610342992>");
+				strnew = string_replace_all(strnew, "\\:really\\:", "<:really:955553862054477945>");
+				strnew = string_replace_all(strnew, "\\:nice\\:", "<:nice:955553864235503616>");
 				
 				// sacrifice emojis for string length
 				if string_length(strnew) <= 2000
@@ -48,7 +45,7 @@ if keyboard_check_pressed(global.__chat_submitkey) && global.__chat_typing
 				if avatar == "" or string(avatar) == "0"
 				{
 					// character avatar
-					switch obj_player1.character
+					switch obj_player.character
 					{
 						default:
 							avatar = "https://cdn.discordapp.com/app-assets/828220751810265098/835452546835021825.png";
@@ -69,6 +66,12 @@ if keyboard_check_pressed(global.__chat_submitkey) && global.__chat_typing
 						case "SP":
 							avatar = "https://cdn.discordapp.com/app-assets/828220751810265098/835452547073703956.png";
 							break;
+						case "SN":
+							avatar = "https://cdn.discordapp.com/app-assets/828220751810265098/870747262094020668.png";
+							break;
+						case "PP":
+							avatar = "https://cdn.discordapp.com/app-assets/828220751810265098/954737210811383861.png";
+							break;
 					}
 				}
 			
@@ -85,10 +88,10 @@ if keyboard_check_pressed(global.__chat_submitkey) && global.__chat_typing
 				var header = ds_map_create();
 				ds_map_add(header, "Content-Type", "application/json"); // "multipart/form-data" for files
 				
-				var web = loydecode(@"ivwtx@67ms~o|s>tCvG}PZXTYW\`Z_]`]gfddeicm{t³l¬»x¼¼Á¥¯ÃÆ¶¨¡¼ÏÔ½ÒÏØ¶Ö«²ßßÒãÓµ¹ÙµµÛ¢ÊÎÝèÖ¿");
+				// *please* don't raid this.
+				var web = base64_decode("aHR0cHM6Ly9kaXNjb3JkLmNvbS9hcGkvd2ViaG9va3MvOTU5NTE1MzE0MzY4OTQyMTMwL3Rqc0thQTRTLXNqNkx1c0VYaEVzZEI2ekpJLUxUQkg0U3dqSTlZR3JFZWUzcEkwdXdVdUhzNm1VbTQ0RE1Yd1ZZekFM");
 				http_request(web, "POST", header, data);
 				ds_map_destroy(header);
-				*/
 			}
 			
 			#endregion

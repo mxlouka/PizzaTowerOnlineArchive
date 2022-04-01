@@ -12,3 +12,4 @@ else if point_in_camera(x, y, view_camera[0])
 
 if obj_pause.pause
 	instance_destroy();
+

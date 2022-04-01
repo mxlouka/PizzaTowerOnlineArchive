@@ -36,7 +36,10 @@ function scr_player_taunt()
 				image_speed = 0
 			}
 			with instance_create(x, y, obj_taunteffect)
+			{
 				player = other.id;
+				depth = other.depth + 1;
+			}
 		}
 	}
 }

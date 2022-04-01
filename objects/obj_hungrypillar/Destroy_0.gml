@@ -130,7 +130,7 @@ if room == rm_editor exit;
 			
 			case "beach_13":
 				global.minutes = 3
-				global.seconds = 30
+				global.seconds = 59
 				break
 			
 			case "forest_5":

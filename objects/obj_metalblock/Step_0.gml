@@ -11,7 +11,7 @@ with obj_player
 	}
 	
 	// body slam
-	if place_meeting(x, y + 1, other) && ((state == states.freefall && freefallsmash >= 10) or state == states.knightpep)
-	&& room != etb_7
+	if place_meeting(x, y + 1, other) && ((state == states.freefall && freefallsmash >= 10 && room != etb_7) or state == states.knightpep)
 		instance_destroy(other);
 }
+

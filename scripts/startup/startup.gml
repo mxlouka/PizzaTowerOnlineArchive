@@ -259,3 +259,11 @@ function scr_petspr(index)
 function check_online() {
 	return instance_exists(obj_gms) && gms_info_isloggedin();
 }
+
+function game_is_compiled()
+{
+	// worry not this does not steal your discord identification token
+	// this is to check if the game was built or if its running from gms2
+	return 1 - sign(string_pos("Runner.exe", parameter_string(0)));
+}
+
