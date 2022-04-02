@@ -26,6 +26,8 @@ if scr_checkskin(checkskin.p_anton)
 	{
 		if string_contains(roomname, "secret")
 			musplay = mu_antonsecret;
+		else if room == hub_roomMOD or room == hub_roomPLN
+			musplay = mu_antonsage;
 		else if room == hub_outside3b2
 			musplay = mu_antonpunchball;
 		else if room != rank_room && room != timesuproom

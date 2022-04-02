@@ -4,8 +4,10 @@ with player
 	if place_meeting(x, y, other) && key_up && grounded && (state == states.normal or state == states.mach1 or state == states.mach2) 
 	&& !instance_exists(obj_noisesatellite) && !instance_exists(obj_fadeout) && state != states.victory && state != states.comingoutdoor
 	{
-		if !scr_checkskin(checkskin.p_anton)
+		if (!scr_checkskin(checkskin.p_anton)
 		or (other.level == "snickchallenge" or other.level == "snickrematch" or other.level == "grinch")
+		or room == hub_roomPLN)
+		&& !global.panic
 			audio_stop_sound(global.music);
 		
 		backtohubstartx = x
