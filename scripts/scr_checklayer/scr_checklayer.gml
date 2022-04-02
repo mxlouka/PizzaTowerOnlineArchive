@@ -5,3 +5,4 @@ function scr_depthcheck()
 		return true;
 	return false;
 }
+

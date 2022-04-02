@@ -1557,9 +1557,12 @@ function scr_characterspr(char = character)
 				spr_slipbanan2 = spr_playerPP_slipbanan2;
 				
 				spr_firemouth = spr_playerPP_firemouth;
-				spr_firemouthshoot = spr_playerPP_firemouth;
+				spr_firemouthshoot = spr_playerPP_firemouthshoot;
+				spr_firemouthintro = spr_playerPP_firemouthintro;
+				spr_firemouthend = spr_playerPP_firemouthend;
 				
 				spr_cheeseballed = spr_playerPP_cheeseball;
+				spr_rideweenie = spr_playerPP_weeniemount;
 				
 				snd_fireass = sfx_scream5_PP;
 				break;
