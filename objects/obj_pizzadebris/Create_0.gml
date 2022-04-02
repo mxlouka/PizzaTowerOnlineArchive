@@ -5,4 +5,6 @@ hsp = random_range(-4, 4)
 grav = 0.4
 image_angle = random_range(1, 270)
 
-depth =-1
+depth = -1
+momentum = [0, 0]
+

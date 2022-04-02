@@ -426,3 +426,4 @@ if forcefadeoff != -1
 	forcefadeoff = -1;
 }
 audio_sound_pitch(global.music, musicpitch);
+

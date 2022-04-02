@@ -44,3 +44,4 @@ if global.music == -4 with obj_music
 	forcefadeoff = fadeoff;
 	event_perform(ev_other, ev_room_start);
 }
+

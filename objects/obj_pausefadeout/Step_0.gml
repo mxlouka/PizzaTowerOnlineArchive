@@ -59,15 +59,16 @@ if fadealpha >= 1 && !fadein
 		
 		global.__chat = false;
 	}
-
-	fadein = true
+	
+	fadein = true;
 }
 
 if !fadein
-	fadealpha += 0.1
+	fadealpha += 0.1;
 else
 {
-	fadealpha -= 0.1
-	//if fadealpha <= 0
+	fadealpha -= 0.1;
+	if alarm[0] <= -1
 		instance_destroy();
 }
+

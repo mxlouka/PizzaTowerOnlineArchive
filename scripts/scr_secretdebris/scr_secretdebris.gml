@@ -1,6 +1,6 @@
 function scr_secretdebris(debris = true, blend = c_white)
 {
-	var hspapply = 0;
+	var hspapply = [0, 0];
 	if variable_instance_exists(id, "momentum")
 		hspapply = momentum;
 	
@@ -73,7 +73,7 @@ function scr_secretdebris(debris = true, blend = c_white)
 
 function scr_secretbigdebris(debris = true, blend = c_white)
 {
-	var hspapply = 0;
+	var hspapply = [0, 0];
 	if variable_instance_exists(id, "momentum")
 		hspapply = momentum;
 	

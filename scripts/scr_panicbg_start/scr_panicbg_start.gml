@@ -8,7 +8,8 @@ function scr_panicbg_start() {
 	}
 	global.panicbg_width = 960;
 
-	if event_type == ev_draw and event_number == 0 {
+	if event_type == ev_draw and event_number == 0
+	{
 		// Render all background layers to panicbg_surface instead of application_surface
 		surface_set_target(global.panicbg_surface);
 		draw_clear_alpha(c_black, 0);
@@ -58,22 +59,5 @@ function scr_panicbg_start() {
 				break;
 			}
 		}
-		
-		/*
-		// Get information about camera and layers
-		var _cam_x = camera_get_view_x(view_camera[0])
-		var _cam_y = camera_get_view_y(view_camera[0])
-		var bg1 = layer_get_id("Backgrounds_1")
-		var bg2 = layer_get_id("Backgrounds_2")
-		var bg3 = layer_get_id("Backgrounds_3")
-
-		// Offset each layer to account for scrolling
-		layer_x(bg1, layer_get_x(bg1) - _cam_x + 64)
-		layer_y(bg1, layer_get_y(bg1) - _cam_y + 64)
-		layer_x(bg2, layer_get_x(bg2) - _cam_x + 64)
-		layer_y(bg2, layer_get_y(bg2) - _cam_y + 64)
-		layer_x(bg3, layer_get_x(bg3) - _cam_x + 64)
-		layer_y(bg3, layer_get_y(bg3) - _cam_y + 64)
-		*/
 	}
 }
