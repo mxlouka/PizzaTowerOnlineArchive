@@ -90,27 +90,39 @@ else
 		}
 		*/
 		
-		var collect_x = irandom_range(-collect_shake, collect_shake);
-		var collect_y = irandom_range(-collect_shake, collect_shake);
+		var offset_x = irandom_range(-collect_shake, collect_shake);
+		var offset_y = irandom_range(-collect_shake, collect_shake);
+		if sugary
+		{
+			offset_x -= 1;
+			offset_y -= 32;
+			
+			// floaty animation
+			offset_y += sin(current_time / 1000) * 2;
+		}
+		
 		if room != strongcold_endscreen && room != Realtitlescreen
 		{
 			// tv
 			if sprite_exists(sprite_index)
 			{
 				// apply player palette
-				if sprite_index != spr_tv_placeholder && sprite_index != spr_tv_placeholderSP && sprite_index != spr_tv_placeholderPP 
+				var tempvar = sprite_index != spr_tv_placeholder && sprite_index != spr_tv_placeholderSP && sprite_index != spr_tv_placeholderPP 
 				&& sprite_index != spr_tv_off && sprite_index != spr_tv_offSP && sprite_index != spr_tv_offPP
-				&& sprite_index != spr_tv_open && sprite_index != spr_tv_openSP && sprite_index != spr_tv_openPP
+				&& sprite_index != spr_tv_open && sprite_index != spr_tv_openSP && sprite_index != spr_tv_openPP;
+				
+				if tempvar
 				{
 					with obj_player
 						pal_swap_set(spr_palette, paletteselect, false);
 				}
 				
-			    draw_sprite_ext(sprite_index, -1, 833 + collect_x, 107 + collect_y + hud_posY, 1, 1, 0, c_white, alpha);
+			    draw_sprite_ext(sprite_index, -1, 833 + offset_x, 107 + offset_y + hud_posY, 1, 1, 0, c_white, alpha);
 				pal_swap_reset();
 				
 				if !sugary && instance_exists(obj_player) && obj_player.character != "PP"
-					draw_sprite_ext(spr_tv_frame, -1, 833 + collect_x, 107 + collect_y + hud_posY, 1, 1, 0, c_white, alpha);
+				&& tempvar
+					draw_sprite_ext(spr_tv_frame, -1, 833 + offset_x, 107 + offset_y + hud_posY, 1, 1, 0, c_white, alpha);
 			}
 			
 			// draw combo
@@ -123,7 +135,7 @@ else
 				if instance_exists(obj_player) && obj_player.character == "PP"
 					tvcombo = spr_tv_comboPP;
 				
-			    draw_sprite_ext(tvcombo, -1, 833 + collect_x, 107 + collect_y + hud_posY, 1, 1, 0, c_white, alpha)
+			    draw_sprite_ext(tvcombo, -1, 833 + offset_x, 107 + offset_y + hud_posY, 1, 1, 0, c_white, alpha)
 				
 				var str = string(global.combo);
 			    if global.combo < 10 && global.combo > -1
@@ -134,14 +146,11 @@ else
 			    draw_set_font(global.combofont);
 			    var num = string_length(str);
 			    var w = round(string_width(str) / num);
-			    var xx = 0;
-			    var yy = 0;
 			    for (var i = 0; i < num; i++)
 			    {
 			        var char = string_char_at(str, i + 1);
-			        xx = i * w;
-			        yy = i * 5;
-			        draw_text(789 + xx, 91 - yy + hud_posY, char);
+			        var xx = i * w, yy = i * 5;
+			        draw_text(789 + xx + offset_x, 91 - yy + offset_y + hud_posY, char);
 			    }
 			}
 		

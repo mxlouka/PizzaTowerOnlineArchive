@@ -6,7 +6,5 @@ grounded = true
 turned = true
 
 if check_sugary()
-{
 	sprite_index = spr_dashpad_ss;
-	image_speed = 0.35;
-}
+
