@@ -94,7 +94,7 @@ function scr_collide_destructibles()
 		}
 		
 		// Destroy from under
-		if vsp <= 0.5 && (state == states.jump or state == states.pogo or state == states.climbwall or state == states.fireass or state == states.Sjump or state == states.mach1 or state == states.mach2 or state == states.mach3 or state == states.punch)
+		if (vsp <= 0.5 or state == states.Sjump) && (state == states.jump or state == states.pogo or state == states.climbwall or state == states.fireass or state == states.Sjump or state == states.mach1 or state == states.mach2 or state == states.mach3 or state == states.punch)
 		{
 			var block = instance_place(x, y - 2, obj_destructibles);
 			if block

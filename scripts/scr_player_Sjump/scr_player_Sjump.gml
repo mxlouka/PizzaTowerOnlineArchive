@@ -157,16 +157,6 @@ function scr_player_Sjump()
 				vsp = -10
 				exit;
 			}
-	
-			//else
-			//Stop superjump
-			//if character = "P" && 
-			//vsp >= -2
-			//{
-			//state = states.jump
-			//sprite_index = spr_machfreefall
-			//jumpstop = true
-			//}
 
 			if character == "N" && key_jump2 && noisetype == 0
 			{
@@ -185,7 +175,7 @@ function scr_player_Sjump()
 
 
 			//Jetpack
-			if key_attack2  && character = "N" && noisetype == 0
+			if key_attack2 && character == "N" && noisetype == 0
 			{
 				springsjump = false;
 				scr_soundeffect(sfx_noisewoah)
@@ -199,7 +189,7 @@ function scr_player_Sjump()
 			}
 
 			//Spin attack
-			if key_slap2 && !key_up && character = "N" && noisetype == 0
+			if key_slap2 && !key_up && character == "N" && noisetype == 0
 			{
 				springsjump = false;
 				state = states.punch
@@ -209,7 +199,7 @@ function scr_player_Sjump()
 			}
 
 			//Stir
-			if character = "N" && noisetype == 0
+			if character == "N" && noisetype == 0
 			{
 				if move = 1
 					hsp = 3
@@ -218,8 +208,8 @@ function scr_player_Sjump()
 			}
 
 
-			if character = "V"
-			&& floor(image_index) = image_number - 1
+			if character == "V"
+			&& floor(image_index) >= image_number - 1
 			{
 				state = states.jump
 				sprite_index = spr_playerV_fall
