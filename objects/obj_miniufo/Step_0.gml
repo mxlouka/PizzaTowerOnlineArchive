@@ -12,25 +12,23 @@ switch (state)
     case states.pizzagoblinthrow: scr_pizzagoblin_throw (); break;
     // grabbed state here
 }
-if  state = states.stun && stunned > 100 && birdcreated = false
+if state == states.stun && stunned > 100 && !birdcreated
 {
-birdcreated = true
-with instance_create(x,y, obj_enemybird)
-ID = other.id
+	birdcreated = true
+	with instance_create(x,y, obj_enemybird)
+		ID = other.id
 }
 
-
-
-
 if state != states.stun
-birdcreated = false
+	birdcreated = false
 
-
-if state == states.walk && y > ystart && !scr_solid(x,y-1)
-y--
-if state == states.walk && y < ystart && !scr_solid(x,y+1)
-y++
-
+// float back to initial position
+if state == states.walk && y != ystart
+{
+	var yes = Approach(y, ystart, 1);
+	if !scr_solid(x, yes)
+		y = yes;
+}
 
 if state == states.stun
 	grav = 0.5
@@ -39,7 +37,6 @@ else
 
 if laserbuffer > 0 && state == states.walk
 	laserbuffer--
-
 
 //Create laser
 if laserbuffer <= 0 && state == states.walk
@@ -56,29 +53,22 @@ if laserbuffer <= 0 && state == states.walk
 	
 	laserbuffer = 100
 }
+
 //Flash
 if (flash == true && alarm[2] <= 0) {
    alarm[2] = 0.15 * room_speed; // Flashes for 0.8 seconds before turning back to normal
 }
 
-
-
-
-
 if state != states.grabbed
-depth = 0
-
+	depth = 0
 
 //Scared
 scr_scareenemy()
 
-
-
-
 if state != states.stun
 	thrown = false
 
-if boundbox
+if !boundbox
 {
 	with instance_create(x, y, obj_baddiecollisionbox)
 	{
@@ -88,5 +78,4 @@ if boundbox
 		other.boundbox = true
 	}
 }
-
 

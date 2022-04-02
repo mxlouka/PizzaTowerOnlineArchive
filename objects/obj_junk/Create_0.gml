@@ -3,6 +3,7 @@ grabbed = false
 hsp = 0
 vsp = 0 
 grav = 0.5
+basegrav = 0.5
 flash = true
 hp = 0
 grounded = true
@@ -14,3 +15,4 @@ mask_index = spr_player_mask
 depth = -5
 stuntouchbuffer = 0
 clipin = 50
+

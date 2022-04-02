@@ -372,10 +372,12 @@ function scr_player_normal()
 			}
 			else if character == "N"
 			{
+				scr_soundeffect(sfx_enemyprojectile)
 				state = states._throw
 				image_index = 0
 				sprite_index = spr_playerN_noisebombthrow
-				with instance_create(x,y,obj_playerbomb)
+				
+				with instance_create(x, y, obj_playerbomb)
 				{
 					depth = 2;
 					

@@ -95,7 +95,7 @@ function increase_combo()
 		global.combotime = 60;
 }
 
-function scr_hitthrow(baddie, player, lag = 5)
+function scr_hitthrow(baddie, player, lag = 4)
 {
 	with baddie
 	{

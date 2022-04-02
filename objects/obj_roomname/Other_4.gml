@@ -21,3 +21,4 @@ else
 with obj_drpc_updater
 	roomname = msg;
 global.roommessage = "";
+

@@ -2,11 +2,9 @@ function scr_player_crouch()
 {
 	move = key_left + key_right;
 
-
 	var railh = 0, railmeet = instance_place(x, y + 1, obj_railparent);
 	if railmeet then railh = railmeet.spdh;
 	hsp = move * movespeed + railh;
-
 
 	movespeed = 4
 
@@ -28,59 +26,39 @@ function scr_player_crouch()
 	if grounded && !key_down && !scr_solid(x, y - 3) && !key_jump
 	{
 		state = states.normal
-		movespeed = 0
+		if !scr_stylecheck(2)
+			movespeed = 0
 		crouchAnim = true
 		jumpAnim = true
-    
+		
 		image_index = 0
 		mask_index = spr_player_mask
 	}
-
-
-
-
+	
 	//Animations
-
-	if crouchAnim = false
+	if !crouchAnim or move == 1
 	{
-	if move == 0
-	{
-	if shotgunAnim = false
-	sprite_index = spr_crouch
-	else sprite_index = spr_shotgunduck
+		crouchAnim = false;
+		if move == 0
+			sprite_index = !shotgunAnim ? spr_crouch : spr_shotgunduck;
+		else
+			sprite_index = !shotgunAnim ? spr_crawl : spr_shotguncrawl;
 	}
-	if move != 0
-	{
-		if shotgunAnim = false
-	sprite_index =  spr_crawl
-	else sprite_index = spr_shotguncrawl
-
-
-	}
-	}
-
-	if crouchAnim = true
-	{
-	if move = 0
-	{
-	if shotgunAnim = false
-	sprite_index = spr_couchstart
 	else
-	sprite_index = spr_shotgungoduck
-	if floor(image_index) = image_number -1
-	crouchAnim = false
+	{
+		sprite_index = !shotgunAnim ? spr_couchstart : spr_shotgungoduck;
+		if floor(image_index) >= image_number - 1
+			crouchAnim = false;
 	}
-	}
-
+	
 	if move != 0
 	{
-	xscale = move
-	crouchAnim = false
+		xscale = move
+		crouchAnim = false
 	}
-
-
+	
 	//Crouch Jump
-	if key_jump && grounded && !(scr_solid(x,y-16)) && !(scr_solid(x,y-32)) 
+	if key_jump && grounded && !scr_solid(x, y - 16) && !scr_solid(x, y - 32) 
 	{
 		scr_soundeffect(sfx_jump)
 		vsp = -8
@@ -90,34 +68,33 @@ function scr_player_crouch()
 		crouchAnim = true
 		jumpAnim = true
 		
-		with instance_create(x,y,obj_highjumpcloud2)
+		with instance_create(x, y, obj_highjumpcloud2)
 			image_xscale = other.xscale
 	}
 
 	if scr_slope() && key_down
 	{
 		movespeed = 14
-		with instance_place(x+xscale,y+1,obj_slope)
+		with instance_place(x, y + 2, obj_slope)
 			other.xscale = -sign(image_xscale)
-	
+		
 		state = states.tumble
 		sprite_index = spr_tumblestart
 	}
-
+	
 	//Noise Bomb Kick
-	if key_shoot2 && character = "N" && key_down && global.gameplay == 0
+	if key_shoot2 && character == "N" && key_down && global.gameplay == 0
 	{
 		scr_soundeffect(sfx_noisewoah)
 		state = states._throw
 		sprite_index = spr_playerN_noisebombkick
 		image_index = 0
-
 	}
-
+	
 	//Vigilante Dynamite
-	if key_shoot2 && character = "V" && !instance_exists(obj_dynamite)
+	if key_shoot2 && character == "V" && !instance_exists(obj_dynamite)
 	{
-		if move = 0
+		if move == 0
 			movespeed = 0
 		state = states.dynamite
 		image_index = 0

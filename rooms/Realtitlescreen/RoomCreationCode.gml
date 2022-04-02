@@ -2,7 +2,13 @@
 if instance_exists(obj_gms)
 {
 	instance_destroy(obj_gms);
-	global.roommessage = lang_string("online.loggedout");
+	with obj_roomname
+	{
+		message = lang_string("online.loggedout");
+		global.roommessage = message;
+		showtext = true;
+		alarm[0] = 200;
+	}
 }
 if variable_global_exists("logged")
 	global.logged = false;

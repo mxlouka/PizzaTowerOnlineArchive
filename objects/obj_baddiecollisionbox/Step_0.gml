@@ -168,7 +168,7 @@ if instance_exists(baddieID) && place_meeting(x, y, obj_player1) && !obj_player1
 						image_xscale = -other.xscale;
 						hithsp = hsp;
 						hitvsp = vsp;
-						scr_hitthrow(id, other, 10);
+						scr_hitthrow(id, other, 8);
 					}
 				}
 			}

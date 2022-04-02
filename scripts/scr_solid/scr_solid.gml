@@ -100,3 +100,4 @@ function scr_solidwall(xx, yy, retcol = false)
 	y = old_y;
 	return (retcol ? collide : instance_exists(collide));
 }
+

@@ -9876,28 +9876,38 @@ if(argument0 != -1)
 }
 }
 
-function wle_find(argument0, argument1) {
-//wle_find(element, name)
-if(argument0 >= 0)
+function wle_find(argument0, argument1)
 {
-    if(global.__winel[argument0, 15] == argument1)
-    {
-        return argument0;
-    }else{
-        var m, i;
-        m = global.__winel[argument0, 0];
-        for(i = 0; i < ds_list_size(m); i += 1)
-        {
-            var result;
-            result = wle_find(ds_list_find_value(m, i), argument1);
-            if(result != -1)
-            {
-                return result;
-            }
-        }
-    }
-}
-return -1;
+	//wle_find(element, name)
+	// CHANGED
+	if(argument0 >= 0)
+	{
+	    if(global.__winel[argument0, 15] == argument1)
+	        return argument0;
+		else
+		{
+	        var m, i;
+	        m = global.__winel[argument0, 0];
+			
+			// failsafe
+			if !ds_exists(m, ds_type_list)
+			{
+				gms_logout();
+				return argument0;
+			}
+			
+	        for(i = 0; i < ds_list_size(m); i += 1)
+	        {
+	            var result;
+	            result = wle_find(ds_list_find_value(m, i), argument1);
+	            if(result != -1)
+	            {
+	                return result;
+	            }
+	        }
+	    }
+	}
+	return -1;
 }
 
 function wle_close(argument0) {
