@@ -75,7 +75,7 @@ if hatsprite > -1
 		hatimg -= sprite_get_number(hatsprite);
 	
 	var yplus = lengthdir_y(-sprite_get_bbox_top(drawspr) + 40, img_angle + 90);
-	draw_sprite_ext(hatsprite, hatimg, x, y + yplus, xscale, yscale, img_angle, col, image_alpha);
+	draw_sprite_ext(hatsprite, hatimg, x, y + yplus + (50 - sprite_get_yoffset(drawspr)), xscale, yscale, img_angle, col, image_alpha);
 }
 
 // Draw name

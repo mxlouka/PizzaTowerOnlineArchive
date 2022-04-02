@@ -53,7 +53,10 @@ else
 	
 	// pp
 	if instance_exists(obj_player) && obj_player.character == "PP"
+	{
 		ranksound = mu_ranks_PP;
+		alarm[0] = room_speed * 3.5;
+	}
 	
 	// play
 	audio_stop_sound(sfx_escaperumble);

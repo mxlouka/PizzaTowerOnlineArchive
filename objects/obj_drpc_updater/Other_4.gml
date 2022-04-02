@@ -145,6 +145,9 @@ else
 	else if string_startswith(r, "jawbreaker")
 		det = "Jawbreaker Mines";
 	
+	else if string_startswith(r, "sanctum")
+		det = "La Burrata Temple";
+	
 	else if room == rm_test
 	{
 		det = "Test Room";
@@ -159,6 +162,12 @@ else
 	{
 		det = "Mario";
 		state = "";
+	}
+	else if room == rm_lee
+	{
+		det = "Funny";
+		state = "Funny";
+		// thumbs up if you agree
 	}
 	else if room == boss_room1
 	{

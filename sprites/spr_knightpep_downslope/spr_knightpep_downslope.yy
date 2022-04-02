@@ -2,7 +2,7 @@
   "ConfigValues": {
     "debug": {"textureGroupId":"{\"name\":\"tg_player\",\"path\":\"texturegroups/tg_player\"}",},
   },
-  "bboxMode": 0,
+  "bboxMode": 2,
   "collisionKind": 1,
   "type": 0,
   "origin": 9,
@@ -12,7 +12,7 @@
   "swfPrecision": 2.525,
   "bbox_left": 15,
   "bbox_right": 124,
-  "bbox_top": 28,
+  "bbox_top": 40,
   "bbox_bottom": 135,
   "HTile": false,
   "VTile": false,

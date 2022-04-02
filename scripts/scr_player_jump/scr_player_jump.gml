@@ -492,6 +492,8 @@ function scr_player_jump()
 		{
 			if global.mort
 		    {
+				scr_soundeffect(sfx_killingblow);
+				scr_soundeffect(sfx_enemyprojectile);
 		        with instance_create(x + xscale * 20, y, obj_shotgunbullet)
 				{
 			        image_xscale = other.xscale;

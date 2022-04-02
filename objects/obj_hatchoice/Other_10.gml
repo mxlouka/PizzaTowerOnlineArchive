@@ -4,3 +4,4 @@ locked = !check_hat(sel[0]);
 
 selmin = 0;
 selmax = array_length(selarray) - 1;
+

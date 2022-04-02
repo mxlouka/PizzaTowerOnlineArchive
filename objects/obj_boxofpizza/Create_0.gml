@@ -1,7 +1,5 @@
 image_speed = 0.35
 depth = 4;
-if scr_depthcheck()
-	depth += 100;
 
 targetRoom = room;
 targetDoor = "A";
@@ -18,3 +16,4 @@ if string_startswith(room_get_name(room), "strongcold")
 	sprite_index = spr_xmaspizzaboxdown
 if global.snickrematch
 	sprite_index = spr_boxofpizza_re
+

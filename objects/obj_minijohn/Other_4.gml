@@ -4,3 +4,4 @@ if global.gameplay == 0 && !global.panic
 	exit;
 }
 event_inherited();
+
