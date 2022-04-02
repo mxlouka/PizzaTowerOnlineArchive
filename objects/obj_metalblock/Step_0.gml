@@ -6,12 +6,15 @@ with obj_player
 	&& (state == states.mach3 or state == states.knightpepslopes) 
 	{
 		if scr_stylecheck(2)
-			other.hsp2 = hsp / 3;
+			other.momentum[0] = hsp;
 		instance_destroy(other);
 	}
 	
 	// body slam
 	if place_meeting(x, y + 1, other) && ((state == states.freefall && freefallsmash >= 10 && room != etb_7) or state == states.knightpep)
+	{
+		other.momentum[1] = vsp;
 		instance_destroy(other);
+	}
 }
 

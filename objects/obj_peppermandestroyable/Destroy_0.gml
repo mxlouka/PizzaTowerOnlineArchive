@@ -7,7 +7,7 @@ if ds_list_find_index(global.saveroom, id) = -1
 		
 		sprite_index = spr_secretdebris;
 		image_blend = $0030E0;
-		hsp2 = other.hsp2;
+		momentum = other.momentum;
 	}
 
 	scr_soundeffect(sfx_breakblock1, sfx_breakblock2)

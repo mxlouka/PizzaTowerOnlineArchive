@@ -13,6 +13,6 @@ if ds_list_find_index(global.saveroom, ID) == -1
 
 	repeat 6
 	with instance_create(x + sprite_width / 2, y + sprite_height / 2, obj_tntblockdebris)
-		hsp2 = other.hsp2;
+		momentum = other.momentum;
 	ds_list_add(global.saveroom, ID);
 }

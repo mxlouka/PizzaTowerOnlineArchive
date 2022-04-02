@@ -3,4 +3,5 @@ if global.gameplay != 0
 if check_sugary()
 	sprite_index = spr_metalblock_ss;
 
-hsp2 = 0;
+momentum = [0, 0];
+

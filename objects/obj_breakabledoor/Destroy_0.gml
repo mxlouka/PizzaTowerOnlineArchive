@@ -6,7 +6,7 @@ repeat 8
 		image_yscale = abs(other.image_yscale);
 		
 		sprite_index = spr_breakabledoordebris;
-		hsp2 = other.hsp2;
+		momentum = other.momentum;
 	}
 }
 

@@ -11,7 +11,7 @@ if ds_list_find_index(global.saveroom, id) == -1
 		else
 			sprite_index = spr_bigdebris;
 		
-		hsp2 = other.hsp2;
+		momentum = other.momentum;
 	}
 	
 	if audio_is_playing(sfx_breakblock1) or audio_is_playing(sfx_breakblock2)

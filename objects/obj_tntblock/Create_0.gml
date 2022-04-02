@@ -1,2 +1,2 @@
 ID = id;
-hsp2 = 0;
+momentum = [0, 0];

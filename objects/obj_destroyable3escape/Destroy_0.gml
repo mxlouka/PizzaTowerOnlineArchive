@@ -23,7 +23,7 @@ if ds_list_find_index(global.saveroom, id) == -1 && global.panic
 			else
 				sprite_index = spr_debrisescape_NEW
 			
-			hsp2 = other.hsp2;
+			momentum = other.momentum;
 		}
 	}
 	

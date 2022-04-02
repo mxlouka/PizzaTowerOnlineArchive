@@ -1,4 +1,4 @@
-/// @description anti cheat
+// anti cheat
 if global.saveslot == "" && !instance_exists(obj_gms) && room != characterselect
 	global.saveslot = "1";
 
@@ -25,6 +25,7 @@ else
 	}
 }
 
+// modifier shit
 if global.modifier == mods.no_toppings
 	global.failedmod = (global.toppings > 0);
 else
@@ -32,3 +33,4 @@ else
 
 if global.modifier == -1
 	global.failedmod = false;
+

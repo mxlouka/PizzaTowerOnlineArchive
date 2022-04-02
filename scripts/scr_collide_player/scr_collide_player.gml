@@ -40,7 +40,7 @@ function scr_collide_player()
 			    if !scr_solid_player(x + sign(_hsp), y) && !scr_solid_player(x + sign(_hsp), y + 1) && scr_solid_player(x + sign(_hsp), y + 2)
 			        y++;
 		
-				// Cheese platforms
+				// if youre going too fast you might phase right through some object triggers, so-
 				with instance_place(x, y + 1, obj_destructibleplatform)
 				{
 					falling = true;
@@ -53,7 +53,7 @@ function scr_collide_player()
 				}
 				
 			    if !scr_solid_player(x + sign(_hsp), y)
-			        x += sign(_hsp); 
+			        x += sign(_hsp);
 			    else
 				{
 			        hsp = 0;

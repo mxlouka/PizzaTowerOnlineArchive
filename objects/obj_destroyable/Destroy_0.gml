@@ -17,7 +17,7 @@ if ds_list_find_index(global.saveroom, id) = -1
 			if other.sprite_index == spr_destroyable_ss
 				sprite_index = spr_debris_ss;
 			
-			hsp2 = other.hsp2;
+			momentum = other.momentum;
 		}
 	}
 	

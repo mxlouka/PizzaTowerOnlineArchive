@@ -47,3 +47,4 @@ if global.modifier == mods.no_toppings && !instance_exists(obj_choicebase)
 // reset font alignment
 draw_set_halign(fa_left);
 draw_set_valign(fa_top);
+

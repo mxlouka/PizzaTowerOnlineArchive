@@ -5,4 +5,4 @@ vsp = random_range(-2,2)
 grav = 0.5
 depth = -1
 
-hsp2 = 0;
+momentum = [0, 0];

@@ -1,8 +1,8 @@
 function scr_secretdebris(debris = true, blend = c_white)
 {
 	var hspapply = 0;
-	if variable_instance_exists(id, "hsp2")
-		hspapply = hsp2;
+	if variable_instance_exists(id, "momentum")
+		hspapply = momentum;
 	
 	var lay_id = get_layer("Tiles_1");
 	if lay_id == -1
@@ -43,7 +43,7 @@ function scr_secretdebris(debris = true, blend = c_white)
 					sprite_index = spr_secretdebris
 		            tile_dataid = data2
 		            tile_dataset = tilemap_get_tileset(map_id2)
-					hsp2 = hspapply
+					momentum = hspapply
 				}
 			}
 			else if data != 0 && data != -1
@@ -53,7 +53,7 @@ function scr_secretdebris(debris = true, blend = c_white)
 					sprite_index = spr_secretdebris
 		            tile_dataid = data
 		            tile_dataset = tilemap_get_tileset(map_id)
-					hsp2 = hspapply
+					momentum = hspapply
 				}
 			}
 			else with instance_create(x + sprite_width / 2, y + sprite_height / 2, obj_debris)
@@ -63,7 +63,7 @@ function scr_secretdebris(debris = true, blend = c_white)
 					sprite_index = spr_secretdebris;
 					image_blend = blend;
 				}
-				hsp2 = hspapply
+				momentum = hspapply
 				image_xscale = abs(other.image_xscale);
 				image_yscale = abs(other.image_yscale);
 			}
@@ -74,8 +74,8 @@ function scr_secretdebris(debris = true, blend = c_white)
 function scr_secretbigdebris(debris = true, blend = c_white)
 {
 	var hspapply = 0;
-	if variable_instance_exists(id, "hsp2")
-		hspapply = hsp2;
+	if variable_instance_exists(id, "momentum")
+		hspapply = momentum;
 	
 	var lay_id = get_layer("Tiles_1");
 	var lay_id2 = get_layer("Tiles_2");
@@ -105,6 +105,7 @@ function scr_secretbigdebris(debris = true, blend = c_white)
 				{
 					tile_dataid = data
 					tile_dataset = tilemap_get_tileset(map_id)
+					momentum = hspapply
 				}
 			}
 			else if lay_id2 == -1
@@ -122,6 +123,7 @@ function scr_secretbigdebris(debris = true, blend = c_white)
 						sprite_index = spr_secretbigdebris;
 						image_blend = blend;
 					}
+					momentum = hspapply
 				}
 		
 			if data2 != 0
@@ -130,6 +132,7 @@ function scr_secretbigdebris(debris = true, blend = c_white)
 				{
 					tile_dataid = data2
 					tile_dataset = tilemap_get_tileset(map_id)
+					momentum = hspapply
 				}
 			}
 			else if lay_id2 == -1
@@ -147,6 +150,7 @@ function scr_secretbigdebris(debris = true, blend = c_white)
 						sprite_index = spr_secretbigdebris;
 						image_blend = blend;
 					}
+					momentum = hspapply
 				}
 	
 			if data3 != 0
@@ -155,6 +159,7 @@ function scr_secretbigdebris(debris = true, blend = c_white)
 				{
 					tile_dataid = data3
 					tile_dataset = tilemap_get_tileset(map_id)
+					momentum = hspapply
 				}
 			}
 			else if lay_id2 == -1
@@ -172,6 +177,7 @@ function scr_secretbigdebris(debris = true, blend = c_white)
 						sprite_index = spr_secretbigdebris;
 						image_blend = blend;
 					}
+					momentum = hspapply
 				}
 	
 			if data4 != 0
@@ -180,6 +186,7 @@ function scr_secretbigdebris(debris = true, blend = c_white)
 				{
 					tile_dataid = data4
 					tile_dataset = tilemap_get_tileset(map_id)
+					momentum = hspapply
 				}
 			}
 			else if lay_id2 == -1
@@ -197,6 +204,7 @@ function scr_secretbigdebris(debris = true, blend = c_white)
 						sprite_index = spr_secretbigdebris;
 						image_blend = blend;
 					}
+					momentum = hspapply
 				}
 		}
 	}
@@ -225,6 +233,7 @@ function scr_secretbigdebris(debris = true, blend = c_white)
 				{
 					tile_dataid = data_
 					tile_dataset = tilemap_get_tileset(map_id)
+					momentum = hspapply
 				}
 			}
 			else if data == -1
@@ -242,6 +251,7 @@ function scr_secretbigdebris(debris = true, blend = c_white)
 						sprite_index = spr_secretbigdebris;
 						image_blend = blend;
 					}
+					momentum = hspapply
 				}
 		
 			if data2_ != 0
@@ -250,6 +260,7 @@ function scr_secretbigdebris(debris = true, blend = c_white)
 				{
 					tile_dataid = data2_
 					tile_dataset = tilemap_get_tileset(map_id)
+					momentum = hspapply
 				}
 			}
 			else if data2 == -1
@@ -267,6 +278,7 @@ function scr_secretbigdebris(debris = true, blend = c_white)
 						sprite_index = spr_secretbigdebris;
 						image_blend = blend;
 					}
+					momentum = hspapply
 				}
 	
 			if data3_ != 0
@@ -275,6 +287,7 @@ function scr_secretbigdebris(debris = true, blend = c_white)
 				{
 					tile_dataid = data3_
 					tile_dataset = tilemap_get_tileset(map_id)
+					momentum = hspapply
 				}
 			}
 			else if data3 == -1
@@ -292,6 +305,7 @@ function scr_secretbigdebris(debris = true, blend = c_white)
 						sprite_index = spr_secretbigdebris;
 						image_blend = blend;
 					}
+					momentum = hspapply
 				}
 	
 			if data4_ != 0
@@ -300,6 +314,7 @@ function scr_secretbigdebris(debris = true, blend = c_white)
 				{
 					tile_dataid = data4_
 					tile_dataset = tilemap_get_tileset(map_id)
+					momentum = hspapply
 				}
 			}
 			else if data4 == -1
@@ -317,6 +332,7 @@ function scr_secretbigdebris(debris = true, blend = c_white)
 						sprite_index = spr_secretbigdebris;
 						image_blend = blend;
 					}
+					momentum = hspapply
 				}
 		}
 	}

@@ -14,3 +14,4 @@ global.failedmod = false;
 toppingsprite = -1;
 topimg = 0;
 tabarrier = inst_4FF95D36;
+

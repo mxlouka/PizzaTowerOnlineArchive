@@ -16,4 +16,5 @@ if global.secretdebris && room != custom_lvl_room
 	width = sprite_yoffset;
 	mode = 1;
 }
-hsp2 = 0;
+momentum = [0, 0];
+

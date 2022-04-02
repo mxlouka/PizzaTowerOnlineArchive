@@ -7,4 +7,5 @@ image_index = random_range(0, 2)
 image_angle = random_range(1, 270)
 
 depth = 1;
-hsp2 = 0;
+momentum = [0, 0];
+

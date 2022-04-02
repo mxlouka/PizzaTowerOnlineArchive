@@ -1,4 +1,3 @@
-global.breaksound = 0
 depth = 1
 
 if global.gameplay != 0
@@ -6,4 +5,4 @@ if global.gameplay != 0
 if check_sugary()
 	sprite_index = spr_destroyable_ss;
 
-hsp2 = 0;
+momentum = [0, 0];

@@ -85,9 +85,10 @@ for (var i = 0; i < array_length(layers); i++;)
 	}
 }
 
-// make solids visible and stuff
-if (string_startswith(room_get_name(room), "ancient_")) or (string_startswith(room_get_name(room), "cotton_")) or (string_startswith(room_get_name(room), "sanctum_"))
+// handle unfinished rooms
+if string_startswith(room_get_name(room), "ancient_")// or string_startswith(room_get_name(room), "sanctum_")
 {
+	// detects if there's any "Tiles_" layers in the room.
 	var hastiles = false;
 	for (var i = 0; i < array_length(layers); i++;)
 	{
@@ -98,16 +99,17 @@ if (string_startswith(room_get_name(room), "ancient_")) or (string_startswith(ro
 		}
 	}
 	
+	// if there AREN'T any tiles
 	if !hastiles
 	{
-		// make backgrounds higher depth
+		// make backgrounds not overlap objects
 		for (var i = 0; i < array_length(layers); i++;)
 		{
 			if string_startswith(layer_get_name(layers[i]), "Backgrounds_")
 				layer_depth(layers[i], layer_get_depth(layers[i]) + 500);
 		}
 		
-		// make some invisible stuff visible
+		// and make some invisible stuff visible
 		with obj_solid
 			visible = true;
 		with obj_slope

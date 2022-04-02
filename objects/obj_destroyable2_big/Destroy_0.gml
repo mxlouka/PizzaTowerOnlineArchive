@@ -31,7 +31,7 @@ if ds_list_find_index(global.saveroom, id) = -1 && !global.snickchallenge
 			else
 				sprite_index = spr_bigpizzadebris
 			
-			hsp2 = other.hsp2;
+			momentum = other.momentum;
 		}
 	}
 	

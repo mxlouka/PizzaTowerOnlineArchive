@@ -6,23 +6,23 @@ function scr_collide_destructibles()
 		or (state == states.pogo && pogochargeactive)
 		or (state == states.knightpep && global.gameplay != 0)
 		{
-			with instance_place(x + xscale , y, obj_destructibles) 
-				instance_destroy();
-			
 			with instance_place(x + hsp + xscale, y, obj_destructibles)
+			{
+				momentum[0] = other.hsp;
 				instance_destroy();
+			}
 			
 			with instance_place(x, y + vsp + 1, obj_destructibles) 
+			{
+				momentum[1] = other.vsp;
 				instance_destroy();
+			}
 			
 			with instance_place(x, y + vsp - 1, obj_destructibles)
+			{
+				momentum[1] = other.vsp;
 				instance_destroy();
-			
-			with instance_place(x, y + 1, obj_destructibles) 
-				instance_destroy();
-			
-			with instance_place(x, y - 1, obj_destructibles) 
-				instance_destroy();
+			}
 		}
 		
 		// Destroy Destructibles
@@ -67,7 +67,7 @@ function scr_collide_destructibles()
 						}
 					}
 					if scr_stylecheck(2)
-						hsp2 = other.hsp / 3;
+						momentum[0] = other.hsp;
 					instance_destroy();
 				}
 				
@@ -76,19 +76,20 @@ function scr_collide_destructibles()
 			}
 		}
 		
-		// Destroy thrown
-		if state == states.hurt && thrown = true
-			if place_meeting(x - hsp, y, obj_destructibles)
-				with instance_place(x - hsp, y, obj_destructibles)
-					instance_destroy();
+		// Destroy thrown (coop)
+		if state == states.hurt && thrown
+		{
+			with instance_place(x - hsp, y, obj_destructibles)
+				instance_destroy();
+		}
 
 		// Destroy from over
 		if (state == states.knightpep or state == states.superslam or state == states.hookshot or (state == states.cotton && sprite_index == spr_cotton_drill)) && vsp > 0
 		{
-			if place_meeting(x, y + 1, obj_destructibles)
+			with instance_place(x, y + 1, obj_destructibles)
 			{
-				with instance_place(x, y + 1, obj_destructibles)
-					instance_destroy();
+				instance_destroy();
+				momentum[1] = other.vsp;
 			}
 		}
 		
@@ -98,13 +99,17 @@ function scr_collide_destructibles()
 			var block = instance_place(x, y - 2, obj_destructibles);
 			if block
 			{
+				if state == states.Sjump
+					vsp = -11;
+				
 				with block
+				{
 					instance_destroy();
+					momentum[1] = other.vsp;
+				}
 				
 				if state != states.Sjump && state != states.climbwall
-					vsp = 0
-				if state == states.Sjump
-					vsp = -11
+					vsp = 0;
 			}
 		}
 
@@ -114,22 +119,20 @@ function scr_collide_destructibles()
 			var block = instance_place(x, y + vsp + 2, obj_destructibles);
 			if block && !place_meeting(x, y + vsp + 2, obj_platform)
 			{
+				if place_meeting(x, y + vsp + 2, obj_bigdestructibles)
+				&& (freefallsmash <= 10 or global.gameplay == 0)
+				{
+					if !shotgunAnim
+						sprite_index = spr_bodyslamland
+					else
+						sprite_index = spr_shotgunjump2
+					state = states.freefallland
+					image_index = 0
+				}
+				
 				with block
 				{
-					with obj_player1
-					{
-						if place_meeting(x,y + vsp + 2, obj_bigdestructibles)
-						&& (freefallsmash <= 10 or global.gameplay == 0)
-						{
-							if shotgunAnim = false
-								sprite_index = spr_bodyslamland
-							else
-								sprite_index = spr_shotgunjump2
-							state = states.freefallland
-							image_index = 0
-						}
-					}
-				
+					momentum[1] = other.vsp;
 					instance_destroy();
 				}
 			}
@@ -141,7 +144,10 @@ function scr_collide_destructibles()
 			if place_meeting(x, y + 1, obj_metalblock) && freefallsmash > 10 && room != etb_7
 			{
 				with instance_place(x, y + 1, obj_metalblock)
+				{
+					momentum[1] = other.vsp;
 					instance_destroy();
+				}
 			}
 		}
 		
@@ -151,7 +157,10 @@ function scr_collide_destructibles()
 			if place_meeting(x, y - 1, obj_metalblock)
 			{
 				with instance_place(x, y - 1, obj_metalblock)
+				{
+					momentum[1] = other.vsp;
 					instance_destroy();
+				}
 			}
 		}
 		
@@ -172,7 +181,7 @@ function scr_collide_destructibles()
 			with block
 			{
 				if scr_stylecheck(2)
-					hsp2 = other.hsp / 3;
+					momentum[0] = other.hsp;
 				instance_destroy();
 			}
 		}
@@ -184,7 +193,7 @@ function scr_collide_destructibles()
 			with instance_place(x + hsp, y, obj_rollblock)
 			{
 				if scr_stylecheck(2)
-					hsp2 = other.hsp / 3;
+					momentum[0] = other.hsp;
 				instance_destroy();
 			}
 		}

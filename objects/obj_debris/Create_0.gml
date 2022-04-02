@@ -11,7 +11,7 @@ if !scr_stylecheck(0)
 }
 
 grav = 0.4;
-hsp2 = 0;
+momentum = [0, 0];
 image_angle = irandom_range(0, 360);
 
 depth = -1;

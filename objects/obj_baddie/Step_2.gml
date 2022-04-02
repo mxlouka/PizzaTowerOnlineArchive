@@ -26,7 +26,7 @@ if thrown && state != states.hit
 		if place_meeting(x - other.hsp, y, other)
 		{
 			if scr_stylecheck(2)
-				hsp2 = other.hsp / 3;
+				momentum[0] = other.hsp;
 			instance_destroy();
 		}
 	}

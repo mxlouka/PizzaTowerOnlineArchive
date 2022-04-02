@@ -13,4 +13,4 @@ content = noone
 image_speed = 0.35;
 image_index = random(image_number);
 
-hsp2 = 0;
+momentum = [0, 0];
