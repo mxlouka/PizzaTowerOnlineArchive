@@ -103,7 +103,8 @@ function scr_playersounds()
 		}
 		
 		// stop suplex dash sound
-		if audio_is_playing(suplexdashsnd) && state != states.handstandjump
+		if audio_is_playing(suplexdashsnd) && state != states.handstandjump && state != states.punch
 			audio_stop_sound(suplexdashsnd)
 	}
 }
+

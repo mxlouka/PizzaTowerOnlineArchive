@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_hiddenobjecttrigger",
-    "path": "sprites/spr_hiddenobjecttrigger/spr_hiddenobjecttrigger.yy",
+    "name": "spr_tvtrigger",
+    "path": "sprites/spr_tvtrigger/spr_tvtrigger.yy",
   },
   "solid": false,
   "visible": false,

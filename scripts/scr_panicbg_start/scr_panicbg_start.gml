@@ -18,46 +18,19 @@ function scr_panicbg_start() {
 		var _cam_x = camera_get_view_x(view_camera[0])
 		var _cam_y = camera_get_view_y(view_camera[0])
 		
-		var l = layer_get_all();
-		for (var i = 0; i < array_length(l); i++;)
+		for (var i = 0; i < array_length(global.roombgs); i++;)
 		{
-			var layers_e = layer_get_all_elements(l[i]);
-			for (var j = 0; j < array_length(layers_e); j++)
-			{
-				// backgrounds
-				if layer_get_element_type(layers_e[j]) == layerelementtype_background
-				&& layer_get_depth(l[i]) >= 0
-				{
-					if layer_get_name(l[i]) != "Backgrounds_Ground1" && layer_get_name(l[i]) != "Backgrounds_Ground2"
-					{
-						layer_x(l[i], layer_get_x(l[i]) - _cam_x + 64)
-						layer_y(l[i], layer_get_y(l[i]) - _cam_y + 64)
-					}
-					else
-					{
-						var xx = 0;
-						var yy = 0;
-						if instance_exists(obj_parrallax)
-						{
-							if layer_get_name(l[i]) == "Backgrounds_Ground1"
-							{
-								xx = obj_parrallax.ground1x;
-								yy = obj_parrallax.ground1y;
-							}
-							else if layer_get_name(l[i]) == "Backgrounds_Ground2"
-							{
-								xx = obj_parrallax.ground2x;
-								yy = obj_parrallax.ground2y;
-							}
-						}
-						
-						layer_x(l[i], layer_get_x(l[i]) - _cam_x + 64 + xx)
-						layer_y(l[i], -_cam_y + 64 + yy);
-					}
-					global.panicbg_width = max(global.panicbg_width, sprite_get_width(layer_background_get_sprite(layers_e[j])));
-				}
-				break;
-			}
+			if layer_get_depth(global.roombgs[i].lay) < 0
+				continue;
+			
+			var lay = global.roombgs[i].lay;
+			var bg = global.roombgs[i].bg;
+			
+			layer_x(lay, layer_get_x(lay) - _cam_x + 64)
+			layer_y(lay, layer_get_y(lay) - _cam_y + 64)
+			
+			global.panicbg_width = max(global.panicbg_width, sprite_get_width(layer_background_get_sprite(bg)));
 		}
 	}
 }
+

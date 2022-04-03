@@ -19,7 +19,7 @@ function scr_obj_level() {
 	obj_index[0, 14] = obj_destructibleplatform;
 	obj_index[0, 15] = obj_minipillar;
 	obj_index[0, 16] = obj_reverseminipillar;
-	obj_index[0, 17] = obj_onwaybigblock;
+	obj_index[0, 17] = obj_onewaybigblock;
 	obj_index[0, 18] = obj_hungrypillar;
 	obj_index[0, 19] = obj_door_editor;
 	obj_index[0, 20] = obj_keydoor_editor;

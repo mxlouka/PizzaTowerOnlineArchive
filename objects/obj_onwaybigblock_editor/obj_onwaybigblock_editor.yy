@@ -1,15 +1,15 @@
 {
   "spriteId": {
-    "name": "obj_onewaybigblock",
-    "path": "sprites/obj_onewaybigblock/obj_onewaybigblock.yy",
+    "name": "spr_onewaybigblock",
+    "path": "sprites/spr_onewaybigblock/spr_onewaybigblock.yy",
   },
   "solid": false,
   "visible": true,
   "spriteMaskId": null,
   "persistent": false,
   "parentObjectId": {
-    "name": "obj_onwaybigblock",
-    "path": "objects/obj_onwaybigblock/obj_onwaybigblock.yy",
+    "name": "obj_onewaybigblock",
+    "path": "objects/obj_onewaybigblock/obj_onewaybigblock.yy",
   },
   "physicsObject": false,
   "physicsSensor": false,

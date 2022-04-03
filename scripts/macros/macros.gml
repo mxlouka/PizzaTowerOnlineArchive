@@ -1,5 +1,3 @@
-if live_call() return live_result;
-
 // config macros
 #macro debug false
 #macro debug:debug true

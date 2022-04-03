@@ -13,7 +13,7 @@ with instance_place(x + spd, y, obj_destructibles)
 {
 	if object_index != obj_hungrypillar or !other.pistol
 	{
-		if object_index == obj_onwaybigblock
+		if object_index == obj_onewaybigblock
 		{
 			if sign(other.image_xscale) == sign(-image_xscale)
 				instance_destroy();

@@ -14,6 +14,13 @@ function scr_collide_player()
 		{
 			repeat abs(_vsp)
 			{
+				// make sure the player doesnt go too fast and miss the hallway
+				with instance_place(x, y, obj_verticalhallway)
+				{
+					event_perform(ev_collision, obj_player1);
+					break;
+				}
+				
 			    if !scr_solid_player(x, y + sign(_vsp))
 			        y += sign(_vsp);
 			    else

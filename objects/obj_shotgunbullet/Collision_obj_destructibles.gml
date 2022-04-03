@@ -1,6 +1,6 @@
 if other.object_index != obj_hungrypillar or !pistol
 {
-	if other.object_index == obj_onwaybigblock
+	if other.object_index == obj_onewaybigblock
 	{
 		if (sign(image_xscale) != sign(-other.image_xscale)) or sprite_index == sprite10391
 			exit;

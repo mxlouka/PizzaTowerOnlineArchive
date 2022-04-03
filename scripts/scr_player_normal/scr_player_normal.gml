@@ -360,7 +360,7 @@ function scr_player_normal()
 			// Breakdance up
 			if character == "P" or character == "SP" or character == "PP"
 			{
-				scr_soundeffect(sfx_suplexdash);
+				suplexdashsnd = scr_soundeffect(sfx_suplexdash);
 				
 				state = states.punch;
 				image_index = 0;
@@ -388,19 +388,6 @@ function scr_player_normal()
 		            image_xscale = other.xscale;
 				}
 			}
-		}
-		else if key_up && state != states.jump && character == "SP"
-		{
-			// Breakdance up
-			scr_soundeffect(sfx_suplexdash);
-			
-			state = states.punch;
-			image_index = 0;
-			sprite_index = spr_breakdanceuppercut;
-			vsp = -14;
-			movespeed = 2;
-			instance_create(x, y, obj_highjumpcloud2);
-			instance_create(x, y, obj_swingdinghitbox);
 		}
 		else if character != "S" && character != "V" && !suplexmove
 		{

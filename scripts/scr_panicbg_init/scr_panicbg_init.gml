@@ -7,24 +7,14 @@ function scr_panicbg_init()
 	var layers, layernum = 0
 
 	// Check for all layers that exist
-	var l = layer_get_all();
-	for (var i = 0; i < array_length(l); i++;)
+	for(var i = 0; i < array_length(global.roombgs); i++)
 	{
-		var layers_e = layer_get_all_elements(l[i]);
-		for (var j = 0; j < array_length(layers_e); j++)
-		{
-			// backgrounds
-			if layer_get_element_type(layers_e[j]) == layerelementtype_background
-			{
-				if layer_get_depth(l[i]) >= 0
-				{
-					var bgspr = layer_background_get_sprite(layers_e[j]);
-					if bgspr != bg_etbbrick && bgspr != bg_select
-						layers[layernum++] = layer_get_name(l[i]);
-				}
-			}
-			break;
-		}
+		if layer_get_depth(global.roombgs[i].lay) < 0
+			continue;
+		
+		var bgspr = layer_background_get_sprite(global.roombgs[i].bg);
+		if bgspr != bg_etbbrick && bgspr != bg_select
+			layers[layernum++] = layer_get_name(global.roombgs[i].lay);
 	}
 	
 	// No backgrounds found

@@ -1,9 +1,5 @@
 with other
 {
-	/*
-	if state != states.climbwall && state != states.ladder
-		x = other.x + (other.sprite_width / 2);
-	*/
 	y = min(y, other.y + (other.sprite_height - 46));
 	
 	if !instance_exists(obj_fadeout) && !instance_exists(obj_pausefadeout) && !obj_pause.pause

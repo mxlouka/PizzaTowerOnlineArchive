@@ -210,7 +210,14 @@ switch sel[1]
 			["BLACK", "Don't show this to Denchick."],
 			["METAL", "Balls of Steel."],
 			["???", "You can't get blacker than this."],
+			["RANDOM HUMOR", "This isn't even a joke. And I'm asking this personally. Who hurt you?\nWhat happened for things to be this way? Are you okay?"],
+			["GRUNT", "To whomever this palette once belonged to, they must be living a pretty sad life right now."],
+			["MCDONALDS", "I actually dislike their soggy fries. Is this bad?"],
+			["ELMO", "You have come to his event. Now you must endure forceful cosplay."],
+			["MANUAL", "Do you ever just feel like emanating a strong stench of urine?"],
 		]
+		if global.streamer
+			selarray[11][1] = "'Go home'? But I JUST got here!"; // random humor
 		break;
 	
 	#region scrapped (for now)

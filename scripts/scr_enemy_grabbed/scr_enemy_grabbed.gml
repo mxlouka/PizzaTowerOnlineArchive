@@ -209,7 +209,7 @@ function scr_enemy_grabbed()
 			}
 			
 			if (scr_solid(x, y) && object_index == obj_pizzaballOLD)
-			or place_meeting(x - (image_xscale * 32), y, obj_onwaybigblock)
+			or place_meeting(x - (image_xscale * 32), y, obj_onewaybigblock)
 			{
 				x = obj_player1.x
 				y = obj_player1.y

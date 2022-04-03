@@ -57,6 +57,6 @@ if sold && !inst_relation(sold, obj_slope)
 	if state != states.grabbed && state != states.hit
 	&& !inst_isobj(sold, obj_enemyblock)
 	&& (!inst_relation(sold, obj_destructibles)
-	or (inst_isobj(sold, obj_onwaybigblock) && sign(sold.image_xscale) == -sign(image_xscale)))
+	or (inst_isobj(sold, obj_onewaybigblock) && sign(sold.image_xscale) == -sign(image_xscale)))
 		instance_destroy();
 }

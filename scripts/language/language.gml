@@ -1,5 +1,3 @@
-if live_call() return live_result;
-
 // language
 function lang_string(str)
 {

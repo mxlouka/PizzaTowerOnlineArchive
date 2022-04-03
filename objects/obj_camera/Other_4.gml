@@ -17,13 +17,32 @@ zoom = 1
 targetoverride = noone
 targetgoingback = false
 
+// get all background layers in the room
+global.roombgs = [];
+var l = layer_get_all();
+for (var i = 0; i < array_length(l); i++;)
+{
+	var lbg = layer_background_get_id(l[i]);
+	if lbg != -1
+	{
+		array_push(global.roombgs,
+		{
+			lay : l[i],
+			bg : lbg,
+			x : layer_get_x(l[i]),
+			y : layer_get_y(l[i]),
+			hsp : layer_get_hspeed(l[i]),
+			vsp : layer_get_vspeed(l[i]),
+		});
+	}
+}
+
 //DDP Set the panic shader on the backgrounds
 if !check_shaders()
 	global.panicbg = false;
-
-if (global.panic or global.snickchallenge) && global.panicbg {
-	scr_panicbg_init()
-}
+if (global.panic or global.snickchallenge) && global.panicbg
+	scr_panicbg_init();
 
 //DDP Disable any kind of motion blur
 application_surface_draw_enable(true)
+

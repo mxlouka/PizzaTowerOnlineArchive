@@ -68,6 +68,7 @@ depth = -9998;
 manualhide = false;
 zoom = 1
 frameone = false;
+global.roombgs = [];
 
 // new shit
 lastcollect = -1;
@@ -77,3 +78,4 @@ hud_posY = 0;
 pizzascore_index = 0;
 pizzascore_number = sprite_get_number(spr_pizzascore);
 detach = false;
+

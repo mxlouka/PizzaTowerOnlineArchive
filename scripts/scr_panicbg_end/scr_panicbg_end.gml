@@ -19,7 +19,7 @@ function scr_panicbg_end()
 		if instance_exists(obj_panicdebris)
 		{
 			shader_set(shd_panicbg)
-	
+			
 			//DDP Uncomment this to test how full intensity looks
 			//global.wave = global.maxwave
 		
