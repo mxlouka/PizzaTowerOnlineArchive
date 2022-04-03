@@ -1564,6 +1564,9 @@ function scr_characterspr(char = character)
 				spr_cheeseballed = spr_playerPP_cheeseball;
 				spr_rideweenie = spr_playerPP_weeniemount;
 				
+				spr_breakdanceuppercut = spr_playerPP_uppercut;
+				spr_breakdanceuppercutend = spr_playerPP_uppercutend;
+				
 				snd_fireass = sfx_scream5_PP;
 				break;
 		

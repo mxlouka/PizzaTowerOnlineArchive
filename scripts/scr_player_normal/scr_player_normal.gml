@@ -358,7 +358,7 @@ function scr_player_normal()
 		if key_up && global.gameplay != 0 && state != states.jump
 		{
 			// Breakdance up
-			if character == "P" or character == "SP"
+			if character == "P" or character == "SP" or character == "PP"
 			{
 				scr_soundeffect(sfx_suplexdash);
 				
@@ -418,6 +418,7 @@ function scr_player_normal()
 					sprite_index = spr_suplexdash
 				else
 					sprite_index = spr_shotgunsuplexdash
+				
 				if character != "N"
 					movespeed = 6
 				else

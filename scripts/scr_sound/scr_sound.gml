@@ -10,13 +10,6 @@ function scr_sound(mus, loop = true)
 		}
 	}
 	
-	// farts (very VERY fucking funny believe me)
-	if global.musicgame == 2
-	{
-		if asset_get_type(audio_get_name(mus) + "_FART") == asset_sound
-			mus = asset_get_index(audio_get_name(mus) + "_FART");
-	}
-	
 	global.music = audio_play_sound(mus, 1, loop);
 	if room != rm_disclaimer
 		audio_sound_gain(global.music, global.musicvolume, 0);

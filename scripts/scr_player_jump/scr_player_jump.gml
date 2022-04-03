@@ -440,12 +440,12 @@ function scr_player_jump()
 			}
 			state = states.handstandjump
 			image_index = 0
-
-			if character = "P" or character == "SP"
+			
+			if character != "N"
 				movespeed = 6
 			else
 				movespeed = 4
-		
+			
 			if global.gameplay != 0
 				instance_create(x, y, obj_crazyrunothereffect)
 			grav = basegrav;

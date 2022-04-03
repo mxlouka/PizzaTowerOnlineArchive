@@ -204,7 +204,7 @@ function scr_player_handstandjump()
 			image_xscale = other.xscale
 		
 		//Noise Bomb
-		if key_shoot2 && character = "N" && global.gameplay == 0
+		if key_shoot2 && character == "N" && global.gameplay == 0
 		{
 			scr_soundeffect(sfx_noisewoah)
 			state = states._throw
