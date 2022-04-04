@@ -30,3 +30,4 @@ if global.panic && audio_is_playing(mu_war)
 		zoom = lerp(zoom, 1, 0.25);
 }
 */
+

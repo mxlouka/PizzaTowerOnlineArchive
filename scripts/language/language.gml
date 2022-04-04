@@ -321,7 +321,7 @@ function lang_load(lang)
 		ds_map_add(global.langmap, "roomname.hub_roomE", "Other Levels");
 		ds_map_add(global.langmap, "roomname.hub_roomE2", "Dresser");
 		ds_map_add(global.langmap, "roomname.hub_roomE3", "Dance Room");
-		ds_map_add(global.langmap, "roomname.hub_roomMOD", "Arcade");
+		ds_map_add(global.langmap, "roomname.hub_arcade", "Arcade");
 		ds_map_add(global.langmap, "roomname.hub_roomSP", "Spire Floor 1");
 		ds_map_add(global.langmap, "roomname.hub_roomPLN", "Nightmare Hub");
 		

@@ -1,5 +1,6 @@
 if other.state == states.handstandjump
 {
+	scr_soundeffect(sfx_punch);
 	with other
 		scr_pummel();
 	

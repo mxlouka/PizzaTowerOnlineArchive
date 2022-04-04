@@ -57,7 +57,7 @@ WC_drawline = true;
 WC_drawlinetimer = 30;
 
 WC_saveversion = 0;
-WC_togglekey = 220;
+WC_togglekey = vk_f5;
 
 WC_consolescroll = 0;
 WC_assetfinder = -1;
@@ -77,3 +77,4 @@ WC_livestep = undefined;
 WC_gmlivedone = false;
 
 console_log(lang_string("general.wc"));
+

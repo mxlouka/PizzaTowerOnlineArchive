@@ -18,3 +18,4 @@ if abs(image_yscale) > 1
 }
 else
 	draw_self();
+

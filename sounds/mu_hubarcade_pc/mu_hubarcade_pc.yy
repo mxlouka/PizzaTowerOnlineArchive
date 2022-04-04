@@ -17,8 +17,8 @@
   "soundFile": "mu_hubarcade_pc.ogg",
   "duration": 157.894745,
   "parent": {
-    "name": "PIZZA CASTLE",
-    "path": "folders/Sounds/PIZZA CASTLE.yy",
+    "name": "pizza castle",
+    "path": "folders/Sounds/pto extra/pizza castle.yy",
   },
   "resourceVersion": "1.0",
   "name": "mu_hubarcade_pc",

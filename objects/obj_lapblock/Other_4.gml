@@ -10,6 +10,7 @@ if ds_list_find_index(global.saveroom, id) != -1
 
 if layer_exists(mylayer)
 {
-	layer_depth(mylayer, 96);
+	layer_depth(mylayer, 90);
 	layer_shader(mylayer, shd_layeralpha);
 }
+

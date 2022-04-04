@@ -15,7 +15,7 @@
     "path": "audiogroups/audiogroup_default",
   },
   "soundFile": "sfx_break",
-  "duration": 1.311063,
+  "duration": 1.306062,
   "parent": {
     "name": "sfx",
     "path": "folders/Sounds/sfx.yy",

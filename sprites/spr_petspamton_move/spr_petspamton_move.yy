@@ -82,7 +82,7 @@
   "nineSlice": null,
   "parent": {
     "name": "pets",
-    "path": "folders/Sprites/cosmetic or etc/pets.yy",
+    "path": "folders/Sprites/pto extra/pets.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_petspamton_move",

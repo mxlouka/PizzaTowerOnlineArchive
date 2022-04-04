@@ -12,7 +12,7 @@ function scr_player_cheeseball()
 		repeat(8)
 			instance_create(x,y,obj_slimedebris)
 		
-	    hsp = 5 * (-xscale)
+	    hsp = 5 * -xscale
 	    vsp = -3
 	    visible = true
 	    image_index = 0
@@ -27,9 +27,11 @@ function scr_player_cheeseball()
 		input_buffer_jump = 0
 
 	//Jump
-	if (input_buffer_jump < 8) && grounded 
+	if input_buffer_jump < 8 && grounded 
 	{
-		instance_create(x,y,obj_highjumpcloud2)
+		input_buffer_jump = 8
+		
+		instance_create(x, y, obj_highjumpcloud2)
 		scr_soundeffect(sfx_jump)
 		vsp = -5
 	}

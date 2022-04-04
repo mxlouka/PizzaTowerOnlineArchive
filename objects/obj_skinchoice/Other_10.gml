@@ -212,12 +212,24 @@ switch sel[1]
 			["???", "You can't get blacker than this."],
 			["RANDOM HUMOR", "This isn't even a joke. And I'm asking this personally. Who hurt you?\nWhat happened for things to be this way? Are you okay?"],
 			["GRUNT", "To whomever this palette once belonged to, they must be living a pretty sad life right now."],
-			["MCDONALDS", "I actually dislike their soggy fries. Is this bad?"],
+			["MCDONALDS", "I dislike their soggy fries. Fight me."],
 			["ELMO", "You have come to his event. Now you must endure forceful cosplay."],
 			["MANUAL", "Do you ever just feel like emanating a strong stench of urine?"],
+			["SNICK", "It's not him."],
+			["THE EVIL", "Made in hell."],
 		]
 		if global.streamer
 			selarray[11][1] = "'Go home'? But I JUST got here!"; // random humor
+		break;
+	
+	case "CT":
+		spr_palette = spr_cheemspalette;
+		selarray = [
+			["CHEEMSTOON", "Temporary"],
+			["GORE", ""],
+			["GRINCH", ""],
+			["SAGE", ""],
+		]
 		break;
 	
 	#region scrapped (for now)

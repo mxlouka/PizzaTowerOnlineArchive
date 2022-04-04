@@ -1,15 +1,13 @@
 if room == rm_editor exit;
 
 //Scared
-if sprite_index != spr_hungrypillar_ss && sprite_index != spr_hungrypillarOLD_ss
+var p = instance_nearest(x, y, obj_player);
+if p.x > x - 400 && p.x < x + 400 && sprite_index != spr_angry
+	sprite_index = spr_angry
+else if !(p.x > x - 400 && p.x < x + 400) && sprite_index == spr_angry
 {
-	if obj_player1.x > x - 400 && obj_player1.x < x + 400 && sprite_index != spr_hungrypillar_angry
-		sprite_index = spr_hungrypillar_angry
-	else if !(obj_player1.x > x - 400 && obj_player1.x < x + 400) && sprite_index == spr_hungrypillar_angry
-	{
-		sprite_index = spr_hungrypillar_happy
-		alarm[0] = 100
-	}
+	sprite_index = spr_happy
+	alarm[0] = 100
 }
 
 if place_meeting(x, y, obj_otherplayer)

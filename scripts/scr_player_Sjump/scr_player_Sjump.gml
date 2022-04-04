@@ -45,7 +45,7 @@ function scr_player_Sjump()
 	{
 		// attempt to push player slightly
 		var closest = 0;
-		for(var i = 0; i < 8; i++)
+		for(var i = 0; i < 16; i++)
 		{
 			if !scr_solid(x + i, y - 1)
 			{
@@ -53,7 +53,7 @@ function scr_player_Sjump()
 				break;
 			}
 		}
-		for(var i = 0; i < 8; i++)
+		for(var i = 0; i < 16; i++)
 		{
 			if !scr_solid(x - i, y - 1)
 			{
@@ -62,44 +62,47 @@ function scr_player_Sjump()
 				break;
 			}
 		}
-		x += closest;
+		if closest != 0
+			x += closest;
+		else
+		{
+			// you CLEARLY hit the ceiling there is no forgiveness
+			springsjump = false;
+			a = 0;
 		
-		// you CLEARLY hit the ceiling there is no forgiveness
-		springsjump = false;
-		a = 0;
-		
-		if sprite_index = spr_player_supersidejump
-			sprite_index = spr_player_supersidejumpland
+			if sprite_index = spr_player_supersidejump
+				sprite_index = spr_player_supersidejumpland
         
-		if sprite_index == spr_superjump or sprite_index == spr_playerV_superjump2 or sprite_index == spr_superspringplayer
-		{
-			if sprite_index == spr_superspringplayer && character == "SP"
-				sprite_index = spr_playerSP_hitceiling;
-			else
-				sprite_index = spr_superjumpland;
-		}
-        
-		with obj_camera
-		{
-			shake_mag = 10;
-			shake_mag_acc = 30 / room_speed;
-		}
-			
-		with obj_baddie
-		{
-			if point_in_camera(x, y, view_camera[0])
+			if sprite_index == spr_superjump or sprite_index == spr_playerV_superjump2 or sprite_index == spr_superspringplayer
 			{
-				image_index = 0
-				if grounded
-					vsp = -7
+				if sprite_index == spr_superspringplayer && character == "SP"
+					sprite_index = spr_playerSP_hitceiling;
+				else
+					sprite_index = spr_superjumpland;
 			}
-		}
+        
+			with obj_camera
+			{
+				shake_mag = 10;
+				shake_mag_acc = 30 / room_speed;
+			}
+			
+			with obj_baddie
+			{
+				if point_in_camera(x, y, view_camera[0])
+				{
+					image_index = 0
+					if grounded
+						vsp = -7
+				}
+			}
 		
-		audio_stop_sound(sfx_groundpound)
-		scr_soundeffect(sfx_groundpound)
-		image_index = 0
-		state = states.Sjumpland
-		machhitAnim = false
+			audio_stop_sound(sfx_groundpound)
+			scr_soundeffect(sfx_groundpound)
+			image_index = 0
+			state = states.Sjumpland
+			machhitAnim = false
+		}
 	}
 	else
 	{
@@ -221,5 +224,5 @@ function scr_player_Sjump()
 	
 	//Animations
 	image_speed = 0.5
-	scr_collide_player();
 }
+

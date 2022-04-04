@@ -280,32 +280,20 @@ function scr_player_mach3()
 					fightball = false
 				}
 			}
-			
-					//Freefall
-			//   if key_down2 && !grounded
-			//   {
-			//   vsp = -4
-				//  state = states.freefallprep
-    
-				//   hsp =0
-    
-				//   image_index = 0
-
-			//}
 		}
-		else
+		else // pogo noise
 		{
 			hsp = xscale * movespeed
 			move = key_right + key_left
 
-			if fightball = false
+			if !fightball
 				vsp = 0
 
 			//Move slightly
-			if key_up  && fightball = false
+			if key_up && !fightball
 				vsp = -3
 
-			if key_down  && fightball = false
+			if key_down && !fightball
 				vsp = 3
 
 			if movespeed < 24 && move == xscale
@@ -335,7 +323,7 @@ function scr_player_mach3()
 				movespeed -= 0.1
 
 			//Pogo
-			if key_attack2 && character = "N"  && fightball = false
+			if key_attack2 && character == "N" && !fightball
 			{
 				sprite_index = spr_playerN_pogostart
 				image_index = 0
@@ -343,7 +331,7 @@ function scr_player_mach3()
 				pogospeed = movespeed
 			}
 			
-			if fightball = false
+			if !fightball
 			{
 				if movespeed > 20 && sprite_index != spr_crazyrun 
 				{
@@ -354,7 +342,7 @@ function scr_player_mach3()
 					sprite_index = spr_playerN_jetpackboost	
 			}
 			
-			if character = "N"  && key_jump2  && fightball = false
+			if character == "N" && key_jump2 && !fightball
 			{
 				scr_soundeffect(sfx_jump)
 				scr_soundeffect(sfx_woosh)
@@ -364,49 +352,44 @@ function scr_player_mach3()
 				sprite_index = spr_playerN_noisebombspinjump
 				image_index = 0
 				with instance_create(x,y,obj_jumpdust)
-				image_xscale = other.xscale
+					image_xscale = other.xscale
 			}
 
-				//Machroll
-			if key_down && fightball = false && !place_meeting(x,y,obj_dashpad) && grounded
+			//Machroll
+			if key_down && !fightball && !place_meeting(x,y,obj_dashpad) && grounded
 			{
-				with instance_create(x,y,obj_jumpdust)
-				image_xscale = other.xscale
+				with instance_create(x, y, obj_jumpdust)
+					image_xscale = other.xscale
+				
 				flash = false
 				sprite_index = spr_playerN_jetpackslide
 				state = states.machroll
 			}
 
 			//Jump Stop
-			if (!key_jump2) && jumpstop = false && vsp < 0.5 && fightball = true
+			if (!key_jump2) && !jumpstop && vsp < 0.5 && fightball
 			{
 				vsp /= 10
 				jumpstop = true
 			}
 
-			if grounded && vsp > 0 && fightball = true
-			{
+			if grounded && vsp > 0 && fightball
 				jumpstop = false
-			}
-
 
 			//Jump
 			if (input_buffer_jump < 8) && grounded && !(move == 1 && xscale == -1) && !(move == -1 && xscale == 1) && fightball
 			{
+				input_buffer_jump = 8
 				scr_soundeffect(sfx_jump)
 				if sprite_index != spr_fightball
 				{
-				image_index =0
-				sprite_index = spr_mach3jump
+					image_index = 0
+					sprite_index = spr_mach3jump
 				}
 
 				vsp = -11
-
 			}
-
-
-
-
+			
 			//Bump
 			if (scr_solid(x+sign(hsp),y, false))  &&   (!place_meeting(x+sign(hsp),y,obj_slope) or scr_solid(x+sign(hsp),y, false)) && (!place_meeting(x+sign(hsp),y,obj_metalblock) && character != "V")  && (!place_meeting(x+sign(hsp),y,obj_destructibles) && character != "V")  && !place_meeting(x+sign(hsp),y,obj_hungrypillar) 
 			{
@@ -506,6 +489,7 @@ function scr_player_mach3()
 			}
 
 			vsp = -11
+			input_buffer_jump = 8
 		}
 
 

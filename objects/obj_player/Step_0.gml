@@ -796,7 +796,7 @@ else if instance_exists(speedlineseffectid)
 
 // collision
 scr_collide_destructibles();
-if state != states.titlescreen && state != states.grabbed && state != states.door && state != states.Sjump && state != states.ejected && state != states.comingoutdoor && state != states.keyget && state != states.victory && state != states.portal && state != states.timesup && state != states.gottreasure && state != states.rotate && state != states.gameover && (((state != states.backbreaker or taunttimer <= 0)) or global.gameplay == 0)
+if state != states.titlescreen && state != states.grabbed && state != states.door && state != states.ejected && state != states.comingoutdoor && state != states.keyget && state != states.victory && state != states.portal && state != states.timesup && state != states.gottreasure && state != states.rotate && state != states.gameover && (((state != states.backbreaker or taunttimer <= 0)) or global.gameplay == 0)
 	scr_collide_player();
 
 // correct depth

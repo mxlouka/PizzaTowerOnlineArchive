@@ -27,7 +27,7 @@ function scr_player_mach2()
 		input_buffer_jump = 0
 
 	//Jump
-	if (input_buffer_jump < 8) && grounded && move != -xscale
+	if input_buffer_jump < 8 && grounded && move != -xscale
 	{
 		input_buffer_jump = 8;
 		

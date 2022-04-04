@@ -18,10 +18,10 @@ function scr_player_tumble()
 	if !grounded
 		ledge_bump();
 	
-	if (scr_solidwall(x+xscale,y)
-	&& !place_meeting(x+hsp,y,obj_destructibles)
-	&& !place_meeting(x+hsp,y,obj_rollblock))
-	or place_meeting(x,y,obj_timedgate)
+	if (scr_solidwall(x + xscale, y)
+	&& !place_meeting(x + hsp, y, obj_destructibles)
+	&& !place_meeting(x + hsp, y, obj_rollblock))
+	or place_meeting(x, y, obj_timedgate)
 	{
 		if sprite_index != spr_tumbleend
 		{
@@ -50,8 +50,10 @@ function scr_player_tumble()
 		jumpstop = false
 	
 	//Jump
-	if (input_buffer_jump < 8) && grounded && hsp != 0 && !key_down
+	if input_buffer_jump < 8 && grounded && hsp != 0 && !key_down
 	{
+		input_buffer_jump = 8
+		
 		vsp = -9
 		if global.gameplay != 0
 			vsp = -11

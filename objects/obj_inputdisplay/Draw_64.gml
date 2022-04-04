@@ -11,10 +11,10 @@ function draw_inputdisplay_key(xx, yy, keycode, width, height = width)
 		case "Z": drawer = "Z"; pressed = key_jump2; break;
 		case "X": drawer = "X"; pressed = key_slap; break;
 		case "C": drawer = "C"; pressed = key_taunt; break;
-		case "UP": drawer = spr_uparrow; pressed = key_up; break;
-		case "DOWN": drawer = spr_uparrow; pressed = key_down; break;
-		case "LEFT": drawer = spr_uparrow; pressed = -key_left; break;
-		case "RIGHT": drawer = spr_uparrow; pressed = key_right; break;
+		case "UP": drawer = 0; pressed = key_up; break;
+		case "DOWN": drawer = 180; pressed = key_down; break;
+		case "LEFT": drawer = 90; pressed = -key_left; break;
+		case "RIGHT": drawer = 270; pressed = key_right; break;
 	}
 	
 	// square
@@ -26,11 +26,7 @@ function draw_inputdisplay_key(xx, yy, keycode, width, height = width)
 	draw_roundrect(xx, yy, xx + width - 1, yy + height - 1, true);
 	
 	// text
-	if !is_string(drawer) && sprite_exists(drawer)
-	{
-		
-	}
-	else
+	if is_string(drawer)
 	{
 		draw_set_colour(c_white);
 		draw_set_font(global.bigfont);
@@ -39,15 +35,24 @@ function draw_inputdisplay_key(xx, yy, keycode, width, height = width)
 	
 		var siz = 1;
 		var _stringwidth = string_width(drawer);
-	    if _stringwidth >= width - 8
-	        siz = (width - 8) / _stringwidth;
+		
+		siz = (width - 16) / _stringwidth;
+	    if siz > 1
+	        siz = max(floor(siz / 2), 1);
 	
-		if siz < 1
+		if siz != 1
 			draw_text_transformed(floor(xx + width / 2), floor(yy + height / 2), drawer, siz, siz, 0);
 		else
 			draw_text(floor(xx + width / 2), floor(yy + height / 2), drawer);
 	
 		draw_set_valign(fa_top);
+	}
+	else
+	{
+		siz = (width - 16) / 28;
+	    if siz > 1
+	        siz = max(floor(siz / 2), 1);
+		draw_sprite_ext(spr_inputdisplay_arrow, 0, floor(xx + width / 2), floor(yy + height / 2), siz, siz, drawer, c_white, image_alpha);
 	}
 	
 	draw_set_alpha(1);
@@ -55,35 +60,58 @@ function draw_inputdisplay_key(xx, yy, keycode, width, height = width)
 
 if global.inputdisplay
 {
-	var keysep = 4;
-	var keysize = 48;
-	var add = keysep + keysize;
+	// draw it
+	var xx = 0, yy = 0;
+	for(var i = 0; i < array_length(inputkeys); i++)
+	{
+		var k = inputkeys[i];
+		
+		xx = k.x * keysize + k.x * keysep;
+		yy = k.y * keysize + k.y * keysep;
+		
+		draw_inputdisplay_key(x + xx, y + yy, k.key, k.keyw * keysize + (k.keyw - 1) * keysep, k.keyh * keysize + (k.keyh - 1) * keysep);
+	}
 	
 	// dont block the view
-	if instance_exists(obj_player) && obj_player.x >= _camx + x && obj_player.x <= _camx + x + add * 3.5
-	&& obj_player.y >= _camy + _camh + y - add * 4 && obj_player.y <= _camy + _camh + y
-		image_alpha = 0.5;
+	var left = x, right = x + xx + keysize, top = y, bottom = y + yy + keysize;
+	if instance_exists(obj_player) && obj_player.x >= left - 25 && obj_player.x <= right + 25
+	&& obj_player.y >= top - 50 && obj_player.y <= bottom + 25
+		image_alpha = 0.35;
 	else
 		image_alpha = 1;
 	
-	draw_inputdisplay_key(x + keysep, y + 540 - add, "SHIFT", keysize + add, keysize);
-	draw_inputdisplay_key(x + keysep, y + 540 - add * 2, "LEFT", keysize);
-	draw_inputdisplay_key(x + keysep + add, y + 540 - add * 2, "DOWN", keysize);
-	draw_inputdisplay_key(x + keysep + add, y + 540 - add * 3, "UP", keysize);
-	draw_inputdisplay_key(x + keysep + add * 2, y + 540 - add * 2, "RIGHT", keysize);
-	draw_inputdisplay_key(x + keysep, y + 540 - add * 3, "Z", keysize);
-	draw_inputdisplay_key(x + keysep + add * 2, y + 540 - add * 3, "X", keysize);
-	draw_inputdisplay_key(x + keysep + add * 2, y + 540 - add, "C", keysize);
+	if keyboard_check_pressed(ord("R"))
+	{
+		x = 0;
+		y = 0;
+	}
 	
-	// UP
-	draw_sprite_ext(spr_uparrow, 0, x + keysep + add + keysize / 2, y + 540 - add * 3 + keysize / 2 + 3, 0.9, 0.9, 0, c_white, image_alpha);
+	// customize
+	var mx = device_mouse_x_to_gui(0), my = device_mouse_y_to_gui(0);
+	if mx >= left && mx <= right && my >= top && my <= bottom
+	{
+		if mouse_check_button_pressed(mb_left) && !drag
+		{
+			drag = true;
+			dragoffset = [x - mx, y - my];
+		}
+		
+		draw_set_colour(drag ? c_red : merge_colour(c_blue, c_aqua, 0.75));
+		draw_rectangle(left, top, right, bottom, true);
+	}
+	if !mouse_check_button(mb_left)
+		drag = false;
 	
-	// DOWN
-	draw_sprite_ext(spr_uparrow, 0, x + keysep + add + keysize / 2, y + 540 - add * 2 + keysize / 2 - 2, 0.9, -0.9, 0, c_white, image_alpha);
-	
-	// LEFT
-	draw_sprite_ext(spr_uparrow, 0, x + keysep + keysize / 2 + 3, y + 540 - add * 2 + keysize / 2, 0.9, 0.9, 90, c_white, image_alpha);
-	
-	// RIGHT
-	draw_sprite_ext(spr_uparrow, 0, x + keysep + add * 2 + keysize / 2 - 2, y + 540 - add * 2 + keysize / 2, 0.9, -0.9, 90, c_white, image_alpha);
+	if drag
+	{
+		x = mx + dragoffset[0];
+		y = my + dragoffset[1];
+		
+		x = clamp(x, 0, 960 - xx - keysize);
+		y = clamp(y, 0, 540 - yy - keysize);
+		
+		with obj_wc
+			WC_dragobj = noone;
+	}
 }
+

@@ -1,20 +1,12 @@
 xscale = gms_other_get(player_id, "xscale")
 yscale = gms_other_get(player_id, "yscale")
 
+image_index = gms_other_get_real(player_id, "image_index");
 img_angle = gms_other_get(player_id, "img_angle")
 
 state = gms_other_get(player_id, "state")
-
-/*
-if xscale == 0
-	xscale = 1;
-if yscale == 0
-	yscale = 1;
-*/
-
 spr_palette = gms_other_get(player_id, "spr_palette")
 paletteselect = gms_other_get(player_id, "paletteselect")
-image_index = gms_other_get_real(player_id, "image_index");
 
 if state == states.taxi
 	visible = true;
@@ -35,6 +27,7 @@ or place_meeting(x, y, obj_secretmetalblock)
 else
 	depth = -6;
 
+/*
 pvp = gms_other_get_real(player_id, "pvp");
 if pvp
 {
@@ -43,5 +36,8 @@ if pvp
 	if pvp_cooldown > 0
 		pvp_cooldown--;
 }
+*/
+pvp = false;
 
 pause = gms_other_get_real(player_id, "pause");
+

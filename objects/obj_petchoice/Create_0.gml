@@ -8,10 +8,11 @@ selarray = [
 	[spr_petgrunt_idle, "GRUNT", "Do you ever just need some Madness?"],
 	[spr_petslug_idle, "BLUE SLUGGY", "Diabetes."],
 	[spr_petwmouse_idle, "WORLDMOUSE", "Stupid fucking mouse."],
+	[spr_petmariro_move, choose("MARIRO", "MARIOR", "MARIROR", "MAIRORR"), ""],
 ];
 spr_idle = selarray[0][0];
 
-with obj_player1
+with obj_player
 	other.sel[0] = petfollow + 1;
 selvert = false;
 

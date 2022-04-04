@@ -19,32 +19,12 @@ if state != states.cheeseball && state != states.cotton
 		drawspr = spr_playerN_chungus;
 	if scr_checkskin(checkskin.s_sbombic)
 		drawspr = spr_sbombic;
-	
-	if scr_checkskin(checkskin.n_nose)
-	{
-		_img = 0;
-		drawspr = spr_playerN_idle;
-		if !grounded or state == states.machroll or state == states.crouch or state == states.crouchjump
-		or state == states.crouchslide or sprite_index == spr_playerN_tumble or state == states.boxxedpep
-			drawspr = spr_playerN_head;
-		
-		if x != xprevious or y != yprevious
-		{
-			with instance_create(x, y, obj_noseafterimage)
-			{
-				image_xscale = other.xscale;
-				sprite_index = other.drawspr;
-				depth = other.depth + 1;
-				image_blend = col;
-			}
-		}
-	}
 }
 
 // flashing and apply palette
 if !flash
 {
-	if (state != states.cheeseball or drawspr == spr_playerSP_cheeseball) && (state != states.ghost or (drawspr == spr_player_ghostend && image_index >= 12) or spr_palette == spr_noisepalette)
+	if (state != states.cheeseball or drawspr == spr_playerSP_cheeseball or drawspr == spr_playerPP_cheeseball) && (state != states.ghost or (drawspr == spr_player_ghostend && image_index >= 12) or spr_palette == spr_noisepalette)
 		pal_swap_set(spr_palette, paletteselect, false);
 }
 else

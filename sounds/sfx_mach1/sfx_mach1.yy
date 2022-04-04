@@ -15,7 +15,7 @@
     "path": "audiogroups/audiogroup_default",
   },
   "soundFile": "sfx_mach1",
-  "duration": 1.938063,
+  "duration": 1.933062,
   "parent": {
     "name": "sfx",
     "path": "folders/Sounds/sfx.yy",

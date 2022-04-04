@@ -111,7 +111,7 @@ else
 		sprit = spr_player_idle;
 	
 	var _img = image_index;
-	if state != states.cheeseball
+	if state != states.cheeseball && state != states.cotton
 	{
 		if spr_palette == spr_peppalette && paletteselect == 17
 			sprit = spr_player_petah;
@@ -119,30 +119,6 @@ else
 			sprit = spr_playerN_chungus;
 		if spr_palette == spr_snickpalette && paletteselect == 13
 			sprit = spr_sbombic;
-		
-		// nose
-		/*
-		if spr_palette == spr_noisepalette && paletteselect == 17
-		&& !(instance_exists(obj_pause) && obj_pause.pause)
-		{
-			_img = 0;
-			sprit = spr_playerN_idle;
-			if !scr_solid(x, y + 1) or state == states.machroll or state == states.crouch or state == states.crouchjump
-			or state == states.crouchslide or sprite_index == spr_playerN_tumble or state == states.boxxedpep
-				sprit = spr_playerN_head;
-			
-			if (x != xprevious or y != yprevious)
-			&& global.synceffect
-			{
-				with instance_create(x, y, obj_noseafterimage)
-				{
-					image_xscale = other.xscale;
-					sprite_index = sprit;
-					depth = other.depth + 1;
-				}
-			}
-		}
-		*/
 	}
 	
 	// draw the player
@@ -150,7 +126,7 @@ else
 	if !flash
 	{
 		if is_real(spr_palette) && spr_palette != 0 && sprite_exists(spr_palette)
-		&& (state != states.cheeseball or sprite_index == spr_playerSP_cheeseball) && (state != states.ghost or (sprite_index == spr_player_ghostend && image_index >= 12) or spr_palette == spr_noisepalette)
+		&& (state != states.cheeseball or sprit == spr_playerSP_cheeseball or sprit == spr_playerPP_cheeseball) && (state != states.ghost or (sprit == spr_player_ghostend && _img >= 12) or spr_palette == spr_noisepalette)
 			pal_swap_set(spr_palette, paletteselect, false);
 	}
 	else

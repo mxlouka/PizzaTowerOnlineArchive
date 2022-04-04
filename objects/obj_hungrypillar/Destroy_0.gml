@@ -41,15 +41,14 @@ if room == rm_editor exit;
 
 	with instance_create(x, y, obj_sausageman_dead)
 	{
-		sprite_index = spr_hungrypillar_dead
+		sprite_index = other.spr_dead;
+		image_xscale = other.image_xscale;
+		image_yscale = other.image_yscale;
 		
-		// sugary sprites
-		if other.sprite_index == spr_hungrypillarOLD_ss
-			sprite_index = spr_hungrypillardeadOLD_ss;
-		if other.sprite_index == spr_hungrypillar_ss
-			sprite_index = spr_hungrypillardead_ss;
+		if check_sugary()
+			sugary = true;
 	}
-
+	
 	scr_soundeffect(sfx_killenemy)
 
 	if !instance_exists(obj_endlevelfade)
@@ -270,7 +269,7 @@ if room == rm_editor exit;
 	with obj_panicdebris
 	{
 		canflash = true;
-		event_perform(ev_other, ev_room_start);
+		event_user(0);
 	}
 }
 with obj_checkpoint
@@ -278,3 +277,4 @@ with obj_checkpoint
 	if sprite_index == spr_checkpoint
 		instance_destroy();
 }
+

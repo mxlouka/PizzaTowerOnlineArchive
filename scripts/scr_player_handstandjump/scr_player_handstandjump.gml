@@ -164,7 +164,7 @@ function scr_player_handstandjump()
 		if key_jump && character != "S"
 			input_buffer_jump = 0
 		
-		if (grounded && (input_buffer_jump < 8)) && character != "S"
+		if (grounded && input_buffer_jump < 8) && character != "S"
 		{
 			input_buffer_jump = 8;
 			

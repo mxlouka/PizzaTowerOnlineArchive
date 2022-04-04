@@ -23,16 +23,6 @@ if global.synceffect
 	gms_settings_declare_syncable_object(obj_mach3effect);
 }
 
-// pvp objects
-/*
-gms_settings_declare_syncable_object(obj_swordhitbox);
-gms_settings_declare_syncable_object(obj_shotgunbullet);
-gms_settings_declare_syncable_object(obj_dynamite);
-gms_settings_declare_syncable_object(obj_playerbomb);
-gms_settings_declare_syncable_object(obj_slapstar);
-gms_settings_declare_syncable_object(obj_baddiegibs);
-*/
-
 // settings
 gameversion = 8.5;
 gms_settings(true, gameversion, obj_player1, obj_otherplayer);

@@ -78,8 +78,10 @@ function scr_player_normal()
 			{
 			    if move == 0
 			    {
-				    if idle < 400 && !facehurt
-						idle++
+				    if idle < 400 && !facehurt && character != "SP"
+						idle++;
+					else
+						idle = 0;
 					
 					if idle >= 150
 					{
@@ -88,11 +90,6 @@ function scr_player_normal()
 						    randomise()
 							sprite_index = choose(spr_idle1, spr_idle2, spr_idle3, spr_idle4, spr_idle5, spr_idle6);
 						    image_index = 0
-							
-							/*
-							if global.key_inv && character == "SP" && irandom_range(1, 100) <= 25 && check_sugary()
-								sprite_index = spr_playerSP_keyidle;
-							*/
 					    }
 						else if floor(image_index) >= image_number - 1
 						{

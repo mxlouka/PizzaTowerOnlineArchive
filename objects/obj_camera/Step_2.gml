@@ -309,6 +309,10 @@ if instance_exists(player) && player.state != states.timesup && player.state != 
 			else
 			{
 				instance_activate_object(obj_baddiecollisionbox);
+				instance_activate_object(obj_forkhitbox);
+				instance_activate_object(obj_baddie);
+				instance_activate_object(obj_cheesedragon);
+				instance_activate_object(obj_baddiespawner);
 			}
 		}
 		else
@@ -349,8 +353,8 @@ if instance_exists(player) && player.state != states.timesup && player.state != 
 // update wave
 if global.panic or global.snickchallenge
 {
-	var camsmooth = max(obj_camera.alarm[1] / 60, 0);
-	if obj_camera.alarm[1] == -1 or (global.minutes == 0 && global.seconds == 0)
+	var camsmooth = max(alarm[1] / 60, 0);
+	if alarm[1] == -1 or (global.minutes == 0 && global.seconds == 0)
 		camsmooth = 0;
 	
 	global.wave = max(global.maxwave - (global.minutes * 60 + global.seconds + camsmooth) * 60, 0);

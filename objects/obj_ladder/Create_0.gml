@@ -1,6 +1,6 @@
 depth = 12;
-if place_meeting(x, y, obj_destructibles)
-	depth = 112;
+if scr_depthcheck()
+	depth += 100;
 
 image_speed = 0;
 
@@ -105,6 +105,8 @@ if scr_stylecheck(2)
 		}
 		if string_endswith(string_letters(roomname), "kungfu")
 			sprite_index = spr_ladder_kungfu
+		if string_endswith(string_letters(roomname), "sanctum")
+			visible = false
 
 		if string_endswith(string_letters(roomname), "secret") && !check_sugary()
 			sprite_index = spr_ladder_secret
@@ -116,3 +118,4 @@ if room == custom_lvl_room
 	alarm[0] = 1;
 else
 	event_perform(ev_alarm, 0);
+

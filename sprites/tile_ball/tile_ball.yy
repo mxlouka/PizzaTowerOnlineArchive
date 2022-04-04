@@ -8,9 +8,9 @@
   "collisionTolerance": 0,
   "swfPrecision": 2.525,
   "bbox_left": 32,
-  "bbox_right": 223,
+  "bbox_right": 287,
   "bbox_top": 0,
-  "bbox_bottom": 191,
+  "bbox_bottom": 255,
   "HTile": true,
   "VTile": true,
   "For3D": false,
@@ -21,8 +21,8 @@
     "path": "texturegroups/Default",
   },
   "swatchColours": null,
-  "gridX": 0,
-  "gridY": 0,
+  "gridX": 32,
+  "gridY": 32,
   "frames": [
     {"compositeImage":{"FrameId":{"name":"83b7f27f-3950-445f-bb86-c0203e05411b","path":"sprites/tile_ball/tile_ball.yy",},"LayerId":null,"resourceVersion":"1.0","name":"composite","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
         {"FrameId":{"name":"83b7f27f-3950-445f-bb86-c0203e05411b","path":"sprites/tile_ball/tile_ball.yy",},"LayerId":{"name":"4fc63714-3b0e-4ddc-b178-076e73df5753","path":"sprites/tile_ball/tile_ball.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},

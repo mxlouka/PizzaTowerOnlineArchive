@@ -15,7 +15,7 @@
     "path": "audiogroups/audiogroup_default",
   },
   "soundFile": "sfx_knightsword",
-  "duration": 3.433571,
+  "duration": 3.428571,
   "parent": {
     "name": "sfx",
     "path": "folders/Sounds/sfx.yy",

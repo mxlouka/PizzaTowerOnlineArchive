@@ -36,8 +36,8 @@ for(var i = 0; i < array_length(global.roombgs); i++)
 	if parallax == undefined
 		parallax = [0, 0];
 	
-	layer_x(l.lay, l.x + parallax[0]);
-	layer_y(l.lay, l.y + parallax[1]);
+	layer_x(l.lay, floor(l.x + parallax[0]));
+	layer_y(l.lay, floor(l.y + parallax[1]));
 }
 
 // legacy layers that i can't bother changing

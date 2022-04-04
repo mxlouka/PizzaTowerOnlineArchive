@@ -17,7 +17,7 @@ function scr_player_finishingblow()
 		scr_soundeffect(sfx_punch)
 		scr_soundeffect(sfx_killingblow)
 	
-		with instance_create(x,y,obj_swordhitbox)
+		with instance_create(x, y, obj_swordhitbox)
 		{
 			playerid = other.object_index
 			if global.pvp && other.baddiegrabbedID == obj_otherplayer
@@ -35,7 +35,7 @@ function scr_player_finishingblow()
 	
 		scr_soundeffect(sfx_killingblow)
 	
-		with instance_create(x,y,obj_swordhitbox)
+		with instance_create(x, y, obj_swordhitbox)
 		{
 			playerid = other.object_index
 			if global.pvp && other.baddiegrabbedID == obj_otherplayer

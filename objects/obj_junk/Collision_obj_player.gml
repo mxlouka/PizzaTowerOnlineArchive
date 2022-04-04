@@ -1,7 +1,7 @@
-//Grab
-if (other.state =states.handstandjump or other.state = states.punch) && other.character != "S"
+// Grab
+if (other.state == states.handstandjump or (other.state == states.punch && global.gameplay == 0)) && other.character != "S"
 {
-	instance_create(x + (obj_player1.xscale * 40),y, obj_punchdust)
+	instance_create(x + other.xscale * 40, y, obj_punchdust)
 	with other
 	{
 		image_index = 0
@@ -18,7 +18,7 @@ if (other.state =states.handstandjump or other.state = states.punch) && other.ch
 }
 
 // Bump
-if thrown == false && stuntouchbuffer <= 0 && vsp > 0 && (other.character == "S" or other.character == "V")
+if !thrown && stuntouchbuffer <= 0 && vsp > 0 && (other.character == "S" or other.character == "V")
 {
 	if other.state == states.mach2
 	{
@@ -28,7 +28,7 @@ if thrown == false && stuntouchbuffer <= 0 && vsp > 0 && (other.character == "S"
 		if scr_checkskin(checkskin.p_anton)
 			scr_soundeffect(sfx_punchball_bounce);
 		stuntouchbuffer = 50;
-	
+		
 		if other.x != x
 			image_xscale = -sign(x - other.x);
 		
@@ -60,3 +60,4 @@ if thrown == false && stuntouchbuffer <= 0 && vsp > 0 && (other.character == "S"
 	}
 	thrown = true;
 }
+

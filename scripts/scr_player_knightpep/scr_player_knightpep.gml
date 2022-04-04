@@ -51,8 +51,10 @@ function scr_player_knightpep()
 		sprite_index = spr_knightpepidle
 
 	//Jump
-	if ((input_buffer_jump < 8) && vsp > 0 ) && grounded && (sprite_index == spr_knightpepidle or sprite_index == spr_knightpepwalk or (sprite_index == spr_knightpepland && global.gameplay != 0)) 
+	if ((input_buffer_jump < 8) && vsp > 0) && grounded && (sprite_index == spr_knightpepidle or sprite_index == spr_knightpepwalk or (sprite_index == spr_knightpepland && global.gameplay != 0)) 
 	{
+		input_buffer_jump = 8
+		
 		image_index = 0
 		sprite_index = spr_knightpepjumpstart
 	}

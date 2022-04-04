@@ -1,1 +1,2 @@
-sprite_index = spr_hungrypillar
+sprite_index = spr_idle
+

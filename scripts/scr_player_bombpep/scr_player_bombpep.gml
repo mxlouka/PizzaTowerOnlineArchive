@@ -70,7 +70,13 @@ function scr_player_bombpep()
 
 	//Jump
 	if input_buffer_jump < 8 && grounded && hsp != 0
+	{
+		input_buffer_jump = 8
 		vsp = -11
+		
+		with instance_create(x, y, obj_highjumpcloud2)
+			image_xscale = other.image_xscale;
+	}
 	
 	// animation speed
 	image_speed = lerp(0.35, 0.60, movespeed / 8);

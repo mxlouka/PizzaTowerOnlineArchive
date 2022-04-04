@@ -1,0 +1,2 @@
+targetRoom = sanctum_1
+

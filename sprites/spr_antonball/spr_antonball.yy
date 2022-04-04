@@ -69,8 +69,8 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "cosmetic or etc",
-    "path": "folders/Sprites/cosmetic or etc.yy",
+    "name": "pto extra",
+    "path": "folders/Sprites/pto extra.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_antonball",
