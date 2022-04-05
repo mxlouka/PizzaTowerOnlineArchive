@@ -1,11 +1,11 @@
-if string_startswith(room_get_name(room), "floor2")
-or string_startswith(room_get_name(room), "etb_")
+var rn = room_get_name(room);
+if string_startswith(rn, "floor2") or string_startswith(rn, "etb_") or string_startswith(rn, "ancient_")
 {
 	with other
 	{
-		if scr_knightbump(true, true)
+		if scr_transfobump()
 			exit;
 	}
 }
+scr_hurtplayer(other);
 
-scr_hurtplayer(other)

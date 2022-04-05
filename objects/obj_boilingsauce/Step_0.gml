@@ -14,7 +14,7 @@ if player
 		if player.state != states.boots && player.state != states.gameover && player.state != states.rideweenie
 		{
 			with player
-				scr_knightbump(true, false);
+				scr_transfobump(false);
 			
 			player.image_blend = c_white
 			player.state = states.fireass

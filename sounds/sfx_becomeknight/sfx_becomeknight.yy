@@ -15,7 +15,7 @@
     "path": "audiogroups/audiogroup_default",
   },
   "soundFile": "sfx_becomeknight",
-  "duration": 3.677,
+  "duration": 3.672,
   "parent": {
     "name": "sfx",
     "path": "folders/Sounds/sfx.yy",

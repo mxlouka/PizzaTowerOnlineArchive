@@ -989,10 +989,10 @@ function scr_characterspr(char = character)
 				spr_rideweenie = spr_snick_weeniemount
 				spr_barrelroll = spr_snick_barrelroll
 				
-				spr_ghostidle = spr_player_ghostidle
-				spr_ghostjump = spr_player_ghostjump
+				spr_ghostidle = spr_snick_ghostidle
+				spr_ghostjump = spr_snick_ghostjump
 				spr_ghostend = spr_player_ghostend
-				spr_ghostdash = spr_player_ghostdash
+				spr_ghostdash = spr_snick_ghostdash
 				
 				spr_scaredjump1 = spr_snick_fireass1
 				spr_scaredjump2 = spr_snick_fireass1
@@ -1002,7 +1002,7 @@ function scr_characterspr(char = character)
 				spr_parry2 = spr_snick_idle;
 				spr_parry3 = spr_snick_idle;
 				
-				spr_Current = spr_snick_slide;
+				spr_Current = spr_snick_tumble;
 				spr_suplexcancel = spr_snick_fall;
 				spr_suplexbump = spr_snick_bump;
 				

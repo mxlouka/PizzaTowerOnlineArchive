@@ -107,7 +107,7 @@ else
 			if sprite_exists(sprite_index)
 			{
 				// apply player palette
-				var tempvar = sprite_index != spr_tv_placeholder && sprite_index != spr_tv_placeholderSP && sprite_index != spr_tv_placeholderPP 
+				var tempvar = sprite_index != spr_tv_placeholder && sprite_index != spr_tv_placeholderSP && sprite_index != spr_tv_placeholderPP
 				&& sprite_index != spr_tv_off && sprite_index != spr_tv_offSP && sprite_index != spr_tv_offPP
 				&& sprite_index != spr_tv_open && sprite_index != spr_tv_openSP && sprite_index != spr_tv_openPP;
 				
@@ -120,8 +120,7 @@ else
 			    draw_sprite_ext(sprite_index, -1, 833 + offset_x, 107 + offset_y + hud_posY, 1, 1, 0, c_white, alpha);
 				pal_swap_reset();
 				
-				if !sugary && instance_exists(obj_player) && obj_player.character != "PP"
-				&& tempvar
+				if !sugary && tempvar && !(instance_exists(obj_player) && obj_player.character == "PP")
 					draw_sprite_ext(spr_tv_frame, -1, 833 + offset_x, 107 + offset_y + hud_posY, 1, 1, 0, c_white, alpha);
 			}
 			

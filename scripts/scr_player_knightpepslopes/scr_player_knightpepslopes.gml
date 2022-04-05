@@ -14,9 +14,9 @@ function scr_player_knightpepslopes()
 		sprite_index = spr_knightpepdownslope
 
 	//Bump
-	if scr_solid(x+(sign(hsp)),y) && !place_meeting(x+(sign(hsp)),y,obj_destructibles)
+	if scr_solid(x + sign(hsp), y) && !place_meeting(x + sign(hsp), y, obj_destructibles)
 	&& !place_meeting(x + sign(hsp), y, obj_slope)
-		scr_knightbump();
+		scr_transfobump();
 
 	if movespeed <= 0 && sprite_index == spr_knightpepcharge
 		movespeed = 15;

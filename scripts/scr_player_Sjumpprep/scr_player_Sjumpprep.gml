@@ -8,7 +8,7 @@ function scr_player_Sjumpprep() {
 			combo = 0
 			mach2 = 0
 		
-			if (sprite_index == spr_superjumppreplight || sprite_index == spr_superjumpright || sprite_index == spr_superjumpleft)
+			if (sprite_index == spr_superjumppreplight or sprite_index == spr_superjumpright or sprite_index == spr_superjumpleft)
 			or global.gameplay == 0
 				move = key_left + key_right;
 			else
@@ -43,7 +43,7 @@ function scr_player_Sjumpprep() {
 					movespeed -= 1;
 			}
 		
-			if floor(image_index) = image_number-1 && sprite_index = spr_superjumpprep 
+			if floor(image_index) >= image_number- 1 && sprite_index = spr_superjumpprep 
 				sprite_index = spr_superjumppreplight
 		
 			if sprite_index == spr_superjumppreplight
@@ -96,17 +96,15 @@ function scr_player_Sjumpprep() {
 				crouchAnim = true
 			}
 
-			if !key_up && grounded && (character = "S" or (sprite_index = spr_superjumppreplight or sprite_index = spr_superjumpleft or sprite_index = spr_superjumpright)) && ((!scr_solid(x,y-16) && !scr_solid(x,y-32)) or place_meeting(x, y - 32, obj_destructibles))
+			if !key_up && (grounded or character == "PP") && (character == "S" or (sprite_index == spr_superjumppreplight or sprite_index == spr_superjumpleft or sprite_index == spr_superjumpright)) && ((!scr_solid(x, y - 16) && !scr_solid(x, y - 32)) or place_meeting(x, y - 32, obj_destructibles))
 			{
 				scr_soundeffect(sfx_superjumprelease)
-				instance_create(x,y,obj_explosioneffect)
+				instance_create(x, y, obj_explosioneffect)
 				sprite_index = spr_superjump
 				state = states.Sjump
 				vsp = -17
 				image_index = 0
 			}
-			//Animations
-
 			image_speed = 0.35
 		}
 

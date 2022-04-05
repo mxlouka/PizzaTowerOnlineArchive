@@ -23,6 +23,8 @@ switch state
 	case states.cherrywait:
 	{
 		var targetplayer = obj_player;
+		if vsp < 0
+			vsp = 0;
 		
 		if global.panic && sprite_index != spr_charcherry_popout
 		&& targetplayer.x > x - 400 && targetplayer.x < x + 400

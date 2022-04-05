@@ -7,12 +7,13 @@ else
 		if state == states.rideweenie
 			with instance_create(x,y,obj_sausageman_dead)
 				sprite_index = spr_weeniemount_dead
-		scr_knightbump(true, false);
+		scr_transfobump(false);
 		
 		hsp = -6
 		state = states.bump
 		xscale = 1
-		sprite_index =spr_bump
+		sprite_index = spr_bump
 		vsp = -4
 	}
 }
+

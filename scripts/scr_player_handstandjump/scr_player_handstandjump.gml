@@ -142,7 +142,7 @@ function scr_player_handstandjump()
 		if key_down && grounded && vsp >= 0 && character != "S"
 		{
 			grav = basegrav
-			if character == "P" && global.gameplay != 0
+			if character == "P" && scr_stylecheck(1)
 				sprite_index = spr_player_breakdancesuper
 			else
 				sprite_index = spr_crouchslip

@@ -1,6 +1,6 @@
 with instance_place(x, y - 1, obj_player1)
 {
-	scr_knightbump(true, false);
+	scr_transfobump(false);
 	
 	state = states.slipnslide
     xscale = sign(other.image_xscale)

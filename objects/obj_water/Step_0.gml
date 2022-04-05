@@ -4,7 +4,7 @@ with instance_place(x, y - 1, obj_player1)
     {
 		if character != "V"
 		{
-			scr_knightbump(true, false);
+			scr_transfobump(false);
 			
 			image_blend = c_white
 	        image_index = 0

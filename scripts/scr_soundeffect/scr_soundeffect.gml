@@ -37,16 +37,5 @@ function scr_soundeffect_ext(snd, loops = false)
 	if snd == sfx_collecttopping or snd == sfx_toppingSP
 		audio_stop_sound(snd);
 	
-	// fart music mode
-	if global.musicgame == 2
-	{
-		switch snd % 3
-		{
-			case 0: snd = sfx_fart1; break;
-			default: case 1: snd = sfx_fart2; break;
-			case 2: snd = sfx_fart3; break;
-		}
-	}
-	
 	return audio_play_sound(snd, 0, loops);
 }

@@ -3,14 +3,17 @@ if live_call() return live_result;
 scr_getinput(true);
 function draw_inputdisplay_key(xx, yy, keycode, width, height = width)
 {
-	var drawer = "A";
+	var drawer = keycode;
 	var pressed = false;
 	switch keycode
 	{
-		case "SHIFT": drawer = "SHIFT"; pressed = key_attack; break;
-		case "Z": drawer = "Z"; pressed = key_jump2; break;
-		case "X": drawer = "X"; pressed = key_slap; break;
-		case "C": drawer = "C"; pressed = key_taunt; break;
+		default: pressed = keyboard_check(scr_keyfromname(keycode)); break;
+		
+		case "SHIFT": pressed = key_attack; break;
+		case "Z": pressed = key_jump2; break;
+		case "X": pressed = key_slap; break;
+		case "C": pressed = key_taunt; break;
+		case "A": case "V": pressed = key_shoot; break;
 		case "UP": drawer = 0; pressed = key_up; break;
 		case "DOWN": drawer = 180; pressed = key_down; break;
 		case "LEFT": drawer = 90; pressed = -key_left; break;

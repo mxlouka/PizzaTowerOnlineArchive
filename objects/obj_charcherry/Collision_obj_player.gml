@@ -11,7 +11,7 @@ if state == states.chase && !other.cutscene
 		}
 		else
 		{
-			scr_knightbump(true, false);
+			scr_transfobump(false);
 			
 			image_index = 0;
 			vsp = -4;

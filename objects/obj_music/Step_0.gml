@@ -84,7 +84,11 @@ if global.panic && !(room == custom_lvl_room && global.disableescapemusic)
 			else if obj_player1.character == "S"
 				musplay = mu_snickescape;
 			else if obj_player1.character == "PP"
+			{
 				musplay = mu_pizzatime_PP;
+				if global.streamer
+					musplay = mu_pizzatime_PP_streamer;
+			}
 			else if obj_player1.character == "SP"
 				musplay = global.gameplay == 0 ? mu_pizzyescape_OLD : mu_pizzyescape;
 			else // peppino, etc

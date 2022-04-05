@@ -754,7 +754,7 @@ function scr_player_mach3()
 		image_speed = 0.75
 
 	//Super Jump
-	if key_up && !fightball && (!(character == "N" && noisetype == 0) && character != "V") && grounded && sprite_index != spr_dashpadmach
+	if key_up && !fightball && (!(character == "N" && noisetype == 0) && character != "V") && (grounded or character == "PP") && sprite_index != spr_dashpadmach
 	{
 		sprite_index = spr_superjumpprep
 		scr_soundeffect(sfx_superjumpprep);

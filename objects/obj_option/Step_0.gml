@@ -241,7 +241,10 @@ else if menu == 1
 		if global.musicvolume > 0 && !audio_is_playing(music)
 		{
 			if !instance_exists(obj_music)
+			{
+				global.music = -4;
 				music = scr_soundeffect_ext(mu_editor);
+			}
 			else
 			{
 				var musprev = global.music;

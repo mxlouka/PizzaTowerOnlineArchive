@@ -25,7 +25,7 @@ if other.state != states.boxxedpep
 		
 			with other
 			{
-				scr_knightbump(true, false);
+				scr_transfobump(false);
 				state = states.boxxedpep
 			
 				sprite_index = spr_boxxed_intro
