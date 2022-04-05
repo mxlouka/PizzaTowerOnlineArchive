@@ -224,6 +224,8 @@ switch sel[1]
 	
 	case "CT":
 		spr_palette = spr_cheemspalette;
+		spr_idle = spr_playerCT_idle;
+		spr_select = spr_playerCT_panic;
 		selarray = [
 			["CHEEMSTOON", "Temporary"],
 			["GORE", ""],
