@@ -1,4 +1,3 @@
-depth = 104
+depth = 104with obj_player
+	if character == "S" instance_destroy(other, false);
 
-if obj_player1.character == "S"
-	instance_destroy(id, false);

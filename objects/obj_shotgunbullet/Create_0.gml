@@ -11,3 +11,4 @@ shotgun = false;
 oob = false;
 if !point_in_camera(x, y, view_camera[0])
 	oob = true;
+

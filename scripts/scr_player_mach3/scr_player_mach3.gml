@@ -669,26 +669,27 @@ function scr_player_mach3()
 		}
     
 		//Vigilante revolver
-		if key_slap2 && character = "V"
+		if key_slap2 && character == "V"
 		{
 			vsp = -5
 			state = states.revolver	
 			image_index = 0
 			sprite_index = spr_playerV_airrevolver
 			image_index = 0
-			instance_create(x+xscale*20,y+20,obj_shotgunbullet)
+			with instance_create(x + xscale * 20, y + 20, obj_shotgunbullet)
+				shotgun = true
 			scr_soundeffect(sfx_killingblow)
 		}
 
 		//Vigilante Dynamite
-		if key_shoot2 && character = "V" && !instance_exists(obj_dynamite)
+		if key_shoot2 && character == "V" && !instance_exists(obj_dynamite)
 		{
 			vsp = -5
 
 			state = states.dynamite
 			image_index = 0
 			sprite_index = spr_playerV_dynamitethrow
-			with instance_create(x,y,obj_dynamite)
+			with instance_create(x, y, obj_dynamite)
 			{
 				image_xscale = other.xscale
 					movespeed = other.movespeed + 4

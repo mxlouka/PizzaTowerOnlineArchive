@@ -132,7 +132,8 @@ function scr_player_mach1()
 		image_index = 0
 		sprite_index = spr_playerV_airrevolver
 		image_index = 0
-		instance_create(x + xscale * 20, y + 20, obj_shotgunbullet)
+		with instance_create(x + xscale * 20, y + 20, obj_shotgunbullet)
+			shotgun = true
 		scr_soundeffect(sfx_killingblow)
 	}
 	

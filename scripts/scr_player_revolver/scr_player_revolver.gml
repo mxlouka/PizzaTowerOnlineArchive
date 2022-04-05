@@ -11,10 +11,10 @@ function scr_player_revolver()
 		if movespeed > 0
 			movespeed -= 0.1
 	}
-	if floor(image_index) = image_number - 1 && sprite_index = spr_playerV_revolverstart
+	if floor(image_index) >= image_number - 1 && sprite_index = spr_playerV_revolverstart
 		sprite_index = spr_playerV_revolverhold
 
-	if (sprite_index = spr_playerV_revolverhold or sprite_index = spr_playerV_airrevolverstart or sprite_index = spr_playerV_revolverstart) && !key_slap
+	if (sprite_index == spr_playerV_revolverhold or sprite_index == spr_playerV_airrevolverstart or sprite_index == spr_playerV_revolverstart) && !key_slap
 	{
 		if grounded
 			sprite_index = spr_playerV_revolvershoot
@@ -22,12 +22,13 @@ function scr_player_revolver()
 			sprite_index = spr_playerV_airrevolver
 		
 		image_index = 0
-		instance_create(x+xscale*20,y+20,obj_shotgunbullet)
+		with instance_create(x + xscale * 20, y + 20, obj_shotgunbullet)
+			shotgun = true
 		scr_soundeffect(sfx_killingblow)
 
 	}
 	
-	if floor(image_index) = image_number - 1 && sprite_index = spr_playerV_revolvershoot 
+	if floor(image_index) >= image_number - 1 && sprite_index == spr_playerV_revolvershoot 
 	{
 		image_index = 0
 		if scr_solid(x, y - 32)
@@ -38,7 +39,7 @@ function scr_player_revolver()
 		movespeed = 2
 	}
 
-	if (sprite_index = spr_playerV_airrevolverend or sprite_index = spr_playerV_airrevolver or sprite_index = spr_playerV_airrevolverstart) && grounded
+	if (sprite_index == spr_playerV_airrevolverend or sprite_index == spr_playerV_airrevolver or sprite_index == spr_playerV_airrevolverstart) && grounded
 	{
 		if key_attack && movespeed >= 6
 		    state = states.mach2
@@ -46,7 +47,7 @@ function scr_player_revolver()
 			state = states.normal
 	}
 
-	if floor(image_index) = image_number - 1 && sprite_index = spr_playerV_airrevolver
+	if floor(image_index) >= image_number - 1 && sprite_index == spr_playerV_airrevolver
 	{
 		if key_attack && movespeed >= 6
 		    state = states.mach2
