@@ -1,0 +1,18 @@
+if ds_list_find_index(global.saveroom, id) == -1
+{
+	repeat 6 with instance_create(x + sprite_width / 2, y + sprite_height / 2, obj_metaldebris)
+	{
+		sprite_index = spr_metalblockharddebris;
+		momentum = other.momentum;
+	}
+	
+	with obj_camera
+	{
+	    shake_mag = 20;
+	    shake_mag_acc = 40 / room_speed;
+	}
+	
+	scr_soundeffect(sfx_breakmetal)
+	ds_list_add(global.saveroom, id) 
+}
+

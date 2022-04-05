@@ -1571,6 +1571,60 @@ function scr_characterspr(char = character)
 				break;
 		
 		#endregion
+		#region CHEEMSTOON
+		
+		case "CT":
+			scr_characterspr("P"); // use peppino as the missing sprites
+			spr_palette = spr_cheemspalette;
+			
+			spr_idle = spr_playerCT_idle;
+			spr_move = spr_playerCT_walk;
+			spr_mach1 = spr_playerCT_mach1;
+			spr_mach = spr_playerCT_mach2;
+			spr_mach4 = spr_playerCT_mach4;
+			spr_crazyrun = spr_playerCT_crazyrun;
+			spr_hurt = spr_playerCT_hurt;
+			spr_panic = spr_playerCT_panic;
+			spr_taunt = spr_playerCT_taunt;
+			
+			spr_finishingblow1 = spr_playerCT_finishingblow1;
+			spr_finishingblow2 = spr_playerCT_finishingblow2;
+			spr_finishingblow3 = spr_playerCT_finishingblow3;
+			spr_finishingblow4 = spr_playerCT_finishingblow1;
+			spr_finishingblow5 = spr_playerCT_finishingblow2;
+			
+			spr_jump = spr_playerCT_jump;
+			spr_fall = spr_playerCT_fall;
+			spr_facestomp = spr_playerCT_facestomp;
+			spr_freefall = spr_playerCT_freefall;
+			spr_land = spr_playerCT_land;
+			spr_land2 = spr_playerCT_land2;
+			spr_climbwall = spr_playerCT_climbwall;
+			
+			spr_superjumpprep = spr_playerCT_superjumpprep;
+			spr_superjumppreplight = spr_playerCT_superjumppreplight;
+			spr_superjumpleft = spr_playerCT_superjumpleft;
+			spr_superjumpright = spr_playerCT_superjumpright;
+			spr_uppizzabox = spr_playerCT_uppizzabox;
+			spr_downpizzabox = spr_playerCT_downpizzabox;
+			spr_fireass = spr_playerCT_fireass;
+			spr_fireassground = spr_playerCT_fireassground;
+			spr_entergate = spr_playerCT_entergate;
+			spr_victory = spr_playerCT_victory;
+			spr_lookdoor = spr_playerCT_lookdoor;
+			
+			spr_firemouthintro = spr_playerCT_firemouthintro;
+			spr_firemouth = spr_playerCT_firemouth;
+			spr_firemouthend = spr_playerCT_firemouthend;
+			
+			spr_ghostidle = spr_playerCT_ghostidle;
+			spr_ghostdash = spr_playerCT_ghostdash;
+			
+			spr_dead = spr_playerCT_dead;
+			spr_deathend = spr_playerCT_dead;
+			break;
+		
+		#endregion
 	}
 	pal_swap_index_palette(spr_palette);
 	

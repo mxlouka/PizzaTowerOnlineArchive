@@ -16,7 +16,7 @@ if ds_list_find_index(global.saveroom, id) == -1
 			sprite_index = spr_metalblockdebrisescape;
 		else if other.sprite_index == spr_metalbescape_NEW
 			sprite_index = spr_metalblockdebrisescape_NEW;
-		else if other.sprite_index == spr_metalbhard
+		else if other.sprite_index == spr_hotmetalblock
 			sprite_index = spr_metalblockharddebris;
 		else if global.gameplay != 0
 			sprite_index = spr_metalblockdebris_NEW;

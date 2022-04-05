@@ -24,5 +24,9 @@ function scr_player_rotate()
 		case "PP":
 			sprite_index = spr_playerPP_rotate;
 			break;
+		case "CT":
+			sprite_index = spr_playerCT_rotate;
+			break;
 	}
 }
+

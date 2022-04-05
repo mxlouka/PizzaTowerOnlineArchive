@@ -17,7 +17,10 @@ if string_startswith(roomname, "cotton_")
 else if check_sugary()
 	sprite_index = spr_ladderSP;
 
-// the new ones
+if string_endswith(string_letters(roomname), "sanctum")
+	visible = false
+
+// level specific
 if scr_stylecheck(2)
 {
 	#region snick rematch
@@ -105,8 +108,6 @@ if scr_stylecheck(2)
 		}
 		if string_endswith(string_letters(roomname), "kungfu")
 			sprite_index = spr_ladder_kungfu
-		if string_endswith(string_letters(roomname), "sanctum")
-			visible = false
 
 		if string_endswith(string_letters(roomname), "secret") && !check_sugary()
 			sprite_index = spr_ladder_secret

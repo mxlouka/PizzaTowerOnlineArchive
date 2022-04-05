@@ -1,4 +1,4 @@
-if sprite_index = spr_pizzaportalend
+if sprite_index == spr_pizzaportalend
 {
 	with obj_player
 	{
@@ -10,3 +10,4 @@ if sprite_index = spr_pizzaportalend
 		ds_list_clear(global.baddieroom)
 	}
 }
+
