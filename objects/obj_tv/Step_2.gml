@@ -300,7 +300,7 @@ else
 	        {
 		        idlespr = spr_tv_idle;
 			
-				if pchar != "P" && pchar != "N" && pchar != "SP" && pchar != "SN" && pchar != "PP" && pchar != "S"
+				if pchar != "P" && pchar != "N" && pchar != "SP" && pchar != "SN" && pchar != "PP" && pchar != "S" && pchar != "CT"
 					idlespr = spr_tv_placeholder;
 				else
 				{

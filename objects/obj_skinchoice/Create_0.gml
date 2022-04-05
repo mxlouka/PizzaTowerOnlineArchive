@@ -14,3 +14,7 @@ selvert = true;
 
 event_user(0);
 selected = false;
+
+spr_idle = -1;
+spr_select = -1;
+
