@@ -15,7 +15,7 @@
     "path": "audiogroups/audiogroup_default",
   },
   "soundFile": "sfx_mach1_PP.wav",
-  "duration": 3.153265,
+  "duration": 3.269932,
   "parent": {
     "name": "sfx",
     "path": "folders/Sounds/REPAINT/sfx.yy",

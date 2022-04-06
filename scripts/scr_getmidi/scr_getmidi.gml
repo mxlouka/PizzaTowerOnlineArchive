@@ -11,6 +11,8 @@ function scr_getmidi(mus)
 		mus = mu_minigolf_pc;
 	else if mus == mu_dungeondepth_re
 		mus = mu_dungeondepth_pc;
+	else if mus == mu_pizzatime_PP_streamer
+		mus = mu_pizzatime_PP_pc;
 	else if mus == mu_mall
 		mus = mu_mall;
 	else
