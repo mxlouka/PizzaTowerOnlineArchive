@@ -27,8 +27,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "baddie",
-    "path": "folders/Objects/baddie.yy",
+    "name": "enemieseffect",
+    "path": "folders/Objects/baddie/enemieseffect.yy",
   },
   "resourceVersion": "1.0",
   "name": "obj_baddietaunteffect",

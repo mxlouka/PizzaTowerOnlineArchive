@@ -53,26 +53,29 @@ function scr_player_ladder()
 	machhitAnim = false
 	
 	//Fall off
-	if !place_meeting((doorx == 0 ? x : doorx), y, obj_ladder) && ladderbuffer <= 0
+	var xx = (doorx == 0 ? x : doorx);
+	if !place_meeting(xx, y + vsp, obj_ladder) && ladderbuffer <= 0
 	{
 		landAnim = false
 		jumpAnim = false
 		state = states.normal
 		image_index = 0
 		
-		if vsp <= 0 && place_meeting(x, y + abs(vsp), obj_ladder) && !hooked
+		y += vsp;
+		if vsp <= 0 && place_meeting(x, y - vsp, obj_ladder) && !hooked
 		{
 			for(var i = 0; i < 32; i++)
 			{
 				if scr_solid(x, y + i + 1)
 				{
 					y += i;
+					grounded = true;
 					break;
 				}
 			}
-			grounded = true;
 		}
-		vsp = 0
+		
+		vsp = 0;
 		hooked = false;
 	}
 	
@@ -88,7 +91,7 @@ function scr_player_ladder()
 		vsp = -9
 		image_index = 0
 	}
-	if key_down && grounded && !place_meeting(x,y,obj_platform) 
+	if key_down && grounded && !place_meeting(x, y, obj_platform) 
 	{
 		hooked = false;
 		state = states.normal

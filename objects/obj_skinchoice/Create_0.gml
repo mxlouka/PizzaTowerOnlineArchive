@@ -12,9 +12,9 @@ with obj_player1
 }
 selvert = true;
 
-event_user(0);
-selected = false;
-
 spr_idle = -1;
 spr_select = -1;
+
+event_user(0);
+selected = false;
 

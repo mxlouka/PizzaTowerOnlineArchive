@@ -29,8 +29,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "enemies",
-    "path": "folders/Objects/baddie/enemies.yy",
+    "name": "baddie",
+    "path": "folders/Objects/baddie.yy",
   },
   "resourceVersion": "1.0",
   "name": "obj_supriseenemyarea",

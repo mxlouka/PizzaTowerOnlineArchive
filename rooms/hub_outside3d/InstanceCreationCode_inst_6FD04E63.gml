@@ -1,2 +1,2 @@
-content = obj_washingmachine
+content = obj_washingmachinemount
 

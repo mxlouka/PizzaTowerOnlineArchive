@@ -548,6 +548,11 @@ else
 							animset = spr_tv_placeholderPP;
 							sprite_index = spr_tv_placeholderPP;
 						}
+						else if pchar == "CT"
+						{
+							animset = spr_tv_placeholderCT;
+							sprite_index = spr_tv_placeholderCT;
+						}
 						else
 						{
 							animset = spr_tv_placeholder;

@@ -13,8 +13,14 @@ function scr_transfobump(_setstate = true)
 			state = states.normal;
 		}
 	}
-	else if state == states.bombpep
+	else if state == states.bombpep && sprite_index != spr_bombpepend
+	{
+		scr_soundeffect(sfx_bombpep2);
 		instance_create(x, y, obj_bombexplosion);
+		
+		if _setstate
+			sprite_index = spr_bombpepend;
+	}
 	else if (state == states.knightpep or state == states.knightpepattack or state == states.knightpepslopes)
 	&& sprite_index != spr_knightpepstart
 	{

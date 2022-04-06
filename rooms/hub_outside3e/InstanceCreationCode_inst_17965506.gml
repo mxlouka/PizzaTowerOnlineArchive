@@ -4,7 +4,7 @@ trigger = true; // run every frame
 
 func = function()
 {
-	if audio_is_playing(sfx_mach4_PP)
+	if audio_is_playing(sfx_mach4_PP) or audio_is_playing(sfx_mach3_PP)
 	{
 		audio_sound_gain(global.music, 0, 2000);
 		faded = true;

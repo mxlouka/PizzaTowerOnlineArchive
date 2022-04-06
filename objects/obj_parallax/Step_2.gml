@@ -9,7 +9,8 @@ function layer_get_parallax(layer_id)
 		case "Backgrounds_3": return [_camx * 0.05, _camy * 0.05]; break;
 		
 		case "Backgrounds_fore1": return [_camx * -0.1, _camy * -0.1]; break;
-		case "Backgrounds_Ground1": return [_camx * -0.25, _camy * -0.25]; break;
+		case "Backgrounds_Ground1": return [_camx * 0.25, 0]; break;
+		case "Backgrounds_Ground2": return [_camx * 0.25, 0]; break;
 		case "Backgrounds_H1": return [_camx * 0.25, _camy]; break;
 		
 		// pinpan moment
