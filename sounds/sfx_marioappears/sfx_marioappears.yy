@@ -1,10 +1,7 @@
 {
-  "ConfigValues": {
-    "debug": {"audioGroupId":"{\"name\":\"audiogroup_default\",\"path\":\"audiogroups/audiogroup_default\"}",},
-  },
   "conversionMode": 0,
   "compression": 0,
-  "volume": 0.5,
+  "volume": 1.0,
   "preload": false,
   "bitRate": 128,
   "sampleRate": 44100,
@@ -14,14 +11,14 @@
     "name": "audiogroup_default",
     "path": "audiogroups/audiogroup_default",
   },
-  "soundFile": "sfx_suplexdash_PP.wav",
-  "duration": 1.474467,
+  "soundFile": "sfx_marioappears.wav",
+  "duration": 0.900896,
   "parent": {
-    "name": "sfx",
-    "path": "folders/Sounds/REPAINT/sfx.yy",
+    "name": "pto extra",
+    "path": "folders/Sounds/pto extra.yy",
   },
   "resourceVersion": "1.0",
-  "name": "sfx_suplexdash_PP",
+  "name": "sfx_marioappears",
   "tags": [],
   "resourceType": "GMSound",
 }

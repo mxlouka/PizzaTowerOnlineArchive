@@ -6,8 +6,8 @@ if writer < string_length(dialogue[curdiag])
 	var cur_l = string_char_at(dialogue[curdiag], writer);
 	
 	if cur_l == "\n" or cur_l == " " or cur_l == ","
-	or cur_l == "." or cur_l == "\\" or cur_l == "?"
-	or cur_l == "!" or cur_l == ":" or cur_l == "\""
+	or cur_l == "." or cur_l == "?" or cur_l == "!"
+	or cur_l == ":" or cur_l == "\"" or cur_l == "'"
 		exit;
 	
 	// pause text (format: ^1, ^2, etc.)
@@ -22,7 +22,7 @@ if writer < string_length(dialogue[curdiag])
 		}
 	}
 	
-	// modifier (format: \\
+	// modifier
 	if cur_l == "\\"
 	{
 		writer++;

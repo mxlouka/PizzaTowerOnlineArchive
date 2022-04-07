@@ -1,9 +1,6 @@
 {
-  "ConfigValues": {
-    "debug": {"audioGroupId":"{\"name\":\"audiogroup_default\",\"path\":\"audiogroups/audiogroup_default\"}",},
-  },
   "conversionMode": 0,
-  "compression": 0,
+  "compression": 1,
   "volume": 1.0,
   "preload": false,
   "bitRate": 128,
@@ -14,14 +11,14 @@
     "name": "audiogroup_default",
     "path": "audiogroups/audiogroup_default",
   },
-  "soundFile": "sfx_treasure",
-  "duration": 1.714286,
+  "soundFile": "mu_mansionsecret_pc.ogg",
+  "duration": 71.4893646,
   "parent": {
-    "name": "sfx",
-    "path": "folders/Sounds/sfx.yy",
+    "name": "secret",
+    "path": "folders/Sounds/PIZZA CASTLE/secret.yy",
   },
   "resourceVersion": "1.0",
-  "name": "sfx_treasure",
+  "name": "mu_mansionsecret_pc",
   "tags": [],
   "resourceType": "GMSound",
 }

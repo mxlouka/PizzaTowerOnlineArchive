@@ -46,6 +46,7 @@ global.panicmelt = ini_read_real("online", "panicmelt", false); // motion blur
 global.panicshake = ini_read_real("online", "panicshake", true); // shaking
 global.panicnightmare = ini_read_real("online", "panicnightmare", true); // panic backgrounds
 global.panictilt = ini_read_real("online", "panictilt", false); // panic screen tilt
+global.showhud = true;
 
 global.musicvolume = ini_read_real("online", "musicvolume", 0.6);
 global.mastervolume = ini_read_real("online", "mastervolume", 1);

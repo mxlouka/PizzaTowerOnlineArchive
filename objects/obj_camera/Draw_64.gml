@@ -1,5 +1,5 @@
 //Draw
-if room == Realtitlescreen or room == rm_deltarune or room == rm_darkreveal or !drawhud
+if room == Realtitlescreen or room == rm_deltarune or room == rm_darkreveal or !drawhud or !global.showhud
 	exit;
 
 var sugary = false;

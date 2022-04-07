@@ -6,9 +6,6 @@ if ((room == dungeon_10 or room == dungeon_9 or room == snick_challengeend) && g
     instance_destroy(obj_baddiespawner, false);
 }
 
-if room == rm_deltarune or room == rm_darkreveal
-	exit;
-
 // snick rematch jumpscare
 if jumpscare > -1
 {
@@ -23,14 +20,17 @@ if jumpscare > -1
         draw_sprite(spr_scares, jumpscareimage, 0, 0);
 }
 
-// draw Text
+if room == rm_deltarune or room == rm_darkreveal or !global.showhud
+	exit;
+
+// Draw Text
 var sg = check_sugary();
 
 draw_set_font(sg ? global.sugarybigfont : global.bigfont)
 draw_set_halign(fa_center);
 draw_set_color(c_white)
 
-// text Event
+// Text Event
 draw_set_valign(fa_bottom);
 draw_text_auto(xi, yi, string(message))
 draw_set_valign(fa_top);

@@ -4,7 +4,8 @@ with other
 	{
 		audio_sound_gain(global.music, 0, 100);
 		
-		obj_camera.chargecamera = 0;
+		with obj_camera
+			chargecamera = 0;
 		image_index = 0;
 		state = states.victory;
 		
@@ -13,3 +14,4 @@ with other
 		other.alarm[0] = room_speed * 4;
 	}
 }
+
