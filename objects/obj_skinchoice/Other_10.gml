@@ -217,6 +217,7 @@ switch sel[1]
 			["MANUAL", "Do you ever just feel like emanating a strong stench of urine?"],
 			["SNICK", "It's not him."],
 			["THE EVIL", "Made in hell."],
+			["SUPER MARIO", "HOLY SHIT"],
 		]
 		if global.streamer
 			selarray[11][1] = "'Go home'? But I JUST got here!"; // random humor
