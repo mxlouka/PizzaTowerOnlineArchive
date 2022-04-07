@@ -385,6 +385,8 @@ else if (!global.panic or string_letters(roomname) == "dragonlair" or string_let
 	if string_letters(roomname) == "forestsecret" 
 	or string_startswith(roomname, "floor2_secret")
 		musplay = mu_forestsecret
+	if string_letters(roomname) == "beachsecret"
+		musplay = mu_beachsecret
 	if string_letters(roomname) == "cottonsecret"
 		musplay = mu_cottonsecret
 	if string_letters(roomname) == "jawbreakersecret"
