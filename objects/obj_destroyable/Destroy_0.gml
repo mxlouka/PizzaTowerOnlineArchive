@@ -12,9 +12,9 @@ if ds_list_find_index(global.saveroom, id) = -1
 			image_xscale = abs(other.image_xscale);
 			image_yscale = abs(other.image_yscale);
 			
-			if global.gameplay != 0
+			if other.sprite_index == spr_destroyable_NEW
 				sprite_index = spr_debris_NEW;
-			if other.sprite_index == spr_destroyable_ss
+			else if other.sprite_index == spr_destroyable_ss
 				sprite_index = spr_debris_ss;
 			
 			momentum = other.momentum;

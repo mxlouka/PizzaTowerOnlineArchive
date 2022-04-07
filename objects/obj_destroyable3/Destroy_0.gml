@@ -20,10 +20,10 @@ if ds_list_find_index(global.saveroom, id) = -1
 			
 			if other.sprite_index == spr_bigdestroyable_ss
 				sprite_index = spr_bigdebris_ss;
-			else if global.gameplay == 0
-				sprite_index = spr_bigdebris;
-			else
+			else if other.sprite_index == spr_bigdestroyable_NEW
 				sprite_index = spr_debris_NEW;
+			else
+				sprite_index = spr_bigdebris;
 			
 			momentum = other.momentum;
 		}

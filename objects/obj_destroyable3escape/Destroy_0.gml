@@ -18,10 +18,10 @@ if ds_list_find_index(global.saveroom, id) == -1 && global.panic
 			image_xscale = abs(other.image_xscale)
 			image_yscale = abs(other.image_yscale)
 		
-			if global.gameplay == 0
-				sprite_index = spr_bigdebrisescape
-			else
+			if other.sprite_index == spr_bigdestroyableescape_NEW
 				sprite_index = spr_debrisescape_NEW
+			else
+				sprite_index = spr_bigdebrisescape
 			
 			momentum = other.momentum;
 		}
