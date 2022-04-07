@@ -22,14 +22,14 @@ landspr = spr_pizzaboy
 idlespr = spr_pizzaboy
 fallspr = spr_pizzaboy
 stunfallspr = spr_pizzaboy
-walkspr =spr_pizzaboy
+walkspr = spr_pizzaboy
 turnspr = spr_pizzaboy
 recoveryspr = spr_pizzaboy
 grabbedspr = spr_pizzaboy
 scaredspr = spr_pizzaboy
 
 image_xscale = -1
-hp =1
+hp = 1
 slapped = false
 grounded = true
 birdcreated = false
@@ -38,5 +38,6 @@ spr_dead = spr_pizzaboy
 important = false
 grabbedby= 0
 heavy = false
-depth =0
+depth = 0
 stuntouchbuffer = 0
+
