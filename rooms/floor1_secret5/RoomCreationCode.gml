@@ -1,2 +1,2 @@
+global.roommessage = "DUMB AS A ROCK";
 
-global.roommessage = "DUMB AS A ROCK"

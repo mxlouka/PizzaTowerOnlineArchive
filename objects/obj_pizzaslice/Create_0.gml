@@ -17,3 +17,4 @@ if string_startswith(room_get_name(room), "strongcold")
 
 if global.snickrematch
 	sprite_index = spr_pizzaslice_re
+

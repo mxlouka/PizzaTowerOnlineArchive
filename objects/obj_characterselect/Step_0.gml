@@ -34,10 +34,11 @@ if !goback
 					image_index = 0
 				}
 			
-				with obj_player1
+				with obj_player
 				{
 					character = "P";
 					scr_characterspr();
+					paletteselect = 1;
 				}
 			}
 			else if selected == 1
@@ -49,10 +50,11 @@ if !goback
 					image_index = 0
 				}
 			
-				with obj_player1
+				with obj_player
 				{
 					character = "N";
 					scr_characterspr();
+					paletteselect = 0;
 				}
 			}
 			ready = true
