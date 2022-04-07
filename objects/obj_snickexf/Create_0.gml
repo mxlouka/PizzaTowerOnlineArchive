@@ -12,3 +12,4 @@ if global.snickrematch && global.gameplay == 0
         alarm[0] = 100
     }
 }
+

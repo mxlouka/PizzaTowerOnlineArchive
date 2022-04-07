@@ -18,9 +18,10 @@ if image_index == 0 && (global.panic or room == snick_challengeend)
 	global.snickchallenge = false
 	global.snickrematch = false
 
-	instance_destroy(obj_snickexe)
-	instance_destroy(obj_snickexf)
-	instance_destroy(obj_snickexg)
+	instance_destroy(obj_snickexe);
+	instance_destroy(obj_snickexf);
+	instance_destroy(obj_snickexg);
+	instance_destroy(obj_snickexh);
 
 	//SAGE2019
 	audio_stop_sound(global.music)

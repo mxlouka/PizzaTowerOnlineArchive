@@ -91,8 +91,8 @@ if !hitboxcreate && (!obj_player.instakillmove && obj_player.state != states.han
 	}
 }
 
-if (place_meeting(x, y, obj_player) && (obj_player.instakillmove or obj_player1.state == states.handstandjump))
-or place_meeting(x, y, obj_shotgunbullet) or place_meeting(x, y, obj_antonball) or ((obj_player1.state == states.keyget or obj_player1.state == states.victory) && !deactivate)
+if (place_meeting(x, y, obj_player) && (obj_player.instakillmove or obj_player.state == states.handstandjump))
+or place_meeting(x, y, obj_shotgunbullet) or place_meeting(x, y, obj_antonball) or ((obj_player.state == states.keyget or obj_player.state == states.victory) && !deactivate)
 or place_meeting(x, y, obj_playerexplosion) or place_meeting(x, y, obj_dynamiteexplosion)
 {
 	repeat 6 with instance_create(x + random_range(-100, 100), y + random_range(-100, 100), obj_balloonpop)

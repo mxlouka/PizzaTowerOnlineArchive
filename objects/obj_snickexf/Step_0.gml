@@ -61,7 +61,7 @@ if room == ruin_11 or room == ruin_4 or room == medieval_pizzamart or room == ru
 }
 
 // powers
-else if !(point_in_rectangle(x, y, _camx - 50, _camy - 50, _camx + _camw + 50, _camy + _camh + 50)) && cantp <= 0
+else if !point_in_rectangle(x, y, _camx - 50, _camy - 50, _camx + _camw + 50, _camy + _camh + 50) && cantp <= 0
 {
 	var target = instance_nearest(x, y, obj_player);
 	if target
@@ -76,6 +76,7 @@ else if !(point_in_rectangle(x, y, _camx - 50, _camy - 50, _camx + _camw + 50, _
     cantp = room_speed * 3;
 }
 
+// teleport cooldown (it's still unfair as shit)
 if cantp > 0
 {
     cantp -= 1;
@@ -84,3 +85,4 @@ if cantp > 0
 }
 else
 	cantp = 0;
+
