@@ -52,9 +52,6 @@ with other
 		sprite_index = spr_lookdoor;
 		image_index = 0;
 		
-		global.panic = false;
-		global.snickchallenge = false;
-		
 		if !instance_exists(obj_endlevelfade)
 			instance_create(x, y, obj_endlevelfade);
 	}

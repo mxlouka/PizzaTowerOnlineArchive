@@ -35,6 +35,8 @@ draw_set_valign(fa_bottom);
 draw_text_auto(xi, yi, string(message))
 draw_set_valign(fa_top);
 
+draw_set_font(global.bigfont)
+
 #region old hud
 
 if global.gameplay == 0
@@ -222,3 +224,4 @@ or instance_exists(obj_pizzaball)
 	draw_text(960 - 25, 200, string(string(global.golfhit) + " " + (global.golfhit == 1 ? "GOLF HIT" : "GOLF HITS")))
 	draw_set_halign(fa_center);
 }
+

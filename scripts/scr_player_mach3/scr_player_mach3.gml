@@ -184,11 +184,11 @@ function scr_player_mach3()
 			}
 
 			// Climbwall
-			if (!grounded && !place_meeting(x + hsp, y, obj_destructibles) && !place_meeting(x + hsp, y, obj_metalblock) && !place_meeting(x + sign(hsp), y, obj_slope))
+			if (!grounded && !place_meeting(x + hsp, y, obj_destructibles) && !place_meeting(x + hsp, y, obj_metalblock))
 			or (grounded && !place_meeting(x + hsp, y, obj_destructibles) && !place_meeting(x + hsp, y, obj_metalblock) && scr_slope())
 			{
 				if (!grounded && scr_solidwall(x + hsp, y))
-				or (scr_solidwall(x + hsp, y) && scr_solidwall(x + hsp, y - 32) && !scr_solidwall(x, y - 32))
+				or (grounded && scr_solidwall(x + hsp, y) && scr_solidwall(x + hsp, y - 32) && !scr_solidwall(x, y - 32))
 				{
 					wallspeed = movespeed;
 					if global.gameplay == 0
@@ -568,24 +568,26 @@ function scr_player_mach3()
 		}
     
 		//Machroll
-		if key_down && fightball = false && !place_meeting(x,y,obj_dashpad)
+		if key_down && !fightball && !place_meeting(x, y, obj_dashpad)
 		{
-			with instance_create(x,y,obj_jumpdust)
+			with instance_create(x, y, obj_jumpdust)
 				image_xscale = other.xscale
 			flash = false
 			state = states.machroll
 			vsp = 10
 		}
-
-
+		
 		//Climbwall
-		if (!grounded && scr_solidwall(x + hsp, y) && !place_meeting(x+sign(hsp),y,obj_slope))
-		or (grounded && scr_solidwall(x + hsp, y - (global.gameplay == 0 ? 32 : 0)) && scr_slope())
+		if (!grounded or scr_slope())
 		{
-			wallspeed = movespeed
-			if global.gameplay == 0
-				wallspeed = 10
-			state = states.climbwall
+			if (!grounded && scr_solidwall(x + hsp, y))
+			or (grounded && scr_solidwall(x + hsp, y) && scr_solidwall(x + hsp, y - 32) && !scr_solidwall(x, y - 32))
+			{
+				wallspeed = movespeed
+				if global.gameplay == 0
+					wallspeed = 10
+				state = states.climbwall
+			}
 		}
 		
 		//Bump

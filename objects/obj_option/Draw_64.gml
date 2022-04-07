@@ -104,12 +104,6 @@ if menu == 1
 	draw_text_colour(960 / 2, m2y + 250, lang_string("options.sound.game"), c_white, c_white, c_white, c_white, (optionselected == 3 ? 1 : 0.5));
 	
 	var mus1pos = -100, mus2pos = 100;
-	if debug or global.musicgame == 2
-	{
-		mus1pos = -200;
-		mus2pos = 0;
-		draw_text_colour(960 / 2 + 200, m2y + 300, "HILARIOUS", c_white, c_white, c_white, c_white, (global.musicgame == 2 ? 1 : 0.5));
-	}
 	draw_text_colour(960 / 2 + mus1pos, m2y + 300, lang_string("options.sound.normal"), c_white, c_white, c_white, c_white, (global.musicgame == 0 ? 1 : 0.5));
 	draw_text_colour(960 / 2 + mus2pos, m2y + 300, lang_string("options.sound.castle"), c_white, c_white, c_white, c_white, (global.musicgame == 1 ? 1 : 0.5));
 }

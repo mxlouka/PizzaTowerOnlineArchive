@@ -88,7 +88,7 @@ function scr_enemy_grabpos(player)
 }
 function scr_enemy_driverpos(player)
 {
-	if player.character == "P"
+	if player.character == "P" or player.character == "PP"
 	{
 		y = player.y
 		if floor(player.image_index) == 0

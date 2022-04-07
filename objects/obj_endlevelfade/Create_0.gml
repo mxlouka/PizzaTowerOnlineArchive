@@ -52,7 +52,7 @@ else
 		ranksound = scr_getmidi(ranksound);
 	
 	// pp
-	if instance_exists(obj_player) && obj_player.character == "PP"
+	if instance_exists(obj_player) && obj_player.character == "PP" && !global.streamer
 	{
 		ranksound = mu_ranks_PP;
 		alarm[0] = room_speed * 3.5;
@@ -70,8 +70,8 @@ with obj_player
 	sprite_index = spr_lookdoor;
 	image_index = 0;
 }
-global.panic = false
-global.snickchallenge = false
+global.panic = false;
+global.snickchallenge = false;
 
 with obj_followcharacter
 	if object_index != obj_petfollow instance_destroy();

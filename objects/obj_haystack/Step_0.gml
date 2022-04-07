@@ -67,17 +67,17 @@ if gameplay == 0
 }
 
 //Burn player
-if sprite_index == spr_haystackburning && obj_player.state != states.fireass && obj_player.state != states.knightpep && place_meeting(x,y-1,obj_player)
+if sprite_index == spr_haystackburning && obj_player.state != states.fireass && obj_player.state != states.knightpep && place_meeting(x, y - 1, obj_player)
 {
 	with obj_player1
 	{
 		if character = "V"
 			scr_hurtplayer(obj_player1)
-		else if scr_transformationcheck()
+		else if scr_transformationcheck() or state == states.mort
 		{
 			if !audio_is_playing(snd_fireass)
 				scr_soundeffect(snd_fireass)
-
+			
 			state = states.fireass
 			image_index = 0
 			vsp = -5
@@ -85,3 +85,4 @@ if sprite_index == spr_haystackburning && obj_player.state != states.fireass && 
 		}
 	}
 }
+

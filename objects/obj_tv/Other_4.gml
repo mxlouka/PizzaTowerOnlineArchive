@@ -3,7 +3,7 @@ switch room
 {
 	// please redo some of these specially the old level ones
 	case entrance_1: global.srank = 11500; break;
-	case medieval_1: global.srank = 8300; break;
+	case medieval_1: global.srank = 10300; break;
 	case chateau_1: global.srank = 9300; break;
 	case ruin_1: global.srank = 11200; break;
 	case ufo_1: global.srank = 10950; break;
@@ -27,7 +27,7 @@ switch room
 	case sanctum_1: global.srank = 19800; break;
 }
 if global.snickchallenge
-	global.srank = 10300;
+	global.srank = global.snickrematch ? 8000 : 8300;
 
 // calculate lesser ranks
 if room == custom_lvl_room

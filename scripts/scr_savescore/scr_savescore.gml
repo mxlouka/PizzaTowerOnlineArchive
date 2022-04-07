@@ -86,6 +86,7 @@ function scr_levelname()
 			namestring = "snickrematch";
 		else
 			namestring = "snickchallenge";
+		return namestring;
 	}
 	else if string_startswith(room_get_name(room), "floor1_")
 		namestring = "desert";
@@ -116,7 +117,7 @@ function endlevel()
 	if global.timeattack with obj_timeattack
 		stop = true;
 
-	with obj_player1
+	with obj_player
 		targetDoor = "none"
 	obj_camera.alarm[2] = -1
 	
@@ -166,10 +167,10 @@ function endlevel()
 		{
 			if !check_hat(HATS.snickcrown)
 			{
-				obj_player1.hatsprite = spr_hat_snickcrown;
+				obj_player.hatsprite = spr_hat_snickcrown;
 				unlock_hat(HATS.snickcrown);
 			}
 		}
-		scr_savescore(namestring)
+		scr_savescore(namestring);
 	}
 }

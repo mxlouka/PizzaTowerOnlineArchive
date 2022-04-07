@@ -40,7 +40,7 @@ if fadealpha > 1
 			
 			with obj_player1
 				if state == states.ladder
-					ladderbuffer = 10;
+					ladderbuffer = 3;
 		}
 		else
 		{

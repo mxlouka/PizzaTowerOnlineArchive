@@ -21,6 +21,12 @@ function scr_transfobump(_setstate = true)
 		if _setstate
 			sprite_index = spr_bombpepend;
 	}
+	else if state == states.mort
+	{
+		// holy shit he fucking DIES
+		repeat 6 with instance_create(x, y, obj_debris)
+			sprite_index = spr_feather;
+	}
 	else if (state == states.knightpep or state == states.knightpepattack or state == states.knightpepslopes)
 	&& sprite_index != spr_knightpepstart
 	{
