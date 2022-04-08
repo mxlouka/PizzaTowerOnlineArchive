@@ -91,7 +91,7 @@ function scr_player_machroll()
 			}
 			
 			// Breakdance
-			if key_shoot2 && character == "P" && !scr_checkskin(checkskin.p_anton) && global.gameplay == 0
+			if key_shoot2 && character == "P" && !scr_checkskin(checkskin.p_anton) && global.gameplay != 1
 		    {
 		        sprite_index = spr_player_breakdancesuper
 		        movespeed = 14
