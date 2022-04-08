@@ -3,6 +3,7 @@ if !global.pastdisclaimer && !debug
 	room_goto(room_of_dog);
 	exit;
 }
+scr_getinput();
 
 if !variable_global_exists("saveroom")
 {
@@ -194,7 +195,6 @@ if global.option_resolution == 1
 	window_set_size( 960, 540 );
 if global.option_resolution == 2
 	window_set_size( 1920, 1080 );
-
 
 backtohubstartx = x
 backtohubstarty = y

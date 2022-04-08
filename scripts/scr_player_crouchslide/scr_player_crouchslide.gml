@@ -23,6 +23,8 @@ function scr_player_crouchslide()
 			input_buffer_jump = 8;
 			if character == "P"
 			{
+				scr_soundeffect(sfx_jump)
+				
 			    sprite_index = spr_player_jumpdive1
 			    image_index = 0
 			    vsp = -11
@@ -58,6 +60,7 @@ function scr_player_crouchslide()
 	
 	if grounded && (sprite_index == spr_player_jumpdive1 or sprite_index == spr_player_jumpdive2) && vsp > 0
 	{
+		scr_soundeffect(sfx_step)
 	    sprite_index = spr_crouchslip
 	    jumpstop = false
 	}
