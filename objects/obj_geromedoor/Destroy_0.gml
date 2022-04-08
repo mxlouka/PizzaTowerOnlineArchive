@@ -6,3 +6,4 @@ with instance_create(x,y,obj_door)
 	//target_y = other.target_y2
 	//targetRoom = other.targetRoom2
 }
+

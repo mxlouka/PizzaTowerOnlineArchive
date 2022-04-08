@@ -1,3 +1,4 @@
+
 /// @description pigtotal, level name
 ini_open("saveData" + string(global.saveslot) + ".ini");
 global.pigtotal += ini_read_real("Highscore", string(level), 0);
