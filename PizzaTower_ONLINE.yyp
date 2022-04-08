@@ -898,6 +898,7 @@
     {"id":{"name":"spr_player_crouch","path":"sprites/spr_player_crouch/spr_player_crouch.yy",},"order":172,},
     {"id":{"name":"spr_player_fall2","path":"sprites/spr_player_fall2/spr_player_fall2.yy",},"order":173,},
     {"id":{"name":"spr_playerPP_hurtwalk","path":"sprites/spr_playerPP_hurtwalk/spr_playerPP_hurtwalk.yy",},"order":44,},
+    {"id":{"name":"obj_troller","path":"objects/obj_troller/obj_troller.yy",},"order":6,},
     {"id":{"name":"spr_player_fall","path":"sprites/spr_player_fall/spr_player_fall.yy",},"order":174,},
     {"id":{"name":"spr_player_jump2","path":"sprites/spr_player_jump2/spr_player_jump2.yy",},"order":175,},
     {"id":{"name":"spr_player_jump","path":"sprites/spr_player_jump/spr_player_jump.yy",},"order":176,},
