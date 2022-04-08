@@ -434,7 +434,7 @@ else
 	    pal_swap_reset();
 		
 		// bullet
-		if instance_exists(obj_player)
+		if instance_exists(obj_player) && global.gameplay == 1
 		{
 			var char = obj_player.character;
 			if (char == "P" or char == "N")

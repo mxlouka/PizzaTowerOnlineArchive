@@ -1,6 +1,6 @@
 function scr_player_punch()
 {
-	switch (character)
+	switch character
 	{
 		default:
 			move = key_left + key_right

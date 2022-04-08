@@ -1,7 +1,7 @@
 if ds_list_find_index(global.saveroom, id) == -1 && global.panic
 {
 	// new destroy
-	if sprite_index == spr_destroyable2_NEW
+	if sprite_index == spr_destroyable2escape_NEW
 	{
 		with instance_create(x, y, obj_destroyanim)
 		{

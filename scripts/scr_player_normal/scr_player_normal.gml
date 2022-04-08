@@ -447,7 +447,7 @@ function scr_player_normal()
 			else
 				instance_destroy(obj_antonball);
 		}
-		else if global.gameplay == 0
+		else if global.gameplay != 1
 		{
 			if character == "P"
 			{
