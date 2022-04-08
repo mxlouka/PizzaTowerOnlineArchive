@@ -64,6 +64,7 @@ switch sel[1]
 			["SALAD", "You fat bald bastard you piece of subhuman trash\n2000 years of constant human evolution to create a hairless fucking coconut."],
 			["BLACKFACE", "That's not nice."],
 			["NOIK", "He's canon."],
+			["HYPERTHERMIA", "That's NOT how you preheat an oven."],
 		];
 		break;
 	
@@ -89,6 +90,7 @@ switch sel[1]
 			["VIGILATEX", "What the fuck"],
 			["THE BARTENDER", "Give me a drink, Bartender."],
 			["MORSHU", "It's yours, my friend."],
+			["CASU MARTZU", "Y'know, this cheese summarizes the current state of this game pretty well."],
 		];
 		if global.streamer
 			selarray[14][1] = "no no no no no no no no no no no no no no no no no no no";
@@ -118,6 +120,7 @@ switch sel[1]
 			["HELLSNICK", "Si."],
 			["MAJIN", "Fun is infinite."],
 			["NEON", "I've seen OC's brighter than this."],
+			["PISSK", "Not to be confused with his arch nemesis."],
 		];
 		if global.streamer
 		{
