@@ -27,7 +27,7 @@ loadfont = global.bigfont;
 // variable
 global.surfacemach = ini_read_real("online", "surfacemach", false);
 global.secretdebris = ini_read_real("online", "secretdebris", true);
-global.gameplay = ini_read_real("online", "gameplay", 1);
+global.gameplay = ini_read_real("online", "gameplay", 2);
 global.shownames = ini_read_real("online", "shownames", true);
 global.chatbubbles = ini_read_real("online", "chatbubbles", true);
 global.synceffect = ini_read_real("online", "synceffect", true);

@@ -26,7 +26,7 @@ function scr_soundeffect_ext(snd, loops = false)
 			if snd == sfx_collecttopping
 				snd = sfx_toppingSP;
 		}
-		if obj_player.character == "PP" && !global.streamer
+		if obj_player.character == "PP"
 		{
 			if asset_get_type(audio_get_name(snd) + "_PP") == asset_sound
 				snd = asset_get_index(audio_get_name(snd) + "_PP");
