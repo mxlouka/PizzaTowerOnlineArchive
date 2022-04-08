@@ -15,7 +15,7 @@
     "path": "audiogroups/audiogroup_default",
   },
   "soundFile": "sfx_level100percent",
-  "duration": 5.669,
+  "duration": 5.664,
   "parent": {
     "name": "sfx",
     "path": "folders/Sounds/sfx.yy",
