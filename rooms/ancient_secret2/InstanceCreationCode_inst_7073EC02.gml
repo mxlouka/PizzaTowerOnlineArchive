@@ -1,1 +1,1 @@
-targetRoom = ancient_6
+targetRoom = ancient_7
