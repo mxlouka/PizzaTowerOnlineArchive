@@ -11,8 +11,8 @@
     "name": "audiogroup_default",
     "path": "audiogroups/audiogroup_default",
   },
-  "soundFile": "mu_beachsecret_pc.wav",
-  "duration": 71.7686157,
+  "soundFile": "mu_beachsecret_pc.ogg",
+  "duration": 71.4893646,
   "parent": {
     "name": "secret",
     "path": "folders/Sounds/PIZZA CASTLE/secret.yy",
