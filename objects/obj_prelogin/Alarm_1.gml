@@ -18,7 +18,7 @@ if instance_exists(obj_gms)
 		}
 		else
 		{
-			alarm[1] = 1;
+			alarm[1] = 5;
 			tryconnect++;
 		}
 	}

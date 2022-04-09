@@ -5,3 +5,4 @@ depth = 2
 targetDoor = "A"
 
 depth = 1
+

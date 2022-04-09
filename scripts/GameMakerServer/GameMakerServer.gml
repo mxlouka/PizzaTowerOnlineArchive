@@ -200,7 +200,7 @@
 #macro FLT_MAX 100000000000000000000000000000000000000
 
 #endregion
-#macro game_id 453975125
+#macro game_id 58102
 
 function gms_action_get_argument(argument0) {
 	//(n)

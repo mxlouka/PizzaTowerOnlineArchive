@@ -1600,6 +1600,7 @@ function scr_characterspr(char = character)
 			spr_land = spr_playerCT_land;
 			spr_land2 = spr_playerCT_land2;
 			spr_climbwall = spr_playerCT_climbwall;
+			spr_machclimbwall = spr_playerCT_climbwall;
 			
 			spr_superjumpprep = spr_playerCT_superjumpprep;
 			spr_superjumppreplight = spr_playerCT_superjumppreplight;

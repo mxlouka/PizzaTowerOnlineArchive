@@ -66,7 +66,7 @@ if con == 1
 	draw_set_valign(fa_middle);
 	draw_text_auto(960 / 2 + random_range(-1, 1), 540 / 2, lang_string("prelogin.loading"));
 	
-	if tryconnect >= room_speed * 7
+	if tryconnect >= room_speed * 5
 	{
 		if draw_editorbutton(64, 32, lang_string("prelogin.back")) or key_slap2
 		{

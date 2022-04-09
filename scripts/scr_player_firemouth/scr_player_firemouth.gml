@@ -86,8 +86,9 @@ function scr_player_firemouth()
 		instance_destroy();
 	
 	//Jump
-	if (input_buffer_jump < 8) && grounded && hsp != 0
+	if input_buffer_jump < 8 && grounded && hsp != 0
 	{
+		input_buffer_jump = 8;
 		instance_create(x, y, obj_highjumpcloud2)
 		vsp = -11
 	}

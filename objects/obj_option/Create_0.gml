@@ -29,3 +29,4 @@ music = -1;
 roomname = noone;
 if !instance_exists(obj_roomname)
 	roomname = instance_create(0, 0, obj_roomname);
+

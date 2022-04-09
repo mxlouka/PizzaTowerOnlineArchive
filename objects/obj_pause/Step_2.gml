@@ -163,8 +163,11 @@ if pause && !instance_exists(obj_option)
 		scr_soundeffect(sfx_step);
 		with instance_create(0, 0, obj_option)
 		{
-			music = scr_soundeffect_ext(mu_editor, true);
-			audio_sound_gain(music, global.musicvolume, 0);
+			if global.musicvolume > 0
+			{
+				music = scr_soundeffect_ext(mu_editor, true);
+				audio_sound_gain(music, global.musicvolume, 0);
+			}
 		}
     }
 	

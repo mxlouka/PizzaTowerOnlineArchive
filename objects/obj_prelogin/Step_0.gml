@@ -3,3 +3,4 @@ if alarm[1] <= 1 && alarm[1] != -1 && !instance_exists(obj_gms) && (!variable_gl
 
 if instance_exists(obj_gms)
 	depth = obj_gms.depth - 2;
+

@@ -712,13 +712,13 @@ if y > room_height + 200 && !cutscene
 	
 	if !skateboarding
 	{
-		if place_meeting(x, y + 1, obj_boxofpizza)
+		state = states.freefall;
+		if place_meeting(x, y + 8, obj_boxofpizza)
 		{
 		    state = states.crouchjump;
 			jumpstop = true;
 			vsp = -4;
 		}
-		state = states.freefall;
 	}
 	vsp = 10;
 	hsp = 0;

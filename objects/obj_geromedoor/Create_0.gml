@@ -14,3 +14,4 @@ if global.gameplay == 0
 	instance_change(obj_door, false);
 	visited = true;
 }
+

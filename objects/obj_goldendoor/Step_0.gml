@@ -1,3 +1,3 @@
-if visited = true
-sprite_index = spr_goldendoorvisited
+if visited
+	sprite_index = spr_goldendoorvisited
 

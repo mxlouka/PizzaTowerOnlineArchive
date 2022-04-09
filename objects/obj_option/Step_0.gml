@@ -181,7 +181,7 @@ if menu == 0
 		menu = 1
 		optionselected = 0
 		
-		if instance_exists(obj_music)
+		if instance_exists(obj_music) && global.musicvolume > 0
 			music = global.music;
 	}
 

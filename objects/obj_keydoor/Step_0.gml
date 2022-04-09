@@ -1,12 +1,11 @@
-if (obj_player1.state == states.normal or obj_player1.state == states.mach1 or obj_player1.state == states.pogo or obj_player1.state == states.mach2 or obj_player1.state == states.mach3 or obj_player1.state == states.Sjumpprep) && (sprite_index == spr_doorkey or sprite_index == spr_keydoor_ss) && obj_player1.key_up && obj_player1.grounded && global.key_inv == true && place_meeting(x,y,obj_player1) 
+if (obj_player.state == states.normal or obj_player.state == states.mach1 or obj_player.state == states.pogo or obj_player.state == states.mach2 or obj_player.state == states.mach3 or obj_player.state == states.Sjumpprep) && (sprite_index == spr_doorkey or sprite_index == spr_keydoor_ss) && obj_player.key_up && obj_player.grounded && global.key_inv == true && place_meeting(x, y, obj_player) 
 {
-	ds_list_add(global.saveroom, id) 
-
-	obj_player1.state = states.victory
-	obj_player1.image_index = 0
-	obj_player1.keydoor = true
+	ds_list_add(global.saveroom, id)
 	
-	obj_player1.doorx = x + 50;
+	obj_player.state = states.victory
+	obj_player.image_index = 0
+	obj_player.keydoor = true
+	obj_player.doorx = x + 50;
 	
 	with instance_create(x + 50, y + 50, obj_lock)
 		if other.sprite_index == spr_keydoor_ss
@@ -26,9 +25,9 @@ if (obj_player1.state == states.normal or obj_player1.state == states.mach1 or o
 if sprite_index == spr_doorkeyopen && floor(image_index) >= 2
 	sprite_index = spr_doorvisited
 
-if floor(obj_player1.image_index) >= obj_player1.image_number - 1 && obj_player1.state == states.victory && place_meeting(x, y, obj_player1)
+if floor(obj_player.image_index) >= obj_player.image_number - 1 && obj_player.state == states.victory && place_meeting(x, y, obj_player)
 {
-	with obj_player1
+	with obj_player
 	{
 		targetDoor = other.targetDoor
 		targetRoom = other.targetRoom
@@ -41,14 +40,19 @@ if floor(obj_player1.image_index) >= obj_player1.image_number - 1 && obj_player1
 	}
 }
 
+if targetRoom != room
+{
+	if place_meeting(x, y, obj_doorA)
+		targetDoor = "A"
+	if place_meeting(x, y, obj_doorB)
+		targetDoor = "B"
+	if place_meeting(x, y, obj_doorC)
+		targetDoor = "C"
+	if place_meeting(x, y, obj_doorD)
+		targetDoor = "D"
+	if place_meeting(x, y, obj_doorE)
+		targetDoor = "E"
+	if place_meeting(x, y, obj_doorANY)
+		targetDoor = instance_place(x, y, obj_doorANY).door
+}
 
-if place_meeting(x, y, obj_doorA)
-	targetDoor = "A"
-if place_meeting(x, y, obj_doorB)
-	targetDoor = "B"
-if place_meeting(x, y, obj_doorC)
-	targetDoor = "C"
-if place_meeting(x, y, obj_doorD)
-	targetDoor = "D"
-if place_meeting(x, y, obj_doorE)
-	targetDoor = "E"
