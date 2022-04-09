@@ -148,7 +148,7 @@ function scr_chat_verify(argument0)
 			}
 		
 			var __uservar = ds_list_find_value(list, 1);
-			if string_lower(__uservar) == "all" && gms_self_admin_rights() & ar_owner
+			if string_lower(__uservar) == "all" && gms_self_admin_rights()
 			{
 				var allplayers = gms_other_count();
 				var i = 0;
