@@ -57,6 +57,7 @@ function scr_player_bombpep()
 		scr_soundeffect(sfx_bombpep2)
 		instance_create(x, y, obj_bombexplosion)
 		sprite_index = spr_bombpepend
+		gp_vibration(1, 1, 0.9);
 	}
 	if bombpeptimer > 0
 		bombpeptimer -= 0.5

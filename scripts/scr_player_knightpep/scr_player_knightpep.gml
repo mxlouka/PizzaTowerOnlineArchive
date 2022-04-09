@@ -79,7 +79,7 @@ function scr_player_knightpep()
 	//Land
 	if sprite_index == spr_knightpepfall && grounded && vsp > 0
 	{
-		with (obj_baddie)
+		with obj_baddie
 		{
 			if point_in_camera(x, y, view_camera[0])
 			{
@@ -88,24 +88,24 @@ function scr_player_knightpep()
 			}
 		}
 		
-		with (obj_camera)
+		with obj_camera
 		{
 			shake_mag=10;
 			shake_mag_acc=30/room_speed;
 		}
+		
 		combo = 0
 		bounce = false
 		
-
 		image_index = 0
-
+		
 		freefallstart = 0
-
-
+		
 		momentum = false
 		scr_soundeffect(sfx_groundpound)
-		instance_create(x,y,obj_landcloud)
+		instance_create(x, y, obj_landcloud)
 		sprite_index = spr_knightpepland
+		gp_vibration(1, 1, 0.9);
 	}
 
 	if floor(image_index) = image_number -1 && sprite_index = spr_knightpepland

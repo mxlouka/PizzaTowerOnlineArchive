@@ -27,6 +27,7 @@ with other
 			
 		if slam
 		{
+			gp_vibration(1, 1, 0.9);
 			scr_soundeffect(sfx_groundpound);
 			sprite_index = spr_Timesup;
 			image_index = 0;

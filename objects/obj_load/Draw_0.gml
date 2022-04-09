@@ -61,3 +61,4 @@ switch loadwhat
 		alarm[1] = 2;
 		break;
 }
+

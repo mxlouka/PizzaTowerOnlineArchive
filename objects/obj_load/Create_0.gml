@@ -38,15 +38,15 @@ global.pvp = /*ini_read_real("online", "pvp", false)*/ false; // i removed most 
 global.drawborder = ini_read_real("online", "drawborder", false);
 global.pestoanchovi = ini_read_real("online", "pestoanchovi", false);
 global.camerasmoothing = ini_read_real("online", "camerasmoothing", 0);
-global.pauseblur = ini_read_real("online", "pauseblur", true);
 global.inputdisplay = ini_read_real("online", "inputdisplay", false);
+global.gamepadvibration = ini_read_real("online", "gamepadvibration", true);
+global.showhud = true;
 
 global.panicbg = ini_read_real("online", "panicbg", false); // waving background
 global.panicmelt = ini_read_real("online", "panicmelt", false); // motion blur
 global.panicshake = ini_read_real("online", "panicshake", true); // shaking
 global.panicnightmare = ini_read_real("online", "panicnightmare", true); // panic backgrounds
 global.panictilt = ini_read_real("online", "panictilt", false); // panic screen tilt
-global.showhud = true;
 
 global.musicvolume = ini_read_real("online", "musicvolume", 0.6);
 global.mastervolume = ini_read_real("online", "mastervolume", 1);

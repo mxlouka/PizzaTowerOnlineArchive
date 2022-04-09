@@ -114,14 +114,16 @@ function scr_player_jump()
 	}
 	if key_jump
 	{
-	    if global.mort && sprite_index != spr_pmortjump
+	    if global.mort && sprite_index != spr_pmortjump && sprite_index != spr_suplexbump
 	    {
 	        repeat 6 with instance_create(x, y, obj_debris)
 				sprite_index = spr_feather;
 			
 	        scr_soundeffect(sfx_woosh);
-	        sprite_index = spr_pmortjump;
+	        sprite_index = spr_pmortjumpstart;
 	        image_index = 0;
+			
+			jumpAnim = false;
 	        jumpstop = false;
 	        grav = 0.25;
 	        mort = 1;
@@ -225,6 +227,9 @@ function scr_player_jump()
 		{
 			if sprite_index == spr_playerN_doublejump
 				sprite_index = spr_playerN_doublejumpfall
+			
+			if sprite_index == spr_pmortjumpstart
+				sprite_index = spr_pmortjump
 	
 			if sprite_index == spr_airdash1
 				sprite_index = spr_airdash2

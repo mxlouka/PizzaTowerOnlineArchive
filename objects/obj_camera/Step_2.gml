@@ -125,9 +125,20 @@ if instance_exists(player) && player.state != states.timesup && player.state != 
 	if shake_mag != 0
 	or shake_mag_panic != 0
 	{
-		var shkh = floor(irandom_range(-shake_mag, shake_mag) / 2);
-		var shkv = irandom_range(-shake_mag, shake_mag);
-			
+		var shkh = 0, shkv = 0;
+		
+		if scr_stylecheck(0)
+		{
+			shkh = 0;
+			shkv = irandom_range(-shake_mag, shake_mag);
+		}
+		else
+		{
+			shkh = irandom_range(-shake_mag, shake_mag);
+			shkv = irandom_range(-shake_mag, shake_mag) + irandom_range(-shake_mag, shake_mag);
+			// that's how it is in april build
+		}
+		
 		if shake_mag_panic != 0
 			shkv += irandom_range(-shake_mag_panic, shake_mag_panic);
 	}

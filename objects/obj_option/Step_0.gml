@@ -550,8 +550,8 @@ else if menu == 2 && !instance_exists(obj_erasegame)
 		ini_write_real("online", "streamer", global.streamer)
 		ini_write_real("online", "showfps", global.showfps)
 		ini_write_real("online", "camerasmoothing", global.camerasmoothing)
-		ini_write_real("online", "pauseblur", global.pauseblur)
 		ini_write_real("online", "inputdisplay", global.inputdisplay)
+		ini_write_real("online", "gamepadvibration", global.gamepadvibration)
 		ini_close();
 		
 		if obj_drpc_updater.running != global.richpresence

@@ -1,9 +1,11 @@
-if (obj_player1.state = states.bombpep && obj_player1.sprite_index != obj_player1.spr_bombpepend
-&& (place_meeting(x+1,y,obj_player1) or place_meeting(x-1,y,obj_player1) or place_meeting(x,y-1,obj_player1) or place_meeting(x,y+1,obj_player1))) 
+with obj_player
 {
-	with (obj_player1)
+	if state == states.bombpep && sprite_index != spr_bombpepend
+	&& (place_meeting(x + xscale, y + 1, other) or place_meeting(x + xscale, y - 1, other))
 	{
-		instance_create(x,y,obj_bombexplosion)
+		gp_vibration(1, 1, 0.9);
+		instance_destroy(other)
+		instance_create(x, y, obj_bombexplosion)
 		hurted = true
 		vsp = -4
 		image_index = 0
@@ -12,8 +14,5 @@ if (obj_player1.state = states.bombpep && obj_player1.sprite_index != obj_player
 		bombpeptimer = 0
 	}
 }
+image_alpha = place_meeting(x, y, obj_otherplayer) ? 0.5 : 1;
 
-if place_meeting(x, y, obj_otherplayer)
-	image_alpha = 0.5;
-else
-	image_alpha = 1;

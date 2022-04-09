@@ -1,1 +1,3 @@
-vspeed = 15
+vspeed = 15;
+image_speed = 0.35;
+

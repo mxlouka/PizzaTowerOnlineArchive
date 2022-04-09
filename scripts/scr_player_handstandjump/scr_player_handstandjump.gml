@@ -118,9 +118,9 @@ function scr_player_handstandjump()
 			exit;
 		}
 		
-		if (floor(image_index) >= image_number - 1 or ((sprite_index == spr_suplexdashjump or sprite_index == spr_suplexdashjumpstart) && !scr_slope())) && (grounded && vsp >= 0)
+		if (floor(image_index) >= image_number - 1 or ((sprite_index == spr_suplexdashjump or (sprite_index == spr_suplexdashjumpstart && global.gameplay == 0)) && !scr_slope())) && (grounded && vsp >= 0)
 		{
-			if (!key_attack or character == "N") && vsp >= 0
+			if (!key_attack or (character == "N" && noisetype == 0)) && vsp >= 0
 			{
 				image_speed = 0.35
 				state = states.normal
@@ -253,6 +253,23 @@ function scr_player_handstandjump()
 		}
 
 		image_speed = 0.35	
+	}
+	
+	// mort jump
+	if key_jump && global.mort && !doublejump && !grounded
+	{
+		state = states.jump;
+	    repeat 6 with instance_create(x, y, obj_debris)
+			sprite_index = spr_feather;
+			
+	    scr_soundeffect(sfx_woosh);
+	    sprite_index = spr_pmortjumpstart;
+	    image_index = 0;
+	    jumpstop = false;
+		jumpAnim = false;
+		
+	    grav = 0.25;
+	    mort = 1;
 	}
 	
 	//Faceplant roll

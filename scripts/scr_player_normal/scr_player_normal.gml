@@ -197,7 +197,7 @@ function scr_player_normal()
 	            image_index = 0
 	        }
 	    }
-	    if !shotgunAnim
+	    else if !shotgunAnim
 	    {
 		    if move == 0
 		    {

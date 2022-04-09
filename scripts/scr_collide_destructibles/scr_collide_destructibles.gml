@@ -8,18 +8,21 @@ function scr_collide_destructibles()
 		{
 			with instance_place(x + hsp + xscale, y, obj_destructibles)
 			{
+				gp_vibration(0.8, 0.8, 0.5);
 				momentum[0] = other.hsp;
 				instance_destroy();
 			}
 			
 			with instance_place(x, y + vsp + 1, obj_destructibles) 
 			{
+				gp_vibration(0.8, 0.8, 0.5);
 				momentum[1] = other.vsp;
 				instance_destroy();
 			}
 			
 			with instance_place(x, y + vsp - 1, obj_destructibles)
 			{
+				gp_vibration(0.8, 0.8, 0.5);
 				momentum[1] = other.vsp;
 				instance_destroy();
 			}
@@ -68,6 +71,7 @@ function scr_collide_destructibles()
 					}
 					if scr_stylecheck(2)
 						momentum[0] = other.hsp;
+					gp_vibration(0.8, 0.8, 0.5);
 					instance_destroy();
 				}
 				
@@ -88,15 +92,20 @@ function scr_collide_destructibles()
 		{
 			with instance_place(x, y + 1, obj_destructibles)
 			{
+				gp_vibration(0.8, 0.8, 0.5);
 				instance_destroy();
 				momentum[1] = other.vsp;
 			}
 		}
 		
 		// Destroy from under
-		if (vsp <= 0.5 or state == states.Sjump) && (state == states.jump or state == states.pogo or state == states.climbwall or state == states.fireass or state == states.Sjump or state == states.mach1 or state == states.mach2 or state == states.mach3 or state == states.punch)
+		if (vsp <= grav or state == states.Sjump) && (state == states.jump or state == states.pogo or state == states.climbwall or state == states.fireass or state == states.Sjump or state == states.mach1 or state == states.mach2 or state == states.mach3 or state == states.punch)
 		{
-			var block = instance_place(x, y - 2, obj_destructibles);
+			var checker = -1;
+			if state == states.punch && sprite_index == spr_breakdanceuppercut
+				checker = vsp;
+			
+			var block = instance_place(x, y + checker, obj_destructibles);
 			if block
 			{
 				if state == states.Sjump
@@ -104,6 +113,7 @@ function scr_collide_destructibles()
 				
 				with block
 				{
+					gp_vibration(0.8, 0.8, 0.5);
 					instance_destroy();
 					momentum[1] = other.vsp;
 				}
@@ -132,6 +142,7 @@ function scr_collide_destructibles()
 				
 				with block
 				{
+					gp_vibration(0.8, 0.8, 0.5);
 					momentum[1] = other.vsp;
 					instance_destroy();
 				}

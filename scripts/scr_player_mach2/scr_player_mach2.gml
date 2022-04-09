@@ -37,7 +37,25 @@ function scr_player_mach2()
 
 		vsp = -11
 	}
-
+	
+	// mort jump
+	if key_jump && global.mort && !doublejump && !grounded && !skateboarding
+	{
+		state = states.jump;
+	    repeat 6 with instance_create(x, y, obj_debris)
+			sprite_index = spr_feather;
+			
+	    scr_soundeffect(sfx_woosh);
+	    sprite_index = spr_pmortjumpstart;
+	    image_index = 0;
+	    jumpstop = false;
+		jumpAnim = false;
+		
+	    grav = 0.25;
+	    mort = 1;
+		exit;
+	}
+	
 	//Animations
 	if grounded && vsp >= 0
 	{

@@ -16,23 +16,25 @@ if player
 			with player
 				scr_transfobump(false);
 			
+			if player.state != states.fireass
+				tv_push_prompt_once(tv_create_prompt("This is the fireass transformation text", 2, spr_tv_fireass, 3), "fireass");
+			
 			player.image_blend = c_white
 			player.state = states.fireass
+			player.sprite_index = player.spr_fireass
 			player.image_index = 0
 			
 			player.vsp = -25
 			if room != custom_lvl_room // react to upside down lava (unless in level editor)
 				player.vsp *= image_yscale == 0 ? 1 : sign(image_yscale);
 			
-			player.sprite_index = player.spr_fireass
-			
 			if !audio_is_playing(player.snd_fireass) or audio_sound_get_track_position(firesnd) >= 0.5
 			{
 				audio_stop_sound(player.snd_fireass);
 				firesnd = scr_soundeffect(player.snd_fireass);
 			}
-			
-			tv_push_prompt_once(tv_create_prompt("This is the fireass transformation text", 2, spr_tv_fireass, 3), "fireass");
+			gp_vibration(1, 1, 0.85);
 		}
 	}
 }
+

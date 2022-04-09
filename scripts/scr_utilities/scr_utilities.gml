@@ -55,6 +55,7 @@ function instance_in_camera(inst, cam)
 	return result;
 }
 
+// haha no
 function loydecode(str) {
 	return str;
 }
@@ -67,6 +68,15 @@ function check_sugary() {
 	return room == hub_roomSP
 	or string_startswith(room_get_name(room), "cotton_")
 	or string_startswith(room_get_name(room), "jawbreaker_");
+}
+
+function gp_vibration(left, right, dec)
+{
+	if global.gamepadvibration
+	{
+		with obj_controller
+			vibration = [left, right, dec];
+	}
 }
 
 /// enemy

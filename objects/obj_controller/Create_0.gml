@@ -14,6 +14,6 @@ for (var i = 0; i < gp_num; i++)
 	}
 }
 
-function GamepadSetVibration(left, right) {
-	gamepad_set_vibration(global.cont, left, right);
-}
+vibration = [0, 0, 0];
+prevstate = states.normal;
+
