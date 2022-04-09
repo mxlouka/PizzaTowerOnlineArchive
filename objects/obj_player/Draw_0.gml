@@ -70,8 +70,6 @@ if check_online()
 {
 	// get player name
 	var nick = (nickname == "" ? gms_self_name() : nickname);
-	if global.streamer
-		nick = "Player" + string(gms_self_playerid());
 	
 	// apply color
 	var nickcol = col;

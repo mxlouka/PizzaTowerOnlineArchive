@@ -193,6 +193,7 @@ if global.gameplay == 0
 			case "SN": character = "PIZZANO"; break;
 			case "M": character = "PEPPERMAN"; break;
 			case "PP": character = "PISSINO"; break;
+			case "CT": character = "CHEEMSTOON"; break;
 			
 			default: character = "UNKNOWN"; break;
 		}
@@ -579,27 +580,20 @@ else
 				animset = spr_tv_open;
 	        if animset == spr_tv_open && floor(image_index) == image_number - 1
 	            animset = tvsprite;
-			sprite_index = animset;
+			
+			var spr = sprite_get_name(animset);
+			spr = asset_get_index(spr + string_upper(string(obj_player.character)));
+					
+			if sprite_exists(spr)
+				sprite_index = spr;
+			else
+				sprite_index = animset;
 			
 			if animset == tvsprite
 				state = states.normal;
-			
-			/*
-	        if animset == tvsprite
-	        {
-	            if prompt_buffer > 0
-	                prompt_buffer--;
-	            else
-	            {
-	                promptx = promptxstart;
-	                ds_list_delete(tvprompts_list, 0);
-	                state = states.normal;
-	            }
-	        }
-			*/
 	        break;
 	}
-
+	
 	// hide tv if player overlapping it
 	var change_pos = false;
 	

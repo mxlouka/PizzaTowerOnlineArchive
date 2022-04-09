@@ -122,9 +122,9 @@ else
 		if spr_palette == spr_pufferpalette
 		{
 			if x != xprevious
-				sprite_index = spr_pufferfish_move;
+				sprit = spr_pufferfish_move;
 			else
-				sprite_index = spr_pufferfish_idle;
+				sprit = spr_pufferfish_idle;
 		}
 	}
 	

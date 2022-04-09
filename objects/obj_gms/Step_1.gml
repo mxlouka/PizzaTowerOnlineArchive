@@ -15,9 +15,11 @@ if keyboard_check_pressed(global.__chat_submitkey) && global.__chat_typing
 		else if scr_chat_verify(str)
 		{
 			if gms_self_isowner()
-				gms_chat(str, merge_colour(c_blue, c_white, 0.75));
+				gms_chat(str, c_owner);
+			else if gms_self_name() == "DenchickMario"
+				gms_chat(str, c_pvp);
 			else if gms_self_admin_rights()
-				gms_chat(str, merge_colour(c_yellow, c_white, 0.5));
+				gms_chat(str, c_admin);
 			else
 				gms_chat(str, global.__chat_textcol);
 			
@@ -72,16 +74,26 @@ if keyboard_check_pressed(global.__chat_submitkey) && global.__chat_typing
 						case "PP":
 							avatar = "https://cdn.discordapp.com/app-assets/828220751810265098/954737210811383861.png";
 							break;
+						case "CT":
+							avatar = "https://cdn.discordapp.com/app-assets/828220751810265098/962396866505502771.png";
+							break;
+						case "PUFFER":
+							avatar = "https://cdn.discordapp.com/app-assets/828220751810265098/962397483084955699.png";
+							break;
 					}
 				}
-			
+				
 				// send webhook
 				var body = ds_map_create();
-			
+				
+				var username = gms_self_name();
+				if real(gms_ini_game_read("game", "version")) > gameversion
+					username += " (on ver. " + string(gameversion) + ")";
+				
 				ds_map_add(body, "content", str);
-				ds_map_add(body, "username", gms_self_name());
+				ds_map_add(body, "username", username);
 				ds_map_add(body, "avatar_url", avatar);
-			
+				
 				var data = json_encode(body);
 				ds_map_destroy(body);
 				

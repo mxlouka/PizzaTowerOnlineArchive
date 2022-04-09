@@ -196,9 +196,9 @@ if global.option_resolution == 1
 if global.option_resolution == 2
 	window_set_size( 1920, 1080 );
 
-backtohubstartx = -500
+backtohubstartx = 0
 backtohubstarty = 0
-backtohubroom = Realtitlescreen
+backtohubroom = hub_room1
 
 slapcharge = 0
 slaphand = 1

@@ -78,7 +78,7 @@ if check_online()
 
 // chat
 if check_online() && state != states.titlescreen && state != -1
-&& !instance_exists(obj_skinchoice) && !instance_exists(obj_hatchoice)
+&& !instance_exists(obj_choicebase)
 && !(instance_exists(obj_hubelevator) && obj_hubelevator.state != 0)
 && !(instance_exists(obj_wc) && obj_wc.WC_consoleopen)
 && !(instance_exists(obj_dialoguebox))
@@ -109,3 +109,4 @@ if check_online() && state != states.titlescreen && state != -1
 if alarm[11] == -1 && !debug
 	alarm[11] = 15;
 global.pvp = false;
+

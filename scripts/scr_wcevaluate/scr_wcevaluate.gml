@@ -2100,6 +2100,8 @@ function scr_wcevaluate(argument0)
 				        arg1 = "Pizzano";
 				    else if arg1 == "PP" // pt online exclusive
 				        arg1 = "Pissino";
+				    else if arg1 == "CT" // pt online exclusive
+				        arg1 = "Cheemstoon";
 				    else
 					{
 				        arg1 = ds_list_find_value(arg, 1);

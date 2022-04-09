@@ -59,9 +59,19 @@ else
 		with obj_player
 		{
 			targetDoor = "NONE";
-			x = backtohubstartx;
-			y = backtohubstarty;
+			if backtohubstartx == 0 && backtohubstarty == 0
+				targetDoor = "A";
+			else
+			{
+				x = backtohubstartx;
+				y = backtohubstarty;
+			}
 			room_goto(backtohubroom);
+			
+			// no need for this anymore
+			backtohubstartx = 0;
+			backtohubstarty = 0;
+			backtohubroom = hub_room1;
 		}
 	}
 	else
