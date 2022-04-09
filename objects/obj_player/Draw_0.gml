@@ -19,6 +19,13 @@ if state != states.cheeseball && state != states.cotton
 		drawspr = spr_playerN_chungus;
 	if scr_checkskin(checkskin.s_sbombic)
 		drawspr = spr_sbombic;
+	if character == "PUFFER"
+	{
+		if x != xprevious
+			drawspr = spr_pufferfish_move;
+		else
+			drawspr = spr_pufferfish_idle;
+	}
 }
 
 // flashing and apply palette

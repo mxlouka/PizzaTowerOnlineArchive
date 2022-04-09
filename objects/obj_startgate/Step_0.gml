@@ -15,12 +15,6 @@ else
 if sprite_index == spr_exitgate
 	image_index = 1;
 
-// rematch computer slow down music
-/*
-if sprite_index == spr_snickrematchcomputer && instance_exists(obj_player)
-	audio_sound_pitch(global.music, min(lerp(0.5, 1, floor(distance_to_object(obj_player1)) / 150), 1));
-*/
-
 // show level name when player near
 if instance_exists(obj_player)
 {

@@ -1625,6 +1625,13 @@ function scr_characterspr(char = character)
 			break;
 		
 		#endregion
+		#region PUFFERFISH
+		
+		case "PUFFER":
+			spr_palette = spr_pufferpalette;
+			break;
+		
+		#endregion
 	}
 	pal_swap_index_palette(spr_palette);
 	

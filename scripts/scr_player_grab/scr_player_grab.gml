@@ -297,7 +297,7 @@ function scr_player_grab()
 	}
 	
 	//Throws
-	if key_slap2 && (sprite_index != spr_swingding or global.gameplay == 0 or character == "SP")
+	if key_slap2 && (sprite_index != spr_swingding or global.gameplay != 1)
 	{
 		if move != 0
 			move = xscale

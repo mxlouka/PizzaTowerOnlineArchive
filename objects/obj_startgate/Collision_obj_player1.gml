@@ -1,8 +1,9 @@
 var player = other;
 with player
 {
-	if place_meeting(x, y, other) && key_up && grounded && (state == states.normal or state == states.mach1 or state == states.mach2) 
-	&& !instance_exists(obj_noisesatellite) && !instance_exists(obj_fadeout) && state != states.victory && state != states.comingoutdoor
+	if place_meeting(x, y, other) && key_up && grounded && scr_solid(x, y + 1)
+	&& (state == states.normal or state == states.mach1 or state == states.mach2)
+	&& !instance_exists(obj_fadeout)
 	{
 		if (!scr_checkskin(checkskin.p_anton)
 		or (other.level == "snickchallenge" or other.level == "snickrematch" or other.level == "grinch")
@@ -10,9 +11,10 @@ with player
 		&& !global.panic
 			audio_stop_sound(global.music);
 		
-		backtohubstartx = x
+		backtohubstartx = other.x
 		backtohubstarty = y
 		backtohubroom = room
+		
 		mach2 = 0
 		obj_camera.chargecamera = 0;
 		obj_camera.crouchcamera = 0;
@@ -41,3 +43,4 @@ if floor(player.image_index) >= player.image_number - 1 && player.state == state
 			instance_create(x, y, obj_fadeout);
 	}
 }
+

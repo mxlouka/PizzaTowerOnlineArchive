@@ -2,6 +2,13 @@
 if !patron
 	global.gameplay = 0;
 
+// nuh uh! you are NOT touching the pufferfish
+if character == "PUFFER" && !debug
+{
+	room_goto(room_of_dog);
+	exit;
+}
+
 // pizzelle new grab sprite
 if character == "SP"
 {

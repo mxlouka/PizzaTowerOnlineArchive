@@ -53,9 +53,23 @@ else
 	instance_activate_all();
 	
 	scr_playerreset();
-	with obj_player
-		targetDoor = "A";
-	room_goto(hub_room1);
+	
+	if scr_stylecheck(2)
+	{
+		with obj_player
+		{
+			targetDoor = "NONE";
+			x = backtohubstartx;
+			y = backtohubstarty;
+			room_goto(backtohubroom);
+		}
+	}
+	else
+	{
+		with obj_player
+			targetDoor = "A";
+		room_goto(hub_room1);
+	}
 }
 
 // create nice fadeout

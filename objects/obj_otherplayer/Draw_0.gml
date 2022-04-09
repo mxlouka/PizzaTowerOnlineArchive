@@ -119,6 +119,13 @@ else
 			sprit = spr_playerN_chungus;
 		if spr_palette == spr_snickpalette && paletteselect == 13
 			sprit = spr_sbombic;
+		if spr_palette == spr_pufferpalette
+		{
+			if x != xprevious
+				sprite_index = spr_pufferfish_move;
+			else
+				sprite_index = spr_pufferfish_idle;
+		}
 	}
 	
 	// draw the player

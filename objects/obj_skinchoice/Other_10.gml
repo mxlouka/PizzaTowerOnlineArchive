@@ -238,6 +238,15 @@ switch sel[1]
 		]
 		break;
 	
+	case "PUFFER":
+		spr_palette = spr_pufferpalette;
+		spr_idle = spr_pufferfish_move;
+		spr_select = spr_pufferfish_idle;
+		selarray = [
+			["PUFFERFISH", "For, uh... testing purposes. Yeah."],
+		]
+		break;
+	
 	#region scrapped (for now)
 	
 	case "M":

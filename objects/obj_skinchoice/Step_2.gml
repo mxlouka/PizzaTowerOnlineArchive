@@ -16,6 +16,9 @@ if sel[1] == "N" && key_taunt2
 
 // change character
 var lastchar = "SP";
+if debug
+	lastchar = "PUFFER";
+
 if key_down2 && sel[1] != lastchar
 {
 	surface_free(palsurf);
@@ -41,6 +44,12 @@ if key_down2 && sel[1] != lastchar
 			break;
 		case "SP":
 			sel[1] = "SN"; // to pizzano
+			break;
+		case "SN":
+			sel[1] = "CT"; // to cheemstoon
+			break;
+		case "CT":
+			sel[1] = "PUFFER"; // to beloved
 			break;
 		
 		/*
@@ -78,6 +87,12 @@ else if key_up2 && sel[1] != "P"
 			break;
 		case "SN": // from pizzano
 			sel[1] = "SP"; // to pizzelle
+			break;
+		case "CT": // from cheemstoon
+			sel[1] = "SN"; // to pizzano
+			break;
+		case "PUFFER": // from beloved
+			sel[1] = "CT"; // to cheemstoon
 			break;
 	}
 	event_user(0);
