@@ -31,6 +31,7 @@ switch sel[1]
 			["GAMEBOY", "One of his greatest achievements."],
 			["HYPOTHERMIA", "Lesson learned. Don't bathe inside of a freezer."],
 			["BONMARIO", "Property of Bonmario of America INC."],
+			["LEAN", "This whole Lean thing is starting to get a little annoying."],
 		];
 		if global.streamer
 		{
@@ -221,6 +222,8 @@ switch sel[1]
 			["SNICK", "It's not him."],
 			["THE EVIL", "Made in hell."],
 			["SUPER MARIO", "HOLY SHIT"],
+			["LEAN", "This isn't funny anymore. Stop."],
+			["4-CHAN MYSTERY BOX", "IT'S NOT FUCKING WEED YOU PIECE OF SHIT STONER"],
 		]
 		if global.streamer
 			selarray[11][1] = "'Go home'? But I JUST got here!"; // random humor

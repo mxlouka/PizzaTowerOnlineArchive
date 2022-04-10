@@ -72,6 +72,8 @@ else if (!global.panic or string_letters(roomname) == "dragonlair" or string_let
 		musplay = mu_hubarcade
 	if string_startswith(roomname, "hub_roomSP")
 		musplay = mu_sugarytitle
+	if string_startswith(roomname, "rm_test")
+		musplay = mu_mall
 	if string_startswith(roomname, "hub_roomE")
 	{
 		if room == hub_roomE2

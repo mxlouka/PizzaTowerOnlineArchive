@@ -9,8 +9,8 @@ hub_array = [
 	["ARCADE", hub_arcade],
 ]
 
-//if debug
-//	array_push(hub_array, ["TEST", rm_test]);
+if debug
+	array_push(hub_array, ["TEST", rm_test]);
 if room == hub_room1
 	array_push(hub_array, ["TUTORIAL", PP_room1]);
 
