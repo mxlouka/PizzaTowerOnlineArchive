@@ -1,8 +1,10 @@
+event_inherited();
 
 image_speed = 0
-vsp = random_range(-10, -5)
-hsp = -obj_player1.xscale * random_range(4,8)
 grav = 0.4
-image_xscale = obj_player1.xscale
+image_xscale = obj_player.xscale
+hsp = -image_xscale * random_range(4, 8)
+vsp = random_range(-10, -5)
 
-depth =-1
+depth = -1
+

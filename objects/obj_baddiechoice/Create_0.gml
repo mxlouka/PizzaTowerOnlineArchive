@@ -35,6 +35,7 @@ selarray = [
 	["special1", "SMOKED SAUSAGE MAN", "What did I tell you?"],
 	[obj_weeniesquire, "WEENIE SQUIRE", "HOG RIDER"],
 	[obj_thug_red, "SHRIMP THUG", "Stereotypical street criminal, for the chinese themed level."],
+	[obj_soldier, "PIZZA SOLDIER", "He's camping."],
 	[obj_gumslime, "GUMSLIME", "Totally useless. Cannon fodder."],
 	[obj_smurfknight, "SMOREKNIGHT", "Forknight! Now with diabetes."],
 	[obj_charcherry, "CHAR CHERRY", "Ch... cherry?! That's a walking fuckin' bomb!"],

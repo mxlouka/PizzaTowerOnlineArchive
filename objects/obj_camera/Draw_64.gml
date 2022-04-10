@@ -18,7 +18,7 @@ if global.gameplay == 0
 	
 	//Backup Weapon
 	if instance_exists(obj_player) && obj_player.backupweapon
-		draw_sprite_ext(spr_shotgunbackup,-1,50, 100, 1, 1, 0, c_white, alpha)
+		draw_sprite_ext(spr_shotgunbackup, -1, 50, 100, 1, 1, 0, c_white, alpha)
 	
 	if instance_exists(obj_player) && obj_player.state != states.gameover
 	{
@@ -282,11 +282,11 @@ if global.gameplay == 0
 				else if obj_player.movespeed >= 12
 				{
 					frame = -1;
-					draw_sprite_ext(spr_speedbarmax, -1, 125, yy, 1, 1, 0, c_white, alpha);
+					draw_sprite_ext(scr_sprite_charsuffix(spr_speedbarmax), -1, 125, yy, 1, 1, 0, c_white, alpha);
 				}
 			}
 			if frame >= 0
-				draw_sprite_ext(spr_speedbar, frame, 125, yy, 1, 1, 0, c_white, alpha);
+				draw_sprite_ext(scr_sprite_charsuffix(spr_speedbar), frame, 125, yy, 1, 1, 0, c_white, alpha);
 		}
 		
 		// pogo noise bullshit
@@ -297,11 +297,11 @@ if global.gameplay == 0
 				with other
 				{
 					if obj_player.pogospeed < 10
-						draw_sprite_ext(spr_speedbar,0,125,140, 1, 1, 0, c_white, alpha)
+						draw_sprite_ext(spr_speedbar, 0, 125, 140, 1, 1, 0, c_white, alpha)
 					else if obj_player.pogospeed >= 10 && obj_player.pogospeed < 14 
-						draw_sprite_ext(spr_speedbar,3,125,140, 1, 1, 0, c_white, alpha)
+						draw_sprite_ext(spr_speedbar, 3, 125, 140, 1, 1, 0, c_white, alpha)
 					else if obj_player.pogospeed >= 14
-						draw_sprite_ext(spr_speedbarmax,-1,125,140, 1, 1, 0, c_white, alpha)
+						draw_sprite_ext(spr_speedbarmax, -1, 125, 140, 1, 1, 0, c_white, alpha)
 				}
 
 			}
@@ -333,6 +333,7 @@ else
 		else
 			hud_posY = Approach(hud_posY, 0, 15);
 		
+		// heat animation
 		pizzascore_index += 0 + (0.25 * global.stylethreshold);
 	    if pizzascore_index > pizzascore_number - 1
 	        pizzascore_index = 0 + frac(pizzascore_index);
@@ -344,45 +345,87 @@ else
 	            pizzascore_index = 0;
 	    }
 		
-		var heatfill = sugary ? spr_heatmeter_candyfill : spr_heatmeter_fill;
+		// setup shit
+		var b = global.style / 55;
+		var hud_xx = 149 + irandom_range(-collect_shake, collect_shake);
+	    var hud_yy = 105 + irandom_range(-collect_shake, collect_shake) + hud_posY;
+		var repainted = instance_exists(obj_player) && obj_player.character == "PP";
+		
+		// heat meter
+		var heatfill = spr_heatmeter_fill;
+		var _heatspr = spr_heatmeter;
+		var _heatpal = spr_heatmeter_palette;
+		if sugary
+		{
+			_heatspr = spr_heatmeter_candy;
+			_heatpal = spr_heatmeter_candy_palette;
+			heatfill = spr_heatmeter_candyfill;
+		}
+		if repainted
+			heatfill = spr_heatmeter_fillPP;
+		
 		var sw = sprite_get_width(heatfill);
 	    var sh = sprite_get_height(heatfill);
-	    var b = global.style / 55;
-	    var hud_xx = 149 + irandom_range(-collect_shake, collect_shake);
-	    var hud_yy = 105 + irandom_range(-collect_shake, collect_shake) + hud_posY;
 		
-		if !scr_stylecheck(2)
+		if !scr_stylecheck(2) && !repainted
 		{
-			// sugary spire bullshit
-			pal_swap_set(sugary ? spr_heatmeter_candy_palette : spr_heatmeter_palette, global.stylethreshold, 0);
-			if sugary
-				draw_sprite_part(heatfill, pizzascore_index, 0, 0, sw * b, sh, hud_xx - 95, hud_yy - 87);
-			else
-				draw_sprite_part(heatfill, pizzascore_index, 0, 0, sw * b, sh, hud_xx - 95, hud_yy + 24);
-		
-		    draw_sprite_ext(sugary ? spr_heatmeter_candy : spr_heatmeter, pizzascore_index, hud_xx, hud_yy, 1, 1, 0, c_white, alpha);
+			if sprite_exists(_heatpal)
+				pal_swap_set(_heatpal, global.stylethreshold, 0);
+			draw_sprite_part(heatfill, pizzascore_index, 0, 0, sw * b, sh, hud_xx - 95, hud_yy + (sugary ? -87 : 24));
+		    draw_sprite_ext(_heatspr, pizzascore_index, hud_xx, hud_yy, 1, 1, 0, c_white, alpha);
 			pal_swap_reset();
 		}
 		
-	    draw_sprite_ext(sugary ? spr_candyscore : spr_pizzascore, pizzascore_index, hud_xx, hud_yy, 1, 1, 0, c_white, alpha);
+		// the big ass fucking pizza motherfucker
+		var _pizzascore = spr_pizzascore;
+		if sugary
+			_pizzascore = spr_candyscore;
+		if repainted
+			_pizzascore = spr_pizzascorePP;
+		
+	    draw_sprite_ext(_pizzascore, pizzascore_index, hud_xx, hud_yy, 1, 1, 0, c_white, alpha);
 		
 		// draw the score
-		var _score = global.collect;
-		if !sugary
+		var _crankpizza = repainted ? spr_pizzascore_pepperPP : spr_pizzascore_pepper;
+		var _brankpizza = repainted ? spr_pizzascore_pepperoniPP : spr_pizzascore_pepperoni;
+		var _arankpizza = repainted ? spr_pizzascore_olivePP : spr_pizzascore_olive;
+		var _srankpizza = repainted ? spr_pizzascore_shroomPP : spr_pizzascore_shroom;
+		
+		if sugary or _pizzascore == spr_pizzascoreN
 		{
-		    if _score >= global.crank
-		        draw_sprite_ext(spr_pizzascore_pepper, pizzascore_index, hud_xx, hud_yy, 1, 1, 0, c_white, alpha);
-		    if _score >= global.brank
-		        draw_sprite_ext(spr_pizzascore_pepperoni, pizzascore_index, hud_xx, hud_yy, 1, 1, 0, c_white, alpha);
-		    if _score >= global.arank
-		        draw_sprite_ext(spr_pizzascore_olive, pizzascore_index, hud_xx, hud_yy, 1, 1, 0, c_white, alpha);
-		    if _score >= global.srank
-		        draw_sprite_ext(spr_pizzascore_shroom, pizzascore_index, hud_xx, hud_yy, 1, 1, 0, c_white, alpha);
+			_crankpizza = -1;
+			_brankpizza = -1;
+			_arankpizza = -1;
+			_srankpizza = -1;
 		}
 		
+		var _score = global.collect;
+		if _score >= global.crank && sprite_exists(_crankpizza)
+		    draw_sprite_ext(_crankpizza, pizzascore_index, hud_xx, hud_yy, 1, 1, 0, c_white, alpha);
+		if _score >= global.brank && sprite_exists(_brankpizza)
+		    draw_sprite_ext(_brankpizza, pizzascore_index, hud_xx, hud_yy, 1, 1, 0, c_white, alpha);
+		if _score >= global.arank && sprite_exists(_arankpizza)
+		    draw_sprite_ext(_arankpizza, pizzascore_index, hud_xx, hud_yy, 1, 1, 0, c_white, alpha);
+		if _score >= global.srank && sprite_exists(_srankpizza)
+		    draw_sprite_ext(_srankpizza, pizzascore_index, hud_xx, hud_yy, 1, 1, 0, c_white, alpha);
+		
+		// draw in front of the pizza if repainted
+		if !scr_stylecheck(2) && repainted
+		{
+			draw_sprite_part(spr_heatmeter_fillPP, pizzascore_index, 0, 0, sw * b, sh, hud_xx - 89, hud_yy - 87);
+		    draw_sprite_ext(spr_heatmeterPP, pizzascore_index, hud_xx, hud_yy, 1, 1, 0, c_white, alpha);
+		}
+		
+		// text
 		draw_set_valign(fa_top)
 	    draw_set_halign(fa_left)
-	    draw_set_font(sugary ? global.candyfont : global.collectfont)
+		
+		if sugary
+			draw_set_font(global.candyfont)
+		else if repainted
+			draw_set_font(global.collectfontPP)
+		else
+			draw_set_font(global.collectfont)
 		
 		var text_y = 0;
 	    switch floor(pizzascore_index - sugary)
@@ -425,7 +468,8 @@ else
 	    {
 	        var yy = ((i + 1) % 2 == 0 ? -5 : 0);
 	        var c = color_array[i];
-	        pal_swap_set(spr_font_palette, c, 0);
+			if !repainted
+				pal_swap_set(spr_font_palette, c, 0);
 	        draw_text(xx, hud_yy - 56 + text_y + yy, string_char_at(str, i + 1));
 	        xx += w / num;
 	    }
@@ -471,7 +515,7 @@ else
 #endregion
 
 //Draw Text
-draw_set_font(check_sugary() ? global.sugarybigfont : global.bigfont)
+draw_set_font(global.bigfont)
 draw_set_halign(fa_center);
 draw_set_color(c_white)
 
@@ -502,7 +546,7 @@ if instance_exists(obj_player) && obj_player.character == "V" && showhud
 if showhud
 {
 	var styley = 0;
-	if scr_stylecheck(2)
+	if scr_stylecheck(2) or (sugary && global.gameplay != 0)
 		styley -= 32;
 	
 	if !sugary or global.gameplay == 0

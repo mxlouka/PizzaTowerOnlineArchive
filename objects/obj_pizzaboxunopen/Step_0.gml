@@ -94,7 +94,7 @@ if (place_meeting(x, y, obj_player1) or place_meeting(x, y, obj_antonball)) && o
 			else
 				message = "YOU HAVE ALL " + toppinname + "!";
 			showtext = true;
-			alarm[0] = 150;
+			alarm[2] = 150;
 		}
 		global.toppintotal += 1;
 	

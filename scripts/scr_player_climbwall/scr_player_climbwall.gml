@@ -110,18 +110,28 @@ function scr_player_climbwall()
 			//Jump
 			if key_jump && wallspeed > 0
 			{
-				if global.gameplay == 0
-					movespeed = 8;
+				if character == "SP" && abs(wallspeed) > 16
+				{
+					movespeed = abs(wallspeed);
+					instance_create(x, y, obj_jumpdust);
+					sprite_index = spr_mach4;
+					state = states.mach3;
+				}
 				else
-					movespeed = 10;
-				state = states.mach2
-				image_index = 0
-			
-				if !key_down or character != "SP"
-					sprite_index = spr_walljumpstart
-
-				vsp = -11
-
+				{
+					if global.gameplay == 0
+						movespeed = 8;
+					else
+						movespeed = 10;
+					
+					state = states.mach2;
+					image_index = 0;
+					
+					if !key_down or character != "SP"
+						sprite_index = spr_walljumpstart;
+				}
+				
+				vsp = (character == "SP" ? -9 : -11);
 				xscale *= -1
 				jumpstop = false
 			}

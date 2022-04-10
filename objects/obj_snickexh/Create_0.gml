@@ -13,4 +13,17 @@ lockcam = false;
 appeared = false;
 
 if global.snickchallenge && global.snickrematch && global.gameplay == 0
-	alarm[3] = 50
+{
+	if instance_exists(obj_snickexg)
+		alarm[3] = 50;
+	else
+	{
+		with obj_tv
+	    {
+	        showtext = true
+	        message = "SNUCK IS COMING"
+	        alarm[2] = 100
+	    }
+	}
+}
+

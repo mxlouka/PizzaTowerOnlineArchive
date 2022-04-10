@@ -1,6 +1,3 @@
-if sync
-	exit;
-
 if other.object_index == obj_onewaybigblock
 {
 	if x < other.x + 64 && sign(other.image_xscale) == 1
@@ -8,3 +5,4 @@ if other.object_index == obj_onewaybigblock
 		exit;
 }
 instance_destroy(other)
+

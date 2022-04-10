@@ -5,3 +5,4 @@ depth = 100
 randomer = 0;
 with instance_create(x, y, obj_lampostoverlay)
 	ID = other.id;
+

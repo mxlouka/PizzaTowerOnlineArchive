@@ -52,8 +52,8 @@ if place_meeting(x, y, obj_player1) && !player && obj_player1.state != states.ga
 				with obj_tv
 				{
 					showtext = true
-					message = "YOU GOT A TOWER SECRET TREASURE!!!"
-					alarm[0] = 200
+					message = "YOU GOT A TOWER SECRET TREASURE!"
+					alarm[2] = 200
 				}
 				
 				if global.timeattack with obj_timeattack

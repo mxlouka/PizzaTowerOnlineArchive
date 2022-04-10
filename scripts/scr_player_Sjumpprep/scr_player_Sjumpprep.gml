@@ -1,6 +1,6 @@
 function scr_player_Sjumpprep() {
 
-	switch (character)
+	switch character
 	{
 		default:
 		if character != "N" or (character == "N" && noisetype == 1)
@@ -16,21 +16,21 @@ function scr_player_Sjumpprep() {
 			
 			if global.gameplay == 0
 			{
-				if sprite_index = spr_superjumppreplight or sprite_index = spr_snick_superjumplight or sprite_index = spr_superjumpright or sprite_index = spr_superjumpleft
+				if sprite_index == spr_superjumppreplight or sprite_index = spr_snick_superjumplight or sprite_index = spr_superjumpright or sprite_index = spr_superjumpleft
 				{
 					var railh = 0, railmeet = instance_place(x, y + 1, obj_railparent);
 					if railmeet then railh = railmeet.spdh;
 					hsp = move * 2 + railh;
 				}
-			
-				if sprite_index = spr_superjumpprep
+				
+				if sprite_index == spr_superjumpprep
 				{
 					var railh = 0, railmeet = instance_place(x, y + 1, obj_railparent);
 					if railmeet then railh = railmeet.spdh;
 					hsp = xscale * movespeed + railh;
 					
-					if movespeed >= 0
-						movespeed -= 0.25
+					if movespeed > 0
+						movespeed -= 0.8
 				}
 			}
 			else
@@ -38,17 +38,21 @@ function scr_player_Sjumpprep() {
 				var railh = 0, railmeet = instance_place(x, y + 1, obj_railparent);
 				if railmeet then railh = railmeet.spdh;
 				hsp = move * movespeed + railh;
-			
+				
 				if sprite_index == spr_superjumpprep && movespeed > 0
 					movespeed -= 1;
 			}
 		
-			if floor(image_index) >= image_number- 1 && sprite_index = spr_superjumpprep 
+			if floor(image_index) >= image_number - 1 && sprite_index == spr_superjumpprep 
 				sprite_index = spr_superjumppreplight
 		
 			if sprite_index == spr_superjumppreplight
+			{
 	            movespeed = 1;
-
+				if scr_stylecheck(2)
+					movespeed = 2; // lil' speed up why not
+			}
+			
 			if character = "S"
 			{
 				if floor(image_index) = image_number-1 && sprite_index = spr_snick_superjumpprep

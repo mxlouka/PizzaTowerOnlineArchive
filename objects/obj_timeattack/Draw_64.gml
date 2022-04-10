@@ -13,7 +13,7 @@ if global.timeattack && !(instance_exists(obj_gms) && global.__chat)
 	if precise < 10
 		precisertext = ".0";
 	
-	draw_set_font(check_sugary() ? global.sugarybigfont : global.bigfont)
+	draw_set_font(global.bigfont)
 	draw_set_halign(fa_center);
 	draw_set_valign(fa_top);
 	draw_set_color(c_yellow)

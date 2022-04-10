@@ -1,4 +1,5 @@
-if live_call() return live_result;
+if instance_exists(obj_gms) && global.__chat
+	exit;
 
 scr_getinput(true);
 function draw_inputdisplay_key(xx, yy, keycode, width, height = width)
@@ -63,6 +64,9 @@ function draw_inputdisplay_key(xx, yy, keycode, width, height = width)
 
 if global.inputdisplay
 {
+	x = pos[0];
+	y = pos[1];
+	
 	// draw it
 	var xx = 0, yy = 0;
 	for(var i = 0; i < array_length(inputkeys); i++)
@@ -83,12 +87,6 @@ if global.inputdisplay
 	else
 		image_alpha = 1;
 	
-	if keyboard_check_pressed(ord("R"))
-	{
-		x = 0;
-		y = 0;
-	}
-	
 	// customize
 	var mx = device_mouse_x_to_gui(0), my = device_mouse_y_to_gui(0);
 	if mx >= left && mx <= right && my >= top && my <= bottom
@@ -96,7 +94,7 @@ if global.inputdisplay
 		if mouse_check_button_pressed(mb_left) && !drag
 		{
 			drag = true;
-			dragoffset = [x - mx, y - my];
+			dragoffset = [pos[0] - mx, pos[1] - my];
 		}
 		
 		draw_set_colour(drag ? c_red : merge_colour(c_blue, c_aqua, 0.75));
@@ -107,11 +105,11 @@ if global.inputdisplay
 	
 	if drag
 	{
-		x = mx + dragoffset[0];
-		y = my + dragoffset[1];
+		pos[0] = mx + dragoffset[0];
+		pos[1] = my + dragoffset[1];
 		
-		x = clamp(x, 0, 960 - xx - keysize);
-		y = clamp(y, 0, 540 - yy - keysize);
+		pos[0] = clamp(pos[0], 0, 960 - xx - keysize);
+		pos[1] = clamp(pos[1], 0, 540 - yy - keysize);
 		
 		with obj_wc
 			WC_dragobj = noone;

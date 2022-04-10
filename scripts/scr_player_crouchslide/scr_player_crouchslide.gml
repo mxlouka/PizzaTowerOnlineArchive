@@ -18,6 +18,9 @@ function scr_player_crouchslide()
 		if key_jump
 		    input_buffer_jump = 0;
 		
+		if !grounded && character == "SP"
+			sprite_index = spr_playerSP_jumpdive2;
+		
 		if grounded && input_buffer_jump < 8 && !scr_solid((x + 27), (y - 32)) && !scr_solid((x - 27), (y - 32)) && !scr_solid(x, (y - 32)) && !scr_solid(x, (y - 16))
 		{
 			input_buffer_jump = 8;
@@ -28,7 +31,7 @@ function scr_player_crouchslide()
 			    sprite_index = spr_player_jumpdive1
 			    image_index = 0
 			    vsp = -11
-				jumpstop = 0
+				jumpstop = false
 				
 			    with instance_create(x, y, obj_superdashcloud)
 			    {
@@ -58,7 +61,7 @@ function scr_player_crouchslide()
 		}
 	}
 	
-	if grounded && (sprite_index == spr_player_jumpdive1 or sprite_index == spr_player_jumpdive2) && vsp > 0
+	if grounded && (sprite_index == spr_player_jumpdive1 or sprite_index == spr_player_jumpdive2 or sprite_index == spr_playerSP_jumpdive2) && vsp > 0
 	{
 		scr_soundeffect(sfx_step)
 	    sprite_index = spr_crouchslip

@@ -18,6 +18,7 @@ global.smallfont = font_add_sprite_ext(spr_smallerfont, "ABCDEFGHIJKLMNOPQRSTUVW
 global.font_small = font_add_sprite_ext(spr_smallfont, "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!._1234567890:;?▯|*/',\"()=-+@█%~ÁÉÍÓÚáéíóúÑñ[]<>$", true, -2)
 global.smallnumber = font_add_sprite_ext(spr_smallnumber, "1234567890-.", true, 0)
 global.collectfont = font_add_sprite_ext(spr_font_collect, "0123456789.-", true, 0)
+global.collectfontPP = font_add_sprite_ext(spr_font_collectPP, "0123456789.-", true, 0)
 global.candyfont = font_add_sprite_ext(spr_font_candycollect, "0123456789", true, 0)
 global.combofont = font_add_sprite_ext(spr_font_combo, "0123456789.-", true, 0)
 global.sugarybigfont = font_add_sprite_ext(spr_font_ss, "ABCDEFGHIJKLMNOPQRSTUVWXYZ!.1234567890:_-?'▯", true, 0)

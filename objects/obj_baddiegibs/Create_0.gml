@@ -1,7 +1,8 @@
+event_inherited();
 if global.snickrematch
 	sprite_index = spr_baddiegibs_re
 
-image_index = random_range(0,13)
+image_index = random_range(0, 13)
 image_speed = 0
 vsp = random_range(-10, 10)
 hsp = random_range(-10, 10)
@@ -10,3 +11,4 @@ image_angle = random_range(1, 270)
 
 depth = -1
 angspd = 0;
+

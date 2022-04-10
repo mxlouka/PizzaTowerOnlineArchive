@@ -12,8 +12,8 @@ function defaultkeys()
 	keysep = 4;
 	keysize = 48;
 	
-	x = keysep;
-	y = (540 - keysize * 3) - keysep * 3;
+	pos[0] = keysep;
+	pos[1] = (540 - keysize * 3) - keysep * 3;
 	
 	pressedcol = merge_colour(c_blue, c_aqua, 0.75);
 }
@@ -39,9 +39,9 @@ function loadkeys()
 {
 	file = file_text_open_read("inputdisplay");
 	
-	x = file_text_read_real(file);
+	pos[0] = file_text_read_real(file);
 	file_text_readln(file);
-	y = file_text_read_real(file);
+	pos[1] = file_text_read_real(file);
 	file_text_readln(file);
 	keysep = file_text_read_real(file);
 	file_text_readln(file);
@@ -61,6 +61,8 @@ dragoffset = [0, 0];
 depth = -10000;
 
 inputkeys = [];
+pos = [0, 0];
+
 if !file_exists("inputdisplay")
 {
 	defaultkeys();
@@ -69,7 +71,7 @@ if !file_exists("inputdisplay")
 else
 {
 	loadkeys();
-	if x < 0 or y < 0 or !is_array(inputkeys) or array_length(inputkeys) == 0
+	if pos[0] < 0 or pos[1] < 0 or !is_array(inputkeys) or array_length(inputkeys) == 0
 	{
 		defaultkeys();
 		savekeys();

@@ -19,7 +19,16 @@ if global.panic
 	}
 	
 	repeat min(round(w / 960), 8)
-		instance_create(irandom_range(xx, w), yy + 10, obj_debris);
+	{
+		array_push(debris, {
+			x : irandom_range(xx, w),
+			y : yy + 10,
+			ang : irandom_range(1, 360),
+			img : irandom_range(0, 5),
+			vsp : random_range(-4, 0),
+			hsp : random_range(-4, 4),
+		});
+	}
 	alarm[0] = 5;
 }
 

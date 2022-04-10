@@ -1,15 +1,6 @@
 with other
 {
-	if other.sync
-	{
-		if !hurted && !instance_exists(obj_parryhitbox)
-		{
-			scr_hurtplayer_weak(id);
-			if x != other.x
-				xscale = -sign(x - other.x);
-		}
-	}
-	else if !other.hurtplayer && character == "V"
+	if !other.hurtplayer && character == "V"
 	{
 		if key_jump2
 		{

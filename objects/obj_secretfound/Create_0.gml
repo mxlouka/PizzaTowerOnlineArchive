@@ -16,7 +16,7 @@ if ds_list_find_index(global.saveroom, id) == -1 && !global.snickchallenge
 		{
 			message = "You have found " + string(global.secretfound) + " secret" + (global.secretfound == 1 ? "" : "s") + " out of " + string(outof) + "!";
 			showtext = true
-			alarm[0] = 150
+			alarm[2] = 150
 		}
 	}
 	

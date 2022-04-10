@@ -1,3 +1,5 @@
+event_inherited();
+
 image_speed = 0
 vsp = random_range(-8, -6)
 hsp = random_range(-4, 4)

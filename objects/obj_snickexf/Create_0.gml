@@ -7,9 +7,9 @@ if global.snickrematch && global.gameplay == 0
 {
     with obj_tv
     {
-        showtext = 1
+        showtext = true
         message = "SNACK IS COMING"
-        alarm[0] = 100
+        alarm[2] = 100
     }
 }
 

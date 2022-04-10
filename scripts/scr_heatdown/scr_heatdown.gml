@@ -15,10 +15,14 @@ function scr_heatdown()
 	with obj_tv
 	{
 		message = "HEAT DOWN..."
-		alarm[0] = 200
+		alarm[2] = 200
 		showtext = true
 	}
-
-	obj_stylebar.toggle = true
-	obj_stylebar.alarm[0] = 5
+	
+	with obj_stylebar
+	{
+		toggle = true
+		alarm[0] = 5
+	}
 }
+

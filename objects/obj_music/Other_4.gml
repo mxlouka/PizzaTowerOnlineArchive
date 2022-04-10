@@ -376,6 +376,8 @@ else if (!global.panic or string_letters(roomname) == "dragonlair" or string_let
 		musplay = mu_strongcoldsecret
 	if string_startswith(roomname, "floor1_secret")
 		musplay = mu_desertsecret
+	if string_startswith(roomname, "floor2_secret")
+		musplay = mu_mansionsecret
 	if string_letters(roomname) == "graveyardsecret" 
 		musplay = mu_graveyardsecret
 	if string_letters(roomname) == "farmsecret" 
@@ -384,8 +386,7 @@ else if (!global.panic or string_letters(roomname) == "dragonlair" or string_let
 		musplay = mu_pinballsecret
 	if string_letters(roomname) == "kungfusecret" 
 		musplay = mu_kungfusecret
-	if string_letters(roomname) == "forestsecret" 
-	or string_startswith(roomname, "floor2_secret")
+	if string_letters(roomname) == "forestsecret"
 		musplay = mu_forestsecret
 	if string_letters(roomname) == "beachsecret"
 		musplay = mu_beachsecret

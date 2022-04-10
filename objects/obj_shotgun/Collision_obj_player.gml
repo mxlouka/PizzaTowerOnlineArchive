@@ -1,11 +1,15 @@
-if other.object_index = obj_player1 && other.character != "S" && other.character != "V"
+if other.character != "S" && other.character != "V"
 {
-	if obj_player1.shotgunAnim = false && obj_player1.backupweapon = false && obj_player1.state = states.handstandjump
+	if !other.shotgunAnim && !other.backupweapon && other.state == states.handstandjump
 	{
-		obj_player1.shotgunAnim = true
-		obj_player1.state = states.shotgun
-		obj_player1.image_index = 0
-		obj_player1.sprite_index= obj_player1.spr_shotgunpullout
+		with other
+		{
+			shotgunAnim = true
+			state = states.shotgun
+			image_index = 0
+			sprite_index = spr_shotgunpullout
+		}
+		
 		global.gotshotgun = true
 		scr_soundeffect(sfx_shotgungot)
 		instance_destroy()
@@ -23,3 +27,4 @@ if other.object_index = obj_player1 && other.character != "S" && other.character
 		}
 	}
 }
+

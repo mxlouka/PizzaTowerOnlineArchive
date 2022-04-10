@@ -66,6 +66,7 @@ switch sel[1]
 			["BLACKFACE", "That's not nice."],
 			["NOIK", "He's canon."],
 			["HYPERTHERMIA", "That's NOT how you preheat an oven."],
+			["LUIGI", "The L stands for winner."],
 		];
 		break;
 	

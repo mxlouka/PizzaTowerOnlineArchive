@@ -86,7 +86,7 @@ for (var i = 0; i < array_length(layers); i++;)
 }
 
 // handle unfinished rooms
-if string_startswith(room_get_name(room), "ancient_")// or string_startswith(room_get_name(room), "sanctum_")
+if string_startswith(room_get_name(room), "sanctum_")
 {
 	// detects if there's any "Tiles_" layers in the room.
 	var hastiles = false;
@@ -133,3 +133,4 @@ if layer_exists("Tiles_1_NEW")
 	else
 		layer_destroy("Tiles_1");
 }
+

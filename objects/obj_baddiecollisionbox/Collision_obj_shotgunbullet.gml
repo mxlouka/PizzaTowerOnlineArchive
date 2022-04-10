@@ -1,10 +1,4 @@
-/*
-if other.sync
-	exit;
-*/
-
 if instance_exists(baddieID) && baddieID.object_index != obj_pizzaballOLD
-//&& (baddieID.hp <= 1 or obj_player1.character != "V")
 {
 	increase_combo();
 	instance_create(x, y, obj_parryeffect);
@@ -45,3 +39,4 @@ else if instance_exists(baddieID) && baddieID.stuntouchbuffer <= 0
 
 if global.gameplay != 0
 	instance_destroy(other);
+

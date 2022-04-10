@@ -31,7 +31,7 @@ else
 if room == rank_room or room == timesuproom or room == boss_room1 or room == Oldtitlescreen or room == characterselect or room == editor_entrance
 or (instance_exists(obj_gms) && global.__chat)
 {
-	visible = false
+	visible = false;
 	if global.gameplay != 0
 	{
 	    animset = spr_tv_off;
@@ -41,7 +41,7 @@ or (instance_exists(obj_gms) && global.__chat)
 	}
 }
 else
-	visible = true
+	visible = true;
 
 // check if sugary tv
 with obj_player
@@ -74,11 +74,12 @@ if global.gameplay == 0
 	if surface_exists(promptsurface)
 	{
 		surface_free(promptsurface);
+		image_speed = 0.1;
 		tvsprite = spr_tvdefault;
 	}
 	
 	// make transparent for player
-	if (instance_exists(obj_player) && obj_player.y < camera_get_view_y(view_camera[0]) + 200 && obj_player.x > camera_get_view_x(view_camera[0]) + camera_get_view_width(view_camera[0]) - 200)
+	if (instance_exists(obj_player) && obj_player.y < _camy + 200 && obj_player.x > _camx + _camw - 200)
 	or manualhide
 		alpha = 0.5
 	else if !(room == rank_room or room == timesuproom or room == boss_room1 or room == Realtitlescreen or room == characterselect)
@@ -143,7 +144,7 @@ if global.gameplay == 0
 	}
 	
 	// owie moans in pain uwu
-	else if instance_exists(obj_player) && obj_player.state = states.hurt 
+	else if instance_exists(obj_player) && obj_player.state == states.hurt 
 	{
 		if !chose
 			message = choose("OW!", "OUCH!", "OH!", "WOH!")
@@ -219,19 +220,18 @@ if global.gameplay == 0
 	&& (tvsprite == spr_tvdefault or tvsprite == spr_tvcombo or tvsprite == spr_tvescape)
 	{
 		tvsprite = spr_tvcombo
-		image_speed = 0
-		
-		if global.combo >= 4
-			imageindexstore = 3
-		else
-			imageindexstore = global.combo -1;
+		imageindexstore = global.combo - 1;
 	}
 	
 	// good job combo
 	else if global.combotime <= 0 && tvsprite == spr_tvcombo
 	{
-		tvsprite = spr_tvcomboresult
-		image_index = imageindexstore;
+		tvsprite = spr_tvcomboresult;
+		if !sugary
+		{
+			image_speed = 0;
+			image_index = min(imageindexstore, 3);
+		}
 		alarm[0] = 50
 	}
 	

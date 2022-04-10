@@ -87,8 +87,8 @@ if keyboard_check_pressed(global.__chat_submitkey) && global.__chat_typing
 				var body = ds_map_create();
 				
 				var username = gms_self_name();
-				if real(gms_ini_game_read("game", "version")) > gameversion
-					username += " (on ver. " + string(gameversion) + ")";
+				if gameversion > real(gms_ini_game_read("game", "version"))
+					username += " (dev server)";
 				
 				ds_map_add(body, "content", str);
 				ds_map_add(body, "username", username);

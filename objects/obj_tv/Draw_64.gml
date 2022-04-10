@@ -24,9 +24,7 @@ if room == rm_deltarune or room == rm_darkreveal or !global.showhud
 	exit;
 
 // Draw Text
-var sg = check_sugary();
-
-draw_set_font(sg ? global.sugarybigfont : global.bigfont)
+draw_set_font(global.bigfont)
 draw_set_halign(fa_center);
 draw_set_color(c_white)
 
@@ -42,32 +40,41 @@ draw_set_font(global.bigfont)
 if global.gameplay == 0
 {
 	//Draw TV
-	if global.combotime != 0 && tvsprite == spr_tvcombo
+	if global.combotime > 0 && tvsprite == spr_tvcombo
 	{
 		if !surface_exists(surf)
 			surf = surface_create(960, 540);
 		
 		surface_set_target(surf);
 		draw_clear_alpha(c_black, 0);
-		draw_sprite_ext(spr_tvcomboclear, -1, 832, 74, 1, 1, 0, c_white, 1);
-		draw_sprite_part_ext(tvsprite, -1, 0, 0, 16 + (global.combotime / 60) * 148, 177, 832 - 82, 74 - 88, 1, 1, c_white, 1);
+		
+		draw_sprite_ext(scr_sprite_charsuffix(spr_tvcomboclear, sugary ? "ss" : -1), -1, 832, 74, 1, 1, 0, c_white, 1);
+		
+		var sprit = scr_sprite_charsuffix(spr_tvcombo, sugary ? "ss" : -1);
+		draw_sprite_part_ext(sprit, imageindexstore % 5, 0, 0, 16 + (global.combotime / 60) * 148, 177, 832 - sprite_get_xoffset(sprit), 74 - sprite_get_yoffset(sprit), 1, 1, c_white, 1);
 		surface_reset_target();
 		
 		draw_surface_ext(surf, 0, 0, 1, 1, 0, c_white, alpha);
+		draw_text(852, 75, string(global.combo));
 	}
 	else if room != strongcold_endscreen && room != Realtitlescreen
-		draw_sprite_ext(tvsprite, -1, 832, 74, 1, 1, 0, c_white, alpha);
-
-	if global.combo != 0 && global.combotime > 0 && (tvsprite = spr_tvdefault or tvsprite = spr_tvcombo)
-		draw_text(852,75, string(global.combo))
-	
-	if tvsprite == spr_tvdefault && room != strongcold_endscreen && !global.miniboss
 	{
-		chose = false
-		draw_text(832, 60, string(global.collect))
+		// default ss tv if the equivalent sprite doesn't exist
+		var sprit = scr_sprite_charsuffix(tvsprite, sugary ? "ss" : -1);
+		if sugary && !string_endswith(sprite_get_name(sprit), "_ss")
+			sprit = spr_tvdefault_ss;
+		
+		// tv frame
+		draw_sprite_ext(sprit, -1, 832, 74, 1, 1, 0, c_white, alpha);
+		
+		// text
+		if (tvsprite == spr_tvdefault or sprit == spr_tvdefault_ss) && !global.miniboss
+			draw_text(828, 60, string(global.collect));
+		if global.miniboss
+			draw_text(832, 60, string(global.boxhp));
+		if tvsprite == spr_tvdefault
+			chose = false;
 	}
-	else if global.miniboss
-		draw_text(832, 60, string(global.boxhp))
 }
 
 #endregion
@@ -97,10 +104,7 @@ else
 		if sugary
 		{
 			offset_x -= 1;
-			offset_y -= 32;
-			
-			// floaty animation
-			offset_y += sin(current_time / 1000) * 2;
+			offset_y -= 33;
 		}
 		
 		if room != strongcold_endscreen && room != Realtitlescreen
@@ -194,7 +198,7 @@ else
 		draw_surface(promptsurface, 350 - (sugary * 65), hud_posY);
 	}
 	
-	draw_set_font(sg ? global.sugarybigfont : global.bigfont)
+	draw_set_font(global.bigfont)
 }
 
 #endregion

@@ -9,13 +9,21 @@ if character == "PUFFER" && !debug
 	exit;
 }
 
-// pizzelle new grab sprite
+// bring poor discriminated demon eyed pizzelle back (to old gameplay)
 if character == "SP"
 {
 	if global.gameplay == 0
+	{
 		spr_suplexdash = spr_playerSP_suplexdash;
+		spr_3hpidle = spr_playerSP_3hpidle;
+		spr_3hpwalk = spr_playerSP_3hpwalk;
+	}
 	else
+	{
 		spr_suplexdash = spr_playerSP_suplexdash_NEW;
+		spr_3hpidle = spr_playerSP_3hpidle_NEW;
+		spr_3hpwalk = spr_playerSP_3hpwalk_NEW;
+	}
 }
 
 // konami shit

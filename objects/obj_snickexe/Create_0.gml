@@ -7,3 +7,4 @@ knocked = false
 deactivate = false
 enemybird = false
 enemybirdi = 0
+

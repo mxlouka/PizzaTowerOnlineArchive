@@ -11,8 +11,8 @@
   "collisionTolerance": 0,
   "swfPrecision": 2.525,
   "bbox_left": 15,
-  "bbox_right": 97,
-  "bbox_top": 12,
+  "bbox_right": 95,
+  "bbox_top": 18,
   "bbox_bottom": 95,
   "HTile": false,
   "VTile": false,
@@ -63,12 +63,6 @@
     {"compositeImage":{"FrameId":{"name":"81247e96-9c72-4543-a61a-ba5f4ab13874","path":"sprites/spr_soldier_walk/spr_soldier_walk.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
         {"FrameId":{"name":"81247e96-9c72-4543-a61a-ba5f4ab13874","path":"sprites/spr_soldier_walk/spr_soldier_walk.yy",},"LayerId":{"name":"ba31ce68-5dd6-4dac-be1f-3a859b6b0cb2","path":"sprites/spr_soldier_walk/spr_soldier_walk.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
       ],"parent":{"name":"spr_soldier_walk","path":"sprites/spr_soldier_walk/spr_soldier_walk.yy",},"resourceVersion":"1.0","name":"81247e96-9c72-4543-a61a-ba5f4ab13874","tags":[],"resourceType":"GMSpriteFrame",},
-    {"compositeImage":{"FrameId":{"name":"77265dea-7cc2-49e0-ba7a-233673fc43b5","path":"sprites/spr_soldier_walk/spr_soldier_walk.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"77265dea-7cc2-49e0-ba7a-233673fc43b5","path":"sprites/spr_soldier_walk/spr_soldier_walk.yy",},"LayerId":{"name":"ba31ce68-5dd6-4dac-be1f-3a859b6b0cb2","path":"sprites/spr_soldier_walk/spr_soldier_walk.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"spr_soldier_walk","path":"sprites/spr_soldier_walk/spr_soldier_walk.yy",},"resourceVersion":"1.0","name":"77265dea-7cc2-49e0-ba7a-233673fc43b5","tags":[],"resourceType":"GMSpriteFrame",},
-    {"compositeImage":{"FrameId":{"name":"2ee63851-dc7f-4c6b-83c9-f3103f9cf1d9","path":"sprites/spr_soldier_walk/spr_soldier_walk.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"2ee63851-dc7f-4c6b-83c9-f3103f9cf1d9","path":"sprites/spr_soldier_walk/spr_soldier_walk.yy",},"LayerId":{"name":"ba31ce68-5dd6-4dac-be1f-3a859b6b0cb2","path":"sprites/spr_soldier_walk/spr_soldier_walk.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"spr_soldier_walk","path":"sprites/spr_soldier_walk/spr_soldier_walk.yy",},"resourceVersion":"1.0","name":"2ee63851-dc7f-4c6b-83c9-f3103f9cf1d9","tags":[],"resourceType":"GMSpriteFrame",},
   ],
   "sequence": {
     "spriteId": {"name":"spr_soldier_walk","path":"sprites/spr_soldier_walk/spr_soldier_walk.yy",},
@@ -78,7 +72,7 @@
     "playbackSpeedType": 1,
     "autoRecord": true,
     "volume": 1.0,
-    "length": 14.0,
+    "length": 12.0,
     "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MessageEventKeyframe>",},
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
@@ -95,8 +89,6 @@
             {"id":"2ace87e3-fd1e-4cac-9e4b-2652411ed4c0","Key":9.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"ce2aa4d7-4ba0-4b70-9c47-0554fc5c26ca","path":"sprites/spr_soldier_walk/spr_soldier_walk.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
             {"id":"b7f6c9c5-539c-47aa-a147-e3e49efff5a1","Key":10.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"c86839f4-a98b-4a74-816d-fe6565f80e31","path":"sprites/spr_soldier_walk/spr_soldier_walk.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
             {"id":"c0f78e4b-05a7-4d89-9cfc-02f3769022e6","Key":11.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"81247e96-9c72-4543-a61a-ba5f4ab13874","path":"sprites/spr_soldier_walk/spr_soldier_walk.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
-            {"id":"dc7c9e60-806c-48d7-a443-ecc4a4daf17a","Key":12.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"77265dea-7cc2-49e0-ba7a-233673fc43b5","path":"sprites/spr_soldier_walk/spr_soldier_walk.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
-            {"id":"d712ed84-00e0-433e-94b4-d43df111ce11","Key":13.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"2ee63851-dc7f-4c6b-83c9-f3103f9cf1d9","path":"sprites/spr_soldier_walk/spr_soldier_walk.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
           ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
     ],
     "visibleRange": null,

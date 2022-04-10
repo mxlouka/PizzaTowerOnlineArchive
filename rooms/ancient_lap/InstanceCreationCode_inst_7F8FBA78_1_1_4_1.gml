@@ -1,3 +1,3 @@
-// add the target room
+targetRoom = ancient_20
 targetDoor = "A"
 

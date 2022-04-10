@@ -1,4 +1,4 @@
-if sync or hurtplayer
+if hurtplayer
 	exit;
 
 instance_destroy(other)

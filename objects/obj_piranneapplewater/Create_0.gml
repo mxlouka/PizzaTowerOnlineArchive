@@ -1,3 +1,5 @@
+event_inherited();
+
 vsp = -8
 hsp = 0
 grav = 0.5

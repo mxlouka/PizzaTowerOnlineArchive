@@ -1,3 +1,5 @@
+event_inherited();
+
 hsp = random_range(-5,5)
 vsp = random_range(-2, -10)
 grav = 0.5

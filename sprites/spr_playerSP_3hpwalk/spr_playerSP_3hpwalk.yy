@@ -91,7 +91,7 @@
     "eventStubScript": null,
     "parent": {"name":"spr_playerSP_3hpwalk","path":"sprites/spr_playerSP_3hpwalk/spr_playerSP_3hpwalk.yy",},
     "resourceVersion": "1.4",
-    "name": "",
+    "name": "spr_playerSP_3hpwalk",
     "tags": [],
     "resourceType": "GMSequence",
   },

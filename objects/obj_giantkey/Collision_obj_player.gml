@@ -1,9 +1,9 @@
 if other.state == states.gameover exit;
 
-if picked = false
+if !picked
 {
 	hsp = 0
-	vsp =0
+	vsp = 0
 	grav = 0
 	
 	playerid = obj_player1
@@ -16,16 +16,18 @@ if picked = false
 
 	with playerid
 	{
-
-	state = states.gottreasure
-	scr_soundeffect(sfx_secretfound)
-	global.giantkey = true
-
+		state = states.gottreasure
+		scr_soundeffect(sfx_secretfound)
+		global.giantkey = true
 	}
-
-	obj_tv.showtext = true
-	obj_tv.message = "GOT THE GIANT KEY!!!"
-	obj_tv.alarm[0] = 200
+	
+	with obj_tv
+	{
+		showtext = true
+		message = "GOT THE GIANT KEY!"
+		alarm[2] = 200
+	}
+	
 	global.combotime = 60
 	picked = true
 }
