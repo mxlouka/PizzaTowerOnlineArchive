@@ -389,6 +389,8 @@ function lang_load(lang)
 		ds_map_add(global.langmap, "roomname.sanctum_secret6", "Dashing Psycho");
 		
 		ds_map_add(global.langmap, "roomname.ancient_1", "WELCOME TO PIZZA TOWER...?");
+		ds_map_add(global.langmap, "roomname.ancient_2", "Sausage Fest");
+		ds_map_add(global.langmap, "roomname.ancient_3", "Knight Fight");
 	}
 	
 	#endregion
