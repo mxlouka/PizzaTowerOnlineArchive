@@ -227,7 +227,11 @@ switch sel[1]
 			["4-CHAN MYSTERY BOX", "IT'S NOT FUCKING WEED YOU PIECE OF SHIT STONER"],
 		]
 		if global.streamer
+		{
+			selarray[8][1] = "Not to be racist."; // black
 			selarray[11][1] = "'Go home'? But I JUST got here!"; // random humor
+			selarray[20][1] = "IT'S NOT FUCKING WEED"; // 4-chan mystery box
+		}
 		break;
 	
 	case "CT":
@@ -235,10 +239,11 @@ switch sel[1]
 		spr_idle = spr_playerCT_idle;
 		spr_select = spr_playerCT_panic;
 		selarray = [
-			["CHEEMSTOON", "Temporary"],
-			["GORE", ""],
-			["GRINCH", ""],
-			["SAGE", ""],
+			["CHEEMSTOON", "Not a furry, just a Void-creature."],
+			["GORE", "The obligatory edgy palette!"],
+			["GRINCH", "He chose grinch.........................."],
+			["SAGE", "It better include a Sonic ripoff character."],
+			["SQUIDWARD", "description here"],
 		]
 		break;
 	

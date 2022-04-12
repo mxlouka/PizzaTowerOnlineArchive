@@ -15,6 +15,9 @@ if fadealpha >= 1 && !fadein
 		obj_pause.pausefad = 2;
 		obj_pause.pausealpha = 1;
 		
+		if sprite_exists(obj_pause.pausebg)
+			sprite_delete(obj_pause.pausebg);
+		
 		while true
 		{
 			_act = array_pop(obj_pause.objectlist);

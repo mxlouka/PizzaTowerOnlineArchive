@@ -2,7 +2,7 @@ fadealpha = 0
 AT = false
 HAT = false
 fadein = false
-depth = -1000;
+depth = -10000;
 alarm[0] = 235;
 
 // do the thing

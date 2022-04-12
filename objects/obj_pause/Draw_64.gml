@@ -22,6 +22,9 @@ if (pause or pausefad == 2 or pausefad == 4)
 		draw_set_alpha(pausealpha);
 		draw_rectangle(0, 0, 960, 540, false);
 	}
+	else if sprite_exists(pausebg)
+		sprite_delete(pausebg);
+	
 	if pausefad == 4
 	{
 		if pausealpha > 0
