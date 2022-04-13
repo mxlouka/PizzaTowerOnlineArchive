@@ -152,7 +152,7 @@ function scr_collide_destructibles()
 		// Superslam destroy metal
 		if state == states.freefall or state == states.freefallland
 		{
-			if place_meeting(x, y + 1, obj_metalblock) && freefallsmash > 10 && room != etb_7
+			if place_meeting(x, y + 1, obj_metalblock) && freefallsmash > 10
 			{
 				with instance_place(x, y + 1, obj_metalblock)
 				{

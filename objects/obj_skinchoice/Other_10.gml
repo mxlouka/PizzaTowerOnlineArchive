@@ -293,10 +293,6 @@ switch sel[1]
 	case "M":
 		locked = true;
 		break;
-	
-	case "SP":
-		locked = false;
-		break;
 }
 var basepal = (sel[1] == "P" or sel[1] == "SP" or sel[1] == "SN");
 

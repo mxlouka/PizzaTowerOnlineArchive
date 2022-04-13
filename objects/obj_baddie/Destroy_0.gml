@@ -17,7 +17,7 @@ if ds_list_find_index(global.baddieroom, id) == -1
 		custom_death_fnc();
 	else
 	{
-		if global.gameplay == 0
+		if global.gameplay != 1
 		{
 			scr_sleep(50);
 			repeat 3

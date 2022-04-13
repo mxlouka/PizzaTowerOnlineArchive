@@ -31,4 +31,12 @@ else if check_sugary()
 	spr_dead = spr_hungrypillardeadOLD_ss;
 }
 
+if global.snickrematch
+{
+	spr_idle = spr_hungrypillar_re;
+	spr_angry = spr_hungrypillar_re;
+	spr_happy = spr_hungrypillar_re;
+	spr_dead = spr_hungrypillar_dead_re;
+}
+
 sprite_index = spr_idle;

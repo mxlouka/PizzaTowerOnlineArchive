@@ -1621,6 +1621,14 @@ function scr_characterspr(char = character)
 			spr_ghostidle = spr_playerCT_ghostidle;
 			spr_ghostdash = spr_playerCT_ghostdash;
 			
+			spr_knightpepstart = spr_playerCT_knightstart;
+			spr_knightpepidle = spr_playerCT_knightidle;
+			spr_knightpepjumpstart = spr_playerCT_knightjumpstart;
+			spr_knightpepjump = spr_playerCT_knightjump;
+			spr_knightpepfall = spr_playerCT_knightfall;
+			spr_knightpepthunder = spr_playerCT_thunder;
+			spr_knightpepwalk = spr_playerCT_knightwalk;
+			
 			spr_dead = spr_playerCT_dead;
 			spr_deathend = spr_playerCT_dead;
 			break;

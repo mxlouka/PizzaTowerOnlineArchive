@@ -78,13 +78,14 @@ function scr_player_normal()
 			{
 			    if move == 0
 			    {
-				    if idle < 400 && !facehurt && character != "SP"
+				    if idle < 400 && character != "SP"
 						idle++;
 					else
 						idle = 0;
 					
 					if idle >= 150
 					{
+						facehurt = false;
 					    if sprite_index != spr_idle1 && sprite_index != spr_idle2 && sprite_index != spr_idle3 && sprite_index != spr_idle4  && sprite_index != spr_idle5  && sprite_index != spr_idle6 && sprite_index != spr_player_idlelook && sprite_index != spr_playerSP_keyidle
 					    {
 						    randomise()
@@ -165,7 +166,7 @@ function scr_player_normal()
 					idle++
 				if idle >= 100
 				{
-					if sprite_index != spr_idle && floor(image_index) = image_number -1
+					if sprite_index != spr_idle && floor(image_index) >= image_number - 1
 					{
 						idle = 0
 						image_index = 0
@@ -190,7 +191,7 @@ function scr_player_normal()
 	{
 		if sprite_index == spr_pmortland
 	    {
-	        if floor(image_index) == image_number - 1
+	        if floor(image_index) >= image_number - 1
 	        {
 	            landAnim = false
 	            sprite_index = spr_pmortidle
@@ -203,14 +204,14 @@ function scr_player_normal()
 		    {
 			    movespeed = 0
 			    sprite_index = spr_land
-			    if floor(image_index) = image_number - 1
+			    if floor(image_index) >= image_number - 1
 					landAnim = false
 		    }
 		    else
 		    {
 			    sprite_index = spr_land2
 				
-			    if floor(image_index) = image_number -1
+			    if floor(image_index) >= image_number -1
 			    {
 				    landAnim = false
 				    sprite_index = spr_move
@@ -231,7 +232,7 @@ function scr_player_normal()
 		    }
 	    }
 	}
-
+	
 	//MachSlide End Anim
 	if machslideAnim
 		sprite_index = spr_machslideend
@@ -256,7 +257,7 @@ function scr_player_normal()
 		}
 	}
 	
-	if scr_solid(x+xscale,y) && move == xscale && (!place_meeting(x+xscale,y,obj_slope) or scr_solidwall(x, y - 1))
+	if scr_solid(x + xscale, y) && move == xscale && (!place_meeting(x+xscale,y,obj_slope) or scr_solidwall(x, y - 1))
 		movespeed = 0
 	
 	if grounded
