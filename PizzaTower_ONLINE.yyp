@@ -2310,6 +2310,7 @@
     {"id":{"name":"bg_ruinstatue3_re","path":"sprites/bg_ruinstatue3_re/bg_ruinstatue3_re.yy",},"order":10,},
     {"id":{"name":"tile_secret","path":"sprites/tile_secret/tile_secret.yy",},"order":0,},
     {"id":{"name":"bg_secret","path":"sprites/bg_secret/bg_secret.yy",},"order":1,},
+    {"id":{"name":"obj_denchick","path":"objects/obj_denchick/obj_denchick.yy",},"order":23,},
     {"id":{"name":"bg_treasure","path":"sprites/bg_treasure/bg_treasure.yy",},"order":2,},
     {"id":{"name":"tile_secret_re","path":"sprites/tile_secret_re/tile_secret_re.yy",},"order":3,},
     {"id":{"name":"bg_secret_re","path":"sprites/bg_secret_re/bg_secret_re.yy",},"order":4,},
@@ -2529,6 +2530,7 @@
     {"id":{"name":"spr_medievalcomputer","path":"sprites/spr_medievalcomputer/spr_medievalcomputer.yy",},"order":6,},
     {"id":{"name":"spr_ruincomputer","path":"sprites/spr_ruincomputer/spr_ruincomputer.yy",},"order":7,},
     {"id":{"name":"spr_metalblockdebrisescape_NEW","path":"sprites/spr_metalblockdebrisescape_NEW/spr_metalblockdebrisescape_NEW.yy",},"order":11,},
+    {"id":{"name":"execute_shell_simple_ext","path":"extensions/execute_shell_simple_ext/execute_shell_simple_ext.yy",},"order":3,},
     {"id":{"name":"bg_mines1","path":"sprites/bg_mines1/bg_mines1.yy",},"order":5,},
     {"id":{"name":"spr_dungeoncomputer","path":"sprites/spr_dungeoncomputer/spr_dungeoncomputer.yy",},"order":8,},
     {"id":{"name":"spr_snickchallengecomputer","path":"sprites/spr_snickchallengecomputer/spr_snickchallengecomputer.yy",},"order":9,},
@@ -2608,6 +2610,7 @@
     {"id":{"name":"GMLive_vm_call","path":"scripts/GMLive_vm_call/GMLive_vm_call.yy",},"order":6,},
     {"id":{"name":"spr_playerCT_rotate","path":"sprites/spr_playerCT_rotate/spr_playerCT_rotate.yy",},"order":6,},
     {"id":{"name":"spr_playerSP_suplexbump","path":"sprites/spr_playerSP_suplexbump/spr_playerSP_suplexbump.yy",},"order":51,},
+    {"id":{"name":"rm_denchick","path":"rooms/rm_denchick/rm_denchick.yy",},"order":7,},
     {"id":{"name":"mu_desert_pc","path":"sounds/mu_desert_pc/mu_desert_pc.yy",},"order":49,},
     {"id":{"name":"spr_santasleightpep","path":"sprites/spr_santasleightpep/spr_santasleightpep.yy",},"order":24,},
     {"id":{"name":"spr_santasleightempty","path":"sprites/spr_santasleightempty/spr_santasleightempty.yy",},"order":25,},
@@ -6186,7 +6189,11 @@
     {"roomId":{"name":"ancient_19","path":"rooms/ancient_19/ancient_19.yy",},},
     {"roomId":{"name":"ancient_20","path":"rooms/ancient_20/ancient_20.yy",},},
     {"roomId":{"name":"boss_pepperman","path":"rooms/boss_pepperman/boss_pepperman.yy",},},
+<<<<<<< Updated upstream
     {"roomId":{"name":"hub_outside4","path":"rooms/hub_outside4/hub_outside4.yy",},},
+=======
+    {"roomId":{"name":"rm_denchick","path":"rooms/rm_denchick/rm_denchick.yy",},},
+>>>>>>> Stashed changes
   ],
   "Folders": [
     {"folderPath":"folders/Sprites.yy","order":0,"resourceVersion":"1.0","name":"Sprites","tags":[],"resourceType":"GMFolder",},
