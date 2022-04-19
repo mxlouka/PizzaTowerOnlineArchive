@@ -163,12 +163,6 @@ else
 		det = "Mario";
 		state = "";
 	}
-	else if room == rm_lee
-	{
-		det = "Funny";
-		state = "Funny";
-		// thumbs up if you agree
-	}
 	else if room == boss_room1
 	{
 		det = "Boss Fight";

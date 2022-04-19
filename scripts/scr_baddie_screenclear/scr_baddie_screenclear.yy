@@ -6,7 +6,7 @@
     "path": "folders/Scripts.yy",
   },
   "resourceVersion": "1.0",
-  "name": "scr_checklayer",
+  "name": "scr_baddie_screenclear",
   "tags": [],
   "resourceType": "GMScript",
 }

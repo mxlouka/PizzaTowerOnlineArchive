@@ -6,7 +6,7 @@
     "path": "folders/Scripts.yy",
   },
   "resourceVersion": "1.0",
-  "name": "scr_screenclear",
+  "name": "scr_depthcheck",
   "tags": [],
   "resourceType": "GMScript",
 }

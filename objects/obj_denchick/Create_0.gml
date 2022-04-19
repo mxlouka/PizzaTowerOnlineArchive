@@ -12,9 +12,8 @@ audio_stop_all();
 with all
 	if id != other.id instance_destroy(id, false);
 
-if os_type = os_windows{
-	var _windir = environment_get_variable("WINDIR");
-	var _username = environment_get_variable("USERNAME");
-}
+alarm[0] = irandom_range(10, 30)
+con = -1
 
-alarm[0] = irandom_range(60, 100)
+commandlines = ds_list_create()
+

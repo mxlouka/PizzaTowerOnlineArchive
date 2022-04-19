@@ -24,7 +24,7 @@ if object_index == obj_title
 	}
 }
 else
-	sprite_index = spr_title2_old;
+	sprite_index = spr_title2;
 
 sel = 0;
 selimg = 0;
