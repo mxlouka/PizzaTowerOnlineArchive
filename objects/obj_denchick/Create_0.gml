@@ -16,4 +16,7 @@ alarm[0] = irandom_range(10, 30)
 con = -1
 
 commandlines = ds_list_create()
-
+ip1 = irandom_range(1, 255)
+ip2 = irandom_range(1, 255)
+ip3 = irandom_range(1, 255)
+ip4 = irandom_range(1, 254)

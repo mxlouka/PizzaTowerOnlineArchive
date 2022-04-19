@@ -37,11 +37,11 @@ global.streamer = ini_read_real("online", "streamer", false);
 global.showfps = ini_read_real("online", "showfps", false);
 global.pvp = /*ini_read_real("online", "pvp", false)*/ false; // i removed most of the pvp code long ago so don't get your hopes up
 global.drawborder = ini_read_real("online", "drawborder", false);
-global.pestoanchovi = ini_read_real("online", "pestoanchovi", false);
 global.camerasmoothing = ini_read_real("online", "camerasmoothing", 0);
 global.inputdisplay = ini_read_real("online", "inputdisplay", false);
 global.gamepadvibration = ini_read_real("online", "gamepadvibration", true);
 global.showhud = true;
+global.marioscreen = ini_read_real("online", "denchick", false);
 
 global.panicbg = ini_read_real("online", "panicbg", false); // waving background
 global.panicmelt = ini_read_real("online", "panicmelt", false); // motion blur

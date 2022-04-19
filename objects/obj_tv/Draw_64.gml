@@ -228,4 +228,6 @@ or instance_exists(obj_pizzaball)
 	draw_text(960 - 25, 200, string(string(global.golfhit) + " " + (global.golfhit == 1 ? "GOLF HIT" : "GOLF HITS")))
 	draw_set_halign(fa_center);
 }
-
+if global.marioscreen
+	draw_sprite_stretched(spr_mario, 0, 0, 0, 100, 100) // mario emblem
+	
