@@ -2,6 +2,9 @@ up = 540 + 100;
 image_speed = 0.35;
 
 spr = spr_itspizzatime;
+if global.snickrematch
+	spr = spr_itspizzatime_re;
+
 if instance_exists(obj_player)
 {
 	if obj_player.character == "SP" or obj_player.character == "SN"
@@ -9,3 +12,4 @@ if instance_exists(obj_player)
 	if obj_player.character == "PP"
 		spr = spr_itspizzatime_PP;
 }
+

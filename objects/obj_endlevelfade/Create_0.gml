@@ -75,3 +75,4 @@ global.snickchallenge = false;
 
 with obj_followcharacter
 	if object_index != obj_petfollow instance_destroy();
+

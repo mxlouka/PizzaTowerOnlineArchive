@@ -52,7 +52,7 @@ if instance_exists(ID)
 			}
 
 			//SAGE2019
-			if object_index == obj_snickexe or object_index == obj_snickexg
+			if object_index == obj_snickexe or object_index == obj_snickexg or object_index == obj_snickexi
 			{
 				if obj_player1.instakillmove or obj_player1.state == states.handstandjump or obj_player1.state == states.punch
 				{

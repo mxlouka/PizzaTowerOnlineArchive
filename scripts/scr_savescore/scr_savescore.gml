@@ -160,6 +160,7 @@ function endlevel()
 	instance_destroy(obj_snickexf);
 	instance_destroy(obj_snickexg);
 	instance_destroy(obj_snickexh);
+	instance_destroy(obj_snickexi);
 	
 	if global.modifier == -1
 	{

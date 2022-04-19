@@ -256,6 +256,9 @@ if room == rm_editor exit;
 				global.seconds = 59;
 		}
 		
+		if global.snickrematch
+			instance_create(room_width / 2, -50, obj_snickexi);
+		
 		// Start up panicbg effects if option is enabled
 		if global.panicbg
 			scr_panicbg_init()

@@ -111,7 +111,7 @@ switch sel[1]
 			["MASTER SYSTEM", "Brought to you by Snicksoft!"],
 			["SHADOW", "The obligatory edgy palette."],
 			["CYAN", "Don't you dare."],
-			["TRANSPARENT", "SNICK NO"],
+			["TRANSPARENT", "He seems empty inside... and outside."],
 			["MANUAL", "He hosts his own event."],
 			["SKETCH", "Let's just say he likes burgers."],
 			["SHITK", "Acting sus!"],
