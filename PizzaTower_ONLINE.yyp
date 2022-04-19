@@ -6189,11 +6189,8 @@
     {"roomId":{"name":"ancient_19","path":"rooms/ancient_19/ancient_19.yy",},},
     {"roomId":{"name":"ancient_20","path":"rooms/ancient_20/ancient_20.yy",},},
     {"roomId":{"name":"boss_pepperman","path":"rooms/boss_pepperman/boss_pepperman.yy",},},
-<<<<<<< Updated upstream
     {"roomId":{"name":"hub_outside4","path":"rooms/hub_outside4/hub_outside4.yy",},},
-=======
     {"roomId":{"name":"rm_denchick","path":"rooms/rm_denchick/rm_denchick.yy",},},
->>>>>>> Stashed changes
   ],
   "Folders": [
     {"folderPath":"folders/Sprites.yy","order":0,"resourceVersion":"1.0","name":"Sprites","tags":[],"resourceType":"GMFolder",},
