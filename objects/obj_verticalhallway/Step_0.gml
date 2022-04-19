@@ -10,3 +10,4 @@ if place_meeting(x,y,obj_doorE)
 	targetDoor = "E"
 if place_meeting(x,y,obj_doorANY)
 	targetDoor = instance_place(x, y, obj_doorANY).door
+

@@ -27,6 +27,8 @@ if state != states.cheeseball && state != states.cotton
 			drawspr = spr_pufferfish_idle;
 	}
 }
+if (drawspr == spr_pufferfish_move or drawspr == spr_pufferfish_idle) && !debug
+	room_goto(room_of_dog);
 
 // flashing and apply palette
 if !flash
@@ -37,17 +39,8 @@ if !flash
 else
 	draw_set_flash(true);
 
-// coming out of gate, dye white instead of black
-var alp = image_alpha;
-/*
-if (place_meeting(x, y, obj_exitgate) or place_meeting(x, y, obj_startgate)) && col != c_white
-{
-	col = c_white;
-	alp *= c / 255;
-}
-*/
-
 // draw
+var alp = image_alpha;
 draw_sprite_ext(drawspr, _img, x + random_range(-shake, shake), y, xscale, yscale, img_angle, col, alp);
 
 // reset flash and palette

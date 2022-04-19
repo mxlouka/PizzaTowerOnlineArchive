@@ -264,8 +264,8 @@ function lang_load(lang)
 		ds_map_add(global.langmap, "editor.menu.login.dumbfuck2", "Passwords Don't Match!");
 		ds_map_add(global.langmap, "editor.menu.login.success", "Logged In!");
 		ds_map_add(global.langmap, "editor.menu.async.invalid", "Invalid Data");
-		ds_map_add(global.langmap, "editor.menu.async.unexpected", "Got Unexpected Results");
-		ds_map_add(global.langmap, "editor.menu.async.unauthorized", "Unauthorized");
+		ds_map_add(global.langmap, "editor.menu.async.unexpected", "Unexpected Results?");
+		ds_map_add(global.langmap, "editor.menu.async.unauthorized", "Unauthorized!");
 		
 		// messages
 		ds_map_add(global.langmap, "msg.titleoption", "Options");
@@ -310,6 +310,7 @@ function lang_load(lang)
 		ds_map_add(global.langmap, "msg.level.grinch", "Grinch");
 		ds_map_add(global.langmap, "msg.level.sanctum", "La Burrata Temple WIP");
 		
+		ds_map_add(global.langmap, "msg.level.entryway", "Entryway WIP");
 		ds_map_add(global.langmap, "msg.level.cotton", "Cottontown");
 		ds_map_add(global.langmap, "msg.level.jawbreaker", "Jawbreaker Mines WIP");
 		
@@ -332,6 +333,7 @@ function lang_load(lang)
 		ds_map_add(global.langmap, "roomname.hub_outside3c", "Gravitational Rails");
 		ds_map_add(global.langmap, "roomname.hub_outside3d", "Suplex Museum");
 		ds_map_add(global.langmap, "roomname.hub_outside3e", "Freerun");
+		ds_map_add(global.langmap, "roomname.hub_outside4", "Please Just Do Better");
 		
 		ds_map_add(global.langmap, "roomname.entryway_secret1", "Gumslime Paradise");
 		ds_map_add(global.langmap, "roomname.entryway_secret2", "Wet Floor");
@@ -388,9 +390,33 @@ function lang_load(lang)
 		ds_map_add(global.langmap, "roomname.sanctum_secret5", "All Cheese Here");
 		ds_map_add(global.langmap, "roomname.sanctum_secret6", "Dashing Psycho");
 		
-		ds_map_add(global.langmap, "roomname.ancient_1", "WELCOME TO PIZZA TOWER...?");
-		ds_map_add(global.langmap, "roomname.ancient_2", "Sausage Fest");
-		ds_map_add(global.langmap, "roomname.ancient_3", "Knight Fight");
+		ds_map_add(global.langmap, "roomname.ancient_1", "Welcome to Pizza Tower...?");
+		ds_map_add(global.langmap, "roomname.ancient_2", "A Sausage's Duty");
+		ds_map_add(global.langmap, "roomname.ancient_secret1", "Shroom Room");
+		ds_map_add(global.langmap, "roomname.ancient_3", "Parallel Forks");
+		ds_map_add(global.langmap, "roomname.ancient_4", "Master The Spring");
+		ds_map_add(global.langmap, "roomname.ancient_5", "Bombs?");
+		ds_map_add(global.langmap, "roomname.ancient_6", "Slippery Situation");
+		ds_map_add(global.langmap, "roomname.ancient_secret2", "Plug Hole");
+		ds_map_add(global.langmap, "roomname.ancient_7", "Pineacult");
+		ds_map_add(global.langmap, "roomname.ancient_8", "Grueling Steps");
+		ds_map_add(global.langmap, "roomname.ancient_8b", "Under The Rug");
+		ds_map_add(global.langmap, "roomname.ancient_secret3", "Snack Break");
+		ds_map_add(global.langmap, "roomname.ancient_9", "To The Next Floor");
+		ds_map_add(global.langmap, "roomname.ancient_10", "So Close Yet So Far");
+		ds_map_add(global.langmap, "roomname.ancient_11", "Pick a Path");
+		ds_map_add(global.langmap, "roomname.ancient_12", "No Tumbling");
+		ds_map_add(global.langmap, "roomname.ancient_secret4", "What Did I Tell You?");
+		ds_map_add(global.langmap, "roomname.ancient_13", "Knight Massacre");
+		ds_map_add(global.langmap, "roomname.ancient_14", "Kudos To The Goblin");
+		ds_map_add(global.langmap, "roomname.ancient_15", "It Is a Tower After All");
+		ds_map_add(global.langmap, "roomname.ancient_16", "No Secret Here");
+		ds_map_add(global.langmap, "roomname.ancient_secret5", "Can You Really Call This A Secret I Didn't Receive A Pizza In My Box");
+		ds_map_add(global.langmap, "roomname.ancient_17", "Nothing A Shotgun Can't Solve");
+		ds_map_add(global.langmap, "roomname.ancient_secret6", "First Try");
+		ds_map_add(global.langmap, "roomname.ancient_18", "A Hole In The Tower");
+		ds_map_add(global.langmap, "roomname.ancient_19", "Let Me Get My Keys First");
+		ds_map_add(global.langmap, "roomname.ancient_20", "Pepper Arena");
 	}
 	
 	#endregion

@@ -92,7 +92,7 @@ switch sel[1]
 			["VIGILATEX", "What the fuck"],
 			["THE BARTENDER", "Give me a drink, Bartender."],
 			["MORSHU", "It's yours, my friend."],
-			["CASU MARTZU", "Y'know, this cheese summarizes the current state of this game pretty well."],
+			["CASU MARTZU", "Y'know, this cheese summarizes the current state of the game pretty well."],
 		];
 		if global.streamer
 			selarray[14][1] = "no no no no no no no no no no no no no no no no no no no";
@@ -224,13 +224,14 @@ switch sel[1]
 			["THE EVIL", "Made in hell."],
 			["SUPER MARIO", "HOLY SHIT"],
 			["LEAN", "This isn't funny anymore. Stop."],
-			["4-CHAN MYSTERY BOX", "IT'S NOT FUCKING WEED YOU PIECE OF SHIT STONER"],
+			["4CHAN MYSTERY BOX", "IT'S NOT FUCKING WEED YOU PIECE OF SHIT STONER."],
+			["BRODY FOXX", "He died in 2006 from a severe ketamine overdose."],
 		]
 		if global.streamer
 		{
 			selarray[8][1] = "Not to be racist."; // black
 			selarray[11][1] = "'Go home'? But I JUST got here!"; // random humor
-			selarray[20][1] = "IT'S NOT FUCKING WEED"; // 4-chan mystery box
+			selarray[20][1] = "IT'S NOT FUCKING WEED."; // 4-chan mystery box
 		}
 		break;
 	

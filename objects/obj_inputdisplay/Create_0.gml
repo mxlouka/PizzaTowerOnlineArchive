@@ -16,7 +16,7 @@ function defaultkeys()
 	pos[1] = (540 - keysize * 3) - keysep * 3;
 	
 	pressedcol = merge_colour(c_blue, c_aqua, 0.75);
-}
+} 
 function savekeys()
 {
 	file = file_text_open_write("inputdisplay");

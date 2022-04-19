@@ -17,8 +17,6 @@ var color = make_color_rgb(121, 103, 151);
 
 if con == 0
 {
-	if t == 0
-		scr_soundeffect(sfx_diagopen);
 	t = min(t + 0.05, 2);
 	
 	if surface_exists(pizzasurf)
@@ -74,16 +72,6 @@ else if con == 1
 	
 	if t >= 1
 		instance_destroy();
-}
-if keyboard_check_pressed(ord("Q"))
-{
-	t = 0;
-	con = 1;
-}
-if keyboard_check_pressed(ord("W"))
-{
-	t = 0;
-	con = 0;
 }
 
 y = (y - 0.5) % 64;

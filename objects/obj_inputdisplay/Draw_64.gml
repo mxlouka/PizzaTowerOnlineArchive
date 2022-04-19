@@ -81,8 +81,10 @@ if global.inputdisplay
 	
 	// dont block the view
 	var left = x, right = x + xx + keysize, top = y, bottom = y + yy + keysize;
-	if instance_exists(obj_player) && obj_player.x >= left - 25 && obj_player.x <= right + 25
-	&& obj_player.y >= top - 50 && obj_player.y <= bottom + 25
+	var px = obj_player.x - _camx, py = obj_player.y - _camy;
+	
+	if instance_exists(obj_player) && px >= left - 25 && px <= right + 25
+	&& py >= top - 50 && py <= bottom + 25
 		image_alpha = 0.35;
 	else
 		image_alpha = 1;

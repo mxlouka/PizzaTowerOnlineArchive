@@ -7,7 +7,7 @@ if place_meeting(x, y, obj_player) && sprite_index == spr_checkpoint
     {
         image_speed = 0.25
         message = "CHECKPOINT!"
-        alarm[2] = 200
+        alarm[0] = 200
         showtext = true
         tvsprite = spr_tvclap
     }

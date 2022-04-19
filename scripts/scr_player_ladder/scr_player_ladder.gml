@@ -10,6 +10,7 @@ function scr_player_ladder()
 	machhitAnim = false
 	turning = false
 	jumpstop = false
+	suplexmove = false
 	movespeed = 0
 	hsp = 0
 	

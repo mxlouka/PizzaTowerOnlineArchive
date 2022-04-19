@@ -1,6 +1,5 @@
 function draw_text_auto(x, y, str, sep = undefined, w = undefined, alpha = draw_get_alpha())
 {
-	// sugary autism
 	str = string(str);
 	
 	if draw_get_font() == global.bigfont or draw_get_font() == global.sugarybigfont
@@ -17,3 +16,4 @@ function draw_text_auto(x, y, str, sep = undefined, w = undefined, alpha = draw_
 	
 	draw_set_alpha(aprev);
 }
+

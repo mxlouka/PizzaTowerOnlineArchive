@@ -76,6 +76,7 @@ if global.gameplay == 0
 		surface_free(promptsurface);
 		image_speed = 0.1;
 		tvsprite = spr_tvdefault;
+		sprite_index = tvsprite;
 	}
 	
 	// make transparent for player

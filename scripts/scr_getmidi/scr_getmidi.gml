@@ -8,7 +8,7 @@ function scr_getmidi(mus)
 	else if mus == mu_snickentrance or mus == mu_vigientrance
 		mus = mu_entrance_pc;
 	else if mus == mu_susgolf
-		mus = mu_minigolf_pc;
+		mus = mu_susgolf;
 	else if mus == mu_dungeondepth_re
 		mus = mu_dungeondepth_pc;
 	else if mus == mu_pizzatime_PP_streamer
