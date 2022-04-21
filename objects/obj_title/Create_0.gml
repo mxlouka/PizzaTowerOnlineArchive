@@ -23,9 +23,8 @@ if object_index == obj_title
 		depth = other.depth - 1;
 	}
 }
-else
-	sprite_index = spr_title2;
 
 sel = 0;
 selimg = 0;
 selected = false;
+

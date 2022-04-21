@@ -17,19 +17,22 @@ function scr_soundeffect_ext(snd, loops = false)
 	// player character specific sounds
 	if instance_exists(obj_player)
 	{
-		if obj_player.character == "SP"
+		if !((snd == sfx_parry or snd == sfx_taunt) && object_index == obj_coolpineapple)
 		{
-			if snd == sfx_parry && object_index != obj_coolpineapple
-				snd = sfx_parrySP;
-			if snd == sfx_collecttoppin
-				snd = sfx_toppinjingleSP;
-			if snd == sfx_collecttopping
-				snd = sfx_toppingSP;
-		}
-		if obj_player.character == "PP"
-		{
-			if asset_get_type(audio_get_name(snd) + "_PP") == asset_sound
-				snd = asset_get_index(audio_get_name(snd) + "_PP");
+			if obj_player.character == "SP"
+			{
+				if snd == sfx_parry
+					snd = sfx_parrySP;
+				if snd == sfx_collecttoppin
+					snd = sfx_toppinjingleSP;
+				if snd == sfx_collecttopping
+					snd = sfx_toppingSP;
+			}
+			if obj_player.character == "PP"
+			{
+				if asset_get_type(audio_get_name(snd) + "_PP") == asset_sound
+					snd = asset_get_index(audio_get_name(snd) + "_PP");
+			}
 		}
 	}
 	

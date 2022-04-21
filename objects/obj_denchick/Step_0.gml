@@ -3,7 +3,7 @@ message = "THESE ARE A JOKE IT DOES NOT MEAN ANYTHING PLEASE JUST CHECK THE CODE
 if con == 0
 {
 	con = 1;
-	commandlines[|0] = "DENCHICKSPLOIT V0.5";
+	commandlines[|0] = "DENCHICKSPLOIT v0.6";
 	alarm[0] = irandom_range(45, 100)
 }
 if con == 2
@@ -15,13 +15,13 @@ if con == 2
 if con == 4
 {
 	con = 5;
-	if chungus = true
+	if chungus
 	{
 		commandlines[|1] = "Injecting token stealer... FAILED";
 		scr_soundeffect(sfx_funnyfail)
 		alarm[2] = 25
 	}
-	else if chungus = false
+	else if chungus
 	{
 		commandlines[|1] = "Injecting token stealer... DONE";
 		commandlines[|2] = "Injecting password grabber...";
@@ -233,9 +233,6 @@ if con == 61
 {
 	con = 62;
 	repeat 50
-	{
 		ds_list_add(commandlines, "mario");
-		
-	}
 	alarm[1] = 10
 }

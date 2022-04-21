@@ -180,22 +180,6 @@ taunttimer = 0
 global.golfhit = 0
 global.funmode = false
 
-
-//Option
-ini_open("saveData.ini");
-global.option_fullscreen = ini_read_real("Option","fullscreen",1)  
-global.option_resolution = ini_read_real("Option","resolution",1)  
-ini_close();
-
-window_set_fullscreen(!global.option_fullscreen);
-
-if global.option_resolution == 0
-	window_set_size( 480, 270 );
-if global.option_resolution == 1
-	window_set_size( 960, 540 );
-if global.option_resolution == 2
-	window_set_size( 1920, 1080 );
-
 backtohubstartx = 0
 backtohubstarty = 0
 backtohubroom = hub_room1

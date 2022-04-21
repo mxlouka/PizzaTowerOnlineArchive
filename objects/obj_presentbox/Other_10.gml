@@ -14,7 +14,7 @@ repeat 3
 	instance_create(x,y,obj_baddiegibs)
 	instance_create(x,y,obj_slapstar)
 }
-	
+
 if character == 0
 {
 	ds_list_shuffle(global.boxlist);

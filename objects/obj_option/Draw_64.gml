@@ -35,25 +35,35 @@ draw_set_color(c_white);
 
 #region option
 if menu == 0
-{	
-	draw_text_colour(960 / 2, 100, lang_string("options.fullscreen"), c_white, c_white, c_white, c_white, (optionselected == 0 ? 1 : 0.5))
-	draw_text_colour(960 / 2 - 100, 150, lang_string("options.on"), c_white, c_white, c_white, c_white, (optionsaved_fullscreen == 0 ? 1 : 0.5));
-	draw_text_colour(960 / 2 + 100, 150, lang_string("options.off"), c_white, c_white, c_white, c_white, (optionsaved_fullscreen == 1 ? 1 : 0.5));
-	
-	draw_text_colour(960 / 2, 250, lang_string("options.resolution"), c_white, c_white, c_white, c_white, (optionselected == 1 ? 1 : 0.5))
-	draw_text_colour(960 / 2 - 180, 300, "480X270", c_white, c_white, c_white, c_white, (optionsaved_resolution == 0 ? 1 : 0.5));
-	draw_text_colour(960 / 2 , 300, "960X540", c_white, c_white, c_white, c_white, (optionsaved_resolution == 1 ? 1 : 0.5));
-	draw_text_colour(960 / 2 + 200, 300, "1920X1080", c_white, c_white, c_white, c_white, (optionsaved_resolution == 2 ? 1 : 0.5));
-	
-	// key config
-	draw_text_colour(960 / 2, 375, lang_string("options.keyconfig"), c_white, c_white, c_white, c_white, (optionselected == 2 ? 1 : 0.5))
-	
-	// sound config
-	draw_text_colour(960 / 2, 415, lang_string("options.soundconfig"), c_white, c_white, c_white, c_white, (optionselected == 3 ? 1 : 0.5))
+{
+	var starty = 75;
 	
 	// other config
 	if !(instance_exists(obj_pause) && obj_pause.pause)
-		draw_text_colour(960 / 2, 455, lang_string("options.otherconfig"), c_white, c_white, c_white, c_white, (optionselected == 4 ? 1 : 0.5))
+	{
+		starty = 35;
+		draw_text_colour(960 / 2, starty + 455, lang_string("options.otherconfig"), c_white, c_white, c_white, c_white, (optionselected == 5 ? 1 : 0.5))
+	}
+	
+	draw_text_colour(960 / 2, starty, lang_string("options.fullscreen"), c_white, c_white, c_white, c_white, (optionselected == 0 ? 1 : 0.5))
+	draw_text_colour(960 / 2 - 100, starty + 50, lang_string("options.on"), c_white, c_white, c_white, c_white, (optionsaved_fullscreen == 0 ? 1 : 0.5));
+	draw_text_colour(960 / 2 + 100, starty + 50, lang_string("options.off"), c_white, c_white, c_white, c_white, (optionsaved_fullscreen == 1 ? 1 : 0.5));
+	
+	draw_text_colour(960 / 2, starty + 120, lang_string("options.resolution"), c_white, c_white, c_white, c_white, (optionselected == 1 ? 1 : 0.5))
+	draw_text_colour(960 / 2 - 180, starty + 170, "480X270", c_white, c_white, c_white, c_white, (optionsaved_resolution == 0 ? 1 : 0.5));
+	draw_text_colour(960 / 2, starty + 170, "960X540", c_white, c_white, c_white, c_white, (optionsaved_resolution == 1 ? 1 : 0.5));
+	draw_text_colour(960 / 2 + 200, starty + 170, "1920X1080", c_white, c_white, c_white, c_white, (optionsaved_resolution == 2 ? 1 : 0.5));
+	
+	// key config
+	draw_text_colour(960 / 2, starty + 230, lang_string("options.keyconfig"), c_white, c_white, c_white, c_white, (optionselected == 2 ? 1 : 0.5))
+	
+	// sound config
+	draw_text_colour(960 / 2, starty + 270, lang_string("options.soundconfig"), c_white, c_white, c_white, c_white, (optionselected == 3 ? 1 : 0.5))
+	
+	// sound config
+	draw_text_colour(960 / 2, starty + 340, lang_string("options.vibration"), c_white, c_white, c_white, c_white, (optionselected == 4 ? 1 : 0.5))
+	draw_text_colour(960 / 2 - 100, starty + 380, lang_string("options.on"), c_white, c_white, c_white, c_white, (optionsaved_vibration == 0 ? 1 : 0.5));
+	draw_text_colour(960 / 2 + 100, starty + 380, lang_string("options.off"), c_white, c_white, c_white, c_white, (optionsaved_vibration == 1 ? 1 : 0.5));
 }
 #endregion
 

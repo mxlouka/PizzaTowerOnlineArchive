@@ -41,7 +41,6 @@ global.camerasmoothing = ini_read_real("online", "camerasmoothing", 0);
 global.inputdisplay = ini_read_real("online", "inputdisplay", false);
 global.gamepadvibration = ini_read_real("online", "gamepadvibration", true);
 global.showhud = true;
-global.marioscreen = ini_read_real("online", "denchick", false);
 
 global.panicbg = ini_read_real("online", "panicbg", false); // waving background
 global.panicmelt = ini_read_real("online", "panicmelt", false); // motion blur
@@ -71,13 +70,26 @@ global.langmap = -1;
 lang_load(global.language);
 
 // prepare
-ini_close();
+global.option_fullscreen = ini_read_real("Option", "fullscreen", false)  
+global.option_resolution = ini_read_real("Option", "resolution", 1)  
+window_set_fullscreen(global.option_fullscreen);
 
-window_set_size(960, 540);
+if !global.option_fullscreen
+{
+	switch global.option_resolution
+	{
+		case 0: window_set_size( 480, 270 ); break;
+		case 1: window_set_size( 960, 540 ); break;
+		case 2: window_set_size( 1920, 1080 ); break;
+	}
+}
+
 alarm[0] = 2;
 
 loadwhat = -1;
 prog = -1;
+
+ini_close();
 
 /*
 // audiogroup

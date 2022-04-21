@@ -15,7 +15,7 @@ if (other.state = states.handstandjump or other.state = states.punch or other.in
 	}
 	instance_create(x, y, obj_bangeffect);
 
-	with instance_create(x,y,obj_sausageman_dead)
+	with instance_create(x, y, obj_sausageman_dead)
 		sprite_index = spr_gustavopresentdead;
 	instance_destroy();
 }

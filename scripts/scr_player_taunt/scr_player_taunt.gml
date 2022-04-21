@@ -15,7 +15,7 @@ function scr_player_taunt()
 			
 			if supercharged
 			{
-				if !audio_is_playing(sfx_supertaunt)
+				if !audio_is_playing(sfx_supertaunt) && scr_stylecheck(2)
 					scr_soundeffect(sfx_supertaunt)
 				else
 					scr_soundeffect(sfx_taunt)

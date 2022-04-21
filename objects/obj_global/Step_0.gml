@@ -34,3 +34,15 @@ else
 if global.modifier == -1
 	global.failedmod = false;
 
+// switch fullscreen
+if global.option_fullscreen && !window_get_fullscreen()
+{
+	switch global.option_resolution
+	{
+		case 0: window_set_size( 480, 270 ); break;
+		case 1: window_set_size( 960, 540 ); break;
+		case 2: window_set_size( 1920, 1080 ); break;
+	}
+}
+global.option_fullscreen = window_get_fullscreen();
+

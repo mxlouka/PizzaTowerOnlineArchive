@@ -5,9 +5,9 @@ scr_getinput();
 if !instance_exists(obj_keyconfig) && !instance_exists(obj_erasegame)
 {
 	if !(instance_exists(obj_pause) && obj_pause.pause)
-		var omax = 4;
+		var omax = 5;
 	else
-		omax = 3;
+		omax = 4;
 	
 	if menu == 1
 		omax = 3;
@@ -74,32 +74,26 @@ if menu == 0
 	if optionselected == 0 
 	{
 		if (key_right2 or keyboard_check_pressed(vk_right)) && optionsaved_fullscreen == 0
-			optionsaved_fullscreen = 1
-		if (-key_left2 or keyboard_check_pressed(vk_left)) && optionsaved_fullscreen == 1
-			optionsaved_fullscreen = 0
-
-		if (key_jump or keyboard_check_pressed(vk_enter)) && optionsaved_fullscreen == 0
 		{
-			window_set_fullscreen(true);
+			scr_soundeffect(sfx_step)
+			optionsaved_fullscreen = 1
+		}
+		if (-key_left2 or keyboard_check_pressed(vk_left)) && optionsaved_fullscreen == 1
+		{
+			scr_soundeffect(sfx_step)
+			optionsaved_fullscreen = 0
+		}
+		
+		if key_jump or keyboard_check_pressed(vk_enter)
+		{
+			scr_soundeffect(sfx_unlock)
+			
 			ini_open("saveData.ini");
-			global.option_fullscreen = 0
-			ini_write_real("Option", "fullscreen", 0)  
+			global.option_fullscreen = !optionsaved_fullscreen
+			ini_write_real("Option", "fullscreen", global.option_fullscreen)  
 			ini_close();
 			
-			with obj_roomname
-			{
-				showtext = true;
-				message = "SAVED!";
-				alarm[0] = 60;
-			}
-		}
-		if (key_jump or keyboard_check_pressed(vk_enter)) && optionsaved_fullscreen == 1
-		{
-			window_set_fullscreen(false);
-			ini_open("saveData.ini");
-			global.option_fullscreen = 1
-			ini_write_real("Option", "fullscreen", 1)  
-			ini_close();
+			window_set_fullscreen(global.option_fullscreen);
 			
 			with obj_roomname
 			{
@@ -109,53 +103,40 @@ if menu == 0
 			}
 		}
 	}
-
+	
 	//Resolution
 	if optionselected == 1
 	{
 		if (key_right2 or keyboard_check_pressed(vk_right)) && optionsaved_resolution < 2
+		{
+			scr_soundeffect(sfx_step)
 			optionsaved_resolution += 1
+		}
 
 		if (-key_left2 or keyboard_check_pressed(vk_left)) && optionsaved_resolution > 0
+		{
+			scr_soundeffect(sfx_step)
 			optionsaved_resolution -= 1
+		}
 
-		if (key_jump or keyboard_check_pressed(vk_enter)) && optionsaved_resolution == 0
+		if (key_jump or keyboard_check_pressed(vk_enter))
 		{
-			ini_open("saveData.ini");
-			global.option_resolution = 0
-			ini_write_real("Option","resolution",0)  
-			ini_close();
-			window_set_size( 480, 270 );
+			scr_soundeffect(sfx_unlock)
 			
-			with obj_roomname
-			{
-				showtext = true;
-				message = "SAVED!";
-				alarm[0] = 60;
-			}
-		}
-		if (key_jump or keyboard_check_pressed(vk_enter)) && optionsaved_resolution == 1
-		{
-			window_set_size( 960, 540 );
 			ini_open("saveData.ini");
-			global.option_resolution = 1
-			ini_write_real("Option","resolution",1)  
+			global.option_resolution = optionsaved_resolution
+			ini_write_real("Option", "resolution", global.option_resolution)  
 			ini_close();
 			
-			with obj_roomname
+			if !window_get_fullscreen()
 			{
-				showtext = true;
-				message = "SAVED!";
-				alarm[0] = 60;
+				switch optionsaved_resolution
+				{
+					case 0: window_set_size( 480, 270 ); break;
+					case 1: window_set_size( 960, 540 ); break;
+					case 2: window_set_size( 1920, 1080 ); break;
+				}
 			}
-		}
-		if (key_jump or keyboard_check_pressed(vk_enter)) && optionsaved_resolution == 2
-		{
-			window_set_size( 1920, 1080 );
-			ini_open("saveData.ini");
-			global.option_resolution = 2
-			ini_write_real("Option","resolution",2)  
-			ini_close();
 			
 			with obj_roomname
 			{
@@ -165,7 +146,8 @@ if menu == 0
 			}
 		}
 	}
-
+	
+	// key config
 	if optionselected == 2 && !instance_exists(obj_keyconfig)
 	&& ((key_jump or keyboard_check_pressed(vk_enter)))
 	{
@@ -174,6 +156,7 @@ if menu == 0
 		instance_create(x, y, obj_keyconfig)
 	}
 	
+	// audio settings
 	if optionselected == 3 && !instance_exists(obj_keyconfig)
 	&& ((key_jump or keyboard_check_pressed(vk_enter)))
 	{
@@ -184,8 +167,43 @@ if menu == 0
 		if instance_exists(obj_music) && global.musicvolume > 0
 			music = global.music;
 	}
-
-	if optionselected == 4 && !instance_exists(obj_keyconfig)
+	
+	// gamepad vibration
+	if optionselected == 4
+	{
+		if (key_right2 or keyboard_check_pressed(vk_right)) && optionsaved_vibration == 0
+		{
+			scr_soundeffect(sfx_step)
+			optionsaved_vibration = 1
+		}
+		if (-key_left2 or keyboard_check_pressed(vk_left)) && optionsaved_vibration == 1
+		{
+			scr_soundeffect(sfx_step)
+			optionsaved_vibration = 0
+		}
+		
+		if key_jump or keyboard_check_pressed(vk_enter)
+		{
+			scr_soundeffect(sfx_unlock)
+			global.gamepadvibration = !optionsaved_vibration
+			
+			ini_open("saveData.ini");
+			ini_write_real("online", "gamepadvibration", global.gamepadvibration)  
+			ini_close();
+			
+			gp_vibration(1, 1, 0.9);
+			
+			with obj_roomname
+			{
+				showtext = true;
+				message = "SAVED!";
+				alarm[0] = 60;
+			}
+		}
+	}
+	
+	// other options
+	if optionselected == 5 && !instance_exists(obj_keyconfig)
 	&& ((key_jump or keyboard_check_pressed(vk_enter)))
 	{
 		scr_soundeffect(sfx_step)
@@ -467,7 +485,6 @@ else if menu == 2 && !instance_exists(obj_erasegame)
 	{
 		if select
 		{
-			//global.pvp = !global.pvp;
 			global.synceffect = !global.synceffect;
 			scr_soundeffect(sfx_step);
 		}
@@ -529,7 +546,7 @@ else if menu == 2 && !instance_exists(obj_erasegame)
 	{
 		scr_soundeffect(sfx_enemyprojectile)
 		menu = 0
-		optionselected = 4
+		optionselected = 5
 		
 		ini_open("saveData.ini");
 		ini_write_real("online", "gameplay", global.gameplay)
