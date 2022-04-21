@@ -1,4 +1,3 @@
-
 message = "THESE ARE A JOKE IT DOES NOT MEAN ANYTHING PLEASE JUST CHECK THE CODE FOR YOURSELF";
 if con == 0
 {
@@ -236,3 +235,4 @@ if con == 61
 		ds_list_add(commandlines, "mario");
 	alarm[1] = 10
 }
+

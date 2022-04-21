@@ -27,3 +27,4 @@ palname = ((sel[0] < array_length(selarray) && array_length(selarray[sel[0]]) >=
 paldesc = "";
 if !locked
 	paldesc = ((sel[0] < array_length(selarray) && array_length(selarray[sel[0]]) >= 3) ? selarray[sel[0]][2] : "loypoll please add details");
+
