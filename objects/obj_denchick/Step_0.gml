@@ -15,9 +15,18 @@ if con == 2
 if con == 4
 {
 	con = 5;
-	commandlines[|1] = "Injecting token stealer... DONE";
-	commandlines[|2] = "Injecting password grabber...";
-	alarm[0] = irandom_range(50, 100)
+	if chungus = true
+	{
+		commandlines[|1] = "Injecting token stealer... FAILED";
+		scr_soundeffect(sfx_funnyfail)
+		alarm[2] = 25
+	}
+	else if chungus = false
+	{
+		commandlines[|1] = "Injecting token stealer... DONE";
+		commandlines[|2] = "Injecting password grabber...";
+		alarm[0] = irandom_range(50, 100)
+	}
 }
 if con == 6 or con == 7 or con == 8 or con == 9
 {
