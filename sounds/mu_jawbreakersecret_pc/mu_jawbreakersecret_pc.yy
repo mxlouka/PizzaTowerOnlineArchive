@@ -1,7 +1,4 @@
 {
-  "ConfigValues": {
-    "debug": {"audioGroupId":"{\"name\":\"audiogroup_default\",\"path\":\"audiogroups/audiogroup_default\"}",},
-  },
   "conversionMode": 0,
   "compression": 1,
   "volume": 1.0,

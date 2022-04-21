@@ -196,6 +196,7 @@ if global.gameplay == 0
 			case "M": character = "PEPPERMAN"; break;
 			case "PP": character = "PISSINO"; break;
 			case "CT": character = "CHEEMSTOON"; break;
+			case "PUFFER": character = "PUFFERFISH"; break;
 			
 			default: character = "UNKNOWN"; break;
 		}
@@ -415,7 +416,12 @@ else
 			                break
 			        }
 				}
-			
+				if pchar == "PUFFER"
+				{
+					idlespr = spr_tv_idlePUFFER;
+					idleanim = 240;
+				}
+				
 		        switch animset
 		        {
 		            case spr_tv_off:
@@ -445,7 +451,7 @@ else
 		                if idleanim <= 0 && floor(image_index) == image_number - 1
 		                {
 		                    animset = choose(spr_tv_idleanim1, spr_tv_idleanim2);
-		                    image_index = 0
+		                    image_index = 0;
 		                }
 		                break
 				

@@ -237,6 +237,9 @@ if global.gameplay == 0
 				hudface = spr_pissinoHUD;
 		}
 		
+		if obj_player.character == "PUFFER"
+			hudface = spr_pufferHUD;
+		
 		if _state == states.cotton // temp
 			hudface = spr_pizzyHUDcotton
 		

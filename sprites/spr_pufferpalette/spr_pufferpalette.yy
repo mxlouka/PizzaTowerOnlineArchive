@@ -69,8 +69,8 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "JOKE",
-    "path": "folders/Sprites/players/JOKE.yy",
+    "name": "puffer",
+    "path": "folders/Sprites/players/JOKE/puffer.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_pufferpalette",

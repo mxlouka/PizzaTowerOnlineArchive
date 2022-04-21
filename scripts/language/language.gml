@@ -63,7 +63,7 @@ function lang_load(lang)
 		ds_map_add(global.langmap, "options.off", "OFF");
 		ds_map_add(global.langmap, "options.resolution", "RESOLUTION");
 		ds_map_add(global.langmap, "options.keyconfig", "KEY CONFIG");
-		ds_map_add(global.langmap, "options.soundconfig", "SOUND CONFIG");
+		ds_map_add(global.langmap, "options.soundconfig", "AUDIO CONFIG");
 		ds_map_add(global.langmap, "options.otherconfig", "OTHER CONFIG");
 		
 		ds_map_add(global.langmap, "options.sound.master", "MASTER VOLUME");

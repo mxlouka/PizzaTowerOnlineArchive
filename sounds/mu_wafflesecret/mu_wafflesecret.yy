@@ -1,4 +1,7 @@
 {
+  "ConfigValues": {
+    "debug": {"audioGroupId":"{\"name\":\"audiogroup_default\",\"path\":\"audiogroups/audiogroup_default\"}",},
+  },
   "conversionMode": 0,
   "compression": 1,
   "volume": 1.0,
@@ -11,14 +14,14 @@
     "name": "audiogroup_default",
     "path": "audiogroups/audiogroup_default",
   },
-  "soundFile": "mu_jawbreakersecret.mp3",
-  "duration": 50.4424477,
+  "soundFile": "mu_wafflesecret.wav",
+  "duration": 50.3977776,
   "parent": {
     "name": "secret",
     "path": "folders/Sounds/pto extra/sugary spire/secret.yy",
   },
   "resourceVersion": "1.0",
-  "name": "mu_jawbreakersecret",
+  "name": "mu_wafflesecret",
   "tags": [],
   "resourceType": "GMSound",
 }
