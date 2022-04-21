@@ -1,4 +1,7 @@
 {
+  "ConfigValues": {
+    "debug": {"textureGroupId":"{\"name\":\"tg_tutorial\",\"path\":\"texturegroups/tg_tutorial\"}",},
+  },
   "spriteId": {
     "name": "tile_tutorialimage",
     "path": "sprites/tile_tutorialimage/tile_tutorialimage.yy",

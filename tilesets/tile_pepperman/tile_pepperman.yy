@@ -1,4 +1,7 @@
 {
+  "ConfigValues": {
+    "debug": {"textureGroupId":"{\"name\":\"tg_mansion\",\"path\":\"texturegroups/tg_mansion\"}",},
+  },
   "spriteId": {
     "name": "spr_peppermantile",
     "path": "sprites/spr_peppermantile/spr_peppermantile.yy",
@@ -172,8 +175,8 @@
     "TileSerialiseData": [],
   },
   "parent": {
-    "name": "entrance",
-    "path": "folders/Tile Sets/entrance.yy",
+    "name": "castle",
+    "path": "folders/Tile Sets/castle.yy",
   },
   "resourceVersion": "1.0",
   "name": "tile_pepperman",

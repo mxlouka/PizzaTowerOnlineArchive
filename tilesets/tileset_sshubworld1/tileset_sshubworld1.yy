@@ -1,4 +1,7 @@
 {
+  "ConfigValues": {
+    "debug": {"textureGroupId":"{\"name\":\"tg_sugaryspire\",\"path\":\"texturegroups/tg_sugaryspire\"}",},
+  },
   "spriteId": {
     "name": "bg_sshubworld1",
     "path": "sprites/bg_sshubworld1/bg_sshubworld1.yy",

@@ -1,4 +1,7 @@
 {
+  "ConfigValues": {
+    "debug": {"textureGroupId":"{\"name\":\"tg_desert\",\"path\":\"texturegroups/tg_desert\"}",},
+  },
   "bboxMode": 0,
   "collisionKind": 1,
   "type": 0,

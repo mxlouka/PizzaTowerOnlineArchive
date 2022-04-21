@@ -1,4 +1,7 @@
 {
+  "ConfigValues": {
+    "debug": {"textureGroupId":"{\"name\":\"tg_chateau\",\"path\":\"texturegroups/tg_chateau\"}",},
+  },
   "bboxMode": 0,
   "collisionKind": 1,
   "type": 0,

@@ -30,8 +30,8 @@ function lang_load(lang)
 		
 		
 		// TEXT
-		ds_map_add(global.langmap, "load.loading", "LOADING");
-		ds_map_add(global.langmap, "load.txgrp", "PRE-LOADING TEXTURES");
+		ds_map_add(global.langmap, "load.loading", "LOADING...");
+		ds_map_add(global.langmap, "load.txgrp", "LOADING TPAGE...");
 		ds_map_add(global.langmap, "load.unusual", "The disclaimer is taking unusually long to load.\nYou can either keep waiting or restart the game.");
 		
 		ds_map_add(global.langmap, "general.wc", "Welcome to the developer console");

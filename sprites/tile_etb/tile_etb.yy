@@ -1,6 +1,6 @@
 {
   "ConfigValues": {
-    "debug": {"textureGroupId":"{\"name\":\"Default\",\"path\":\"texturegroups/Default\"}",},
+    "debug": {"textureGroupId":"{\"name\":\"tg_tower\",\"path\":\"texturegroups/tg_tower\"}",},
   },
   "bboxMode": 0,
   "collisionKind": 1,

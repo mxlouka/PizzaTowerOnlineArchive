@@ -1,4 +1,2 @@
-if global.panic = true
-visible = true
-else
-visible =false
+visible = global.panic && !global.gerome;
+

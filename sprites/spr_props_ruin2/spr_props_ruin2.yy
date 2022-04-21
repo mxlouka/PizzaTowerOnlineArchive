@@ -1,4 +1,7 @@
 {
+  "ConfigValues": {
+    "debug": {"textureGroupId":"{\"name\":\"tg_leveleditor\",\"path\":\"texturegroups/tg_leveleditor\"}",},
+  },
   "bboxMode": 0,
   "collisionKind": 4,
   "type": 0,

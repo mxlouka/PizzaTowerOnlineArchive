@@ -1,4 +1,7 @@
 {
+  "ConfigValues": {
+    "debug": {"textureGroupId":"{\"name\":\"tg_kungfu\",\"path\":\"texturegroups/tg_kungfu\"}",},
+  },
   "spriteId": {
     "name": "sprite_tile_kungfucity",
     "path": "sprites/sprite_tile_kungfucity/sprite_tile_kungfucity.yy",

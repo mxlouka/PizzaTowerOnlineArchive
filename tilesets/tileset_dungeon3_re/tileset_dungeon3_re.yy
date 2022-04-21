@@ -1,4 +1,7 @@
 {
+  "ConfigValues": {
+    "debug": {"textureGroupId":"{\"name\":\"tg_leaningnightmare\",\"path\":\"texturegroups/tg_leaningnightmare\"}",},
+  },
   "spriteId": {
     "name": "tile_dungeon3_re",
     "path": "sprites/tile_dungeon3_re/tile_dungeon3_re.yy",

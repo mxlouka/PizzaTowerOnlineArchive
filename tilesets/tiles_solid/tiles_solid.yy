@@ -1,4 +1,7 @@
 {
+  "ConfigValues": {
+    "debug": {"textureGroupId":"{\"name\":\"tg_background\",\"path\":\"texturegroups/tg_background\"}",},
+  },
   "spriteId": {
     "name": "tile_solid",
     "path": "sprites/tile_solid/tile_solid.yy",

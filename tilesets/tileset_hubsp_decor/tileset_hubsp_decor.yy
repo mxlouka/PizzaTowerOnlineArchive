@@ -1,4 +1,7 @@
 {
+  "ConfigValues": {
+    "debug": {"textureGroupId":"{\"name\":\"tg_sugaryspire\",\"path\":\"texturegroups/tg_sugaryspire\"}",},
+  },
   "spriteId": {
     "name": "tile_hubsp_decor",
     "path": "sprites/tile_hubsp_decor/tile_hubsp_decor.yy",

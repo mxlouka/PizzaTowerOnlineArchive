@@ -1,4 +1,7 @@
 {
+  "ConfigValues": {
+    "debug": {"textureGroupId":"{\"name\":\"tg_tutorial\",\"path\":\"texturegroups/tg_tutorial\"}",},
+  },
   "spriteId": {
     "name": "tile_maxspeedsign",
     "path": "sprites/tile_maxspeedsign/tile_maxspeedsign.yy",

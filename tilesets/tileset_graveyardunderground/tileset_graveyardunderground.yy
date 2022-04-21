@@ -1,4 +1,7 @@
 {
+  "ConfigValues": {
+    "debug": {"textureGroupId":"{\"name\":\"tg_graveyard\",\"path\":\"texturegroups/tg_graveyard\"}",},
+  },
   "spriteId": {
     "name": "tile_graveyard2",
     "path": "sprites/tile_graveyard2/tile_graveyard2.yy",

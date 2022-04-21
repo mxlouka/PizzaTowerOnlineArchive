@@ -20,11 +20,13 @@ switch room
 	case dragonlair_1: global.srank = 4500; break;
 	case forest_1: global.srank = 14000; break;
 	case beach_1: global.srank = 14000; break;
-	case etb_1: global.srank = 7000; break;
-	case grinch_1: global.srank = 6400; break;
 	case kungfu_1: global.srank = 15000; break;
-	case cotton_1: global.srank = 12400; break;
+	
+	case etb_1: global.srank = 7000; break;
+	case grinch_1: global.srank = 7000; break;
+	case ancient_1: global.srank = 13000; break;
 	case sanctum_1: global.srank = 19800; break;
+	case cotton_1: global.srank = 12400; break;
 }
 if global.snickchallenge
 	global.srank = global.snickrematch ? 8000 : 8300;

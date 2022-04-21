@@ -1,4 +1,7 @@
 {
+  "ConfigValues": {
+    "debug": {"textureGroupId":"{\"name\":\"tg_graveyard\",\"path\":\"texturegroups/tg_graveyard\"}",},
+  },
   "bboxMode": 0,
   "collisionKind": 1,
   "type": 0,

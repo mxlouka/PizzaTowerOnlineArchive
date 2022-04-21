@@ -1,6 +1,6 @@
 {
   "ConfigValues": {
-    "debug": {"textureGroupId":"{\"name\":\"tg_background\",\"path\":\"texturegroups/tg_background\"}",},
+    "debug": {"textureGroupId":"{\"name\":\"tg_freezer\",\"path\":\"texturegroups/tg_freezer\"}",},
   },
   "bboxMode": 0,
   "collisionKind": 1,

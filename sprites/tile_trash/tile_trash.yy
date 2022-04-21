@@ -1,4 +1,7 @@
 {
+  "ConfigValues": {
+    "debug": {"textureGroupId":"{\"name\":\"tg_sewer\",\"path\":\"texturegroups/tg_sewer\"}",},
+  },
   "bboxMode": 0,
   "collisionKind": 1,
   "type": 0,

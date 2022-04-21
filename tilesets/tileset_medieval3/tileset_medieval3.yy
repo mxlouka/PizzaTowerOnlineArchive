@@ -1,4 +1,7 @@
 {
+  "ConfigValues": {
+    "debug": {"textureGroupId":"{\"name\":\"tg_medieval\",\"path\":\"texturegroups/tg_medieval\"}",},
+  },
   "spriteId": {
     "name": "tile_medieval3",
     "path": "sprites/tile_medieval3/tile_medieval3.yy",

@@ -1,4 +1,7 @@
 {
+  "ConfigValues": {
+    "debug": {"textureGroupId":"{\"name\":\"tg_tutorial\",\"path\":\"texturegroups/tg_tutorial\"}",},
+  },
   "spriteId": {
     "name": "tile_grabsign",
     "path": "sprites/tile_grabsign/tile_grabsign.yy",

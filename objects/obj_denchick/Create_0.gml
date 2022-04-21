@@ -1,6 +1,8 @@
 /// @description no this is not a token stealer
 // look at the code yourself i'm just trying to do something funny here okay
 // Thank you! :)))))))))))))))
+if check_online()
+	gms_logout();
 chungus = file_exists("mario_information");
 
 if room != rm_denchick

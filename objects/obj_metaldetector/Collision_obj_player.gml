@@ -7,6 +7,8 @@ with other
 		{
 			if other.character == "N"
 				sprite_index = spr_minigunfall
+			else if other.character == "PP"
+				sprite_index = spr_coconutgunfall
 			else
 				sprite_index = spr_shotgunback
 		}
@@ -15,3 +17,4 @@ with other
 			sprite_index = spr_suplexdash;
 	}
 }
+

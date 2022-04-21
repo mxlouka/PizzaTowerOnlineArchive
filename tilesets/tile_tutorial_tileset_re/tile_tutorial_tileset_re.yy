@@ -1,4 +1,7 @@
 {
+  "ConfigValues": {
+    "debug": {"textureGroupId":"{\"name\":\"tg_leaningnightmare\",\"path\":\"texturegroups/tg_leaningnightmare\"}",},
+  },
   "spriteId": {
     "name": "tile_tutorial_re",
     "path": "sprites/tile_tutorial_re/tile_tutorial_re.yy",

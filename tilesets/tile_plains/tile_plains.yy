@@ -1,4 +1,7 @@
 {
+  "ConfigValues": {
+    "debug": {"textureGroupId":"{\"name\":\"tg_mansion\",\"path\":\"texturegroups/tg_mansion\"}",},
+  },
   "spriteId": {
     "name": "spr_tile_plains",
     "path": "sprites/spr_tile_plains/spr_tile_plains.yy",

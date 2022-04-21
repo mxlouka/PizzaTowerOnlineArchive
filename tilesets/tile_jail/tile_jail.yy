@@ -1,4 +1,7 @@
 {
+  "ConfigValues": {
+    "debug": {"textureGroupId":"{\"name\":\"tg_city\",\"path\":\"texturegroups/tg_city\"}",},
+  },
   "spriteId": {
     "name": "spr_jail",
     "path": "sprites/spr_jail/spr_jail.yy",

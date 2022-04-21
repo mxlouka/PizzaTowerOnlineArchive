@@ -1,6 +1,6 @@
 {
   "ConfigValues": {
-    "debug": {"textureGroupId":"{\"name\":\"tg_background\",\"path\":\"texturegroups/tg_background\"}",},
+    "debug": {"textureGroupId":"{\"name\":\"tg_medieval\",\"path\":\"texturegroups/tg_medieval\"}",},
   },
   "bboxMode": 0,
   "collisionKind": 1,

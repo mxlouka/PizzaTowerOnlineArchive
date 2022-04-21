@@ -1,4 +1,7 @@
 {
+  "ConfigValues": {
+    "debug": {"textureGroupId":"{\"name\":\"tg_leaningnightmare\",\"path\":\"texturegroups/tg_leaningnightmare\"}",},
+  },
   "spriteId": {
     "name": "spr_pizzamarttile_re",
     "path": "sprites/spr_pizzamarttile_re/spr_pizzamarttile_re.yy",

@@ -1,4 +1,7 @@
 {
+  "ConfigValues": {
+    "debug": {"textureGroupId":"{\"name\":\"tg_desert\",\"path\":\"texturegroups/tg_desert\"}",},
+  },
   "spriteId": {
     "name": "tile_bigrocks",
     "path": "sprites/tile_bigrocks/tile_bigrocks.yy",

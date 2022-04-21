@@ -1,4 +1,7 @@
 {
+  "ConfigValues": {
+    "debug": {"textureGroupId":"{\"name\":\"tg_war\",\"path\":\"texturegroups/tg_war\"}",},
+  },
   "bboxMode": 0,
   "collisionKind": 1,
   "type": 0,

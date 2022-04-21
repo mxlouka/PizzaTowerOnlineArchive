@@ -1,4 +1,7 @@
 {
+  "ConfigValues": {
+    "debug": {"textureGroupId":"{\"name\":\"tg_background\",\"path\":\"texturegroups/tg_background\"}",},
+  },
   "spriteId": {
     "name": "spr_unclimbablewall",
     "path": "sprites/spr_unclimbablewall/spr_unclimbablewall.yy",

@@ -1,4 +1,7 @@
 {
+  "ConfigValues": {
+    "debug": {"textureGroupId":"{\"name\":\"tg_sugaryspire\",\"path\":\"texturegroups/tg_sugaryspire\"}",},
+  },
   "spriteId": {
     "name": "spr_cottontile2",
     "path": "sprites/spr_cottontile2/spr_cottontile2.yy",

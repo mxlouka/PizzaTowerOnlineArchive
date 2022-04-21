@@ -1,4 +1,7 @@
 {
+  "ConfigValues": {
+    "debug": {"textureGroupId":"{\"name\":\"tg_factory\",\"path\":\"texturegroups/tg_factory\"}",},
+  },
   "bboxMode": 1,
   "collisionKind": 1,
   "type": 0,

@@ -1,4 +1,7 @@
 {
+  "ConfigValues": {
+    "debug": {"textureGroupId":"{\"name\":\"tg_dungeon\",\"path\":\"texturegroups/tg_dungeon\"}",},
+  },
   "spriteId": {
     "name": "spr_decorations",
     "path": "sprites/spr_decorations/spr_decorations.yy",

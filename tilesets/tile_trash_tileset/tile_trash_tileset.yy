@@ -1,4 +1,7 @@
 {
+  "ConfigValues": {
+    "debug": {"textureGroupId":"{\"name\":\"tg_sewer\",\"path\":\"texturegroups/tg_sewer\"}",},
+  },
   "spriteId": {
     "name": "tile_trash",
     "path": "sprites/tile_trash/tile_trash.yy",

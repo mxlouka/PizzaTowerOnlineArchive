@@ -1,4 +1,7 @@
 {
+  "ConfigValues": {
+    "debug": {"textureGroupId":"{\"name\":\"tg_mansion\",\"path\":\"texturegroups/tg_mansion\"}",},
+  },
   "spriteId": {
     "name": "bg_grindrail",
     "path": "sprites/bg_grindrail/bg_grindrail.yy",

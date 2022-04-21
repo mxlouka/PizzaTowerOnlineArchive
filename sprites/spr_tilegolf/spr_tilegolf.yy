@@ -1,4 +1,7 @@
 {
+  "ConfigValues": {
+    "debug": {"textureGroupId":"{\"name\":\"tg_golf\",\"path\":\"texturegroups/tg_golf\"}",},
+  },
   "bboxMode": 0,
   "collisionKind": 1,
   "type": 0,
@@ -69,8 +72,8 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "tower",
-    "path": "folders/Sprites/tilesets/tower.yy",
+    "name": "minigolf",
+    "path": "folders/Sprites/tilesets/minigolf.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_tilegolf",

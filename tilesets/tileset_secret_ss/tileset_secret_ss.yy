@@ -1,4 +1,7 @@
 {
+  "ConfigValues": {
+    "debug": {"textureGroupId":"{\"name\":\"tg_sugaryspire\",\"path\":\"texturegroups/tg_sugaryspire\"}",},
+  },
   "spriteId": {
     "name": "tile_secret_ss",
     "path": "sprites/tile_secret_ss/tile_secret_ss.yy",

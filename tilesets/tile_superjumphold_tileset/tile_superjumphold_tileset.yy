@@ -1,4 +1,7 @@
 {
+  "ConfigValues": {
+    "debug": {"textureGroupId":"{\"name\":\"tg_tutorial\",\"path\":\"texturegroups/tg_tutorial\"}",},
+  },
   "spriteId": {
     "name": "tile_superjumphold",
     "path": "sprites/tile_superjumphold/tile_superjumphold.yy",

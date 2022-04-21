@@ -1,4 +1,7 @@
 {
+  "ConfigValues": {
+    "debug": {"textureGroupId":"{\"name\":\"tg_pinball\",\"path\":\"texturegroups/tg_pinball\"}",},
+  },
   "spriteId": {
     "name": "tile_pinball3",
     "path": "sprites/tile_pinball3/tile_pinball3.yy",

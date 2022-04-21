@@ -1,6 +1,6 @@
 {
   "ConfigValues": {
-    "debug": {"textureGroupId":"{\"name\":\"tg_background\",\"path\":\"texturegroups/tg_background\"}",},
+    "debug": {"textureGroupId":"{\"name\":\"tg_mansion\",\"path\":\"texturegroups/tg_mansion\"}",},
   },
   "bboxMode": 0,
   "collisionKind": 1,
@@ -92,8 +92,8 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "tower",
-    "path": "folders/Sprites/tilesets/tower.yy",
+    "name": "mansion",
+    "path": "folders/Sprites/tilesets/mansion.yy",
   },
   "resourceVersion": "1.0",
   "name": "bg_pepperman",

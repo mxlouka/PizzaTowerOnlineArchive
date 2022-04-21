@@ -1,4 +1,7 @@
 {
+  "ConfigValues": {
+    "debug": {"textureGroupId":"{\"name\":\"tg_ruin\",\"path\":\"texturegroups/tg_ruin\"}",},
+  },
   "bboxMode": 0,
   "collisionKind": 1,
   "type": 0,

@@ -1,4 +1,7 @@
 {
+  "ConfigValues": {
+    "debug": {"textureGroupId":"{\"name\":\"tg_golf\",\"path\":\"texturegroups/tg_golf\"}",},
+  },
   "spriteId": {
     "name": "spr_tilegolf",
     "path": "sprites/spr_tilegolf/spr_tilegolf.yy",

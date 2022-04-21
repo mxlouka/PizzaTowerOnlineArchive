@@ -1,4 +1,7 @@
 {
+  "ConfigValues": {
+    "debug": {"textureGroupId":"{\"name\":\"tg_freezer\",\"path\":\"texturegroups/tg_freezer\"}",},
+  },
   "spriteId": {
     "name": "bg_tilefreezer",
     "path": "sprites/bg_tilefreezer/bg_tilefreezer.yy",

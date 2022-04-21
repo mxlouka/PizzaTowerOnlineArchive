@@ -12,3 +12,4 @@ spr_dead = spr_piraneapple_dead
 
 alarm[1] = 10
 mask_index = spr_player_mask
+

@@ -1,4 +1,7 @@
 {
+  "ConfigValues": {
+    "debug": {"textureGroupId":"{\"name\":\"tg_beach\",\"path\":\"texturegroups/tg_beach\"}",},
+  },
   "spriteId": {
     "name": "tile_beachprops1",
     "path": "sprites/tile_beachprops1/tile_beachprops1.yy",

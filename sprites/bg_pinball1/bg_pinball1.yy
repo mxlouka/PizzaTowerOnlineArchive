@@ -1,6 +1,6 @@
 {
   "ConfigValues": {
-    "debug": {"textureGroupId":"{\"name\":\"tg_background\",\"path\":\"texturegroups/tg_background\"}",},
+    "debug": {"textureGroupId":"{\"name\":\"tg_pinball\",\"path\":\"texturegroups/tg_pinball\"}",},
   },
   "bboxMode": 0,
   "collisionKind": 1,

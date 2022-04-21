@@ -1,6 +1,6 @@
 {
   "ConfigValues": {
-    "debug": {"textureGroupId":"{\"name\":\"tg_background\",\"path\":\"texturegroups/tg_background\"}",},
+    "debug": {"textureGroupId":"{\"name\":\"tg_ruin\",\"path\":\"texturegroups/tg_ruin\"}",},
   },
   "bboxMode": 0,
   "collisionKind": 1,

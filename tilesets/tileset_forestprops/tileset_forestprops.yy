@@ -1,4 +1,7 @@
 {
+  "ConfigValues": {
+    "debug": {"textureGroupId":"{\"name\":\"tg_forest\",\"path\":\"texturegroups/tg_forest\"}",},
+  },
   "spriteId": {
     "name": "spr_forestprops",
     "path": "sprites/spr_forestprops/spr_forestprops.yy",

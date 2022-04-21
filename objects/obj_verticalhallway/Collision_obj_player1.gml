@@ -9,7 +9,7 @@ with other
 		
 		verticalhallway = true
 		vhallwaydirection = other.image_yscale;
-			
+		
 		if other.targetRoom == room
 		{
 			vhallwaydirection *= -1;

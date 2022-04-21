@@ -15,29 +15,19 @@ switch loadwhat
 		else
 		{
 			// load texture groups
-			var _tex_array = texturegroup_get_textures("tg_player");
-			for (var i = 0; i < array_length(_tex_array); ++i)
-				texture_prefetch(_tex_array[i]);
+			function load_tg(tgname)
+			{
+				var _tex_array = texturegroup_get_textures(tgname);
+				for (var i = 0; i < array_length(_tex_array); ++i)
+					texture_prefetch(_tex_array[i]);
+			}
 			
-			_tex_array = texturegroup_get_textures("tg_background");
-			for (var i = 0; i < array_length(_tex_array); ++i)
-				texture_prefetch(_tex_array[i]);
-			
-			_tex_array = texturegroup_get_textures("tg_baddie");
-			for (var i = 0; i < array_length(_tex_array); ++i)
-				texture_prefetch(_tex_array[i]);
-			
-			_tex_array = texturegroup_get_textures("tg_palette");
-			for (var i = 0; i < array_length(_tex_array); ++i)
-				texture_prefetch(_tex_array[i]);
-			
-			_tex_array = texturegroup_get_textures("tg_hud");
-			for (var i = 0; i < array_length(_tex_array); ++i)
-				texture_prefetch(_tex_array[i]);
-			
-			_tex_array = texturegroup_get_textures("Default");
-			for (var i = 0; i < array_length(_tex_array); ++i)
-				texture_prefetch(_tex_array[i]);
+			load_tg("tg_player");
+			load_tg("tg_background");
+			load_tg("tg_baddie");
+			load_tg("tg_palette");
+			load_tg("tg_hud");
+			load_tg("tg_danceroom");
 			
 			loadwhat = 2;
 		}

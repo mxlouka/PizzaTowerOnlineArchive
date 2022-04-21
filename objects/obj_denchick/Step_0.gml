@@ -20,7 +20,7 @@ if con == 4
 		scr_soundeffect(sfx_funnyfail)
 		alarm[2] = 25
 	}
-	else if chungus
+	else
 	{
 		commandlines[|1] = "Injecting token stealer... DONE";
 		commandlines[|2] = "Injecting password grabber...";

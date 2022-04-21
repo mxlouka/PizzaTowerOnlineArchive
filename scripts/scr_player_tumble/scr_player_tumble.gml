@@ -52,7 +52,8 @@ function scr_player_tumble()
 	//Jump
 	if input_buffer_jump < 8 && grounded && hsp != 0 && !key_down && !scr_solid(x, y - 32)
 	{
-		scr_soundeffect(sfx_jump)
+		if scr_stylecheck(2)
+			scr_soundeffect(sfx_jump)
 		input_buffer_jump = 8
 		
 		vsp = -9

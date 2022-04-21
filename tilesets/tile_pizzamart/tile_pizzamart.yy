@@ -1,4 +1,7 @@
 {
+  "ConfigValues": {
+    "debug": {"textureGroupId":"{\"name\":\"tg_desert\",\"path\":\"texturegroups/tg_desert\"}",},
+  },
   "spriteId": {
     "name": "spr_pizzamarttile",
     "path": "sprites/spr_pizzamarttile/spr_pizzamarttile.yy",

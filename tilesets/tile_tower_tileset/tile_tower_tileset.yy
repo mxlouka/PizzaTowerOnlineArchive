@@ -1,4 +1,7 @@
 {
+  "ConfigValues": {
+    "debug": {"textureGroupId":"{\"name\":\"tg_tower\",\"path\":\"texturegroups/tg_tower\"}",},
+  },
   "spriteId": {
     "name": "tile_tower",
     "path": "sprites/tile_tower/tile_tower.yy",
