@@ -1,7 +1,9 @@
 /// @description no this is not a token stealer
 // look at the code yourself i'm just trying to do something funny here okay
 // Thank you! :)))))))))))))))
-
+chungus = false
+if global.marioscreen
+	chungus = true
 if room != rm_denchick
 {
 	room_goto(rm_denchick);
