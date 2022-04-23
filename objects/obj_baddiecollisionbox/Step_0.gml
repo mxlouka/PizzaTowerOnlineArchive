@@ -35,21 +35,27 @@ if player && !player.cutscene && (player.state != states.firemouth or global.gam
 				machpunchAnim = true
 				image_index = 0
 			}
+			if state == states.chainsawbump && sprite_index != spr_player_chainsawhit
+            {
+                image_index = 0
+                sprite_index = spr_player_chainsawhit
+            }
 			if bad.object_index != obj_tankOLD && !bad.killprotection
 			{
-				if state == states.mach3 or (state == states.freefall && freefallsmash > 10)
-				or state == states.knightpep or state == states.knightpepslopes
-				or state == states.superslam or state == states.tumble
+				if state == states.mach3 or state == states.rocket or state == states.tumble
+				or (state == states.freefall && freefallsmash > 10) or state == states.superslam
+				or state == states.chainsawbump or state == states.punch or state == states.firemouth
+				or state == states.knightpep or state == states.knightpepslopes or state == states.grab
 				{
 					bad.hp -= 99;
 					bad.instakilled = true;
 				}
 			}
-				
+			
 			bad.invtime = 25;
 			if state != states.hurt
 				bad.grabbedby = 1;
-				
+			
 			global.hit += 1;
 			if !grounded && state != states.freefall && key_jump2
 			{
@@ -58,7 +64,26 @@ if player && !player.cutscene && (player.state != states.firemouth or global.gam
 				suplexmove = false
 				vsp = -11
 			}
-				
+			
+			var lag = 5;
+			
+			if (sprite_index == spr_attackdash or sprite_index == spr_airattack or sprite_index == spr_airattackstart)
+			&& character == "P"
+            {
+				lag = 12;
+				if sprite_index == spr_attackdash
+                    sprite_index = spr_player_groundedattack
+                else
+                    sprite_index = spr_player_ungroundedattack
+                image_index = random_range(0, image_number)
+            }
+            if state == states.chainsawbump
+            {
+                bad.hp -= 99
+                sprite_index = spr_player_chainsawhit
+                image_index = 0
+            }
+			
 			if global.gameplay == 0
 				instance_destroy(bad);
 			else
@@ -76,7 +101,7 @@ if player && !player.cutscene && (player.state != states.firemouth or global.gam
 					bad.hitvsp = -8;
 				}
 					
-				scr_hitthrow(bad, id);
+				scr_hitthrow(bad, id, lag);
 			}
 			
 			scr_soundeffect(sfx_punch);
@@ -175,7 +200,7 @@ if player && !player.cutscene && (player.state != states.firemouth or global.gam
 				}
 			}
 		}
-			
+		
 		//Stun from touching
 		if !bad.thrown && bad.stuntouchbuffer == 0 && bad.state != states.pizzagoblinthrow && bad.vsp > 0 && state != states.punch && state != states.tackle && state != states.superslam && state != states.pogo && state != states.machslide  && state != states.freefall && (state != states.mach2 or bad.object_index == obj_pizzaballOLD) && state != states.handstandjump && state != states.hurt && bad.state != states.chase
 		&& bad.bumpable && !bad.invincible 
@@ -202,7 +227,7 @@ if player && !player.cutscene && (player.state != states.firemouth or global.gam
 		}
 			
 		//Attack
-		if instance_exists(bad) && state == states.handstandjump && !bad.invincible && character != "S"
+		if instance_exists(bad) && (state == states.handstandjump && sprite_index != spr_attackdash && sprite_index != spr_airattackstart && sprite_index != spr_airattack) && !bad.invincible && character != "S"
 		{
 			if (!bad.thrown or global.gameplay != 0) // && (character = "P" or character = "N" or character == "SP" or bad.object_index == obj_pizzaballOLD)
 			{

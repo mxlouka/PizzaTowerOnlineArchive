@@ -271,6 +271,10 @@ function scr_characterspr(char = character)
 				spr_golflook3 = spr_player_golflook3;
 				spr_golfswing = spr_player_golfswing;
 				
+				spr_attackdash = spr_player_attackdash;
+				spr_airattackstart = spr_player_airattackstart;
+				spr_airattack = spr_player_airattack;
+				
 				spr_cotton_idle = spr_playerSP_cotton_idle;
 				spr_cotton_walk = spr_playerSP_cotton_walk;
 				spr_cotton_run = spr_playerSP_cotton_run;
@@ -555,6 +559,10 @@ function scr_characterspr(char = character)
 				spr_pistolwalk = spr_playerN_move;
 				spr_pistolshot = spr_playerN_noisebombkick;
 				spr_pistolshotend = spr_playerN_idle;
+				
+				spr_attackdash = spr_playerN_spin;
+				spr_airattackstart = spr_playerN_spin;
+				spr_airattack = spr_playerN_spin;
 				
 				spr_golfidle = spr_playerN_golfidle;
 				spr_golflook1 = spr_playerN_golflook1;

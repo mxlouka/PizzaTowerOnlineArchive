@@ -3,7 +3,11 @@ function ledge_bump()
 	// Clip up before bump
 	if global.gameplay != 0
 	{
-		if scr_solidwall(x + xscale, y) && !scr_solidwall(x + xscale, y - 32)
+		var ht = 32;
+		if vsp < 0
+			ht = 22;
+		
+		if scr_solidwall(x + xscale, y) && !scr_solidwall(x + xscale, y - ht)
 		{
 			vsp = 0;
 			
@@ -18,3 +22,4 @@ function ledge_bump()
 		}
 	}
 }
+

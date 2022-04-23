@@ -39,13 +39,19 @@ function scr_collectsprite(single = false, escape = false)
 			else
 				toppings = [spr_sausagecollect_NEW, spr_shroomcollect_NEW, spr_pineapplecollect_NEW, spr_tomatocollect_NEW, spr_cheesecollect_NEW];
 		}
-	
-		// strongcold
-		if string_startswith(room_get_name(room), "strongcold")
-			toppings = [spr_xmastopping1, spr_xmastopping2, spr_xmastopping3, spr_xmastopping4, spr_xmastopping5];
+		
 		// snick rematch
 		if global.snickrematch
 			toppings = [spr_shroomcollect_re, spr_tomatocollect_re, spr_cheesecollect_re, spr_sausagecollect_re, spr_pineapplecollect_re];
+	
+		// strongcold
+		if string_startswith(room_get_name(room), "strongcold")
+		{
+			if global.gameplay == 0
+				toppings = [spr_xmastopping1, spr_xmastopping2, spr_xmastopping3, spr_xmastopping4, spr_xmastopping5];
+			else
+				toppings = [spr_xmastopping1_NEW, spr_xmastopping2_NEW, spr_xmastopping3_NEW, spr_xmastopping4_NEW, spr_xmastopping5_NEW];
+		}
 	}
 	
 	// random sprite

@@ -18,23 +18,17 @@ function scr_player_hitlag()
 	    state = tauntstoredstate;
 	    vsp = tauntstoredvsp;
 		
-		/*
-	    if (tauntstoredstate == states.handstandjump 
-		&& (tauntstoredsprite == spr_suplexdashjumpstart
-		or tauntstoredsprite == spr_suplexdashjump
-		or tauntstoredsprite == spr_player_airattack
-		or tauntstoredsprite == spr_player_airattackstart))
-		or sprite_index == spr_piledriverland
+	    if sprite_index == spr_player_ungroundedattack or sprite_index == spr_piledriverland
 	    {
 	        jumpAnim = true;
 	        state = states.jump;
 	        sprite_index = spr_suplexland;
 	        vsp = -11;
-	        jumpstop = false;
+	        jumpstop = true;
 	        image_index = 0;
 	    }
 	    else if tauntstoredstate == states.handstandjump or tauntstoredstate == states.finishingblow
 	        state = states.normal;
-		*/
 	}
 }
+

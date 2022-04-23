@@ -1,5 +1,8 @@
-if instance_exists(obj_gms) && global.__chat
-	exit;
+if check_online()
+{
+	if global.__chat
+		exit;
+}
 
 scr_getinput(true);
 function draw_inputdisplay_key(xx, yy, keycode, width, height = width)
@@ -81,13 +84,16 @@ if global.inputdisplay
 	
 	// dont block the view
 	var left = x, right = x + xx + keysize, top = y, bottom = y + yy + keysize;
-	var px = obj_player.x - _camx, py = obj_player.y - _camy;
 	
-	if instance_exists(obj_player) && px >= left - 25 && px <= right + 25
-	&& py >= top - 50 && py <= bottom + 25
-		image_alpha = 0.35;
-	else
-		image_alpha = 1;
+	if instance_exists(obj_player)
+	{
+		var px = obj_player.x - _camx, py = obj_player.y - _camy;
+		if px >= left - 25 && px <= right + 25
+		&& py >= top - 50 && py <= bottom + 25
+			image_alpha = 0.35;
+		else
+			image_alpha = 1;
+	}
 	
 	// customize
 	var mx = device_mouse_x_to_gui(0), my = device_mouse_y_to_gui(0);

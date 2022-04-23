@@ -1,6 +1,6 @@
 function scr_getinput(force = false)
 {
-	with obj_player1
+	with obj_player
 		online_busy = false;
 	
 	var cont = global.cont;
@@ -11,8 +11,9 @@ function scr_getinput(force = false)
 	or (instance_exists(obj_hubelevator) && obj_hubelevator.state == 1)
 	or instance_exists(obj_dialoguebox))
 	{
-		with obj_player1
+		with obj_player
 			online_busy = true;
+		
 		if !force
 		{
 			key_up = false

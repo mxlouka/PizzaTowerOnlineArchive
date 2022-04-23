@@ -433,7 +433,31 @@ function scr_player_normal()
 	// Breakdance
 	if key_shoot2 && !shotgunAnim
 	{
-		if scr_checkskin(checkskin.p_anton)
+		// mortimer
+		if global.mort && global.gameplay != 0
+		{
+			scr_soundeffect(sfx_killingblow);
+			scr_soundeffect(sfx_enemyprojectile);
+		    with instance_create(x + xscale * 20, y, obj_shotgunbullet)
+			{
+			    image_xscale = other.xscale;
+			    sprite_index = spr_mortprojectile;
+			}
+				
+			sprite_index = spr_pmortthrow
+			image_index = 0
+			state = states.pistol
+			mort = true
+				
+			with obj_camera
+			{
+				shake_mag = 3
+				shake_mag_acc = 3 / room_speed
+			}
+		}
+		
+		// antonball
+		else if scr_checkskin(checkskin.p_anton)
 		{
 			if !instance_exists(obj_antonball)
 			{
@@ -450,88 +474,106 @@ function scr_player_normal()
 			else
 				instance_destroy(obj_antonball);
 		}
+		
 		else if global.gameplay != 1
 		{
 			if character == "P"
 			{
-				scr_soundeffect(sfx_breakdance);
-				movespeed = 9;
-				state = states.punch;
-				sprite_index = spr_player_breakdancestart;
-				with instance_create(x, y, obj_dashcloud2)
-					image_xscale = other.xscale;
-				breakdance = 35;
-				image_index = 0;
-				instance_create(x, y, obj_swingdinghitbox);
+				// breakdance
+				if global.gameplay == 0
+				{
+					scr_soundeffect(sfx_breakdance);
+					movespeed = 9;
+					state = states.punch;
+					sprite_index = spr_player_breakdancestart;
+					with instance_create(x, y, obj_dashcloud2)
+						image_xscale = other.xscale;
+					breakdance = 35;
+					image_index = 0;
+					instance_create(x, y, obj_swingdinghitbox);
+				}
+				
+				// shoulder bash
+				else
+				{
+					suplexdashsnd = scr_soundeffect(sfx_suplexdash);
+					image_index = 0;
+					sprite_index = spr_attackdash;
+					state = states.handstandjump;
+					
+					with instance_create(x, y, obj_crazyrunothereffect)
+						image_xscale = other.xscale;
+					with instance_create(x + (xscale * -50), y, obj_superdashcloud)
+				        image_xscale = other.xscale;
+				}
+			}
+			
+			// noise bomb
+			if character == "N"
+			{
+				state = states._throw
+				sprite_index = spr_playerN_noisebombthrow
+				image_index = 0
+				scr_soundeffect(sfx_noisewoah)
+		
+				with instance_create(x, y, obj_playerbomb)
+				{
+					vsp = -7
+		
+					if !other.key_up
+						movespeed = 7
+					else
+						vsp = -14
+			
+					image_xscale = other.xscale
+				}
 			}
 		}
-		else
+		
+		// bullet
+		else if (character == "P" or character == "N") && global.bullet > 0
 		{
-			if global.mort
-		    {
-				scr_soundeffect(sfx_killingblow);
-				scr_soundeffect(sfx_enemyprojectile);
-		        with instance_create(x + xscale * 20, y, obj_shotgunbullet)
-				{
-			        image_xscale = other.xscale;
-			        sprite_index = spr_mortprojectile;
-				}
-				
-				sprite_index = spr_pmortthrow
+			if !scr_solid_player(x + xscale * 20, y) or place_meeting(x + xscale * 20, y, obj_destructibles)
+			{
+				global.bullet--;
+				sprite_index = spr_pistolshot
 				image_index = 0
 				state = states.pistol
-				mort = true
-				
+				shot = true
+					
 				with obj_camera
 				{
-				    shake_mag = 3
-				    shake_mag_acc = 3 / room_speed
+					shake_mag = 3;
+					shake_mag_acc = 3 / room_speed;
 				}
-		    }
-			else if (character == "P" or character == "N") && global.bullet > 0
-			{
-				if !scr_solid_player(x + xscale * 20, y) or place_meeting(x + xscale * 20, y, obj_destructibles)
+					
+				scr_soundeffect(sfx_killingblow);
+				if character == "N"
 				{
-					global.bullet--;
-					sprite_index = spr_pistolshot
-					image_index = 0
-					state = states.pistol
-					shot = true
-					
-					with obj_camera
+					with instance_create(x, y, obj_playerbomb)
 					{
-						shake_mag = 3;
-						shake_mag_acc = 3 / room_speed;
-					}
-					
-					scr_soundeffect(sfx_killingblow);
-					if character == "N"
-					{
-						with instance_create(x, y, obj_playerbomb)
-						{
-			                kick = true
-			                movespeed = 15
-			                image_xscale = other.xscale
-						}
-					}
-					else
-					{
-						with instance_create(x + xscale * 20, y, obj_shotgunbullet)
-						{
-			                pistol = true
-							if other.character == "P"
-								sprite_index = spr_peppinobullet
-			                image_xscale = other.xscale
-						}
+			            kick = true
+			            movespeed = 15
+			            image_xscale = other.xscale
 					}
 				}
 				else
 				{
-					image_index = 0
-					state = states.bump
-					hsp = -xscale * 2
-					vsp = -4
+					with instance_create(x + xscale * 20, y, obj_shotgunbullet)
+					{
+			            pistol = true
+						if other.character == "P"
+							sprite_index = spr_peppinobullet
+			            image_xscale = other.xscale
+					}
 				}
+			}
+			else
+			{
+				image_index = 0
+				state = states.bump
+				hsp = -xscale * 2
+				vsp = -4
 			}
 		}
 	}
@@ -609,27 +651,6 @@ function scr_player_normal()
 				sprite_index = spr_superjumpprep
 			hsp = 0
 			vsp = 0
-		}
-	}
-	
-	//Noise Bomb
-	if key_shoot2 && character == "N" && !shotgunAnim && global.gameplay == 0
-	{
-		state = states._throw
-		sprite_index = spr_playerN_noisebombthrow
-		image_index = 0
-		scr_soundeffect(sfx_noisewoah)
-		
-		with instance_create(x,y,obj_playerbomb)
-		{
-			vsp = -7
-		
-			if !other.key_up
-				movespeed = 7
-			else
-				vsp = -14
-			
-			image_xscale = other.xscale
 		}
 	}
 

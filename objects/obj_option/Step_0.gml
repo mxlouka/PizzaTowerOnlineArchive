@@ -166,11 +166,6 @@ if menu == 0
 		
 		if instance_exists(obj_music) && global.musicvolume > 0
 			music = global.music;
-		if global.jukebox != -1
-		{
-			audio_resume_sound(global.jukebox);
-			music = global.jukebox;
-		}
 	}
 	
 	// gamepad vibration

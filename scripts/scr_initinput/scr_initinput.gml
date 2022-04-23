@@ -12,8 +12,7 @@ function scr_initinput()
 	global.key_shoot = ini_read_real("ControlsKeys","shoot",ord("A"))
 	global.key_attack = ini_read_real("ControlsKeys","attack",vk_shift)
 	global.key_start = ini_read_real("ControlsKeys","start",vk_escape)
-
-
+	
 	global.key_upC = ini_read_real("ControllerButton", "up", gp_padu)
 	global.key_rightC = ini_read_real("ControllerButton","right",gp_padr)
 	global.key_leftC = ini_read_real("ControllerButton","left",gp_padl)

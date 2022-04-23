@@ -16,7 +16,7 @@ else
 	image_alpha = 1;
 
 // fade meatophobia
-if global.musicvolume > 0
+if global.musicvolume > 0 && global.jukebox == -1
 {
 	if song != -1 && audio_is_playing(song)
 	{

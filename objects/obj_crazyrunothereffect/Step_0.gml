@@ -3,8 +3,6 @@ if global.gameplay != 0
 
 image_xscale = playerid.xscale
 
-
-if playerid.movespeed <= 12 && playerid.state !=states.faceplant
-instance_destroy()
-
+if playerid.movespeed <= 12 && playerid.state != states.faceplant && playerid.state != states.chainsawbump
+	instance_destroy()
 

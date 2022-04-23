@@ -230,10 +230,13 @@ function scr_player_grab()
 		
 		image_index = 0
 		sprite_index = spr_haulingland
+		if move != 0 && character == "P"
+			sprite_index = spr_player_haulingland2
+		
 		//movespeed = 2
 	}
 
-	if sprite_index = spr_haulingland && floor(image_index) >= image_number - 1
+	if (sprite_index == spr_haulingland or sprite_index == spr_player_haulingland2) && floor(image_index) >= image_number - 1
 		sprite_index = spr_haulingidle
 	
 	//Swing Ding

@@ -64,8 +64,9 @@ global.fun = irandom_range(1, 1000);
 
 // unlock sugary spire content
 globalvar sugaryspire;
-sugaryspire = ini_read_real("online", "shove10poundsofsugarupmyspire", false);
-event_user(0);
+sugaryspire = true;
+//sugaryspire = ini_read_real("online", "shove10poundsofsugarupmyspire", false);
+//event_user(0);
 
 // language
 global.language = ini_read_string("online", "language", "en") // language

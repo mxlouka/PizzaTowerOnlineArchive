@@ -118,7 +118,7 @@ function scr_player_handstandjump()
 			exit;
 		}
 		
-		if (floor(image_index) >= image_number - 1 or ((sprite_index == spr_suplexdashjump or (sprite_index == spr_suplexdashjumpstart && global.gameplay == 0)) && !scr_slope())) && (grounded && vsp >= 0)
+		if (floor(image_index) >= image_number - 1 or ((sprite_index == spr_suplexdashjump or (sprite_index == spr_airattack && spr_airattack != spr_attackdash) or (sprite_index == spr_suplexdashjumpstart && global.gameplay == 0)) && !scr_slope())) && (grounded && vsp >= 0)
 		{
 			if (!key_attack or (character == "N" && noisetype == 0)) && vsp >= 0
 			{
@@ -137,6 +137,8 @@ function scr_player_handstandjump()
 
 		if floor(image_index) >= image_number - 1 && sprite_index == spr_suplexdashjumpstart
 			sprite_index = spr_suplexdashjump
+		if floor(image_index) >= image_number - 1 && sprite_index == spr_airattackstart
+			sprite_index = spr_airattack
 		
 		//Crouchslide
 		if key_down && grounded && vsp >= 0 && character != "S"
@@ -154,10 +156,13 @@ function scr_player_handstandjump()
 		}
 		
 		//Input jumping
-		if !grounded && (sprite_index == spr_suplexdash or sprite_index == spr_shotgunsuplexdash)
+		if !grounded && (sprite_index == spr_suplexdash or sprite_index == spr_shotgunsuplexdash or sprite_index == spr_attackdash)
 		{
 			image_index = 0
-			sprite_index = spr_suplexdashjumpstart	
+			if sprite_index == spr_attackdash
+				sprite_index = spr_airattackstart;
+			else
+				sprite_index = spr_suplexdashjumpstart	
 		}
 		
 		//Input buffer jumping
@@ -193,7 +198,7 @@ function scr_player_handstandjump()
 			else
 			{
 				scr_soundeffect(sfx_jump)
-				instance_create(x,y,obj_highjumpcloud2)
+				instance_create(x, y, obj_highjumpcloud2)
 			}
 			dir = predir;
 		}

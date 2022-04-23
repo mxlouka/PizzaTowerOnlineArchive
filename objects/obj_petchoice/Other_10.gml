@@ -1,5 +1,7 @@
 /// @description hats & reset choice
 spr_idle = selarray[sel[0]][0];
+
+locked = false;
 if sel[0] == 7
 	locked = !file_exists("mario_information");
 

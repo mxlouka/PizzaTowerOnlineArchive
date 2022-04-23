@@ -226,7 +226,7 @@ if global.gameplay == 0
 			else if obj_player.sprite_index == obj_player.spr_bombpepend
 				hudface = spr_pissinoHUD_bombend
 			else if obj_player.angry
-				hudface = spr_pepinoHUD3hp // REPLACE
+				hudface = spr_pissinoHUD_3hp
 			else if obj_player.sprite_index == obj_player.spr_hurtidle or obj_player.sprite_index == obj_player.spr_hurtwalk
 				hudface = spr_pissinoHUD_1hp
 			else if global.panic or global.snickchallenge or global.miniboss
