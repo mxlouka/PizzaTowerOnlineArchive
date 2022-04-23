@@ -15,7 +15,9 @@ if sel[1] == "N" && key_taunt2
 }
 
 // change character
-var lastchar = "SP";
+var lastchar = "PP";
+if sugaryspire
+	lastchar = "SP";
 if debug
 	lastchar = "PUFFER";
 
@@ -40,7 +42,10 @@ if key_down2 && sel[1] != lastchar
 			sel[1] = "PP"; // to pissino
 			break;
 		case "PP":
-			sel[1] = "SP"; // to pizzelle
+			if sugaryspire
+				sel[1] = "SP"; // to pizzelle
+			else
+				sel[1] = "CT"; // to cheemstoon
 			break;
 		case "SP":
 			sel[1] = "SN"; // to pizzano
@@ -89,7 +94,10 @@ else if key_up2 && sel[1] != "P"
 			sel[1] = "SP"; // to pizzelle
 			break;
 		case "CT": // from cheemstoon
-			sel[1] = "SN"; // to pizzano
+			if sugaryspire
+				sel[1] = "SN"; // to pizzano
+			else
+				sel[1] = "PP"; // to pissino
 			break;
 		case "PUFFER": // from beloved
 			sel[1] = "CT"; // to cheemstoon

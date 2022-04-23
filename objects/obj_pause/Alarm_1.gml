@@ -4,11 +4,16 @@ with all
 
 instance_destroy(obj_hallway);
 instance_destroy(obj_fadeout);
-audio_stop_all();
+
+if global.jukebox == -1
+	audio_stop_all();
+else
+	audio_resume_all();
 
 if gototitle
 {
-	pause = false
+	audio_stop_all();
+	pause = false;
 	instance_activate_all();
 	
 	instance_destroy(obj_debris);

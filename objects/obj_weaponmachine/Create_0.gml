@@ -8,4 +8,7 @@ else
 	price = 4;
 
 with obj_player1
-	if character == "S" instance_destroy(other.id);
+	if character == "S" instance_destroy(other);
+
+ID = id;
+

@@ -301,7 +301,7 @@ function scr_player_cotton()
     }
 	
 	// land while drilling
-	if drilling && grounded && !place_meeting(x, y + 1, obj_cottonblock)
+	if drilling && grounded && !place_meeting(x, y + 1, obj_cottonblock) && !place_meeting(x, y + 1, obj_destructibles)
 	{
 		instance_create(x, y, obj_landcloud)
 		scr_soundeffect(sfx_step)

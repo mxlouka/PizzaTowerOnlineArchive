@@ -41,6 +41,9 @@ if state != states.grabbed
 else
 	scr_enemy_grabbed();
 
+if invtime > 0
+	invtime--;
+
 // heat meter image speed and cloud effects
 if global.gameplay != 0
 {

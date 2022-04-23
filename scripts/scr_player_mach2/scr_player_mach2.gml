@@ -73,13 +73,13 @@ function scr_player_mach2()
 				sprite_index = spr_machpunch2
 			}
 			
-			if floor(image_index) = image_number - 1 && sprite_index = spr_machpunch1
+			if floor(image_index) >= image_number - 1 && sprite_index == spr_machpunch1
 			{
 				punch = true
 				machpunchAnim = false
 			}
 
-			if floor(image_index) = image_number - 1 && sprite_index = spr_machpunch2
+			if floor(image_index) >= image_number - 1 && sprite_index == spr_machpunch2
 			{
 				punch = false
 				machpunchAnim = false
@@ -235,7 +235,6 @@ function scr_player_mach2()
 	}
 	
 	// pizzelle faceplant roll
-	/*
 	if !grounded && key_slap2 && global.gameplay != 0 && character == "SP"
 	{
 		scr_soundeffect(sfx_suplexdashSP);
@@ -260,7 +259,6 @@ function scr_player_mach2()
 		}
 		exit;
 	}
-	*/
 	
 	//Vigilante revolver
 	if key_slap2 && character == "V"

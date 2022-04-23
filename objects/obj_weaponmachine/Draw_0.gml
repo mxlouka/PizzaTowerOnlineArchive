@@ -7,3 +7,4 @@ if sprite_index == spr_weaponmachine_re && image_index < 7
 	draw_set_valign(fa_top);
 	draw_text(x - 30, y - 26, string(price));
 }
+

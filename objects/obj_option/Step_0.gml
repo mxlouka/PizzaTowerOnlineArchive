@@ -12,7 +12,7 @@ if !instance_exists(obj_keyconfig) && !instance_exists(obj_erasegame)
 	if menu == 1
 		omax = 3;
 	if menu == 2
-		omax = 15;
+		omax = 14;
 	
 	var mov = -(key_up2 or keyboard_check_pressed(vk_up)) + (key_down2 or keyboard_check_pressed(vk_down));
 	var movh = -(key_up or keyboard_check(vk_up)) + (key_down or keyboard_check(vk_down));
@@ -166,6 +166,11 @@ if menu == 0
 		
 		if instance_exists(obj_music) && global.musicvolume > 0
 			music = global.music;
+		if global.jukebox != -1
+		{
+			audio_resume_sound(global.jukebox);
+			music = global.jukebox;
+		}
 	}
 	
 	// gamepad vibration
@@ -222,6 +227,9 @@ if menu == 0
 		
 		instance_destroy()
 		audio_stop_sound(mu_editor);
+		
+		if audio_is_playing(global.jukebox)
+			audio_pause_sound(global.jukebox);
 	}
 }
 #endregion
@@ -315,7 +323,7 @@ else if menu == 1
 			global.musicgame--;
 		
 		// refresh music
-		if global.musicgame != mgprev
+		if global.musicgame != mgprev && global.jukebox != -1
 		{
 			if instance_exists(obj_music)
 			{
@@ -347,14 +355,17 @@ else if menu == 1
 		audio_sound_gain(global.music, global.musicvolume, 0);
 		
 		ini_open("saveData.ini");
-		ini_write_real("online","musicvolume",global.musicvolume)  
-		ini_write_real("online","mastervolume",global.mastervolume)
-		ini_write_real("online","machsound",global.machsound)
-		ini_write_real("online","musicgame",global.musicgame)
+		ini_write_real("online", "musicvolume", global.musicvolume)  
+		ini_write_real("online", "mastervolume", global.mastervolume)
+		ini_write_real("online", "machsound", global.machsound)
+		ini_write_real("online", "musicgame", global.musicgame)
 		ini_close();
 		
 		if global.musicvolume <= 0 && audio_is_playing(global.music)
+		{
 			audio_stop_sound(global.music);
+			global.jukebox = -1;
+		}
 		
 		with obj_roomname
 		{
@@ -440,18 +451,8 @@ else if menu == 2 && !instance_exists(obj_erasegame)
 		}
 	}
 	
-	// surface afterimages
-	if optionselected == 6
-	{
-		if select
-		{
-			global.surfacemach = !global.surfacemach;
-			scr_soundeffect(sfx_step);
-		}
-	}
-	
 	// secret debris
-	if optionselected == 7
+	if optionselected == 6
 	{
 		if select
 		{
@@ -461,7 +462,7 @@ else if menu == 2 && !instance_exists(obj_erasegame)
 	}
 	
 	// show names
-	if optionselected == 8
+	if optionselected == 7
 	{
 		if select
 		{
@@ -471,7 +472,7 @@ else if menu == 2 && !instance_exists(obj_erasegame)
 	}
 	
 	// chat bubbles
-	if optionselected == 9
+	if optionselected == 8
 	{
 		if select
 		{
@@ -481,7 +482,7 @@ else if menu == 2 && !instance_exists(obj_erasegame)
 	}
 	
 	// sync effects
-	if optionselected == 10
+	if optionselected == 9
 	{
 		if select
 		{
@@ -491,7 +492,7 @@ else if menu == 2 && !instance_exists(obj_erasegame)
 	}
 	
 	// streamer
-	if optionselected == 11
+	if optionselected == 10
 	{
 		if select
 		{
@@ -501,7 +502,7 @@ else if menu == 2 && !instance_exists(obj_erasegame)
 	}
 	
 	// drpc
-	if optionselected == 12
+	if optionselected == 11
 	{
 		if select
 		{
@@ -511,7 +512,7 @@ else if menu == 2 && !instance_exists(obj_erasegame)
 	}
 	
 	// fps count
-	if optionselected == 13
+	if optionselected == 12
 	{
 		if select
 		{
@@ -521,7 +522,7 @@ else if menu == 2 && !instance_exists(obj_erasegame)
 	}
 	
 	// camera smoothing slider
-	if optionselected == 14
+	if optionselected == 13
 	{
 		if keyboard_check(vk_shift)
 			var move = (key_left2 + key_right2) * 0.01;
@@ -532,7 +533,7 @@ else if menu == 2 && !instance_exists(obj_erasegame)
 	}
 	
 	// input display
-	if optionselected == 15
+	if optionselected == 14
 	{
 		if select
 		{
@@ -558,7 +559,6 @@ else if menu == 2 && !instance_exists(obj_erasegame)
 		ini_write_real("online", "panicshake", global.panicshake)
 		ini_write_real("online", "panicnightmare", global.panicnightmare)
 		
-		ini_write_real("online", "surfacemach", global.surfacemach)
 		ini_write_real("online", "secretdebris", global.secretdebris)
 		ini_write_real("online", "shownames", global.shownames)
 		ini_write_real("online", "chatbubbles", global.chatbubbles)

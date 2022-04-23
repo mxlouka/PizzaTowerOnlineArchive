@@ -9,7 +9,7 @@ function scr_panicbg_end()
 		// demo 3 stuff
 		gpu_set_blendenable(false)
 		gpu_set_colorwriteenable(false, false, false, true)
-		draw_rectangle(-192, -192, __view_get(e__VW.WView, 0) + 192, __view_get(e__VW.HView, 0) + 192, 0)
+		draw_rectangle(-192, -192, _camw + 192, _camh + 192, 0)
 		gpu_set_blendenable(true)
 		gpu_set_colorwriteenable(true, true, true, true)
 		
@@ -41,9 +41,9 @@ function scr_panicbg_end()
 			var x2 = camera_get_view_x(view_camera[0]) + camera_get_view_width(view_camera[0]) + 64;
 			var y2 = camera_get_view_y(view_camera[0]) + camera_get_view_height(view_camera[0]) + 64;
 		
-			draw_surface_ext(global.panicbg_surface, x1, y1, 1, 1, camera_get_view_angle(view_camera[0]), -1, 1)
+			draw_surface_ext(global.panicbg_surface, x1, y1, 1, 1, 0, -1, 1)
 			shader_reset()
-		
+			
 			if obj_panicdebris.flasha > 0
 			{
 				draw_set_alpha(obj_panicdebris.flasha);

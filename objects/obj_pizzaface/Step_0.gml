@@ -1,10 +1,9 @@
-var playerid = obj_player1
+var playerid = obj_player1;
 
-x=median(x-maxspeed,playerid.x,x+maxspeed)
-y=median(y-maxspeed,playerid.y,y+maxspeed)
+x = Approach(x, playerid.x, maxspeed);
+y = Approach(y, playerid.y, maxspeed);
 
-
-if place_meeting(x,y,playerid) && !instance_exists(obj_fadeout) && !instance_exists(obj_endlevelfade) && playerid.state != states.portal && playerid.state != states.door
+if place_meeting(x, y, playerid) && !instance_exists(obj_fadeout) && !instance_exists(obj_endlevelfade) && playerid.state != states.portal && playerid.state != states.door
 {
 	if instance_exists(obj_toppinwarrior)
 	{
@@ -37,13 +36,17 @@ if place_meeting(x,y,playerid) && !instance_exists(obj_fadeout) && !instance_exi
 			state = states.timesup
 			sprite_index = spr_Timesup
 			image_index = 0
-			audio_stop_all()
-			scr_soundeffect(mu_timesup)
+			image_speed = 0.35
+			
+			if !audio_is_playing(global.jukebox)
+			{
+				audio_stop_all()
+				scr_soundeffect(mu_timesup)
+			}
 			
 			instance_destroy(obj_hallway);
 		}
 	}
-
 	instance_destroy()
 }
 

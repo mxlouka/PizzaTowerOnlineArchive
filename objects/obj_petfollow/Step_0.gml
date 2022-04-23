@@ -8,9 +8,9 @@ else
 	sprite_index = spr_petidle;
 depth = -6;
 
-if petind != obj_player1.petfollow
+if petind != obj_player.petfollow
 {
-	petind = obj_player1.petfollow;
+	petind = obj_player.petfollow;
 	scr_petspr(petind);
 	
 	repeat 5
@@ -20,12 +20,11 @@ if petind != obj_player1.petfollow
 	}
 }
 
-if obj_player1.character == "S"
-	xoffsetmax = 45;
-else if petind == 1 or petind == 7 // noiserat or grunt
-	xoffsetmax = 40; 
-else
-	xoffsetmax = 35;
+xoffsetmax = 35;
+if petind == 1 or petind == 3 // noiserat or grunt
+	xoffsetmax += 5;
+if obj_player.character == "S"
+	xoffsetmax += 10;
 
 if room == rank_room
 	visible = false;

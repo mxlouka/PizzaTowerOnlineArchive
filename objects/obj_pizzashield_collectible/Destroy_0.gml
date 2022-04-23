@@ -1,1 +1,2 @@
-ds_list_add(global.saveroom, id);
+ds_list_add(global.saveroom, ID);
+

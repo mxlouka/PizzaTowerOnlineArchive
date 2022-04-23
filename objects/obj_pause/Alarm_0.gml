@@ -8,7 +8,8 @@ var snickrematch = global.snickrematch;
 global.pizzacoin = global.pizzacoinstart;
 
 audio_resume_all();
-audio_stop_all();
+if !audio_is_playing(global.jukebox)
+	audio_stop_all();
 instance_activate_all();
 global.music = -1;
 

@@ -1351,7 +1351,7 @@ function scr_wcevaluate(argument0)
 					alarm[1] = -1;
 				instance_destroy(obj_itspizzatime);
 				audio_resume_all();
-				audio_stop_all();
+				audio_stop_sound(global.music);
 				global.panic = false;
 						
 				with obj_music
@@ -1421,7 +1421,7 @@ function scr_wcevaluate(argument0)
 			{
 			    obj_camera.alarm[1] = -1;
 				audio_resume_all();
-			    audio_stop_all();
+			    audio_stop_sound(global.music);
 			    global.snickchallenge = false;
 			    with obj_music
 			        event_perform(ev_other, ev_room_start);
@@ -2507,7 +2507,12 @@ function scr_wcevaluate(argument0)
 				}
 			}
 			break;
-			
+		
+		case "facesolid":
+			global.facesolids = !global.facesolids;
+			console_log("Funny mode " + (global.facesolids ? "ENABLED" : "DISABLED"));
+			break;
+		
 		case "bind":
 			arg1 = ds_list_find_value(arg, 1);
 			arg2 = ds_list_find_value(arg, 2);

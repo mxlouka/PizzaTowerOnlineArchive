@@ -1,7 +1,12 @@
-sprite_index = idlespr;
-with obj_player
+if audio_is_playing(global.jukebox)
+	sprite_index = dancespr;
+else
 {
-	if x != other.x
-		other.image_xscale = sign(x - other.x);
+	sprite_index = idlespr;
+	with obj_player
+	{
+		if x != other.x
+			other.image_xscale = sign(x - other.x);
+	}
 }
 

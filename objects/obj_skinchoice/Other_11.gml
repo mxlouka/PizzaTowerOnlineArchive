@@ -53,12 +53,10 @@ if obj_player1.state == states.normal
 		
 		with obj_music
 		{
-			if global.panic
-				audio_stop_sound(global.music);
 			fadeoff = 0;
 			event_perform(ev_other, ev_room_start);
 		}
-			
+		
 		if scr_checkskin(checkskin.p_antononly)
 			scr_soundeffect(sfx_antonball);
 		else

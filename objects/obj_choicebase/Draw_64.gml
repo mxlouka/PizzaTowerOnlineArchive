@@ -1,5 +1,3 @@
-if live_call() return live_result;
-
 // smooth
 function outback(arg0, arg1, arg2, arg3)
 {

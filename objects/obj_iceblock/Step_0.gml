@@ -1,16 +1,20 @@
-if place_meeting(x,y-1,obj_player1) && !place_meeting(x, y, obj_player1)
-with obj_player1
+var player = instance_place(x, y - 1, obj_player);
+if player
 {
-	if state != states.gameover
+	with player
 	{
-		if state == states.knightpep
-			state = states.knightpepslopes
-		else if state != states.knightpepslopes
+		if state != states.gameover
 		{
-			sprite_index = spr_slipnslide
-			state = states.slipnslide
+			if state == states.knightpep
+				state = states.knightpepslopes
+			else if state != states.knightpepslopes
+			{
+				sprite_index = spr_slipnslide
+				state = states.slipnslide
+			}
+			if movespeed < 12
+				movespeed = 12
 		}
-		if movespeed < 12
-			movespeed = 12
 	}
 }
+

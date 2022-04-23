@@ -3,14 +3,11 @@ if live_call() return live_result;
 #macro MAX_BLUR 0.66
 
 var drawshit = false;
+var ang = 0;
 if global.panic
 {
-	var ang = 0;
-	if global.panictilt
-	{
-		drawshit = true;
-		ang = (global.wave / global.maxwave) * 2.5;
-	}
+	if check_sugary()
+		camera_set_view_angle(view_camera[0], sin(current_time / 10000) * (global.wave / global.maxwave) * 2);
 	
 	//DDP Generate crazy motion blur effect
 	var appa = 1;
@@ -20,6 +17,8 @@ if global.panic
 		appa = max(lerp(1.0, 1.0 - MAX_BLUR, global.wave / global.maxwave), 0.01);
 	}
 }
+else
+	camera_set_view_angle(view_camera[0], 0);
 
 if drawshit
 {

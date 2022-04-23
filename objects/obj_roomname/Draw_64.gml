@@ -16,3 +16,4 @@ if !(instance_exists(obj_player) && obj_player.state == states.rotate)
 	draw_set_halign(fa_left);
 	draw_set_valign(fa_top);
 }
+

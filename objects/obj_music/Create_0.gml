@@ -12,3 +12,5 @@ lemusic = -1;
 
 secretfadeoff = 0;
 
+global.jukebox = -1;
+

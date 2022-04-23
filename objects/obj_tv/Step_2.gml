@@ -533,8 +533,13 @@ else
 			else if floor(image_index) >= image_number - 1
 				animset = tvsprite;
 			
+			// sugary spire exclusive tv sprites
 			if sugary && global.panic
 				sprite_index = spr_tv_escapeSP;
+			else if pchar == "SP" && tvsprite == spr_tv_idle && obj_player.angry
+				sprite_index = spr_tv_angrySP;
+			
+			// set tv sprite to the corresponding character
 			else if tvsprite != spr_tv_open && animset != spr_tv_open
 			{
 				if instance_exists(obj_player) && obj_player.character != "P"

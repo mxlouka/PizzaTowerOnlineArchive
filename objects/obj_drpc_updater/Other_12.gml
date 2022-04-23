@@ -13,10 +13,11 @@ if global.modifier != -1
 		case mods.pacifist:
 			modstate = "Pacifist MOD.";
 			break;
-		case mods.small_player:
-			modstate = "Tiny Pep MOD.";
+		case mods.hardmode:
+			modstate = "April Hardmode MOD.";
 			break;
 	}
 	if global.failedmod
 		modstate += " (failed)";
 }
+

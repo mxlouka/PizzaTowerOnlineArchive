@@ -1,5 +1,3 @@
-if live_call() return live_result;
-
 scr_getinput(true);
 if room == Realtitlescreen or room == characterselect
 {
@@ -84,3 +82,4 @@ if key_jump
 		event_user(1);
 	}
 }
+

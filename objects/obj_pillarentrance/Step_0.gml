@@ -2,6 +2,7 @@ if global.panic
 	sprite_index = spr_entrancepillarpanic
 
 // parallax
+/*
 if room != entrance_10 && scr_stylecheck(2)
 {
 	var camx = camera_get_view_x(view_camera[0]);
@@ -10,3 +11,5 @@ if room != entrance_10 && scr_stylecheck(2)
 	x = xstart + (camx * 0.05);
 	y = ystart + (camy * 0.05);
 }
+*/
+

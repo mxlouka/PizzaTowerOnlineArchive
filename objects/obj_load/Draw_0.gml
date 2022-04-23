@@ -28,6 +28,7 @@ switch loadwhat
 			load_tg("tg_palette");
 			load_tg("tg_hud");
 			load_tg("tg_danceroom");
+			load_tg("Default");
 			
 			loadwhat = 2;
 		}

@@ -2,7 +2,7 @@ player = other.object_index
 
 if start
 {
-	if stopmusic && !global.panic && !global.snickchallenge
+	if stopmusic && !global.panic && !global.snickchallenge && !audio_is_playing(global.jukebox)
 		audio_stop_sound(global.music);
 	
 	if player.state != states.backbreaker && player.state != states.gameover

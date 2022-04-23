@@ -1,9 +1,7 @@
 function scr_getmidi(mus)
 {
 	// placeholders
-	if mus == mu_antonpunchball
-		mus = mu_antonlevel_pc;
-	else if mus == mu_hub2
+	if mus == mu_hub2
 		mus = mu_characterselect_pc;
 	else if mus == mu_snickentrance or mus == mu_vigientrance
 		mus = mu_entrance_pc;
@@ -25,3 +23,4 @@ function scr_getmidi(mus)
 	}
 	return mus;
 }
+

@@ -64,7 +64,7 @@ function scr_player_normal()
 				else if global.minutes <= 0 && global.seconds <= 0
 				&& !instance_exists(obj_toppinwarrior)
 					sprite_index = spr_hurtwalk
-				else if angry && global.gameplay == 0
+				else if angry && global.gameplay != 1
 					sprite_index = spr_3hpwalk
 				else
 					sprite_index = spr_move
@@ -123,7 +123,7 @@ function scr_player_normal()
 										sprite_index = spr_hurtidle
 									else if global.panic or global.snickchallenge
 										sprite_index = spr_panic
-									else if angry && global.gameplay == 0
+									else if angry && global.gameplay != 1
 					                    sprite_index = spr_3hpidle
 									else
 										sprite_index = spr_idle
@@ -284,7 +284,9 @@ function scr_player_normal()
 			
 			stompAnim = false
 			vsp = -11
-		
+			if character == "SP" or character == "SN"
+				vsp = -12
+			
 			state = states.jump
 			jumpAnim = true
 			jumpstop = false

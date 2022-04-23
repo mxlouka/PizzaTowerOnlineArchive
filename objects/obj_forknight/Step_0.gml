@@ -14,21 +14,18 @@ switch (state)
 	case states.rage: scr_enemy_rage (); break;
 }
 
-if  state = states.stun && stunned > 100 && birdcreated = false
+if state == states.stun && stunned > 100 && !birdcreated
 {
-birdcreated = true
-with instance_create(x,y, obj_enemybird)
-ID = other.id
+	birdcreated = true
+	with instance_create(x, y, obj_enemybird)
+		ID = other.id
 }
 
 if state != states.stun
-birdcreated = false
-
-
+	birdcreated = false
 
 //Scared
 scr_scareenemy()
-
 
 //Flash
 if (flash == true && alarm[2] <= 0) {
@@ -93,3 +90,4 @@ if !boundbox
 		other.boundbox = true
 	}
 }
+

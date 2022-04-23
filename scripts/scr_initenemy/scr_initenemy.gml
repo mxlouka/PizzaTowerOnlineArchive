@@ -83,5 +83,7 @@ function scr_initenemy()
 	spr_palette = palette_cheeseslime;
 	paletteselect = 0;
 	
+	invtime = 0; // april build hitstun cooldown
+	
 	custom_death_fnc = -1;
 }

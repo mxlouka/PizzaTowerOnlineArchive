@@ -41,8 +41,11 @@ if global.miniboss
 		repeat(6) instance_create(x,y,obj_slapstar)
 		state = states.ejected
 		vsp = -10
-		audio_stop_all()
-		scr_soundeffect(mu_timesup)
+		if !audio_is_playing(global.jukebox)
+		{
+			audio_stop_all()
+			scr_soundeffect(mu_timesup)
+		}
 		instance_destroy(obj_noisebomb);
 	}
 	alarm[2] = -1

@@ -6,6 +6,8 @@ depth = -10000;
 alarm[0] = 235;
 
 // do the thing
+if global.jukebox != -1
+	audio_pause_sound(global.jukebox);
 endlevel();
 
 if scr_checkskin(checkskin.p_anton)

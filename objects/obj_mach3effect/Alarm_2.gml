@@ -5,3 +5,4 @@ if scr_stylecheck(2)
 }
 else
 	obj_mach3effect.image_alpha = 1;
+

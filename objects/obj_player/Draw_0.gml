@@ -27,8 +27,6 @@ if state != states.cheeseball && state != states.cotton
 			drawspr = spr_pufferfish_idle;
 	}
 }
-if (drawspr == spr_pufferfish_move or drawspr == spr_pufferfish_idle) && !debug
-	room_goto(room_of_dog);
 
 // flashing and apply palette
 if !flash

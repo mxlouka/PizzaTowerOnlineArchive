@@ -36,11 +36,17 @@ selarray = [
 	[obj_weeniesquire, "WEENIE SQUIRE", "HOG RIDER"],
 	[obj_thug_red, "SHRIMP THUG", "Stereotypical street criminal, for the chinese themed level."],
 	[obj_soldier, "PIZZA SOLDIER", "He's camping."],
-	[obj_gumslime, "GUMSLIME", "Totally useless. Cannon fodder."],
-	[obj_smurfknight, "SMOREKNIGHT", "Forknight! Now with diabetes."],
-	[obj_charcherry, "CHAR CHERRY", "Ch... cherry?! That's a walking fuckin' bomb!"],
-	[obj_cottonwitch, "COTTON WITCH", "Not only is it a food swap but a gender swap as well."],
 ]
+if sugaryspire
+{
+	array_push(selarray,
+		[obj_gumslime, "GUMSLIME", "Totally useless. Cannon fodder."],
+		[obj_smurfknight, "SMOREKNIGHT", "Forknight! Now with diabetes."],
+		[obj_charcherry, "CHAR CHERRY", "Ch... cherry?! That's a walking fuckin' bomb!"],
+		[obj_cottonwitch, "COTTON WITCH", "Not only is it a food swap but a gender swap as well."]
+	);
+}
+
 spr_idle = -1;
 
 sel[0] = 0;

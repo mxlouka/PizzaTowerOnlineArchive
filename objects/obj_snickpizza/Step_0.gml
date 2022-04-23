@@ -8,3 +8,6 @@ if visible
 	x = floor(xstart + (camx * 0.025));
 	y = floor(ystart + (camy * 0.025));
 }
+if global.panic
+	sprite_index = spr_snickpizzapanic;
+

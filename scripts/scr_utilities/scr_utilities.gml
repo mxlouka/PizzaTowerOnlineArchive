@@ -64,10 +64,15 @@ function loyencode(str) {
 }
 
 /// game specific
-function check_sugary() {
-	return room == hub_roomSP
-	or string_startswith(room_get_name(room), "cotton_")
-	or string_startswith(room_get_name(room), "jawbreaker_");
+function check_sugary(rmin = room)
+{
+	if rmin == room && !sugaryspire
+		return false;
+	
+	return rmin == hub_roomSP
+	or string_startswith(room_get_name(rmin), "cotton_")
+	or string_startswith(room_get_name(rmin), "jawbreaker_")
+	or string_startswith(room_get_name(rmin), "entryway_")
 }
 
 function gp_vibration(left, right, dec)
@@ -93,25 +98,29 @@ function increase_combo()
 	
 	if global.gameplay != 0 && funny
 	{
-		global.combo += 1
+		global.combo += 1;
 		global.combotime = 60;
 		global.heattime = 60;
-		global.style += 5 + global.combo;
 		
-		with obj_player1
+		if obj_player.state == states.mach3
+			global.style += 10 + global.combo;
+		else
+			global.style += 5 + global.combo;
+		
+		with obj_player
 			if supercharge < 10 then supercharge++;
 	}
 	else
 		global.combotime = 60;
 }
 
-function scr_hitthrow(baddie, player, lag = 4)
+function scr_hitthrow(baddie, player, lag = 5)
 {
 	with baddie
 	{
 		if state != states.hit
 		{
-			if stuntouchbuffer <= 0
+			if invtime <= 0
 				increase_combo();
 			
 			repeat 3
@@ -119,7 +128,8 @@ function scr_hitthrow(baddie, player, lag = 4)
 				create_particle(x, y, particles.baddiegibs)
 				instance_create(x, y, obj_slapstar)
 			}
-			instance_create(x, y, obj_bangeffect)
+			instance_create(x, y, obj_parryeffect)
+			alarm[3] = 3;
 			
 			hp -= 1;
 			thrown = true;

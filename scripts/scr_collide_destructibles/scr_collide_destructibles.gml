@@ -88,7 +88,7 @@ function scr_collide_destructibles()
 		}
 
 		// Destroy from over
-		if (state == states.knightpep or state == states.superslam or state == states.hookshot or (state == states.cotton && sprite_index == spr_cotton_drill)) && vsp > 0
+		if (state == states.knightpep or state == states.superslam or state == states.hookshot or (state == states.cotton && sprite_index == spr_cotton_drill)) && vsp >= 0
 		{
 			with instance_place(x, y + 1, obj_destructibles)
 			{

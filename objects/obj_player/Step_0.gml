@@ -147,7 +147,7 @@ switch state
 	case states.frozen: scr_player_frozen (); break;
 	case states.spindash: scr_player_spindash (); break;
 	case states.golf: scr_player_golf (); break;
-	case states.cotton: scr_player_cotton (); break;
+	case states.cotton: if sugaryspire scr_player_cotton (); break;
 }
 global.coop = false;
 
@@ -213,7 +213,7 @@ if pizzapepper > 0
 		anger = 0;
 	}
 }
-if global.gameplay != 0
+if global.gameplay == 1
 {
 	angry = false;
 	anger = 0;
@@ -465,11 +465,11 @@ if grinding
 //Angry
 if anger > 0
 {
-	angry = true
-	anger -= 1
+	angry = true;
+	anger -= 1;
 }
 else
-	angry = false
+	angry = false;
 
 // Stop winding up
 if sprite_index == spr_winding && state != states.normal 
@@ -657,10 +657,8 @@ or (state == states.cotton && (sprite_index == spr_cotton_run or sprite_index ==
 	{
 		with instance_create(x, y, obj_mach3effect)
 		{
-			playerid = other.object_index
+			playerid = other.id
 			image_index = other.image_index
-			if scr_checkskin(checkskin.n_nose)
-				image_index = 0;
 			image_xscale = other.xscale
 			sprite_index = other.drawspr
 			image_angle = other.img_angle
@@ -673,7 +671,7 @@ else
 	macheffect = false;
 	with obj_mach3effect
 	{
-		if !check_bysync() && !sync && !keep
+		if !keep && playerid == other.id
 			instance_destroy();
 	}
 }

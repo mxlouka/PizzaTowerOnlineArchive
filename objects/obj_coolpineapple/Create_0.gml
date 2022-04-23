@@ -14,6 +14,10 @@ parryspr = spr_coolpinea_parry
 taunteffect_inst = noone
 trail_count = 0
 trail_max = 10
+index = 0
+breakdance = 0
+breakdance_movespeed = 0
+breakdanceinst = noone
 
 grav = 0.5;
 hsp = 0;

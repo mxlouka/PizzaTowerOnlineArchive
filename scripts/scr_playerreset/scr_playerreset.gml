@@ -106,6 +106,9 @@ function scr_playerreset()
 	
 	with obj_tv
 	{
+		message = "";
+		showtext = false;
+		
 		shownranks = false
 		shownranka = false
 		shownrankb = false

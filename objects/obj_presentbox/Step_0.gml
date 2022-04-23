@@ -19,11 +19,6 @@ switch global.boxhp
 		outtimespd = 100;
 		break;
 	
-	default:
-		getoutspd = 80;
-		outtimespd = 80;
-		break;
-	
 	case 1:
 		getoutspd = 5
 		outtimespd = 5
@@ -33,6 +28,11 @@ switch global.boxhp
 		instance_destroy(obj_presentbox);
 		exit;
 		break; // idk if this matters
+	
+	default:
+		getoutspd = 80;
+		outtimespd = 80;
+		break;
 }
 
 // Characters
@@ -104,9 +104,9 @@ with instance_place(x, y, obj_player)
 if sprite_index == spr_present
 {
 	getout -= 1;
-	if getout <= 0 && (character == 0 or global.boxhp < 14)
+	if getout <= 0 && ((character == 0 or global.boxhp < 14)
 	or (global.boxhp < 18 && character == 1) or (global.boxhp < 17 && character == 2) 
-	or (global.boxhp < 16 && character == 3) or (global.boxhp < 15 && character == 4)
+	or (global.boxhp < 16 && character == 3) or (global.boxhp < 15 && character == 4))
 	{
 		image_index = 0;
 		sprite_index = upspr;

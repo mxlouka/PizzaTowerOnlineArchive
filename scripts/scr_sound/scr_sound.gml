@@ -15,3 +15,4 @@ function scr_sound(mus, loop = true)
 		audio_sound_gain(global.music, global.musicvolume, 0);
 	return global.music;
 }
+

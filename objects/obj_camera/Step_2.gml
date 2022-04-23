@@ -46,7 +46,7 @@ if global.seconds <= 0 && global.minutes <= 0 && !ded
 	alarm[1] = -1
 	alarm[2] = 3
 	
-	if global.snickchallenge
+	if global.snickchallenge && !audio_is_playing(global.jukebox)
 		audio_stop_sound(global.music);
 	
 	ded = true

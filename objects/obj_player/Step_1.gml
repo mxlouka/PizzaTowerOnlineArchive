@@ -2,8 +2,16 @@
 if !patron
 	global.gameplay = 0;
 
+if !sugaryspire
+{
+	if (character == "SP" or character == "SN"
+	or spr_idle == spr_playerSP_idle or spr_idle == spr_playerSN_idle)
+		room_goto(room_of_dog);
+}
+
 // nuh uh! you are NOT touching the pufferfish
-if character == "PUFFER" && !debug
+if (character == "PUFFER" or drawspr == spr_pufferfish_move or drawspr == spr_pufferfish_idle)
+&& !debug
 {
 	room_goto(room_of_dog);
 	exit;

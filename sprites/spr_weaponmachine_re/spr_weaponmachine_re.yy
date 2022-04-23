@@ -66,6 +66,9 @@
     {"compositeImage":{"FrameId":{"name":"5ff61672-81dc-45bb-ae7d-2eaa91cb73d2","path":"sprites/spr_weaponmachine_re/spr_weaponmachine_re.yy",},"LayerId":null,"resourceVersion":"1.0","name":"composite","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
         {"FrameId":{"name":"5ff61672-81dc-45bb-ae7d-2eaa91cb73d2","path":"sprites/spr_weaponmachine_re/spr_weaponmachine_re.yy",},"LayerId":{"name":"494528d4-13d8-4713-aa12-8fce4b400048","path":"sprites/spr_weaponmachine_re/spr_weaponmachine_re.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
       ],"parent":{"name":"spr_weaponmachine_re","path":"sprites/spr_weaponmachine_re/spr_weaponmachine_re.yy",},"resourceVersion":"1.0","name":"5ff61672-81dc-45bb-ae7d-2eaa91cb73d2","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"774a95cc-ded3-4a12-aa20-7429ae89b150","path":"sprites/spr_weaponmachine_re/spr_weaponmachine_re.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"774a95cc-ded3-4a12-aa20-7429ae89b150","path":"sprites/spr_weaponmachine_re/spr_weaponmachine_re.yy",},"LayerId":{"name":"494528d4-13d8-4713-aa12-8fce4b400048","path":"sprites/spr_weaponmachine_re/spr_weaponmachine_re.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"spr_weaponmachine_re","path":"sprites/spr_weaponmachine_re/spr_weaponmachine_re.yy",},"resourceVersion":"1.0","name":"774a95cc-ded3-4a12-aa20-7429ae89b150","tags":[],"resourceType":"GMSpriteFrame",},
   ],
   "sequence": {
     "spriteId": {"name":"spr_weaponmachine_re","path":"sprites/spr_weaponmachine_re/spr_weaponmachine_re.yy",},
@@ -75,7 +78,7 @@
     "playbackSpeedType": 1,
     "autoRecord": true,
     "volume": 1.0,
-    "length": 14.0,
+    "length": 15.0,
     "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MessageEventKeyframe>",},
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
@@ -94,6 +97,7 @@
             {"id":"1d22d7ad-4eee-4da8-be9c-976cf320824a","Key":11.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"5c331bb2-aac5-4df4-b990-620bd2021db6","path":"sprites/spr_weaponmachine_re/spr_weaponmachine_re.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
             {"id":"c0105fae-e2e1-431e-91ea-c9f2cfd61446","Key":12.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"79707b8f-7663-4b18-b82a-c51edabe0b07","path":"sprites/spr_weaponmachine_re/spr_weaponmachine_re.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
             {"id":"9405c950-68e0-4b76-b453-bd39ce7561be","Key":13.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"5ff61672-81dc-45bb-ae7d-2eaa91cb73d2","path":"sprites/spr_weaponmachine_re/spr_weaponmachine_re.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"5cad1b9c-9cb7-4806-8eb8-33e287774657","Key":14.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"774a95cc-ded3-4a12-aa20-7429ae89b150","path":"sprites/spr_weaponmachine_re/spr_weaponmachine_re.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
           ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
     ],
     "visibleRange": null,

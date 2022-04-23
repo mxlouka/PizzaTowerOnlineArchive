@@ -9,3 +9,4 @@ alarm[1] = 10
 
 if check_sugary()
 	sprite_index = spr_coneball;
+

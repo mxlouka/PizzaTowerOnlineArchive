@@ -3,8 +3,6 @@ var _spr_intro = spr_intro, _spr_idle = spr_idle, _spr_run = spr_run;
 // strongcold sprites
 if sc_check()
 {
-	yoffset = 2;
-	
 	_spr_intro = spr_intro_strongcold;
 	_spr_idle = spr_idle_strongcold;
 	_spr_run = spr_run_strongcold;

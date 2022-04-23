@@ -1,5 +1,7 @@
 if global.musicvolume <= 0
 	exit;
+if audio_is_playing(global.jukebox)
+	exit;
 
 // music pitch depending on player state
 if !scr_stylecheck(0, 2)

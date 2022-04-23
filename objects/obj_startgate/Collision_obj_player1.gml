@@ -8,7 +8,7 @@ with player
 		if (!scr_checkskin(checkskin.p_anton)
 		or (other.level == "snickchallenge" or other.level == "snickrematch" or other.level == "grinch")
 		or room == hub_roomPLN)
-		&& !global.panic
+		&& !global.panic && !audio_is_playing(global.jukebox)
 			audio_stop_sound(global.music);
 		
 		backtohubstartx = other.x

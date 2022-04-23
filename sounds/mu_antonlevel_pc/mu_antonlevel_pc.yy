@@ -17,8 +17,8 @@
   "soundFile": "mu_antonlevel_pc.wav",
   "duration": 57.6,
   "parent": {
-    "name": "pizza castle",
-    "path": "folders/Sounds/pto extra/pizza castle.yy",
+    "name": "antonball",
+    "path": "folders/Sounds/pto extra/pizza castle/antonball.yy",
   },
   "resourceVersion": "1.0",
   "name": "mu_antonlevel_pc",

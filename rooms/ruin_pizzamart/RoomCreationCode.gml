@@ -1,2 +1,3 @@
+global.roommessage = "THE ANCIENT SHOP";
+setup_pizzamart();
 
-global.roommessage = "THE ANCIENT SHOP"

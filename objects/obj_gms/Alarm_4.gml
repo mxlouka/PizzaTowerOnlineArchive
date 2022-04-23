@@ -14,3 +14,4 @@ audio_stop_all();
 room_goto(Realtitlescreen);
 global.logged = false;
 instance_destroy();
+

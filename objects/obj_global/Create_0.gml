@@ -5,7 +5,7 @@ enum mods
 {
 	pacifist,
 	no_toppings,
-	small_player
+	hardmode,
 }
 global.modifier = -1;
 global.toppings = 0;
@@ -14,4 +14,9 @@ global.failedmod = false;
 toppingsprite = -1;
 topimg = 0;
 tabarrier = inst_4FF95D36;
+
+secretpasscode = "";
+secretpasscodeinput = sugaryspire;
+
+global.facesolids = false;
 

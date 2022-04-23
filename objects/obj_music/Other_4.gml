@@ -12,6 +12,9 @@ if global.musicvolume <= 0
 	exit;
 }
 
+if audio_is_playing(global.jukebox)
+	exit;
+
 roomname = room_get_name(room)
 if string_endswith(roomname, "_NEW")
 	roomname = string_replace(roomname, "_NEW", "");
@@ -70,7 +73,7 @@ else if (!global.panic or string_letters(roomname) == "dragonlair" or string_let
 		musplay = mu_hub2
 	if string_startswith(roomname, "hub_arcade")
 		musplay = mu_hubarcade
-	if string_startswith(roomname, "hub_roomSP")
+	if string_startswith(roomname, "hub_roomSP") && sugaryspire
 		musplay = mu_sugarytitle
 	if string_startswith(roomname, "rm_test")
 		musplay = mu_mall
@@ -101,7 +104,8 @@ else if (!global.panic or string_letters(roomname) == "dragonlair" or string_let
 		musplay = mu_tutorial
 	}
 	
-	if string_letters(roomname) == "entrance" 
+	if string_letters(roomname) == "entrance"
+	or (string_letters(roomname) == "waffle" && sugaryspire)
 	{
 		if obj_player1.character == "N"
 			musplay = mu_noiseentrance
@@ -235,19 +239,22 @@ else if (!global.panic or string_letters(roomname) == "dragonlair" or string_let
 			musplay = mu_war
 	}
 	
-	if string_letters(roomname) == "cotton" // little tranngus
-    {
-        for (i = 0; i < 20; i++)
-        {
-            if roomname == "cotton_" + string(i) && i < 7
-				musplay = mu_cotton
-            else if roomname == "cotton_" + string(i) && i >= 7
-				musplay = mu_cotton2
-        }
-    }
-	if string_letters(roomname) == "jawbreaker"
-		musplay = mu_jawbreaker
-
+	if sugaryspire
+	{
+		if string_letters(roomname) == "cotton"
+	    {
+	        for (i = 0; i < 20; i++)
+	        {
+	            if roomname == "cotton_" + string(i) && i < 8
+					musplay = mu_cotton
+	            else if roomname == "cotton_" + string(i) && i >= 8
+					musplay = mu_cotton2
+	        }
+	    }
+		if string_letters(roomname) == "jawbreaker"
+			musplay = mu_jawbreaker
+	}
+	
 	//desert
 	if string_startswith(roomname, "floor1_room")
 	or string_startswith(roomname, "floor1_mart")

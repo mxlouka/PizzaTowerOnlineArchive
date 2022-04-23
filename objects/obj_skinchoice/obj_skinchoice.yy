@@ -31,8 +31,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "pto stuff",
-    "path": "folders/Objects/pto stuff.yy",
+    "name": "skin changer",
+    "path": "folders/Objects/pto stuff/skin changer.yy",
   },
   "resourceVersion": "1.0",
   "name": "obj_skinchoice",

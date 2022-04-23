@@ -6,8 +6,8 @@ with all
 	if variable_instance_exists(id, "__l_e_")
 		instance_destroy(id, false);
 }
-
-audio_stop_sound(global.music);
+if !audio_is_playing(global.jukebox)
+	audio_stop_sound(global.music);
 
 var loads = scr_loadlevel(obj_onlinemenu.level_string);
 if loads <= 0 && (!debug or loads == -4)

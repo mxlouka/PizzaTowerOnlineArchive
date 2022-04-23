@@ -5,3 +5,4 @@ if instance_exists(parent)
 }
 else
 	instance_destroy();
+

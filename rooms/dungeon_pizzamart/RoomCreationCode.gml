@@ -1,2 +1,3 @@
+global.roommessage = "SHOP OF HELL";
+setup_pizzamart();
 
-global.roommessage = "SHOP OF HELL"

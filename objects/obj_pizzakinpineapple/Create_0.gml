@@ -6,6 +6,12 @@ if global.gameplay == 0
 	spr_run = spr_toppinpineapple_run;
 	spr_panic = spr_toppinpineapple_panic;
 	spr_panicidle = spr_toppinpineapple_panicidle;
+	
+	spr_intro_strongcold = spr_xmaspineappletoppin_intro;
+	spr_idle_strongcold = spr_xmaspineappletoppin_idle;
+	spr_run_strongcold = spr_xmaspineappletoppin_walk;
+	spr_panic_strongcold = spr_xmaspineappletoppin_panic;
+	spr_panicidle_strongcold = spr_xmaspineappletoppin_panicidle;
 }
 else
 {
@@ -14,10 +20,12 @@ else
 	spr_run = spr_toppinpineapple_run_NEW;
 	spr_panic = spr_toppinpineapple_run_NEW;
 	spr_panicidle = spr_toppinpineapple_panic_NEW;
+	
+	spr_intro_strongcold = spr_xmastoppinpineapple_intro_NEW;
+	spr_idle_strongcold = spr_xmastoppinpineapple_NEW;
+	spr_run_strongcold = spr_xmastoppinpineapple_run_NEW;
+	spr_panic_strongcold = spr_xmastoppinpineapple_run_NEW;
+	spr_panicidle_strongcold = spr_xmastoppinpineapple_panic_NEW;
+	
 	yoffset = 0;
 }
-spr_intro_strongcold = spr_xmaspineappletoppin_intro;
-spr_idle_strongcold = spr_xmaspineappletoppin_idle;
-spr_run_strongcold = spr_xmaspineappletoppin_walk;
-spr_panic_strongcold = spr_xmaspineappletoppin_panic;
-spr_panicidle_strongcold = spr_xmaspineappletoppin_panicidle;

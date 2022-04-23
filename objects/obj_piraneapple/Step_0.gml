@@ -8,7 +8,7 @@ if grounded && vsp > 0
 	vsp = -5
 
 //Turn off wall
-if scr_solid(x+hsp,y)
+if scr_solid(x + hsp, y) or place_meeting(x + hsp, y, obj_hallway)
 {
 	image_xscale *= -1
 	movespeed = 2

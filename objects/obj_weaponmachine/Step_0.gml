@@ -12,3 +12,6 @@ if place_meeting(x, y + 8, obj_player1) && obj_player1.vsp < 0 && scr_getcoin() 
 }
 if price != 4
 	sprite_index = spr_weaponmachine_re;
+if image_index >= 10
+	mask_index = spr_null;
+

@@ -132,9 +132,8 @@ if menu == 2
 	var ybase = 32 + camy;
 	var cursory = 32 + 8 + (16 * optionselected)
 		+ ((optionselected > 1) * 16)
-		+ ((optionselected > 5) * 16)
-		+ ((optionselected > 7) * 16)
-		+ ((optionselected > 11) * 16);
+		+ ((optionselected > 6) * 16)
+		+ ((optionselected > 10) * 16);
 	
 	draw_sprite(spr_cursor, img * .3, 32, cursory + camy);
 	camy = lerp(camy, min(-cursory + camera_get_view_height(view_camera[0]) / 2, 0), 0.1);
@@ -146,20 +145,18 @@ if menu == 2
 	draw_text_colour(72, ybase + (16 * 4), lang_string("options.other.blur"), c_white, c_white, c_white, c_white, (optionselected == 3 ? 1 : 0.5));
 	draw_text_colour(72, ybase + (16 * 5), lang_string("options.other.shaky"), c_white, c_white, c_white, c_white, (optionselected == 4 ? 1 : 0.5));
 	draw_text_colour(72, ybase + (16 * 6), lang_string("options.other.panicbg"), c_white, c_white, c_white, c_white, (optionselected == 5 ? 1 : 0.5));
+	draw_text_colour(72, ybase + (16 * 7), lang_string("options.other.demo3"), c_white, c_white, c_white, c_white, (optionselected == 6 ? 1 : 0.5));
 	
-	draw_text_colour(72, ybase + (16 * 8), lang_string("options.other.afterimage"), c_white, c_white, c_white, c_white, (optionselected == 6 ? 1 : 0.5));
-	draw_text_colour(72, ybase + (16 * 9), lang_string("options.other.demo3"), c_white, c_white, c_white, c_white, (optionselected == 7 ? 1 : 0.5));
+	draw_text_colour(72, ybase + (16 * 9), lang_string("options.other.playernames"), c_white, c_white, c_white, c_white, (optionselected == 7 ? 1 : 0.5));
+	draw_text_colour(72, ybase + (16 * 10), lang_string("options.other.chatbubbles"), c_white, c_white, c_white, c_white, (optionselected == 8 ? 1 : 0.5));
+	draw_text_colour(72, ybase + (16 * 11), lang_string("options.other.synceffects"), c_white, c_white, c_white, c_white, (optionselected == 9 ? 1 : 0.5));
+	draw_text_colour(72, ybase + (16 * 12), lang_string("options.other.fuckoffptd"), c_white, c_white, c_white, c_white, (optionselected == 10 ? 1 : 0.5));
+	//draw_text_colour(72, ybase + (16 * 15), lang_string("options.other.onlinepvp"), c_white, c_white, c_white, c_white, (optionselected == 11 ? 1 : 0.5));
 	
-	draw_text_colour(72, ybase + (16 * 11), lang_string("options.other.playernames"), c_white, c_white, c_white, c_white, (optionselected == 8 ? 1 : 0.5));
-	draw_text_colour(72, ybase + (16 * 12), lang_string("options.other.chatbubbles"), c_white, c_white, c_white, c_white, (optionselected == 9 ? 1 : 0.5));
-	draw_text_colour(72, ybase + (16 * 13), lang_string("options.other.synceffects"), c_white, c_white, c_white, c_white, (optionselected == 10 ? 1 : 0.5));
-	draw_text_colour(72, ybase + (16 * 14), lang_string("options.other.fuckoffptd"), c_white, c_white, c_white, c_white, (optionselected == 11 ? 1 : 0.5));
-	//draw_text_colour(72, ybase + (16 * 15), lang_string("options.other.onlinepvp"), c_white, c_white, c_white, c_white, (optionselected == 12 ? 1 : 0.5));
-	
-	draw_text_colour(72, ybase + (16 * 16), lang_string("options.other.drpc"), c_white, c_white, c_white, c_white, (optionselected == 12 ? 1 : 0.5));
-	draw_text_colour(72, ybase + (16 * 17), lang_string("options.other.fpscount"), c_white, c_white, c_white, c_white, (optionselected == 13 ? 1 : 0.5));
-	draw_text_colour(72, ybase + (16 * 18), lang_string("options.other.camsmooth"), c_white, c_white, c_white, c_white, (optionselected == 14 ? 1 : 0.5));
-	draw_text_colour(72, ybase + (16 * 19), lang_string("options.other.inputdisplay"), c_white, c_white, c_white, c_white, (optionselected == 15 ? 1 : 0.5));
+	draw_text_colour(72, ybase + (16 * 14), lang_string("options.other.drpc"), c_white, c_white, c_white, c_white, (optionselected == 11 ? 1 : 0.5));
+	draw_text_colour(72, ybase + (16 * 15), lang_string("options.other.fpscount"), c_white, c_white, c_white, c_white, (optionselected == 12 ? 1 : 0.5));
+	draw_text_colour(72, ybase + (16 * 16), lang_string("options.other.camsmooth"), c_white, c_white, c_white, c_white, (optionselected == 13 ? 1 : 0.5));
+	draw_text_colour(72, ybase + (16 * 17), lang_string("options.other.inputdisplay"), c_white, c_white, c_white, c_white, (optionselected == 14 ? 1 : 0.5));
 	
 	switch optionselected
 	{
@@ -481,58 +478,9 @@ if menu == 2
 			break;
 		
 		#endregion
-		
-		#region surface afterimages
-		
-		case 6:
-			if !variable_instance_exists(id, "alm")
-			{
-				alm = 0;
-				vis = true;
-			}
-			
-			draw_set_colour(global.surfacemach ? merge_colour(c_lime, c_white, 0.5) : c_white);
-			draw_set_font(global.bigfont);
-			draw_set_halign(fa_center);
-			draw_text(640 + random_range(-1, 1), 64, lang_string("options.other.afterimage.title"));
-			
-			draw_set_font(global.font_small);
-			draw_set_colour(c_ltgray);
-			draw_text(640, 96, lang_string("options.other.afterimage.desc"));
-			
-			spr = spr_player_mach;
-			alm--;
-			if alm <= 0
-			{
-				img2 = (img * 0.2) - 1;
-				alm += 3;
-				vis = !vis;
-				image_blend = choose(make_colour_rgb(96, 208, 72), make_colour_rgb(248, 0, 0));
-				
-				if img2 % 1 == 0
-					trans += 0.01;
-				if trans >= pal_swap_get_pal_count(spr_peppalette) / 100
-					trans = 0;
-			}
-			
-			if global.surfacemach && vis
-			{
-				pal_swap_set(spr_peppalette, trans * 100, false);
-				draw_sprite_ext(spr_player_mach, img2, 660 - 75, 280, 2, 2, 0, image_blend, 1);
-				pal_swap_reset();
-			}
-			else if vis
-				draw_sprite_ext(spr_player_mach, img2, 660 - 75, 280, 2, 2, 0, image_blend, 1);
-			
-			pal_swap_set(spr_peppalette, trans * 100, false);
-			draw_sprite_ext(spr_player_mach, img * 0.2, 660, 280, 2, 2, 0, c_white, 1);
-			pal_swap_reset();
-			break;
-		
-		#endregion
 		#region secret debris
 		
-		case 7:
+		case 6:
 			draw_set_colour(global.secretdebris ? merge_colour(c_lime, c_white, 0.5) : c_white);
 			draw_set_font(global.bigfont);
 			draw_set_halign(fa_center);
@@ -589,7 +537,7 @@ if menu == 2
 		
 		#region show names
 		
-		case 8:
+		case 7:
 			draw_set_colour(global.shownames ? merge_colour(c_lime, c_white, 0.5) : c_white);
 			draw_set_font(global.bigfont);
 			draw_set_halign(fa_center);
@@ -615,7 +563,7 @@ if menu == 2
 		#endregion
 		#region chat bubbles
 		
-		case 9:
+		case 8:
 			draw_set_colour(global.chatbubbles ? merge_colour(c_lime, c_white, 0.5) : c_white);
 			draw_set_font(global.bigfont);
 			draw_set_halign(fa_center);
@@ -665,7 +613,7 @@ if menu == 2
 		#region pvp
 		
 		/*
-		case 10:
+		case 9:
 			draw_set_colour(global.pvp ? merge_colour(c_lime, c_white, 0.5) : c_white);
 			draw_set_font(global.bigfont);
 			draw_set_halign(fa_center);
@@ -686,7 +634,7 @@ if menu == 2
 		#endregion
 		#region sync effects
 		
-		case 10:
+		case 9:
 			draw_set_colour(global.synceffect ? merge_colour(c_lime, c_white, 0.5) : c_white);
 			draw_set_font(global.bigfont);
 			draw_set_halign(fa_center);
@@ -714,7 +662,7 @@ if menu == 2
 		#endregion
 		#region streamer mode
 		
-		case 11:
+		case 10:
 			draw_set_colour(global.streamer ? merge_colour(c_lime, c_white, 0.5) : c_white);
 			draw_set_font(global.bigfont);
 			draw_set_halign(fa_center);
@@ -746,7 +694,7 @@ if menu == 2
 		
 		#region rich presence
 		
-		case 12:
+		case 11:
 			draw_set_colour(global.richpresence ? merge_colour(c_lime, c_white, 0.5) : c_white);
 			draw_set_font(global.bigfont);
 			draw_set_halign(fa_center);
@@ -787,7 +735,7 @@ if menu == 2
 		#endregion
 		#region fps
 		
-		case 13:
+		case 12:
 			draw_set_colour(global.showfps ? merge_colour(c_lime, c_white, 0.5) : c_white);
 			draw_set_font(global.bigfont);
 			draw_set_halign(fa_center);
@@ -808,7 +756,7 @@ if menu == 2
 		#endregion
 		#region camera smoothing
 		
-		case 14:
+		case 13:
 			draw_set_colour(global.camerasmoothing ? merge_colour(c_lime, c_white, 0.5) : c_white);
 			draw_set_font(global.bigfont);
 			draw_set_halign(fa_center);
@@ -834,7 +782,7 @@ if menu == 2
 		#endregion
 		#region input display
 		
-		case 15:
+		case 14:
 			draw_set_colour(global.inputdisplay ? merge_colour(c_lime, c_white, 0.5) : c_white);
 			draw_set_font(global.bigfont);
 			draw_set_halign(fa_center);

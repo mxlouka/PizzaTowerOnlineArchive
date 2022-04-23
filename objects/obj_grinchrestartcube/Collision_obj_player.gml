@@ -1,6 +1,7 @@
 if !instance_exists(obj_fadeout) && other.state != states.gameover && !other.cutscene && !other.godmode
 {
-	audio_stop_all();
+	if !audio_is_playing(global.jukebox)
+		audio_stop_all();
 	
 	scr_playerreset();
 	with obj_player1
@@ -11,3 +12,4 @@ if !instance_exists(obj_fadeout) && other.state != states.gameover && !other.cut
 	}
 	room_goto(grinch_1);
 }
+

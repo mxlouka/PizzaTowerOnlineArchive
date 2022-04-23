@@ -13,16 +13,16 @@ switch (state)
 	case states.rage: scr_enemy_rage (); break;
     // grabbed state here
 }
-if  state = states.stun && stunned > 100 && birdcreated = false
+
+if state == states.stun && stunned > 100 && !birdcreated
 {
-birdcreated = true
-with instance_create(x,y, obj_enemybird)
-ID = other.id
+	birdcreated = true
+	with instance_create(x,y, obj_enemybird)
+		ID = other.id
 }
 
 if state != states.stun
-birdcreated = false
-
+	birdcreated = false
 
 if state == states.walk && y != ystart && !scr_solid(x, y)
 {
@@ -40,9 +40,6 @@ if state == states.stun
 	grav = 0.5
 else 
 	grav = 0
-
-
-
 
 //Flash
 if (flash == true && alarm[2] <= 0) {
@@ -85,6 +82,7 @@ if global.gameplay != 0
 	treshy = 60;
 }
 
+// heat meter rage
 if ((targetplayer.x > x - treshx) && (targetplayer.x < x + treshx)) && (y <= targetplayer.y + treshy && y >= targetplayer.y - treshy)
 {
 	if state != states.rage && ragebuffer <= 0 && global.stylethreshold >= 3
@@ -119,38 +117,21 @@ if ((targetplayer.x > x - treshx) && (targetplayer.x < x + treshx)) && (y <= tar
 	}
 }
 
-
-//Taunt attack
-/*
-if targetplayer.sprite_index =  targetplayer.spr_taunt && state != states.charge
-if ((targetplayer.x > x - 200) && (targetplayer.x < x + 200)) && (y <= targetplayer.y+50 && y >= targetplayer.y- 50)
-{
-bombreset = 0
-if state == states.stun
-state = states.walk
-stunned = 0
-}
-*/
-
 if state == states.stun or state == states.walk
-{
-movespeed = 0
-}
-
-
+	movespeed = 0
 
 if state != states.stun
-thrown= false
+	thrown = false
 
-if boundbox = false
+if !boundbox
 {
-with instance_create(x,y,obj_baddiecollisionbox)
-{
-sprite_index = spr_ancho
-mask_index = other.sprite_index
-baddieID = other.id
-other.boundbox = true
-}
+	with instance_create(x,y,obj_baddiecollisionbox)
+	{
+		sprite_index = spr_ancho
+		mask_index = other.sprite_index
+		baddieID = other.id
+		other.boundbox = true
+	}
 }
 
 

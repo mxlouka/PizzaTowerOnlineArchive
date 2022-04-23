@@ -112,8 +112,9 @@ function scr_levelname()
 }
 
 function endlevel()
-{	
-	audio_stop_sound(global.music)
+{
+	if !audio_is_playing(global.jukebox)
+		audio_stop_sound(global.music)
 	if global.timeattack with obj_timeattack
 		stop = true;
 

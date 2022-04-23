@@ -15,7 +15,7 @@
     "path": "audiogroups/audiogroup_default",
   },
   "soundFile": "mu_pizzyescape_pc.ogg",
-  "duration": 228.737259,
+  "duration": 256.8031,
   "parent": {
     "name": "PIZZA CASTLE",
     "path": "folders/Sounds/PIZZA CASTLE.yy",

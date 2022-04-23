@@ -275,3 +275,27 @@ function game_is_compiled()
 	return 1 - sign(string_pos("Runner.exe", parameter_string(0)));
 }
 
+function setup_pizzamart()
+{
+	if obj_player.character == "S" or obj_player.character == "V" or scr_stylecheck(2)
+	{
+		// shields
+		with instance_create(264, 328, obj_pizzashield_collectible)
+			ID = "martshotgun1";
+		with instance_create(265, 333, obj_weaponmachine)
+		{
+			ID = "martmachine1";
+			if global.snickrematch
+				price = 8;
+		}
+	}
+	else
+	{
+		// shotguns
+		with instance_create(224, 320, obj_shotgun)
+			ID = "martshotgun1";
+		with instance_create(265, 333, obj_weaponmachine)
+			ID = "martmachine1";
+	}
+}
+

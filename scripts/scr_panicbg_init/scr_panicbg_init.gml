@@ -1,4 +1,4 @@
-function scr_panicbg_init()
+function scr_panicbg_init(stop = false)
 {
 	// Initialize wavy panic background whenever timer starts or room changes
 	if !check_shaders()
@@ -24,7 +24,7 @@ function scr_panicbg_init()
 	// Change to panic shader on top layer, reset on bottom layer
 	var bottom_id = layer_get_id(layers[layernum - 1])
 	var top_id = layer_get_id(layers[0])
-	layer_script_begin(bottom_id, scr_panicbg_start)
-	layer_script_end(top_id, scr_panicbg_end)
+	layer_script_begin(bottom_id, stop ? -1 : scr_panicbg_start)
+	layer_script_end(top_id, stop ? -1 : scr_panicbg_end)
 }
 

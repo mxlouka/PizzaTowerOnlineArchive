@@ -3,7 +3,8 @@ if real(gms_ini_game_read("game", "version")) > obj_gms.gameversion
 {
 	if !debug
 	{
-		audio_stop_all();
+		if !audio_is_playing(global.jukebox)
+			audio_stop_all();
 		instance_destroy(obj_gms);
 		scr_soundeffect(sfx_pephurt);
 		

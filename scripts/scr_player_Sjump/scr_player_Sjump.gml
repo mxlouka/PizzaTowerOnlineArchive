@@ -108,7 +108,7 @@ function scr_player_Sjump()
 	{
 		if !springsjump && (sprite_index != spr_superspringplayer or sprite_index == spr_superjump)
 		{
-			if key_attack2 && (!(character == "N" && noisetype == 0) && character != "V" && character != "SP")
+			if key_attack2 && (!(character == "N" && noisetype == 0) && character != "V" && (character != "SP" or global.gameplay != 0))
 			{
 				springsjump = false;
 				if move != 0
@@ -118,7 +118,7 @@ function scr_player_Sjump()
 				state = states.mach3
 				movespeed = 12
 			}
-			if key_attack2 && character = "SP"
+			else if key_attack2 && character == "SP"
 			{
 				landAnim = false;
 				mach2 = 35;

@@ -34,7 +34,9 @@ with obj_camera
 	alarm[1] = 60;
 
 audio_resume_all();
-audio_stop_all();
+if !audio_is_playing(global.jukebox)
+	audio_stop_all();
 global.music = -1;
 
 room_goto(medieval_1);
+

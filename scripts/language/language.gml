@@ -40,6 +40,7 @@ function lang_load(lang)
 		ds_map_add(global.langmap, "general.crashed", "The game crashed! longMessage:\n\n");
 		ds_map_add(global.langmap, "general.drm", "Congratulations!\nYou played yourself\n\nPress R to restart the game");
 		ds_map_add(global.langmap, "general.drm.wait", "(Restarting)");
+		ds_map_add(global.langmap, "general.restart", "Restart the game!");
 		ds_map_add(global.langmap, "drpc.nullino", "Playing as who?");
 		
 		ds_map_add(global.langmap, "disclaimer.title", "DISCLAIMER");
@@ -186,7 +187,7 @@ function lang_load(lang)
 		ds_map_add(global.langmap, "manual.rules.content", "Of course, every online game has rules to follow:");
 		ds_map_add(global.langmap, "manual.rules.content2", "- Don't spam (1 minute auto-mute)\n\n- Don't swear\n    (the word will change to *** for others)\n\n- Don't mod the game\n    (Except simple sprite and music changes)\n\n- When recording footage, please enable\n  streamer mode in the OTHER OPTIONS menu");
 		
-		ds_map_add(global.langmap, "manual.lapping", "Lapping");
+		ds_map_add(global.langmap, "manual.lapping", "Lapping (OLD gameplay)");
 		ds_map_add(global.langmap, "manual.lapping.content", "Some levels have a \"lap\" room that can be accessed in the OLD gameplay\nstyle by taunting on the left-most wall of the first room in the level.\n\nThe lap room has a big pizza portal inside. In Pizza Time, you can enter it,\nputting you back at the end of the level, and respawning all the enemies.\n\nAt the expense of a tighter time limit, you can get a lot of points from lapping.");
 		
 		ds_map_add(global.langmap, "manual.credits", "Credits");
@@ -311,9 +312,12 @@ function lang_load(lang)
 		ds_map_add(global.langmap, "msg.level.grinch", "Grinch");
 		ds_map_add(global.langmap, "msg.level.sanctum", "La Burrata Temple WIP");
 		
-		ds_map_add(global.langmap, "msg.level.entryway", "Entryway WIP");
-		ds_map_add(global.langmap, "msg.level.cotton", "Cottontown");
-		ds_map_add(global.langmap, "msg.level.jawbreaker", "Jawbreaker Mines WIP");
+		if sugaryspire
+		{
+			ds_map_add(global.langmap, "msg.level.entryway", "Entryway WIP");
+			ds_map_add(global.langmap, "msg.level.cotton", "Cottontown");
+			ds_map_add(global.langmap, "msg.level.jawbreaker", "Jawbreaker Mines WIP");
+		}
 		
 		// roomname
 		ds_map_add(global.langmap, "roomname.characterselect", "Mode Select");
@@ -336,35 +340,38 @@ function lang_load(lang)
 		ds_map_add(global.langmap, "roomname.hub_outside3e", "Freerun");
 		ds_map_add(global.langmap, "roomname.hub_outside4", "Please Just Do Better");
 		
-		ds_map_add(global.langmap, "roomname.entryway_secret1", "Gumslime Paradise");
-		ds_map_add(global.langmap, "roomname.entryway_secret2", "Wet Floor");
-		ds_map_add(global.langmap, "roomname.entryway_secret3", "Fine China");
-		ds_map_add(global.langmap, "roomname.entryway_1", "Operation Crunch Creak Construct");
-		ds_map_add(global.langmap, "roomname.entryway_2", "Hard Hat Required");
-		ds_map_add(global.langmap, "roomname.entryway_3", "Orange City");
-		ds_map_add(global.langmap, "roomname.entryway_4", "Construction Conglomerate");
-		ds_map_add(global.langmap, "roomname.entryway_5", "Had A Joke But I'm Still Working On It");
-		ds_map_add(global.langmap, "roomname.entryway_6", "Down And Around");
-		ds_map_add(global.langmap, "roomname.entryway_7", "Wires And Boxes");
-		ds_map_add(global.langmap, "roomname.entryway_8", "City Outskirts");
-		ds_map_add(global.langmap, "roomname.entryway_9", "Nailed It");
-		ds_map_add(global.langmap, "roomname.entryway_10", "Beary Careful");
+		if sugaryspire
+		{
+			ds_map_add(global.langmap, "roomname.entryway_secret1", "Gumslime Paradise");
+			ds_map_add(global.langmap, "roomname.entryway_secret2", "Wet Floor");
+			ds_map_add(global.langmap, "roomname.entryway_secret3", "Fine China");
+			ds_map_add(global.langmap, "roomname.entryway_1", "Operation Crunch Creak Construct");
+			ds_map_add(global.langmap, "roomname.entryway_2", "Hard Hat Required");
+			ds_map_add(global.langmap, "roomname.entryway_3", "Orange City");
+			ds_map_add(global.langmap, "roomname.entryway_4", "Construction Conglomerate");
+			ds_map_add(global.langmap, "roomname.entryway_5", "Had A Joke But I'm Still Working On It");
+			ds_map_add(global.langmap, "roomname.entryway_6", "Down And Around");
+			ds_map_add(global.langmap, "roomname.entryway_7", "Wires And Boxes");
+			ds_map_add(global.langmap, "roomname.entryway_8", "City Outskirts");
+			ds_map_add(global.langmap, "roomname.entryway_9", "Nailed It");
+			ds_map_add(global.langmap, "roomname.entryway_10", "Beary Careful");
 		
-		ds_map_add(global.langmap, "roomname.cotton_secret1", "Rocky Road");
-		ds_map_add(global.langmap, "roomname.cotton_secret2", "Kick Gum And Chew Gum");
-		ds_map_add(global.langmap, "roomname.cotton_secret3", "Digging For Cotton");
-		ds_map_add(global.langmap, "roomname.cotton_1", "Welcome to Cottontown!");
-		ds_map_add(global.langmap, "roomname.cotton_2", "Scary Monsters Nice Sights");
-		ds_map_add(global.langmap, "roomname.cotton_3", "Boiler Room");
-		ds_map_add(global.langmap, "roomname.cotton_4", "Cakewalk");
-		ds_map_add(global.langmap, "roomname.cotton_5", "Steamy Cotton Candy");
-		ds_map_add(global.langmap, "roomname.cotton_6", "Skyhigh");
-		ds_map_add(global.langmap, "roomname.cotton_7", "Grand Gateau");
-		ds_map_add(global.langmap, "roomname.cotton_8", "A Clockwork Worm");
-		ds_map_add(global.langmap, "roomname.cotton_9", "Clocks And Candies");
-		ds_map_add(global.langmap, "roomname.cotton_10", "Race Around The Clock");
-		ds_map_add(global.langmap, "roomname.cotton_11", "Froghop");
-		ds_map_add(global.langmap, "roomname.cotton_12", "Pillars Break Room");
+			ds_map_add(global.langmap, "roomname.cotton_secret1", "Rocky Road");
+			ds_map_add(global.langmap, "roomname.cotton_secret2", "Kick Gum And Chew Gum");
+			ds_map_add(global.langmap, "roomname.cotton_secret3", "Digging For Cotton");
+			ds_map_add(global.langmap, "roomname.cotton_1", "Welcome to Cottontown!");
+			ds_map_add(global.langmap, "roomname.cotton_2", "Scary Monsters Nice Sights");
+			ds_map_add(global.langmap, "roomname.cotton_3", "Boiler Room");
+			ds_map_add(global.langmap, "roomname.cotton_4", "Cakewalk");
+			ds_map_add(global.langmap, "roomname.cotton_5", "Steamy Cotton Candy");
+			ds_map_add(global.langmap, "roomname.cotton_6", "Skyhigh");
+			ds_map_add(global.langmap, "roomname.cotton_7", "Grand Gateau");
+			ds_map_add(global.langmap, "roomname.cotton_8", "A Clockwork Worm");
+			ds_map_add(global.langmap, "roomname.cotton_9", "Clocks And Candies");
+			ds_map_add(global.langmap, "roomname.cotton_10", "Race Around The Clock");
+			ds_map_add(global.langmap, "roomname.cotton_11", "Froghop");
+			ds_map_add(global.langmap, "roomname.cotton_12", "Pillars Break Room");
+		}
 		
 		ds_map_add(global.langmap, "roomname.sanctum_1", "Temple of the Pizza Tower");
 		ds_map_add(global.langmap, "roomname.sanctum_2", "Ruinous Road");

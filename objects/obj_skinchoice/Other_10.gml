@@ -132,71 +132,77 @@ switch sel[1]
 		break;
 	
 	case "SP":
-		spr_palette = spr_pizzpalette;
-		spr_idle = spr_playerSP_idle;
-		spr_select = spr_playerSP_stunned;
-		selarray = [
-			["YELLOW", "Take the first 4 letters of Pizzelle."],
-			["PIZZELLE", "It's the Candy-making patisje!"],
-			["WILD STRAWBERRY", "Also known as pink."],
-			["CHERRY", "Lucky!"],
-			["LIME", "Uh, make margaritas. I think."],
-			["VIOLET", "Now in grape flavor."],
-			["ORANGE", "The color or the fruit?"],
-			["GUM", "Don't actually chew it please."],
-			["CANDY CANE", "It's the Candy           !"],
-			["PUMPKIN", "Now with 30% less fiber."],
-			["FAMILIAR GREMLIN", "Something's wrong."],
-			["SAGE", "If it ever happens I will shit bricks."],
-			["DOOM", "It's the rip and tearing patisje!"],
-			["ANNIE", "It's ball-busting time."],
-			["SCOOTER", "I- ...wh- what?"],
-			["BLURPLE", "Also known as test."],
-			["PAINTLAD", "Very original name there."],
-			["COTTON CANDY", "Not to say something else."],
-			["GREEN APPLE", "Why is this the least favorite candy flavor?"],
-			["SECRET", "Lookie! You've found a pretty sweet surprise."],
-			["STUPID RAT", "Their beloved, I suppose."],
-			["PASTEL", "Soft on the eyes."],
-			["BURNT", "You fucking DONKEY."],
-			["CRAZY FROG", "Ding ding."],
-			["FACTORY", "DOOR STUCK"],
-			["PINK", "Bismuth subsalicylate."],
-			["SUGAR", "Obviously sugar is green."],
-			["MASSACRE", "SUGARY SPIRE 2: The Quest for Diabetes."],
-			["RIVALS", "Did we find a coder yet?"],
-			["OLD SCHOOL", "Also known as grayscale."],
-			["ZOMBIFIED", "Ricochet, eh? I sense some inspiration-ception."],
-			["FORESTATION", "Made of sugarcane plants."],
-			["LAMDA", "I have nothing to say about this."],
-			["GOLDEN", "Unlocks the ability to SHINE... which is bound to no key."],
-			["GNOME WIZARD", "Despite being a wizard, he has no redeeming qualities."],
-		]
-		if global.streamer
-			selarray[23][1] = "You effing DONKEY.";
+		if sugaryspire
+		{
+			spr_palette = spr_pizzpalette;
+			spr_idle = spr_playerSP_idle;
+			spr_select = spr_playerSP_stunned;
+			selarray = [
+				["YELLOW", "Take the first 4 letters of Pizzelle."],
+				["PIZZELLE", "It's the Candy-making patisje!"],
+				["WILD STRAWBERRY", "Also known as pink."],
+				["CHERRY", "Lucky!"],
+				["LIME", "Uh, make margaritas. I think."],
+				["VIOLET", "Now in grape flavor."],
+				["ORANGE", "The color or the fruit?"],
+				["GUM", "Don't actually chew it please."],
+				["CANDY CANE", "It's the Candy           !"],
+				["PUMPKIN", "Now with 30% less fiber."],
+				["FAMILIAR GREMLIN", "Something's wrong."],
+				["SAGE", "If it ever happens I will shit bricks."],
+				["DOOM", "It's the rip and tearing patisje!"],
+				["ANNIE", "It's ball-busting time."],
+				["SCOOTER", "I- ...wh- what?"],
+				["BLURPLE", "Also known as test."],
+				["PAINTLAD", "Very original name there."],
+				["COTTON CANDY", "Not to say something else."],
+				["GREEN APPLE", "Why is this the least favorite candy flavor?"],
+				["SECRET", "Lookie! You've found a pretty sweet surprise."],
+				["STUPID RAT", "Their beloved, I suppose."],
+				["PASTEL", "Soft on the eyes."],
+				["BURNT", "You fucking DONKEY."],
+				["CRAZY FROG", "Ding ding."],
+				["FACTORY", "DOOR STUCK"],
+				["PINK", "Bismuth subsalicylate."],
+				["SUGAR", "Obviously sugar is green."],
+				["MASSACRE", "SUGARY SPIRE 2: The Quest for Diabetes."],
+				["RIVALS", "Did we find a coder yet?"],
+				["OLD SCHOOL", "Also known as grayscale."],
+				["ZOMBIFIED", "Ricochet, eh? I sense some inspiration-ception."],
+				["FORESTATION", "Made of sugarcane plants."],
+				["LAMDA", "I have nothing to say about this."],
+				["GOLDEN", "Unlocks the ability to SHINE... which is bound to no key."],
+				["GNOME WIZARD", "Despite being a wizard, he has no redeeming qualities."],
+			]
+			if global.streamer
+				selarray[23][1] = "You effing DONKEY.";
+		}
 		
 		//["PAINTLAD", "Did you know Jacko suggested the name Paintlad\nand is probably never going to be credited for it?"],
 		break;
 	
 	case "SN":
-		spr_palette = spr_creampalette;
-		spr_idle = spr_playerSN_idle;
-		spr_select = spr_playerSN_idle;
-		selarray = [
-			["YELLOW", "Piss ano."],
-			["PIZZANO", "YAH-HAH!"],
-			["FAMILIAR GREMLIN", "Close enough, but not quite."],
-			["FAMILIAR CHEF", "A somewhat overweight Italian nuisance."],
-			["LASAGNA", "Mondays."],
-			["SPICE", "When you want just a little spiciness on your candy."],
-			["PLUMBER", "Holy shit it's Super Fucking Mario"],
-			["GREEN APPLE", "Now I know why this is the least favorite candy flavor."],
-			["GRAPE SODA", "There's more purple than actual soda in this."],
-			["ANTIPATHIC", "Isn't it antipathetic?"],
-			["GUMMY BEAR", "Tastes like blood."],
-			["LIME", "Unfortunate palette placement."],
-			["CRYSTALIZED", "Missed opportunity to make it transparent."],
-		];
+		if sugaryspire
+		{
+			spr_palette = spr_creampalette;
+			spr_idle = spr_playerSN_idle;
+			spr_select = spr_playerSN_idle;
+			selarray = [
+				["YELLOW", "Piss ano."],
+				["PIZZANO", "YAH-HAH!"],
+				["FAMILIAR GREMLIN", "Close enough, but not quite."],
+				["FAMILIAR CHEF", "A somewhat overweight Italian nuisance."],
+				["LASAGNA", "Mondays."],
+				["SPICE", "When you want just a little spiciness on your candy."],
+				["PLUMBER", "Holy shit it's Super Fucking Mario"],
+				["GREEN APPLE", "Now I know why this is the least favorite candy flavor."],
+				["GRAPE SODA", "There's more purple than actual soda in this."],
+				["ANTIPATHIC", "Isn't it antipathetic?"],
+				["GUMMY BEAR", "Tastes like blood."],
+				["LIME", "Unfortunate palette placement."],
+				["CRYSTALIZED", "Missed opportunity to make it transparent."],
+			];
+		}
 	break;
 	
 	case "PP":

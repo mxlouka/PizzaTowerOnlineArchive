@@ -1,248 +1,250 @@
-if !instance_exists(baddieID)
+var bad = baddieID;
+if !instance_exists(bad)
 {
 	instance_destroy();
 	exit;
 }
 
-x = baddieID.x;
-y = baddieID.y;
-image_xscale = baddieID.image_xscale;
+x = bad.x;
+y = bad.y;
+image_xscale = bad.image_xscale;
 
 with obj_baddiecollisionbox
 {
-	if id != other.id && baddieID == other.baddieID
+	if id != other.id && baddieID == bad
 		instance_destroy();
 }
 
-if instance_exists(baddieID) && place_meeting(x, y, obj_player1) && !obj_player1.cutscene
-&& (obj_player1.state != states.firemouth or global.gameplay != 0) && obj_player1.state != states.gameover
-&& obj_player1.state != states.hitlag
+var player = instance_place(x, y, obj_player);
+if player && !player.cutscene && (player.state != states.firemouth or global.gameplay != 0) && player.state != states.gameover && player.state != states.hitlag
+&& baddieID.state != states.grabbed && baddieID.state != states.hit
 {
-	if baddieID.state != states.grabbed && baddieID.state != states.hit
+	with player
 	{
-		with (obj_player1)
+		//Insta kill
+		if bad.invtime <= 0 && instakillmove && (!bad.thrown or global.gameplay != 0) && !bad.invincible && bad.instantkillable
 		{
-			//Insta kill
-			if instance_exists(other.baddieID) && instakillmove && (!other.baddieID.thrown or global.gameplay != 0) && !other.baddieID.invincible && other.baddieID.instantkillable
-			&& (other.baddieID.stuntouchbuffer <= 0 or other.baddieID.state != states.stun or global.gameplay == 0)
+			if state == states.mach3 && sprite_index != spr_mach3hit && (character = "P" or character = "V" or (character == "N" && noisetype == 1))
 			{
-				var bad = other.baddieID;
-				if state == states.mach3 && sprite_index != spr_mach3hit && (character = "P" or character = "V" or (character == "N" && noisetype == 1))
+				if !fightball
+					sprite_index = spr_mach3hit
+				image_index = 0
+			}
+			if state == states.mach2 && grounded && sprite_index != spr_rollgetup
+			{
+				machpunchAnim = true
+				image_index = 0
+			}
+			if bad.object_index != obj_tankOLD && !bad.killprotection
+			{
+				if state == states.mach3 or (state == states.freefall && freefallsmash > 10)
+				or state == states.knightpep or state == states.knightpepslopes
+				or state == states.superslam or state == states.tumble
 				{
-					if !fightball
-						sprite_index = spr_mach3hit
-					image_index = 0
+					bad.hp -= 99;
+					bad.instakilled = true;
 				}
-				if state == states.mach2 && grounded
-				{
-					machpunchAnim = true
-					image_index = 0
-				}
-				if bad.object_index != obj_tankOLD
-				{
-					if state == states.mach3 or (state == states.freefall && freefallsmash > 10)
-					or state == states.knightpep or state == states.knightpepslopes
-					or state == states.superslam or state == states.tumble
-						bad.hp -= 99;
-				}
+			}
 				
-				if state != states.hurt
-					bad.grabbedby = 1
+			bad.invtime = 25;
+			if state != states.hurt
+				bad.grabbedby = 1;
 				
-				global.hit += 1
-				if !grounded && state != states.freefall && key_jump2
-				{
-					if state == states.mach2 or (state == states.mach3 && !fightball)
-						sprite_index = spr_mach2jump
-					suplexmove = false
-					vsp = -11
-				}
+			global.hit += 1;
+			if !grounded && state != states.freefall && key_jump2
+			{
+				if state == states.mach2 or (state == states.mach3 && !fightball)
+					sprite_index = spr_mach2jump
+				suplexmove = false
+				vsp = -11
+			}
 				
-				if global.gameplay == 0
-					instance_destroy(bad);
+			if global.gameplay == 0
+				instance_destroy(bad);
+			else
+			{
+				bad.image_xscale = -xscale;
+				bad.hithsp = 0;
+					
+				if key_up
+					bad.hitvsp = -11;
+				else if key_down
+					bad.hitvsp = 11;
 				else
 				{
-					bad.image_xscale = -xscale;
-					if state != states.machroll
-					{
-						bad.hithsp = -8 * bad.image_xscale;
-						bad.hitvsp = -8;
-					}
-					else
-						bad.hitvsp = 8;
-					
-					if state == states.mach3
-						bad.hithsp = hsp;
-					
-					scr_hitthrow(bad, id);
+					bad.hithsp = -8 * bad.image_xscale;
+					bad.hitvsp = -8;
 				}
-				
-				scr_soundeffect(sfx_punch);
-				scr_failmod(mods.pacifist);
-				exit;
+					
+				scr_hitthrow(bad, id);
 			}
+				
+			scr_soundeffect(sfx_punch);
+			scr_failmod(mods.pacifist);
+			exit;
+		}
 			
-			//Stomp
-			if instance_exists(other.baddieID) && y < other.baddieID.y && attacking = false && sprite_index != spr_player_mach2jump && sprite_index != spr_swingding && ((state = states.boots && vsp > 0) or state == states.jump  or state == states.mach1 or state == states.grab) && vsp > 0 && other.baddieID.vsp >= 0 && sprite_index != spr_stompprep && (sprite_index != spr_swingding or global.gameplay == 0) && !other.baddieID.invincible && other.baddieID.stompable
+		//Stomp
+		if instance_exists(bad) && y < bad.y && !attacking && sprite_index != spr_player_mach2jump && sprite_index != spr_swingding && ((state = states.boots && vsp > 0) or state == states.jump  or state == states.mach1 or state == states.grab) && vsp > 0 && bad.vsp >= 0 && sprite_index != spr_stompprep && (sprite_index != spr_swingding or global.gameplay == 0) && !bad.invincible && bad.stompable
+		{
+			scr_soundeffect(sfx_stompenemy)
+				
+			if bad.object_index != obj_tank && bad.object_index != obj_bigcheese
 			{
+				if x != bad.x
+					bad.image_xscale = -sign(bad.x - x)
+				
+				bad.image_index = 0
+				bad.state = states.stun
+				if bad.stunned < 100
+					bad.stunned = 100
+			}
+				
+			instance_create(x, y + 50, obj_stompeffect)
+			stompAnim = true
+				
+			if key_jump2 
+				vsp = -14
+			else
+				vsp = -9
+				
+			if state == states.jump
+				sprite_index = spr_stompprep
+		}
+			
+		//Pogo
+		if place_meeting(x, y + 1, other) && state == states.pogo && vsp > 0 && bad.vsp >= 0 && sprite_index != spr_playerN_pogobounce && !bad.invincible
+		{
+			if !pogochargeactive or bad.object_index == obj_pizzaballOLD
+			{
+				pogospeedprev = false
+				bad.vsp = -3
 				scr_soundeffect(sfx_stompenemy)
-				
-			    if x != other.baddieID.x
-					other.baddieID.image_xscale = -sign(other.baddieID.x - x)
-				
-				image_index = 0
-				other.baddieID.state = states.stun
-				if other.baddieID.stunned < 100
-					other.baddieID.stunned = 100
-				
-				instance_create(x,y+ 50, obj_stompeffect)
-				
-				stompAnim = true
-				other.baddieID.image_index = 0
-				
-				if key_jump2 
-					vsp = -14
-				else
-					vsp = -9
-				
-				if state == states.jump
-					sprite_index = spr_stompprep
+				bad.state = states.stun
+				if bad.stunned < 100
+					bad.stunned = 100
+				sprite_index = spr_playerN_pogobounce
 			}
-			
-			//Pogo
-			if place_meeting(x, y + 1, other) && state == states.pogo && vsp > 0 && other.baddieID.vsp >= 0 && sprite_index != spr_playerN_pogobounce && !other.baddieID.invincible
+			else if !bad.thrown
 			{
-				if !pogochargeactive or other.baddieID.object_index == obj_pizzaballOLD
-				{
-					pogospeedprev = false
-					other.baddieID.vsp = -3
-					scr_soundeffect(sfx_stompenemy)
-					other.baddieID.state = states.stun
-					if other.baddieID.stunned < 100
-						other.baddieID.stunned = 100
-					sprite_index = spr_playerN_pogobounce
-				}
-				else if !other.baddieID.thrown
-				{
-					pogospeedprev = false
-					scr_throwenemy()
-					if global.gameplay != 0
-						increase_combo();
-					sprite_index = spr_playerN_pogobouncemach
-				}
-				
-				instance_create(x, y + 50, obj_stompeffect)
-				image_index = 0
-				movespeed = 0
-				vsp = 0
-			}
-			
-			// Cotton
-			if state == states.cotton && (sprite_index == spr_cotton_attack or sprite_index == spr_cotton_maxrun or sprite_index == spr_cotton_drill) && other.baddieID.instantkillable && !other.baddieID.thrown
-			{
-				scr_soundeffect(sfx_punch);
-				if sprite_index == spr_cotton_drill
-				{
-					if other.baddieID.vsp < 8
-						other.baddieID.vsp = 8;
-					other.baddieID.hsp = 0;
-				}
-				else
-				{
-					if other.baddieID.vsp > -12
-						other.baddieID.vsp = -12; 
-					other.baddieID.hsp = xscale * 15;
-				}
-				
-				with other.baddieID
-				{
-					if global.gameplay == 0
-					{
-						hp = 0;
-						scr_throwenemy(id);
-					}
-					else
-					{
-						if hp > 0
-							hp = 0;
-						image_xscale = -other.xscale;
-						hithsp = hsp;
-						hitvsp = vsp;
-						scr_hitthrow(id, other, 8);
-					}
-				}
-			}
-			
-			//Stun from touching
-			if !other.baddieID.thrown && other.baddieID.stuntouchbuffer == 0 && other.baddieID.state != states.pizzagoblinthrow && other.baddieID.vsp > 0 && state != states.punch && state != states.tackle && state != states.superslam && state != states.pogo && state != states.machslide  && state != states.freefall && (state != states.mach2 or other.baddieID.object_index == obj_pizzaballOLD) && state != states.handstandjump && state != states.hurt && other.baddieID.state != states.chase
-			&& other.baddieID.bumpable && !other.baddieID.invincible 
-			&& ((other.baddieID.object_index != obj_pizzice && other.baddieID.object_index != obj_ninja) or other.baddieID.state != states.charge)
-			{
-				scr_soundeffect(sfx_bumpwall)
-				
-				if state != states.bombpep && state != states.mach1 && state != states.crouchslide && state != states.machroll && state != states.mach2 && state != states.mach3 && state != states.revolver && state != states.dynamite && state != states.climbwall && state != states.frozen && state != states.cotton
-					movespeed = 0
-				
-				other.baddieID.stuntouchbuffer = 50
-				
-				if other.baddieID.object_index = obj_pizzaballOLD
-					global.golfhit += 1
-				if other.baddieID.stunned < 100
-					other.baddieID.stunned = 100
-				
-				if x != other.baddieID.x
-					other.baddieID.image_xscale = -sign(other.baddieID.x - x)
-				other.baddieID.vsp = -5
-				other.baddieID.hsp = -other.baddieID.image_xscale * 2
-				other.baddieID.state = states.stun
-				other.baddieID.image_index = 0
-			}
-			
-			//Attack
-			if instance_exists(other.baddieID) && state == states.handstandjump && !other.baddieID.invincible && character != "S"
-			{
-				if (!other.baddieID.thrown or global.gameplay != 0) // && (character = "P" or character = "N" or character == "SP" or other.baddieID.object_index == obj_pizzaballOLD)
-				{
-					movespeed = 0
-					image_index = 0
-					sprite_index = spr_haulingstart
-					
-					state = states.grab
-					
-					other.baddieID.state = states.grabbed
-					other.baddieID.grabbedby = 1
-					
-					baddiegrabbedID = other.baddieID
-				}
-				else
-				{
+				pogospeedprev = false
+				scr_throwenemy()
+				if global.gameplay != 0
 					increase_combo();
-					
-					if other.baddieID.thrown == true && !key_up 
-					{
-						other.baddieID.hsp = xscale * 25
-						other.baddieID.vsp = 0
-					}
-					else if !key_up
-					{
-						other.baddieID.hsp = xscale * 6
-						other.baddieID.vsp = -6
-					}
-					else
-					{
-						other.baddieID.vsp = -14
-						other.baddieID.hsp = 0
-					}
-					
-					if other.baddieID.object_index == obj_pizzaballOLD
-						global.golfhit += 1;
-					scr_soundeffect(sfx_killingblow)
-					
-					scr_pummel(false);
-					movespeed = 0;
-					
-					scr_throwenemy(other.baddieID);
+				sprite_index = spr_playerN_pogobouncemach
+			}
+				
+			instance_create(x, y + 50, obj_stompeffect)
+			image_index = 0
+			movespeed = 0
+			vsp = 0
+		}
+			
+		// Cotton
+		if state == states.cotton && (sprite_index == spr_cotton_attack or sprite_index == spr_cotton_maxrun or sprite_index == spr_cotton_drill) && bad.instantkillable && !bad.thrown
+		{
+			scr_soundeffect(sfx_punch);
+			if sprite_index == spr_cotton_drill
+			{
+				if bad.vsp < 8
+					bad.vsp = 8;
+				bad.hsp = 0;
+			}
+			else
+			{
+				if bad.vsp > -12
+					bad.vsp = -12; 
+				bad.hsp = xscale * 15;
+			}
+				
+			with bad
+			{
+				if global.gameplay == 0
+				{
+					hp = 0;
+					scr_throwenemy(id);
 				}
+				else
+				{
+					if hp > 0
+						hp = 0;
+					image_xscale = -other.xscale;
+					hithsp = hsp;
+					hitvsp = vsp;
+					scr_hitthrow(id, other, 8);
+				}
+			}
+		}
+			
+		//Stun from touching
+		if !bad.thrown && bad.stuntouchbuffer == 0 && bad.state != states.pizzagoblinthrow && bad.vsp > 0 && state != states.punch && state != states.tackle && state != states.superslam && state != states.pogo && state != states.machslide  && state != states.freefall && (state != states.mach2 or bad.object_index == obj_pizzaballOLD) && state != states.handstandjump && state != states.hurt && bad.state != states.chase
+		&& bad.bumpable && !bad.invincible 
+		&& ((bad.object_index != obj_pizzice && bad.object_index != obj_ninja) or bad.state != states.charge)
+		{
+			scr_soundeffect(sfx_bumpwall)
+				
+			if state != states.bombpep && state != states.mach1 && state != states.crouchslide && state != states.machroll && state != states.mach2 && state != states.mach3 && state != states.revolver && state != states.dynamite && state != states.climbwall && state != states.frozen && state != states.cotton
+				movespeed = 0
+				
+			bad.stuntouchbuffer = 50
+				
+			if bad.object_index = obj_pizzaballOLD
+				global.golfhit += 1
+			if bad.stunned < 100
+				bad.stunned = 100
+				
+			if x != bad.x
+				bad.image_xscale = -sign(bad.x - x)
+			bad.vsp = -5
+			bad.hsp = -bad.image_xscale * 2
+			bad.state = states.stun
+			bad.image_index = 0
+		}
+			
+		//Attack
+		if instance_exists(bad) && state == states.handstandjump && !bad.invincible && character != "S"
+		{
+			if (!bad.thrown or global.gameplay != 0) // && (character = "P" or character = "N" or character == "SP" or bad.object_index == obj_pizzaballOLD)
+			{
+				movespeed = 0
+				image_index = 0
+				sprite_index = spr_haulingstart
+					
+				state = states.grab
+					
+				bad.state = states.grabbed
+				bad.grabbedby = 1
+					
+				baddiegrabbedID = bad
+			}
+			else
+			{
+				increase_combo();
+					
+				if bad.thrown == true && !key_up 
+				{
+					bad.hsp = xscale * 25
+					bad.vsp = 0
+				}
+				else if !key_up
+				{
+					bad.hsp = xscale * 6
+					bad.vsp = -6
+				}
+				else
+				{
+					bad.vsp = -14
+					bad.hsp = 0
+				}
+					
+				if bad.object_index == obj_pizzaballOLD
+					global.golfhit += 1;
+				scr_soundeffect(sfx_killingblow)
+					
+				scr_pummel(false);
+				movespeed = 0;
+					
+				scr_throwenemy(bad);
 			}
 		}
 	}

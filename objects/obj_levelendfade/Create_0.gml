@@ -1,4 +1,5 @@
-audio_stop_all();
+if !audio_is_playing(global.jukebox)
+	audio_stop_all();
 global.panic = false;
 global.snickchallenge = false;
 scr_soundeffect(sfx_pizzatime);

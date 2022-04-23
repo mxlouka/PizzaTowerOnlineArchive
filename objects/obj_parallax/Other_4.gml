@@ -1,6 +1,6 @@
 // cottontown generate foreground
 var roomname = room_get_name(room);
-if string_startswith(roomname, "cotton_")
+if string_startswith(roomname, "cotton_") && sugaryspire
 {
 	for(var i = 0; i < 20; i++)
 	{

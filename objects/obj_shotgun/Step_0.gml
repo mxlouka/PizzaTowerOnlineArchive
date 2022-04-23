@@ -10,3 +10,4 @@ else if obj_player.character == "PP"
 	sprite_index = spr_coconutgun;
 else
 	sprite_index = spr_shotgun;
+

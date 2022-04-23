@@ -1,3 +1,6 @@
+if global.jukebox != -1
+	audio_resume_sound(global.jukebox);
+
 if instance_exists(obj_onlinemenu)
 {
 	global.pizzacoin = global.pizzacoinstart;

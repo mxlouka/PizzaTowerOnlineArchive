@@ -17,8 +17,8 @@
   "soundFile": "mu_sugarytitle.wav",
   "duration": 47.0987778,
   "parent": {
-    "name": "pto extra",
-    "path": "folders/Sounds/pto extra.yy",
+    "name": "sugary spire",
+    "path": "folders/Sounds/pto extra/sugary spire.yy",
   },
   "resourceVersion": "1.0",
   "name": "mu_sugarytitle",

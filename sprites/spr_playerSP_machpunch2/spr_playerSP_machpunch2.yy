@@ -47,7 +47,7 @@
     "spriteId": {"name":"spr_playerSP_machpunch2","path":"sprites/spr_playerSP_machpunch2/spr_playerSP_machpunch2.yy",},
     "timeUnits": 1,
     "playback": 1,
-    "playbackSpeed": 0.5,
+    "playbackSpeed": 0.7,
     "playbackSpeedType": 1,
     "autoRecord": true,
     "volume": 1.0,

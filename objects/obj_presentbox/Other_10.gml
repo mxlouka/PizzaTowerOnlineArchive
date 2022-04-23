@@ -1,8 +1,8 @@
 /// @description slap
 with obj_camera
 {
-	shake_mag = 20;
-	shake_mag_acc = 40 / room_speed;
+	shake_mag = 3;
+	shake_mag_acc = 3 / room_speed;
 }
 global.boxhp -= 1
 scr_soundeffect(sfx_killenemy)
@@ -27,6 +27,6 @@ if character == 0
 }
 else
 	sprite_index = spr_present;
-	
+
 with instance_create(x, y, obj_sausageman_dead)
 	sprite_index = other.deadspr;
