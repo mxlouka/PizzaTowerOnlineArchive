@@ -323,7 +323,7 @@ else if menu == 1
 			global.musicgame--;
 		
 		// refresh music
-		if global.musicgame != mgprev && global.jukebox != -1
+		if global.musicgame != mgprev && global.jukebox == -1
 		{
 			if instance_exists(obj_music)
 			{

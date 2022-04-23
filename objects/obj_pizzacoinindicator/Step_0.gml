@@ -20,7 +20,7 @@ if show > 0
 }
 
 shake = Approach(shake, 0, 0.25);
-if display != global.pizzacoin
+if display != global.pizzacoin && check_online()
 {
 	display = global.pizzacoin;
 	show = 50;

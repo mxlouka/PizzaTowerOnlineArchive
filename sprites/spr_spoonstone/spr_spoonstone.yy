@@ -12,7 +12,7 @@
   "swfPrecision": 2.525,
   "bbox_left": 48,
   "bbox_right": 100,
-  "bbox_top": 83,
+  "bbox_top": 85,
   "bbox_bottom": 120,
   "HTile": false,
   "VTile": false,
@@ -27,12 +27,12 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"a265a8c3-4f5b-498e-8bcb-b0e25077b201","path":"sprites/spr_swordstone/spr_swordstone.yy",},"LayerId":null,"resourceVersion":"1.0","name":"composite","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"a265a8c3-4f5b-498e-8bcb-b0e25077b201","path":"sprites/spr_swordstone/spr_swordstone.yy",},"LayerId":{"name":"5453647b-71b5-482f-82c0-e6a226c980e8","path":"sprites/spr_swordstone/spr_swordstone.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"spr_swordstone","path":"sprites/spr_swordstone/spr_swordstone.yy",},"resourceVersion":"1.0","name":"a265a8c3-4f5b-498e-8bcb-b0e25077b201","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"a265a8c3-4f5b-498e-8bcb-b0e25077b201","path":"sprites/spr_spoonstone/spr_spoonstone.yy",},"LayerId":null,"resourceVersion":"1.0","name":"composite","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"a265a8c3-4f5b-498e-8bcb-b0e25077b201","path":"sprites/spr_spoonstone/spr_spoonstone.yy",},"LayerId":{"name":"5453647b-71b5-482f-82c0-e6a226c980e8","path":"sprites/spr_spoonstone/spr_spoonstone.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"spr_spoonstone","path":"sprites/spr_spoonstone/spr_spoonstone.yy",},"resourceVersion":"1.0","name":"a265a8c3-4f5b-498e-8bcb-b0e25077b201","tags":[],"resourceType":"GMSpriteFrame",},
   ],
   "sequence": {
-    "spriteId": {"name":"spr_swordstone","path":"sprites/spr_swordstone/spr_swordstone.yy",},
+    "spriteId": {"name":"spr_spoonstone","path":"sprites/spr_spoonstone/spr_spoonstone.yy",},
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 1.0,
@@ -44,7 +44,7 @@
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
       {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"7347947e-0546-4935-ab95-36e3d29270f6","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"a265a8c3-4f5b-498e-8bcb-b0e25077b201","path":"sprites/spr_swordstone/spr_swordstone.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"eee3313e-4df4-4f3e-8108-11a29b48a012","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"a265a8c3-4f5b-498e-8bcb-b0e25077b201","path":"sprites/spr_spoonstone/spr_spoonstone.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
           ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
     ],
     "visibleRange": null,
@@ -61,9 +61,9 @@
     "yorigin": 75,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"spr_swordstone","path":"sprites/spr_swordstone/spr_swordstone.yy",},
+    "parent": {"name":"spr_spoonstone","path":"sprites/spr_spoonstone/spr_spoonstone.yy",},
     "resourceVersion": "1.4",
-    "name": "spr_swordstone",
+    "name": "spr_spoonstone",
     "tags": [],
     "resourceType": "GMSequence",
   },
@@ -72,11 +72,11 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "knightpep",
-    "path": "folders/Sprites/players/pepino/knightpep.yy",
+    "name": "knight",
+    "path": "folders/Sprites/players/pizzelle/transfo/knight.yy",
   },
   "resourceVersion": "1.0",
-  "name": "spr_swordstone",
+  "name": "spr_spoonstone",
   "tags": [],
   "resourceType": "GMSprite",
 }

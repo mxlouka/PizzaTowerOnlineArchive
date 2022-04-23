@@ -55,16 +55,16 @@ if !sugaryspire && room == Realtitlescreen && keyboard_lastchar != "" && !secret
 	secretpasscode += keyboard_lastchar;
 	keyboard_lastchar = "";
 	
-	if !string_startswith("rodmodlovessuckingblackdicks", secretpasscode)
+	if !string_startswith("theresafuckingcretininthespire", secretpasscode)
 		secretpasscode = "";
 	
-	if secretpasscode == "rodmodlovessuckingblackdicks"
+	if secretpasscode == "theresafuckingcretininthespire"
 	{
 		sugaryspire = true;
 		secretpasscodeinput = true;
 		
 		ini_open("saveData.ini");
-		ini_write_real("online", "shove_10_pounds_of_sugar_up_my_spire", true);
+		ini_write_real("online", "shove10poundsofsugarupmyspire", true);
 		ini_close();
 		
 		audio_stop_all();

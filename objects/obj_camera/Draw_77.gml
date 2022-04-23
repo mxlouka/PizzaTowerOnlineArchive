@@ -6,9 +6,6 @@ var drawshit = false;
 var ang = 0;
 if global.panic
 {
-	if check_sugary()
-		camera_set_view_angle(view_camera[0], sin(current_time / 10000) * (global.wave / global.maxwave) * 2);
-	
 	//DDP Generate crazy motion blur effect
 	var appa = 1;
 	if global.panicmelt

@@ -369,6 +369,10 @@ if global.panic or global.snickchallenge
 		camsmooth = 0;
 	
 	global.wave = max(global.maxwave - (global.minutes * 60 + global.seconds + camsmooth) * 60, 0);
+	
+	// tilting
+	if check_sugary()
+		camera_set_view_angle(view_camera[0], sin(current_time / 10000) * (global.wave / global.maxwave) * 2);
 }
 
 frameone = false;

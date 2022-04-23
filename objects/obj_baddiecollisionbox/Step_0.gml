@@ -78,7 +78,7 @@ if player && !player.cutscene && (player.state != states.firemouth or global.gam
 					
 				scr_hitthrow(bad, id);
 			}
-				
+			
 			scr_soundeffect(sfx_punch);
 			scr_failmod(mods.pacifist);
 			exit;

@@ -74,7 +74,7 @@ if (flash == true && alarm[2] <= 0) {
 
 
 
-if !hitboxcreate && (state == states.walk or state == states.charge) 
+if !hitboxcreate && (state == states.walk or state == states.charge) && !rematchscare
 {
 	hitboxcreate = true
 	with instance_create(x,y,obj_forkhitbox)

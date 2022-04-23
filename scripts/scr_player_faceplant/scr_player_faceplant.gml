@@ -79,6 +79,7 @@ function scr_player_faceplant()
 	    state = states.crouchslide;
 	    movespeed = 15;
 	}
+	image_speed = 0.5
 	
 	//Effects
 	if !instance_exists(obj_dashcloud2) && grounded && movespeed > 5

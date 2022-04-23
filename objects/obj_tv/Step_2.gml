@@ -416,11 +416,6 @@ else
 			                break
 			        }
 				}
-				if pchar == "PUFFER"
-				{
-					idlespr = spr_tv_idlePUFFER;
-					idleanim = 240;
-				}
 				
 		        switch animset
 		        {
@@ -584,6 +579,13 @@ else
 					sprite_index = spr_tv_openPP;
 				else
 					sprite_index = spr_tv_open;
+			}
+			
+			if pchar == "PUFFER"
+			{
+				idlespr = spr_tv_idlePUFFER;
+				sprite_index = idlespr;
+				idleanim = 240;
 			}
 	        break;
 		

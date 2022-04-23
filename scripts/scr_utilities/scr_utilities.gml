@@ -120,8 +120,7 @@ function scr_hitthrow(baddie, player, lag = 5)
 	{
 		if state != states.hit
 		{
-			if invtime <= 0
-				increase_combo();
+			increase_combo();
 			
 			repeat 3
 			{

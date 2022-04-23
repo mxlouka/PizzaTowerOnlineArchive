@@ -9,7 +9,7 @@ con = -1;
 size = 0;
 cancon = false;
 
-version = 6;
+version = 7;
 drm = true;
 if !patron
 	drm = false;
