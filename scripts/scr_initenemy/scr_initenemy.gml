@@ -86,4 +86,6 @@ function scr_initenemy()
 	invtime = 0; // april build hitstun cooldown
 	
 	custom_death_fnc = -1;
+	ghost = false;
 }
+

@@ -8,7 +8,8 @@ selarray = [
 	[spr_petgrunt_idle, "GRUNT", "Do you ever just need some Madness?"],
 	[spr_petslug_idle, "BLUE SLUGGY", "Diabetes."],
 	[spr_petwmouse_idle, "WORLDMOUSE", "Stupid fucking mouse."],
-	[spr_petmariro_move, choose("MARIRO", "MARIOR", "MARIROR", "MAIRORR"), ""],
+	[spr_petmariro_move, choose("MARIRO", "MARIOR", "MARIROR", "MAIRORR"), "Seuaper Maroi!"],
+	[spr_petnerd_idle, "NERDLING", ""],
 ];
 spr_idle = selarray[0][0];
 

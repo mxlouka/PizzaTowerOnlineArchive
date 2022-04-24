@@ -87,3 +87,4 @@ if basetext
 	draw_text_auto(960 / 2, 540 - 64, paldesc, 16, 960 - 32, talpha);
 }
 draw_set_alpha(1);
+

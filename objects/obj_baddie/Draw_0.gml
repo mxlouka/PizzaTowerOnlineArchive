@@ -13,3 +13,4 @@ draw_set_flash(false);
 
 if haspalette
 	pal_swap_reset()
+

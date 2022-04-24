@@ -1,5 +1,5 @@
 var bad = baddieID;
-if !instance_exists(bad)
+if !instance_exists(bad) or bad.ghost
 {
 	instance_destroy();
 	exit;

@@ -6,10 +6,12 @@ if ds_list_find_index(global.saveroom, id) == -1
 	for(var i = 0; i < num; i++)
 	{
 		var obj = objectlist[| i];
-		ds_list_add(deactivatedlist, obj.id);
+		if obj.object_index != obj_collectescape or global.panic
+			ds_list_add(deactivatedlist, obj.id);
 		instance_deactivate_object(obj);
 	}
 	ds_list_destroy(objectlist);
 }
 else
 	instance_destroy();
+
