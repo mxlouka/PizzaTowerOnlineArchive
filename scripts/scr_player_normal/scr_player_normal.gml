@@ -316,7 +316,7 @@ function scr_player_normal()
 		}
 		
 		// Snick spindash
-		if key_down && (key_jump or key_slap2) && character == "S" && vsp >= 0
+		if key_down && (key_jump or key_slap2) && character == "S" && vsp >= 0 && scr_stylecheck(2)
 		{
 			movespeed = 0
 			state = states.spindash

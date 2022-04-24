@@ -23,7 +23,7 @@ function scr_player_crouch()
 	
 	///Back to other states
 	//Normal
-	if grounded && !key_down && !scr_solid(x, y - 3) && !key_jump
+	if grounded && !key_down && !scr_solid_player(x, y - 3) && !key_jump
 	{
 		state = states.normal
 		if !scr_stylecheck(2)
@@ -58,7 +58,7 @@ function scr_player_crouch()
 	}
 	
 	//Crouch Jump
-	if key_jump && grounded && !scr_solid(x, y - 16) && !scr_solid(x, y - 32) 
+	if key_jump && grounded && !scr_solid_player(x, y - 16) && !scr_solid_player(x, y - 32) 
 	{
 		scr_soundeffect(sfx_jump)
 		vsp = -8

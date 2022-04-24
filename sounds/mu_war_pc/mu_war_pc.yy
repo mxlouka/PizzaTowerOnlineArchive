@@ -15,7 +15,7 @@
     "path": "audiogroups/audiogroup_default",
   },
   "soundFile": "mu_war_pc.wav",
-  "duration": 183.5294,
+  "duration": 197.647049,
   "parent": {
     "name": "PIZZA CASTLE",
     "path": "folders/Sounds/PIZZA CASTLE.yy",

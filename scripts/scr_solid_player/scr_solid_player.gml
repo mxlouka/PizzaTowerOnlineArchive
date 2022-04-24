@@ -34,7 +34,7 @@ function scr_solid_player(argX, argY, slop = true, retcol = false)
 				var inst = instlist[| i];
 				if !place_meeting(x, old_y, inst) && place_meeting(x, y, inst)
 				{
-					if inst.object_index != obj_cottonplatform or (state == states.cotton && sprite_index != spr_cotton_drill) or (character == "V" && state != states.crouch)
+					if inst.object_index != obj_cottonplatform or (state == states.cotton && sprite_index != spr_cotton_drill) or (character == "V" && !key_down)
 					{
 						collide = inst;
 						break;

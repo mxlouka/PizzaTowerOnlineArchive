@@ -552,6 +552,7 @@ if showhud
 	if scr_stylecheck(2) or (sugary && global.gameplay != 0)
 		styley -= 32;
 	
+	// key inventory type beat
 	if !sugary or global.gameplay == 0
 	{
 		var xx = 50;
@@ -562,17 +563,29 @@ if showhud
 			yy = 185 + hud_posY;
 		}
 		
-		if global.key_inv
-			draw_sprite_ext((check_sugary() ? spr_key_ss : spr_key), -1, xx, yy + styley, 1, 1, 0, c_white, alpha)
+		if global.key_inv > 0
+		{
+			var keyspr = check_sugary() ? spr_key_ss : spr_key;
+			keyimg = (keyimg + 0.35) % sprite_get_number(keyspr);
+			
+			draw_sprite_ext(keyspr, keyimg, xx, yy + styley, 1, 1, 0, c_white, alpha)
+		}
 		draw_sprite_ext(spr_inv, -1, xx, yy + styley, 1, 1, 0, c_white, alpha)
 	}
+	
+	// sugary spire inventory hud
 	if sugary && global.gameplay != 0
 	{
-		if global.key_inv
-			draw_sprite_ext((check_sugary() ? spr_keyinvSP_ss : spr_keyinvSP), 0, 696, 86 + obj_tv.hud_posY + styley, 1, 1, 0, c_white, alpha);
+		if global.key_inv > 0
+		{
+			var keyspr = check_sugary() ? spr_keyinvSP_ss : spr_keyinvSP;
+			keyimg = (keyimg + 0.35) % sprite_get_number(keyspr);
+			
+			draw_sprite_ext(keyspr, keyimg, 696, 86 + obj_tv.hud_posY + styley, 1, 1, 0, c_white, alpha);
+		}
 		else
-			draw_sprite_ext(spr_invSP, 0, 696, 86 + obj_tv.hud_posY + styley, 1, 1, 0, c_white, alpha);
+			draw_sprite_ext(spr_invSP, -1, 696, 86 + obj_tv.hud_posY + styley, 1, 1, 0, c_white, alpha);
 	}
 }
-
 draw_set_blend_mode(bm_normal);
+

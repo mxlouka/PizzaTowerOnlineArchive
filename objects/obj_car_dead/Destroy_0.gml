@@ -10,3 +10,4 @@ with instance_create(x, y, obj_pizzaslice)
 	if scr_solid(x, y)
 		scr_pushout(64);
 }
+

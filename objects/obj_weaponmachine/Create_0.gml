@@ -1,3 +1,5 @@
+ID = id;
+
 image_speed = 0
 image_index = 0;
 depth = -1
@@ -9,6 +11,4 @@ else
 
 with obj_player1
 	if character == "S" instance_destroy(other);
-
-ID = id;
 

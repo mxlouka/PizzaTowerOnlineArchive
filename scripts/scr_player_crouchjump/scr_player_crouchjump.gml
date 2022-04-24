@@ -18,7 +18,7 @@ function scr_player_crouchjump()
 	}
 
 	//Hit head
-	if scr_solid(x,y-1) && !jumpstop && jumpAnim
+	if scr_solid_player(x, y - 1) && vsp < 0 && !jumpstop && jumpAnim
 	{
 		vsp = grav
 		jumpstop = true

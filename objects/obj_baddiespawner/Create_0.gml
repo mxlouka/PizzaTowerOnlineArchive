@@ -10,3 +10,4 @@ grav = 0.5
 
 if check_sugary()
 	sprite_index = spr_baddiespawner_ss;
+

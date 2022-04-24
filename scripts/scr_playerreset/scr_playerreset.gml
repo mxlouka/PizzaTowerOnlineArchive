@@ -108,6 +108,8 @@ function scr_playerreset()
 	{
 		message = "";
 		showtext = false;
+		if global.gameplay == 0
+			tvsprite = spr_tvdefault;
 		
 		shownranks = false
 		shownranka = false
@@ -245,7 +247,7 @@ function scr_playerreset()
 		input_buffer_highjump = 8
 
 		flash = false
-		global.key_inv = false
+		global.key_inv = 0
 		global.shroomfollow = false
 		global.cheesefollow = false
 		global.tomatofollow = false

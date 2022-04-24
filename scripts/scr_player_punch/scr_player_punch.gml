@@ -8,7 +8,7 @@ function scr_player_punch()
 			
 			if sprite_index == spr_breakdanceuppercut or sprite_index == spr_breakdanceuppercutend
 			{
-				if abs(hsp) <= movespeed or move != xscale
+				if abs(hsp) <= movespeed or move != xscale or !scr_stylecheck(2)
 					hsp = move * movespeed;
 				
 				if floor(image_index) == image_number - 1
@@ -22,8 +22,11 @@ function scr_player_punch()
 					sprite_index = spr_breakdanceuppercutend;
 				}
 				
-				if grounded && vsp > 0
+				if grounded && vsp >= 0
+				{
+					dir = xscale;
 					state = states.jump;
+				}
 			}
 			else
 				hsp = xscale * movespeed

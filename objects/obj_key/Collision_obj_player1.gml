@@ -9,7 +9,7 @@ with other
 		global.heattime = 60;
 		
 		instance_destroy(other)
-		global.key_inv = true
+		global.key_inv += 1
 		key_particles = true
 		alarm[7] = 30
 		

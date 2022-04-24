@@ -15,6 +15,7 @@ if instance_exists(baddieID)
 			baddieID.hithsp = 0;
 			baddieID.hitvsp = 0;
 			scr_hitthrow(baddieID, noone, 10);
+			baddieID.invtime = 25;
 		}
 	}
 	else if baddieID.stuntouchbuffer <= 0

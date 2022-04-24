@@ -16,6 +16,7 @@ if !check_shaders()
 	global.panicbg = false;
 
 surf = -1;
+bgsurf = -1;
 trans = 0;
 
 state = 0;

@@ -1,31 +1,25 @@
 if live_call()
-{
-	dbg_live = true;
 	return live_result;
-}
 
-var s = 100;
-var c1 = dbg_live ? c2 : c_black;
+var s = 72;
+var c1 = c_black;
 
 // square backgrund
 if !(instance_exists(obj_pause) && obj_pause.pause)
 {
-	draw_set_colour(c1);
-	draw_rectangle(0, 0, 960, 540, false);
-	draw_set_colour(c2);
+	mo = (mo + 0.5) % s;
 	
-	if !dbg_live
-	{
-		mo = (mo + 0.5) % s;
-		for(var ii = -1; ii < 960 / s; ii += 1)
-		{
-			for(var j = -1; j < 540 / s; j += 1)
-			{
-				if (ii + j) % 2 != 0
-					draw_roundrect_ext(ii * s + mo, j * s + mo, ii * s + s + mo - 1, j * s + s + mo - 1, 16, 16, false);
-			}
-		}
-	}
+	if !surface_exists(bgsurf)
+		bgsurf = surface_create(s * 2, s * 2);
+	
+	surface_set_target(bgsurf);
+	draw_clear(c1);
+	draw_set_colour(c2);
+	draw_roundrect_ext(0, 0, s - 1, s - 1, 16, 16, false);
+	draw_roundrect_ext(s, s, s + s - 1, s + s - 1, 16, 16, false);
+	surface_reset_target();
+		
+	draw_surface_tiled(bgsurf, mo, mo);
 }
 
 // draw text

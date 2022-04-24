@@ -2,9 +2,13 @@ scr_collide();
 if content == noone or !is_real(content) && !object_exists(content)
 	exit;
 
-with obj_player1
-	if (other.content == obj_shotgun or other.content == obj_woodbarrel) && character == "V"
+with obj_player
+{
+	if character == "V" && (other.content == obj_shotgun or other.content == obj_woodbarrel)
 		instance_destroy(other.id);
+	if character == "S" && other.content == obj_shotgun
+		instance_destroy(other.id);
+}
 
 if (!instance_exists(baddieid) && content != obj_shotgun) or (!instance_exists(baddieid) && content == obj_shotgun && !obj_player1.shotgunAnim)
 	refresh--;

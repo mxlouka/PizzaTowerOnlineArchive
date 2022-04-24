@@ -108,12 +108,14 @@ function scr_player_handstandjump()
 			
 			if global.gameplay != 0 && !grounded
 			{
+				if sprite_index != spr_airattack && sprite_index != spr_airattackstart
+					suplexmove = false;
+				
 				image_index = 0;
 				sprite_index = spr_suplexcancel;
 				jumpAnim = true;
 				grav = basegrav;
 				state = states.jump;
-				suplexmove = false;
 			}
 			exit;
 		}

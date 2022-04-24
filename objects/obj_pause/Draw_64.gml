@@ -52,20 +52,20 @@ if (pause or pausefad == 2 or pausefad == 4)
 	depth = -9998;
 	if pausefad == 3 or pausefad == 2
 	{
-		draw_set_colour(c_black);
-		draw_rectangle(0, 0, 960, 540, false);
-		draw_set_colour(make_colour_hsv((257 / 360) * 255, (39 / 100) * 255, (23 / 100) * 255));
-		
-		var s = 100;
+		var s = 72;
 		x = (x + 0.5) % s;
-		for(var ii = -1; ii < 960 / s; ii += 1)
-		{
-			for(var j = -1; j < 540 / s; j += 1)
-			{
-				if (ii + j) % 2 != 0
-					draw_roundrect_ext(ii * s + x, j * s + x, ii * s + s + x - 1, j * s + s + x - 1, 16, 16, false);
-			}
-		}
+		
+		if !surface_exists(surf)
+			surf = surface_create(s * 2, s * 2);
+		
+		surface_set_target(surf);
+		draw_clear(c_black);
+		draw_set_colour(make_colour_hsv((257 / 360) * 255, (39 / 100) * 255, (23 / 100) * 255));
+		draw_roundrect_ext(0, 0, s - 1, s - 1, 16, 16, false);
+		draw_roundrect_ext(s, s, s + s - 1, s + s - 1, 16, 16, false);
+		surface_reset_target();
+		
+		draw_surface_tiled(surf, x, x);
 		
 		if !instance_exists(obj_option)
 		{
@@ -152,49 +152,105 @@ if (pause or pausefad == 2 or pausefad == 4)
 			draw_sprite_ext(_pspr, i, 200, 200, 2, 2, 0, c_white, 1);
 			pal_swap_reset();
 			
-			// pizza
 			var hud_xx = 750, hud_yy = 450;
-			var sugary = (character == "SP" or character == "SN");
-			draw_sprite_ext(sugary ? spr_candyscore : spr_pizzascore, 0, hud_xx, hud_yy, 1, 1, 0, c_white, 1);
-			
-			var _score = global.collect;
-			if !sugary
+			if global.gameplay == 0
 			{
-			    if _score >= global.crank
-			        draw_sprite_ext(spr_pizzascore_pepper, 0, hud_xx, hud_yy, 1, 1, 0, c_white, 1);
-			    if _score >= global.brank
-			        draw_sprite_ext(spr_pizzascore_pepperoni, 0, hud_xx, hud_yy, 1, 1, 0, c_white, 1);
-			    if _score >= global.arank
-			        draw_sprite_ext(spr_pizzascore_olive, 0, hud_xx, hud_yy, 1, 1, 0, c_white, 1);
-			    if _score >= global.srank
-			        draw_sprite_ext(spr_pizzascore_shroom, 0, hud_xx, hud_yy, 1, 1, 0, c_white, 1);
+				// tv
+				draw_sprite_ext(spr_tvdefault, 0, hud_xx, hud_yy, 1, 1, 0, c_white, 1);
+				draw_set_halign(fa_center);
+				draw_text(hud_xx - 4, hud_yy - 14, string(global.collect));
+			}
+			else
+			{
+				// pizza
+				var sugary = (character == "SP" or character == "SN");
+				draw_sprite_ext(sugary ? spr_candyscore : spr_pizzascore, 0, hud_xx, hud_yy, 1, 1, 0, c_white, 1);
+			
+				var _score = global.collect;
+				if !sugary
+				{
+				    if _score >= global.crank
+				        draw_sprite_ext(spr_pizzascore_pepper, 0, hud_xx, hud_yy, 1, 1, 0, c_white, 1);
+				    if _score >= global.brank
+				        draw_sprite_ext(spr_pizzascore_pepperoni, 0, hud_xx, hud_yy, 1, 1, 0, c_white, 1);
+				    if _score >= global.arank
+				        draw_sprite_ext(spr_pizzascore_olive, 0, hud_xx, hud_yy, 1, 1, 0, c_white, 1);
+				    if _score >= global.srank
+				        draw_sprite_ext(spr_pizzascore_shroom, 0, hud_xx, hud_yy, 1, 1, 0, c_white, 1);
+				}
+			
+				draw_set_valign(fa_top);
+			    draw_set_halign(fa_left);
+			    draw_set_font(sugary ? global.candyfont : global.collectfont);
+			
+			    var str = string(_score);
+			    var num = string_length(str);
+			    var xx = hud_xx - string_width(str) / 2;
+			
+			    draw_set_alpha(1);
+			    for (var ii = 0; ii < num; ii++)
+			    {
+			        var yy = (ii + 1) % 2 == 0 ? -5 : 0;
+			        draw_text(xx, hud_yy - 56 + yy, string_char_at(str, ii + 1));
+			        xx += string_width(str) / num;
+			    }
+			
+				draw_set_alpha(1);
+			    pal_swap_reset();
 			}
 			
-			draw_set_valign(fa_top);
-		    draw_set_halign(fa_left);
-		    draw_set_font(sugary ? global.candyfont : global.collectfont);
-			
-		    var str = string(_score);
-		    var num = string_length(str);
-		    var xx = hud_xx - string_width(str) / 2;
-			
-		    draw_set_alpha(1);
-		    for (var ii = 0; ii < num; ii++)
-		    {
-		        var yy = (ii + 1) % 2 == 0 ? -5 : 0;
-		        draw_text(xx, hud_yy - 56 + yy, string_char_at(str, ii + 1));
-		        xx += string_width(str) / num;
-		    }
-			
-			draw_set_alpha(1);
-		    pal_swap_reset();
-			
 			// toppins
-			draw_sprite_ext(check_sugary() ? spr_toppinmallow_NEW : spr_toppinshroom_NEW, i, 92, 420, 1, 1, 0, c_white, global.shroomfollow ? 1 : 0.25);
-			draw_sprite_ext(check_sugary() ? spr_toppinchoco : spr_toppincheese_NEW, i, 92 + (50 * 1), 420, 1, 1, 0, c_white, global.cheesefollow ? 1 : 0.25);
-			draw_sprite_ext(check_sugary() ? spr_toppincrack : spr_toppintomato_NEW, i, 92 + (50 * 2), 420, 1, 1, 0, c_white, global.tomatofollow ? 1 : 0.25);
-			draw_sprite_ext(check_sugary() ? spr_toppinworm : spr_toppinsausage_NEW, i, 92 + (50 * 3), 420, 1, 1, 0, c_white, global.sausagefollow ? 1 : 0.25);
-			draw_sprite_ext(check_sugary() ? spr_toppincandy : spr_toppinpineapple_NEW, i, 92 + (50 * 4), 420, 1, 1, 0, c_white, global.pineapplefollow ? 1 : 0.25);
+			var shroomspr = spr_toppinshroom, cheesespr = spr_toppincheese, tomatospr = spr_toppintomato, sausagespr = spr_toppinsausage, pineapplespr = spr_toppinpineapple;
+			if global.gameplay != 0
+			{
+				shroomspr = spr_toppinshroom_NEW;
+				cheesespr = spr_toppincheese_NEW;
+				tomatospr = spr_toppintomato_NEW;
+				sausagespr = spr_toppinsausage_NEW;
+				pineapplespr = spr_toppinpineapple_NEW;
+				
+				if check_sugary()
+				{
+					shroomspr = spr_toppinmallow;
+					cheesespr = spr_toppinchoco;
+					tomatospr = spr_toppincrack;
+					sausagespr = spr_toppinworm;
+					pineapplespr = spr_toppincandy;
+				}
+				else if string_startswith(room_get_name(room), "strongcold")
+				{
+					shroomspr = spr_xmastoppinshroom_NEW;
+					cheesespr = spr_xmastoppincheese_NEW;
+					tomatospr = spr_xmastoppintomato_NEW;
+					sausagespr = spr_xmastoppinsausage_NEW;
+					pineapplespr = spr_xmastoppinpineapple_NEW;
+				}
+			}
+			else
+			{
+				if check_sugary()
+				{
+					shroomspr = spr_toppinmallow;
+					cheesespr = spr_toppinchoco;
+					tomatospr = spr_toppincrack;
+					sausagespr = spr_toppinworm;
+					pineapplespr = spr_toppincandy;
+				}
+				else if string_startswith(room_get_name(room), "strongcold")
+				{
+					shroomspr = spr_xmasshroomtoppin_idle;
+					cheesespr = spr_xmascheesetoppin_idle;
+					tomatospr = spr_xmastomatotoppin_idle;
+					sausagespr = spr_xmassausagetoppin_idle;
+					pineapplespr = spr_xmaspineappletoppin_idle;
+				}
+			}
+			
+			draw_sprite_ext(shroomspr, i, 92, 420, 1, 1, 0, c_white, global.shroomfollow ? 1 : 0.25);
+			draw_sprite_ext(cheesespr, i, 92 + (50 * 1), 420, 1, 1, 0, c_white, global.cheesefollow ? 1 : 0.25);
+			draw_sprite_ext(tomatospr, i, 92 + (50 * 2), 420, 1, 1, 0, c_white, global.tomatofollow ? 1 : 0.25);
+			draw_sprite_ext(sausagespr, i, 92 + (50 * 3), 420, 1, 1, 0, c_white, global.sausagefollow ? 1 : 0.25);
+			draw_sprite_ext(pineapplespr, i, 92 + (50 * 4), 420, 1, 1, 0, c_white, global.pineapplefollow ? 1 : 0.25);
 			
 			// fade
 			draw_set_colour(c_black);

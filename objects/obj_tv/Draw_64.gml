@@ -40,22 +40,25 @@ draw_set_font(global.bigfont)
 if global.gameplay == 0
 {
 	//Draw TV
+	var tvx = 832, tvy = 74;
+	draw_set_alpha(alpha);
 	if global.combotime > 0 && tvsprite == spr_tvcombo
 	{
+		// combo tv
 		if !surface_exists(surf)
 			surf = surface_create(960, 540);
 		
 		surface_set_target(surf);
 		draw_clear_alpha(c_black, 0);
 		
-		draw_sprite_ext(scr_sprite_charsuffix(spr_tvcomboclear, sugary ? "ss" : -1), -1, 832, 74, 1, 1, 0, c_white, 1);
+		draw_sprite_ext(scr_sprite_charsuffix(spr_tvcomboclear, sugary ? "ss" : -1), -1, tvx, tvy, 1, 1, 0, c_white, 1);
 		
 		var sprit = scr_sprite_charsuffix(spr_tvcombo, sugary ? "ss" : -1);
-		draw_sprite_part_ext(sprit, imageindexstore % 5, 0, 0, 16 + (global.combotime / 60) * 148, 177, 832 - sprite_get_xoffset(sprit), 74 - sprite_get_yoffset(sprit), 1, 1, c_white, 1);
+		draw_sprite_part_ext(sprit, imageindexstore % 5, 0, 0, 16 + (global.combotime / 60) * 148, 177, tvx - sprite_get_xoffset(sprit), tvy - sprite_get_yoffset(sprit), 1, 1, c_white, 1);
 		surface_reset_target();
 		
 		draw_surface_ext(surf, 0, 0, 1, 1, 0, c_white, alpha);
-		draw_text(852, 75, string(global.combo));
+		draw_text(tvx + 20, tvy + 1, string(global.combo));
 	}
 	else if room != strongcold_endscreen && room != Realtitlescreen
 	{
@@ -64,17 +67,21 @@ if global.gameplay == 0
 		if sugary && !string_endswith(sprite_get_name(sprit), "_ss")
 			sprit = spr_tvdefault_ss;
 		
-		// tv frame
-		draw_sprite_ext(sprit, -1, 832, 74, 1, 1, 0, c_white, alpha);
+		// tv
+		draw_sprite_ext(sprit, -1, tvx, tvy, 1, 1, 0, c_white, alpha);
 		
 		// text
 		if (tvsprite == spr_tvdefault or sprit == spr_tvdefault_ss) && !global.miniboss
-			draw_text(828, 60, string(global.collect));
+			draw_text(tvx - 4, tvy - 14, string(global.collect));
 		if global.miniboss
-			draw_text(832, 60, string(global.boxhp));
+			draw_text(tvx, tvy - 14, string(global.boxhp));
 		if tvsprite == spr_tvdefault
 			chose = false;
 	}
+	draw_set_alpha(1);
+	
+	// tv frame
+	draw_sprite_ext(spr_tvempty, -1, tvx, tvy, 1, 1, 0, c_white, (alpha < 1 ? 0 : 1));
 }
 
 #endregion

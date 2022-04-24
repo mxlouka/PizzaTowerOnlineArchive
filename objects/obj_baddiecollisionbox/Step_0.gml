@@ -51,8 +51,6 @@ if player && !player.cutscene && (player.state != states.firemouth or global.gam
 					bad.instakilled = true;
 				}
 			}
-			
-			bad.invtime = 25;
 			if state != states.hurt
 				bad.grabbedby = 1;
 			
@@ -103,6 +101,7 @@ if player && !player.cutscene && (player.state != states.firemouth or global.gam
 					
 				scr_hitthrow(bad, id, lag);
 			}
+			bad.invtime = 25;
 			
 			scr_soundeffect(sfx_punch);
 			scr_failmod(mods.pacifist);

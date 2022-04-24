@@ -23,7 +23,7 @@ grounded = true
 
 idlespr = spr_robot_idle
 stunfallspr = spr_robot_stun
-walkspr =spr_robot_walk
+walkspr = spr_robot_walk
 stunspr = spr_robot_stun
 grabbedspr = spr_robot_stun
 scaredspr = spr_robot_attack

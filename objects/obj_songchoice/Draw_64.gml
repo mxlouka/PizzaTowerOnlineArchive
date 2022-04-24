@@ -1,6 +1,9 @@
 if live_call() return live_result;
 event_inherited();
 
+// disc
+draw_sprite_ext(bg_jukeboxdisc, sel[0], 640, 280, 2, 2, discrot, c_white, 0.6 * talpha);
+
 // song names
 var _palname = selarray[sel[1]][1];
 var _paldesc = selarray[sel[1]][2];
@@ -53,7 +56,13 @@ draw_sprite(spr_cursor, img, 64 - 36, 128 + 10 - scroller + sel[1] * 16);
 // song position
 var pos = 0;
 if global.jukebox != -1 && audio_is_playing(selarray[sel[1]][0])
+{
 	pos = (audio_sound_get_track_position(global.jukebox) / audio_sound_length(global.jukebox)) * 480;
+	if array_length(selarray[sel[1]]) > 3
+		discrot -= selarray[sel[1]][3];
+	else
+		discrot -= 1.5;
+}
 
 draw_set_colour(c_gray);
 draw_rectangle(400, 350 + yoffset, 400 + 480, 350 + 15 + yoffset, false);

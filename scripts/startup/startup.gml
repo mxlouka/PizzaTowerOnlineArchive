@@ -281,10 +281,10 @@ function setup_pizzamart()
 	{
 		// shields
 		with instance_create(264, 328, obj_pizzashield_collectible)
-			ID = "martshotgun1";
+			ID = "martshotgun1" + string_letters(room_get_name(room));
 		with instance_create(265, 333, obj_weaponmachine)
 		{
-			ID = "martmachine1";
+			ID = "martmachine1" + string_letters(room_get_name(room));
 			if global.snickrematch
 				price = 8;
 		}
@@ -293,9 +293,9 @@ function setup_pizzamart()
 	{
 		// shotguns
 		with instance_create(224, 320, obj_shotgun)
-			ID = "martshotgun1";
+			ID = "martshotgun1" + string_letters(room_get_name(room));
 		with instance_create(265, 333, obj_weaponmachine)
-			ID = "martmachine1";
+			ID = "martmachine1" + string_letters(room_get_name(room));
 	}
 }
 

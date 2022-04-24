@@ -63,7 +63,7 @@
     "eventStubScript": null,
     "parent": {"name":"spr_tvdefault","path":"sprites/spr_tvdefault/spr_tvdefault.yy",},
     "resourceVersion": "1.4",
-    "name": "",
+    "name": "spr_tvdefault",
     "tags": [],
     "resourceType": "GMSequence",
   },

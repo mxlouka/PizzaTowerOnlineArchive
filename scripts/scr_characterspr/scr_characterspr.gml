@@ -1019,12 +1019,12 @@ function scr_characterspr(char = character)
 				spr_firemouthshoot = spr_snick_hurt;
 				spr_firemouthend = spr_snick_stunned;
 				
-				spr_boxxed_intro = spr_boxxedpep_intro;
-				spr_boxxed_idle = spr_boxxedpep_idle;
-				spr_boxxed_walk = spr_boxxedpep_walk;
-				spr_boxxed_air = spr_boxxedpep_air;
-				spr_boxxed_dash = spr_boxxedpep_dash;
-				spr_boxxed_jump = spr_boxxedpep_jump;
+				spr_boxxed_intro = spr_snick_boxxedstart;
+				spr_boxxed_idle = spr_snick_boxxedidle;
+				spr_boxxed_walk = spr_snick_boxxedwalk;
+				spr_boxxed_air = spr_snick_boxxedfall;
+				spr_boxxed_dash = spr_snick_boxxedwalk;
+				spr_boxxed_jump = spr_snick_boxxedjump;
 				
 				spr_dashpadmach = spr_snick_walk;
 				spr_dead = spr_snick_stunned
@@ -1574,6 +1574,14 @@ function scr_characterspr(char = character)
 				
 				spr_breakdanceuppercut = spr_playerPP_uppercut;
 				spr_breakdanceuppercutend = spr_playerPP_uppercutend;
+				
+				spr_ghostidle = spr_playerPP_ghostidle;
+				spr_ghostjump = spr_playerPP_ghostjump;
+				spr_ghostend = spr_playerPP_ghostend;
+				spr_ghostdash = spr_playerPP_ghostdash;
+				
+				spr_barrelroll = spr_playerPP_barrelroll;
+				spr_dashpadmach = spr_playerPP_dashpad;
 				
 				snd_fireass = sfx_scream5_PP;
 				break;

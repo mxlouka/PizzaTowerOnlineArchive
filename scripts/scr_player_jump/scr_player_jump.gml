@@ -12,9 +12,9 @@ function scr_player_jump()
 		facehurt = false
 	}
 	
+	move = key_left + key_right;
 	if move != xscale
 		movespeed = 2;
-	move = key_left + key_right;
 	
 	if movespeed == 0
 		momentum = false;

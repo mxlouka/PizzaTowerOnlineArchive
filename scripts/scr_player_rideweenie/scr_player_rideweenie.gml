@@ -18,6 +18,7 @@ function scr_player_rideweenie()
 	//Jump
 	if (input_buffer_jump < 8) && grounded 
 	{
+		input_buffer_jump = 8
 		scr_soundeffect(sfx_jump)
 		instance_create(x,y,obj_highjumpcloud2)
 		vsp = -11
@@ -64,7 +65,7 @@ function scr_player_rideweenie()
 	    vsp = -3
 	    mach2 = 0
 	    image_index = 0
-	    instance_create(x+10,y+10,obj_bumpeffect)
+	    instance_create(x + 10 * xscale, y + 10, obj_bumpeffect)
 	}
 
 	//Effect

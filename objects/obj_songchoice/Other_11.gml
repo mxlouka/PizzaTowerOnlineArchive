@@ -3,7 +3,10 @@ if live_call() return live_result;
 if !audio_is_playing(selarray[sel[1]][0])
 {
 	audio_stop_all();
-	global.jukebox = scr_sound(selarray[sel[1]][0]);
+	
+	global.music = audio_play_sound(selarray[sel[1]][0], 1, true);
+	audio_sound_gain(global.music, global.musicvolume, 0);
+	global.jukebox = global.music;
 }
 else
 {

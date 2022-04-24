@@ -1,4 +1,4 @@
-if (obj_player.state == states.normal or obj_player.state == states.mach1 or obj_player.state == states.pogo or obj_player.state == states.mach2 or obj_player.state == states.mach3 or obj_player.state == states.Sjumpprep) && (sprite_index == spr_doorkey or sprite_index == spr_keydoor_ss) && obj_player.key_up && obj_player.grounded && global.key_inv == true && place_meeting(x, y, obj_player) 
+if (obj_player.state == states.normal or obj_player.state == states.mach1 or obj_player.state == states.pogo or obj_player.state == states.mach2 or obj_player.state == states.mach3 or obj_player.state == states.Sjumpprep) && (sprite_index == spr_doorkey or sprite_index == spr_keydoor_ss) && obj_player.key_up && obj_player.grounded && global.key_inv > 0 && place_meeting(x, y, obj_player) 
 {
 	ds_list_add(global.saveroom, id)
 	
@@ -19,7 +19,7 @@ if (obj_player.state == states.normal or obj_player.state == states.mach1 or obj
 	
 	image_speed = 0.35
 	
-	global.key_inv = false
+	global.key_inv -= 1
 }
 
 if sprite_index == spr_doorkeyopen && floor(image_index) >= 2

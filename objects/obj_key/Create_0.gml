@@ -19,7 +19,6 @@ depth = 1
 if scr_depthcheck()
 	depth += 100;
 
-if global.key_inv
-	instance_destroy();
 if check_sugary()
 	sprite_index = spr_key_ss;
+

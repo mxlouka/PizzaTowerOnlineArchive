@@ -74,3 +74,4 @@ if state == states.walk or state == states.idle
 
 if sprite_index == spr_charcherry_popout && floor(image_index) >= image_number - 1
 	sprite_index = spr_charcherry_run;
+

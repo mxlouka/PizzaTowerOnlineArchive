@@ -62,7 +62,7 @@ targetRoom = 0
 targetDoor = "A"
 
 flash = false
-global.key_inv = false
+global.key_inv = 0
 global.shroomfollow = false
 global.cheesefollow = false
 global.tomatofollow = false

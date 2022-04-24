@@ -31,6 +31,7 @@ if other.state != states.boxxedpep
 				sprite_index = spr_boxxed_intro
 				scr_soundeffect(sfx_pephurt)
 				
+				image_speed = 0.35
 				image_index = 0
 				hsp = 0
 				vsp = 0

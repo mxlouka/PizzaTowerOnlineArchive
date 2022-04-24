@@ -25,7 +25,11 @@ if room != Realtitlescreen && global.gameplay != 0
 	}
 }
 else
+{
+	if ds_exists(special_prompts, ds_type_map)
+		ds_map_destroy(special_prompts);
 	special_prompts = noone;
+}
 
 // tv visibility
 if room == rank_room or room == timesuproom or room == boss_room1 or room == Oldtitlescreen or room == characterselect or room == editor_entrance
@@ -36,7 +40,6 @@ or (instance_exists(obj_gms) && global.__chat)
 	{
 	    animset = spr_tv_off;
 	    tvsprite = spr_tv_idle;
-		image_index = 0;
 		state = states.transitioncutscene;
 	}
 }
@@ -74,6 +77,7 @@ if global.gameplay == 0
 	if surface_exists(promptsurface)
 	{
 		surface_free(promptsurface);
+		image_index = 0;
 		image_speed = 0.1;
 		tvsprite = spr_tvdefault;
 		sprite_index = tvsprite;

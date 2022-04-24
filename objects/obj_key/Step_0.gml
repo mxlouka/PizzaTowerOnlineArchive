@@ -8,3 +8,4 @@ if (vsp < 12) vsp += grav;
 
 image_alpha = (inv_frame ? 0.5 : 1);
 scr_collide();
+

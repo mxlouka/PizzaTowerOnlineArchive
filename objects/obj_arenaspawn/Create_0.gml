@@ -17,6 +17,7 @@ round_max = 60
 wave = 1
 maxwave = 0
 sprite_index = spr_arenagate_opened
+depth = 5
 
 baddielist = ds_list_create()
 currentarena = ds_list_create()

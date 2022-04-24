@@ -253,17 +253,18 @@ else if menu == 1
 		else
 			var move = (key_left + key_right) * 0.02;
 		
-		global.musicvolume = clamp(global.musicvolume + move, 0, 1);
-		audio_sound_gain(music, global.musicvolume, 0);
-		
 		if keyboard_check_pressed(ord("R"))
 			global.musicvolume = 0.6;
+		
+		global.musicvolume = clamp(global.musicvolume + move, 0, 1);
+		audio_sound_gain(music, global.musicvolume, 0);
 		
 		if global.musicvolume > 0 && !audio_is_playing(music)
 		{
 			if !instance_exists(obj_music)
 			{
 				global.music = -4;
+				global.jukebox = -1;
 				music = scr_soundeffect_ext(mu_editor);
 			}
 			else

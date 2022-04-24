@@ -27,3 +27,4 @@ paletteselect = 1;
 
 gototitle = false;
 gotoroom = -1;
+

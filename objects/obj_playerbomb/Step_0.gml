@@ -52,7 +52,7 @@ if !kick
 else
 {
 	mask_index = spr_crouchmask
-	if scr_solidwall(x+hsp,y) && !place_meeting(x+hsp,y,obj_destructibles) && sprite_index != spr_playerN_noisebombhitwall
+	if scr_solidwall(x + hsp, y) && !place_meeting(x + hsp, y, obj_slope) && !place_meeting(x + hsp, y, obj_destructibles) && sprite_index != spr_playerN_noisebombhitwall
 	{
 		if global.gameplay == 0
 		{
