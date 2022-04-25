@@ -9,6 +9,7 @@ if instance_exists(obj_onlinemenu)
 		state = states.titlescreen;
 	}
 	
+	obj_onlinemenu.gmsroom = -1;
 	obj_onlinemenu.menu = menutypes.leveldetails;
 	room_goto(editor_entrance);
 }

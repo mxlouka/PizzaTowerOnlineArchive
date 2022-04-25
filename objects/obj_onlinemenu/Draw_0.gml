@@ -9,7 +9,6 @@ switch menu
 		draw_set_colour(c_white);
 		draw_set_halign(fa_left);
 		draw_set_valign(fa_top);
-		//draw_text(4, 4, "works on v" + string(builtforv));
 		
 		#endregion
 		#region black box
@@ -23,7 +22,13 @@ switch menu
 		#region starting menu
 		
 		if draw_editorbutton(384, 200 + (!debug * 64), lang_string("editor.menu.online"))
-			menu = menutypes.menuonline;
+		{
+			menu = menutypes.levelbrowser;
+			paging_type = 3;
+			scr_requestpage_alt(page);
+			
+			//menu = menutypes.menuonline;
+		}
 		
 		if debug
 		{
@@ -60,6 +65,7 @@ switch menu
 				room = hub_outside2;
 				obj_player1.targetDoor = "B";
 				*/
+				
 				with obj_roomname
 				{
 					showtext = true;
@@ -91,6 +97,7 @@ switch menu
 		#endregion
 		#region online menu
 		
+		/*
 		if debug
 		{
 			if draw_editorbutton(384, 200, lang_string("editor.menu.online.official"))
@@ -116,6 +123,7 @@ switch menu
 				scr_requestpage(page);
 			}
 		}
+		*/
 		
 		if check_online() or debug
 		{
@@ -251,7 +259,7 @@ switch menu
 		}
 		
 		// search tool
-		if paging_type != 1 && paging_type != 3
+		//if paging_type != 3
 		{
 			draw_set_colour(c_white);
 			draw_rectangle(672, 42, 926, 72, false);
@@ -294,16 +302,16 @@ switch menu
 				// search
 				page = 1;
 				records = undefined;
-				paging_type = 2;
+				paging_type = 4;
 				searchstring_real = searchstring;
-				scr_requestpage(page);
+				scr_requestpage_alt(page);
 			}
 		}
 		
 		// go back
 		if (draw_editorbutton(704, 458, lang_string("editor.menu.back")) or (paging_type == 2 && searchstring == "" && draw_editorbutton(704, 98, lang_string("editor.menu.back")))) && !loading
 		{
-			if paging_type != 2
+			if paging_type != 4
 			{
 				records = undefined;
 				menu = menutypes.menuonline;
@@ -314,34 +322,25 @@ switch menu
 				searchstring = "";
 				records = undefined;
 				paging_type = 0;
-				scr_requestpage(page);
+				scr_requestpage_alt(page);
 			}
 		}
 		
 		// upload level
 		if paging_type == 3 && !loading
 		{
-			if draw_editorbutton(704, 64, lang_string("editor.menu.search.upload"))
+			if draw_editorbutton(704, 64, global.auth == "" ? lang_string("editor.menu.search.login") : lang_string("editor.menu.search.upload"))
 			{
-				if debug
+				if global.auth == ""
 				{
-					if global.auth == ""
-					{
-						records = undefined;
-						menu = menutypes.login;
-						searchstring = "";
-					}
-					else
-					{
-						// upload level dumbass
-						gmsroom = global.lastroom + irandom_range(10000, 900000);
-					}
+					records = undefined;
+					menu = menutypes.login;
+					searchstring = "";
 				}
-				else with obj_roomname
+				else
 				{
-					showtext = true;
-					message = lang_string("editor.menu.wip");
-					alarm[0] = 200;
+					// test level to verify it's beatable.
+					gmsroom = global.lastroom + irandom_range(10000, 900000);
 				}
 			}
 		}

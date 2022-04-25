@@ -94,22 +94,6 @@ if ds_map_find_value(async_load, "id") == request
 		
 		if requestype == reqtypes.read_paging_alt
 		{
-			/*
-			var records_get = ds_map_find_value(map, "levels");
-			if records_get != undefined
-			{
-				records = records_get;
-				yview = 0;
-			}
-			else
-			{
-				showtext = true;
-				message = "GOT UNEXPECTED RESULTS";
-				alarm[0] = 200;
-			}
-			pagelast = 0;
-			*/
-			
 			var records_get = ds_map_find_value(map, "records");
 			var paging_get = ds_map_find_value(map, "paging");
 			

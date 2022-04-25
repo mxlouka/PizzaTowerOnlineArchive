@@ -3,14 +3,19 @@ if instance_exists(obj_onlinemenu)
 	scr_playerreset()
 	global.pizzacoin = global.pizzacoinstart;
 	
-	obj_player1.targetDoor = "B";
-	obj_player1.state = states.titlescreen;
+	with obj_player
+	{
+		targetDoor = "B";
+		state = states.titlescreen;
+	}
 	
+	obj_onlinemenu.gmsroom = -1;
 	obj_onlinemenu.menu = menutypes.leveldetails;
 	room_goto(editor_entrance);
 }
-else
+else with obj_player
 {
-	obj_player1.state = states.gameover;
-	obj_player1.y = room_height * 2;
+	state = states.gameover;
+	y = room_height * 2;
 }
+

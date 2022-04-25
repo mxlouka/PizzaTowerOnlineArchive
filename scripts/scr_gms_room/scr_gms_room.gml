@@ -2,6 +2,7 @@ function scr_gms_room()
 {
 	if room != custom_lvl_room
 	{
+		// merge old with new rooms (may show players inside walls with gameplay difference, but...)
 		var r = room;
 		var rname = room_get_name(r);
 		
@@ -14,11 +15,11 @@ function scr_gms_room()
 	}
 	else
 	{
+		// in the level editor.
 		if obj_onlinemenu.gmsroom > -1
 			return obj_onlinemenu.gmsroom;
-		else if obj_onlinemenu.paging_type == 3
-			return global.lastroom + obj_onlinemenu.level_id + 1;
 		else
 			return -obj_onlinemenu.level_id;
 	}
 }
+

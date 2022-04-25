@@ -6,7 +6,7 @@
     "path": "folders/Scripts/Editor/request.yy",
   },
   "resourceVersion": "1.0",
-  "name": "scr_requestpage_alt",
+  "name": "scr_ptoleveleditor",
   "tags": [],
   "resourceType": "GMScript",
 }

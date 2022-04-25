@@ -50,6 +50,7 @@ else if room == custom_lvl_room
 		obj_onlinemenu.menu = menutypes.menustart;
 	else
 		obj_onlinemenu.menu = menutypes.leveldetails;
+	obj_onlinemenu.gmsroom = -1;
 	room_goto(editor_entrance);
 }
 else

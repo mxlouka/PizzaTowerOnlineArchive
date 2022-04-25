@@ -48,7 +48,7 @@ xi = 500;
 yi = -50;
 
 page = 1;
-paging_type = 0; // 0 for browse, 1 for featured, 2 for search, 3 for alternate
+paging_type = 3; // 0 for browse, 1 for featured, 2 for search, 3 for alternate
 pagelast = 0;
 
 request = ""; // the http request sent
@@ -100,9 +100,11 @@ userid = -1;
 
 // level verification
 gmsroom = -1;
+beatlevel = false;
 
 // other shit
-obj_player1.state = states.titlescreen;
+with obj_player
+	state = states.titlescreen;
 
 global.pizzacoinstart = global.pizzacoin;
 alarm[2] = 10;
