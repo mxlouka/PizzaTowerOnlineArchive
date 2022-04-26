@@ -65,8 +65,16 @@ if ds_list_find_index(global.baddieroom, id) == -1
 		if object_index == obj_swedishmonkey && irandom_range(1, 100) == 5 // 1% chance
 			scr_soundeffect(sfx_monkey);
 		
-		ds_list_add(global.baddieroom, id);
-
+		if object_index != obj_miniufo or global.stylethreshold < 3
+			ds_list_add(global.baddieroom, id);
+		else
+		{
+			with instance_create(x, y, obj_miniufo_grounded)
+				stored_id = other.id
+		}
+		if object_index == obj_miniufo_grounded && stored_id != noone
+			ds_list_add(global.baddieroom, stored_id);
+		
 		// Combos
 		if killreward
 		{

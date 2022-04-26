@@ -1,6 +1,6 @@
 function scr_pizzagoblin_throw()
 {
-	if (!variable_global_exists("throw_frame"))
+	if !variable_global_exists("throw_frame")
 	{
 		// What frame should the enemy be on to throw stuff
 		global.throw_frame[obj_pizzagoblin] = 2
@@ -18,6 +18,10 @@ function scr_pizzagoblin_throw()
 		global.throw_frame[obj_rancher] = 3
 		global.throw_frame[obj_pickle] = 2
 		global.throw_frame[obj_tankOLD] = 6
+		global.throw_frame[obj_tank] = 6
+		global.throw_frame[obj_miniufo] = 3
+		global.throw_frame[obj_miniufo_grounded] = 11
+		
 		global.throw_frame[obj_cottonwitch] = 7
 		
 		// What sprite should the enemy go to when throwing
@@ -36,6 +40,10 @@ function scr_pizzagoblin_throw()
 		global.throw_sprite[obj_rancher] = spr_ranch_shoot
 		global.throw_sprite[obj_pickle] = spr_pickle_attack
 		global.throw_sprite[obj_tankOLD] = spr_tank_shoot
+		global.throw_sprite[obj_tank] = spr_tank_shoot
+		global.throw_sprite[obj_miniufo] = spr_ufolive_shoot
+		global.throw_sprite[obj_miniufo_grounded] = spr_ufogrounded_shoot
+		
 		global.throw_sprite[obj_cottonwitch] = spr_cottonwitch_shoot
 		
 		// How long before the enemy throws something again
@@ -54,6 +62,10 @@ function scr_pizzagoblin_throw()
 		global.reset_timer[obj_rancher] = 100
 		global.reset_timer[obj_pickle] = 120
 		global.reset_timer[obj_tankOLD] = 100
+		global.reset_timer[obj_tank] = 100
+		global.reset_timer[obj_miniufo] = 100
+		global.reset_timer[obj_miniufo_grounded] = 100
+		
 		global.reset_timer[obj_cottonwitch] = 100
 	}
 	
@@ -222,18 +234,38 @@ function scr_pizzagoblin_throw()
 					break
 		
 				case obj_tankOLD:
-					with instance_create(x +image_xscale * 6,y - 6,obj_spitcheesespike)
+					with instance_create(x + image_xscale * 6, y - 6, obj_spitcheesespike)
 					{
 						image_xscale = other.image_xscale
 						hsp = other.image_xscale * 5
 						vsp = -6
 					}
 					break
+				
+				case obj_tank:
+					with instance_create(x + image_xscale * 6, y - 6, obj_canongoblinbomb)
+					{
+						image_xscale = other.image_xscale
+						hsp = other.image_xscale * 5
+					}
+					break
 			
 				case obj_rancher:
-					with instance_create(x + (image_xscale * 6), y + 26, obj_rancher_bullet)
+					with instance_create(x + image_xscale * 6, y + 26, obj_rancher_bullet)
 						image_xscale = other.image_xscale
 					break
+				
+				case obj_miniufo:
+	                instance_create(x, y, obj_warplaser)
+	                break
+				
+				case obj_miniufo_grounded:
+	                with instance_create(x + 8 * image_xscale, y, obj_enemybullet)
+	                {
+	                    sprite_index = spr_ufogrounded_bullet
+	                    image_xscale = other.image_xscale
+	                }
+	                break
 			}
 		}
 	}
@@ -244,3 +276,4 @@ function scr_pizzagoblin_throw()
 	else if !grounded && hsp > 0
 		hsp -= 0.1
 }
+

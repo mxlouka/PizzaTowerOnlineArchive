@@ -1,5 +1,6 @@
 event_inherited();
 
+phase = 0
 grav = 0.5;
 hsp = 0;
 vsp = 0;
@@ -18,12 +19,13 @@ shot = false
 thrown = false
 reset = false
 hp = 2
+lasthp = hp
 hitboxcreate = false
 grounded = true
 
 idlespr = spr_noisey_walk
 stunfallspr = spr_noisey_stun
-walkspr =spr_noisey_walk
+walkspr = spr_noisey_walk
 grabbedspr = spr_noisey_stun
 scaredspr = spr_noisey_stun
 
@@ -39,6 +41,7 @@ depth = 0
 
 if global.gameplay != 0
 {
+	killprotection = true;
 	idlespr = spr_noisey_walk_NEW;
 	stunfallspr = spr_noisey_stun_NEW;
 	walkspr = spr_noisey_walk_NEW;
@@ -50,3 +53,4 @@ if global.gameplay != 0
 paletteselect = 0
 spr_palette = palette_forknight
 grabbedby = 0
+

@@ -118,16 +118,24 @@ if player && !player.cutscene && (player.state != states.firemouth or global.gam
 				if x != bad.x
 					bad.image_xscale = -sign(bad.x - x)
 				
+				if global.gameplay != 0
+				{
+					bad.hsp = xscale * 5
+	                bad.vsp = -5
+				}
 				bad.image_index = 0
 				bad.state = states.stun
 				if bad.stunned < 100
 					bad.stunned = 100
 			}
-				
+			
 			instance_create(x, y + 50, obj_stompeffect)
 			stompAnim = true
-				
-			if key_jump2 
+			
+			if scr_stylecheck(2)
+				bad.yscale = 0.35;
+			
+			if key_jump2
 				vsp = -14
 			else
 				vsp = -9
@@ -145,6 +153,8 @@ if player && !player.cutscene && (player.state != states.firemouth or global.gam
 				bad.vsp = -3
 				scr_soundeffect(sfx_stompenemy)
 				bad.state = states.stun
+				if scr_stylecheck(2)
+					bad.yscale = 0.35;
 				if bad.stunned < 100
 					bad.stunned = 100
 				sprite_index = spr_playerN_pogobounce
@@ -205,24 +215,37 @@ if player && !player.cutscene && (player.state != states.firemouth or global.gam
 		&& bad.bumpable && !bad.invincible 
 		&& ((bad.object_index != obj_pizzice && bad.object_index != obj_ninja) or bad.state != states.charge)
 		{
-			scr_soundeffect(sfx_bumpwall)
+			if bad.object_index != obj_tank
+			{
+				scr_soundeffect(sfx_bumpwall)
 				
-			if state != states.bombpep && state != states.mach1 && state != states.crouchslide && state != states.machroll && state != states.mach2 && state != states.mach3 && state != states.revolver && state != states.dynamite && state != states.climbwall && state != states.frozen && state != states.cotton
-				movespeed = 0
+				if state != states.bombpep && state != states.mach1 && state != states.crouchslide && state != states.machroll && state != states.mach2 && state != states.mach3 && state != states.revolver && state != states.dynamite && state != states.climbwall && state != states.frozen && state != states.cotton
+					movespeed = 0
 				
-			bad.stuntouchbuffer = 50
+				bad.stuntouchbuffer = 50
 				
-			if bad.object_index = obj_pizzaballOLD
-				global.golfhit += 1
-			if bad.stunned < 100
-				bad.stunned = 100
+				if bad.object_index = obj_pizzaballOLD
+					global.golfhit += 1
+				if bad.stunned < 100
+					bad.stunned = 100
 				
-			if x != bad.x
-				bad.image_xscale = -sign(bad.x - x)
-			bad.vsp = -5
-			bad.hsp = -bad.image_xscale * 2
-			bad.state = states.stun
-			bad.image_index = 0
+				if x != bad.x
+					bad.image_xscale = -sign(bad.x - x)
+				bad.vsp = -5
+				bad.hsp = -bad.image_xscale * 2
+				bad.state = states.stun
+				bad.image_index = 0
+			}
+			else
+			{
+				bad.stuntouchbuffer = 10;
+				if y == bad.y && state != states.stunned && grounded && !hurted && (bad.state == states.walk or bad.state == states.pizzagoblinthrow) && bad.image_xscale == -sign(bad.x - x)
+                {
+                    state = states.stunned
+                    sprite_index = spr_squished
+                    image_index = 0
+                }
+			}
 		}
 			
 		//Attack

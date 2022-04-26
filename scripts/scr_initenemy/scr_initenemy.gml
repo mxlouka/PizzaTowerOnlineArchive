@@ -4,6 +4,7 @@ function scr_initenemy()
 	grav = 0.5;
 	hsp = 0;
 	vsp = 0;
+	yscale = 1;
 	stunned = 0
 	alarm[0] = 150
 	roaming = true
@@ -11,6 +12,7 @@ function scr_initenemy()
 	straightthrow = false
 	stomped = false
 	thrown = false
+	thrown_vertically = false
 	reset = false
 	bombreset = 0
 	hp = 1

@@ -1,3 +1,5 @@
+if live_call() return live_result;
+
 if ds_map_find_value(async_load, "id") == request
 {
 	if ds_map_find_value(async_load, "status") == 0
@@ -18,73 +20,19 @@ if ds_map_find_value(async_load, "id") == request
 			exit;
 		}
 		
-		#region official leveleditor
-		
 		if requestype == reqtypes.read_level
 		or requestype == reqtypes.tp_level
 		{
-			level_id = ds_map_find_value(map, "id");
 			level_name = ds_map_find_value(map, "name");
 			
 			level_desc = ds_map_find_value(map, "description");
-			level_desc = string_replace_all(string(level_desc), "&amp;", "&");
-			level_desc = string_replace_all(level_desc, "&lt;", "<");
-			level_desc = string_replace_all(level_desc, "&gt;", ">");
-			level_desc = string_replace_all(level_desc, "&quot;", "\"");
-			
-			level_string = ds_map_find_value(map, "levelstring");
-			level_userid = ds_map_find_value(map, "userid");
-			level_author = ds_map_find_value(map, "author");
-			level_created = ds_map_find_value(map, "created");
-		}
-		
-		if requestype == reqtypes.read_paging
-		{
-			var records_get = ds_map_find_value(map, "records");
-			var paging_get = ds_map_find_value(map, "paging");
-			
-			if records_get != undefined && paging_get != undefined
+			if level_desc != undefined
 			{
-				var paging_last = ds_map_find_value(paging_get, "last");
-				var paginglast_get = page;
-				
-				if paging_last != undefined && string_digits(string(paging_last)) != ""
-				{
-					if paging_type == 0
-						paginglast_get = real(string_replace(paging_last, "http://pizzatowerleveleditor.online/level_api/level/read_paging.php?page=", ""));
-					else if paging_type == 1
-						paginglast_get = real(string_replace(paging_last, "http://pizzatowerleveleditor.online/level_api/level/featured_paging.php?page=", ""));
-					else if paging_type == 2
-						paginglast_get = real(string_replace(paging_last, "http://pizzatowerleveleditor.online/level_api/level/search.php?s=page=", ""));
-				}
-				
-				records = records_get;
-				pagelast = paginglast_get;
-				yview = 0;
+				level_desc = string_replace_all(string(level_desc), "&amp;", "&");
+				level_desc = string_replace_all(level_desc, "&lt;", "<");
+				level_desc = string_replace_all(level_desc, "&gt;", ">");
+				level_desc = string_replace_all(level_desc, "&quot;", "\"");
 			}
-			else
-			{
-				pagelast = 0;
-				
-				showtext = true;
-				message = lang_string("editor.menu.async.unexpected");
-				alarm[0] = 200;
-			}
-		}
-		
-		#endregion
-		#region alt leveleditor
-		
-		if requestype == reqtypes.read_level_alt
-		or requestype == reqtypes.tp_level_alt
-		{
-			level_name = ds_map_find_value(map, "name");
-			
-			level_desc = ds_map_find_value(map, "description");
-			level_desc = string_replace_all(string(level_desc), "&amp;", "&");
-			level_desc = string_replace_all(level_desc, "&lt;", "<");
-			level_desc = string_replace_all(level_desc, "&gt;", ">");
-			level_desc = string_replace_all(level_desc, "&quot;", "\"");
 			
 			level_string = ds_map_find_value(map, "levelString");
 			level_userid = ds_map_find_value(map, "creator");
@@ -92,7 +40,7 @@ if ds_map_find_value(async_load, "id") == request
 			level_created = ds_map_find_value(map, "date");
 		}
 		
-		if requestype == reqtypes.read_paging_alt
+		if requestype == reqtypes.read_paging
 		{
 			var records_get = ds_map_find_value(map, "records");
 			var paging_get = ds_map_find_value(map, "paging");
@@ -119,7 +67,7 @@ if ds_map_find_value(async_load, "id") == request
 			}
 		}
 		
-		if requestype == reqtypes.login_alt
+		if requestype == reqtypes.login
 		{
 			var auth_get = ds_map_find_value(map, "auth");
 			var userid_get = ds_map_find_value(map, "id");
@@ -138,7 +86,7 @@ if ds_map_find_value(async_load, "id") == request
 			}
 		}
 		
-		if requestype == reqtypes.register_alt
+		if requestype == reqtypes.register
 		{
 			passwordstring = "";
 			selectedpassword = false;
@@ -149,11 +97,7 @@ if ds_map_find_value(async_load, "id") == request
 				gms_ini_player_write("saveData", "regedit", 1);
 		}
 		
-		#endregion
-		#region both
-		
 		if requestype == reqtypes.tp_level
-		or requestype == reqtypes.tp_level_alt
 		{
 			room_goto(custom_lvl_room);
 			if obj_gms.__user != noone
@@ -161,10 +105,24 @@ if ds_map_find_value(async_load, "id") == request
 			else
 			{
 				scr_playerreset();
-				obj_player1.x = global.gottp[1];
-				obj_player1.y = global.gottp[2];
-				obj_player1.targetDoor = "none";
+				with obj_player
+				{
+					x = global.gottp[1];
+					y = global.gottp[2];
+					targetDoor = "none";
+				}
 			}
+		}
+		
+		if requestype == reqtypes.rate_level
+			menu = menutypes.leveldetails;
+		
+		if requestype == reqtypes.upload
+		{
+			var levelid = ds_map_find_value(map, "id");
+			level_string = undefined;
+			menu = menutypes.leveldetails;
+			scr_requestlevel_alt(levelid);
 		}
 		
 		var msg = ds_map_find_value(json_decode(asyncresult), "message");
@@ -174,7 +132,6 @@ if ds_map_find_value(async_load, "id") == request
 			message = string_upper(string(msg));
 			alarm[0] = 200;
 		}
-		
-		#endregion
 	}
 }
+

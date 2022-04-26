@@ -13,12 +13,10 @@ enum reqtypes
 	read_level,
 	tp_level,
 	
-	read_paging_alt,
-	read_level_alt,
-	tp_level_alt,
-	
-	login_alt,
-	register_alt,
+	login,
+	register,
+	upload,
+	rate_level
 }
 enum menutypes
 {
@@ -31,7 +29,9 @@ enum menutypes
 	login,
 	register,
 	upload,
-	vote
+	vote,
+	listfiles,
+	userinfo
 }
 
 records = undefined; // the level listing
@@ -44,7 +44,7 @@ menu = menutypes.menustart;
 
 message = ""; // text at top
 showtext = false;
-xi = 500;
+xi = 960 / 2;
 yi = -50;
 
 page = 1;
@@ -101,6 +101,7 @@ userid = -1;
 // level verification
 gmsroom = -1;
 beatlevel = false;
+loadlist = [];
 
 // other shit
 with obj_player

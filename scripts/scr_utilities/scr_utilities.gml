@@ -169,3 +169,14 @@ function scr_hitthrow(baddie, player, lag = 5)
 		}
 	}
 }
+
+function create_heatattack_afterimage(x, y, sprite, index, xscale)
+{
+	with instance_create(x, y, obj_enemyafterimage)
+	{
+		parent = other.id;
+		sprite_index = sprite;
+		image_index = index;
+		image_xscale = xscale;
+	}
+}

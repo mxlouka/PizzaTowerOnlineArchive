@@ -20,12 +20,9 @@ if global.panic
 var hide = false;
 with obj_player
 {
-    if x > camera_get_view_x(view_camera[0]) + camera_get_view_width(view_camera[0]) - 215
-	&& y > camera_get_view_y(view_camera[0]) + camera_get_view_height(view_camera[0]) - 215
+    if x > _camx + xx && y > _camy + yy
         hide = true;
 }
-if camera_get_view_x(view_camera[0]) >= room_width - camera_get_view_width(view_camera[0])
-    hide = true;
 
 if hide
 {

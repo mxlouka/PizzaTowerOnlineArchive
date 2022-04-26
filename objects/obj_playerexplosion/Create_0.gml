@@ -1,4 +1,5 @@
 image_speed = 0.5
+depth = -10
 
 if audio_is_playing(sfx_explosion)
 	audio_stop_sound(sfx_explosion)
@@ -19,3 +20,4 @@ if distance_to_object(b) <= 100
 	with b
 		countdown = min(countdown, 10);
 }
+

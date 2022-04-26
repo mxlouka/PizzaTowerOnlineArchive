@@ -3,7 +3,7 @@ if player
 {
 	with player
 	{
-		if state != states.gameover
+		if state != states.gameover && state != states.hitlag
 		{
 			if state == states.knightpep
 				state = states.knightpepslopes

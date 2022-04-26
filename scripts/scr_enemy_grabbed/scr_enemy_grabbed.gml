@@ -1,8 +1,8 @@
 function scr_enemy_grabbed()
 {
+	var player = asset_get_index("obj_player" + string(grabbedby));
 	if object_index == obj_treasureguy && global.gameplay == 0
 	{
-	    var player = asset_get_index("obj_player" + string(grabbedby));
 	    with player
 	        scr_pummel();
 	    instance_destroy()
@@ -10,24 +10,24 @@ function scr_enemy_grabbed()
 	
 	if grabbedby == 1
 	{
-		image_xscale = -obj_player1.xscale
+		image_xscale = -player.xscale
 		stunned = 200					
 		
-		var _state = obj_player1.state;
+		var _state = player.state;
 		if _state == states.hitlag
-			_state = obj_player1.tauntstoredstate;
+			_state = player.tauntstoredstate;
 		
-		obj_player1.baddiegrabbedID = id
+		player.baddiegrabbedID = id
 		
 		if _state == states.grabbing or _state = states.grab or _state = states._throw or _state = states.slam or _state = states.tacklecharge or _state == states.backbreaker
 		{
-			scr_enemy_grabpos(obj_player1);
+			scr_enemy_grabpos(player);
 			visible = _state != states.backbreaker;
 		}
 		else
 			visible = true;
 		
-		with (obj_player1)
+		with (player)
 		{
 			suplexhavetomash = other.hp - 1
 			//Suplex mash
@@ -45,11 +45,12 @@ function scr_enemy_grabbed()
 				sprite_index = choose(spr_suplexmash1, spr_suplexmash2, spr_suplexmash3, spr_suplexmash4)
 				other.hp -= 1
 
-				instance_create(other.x,other.y,obj_slapstar)
-				instance_create(other.x,other.y,obj_baddiegibs)
+				instance_create(other.x, other.y, obj_slapstar)
+				instance_create(other.x, other.y, obj_baddiegibs)
 				other.flash = true
-				        with (obj_camera) {
-
+				
+				with (obj_camera)
+				{
 				    shake_mag=3;
 				    shake_mag_acc=3/room_speed;
 				}
@@ -74,13 +75,13 @@ function scr_enemy_grabbed()
 				global.golfhit += 1
 			
 			hp -= 1
-			instance_create(x + obj_player1.xscale * 30, y, obj_bumpeffect)
+			instance_create(x + player.xscale * 30, y, obj_bumpeffect)
 			alarm[1] = 5
 			
 			thrown = true
-			x = obj_player1.x
+			x = player.x
 			vsp = 0
-			y = obj_player1.y
+			y = player.y
 			
 			state = states.stun
 			hsp = -image_xscale * 25
@@ -101,14 +102,14 @@ function scr_enemy_grabbed()
 			}
 		}
 
-		if _state = states.finishingblow && obj_player1.image_index < 5
+		if _state = states.finishingblow && player.image_index < 5
 		{
-			x = obj_player1.x + (obj_player1.xscale * clipin);
-			y = obj_player1.y
-			obj_player1.baddiegrabbedID = id
+			x = player.x + (player.xscale * clipin);
+			y = player.y
+			player.baddiegrabbedID = id
 			
 			// clip in bounds
-			with obj_player1
+			with player
 				if scr_solid(x + xscale, y)
 				{
 					other.clipin = 1;
@@ -117,7 +118,7 @@ function scr_enemy_grabbed()
 			while scr_solid(x, y) && clipin > 0
 			{
 				clipin--;
-				x = obj_player1.x + (obj_player1.xscale * clipin);
+				x = player.x + (player.xscale * clipin);
 			}
 		}
 		
@@ -128,12 +129,12 @@ function scr_enemy_grabbed()
 			if object_index = obj_pizzaballOLD
 			global.golfhit += 1
 			hp -= 1
-			instance_create(x +(-obj_player1.xscale * 50), y, obj_bumpeffect)
+			instance_create(x +(-player.xscale * 50), y, obj_bumpeffect)
 			alarm[1] = 5
 
 			thrown = true
-			x = obj_player1.x
-			y = obj_player1.y
+			x = player.x
+			y = player.y
 			state = states.stun
 			image_xscale *= -1
 			hsp = -image_xscale * 20
@@ -155,48 +156,48 @@ function scr_enemy_grabbed()
 		if _state = states.shoulder 
 		{
 			alarm[3] = 3
-		global.hit += 1
-		if object_index = obj_pizzaballOLD
-		global.golfhit += 1
-		hp -= 1
-		instance_create(x , y+20, obj_bumpeffect)
-		alarm[1] = 5
-
-		thrown = true
-		x =obj_player1.x
-		y = obj_player1.y
-		state = states.stun
-
-		if obj_player1.sprite_index = spr_player_shoulder
-		vsp = 15
-		if obj_player1.sprite_index = spr_player_diagonaldownthrow
-		{
-			hsp  = -image_xscale  * 10
-		vsp = 15
-		}
-		if obj_player1.sprite_index = spr_player_diagonalupthrow
-		{
-				hsp  = -image_xscale  * 10
-		vsp = -15
-		}
-
-		global.combotime = 60
-		instance_create(x,y,obj_slapstar)
-		instance_create(x,y,obj_baddiegibs)
-		flash = true
-		        with (obj_camera) {
-
-		    shake_mag=3;
-		    shake_mag_acc=3/room_speed;
-		}
-
-		}
-
-		if place_meeting(x,y,obj_swordhitbox)
-		{
+			global.hit += 1
+			if object_index = obj_pizzaballOLD
+			global.golfhit += 1
 			hp -= 1
-			if global.gameplay != 0
-				hp -= 4
+			instance_create(x , y+20, obj_bumpeffect)
+			alarm[1] = 5
+
+			thrown = true
+			x =player.x
+			y = player.y
+			state = states.stun
+
+			if player.sprite_index = spr_player_shoulder
+				vsp = 15
+			if player.sprite_index = spr_player_diagonaldownthrow
+			{
+				hsp  = -image_xscale  * 10
+				vsp = 15
+			}
+			if player.sprite_index = spr_player_diagonalupthrow
+			{
+				hsp  = -image_xscale  * 10
+				vsp = -15
+			}
+
+			global.combotime = 60
+			instance_create(x,y,obj_slapstar)
+			instance_create(x,y,obj_baddiegibs)
+			flash = true
+			
+			with (obj_camera)
+			{
+			    shake_mag=3;
+			    shake_mag_acc=3/room_speed;
+			}
+
+		}
+		
+		if place_meeting(x, y, obj_swordhitbox)
+		{
+			if global.gameplay != 0 && object_index != obj_noisey && object_index != obj_tank
+				hp -= 5
 			
 			repeat 3
 				instance_create(x,y,obj_slapstar)
@@ -211,8 +212,8 @@ function scr_enemy_grabbed()
 			if (scr_solid(x, y) && object_index == obj_pizzaballOLD)
 			or place_meeting(x - (image_xscale * 32), y, obj_onewaybigblock)
 			{
-				x = obj_player1.x
-				y = obj_player1.y
+				x = player.x
+				y = player.y
 			}
 			
 			if place_meeting(x, y, obj_slope) && hp > 0 && object_index != obj_pizzaballOLD
@@ -227,18 +228,19 @@ function scr_enemy_grabbed()
 
 			thrown = true
 			state = states.stun
-			with (obj_player1)
+			with player
 			{
 				move = key_right + key_left
 				if sprite_index == spr_uppercutfinishingblow
 				{
 					other.hsp = 0
 					other.vsp = -25
+					other.thrown_vertically = true
 				}
 				else
 				{
 					other.hsp = -other.image_xscale * 25
-					other.vsp = -6	
+					other.vsp = -6
 				}
 			}
 			
@@ -249,6 +251,8 @@ function scr_enemy_grabbed()
 				
 				scr_hitthrow(id, noone);
 			}
+			else
+				hp -= 1
 		}
 
 
@@ -261,8 +265,8 @@ function scr_enemy_grabbed()
 			alarm[1] = 5
 
 			thrown = true
-			x =obj_player1.x
-			y = obj_player1.y
+			x =player.x
+			y = player.y
 			state = states.stun
 			hsp = -image_xscale * 8
 			vsp = -6
@@ -275,46 +279,44 @@ function scr_enemy_grabbed()
 		if _state = states.uppunch
 		{
 			alarm[3] = 3
-		global.hit += 1
-		if object_index = obj_pizzaballOLD
-		global.golfhit += 1
-		hp -= 1
+			global.hit += 1
+			if object_index = obj_pizzaballOLD
+			global.golfhit += 1
+			hp -= 1
 
-		instance_create(x +(-obj_player1.xscale * 15), y-50, obj_bumpeffect)
-		alarm[1] = 5
+			instance_create(x +(-player.xscale * 15), y-50, obj_bumpeffect)
+			alarm[1] = 5
 
-		thrown = true
-		x =obj_player1.x
-		y = obj_player1.y
-		hsp = -image_xscale * 2
-		state = states.stun
-		vsp = -20
+			thrown = true
+			x =player.x
+			y = player.y
+			hsp = -image_xscale * 2
+			state = states.stun
+			vsp = -20
 
-
-		global.combotime = 60
-		instance_create(x,y,obj_slapstar)
-		instance_create(x,y,obj_baddiegibs)
-		flash = true
-		        with (obj_camera) {
-
-		    shake_mag=3;
-		    shake_mag_acc=3/room_speed;
+			global.combotime = 60
+			instance_create(x,y,obj_slapstar)
+			instance_create(x,y,obj_baddiegibs)
+			flash = true
+			
+		    with obj_camera
+			{
+			    shake_mag=3;
+			    shake_mag_acc=3/room_speed;
+			}
 		}
 
 
-		}
-
-
-		//if obj_player1.state = states.backbreaker && floor(obj_player1.image_index) < 2
+		//if player.state = states.backbreaker && floor(player.image_index) < 2
 		//{
-		//x = obj_player1.x + (-image_xscale *8)
-		//y = obj_player1.y - 45
+		//x = player.x + (-image_xscale *8)
+		//y = player.y - 45
 		//}
 
-		//if obj_player1.state = states.backbreaker && floor(obj_player1.image_index) >= 2
+		//if player.state = states.backbreaker && floor(player.image_index) >= 2
 		//{
-		//x = obj_player1.x
-		//y = obj_player1.y 
+		//x = player.x
+		//y = player.y 
 		//state = states.hit
 		//hsp = -image_xscale * 5
 		//vsp = -12
@@ -324,34 +326,34 @@ function scr_enemy_grabbed()
 		//Charge
 		if _state == states.tacklecharge 
 		{
-			y = obj_player1.y
+			y = player.y
 			
-			if obj_player1.sprite_index == spr_playerSP_tackle
+			if player.sprite_index == spr_playerSP_tackle
 			{
-				if floor(obj_player1.image_index) == 0
-					x = obj_player1.x + (obj_player1.xscale * 30)
-				if floor(obj_player1.image_index) == 1
-					x = obj_player1.x + (obj_player1.xscale * 15)
-				if floor(obj_player1.image_index) == 1
-					x = obj_player1.x + (obj_player1.xscale * 18)
-				if floor(obj_player1.image_index) == 3
-					x = obj_player1.x + (obj_player1.xscale * 26)
+				if floor(player.image_index) == 0
+					x = player.x + (player.xscale * 30)
+				if floor(player.image_index) == 1
+					x = player.x + (player.xscale * 15)
+				if floor(player.image_index) == 1
+					x = player.x + (player.xscale * 18)
+				if floor(player.image_index) == 3
+					x = player.x + (player.xscale * 26)
 				
-				if obj_player1.image_index < 2
+				if player.image_index < 2
 					depth = -8;
 				else
 					depth = 0;
 			}
 			else
-				x = obj_player1.x + (obj_player1.xscale * 15)
+				x = player.x + (player.xscale * 15)
 		}
 
-		if obj_player1.sprite_index = obj_player1.spr_piledriverland
+		if player.sprite_index = player.spr_piledriverland
 		{
-			if obj_player1.character == "SP"
-				scr_enemy_driverpos(obj_player1);
+			if player.character == "SP"
+				scr_enemy_driverpos(player);
 			
-			if floor(obj_player1.image_index) == obj_player1.image_number - 1
+			if floor(player.image_index) == player.image_number - 1
 			{
 				flash = true
 				global.combotime = 60
@@ -363,8 +365,8 @@ function scr_enemy_grabbed()
 				global.hit += 1
 				alarm[1] = 5
 				thrown = true
-				x = obj_player1.x
-				y = obj_player1.y
+				x = player.x
+				y = player.y
 				state = states.stun
 			
 				hsp = -image_xscale * 10
@@ -378,7 +380,7 @@ function scr_enemy_grabbed()
 					hp = -6;
 					scr_hitthrow(id, noone);
 				
-					with obj_player1
+					with player
 					{
 						jumpAnim = true;
 				        state = states.jump;
@@ -395,7 +397,7 @@ function scr_enemy_grabbed()
 					repeat 3
 						create_particle(x, y, particles.baddiegibs)
 				
-					with obj_player1
+					with player
 					{
 						state = states.jump
 						vsp = -8
@@ -406,60 +408,60 @@ function scr_enemy_grabbed()
 		}
 		
 		if (_state == states.superslam
-		&& obj_player1.sprite_index == obj_player1.spr_piledriver
-		or obj_player1.sprite_index == spr_playerSP_piledriverstart) 
-			scr_enemy_driverpos(obj_player1);
+		&& player.sprite_index == player.spr_piledriver
+		or player.sprite_index == spr_playerSP_piledriverstart) 
+			scr_enemy_driverpos(player);
 		
 		else if (_state == states.grab
-		&& obj_player1.sprite_index == obj_player1.spr_swingding)
+		&& player.sprite_index == player.spr_swingding)
 		{
-			if floor(obj_player1.image_index) = 0
+			if floor(player.image_index) = 0
 			{
 				depth = -8
-				x = obj_player1.x + (obj_player1.xscale * 25)
-				y = obj_player1.y
+				x = player.x + (player.xscale * 25)
+				y = player.y
 			}
-			if floor(obj_player1.image_index) = 1
+			if floor(player.image_index) = 1
 			{
 				depth = -8
-				x = obj_player1.x 
-				y = obj_player1.y
+				x = player.x 
+				y = player.y
 			}
-			if floor(obj_player1.image_index) = 2
+			if floor(player.image_index) = 2
 			{
 				depth = -8
-				x = obj_player1.x + (obj_player1.xscale * -25)
-				y = obj_player1.y
+				x = player.x + (player.xscale * -25)
+				y = player.y
 			}
-			if floor(obj_player1.image_index) = 3
+			if floor(player.image_index) = 3
 			{
 				depth = 0
-				x = obj_player1.x + (obj_player1.xscale * -50)
-				y = obj_player1.y
+				x = player.x + (player.xscale * -50)
+				y = player.y
 			}
-			if floor(obj_player1.image_index) = 4
+			if floor(player.image_index) = 4
 			{
 				depth = 0
-				x = obj_player1.x + (obj_player1.xscale * -25)
-				y = obj_player1.y
+				x = player.x + (player.xscale * -25)
+				y = player.y
 			}
-			if floor(obj_player1.image_index) = 5
+			if floor(player.image_index) = 5
 			{
 				depth = 0
-				x = obj_player1.x 
-				y = obj_player1.y
+				x = player.x 
+				y = player.y
 			}
-			if floor(obj_player1.image_index) = 6
+			if floor(player.image_index) = 6
 			{
 				depth = 0
-				x = obj_player1.x + (obj_player1.xscale * 25)
-				y = obj_player1.y
+				x = player.x + (player.xscale * 25)
+				y = player.y
 			}
-			if floor(obj_player1.image_index) = 7
+			if floor(player.image_index) = 7
 			{
 				depth = 0
-				x = obj_player1.x + (obj_player1.xscale * 50)
-				y = obj_player1.y
+				x = player.x + (player.xscale * 50)
+				y = player.y
 			}
 		}
 		else if _state != states.tacklecharge

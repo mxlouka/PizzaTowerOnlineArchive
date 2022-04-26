@@ -1,6 +1,7 @@
-/// @param {real} page
 function scr_requestpage_alt()
 {
+	/// @param {real} page
+	
 	page = argument[0];
 
 	// send request
@@ -9,18 +10,15 @@ function scr_requestpage_alt()
 		requrl = @"http://ptoleveleditor.000webhostapp.com/api/level_list_search.php?page=" + string(page) + "&s=" + string(searchstring_real);
 	
 	request = http_get(requrl);
-	requestype = reqtypes.read_paging_alt;
+	requestype = reqtypes.read_paging;
 	loading = true;
 }
 
-/// @param {real} id
-function scr_requestlevel_alt()
+function scr_requestlevel_alt(levelid)
 {
-	levelid = argument[0];
-
 	// send request
 	request = http_get("http://ptoleveleditor.000webhostapp.com/api/level_info.php?id=" + string(levelid));
-	requestype = reqtypes.read_level_alt;
+	requestype = reqtypes.read_level;
 	level_id = levelid;
 	loading = true;
 }
@@ -29,7 +27,7 @@ function scr_requestlogin_alt(name, pass)
 {
 	// send request
 	request = http_post_string("http://ptoleveleditor.000webhostapp.com/api/user_login.php", "username=" + name + "&password=" + pass);
-	requestype = reqtypes.login_alt;
+	requestype = reqtypes.login;
 	loading = true;
 }
 
@@ -37,7 +35,23 @@ function scr_requestregister_alt(name, pass)
 {
 	// send request
 	request = http_post_string("http://ptoleveleditor.000webhostapp.com/api/user_register.php", "username=" + name + "&password=" + pass);
-	requestype = reqtypes.register_alt;
+	requestype = reqtypes.register;
+	loading = true;
+}
+
+function scr_requestlevelrate(levelid, rating)
+{
+	// send request
+	request = http_post_string("http://ptoleveleditor.000webhostapp.com/api/level_react.php", "id=" + string(levelid) + "&auth=" + global.auth + "&reaction=" + string(rating));
+	requestype = reqtypes.rate_level;
+	loading = true;
+}
+
+function scr_requestlevelupload(name, desc, content, category = "")
+{
+	// please don't abuse this.
+	request = http_post_string("http://ptoleveleditor.000webhostapp.com/api/level_publish.php", "auth=" + global.auth + "&name=" + name + "&description=" + desc + "&content=" + content + (category != "" ? "&category=" + category : ""));
+	requestype = reqtypes.upload;
 	loading = true;
 }
 

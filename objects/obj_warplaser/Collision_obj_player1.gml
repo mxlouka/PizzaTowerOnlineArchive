@@ -9,12 +9,14 @@ if global.gameplay == 0
 		storedgrav = player.grav
 		storedimageindex = player.image_index
 		storedspriteindex = player.sprite_index
-		repeat (8) with instance_create(x+random_range(50,-50),y+random_range(50,-50),obj_cloudeffect)
+		
+		repeat 8 with instance_create(x + random_range(50, -50), y + random_range(50, -50), obj_cloudeffect)
 		{
-			sprite_index=  spr_teleporteffect
+			sprite_index = spr_teleporteffect
 			if check_online()
 				gms_instance_sync(id, is_onetime | isc_local);
 		}
+		
 		alarm[0] = 25
 		vsp = 0
 		hsp = 0
@@ -31,3 +33,4 @@ if global.gameplay == 0
 }
 else
 	scr_hurtplayer(player);
+

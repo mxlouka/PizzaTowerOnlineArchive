@@ -1,6 +1,6 @@
 message = ""
 global.roommessage = ""
-xi = 500
+xi = 960 / 2
 yi = -50
 showtext = false;
 

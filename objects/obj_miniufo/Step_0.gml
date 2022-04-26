@@ -35,21 +35,36 @@ if state == states.stun
 else 
 	grav = 0
 
-if laserbuffer > 0 && state == states.walk
+if laserbuffer > 0 && state == states.walk && global.gameplay == 0
 	laserbuffer--
+if bombreset > 0 && state == states.walk && global.gameplay != 0
+    bombreset--
 
 //Create laser
-if laserbuffer <= 0 && state == states.walk
+var player = instance_nearest(x, y, obj_player)
+if global.gameplay != 0
 {
-	var laser = instance_create(x,y,obj_warplaser)
-	if global.gameplay == 0
-		laser.vsp = 2;
-	else
+	if player.x > x - 200 && player.x < x + 200 && player.y <= y + 400 && player.y >= y - 60
+	&& x != player.x && state != states.pizzagoblinthrow && bombreset <= 0
+    {
+        if state == states.walk or state == states.idle
+        {
+            sprite_index = spr_ufolive_shoot
+            image_index = 0
+            state = states.pizzagoblinthrow
+        }
+    }
+	
+	if state == states.pizzagoblinthrow or state == states.rage
 	{
-		if !audio_is_playing(sfx_enemyprojectile) && point_in_camera(x, y, view_camera[0])
-			scr_soundeffect(sfx_enemyprojectile);
-		laser.vsp = 5;
+	    hsp = 0
+	    vsp = 0
 	}
+}
+else if laserbuffer <= 0 && state == states.walk
+{
+	var laser = instance_create(x, y, obj_warplaser)
+	laser.vsp = 2;
 	
 	laserbuffer = 100
 }

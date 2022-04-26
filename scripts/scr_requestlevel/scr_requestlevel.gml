@@ -8,3 +8,4 @@ function scr_requestlevel()
 	requestype = reqtypes.read_level;
 	loading = true;
 }
+

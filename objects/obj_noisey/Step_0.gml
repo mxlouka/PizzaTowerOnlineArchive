@@ -11,6 +11,33 @@ switch (state)
     // grabbed state here
 }
 
+if global.gameplay != 0
+{
+	walkspr = phase == 0 ? spr_noisey_walk : spr_noisey_bouncefall;
+	if state == states.walk && phase == 1
+	{
+	    if grounded && sprite_index != spr_noisey_bounceland && vsp > 0
+	    {
+	        image_index = 0
+	        sprite_index = spr_noisey_bounceland
+	    }
+	    if sprite_index == spr_noisey_bounceland
+	    {
+	        if floor(image_index) >= image_number - 1
+	            sprite_index = spr_noisey_bouncefall
+	        if floor(image_index) == 4
+	            vsp = -6
+	    }
+	}
+	if lasthp != hp && phase == 0 && state == states.stun && grounded
+	{
+	    lasthp = hp
+	    phase = 1
+	    stunned = 5
+	    killprotection = false
+	}
+	scr_scareenemy();
+}
 if state == states.stun && stunned > 100 && birdcreated = false
 {
 	birdcreated = true
@@ -24,10 +51,6 @@ if state != states.stun
 if !global.miniboss && room == strongcold_miniboss
 	instance_destroy()
 
-//Scared
-if global.gameplay != 0
-	scr_scareenemy();
-
 //Flash
 if (flash == true && alarm[2] <= 0) {
    alarm[2] = 0.15 * room_speed; // Flashes for 0.8 seconds before turning back to normal
@@ -35,10 +58,10 @@ if (flash == true && alarm[2] <= 0) {
 
 
 
-if hitboxcreate = false && state == states.walk
+if !hitboxcreate && state == states.walk
 {
 	hitboxcreate = true
-	with instance_create(x,y,obj_forkhitbox)
+	with instance_create(x, y, obj_forkhitbox)
 		ID = other.id
 }
 
@@ -48,11 +71,11 @@ if state != states.grabbed
 
 
 if state != states.stun
-	thrown= false
+	thrown = false
 
-if boundbox = false
+if !boundbox
 {
-	with instance_create(x,y,obj_baddiecollisionbox)
+	with instance_create(x, y, obj_baddiecollisionbox)
 	{
 		sprite_index = other.sprite_index
 		mask_index = sprite_index

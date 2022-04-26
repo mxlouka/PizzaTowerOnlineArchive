@@ -32,7 +32,7 @@ if (!instance_exists(obj_pause) or !obj_pause.pause) && global.gottp[0] // tpoth
 	
 	if global.gottp[3] < 0
 	{
-		// tp to level editor room
+		// tp to jacko editor room
 		__user = noone;
 		if instance_exists(obj_onlinemenu)
 			var onl = obj_onlinemenu;
@@ -42,24 +42,8 @@ if (!instance_exists(obj_pause) or !obj_pause.pause) && global.gottp[0] // tpoth
 		with onl
 		{
 			menu = -1;
-			scr_requestlevel(-global.gottp[3]);
+			scr_requestlevel_alt(-global.gottp[3]);
 			requestype = reqtypes.tp_level;
-		}
-	}
-	else if instance_exists(obj_onlinemenu) && global.gottp[3] >= global.lastroom + obj_onlinemenu.level_id + 1
-	{
-		// tp to jacko editor room
-		__user = noone;
-		if instance_exists(obj_onlinemenu)
-			var onl = obj_onlinemenu;
-		else
-			onl = instance_create(0, 0, obj_onlinemenu);
-		
-		with onl
-		{
-			menu = -1;
-			scr_requestlevel_alt(global.lastroom - global.gottp[3] - 1);
-			requestype = reqtypes.tp_level_alt;
 			paging_type = 3;
 		}
 	}

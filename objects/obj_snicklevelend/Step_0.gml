@@ -36,5 +36,5 @@ if hit
 		targetoverride = other.id;
 		targetgoingback = true;
 	}
-	obj_player1.x = clamp(obj_player1.x, __view_get(e__VW.XView, 0), __view_get(e__VW.XView, 0) + __view_get(e__VW.WView, 0));
+	obj_player1.x = clamp(obj_player1.x, _camx, _camx + _camw);
 }

@@ -6,7 +6,7 @@ if state != states.chase
 {
     with other.id
     {
-        if instakillmove == 1 && baddie.state != states.grabbed && baddie.thrown == false && !baddie.invincible
+        if instakillmove && baddie.state != states.grabbed && !baddie.thrown && !baddie.invincible
         {
             if state == states.mach3 && sprite_index != spr_mach3hit && (character == "P" or character == "V" or (character == "N" && noisetype == 1))
             {
@@ -23,14 +23,14 @@ if state != states.chase
 				
                 with baddie
                 {
-                    can_flash = 1
+                    can_flash = true
                     can_flash_count = can_flash_max
                     state = states.stun
                     stunned = 30
                     hsp = sign(x - player.x) * 2
 					
                     if x != player.x
-                        image_xscale = (-sign((x - player.x)))
+                        image_xscale = -sign(x - player.x)
 					
                     inv_timer = inv_max
                     invincible = true
@@ -86,7 +86,7 @@ if state != states.chase
                     hsp = sign(x - player.x) * 2
 					
                     if x != player.x
-                        image_xscale = (-sign((x - player.x)))
+                        image_xscale = -sign(x - player.x)
 					
                     inv_timer = inv_max
                     invincible = true
@@ -98,7 +98,7 @@ if state != states.chase
                 }
             }
         }
-        if y < other.y && attacking == false && sprite_index != spr_player_mach2jump
+        if y < other.y && !attacking && sprite_index != spr_player_mach2jump
 		&& ((state == states.boots && vsp > 0) or state == states.jump or state == states.mach1 or state == states.grab)
 		&& vsp > 0 && other.vsp >= 0 && sprite_index != spr_stompprep
         {
@@ -121,7 +121,7 @@ if state != states.chase
                     sprite_index = spr_stompprep
             }
         }
-        if y >= other.y && other.thrown == false && other.stuntouchbuffer == 0 && other.vsp > 0 && state != states.bump && state != states.punch && state != states.tackle && state != states.superslam && state != states.pogo && state != states.machslide && state != states.freefall && state != states.mach2 && state != states.handstandjump && state != states.hurt && other.state != states.chase
+        if y >= other.y && !other.thrown && other.stuntouchbuffer == 0 && other.vsp > 0 && state != states.bump && state != states.punch && state != states.tackle && state != states.superslam && state != states.pogo && state != states.machslide && state != states.freefall && state != states.mach2 && state != states.handstandjump && state != states.hurt && other.state != states.chase
         {
             scr_soundeffect(sfx_bumpwall)
 			
@@ -133,7 +133,7 @@ if state != states.chase
                 _xs = xscale
 			
             hsp = 3 * _xs
-            state = 80
+            state = states.bump
             xscale = -_xs
             sprite_index = spr_bump
             vsp = -4
@@ -152,3 +152,4 @@ else
         }
     }
 }
+

@@ -46,8 +46,8 @@ else if room == custom_lvl_room
 		state = states.titlescreen;
 	}
 	
-	if obj_onlinemenu.level_id == 1
-		obj_onlinemenu.menu = menutypes.menustart;
+	if obj_onlinemenu.level_id == 0
+		obj_onlinemenu.menu = menutypes.listfiles;
 	else
 		obj_onlinemenu.menu = menutypes.leveldetails;
 	obj_onlinemenu.gmsroom = -1;

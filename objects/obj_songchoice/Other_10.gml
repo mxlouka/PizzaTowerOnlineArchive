@@ -77,6 +77,7 @@ switch sel[0]
 			[mu_snickescape, "06 Minutes Til' Boom", "[c]ness"],
 			[mu_snickentrance, "Freefallin'", "Frostix"],
 			[mu_hub2, "Quintessence", "Frostix"],
+			[mu_tunnel, "Tunnely Shimbers", "Mr. Sauceman"],
 			[mu_pizzatime_PP, "It's Piss Time!", "Mr. Sauceman, The Living Tombstone, loypoll", 5],
 			[mu_hube, "Saturdays", "loypoll"],
 			[mu_hubarcade, "ARCADE", "loypoll"],

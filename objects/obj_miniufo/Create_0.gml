@@ -34,9 +34,12 @@ boundbox = false
 spr_dead =  spr_ufolive_dead
 important = false
 heavy = false
-depth =0
+depth = 0
 
 grabbedby = 0
 stuntouchbuffer = 0
 
 laserbuffer = 100
+shoot = false
+turntimer = 600
+

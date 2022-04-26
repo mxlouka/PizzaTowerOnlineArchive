@@ -1,9 +1,5 @@
-function scr_gms_drawchat(_x, _y, username, userid, message, width, yscale, color)
-{
-	var itsme = false;
-	if argument_count > 8
-		itsme = argument[8];
-	
+function scr_gms_drawchat(_x, _y, username, userid, message, width, yscale, color, itsme = false)
+{	
 	// username and string
 	var str = message;
 	
@@ -79,7 +75,7 @@ function scr_gms_drawchat(_x, _y, username, userid, message, width, yscale, colo
 	var yy = _y;
 	
 	// get length until line break
-	var w = 900;
+	var w = width - 64;
 	
 	// other
 	var fx = -1;

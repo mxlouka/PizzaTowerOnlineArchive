@@ -43,7 +43,7 @@ function scr_enemy_stun()
 	if stuntouchbuffer > 0
 		stuntouchbuffer--
 	
-	if object_index != obj_tankOLD or sprite_index != spr_tank_hitwall
+	if sprite_index != spr_tank_hitwall
 		sprite_index = stunfallspr
 	else if floor(image_index) >= image_number - 1 && sprite_index == spr_tank_hitwall && global.gameplay != 0
 	{
@@ -53,14 +53,15 @@ function scr_enemy_stun()
 	}
 	
 	image_speed = 0.35
-	if grounded && vsp > 0
-	{ 
-		if thrown == true && hp <= 0 && object_index != obj_pizzaballOLD
+	if grounded && vsp >= 0
+	{
+		if thrown && hp <= 0 && object_index != obj_pizzaballOLD
 			instance_destroy();
 		else
 			hsp = 0;
-
+		
 		thrown = false
+		thrown_vertically = false
 		grav = 0.5
 	}
 	
@@ -68,7 +69,7 @@ function scr_enemy_stun()
 	if railmeet then hsp = railmeet.spdh;
 	
 	var xx = sign(hsp);
-	if thrown && hp <= 0
+	if thrown && hp <= 0 && !thrown_vertically
 		xx = -image_xscale;
 	
 	if scr_solid(x + xx, y) && !place_meeting(x + xx, y, obj_destructibles)

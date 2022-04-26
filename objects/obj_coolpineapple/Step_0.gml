@@ -97,13 +97,7 @@ if state == states.walk
             breakdanceinst.ID = id
             flash = true
             
-			with instance_create(x, y, obj_enemyafterimage)
-			{
-				parent = other.id;
-				sprite_index = other.sprite_index;
-				image_index = other.image_index;
-				image_xscale = other.image_xscale;
-			}
+			create_heatattack_afterimage(x, y, sprite_index, image_index, image_xscale);
 		}
     }
 }

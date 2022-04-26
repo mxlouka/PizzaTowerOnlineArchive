@@ -44,12 +44,14 @@ else
 if invtime > 0
 	invtime--;
 
+yscale = Approach(yscale, 1, 0.1);
+
 // heat meter image speed and cloud effects
 if global.gameplay != 0
 {
 	if state == states.walk
 		image_speed = 0.35 + (global.baddiespeed * 0.05);
-	if sprite_index == walkspr && hsp != 0 && floor(image_index) >= image_number - 1 && image_number > 1
+	if sprite_index == walkspr && hsp != 0 && grounded && floor(image_index) >= image_number - 1 && image_number > 1
 		instance_create(x - image_xscale * 20, y + 43, obj_cloudeffect);
 }
 
@@ -63,3 +65,4 @@ if sold && !inst_relation(sold, obj_slope)
 	or (inst_isobj(sold, obj_onewaybigblock) && sign(sold.image_xscale) == -sign(image_xscale)))
 		instance_destroy();
 }
+

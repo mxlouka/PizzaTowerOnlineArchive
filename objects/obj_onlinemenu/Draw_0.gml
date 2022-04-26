@@ -1,16 +1,19 @@
+if live_call() return live_result;
+
+if debug
+{
+	if keyboard_check_pressed(vk_f4)
+	{
+		var g = get_integer("Menu number", menu);
+		if g != undefined
+			menu = g;
+	}
+}
+
 draw_set_colour(c_white);
 switch menu
 {
 	case menutypes.menustart:
-	{
-		#region version number
-		
-		draw_set_font(global.font_small);
-		draw_set_colour(c_white);
-		draw_set_halign(fa_left);
-		draw_set_valign(fa_top);
-		
-		#endregion
 		#region black box
 		
 		draw_set_colour(c_black);
@@ -84,9 +87,7 @@ switch menu
 		
 		#endregion
 		break;
-	}
 	case menutypes.menuonline:
-	{
 		#region black box
 		
 		draw_set_colour(c_black);
@@ -96,34 +97,6 @@ switch menu
 		
 		#endregion
 		#region online menu
-		
-		/*
-		if debug
-		{
-			if draw_editorbutton(384, 200, lang_string("editor.menu.online.official"))
-			{
-				menu = menutypes.levelbrowser;
-				if paging_type != 0
-				{
-					page = 1;
-					pagelast = 0;
-				}
-				paging_type = 0;
-				scr_requestpage(page);
-			}
-			if draw_editorbutton(384, 200 + 64, lang_string("editor.menu.online.featured"))
-			{
-				menu = menutypes.levelbrowser;
-				if paging_type != 1
-				{
-					page = 1;
-					pagelast = 0;
-				}
-				paging_type = 1;
-				scr_requestpage(page);
-			}
-		}
-		*/
 		
 		if check_online() or debug
 		{
@@ -140,10 +113,9 @@ switch menu
 		
 		#endregion
 		break;
-	}
 	
+	#region level browser
 	case menutypes.levelbrowser:
-	{
 		#region black box
 		
 		draw_set_colour(c_black);
@@ -297,7 +269,7 @@ switch menu
 			}
 			
 			// search button
-			if searchstring != "" && (draw_editorbutton(704, 98, lang_string("editor.menu.search.search")) or (selectedsearch && keyboard_check_pressed(vk_enter)))
+			if searchstring != "" && (draw_editorbutton(704, 98 + 64, lang_string("editor.menu.search.search")) or (selectedsearch && keyboard_check_pressed(vk_enter)))
 			{
 				// search
 				page = 1;
@@ -314,14 +286,14 @@ switch menu
 			if paging_type != 4
 			{
 				records = undefined;
-				menu = menutypes.menuonline;
+				menu = menutypes.menustart;
 			}
 			else
 			{
 				page = 1;
 				searchstring = "";
 				records = undefined;
-				paging_type = 0;
+				paging_type = 3;
 				scr_requestpage_alt(page);
 			}
 		}
@@ -329,27 +301,27 @@ switch menu
 		// upload level
 		if paging_type == 3 && !loading
 		{
-			if draw_editorbutton(704, 64, global.auth == "" ? lang_string("editor.menu.search.login") : lang_string("editor.menu.search.upload"))
+			if draw_editorbutton(704, 98, global.auth == "" ? lang_string("editor.menu.search.login") : lang_string("editor.menu.search.upload"))
 			{
 				if global.auth == ""
 				{
-					records = undefined;
 					menu = menutypes.login;
 					searchstring = "";
 				}
 				else
 				{
-					// test level to verify it's beatable.
-					gmsroom = global.lastroom + irandom_range(10000, 900000);
+					menu = menutypes.listfiles;
+					searchstring = "";
+					loadlist = [];
 				}
 			}
 		}
 		
 		#endregion
 		break;
-	}
+	#endregion
+	#region level details
 	case menutypes.leveldetails:
-	{
 		#region black box
 		
 		draw_set_colour(c_black);
@@ -366,12 +338,17 @@ switch menu
 		draw_set_halign(fa_center);
 		draw_set_valign(fa_middle);
 		
-		draw_set_font(global.bigfont);
-		draw_text_auto(960 / 2, 128, string_upper(string(level_name))); // level name
+		if level_name != undefined
+		{
+			draw_set_font(global.bigfont);
+			draw_text_auto(960 / 2, 128, string_upper(string(level_name))); // level name
+		}
 		
 		draw_set_font(global.font_small);
-		draw_text(960 / 2, 192, lang_string("editor.menu.level.author") + string(level_author)); // by whoever
-		draw_text_ext(960 / 2, 256, string(level_desc), 18, 960 - 16); // description
+		if level_author != undefined
+			draw_text(960 / 2, 192, lang_string("editor.menu.level.author") + string(level_author)); // by whoever
+		if level_desc != undefined
+			draw_text_ext(960 / 2, 256, string(level_desc), 18, 960 - 16); // description
 		
 		if level_string != undefined
 		{
@@ -402,16 +379,6 @@ switch menu
 					}
 					if instance_exists(obj_editor_cursor)
 						window_set_cursor(cr_none);
-				
-					/*
-					var file = file_text_open_write(level_name + ".ptlv");
-					file_text_write_string(file, level_string);
-					file_text_close(file);
-				
-					showtext = true;
-					message = "LEVEL DOWNLOADED!";
-					alarm[0] = 200;
-					*/
 				}
 				
 				if draw_editorbutton(384, 424, lang_string("editor.menu.level.debug")) && map != undefined
@@ -477,23 +444,17 @@ switch menu
 			request = undefined;
 			
 			if records == undefined
-			{
-				if paging_type != 3 // normal
-					scr_requestpage(page);
-				else // alt
-					scr_requestpage_alt(page);
-			}
+				scr_requestpage_alt(page);
 		}
 		
 		#endregion
 		break;
-	}
-	
+	#endregion
+	#region login / register
 	case menutypes.login:
-	{
 		var lg_name = "";
 		if check_online()
-			lg_name = string_copy(gms_self_name(), 1, 30);
+			lg_name = string_copy(gms_self_name(), 1, 32);
 		if debug
 			lg_name = "admin";
 		
@@ -620,7 +581,7 @@ switch menu
 		
 			#endregion
 			#region register
-				
+			
 			if !regedit
 			{
 				if draw_editorbutton(384, 296 + 64, lang_string("editor.menu.login.register")) && !loading
@@ -641,7 +602,7 @@ switch menu
 					}
 				}
 			}
-		
+			
 			#endregion
 		}
 		else
@@ -693,13 +654,139 @@ switch menu
 		}
 		
 		#endregion
-		
 		break;
-	}
+	#endregion
+	#region level file listing
+	
+	case menutypes.listfiles:
+		#region black box
+		
+		draw_set_colour(c_black);
+		draw_set_alpha(0.25);
+		draw_rectangle(320, _camy - 64, 640, _camy + _camh + 32, false);
+		draw_set_alpha(1);
+		
+		#endregion
+		#region back
+		if draw_editorbutton(32, 32, lang_string("editor.menu.back"))
+		{
+			menu = menutypes.levelbrowser;
+			request = undefined;
+			viewpos = 0;
+			camera_set_view_pos(view_camera[0], 0, 0);
+			
+			if records == undefined
+				scr_requestpage_alt(page);
+			exit;
+		}
+		#endregion
+		
+		// title
+		draw_set_font(global.smallfont);
+		draw_set_halign(fa_right);
+		draw_text_auto(_camw - 16, 16, "Select A Level!");
+		
+		// get file list
+		if array_length(loadlist) == 0
+		{
+			loadlist = [-1];
+			
+			var filename = file_find_first("Levels/*.ptlv", 0);
+			while filename != ""
+			{
+				array_push(loadlist, filename);
+				filename = file_find_next();
+			}
+			file_find_close();
+		}
+		else
+		{
+			// list levels
+			draw_set_halign(fa_center);
+			draw_set_font(global.font_small);
+			
+			for(var i = 0; i < array_length(loadlist); i++)
+			{
+				var xx = 960 / 2, yy = 32 + i * 32;
+				if yy < _camy - 24
+					continue;
+				if yy > _camy + _camh
+					break;
+				var ll = loadlist[i];
+				
+				// hover
+				var x1 = xx - 128, y1 = yy, x2 = xx + 128, y2 = yy + 24;
+				var dmx = device_mouse_x(0), dmy = device_mouse_y(0);
+				
+				var hovering = false;
+				if point_in_rectangle(dmx, dmy, x1, y1, x2, y2)
+				{
+					hovering = true;
+					if mouse_check_button_pressed(mb_left)
+					{
+						// test level
+						var fileopen = "";
+						if ll == -1
+							fileopen = get_open_filename_ext(lang_string("editor.menu.filefilter"), "", "%localappdata%\\PizzaTower_GM2\\Levels\\", lang_string("editor.menu.loadtitle"));
+						else
+							fileopen = "Levels/" + ll;
+						
+						if file_exists(fileopen)
+						{
+							var _buffer = buffer_load(fileopen);
+							if _buffer == -1
+								show_message("Could not load file");
+							else
+							{
+								level_string = buffer_read(_buffer, buffer_string);
+								buffer_delete(_buffer);
+								
+								window_set_cursor(cr_default);
+							
+								level_id = 0;
+								gmsroom = global.lastroom + irandom_range(1, 1000);
+								loading = false;
+								beatlevel = false;
+								records = undefined;
+							
+								scr_playerreset();
+								room_goto(custom_lvl_room);
+							}
+						}
+					}
+				}
+				
+				// the rectangle
+				draw_set_colour(c_white);
+				draw_rectangle(x1, y1, x2, y2, false);
+				draw_set_colour(hovering ? c_dkgray : c_black);
+				draw_rectangle(x1 + 1, y1 + 1, x2 - 1, y2 - 1, false);
+				
+				draw_set_colour(c_white);
+				draw_text(xx, yy + 4, ll == -1 ? "Choose file..." : ll);
+			}
+			
+			if array_length(loadlist) > 14
+			{
+				if mouse_wheel_up()
+					viewpos -= 64;
+				if mouse_wheel_down()
+					viewpos += 64;
+				viewpos = clamp(viewpos, 0, (array_length(loadlist) - 15) * 32);
+			}
+			else
+				viewpos = 0;
+			
+			camera_set_view_pos(view_camera[0], 0, lerp(_camy, viewpos, 0.25));
+		}
+		break;
+	
+	#endregion
 }
 
 if loading
 {
 	draw_sprite_ext(spr_loading, 0, room_width / 2, room_height / 2, 1, 1, loadingrotation, c_white, 1);
-	loadingrotation += 1;
+	loadingrotation += 1 + abs(sin(current_time / 400) * 2);
 }
+
