@@ -13,7 +13,10 @@ if instance_exists(obj_onlinemenu)
 	}
 	
 	obj_onlinemenu.gmsroom = -1;
-	obj_onlinemenu.menu = menutypes.leveldetails;
+	if obj_onlinemenu.level_id == 0
+		obj_onlinemenu.menu = menutypes.upload;
+	else
+		obj_onlinemenu.menu = menutypes.leveldetails;
 	room_goto(editor_entrance);
 }
 else

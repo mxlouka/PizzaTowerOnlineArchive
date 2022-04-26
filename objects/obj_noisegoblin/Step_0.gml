@@ -14,11 +14,11 @@ switch (state)
 }
 
 
-if  state = states.stun && stunned > 100 && birdcreated = false
+if state == states.stun && stunned > 100 && !birdcreated
 {
-birdcreated = true
-with instance_create(x,y, obj_enemybird)
-ID = other.id
+	birdcreated = true
+	with instance_create(x,y, obj_enemybird)
+		ID = other.id
 }
 
 if state != states.stun
@@ -54,27 +54,30 @@ if sprite_index == spr_archergoblin_shoot
     image_xscale = -sign(x - obj_player1.x)
 
 //Throw Bomb at
-if x != obj_player1.x && obj_player1.state != states.bombpep && state != states.pizzagoblinthrow && bombreset = 0  && grounded
+var player = instance_nearest(x, y, obj_player);
+if x != player.x && player.state != states.bombpep && state != states.pizzagoblinthrow && bombreset = 0  && grounded
 {
-if ((obj_player1.x > x - 200) && (obj_player1.x < x + 200)) && (y <= obj_player1.y+200 && y >= obj_player1.y- 200)
-{
-if (state == states.walk or state == states.idle) 
-{
-sprite_index = spr_archergoblin_shoot
-image_index = 0
-image_xscale = -sign(x - obj_player1.x)
-state = states.pizzagoblinthrow
-}
-}
+	if ((player.x > x - 200) && (player.x < x + 200)) && (y <= player.y+200 && y >= player.y- 200)
+	{
+		if (state == states.walk or state == states.idle) 
+		{
+			sprite_index = spr_archergoblin_shoot
+			image_index = 0
+			if x != player.x
+				image_xscale = -sign(x - player.x)
+			state = states.pizzagoblinthrow
+		}
+	}
 }
 
-if boundbox = false
+if !boundbox
 {
-with instance_create(x,y,obj_baddiecollisionbox)
-{
-sprite_index = other.sprite_index
-mask_index = sprite_index
-baddieID = other.id
-other.boundbox = true
+	with instance_create(x,y,obj_baddiecollisionbox)
+	{
+		sprite_index = other.sprite_index
+		mask_index = sprite_index
+		baddieID = other.id
+		other.boundbox = true
+	}
 }
-}
+

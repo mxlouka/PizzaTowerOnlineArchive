@@ -10,6 +10,73 @@ if debug
 	}
 }
 
+function draw_textfield(x, y, w = 254, h = 30)
+{
+	var x2 = x + w, y2 = y + h;
+	
+	draw_set_colour(c_white);
+	draw_rectangle(x, y, x2, y2, false);
+	draw_set_colour(c_black);
+	draw_rectangle(x, y, x2, y2, true);
+	
+	var varprefix = "textfield" + string(x * y), struct;
+	if variable_instance_exists(id, varprefix)
+		struct = variable_instance_get(id, varprefix);
+	else
+	{
+		struct = {
+			str : "",
+			sel : false
+		}
+	}
+		
+	draw_set_font(font0);
+	draw_set_halign(fa_left);
+	
+	if h >= 60
+		draw_text_ext(x + 6, y + 6, struct.str + (struct.sel && textline ? "|" : ""), 20, w - 6);
+	else
+	{
+		var xscale = 1;
+		if string_width(struct.str) > w - 12
+			xscale = (w - 12) / string_width(struct.str);
+	
+		draw_text_transformed(x + 6, y + 6, struct.str + (struct.sel && textline ? "|" : ""), xscale, 1, 0);
+	}
+	
+	if struct.sel
+	{
+		if alarm[1] == -1
+			alarm[1] = room_speed / 2;
+		
+		if keyboard_lastkey == vk_backspace
+			struct.str = string_copy(struct.str, 1, string_length(struct.str) - 1);
+		else
+			struct.str += keyboard_lastchar;
+		keyboard_lastchar = "";
+		keyboard_lastkey = -1;
+		
+		if mouse_check_button_pressed(mb_left)
+		&& !(mouse_x >= x && mouse_y >= y && mouse_x < x2 && mouse_y < y2)
+		{
+			alarm[1] = -1;
+			textline = false;
+			struct.sel = false;
+		}
+	}
+	if !struct.sel
+	{
+		if mouse_check_button_pressed(mb_left)
+		&& mouse_x >= x && mouse_y >= y && mouse_x < x2 && mouse_y < y2
+		{
+			textline = true;
+			struct.sel = true;
+		}
+	}
+	variable_instance_set(id, varprefix, struct);
+	return struct.str;
+}
+
 draw_set_colour(c_white);
 switch menu
 {
@@ -233,40 +300,7 @@ switch menu
 		// search tool
 		//if paging_type != 3
 		{
-			draw_set_colour(c_white);
-			draw_rectangle(672, 42, 926, 72, false);
-			draw_set_colour(c_black);
-			draw_rectangle(672, 42, 926, 72, true);
-		
-			draw_set_font(font0);
-			draw_set_halign(fa_left);
-			draw_text(672 + 6, 42 + 6, string(searchstring) + (selectedsearch && textline ? "|" : ""));
-		
-			if !selectedsearch
-			{
-				textline = false;
-				alarm[1] = -1;
-			
-				if mouse_check_button_pressed(mb_left)
-				&& mouse_x >= 672 && mouse_y >= 42 && mouse_x < 926 && mouse_y < 72
-				{
-					keyboard_string = searchstring;
-					textline = true;
-					selectedsearch = true;
-				}
-			}
-			
-			if selectedsearch
-			{
-				if alarm[1] == -1
-					alarm[1] = room_speed / 2;
-			
-				searchstring = keyboard_string;
-				
-				if mouse_check_button_pressed(mb_left)
-				&& !(mouse_x >= 672 && mouse_y >= 42 && mouse_x < 926 && mouse_y < 72)
-					selectedsearch = false;
-			}
+			searchstring = draw_textfield(672, 42);
 			
 			// search button
 			if searchstring != "" && (draw_editorbutton(704, 98 + 64, lang_string("editor.menu.search.search")) or (selectedsearch && keyboard_check_pressed(vk_enter)))
@@ -299,7 +333,7 @@ switch menu
 		}
 		
 		// upload level
-		if paging_type == 3 && !loading
+		if paging_type == 3 && !loading && debug
 		{
 			if draw_editorbutton(704, 98, global.auth == "" ? lang_string("editor.menu.search.login") : lang_string("editor.menu.search.upload"))
 			{
@@ -746,9 +780,14 @@ switch menu
 								level_id = 0;
 								gmsroom = global.lastroom + irandom_range(1, 1000);
 								loading = false;
-								beatlevel = false;
 								records = undefined;
-							
+								
+								with obj_player
+								{
+									character = "P";
+									paletteselect = 1;
+									scr_characterspr();
+								}
 								scr_playerreset();
 								room_goto(custom_lvl_room);
 							}
@@ -778,6 +817,38 @@ switch menu
 				viewpos = 0;
 			
 			camera_set_view_pos(view_camera[0], 0, lerp(_camy, viewpos, 0.25));
+		}
+		break;
+	
+	#endregion
+	#region upload level
+	
+	case menutypes.upload:
+		#region black box
+		
+		draw_set_colour(c_black);
+		draw_set_alpha(0.25);
+		draw_rectangle(320, 0, 640, 540, false);
+		draw_set_alpha(1);
+		
+		#endregion
+		
+		draw_set_font(global.font_small);
+		draw_set_colour(c_white);
+		draw_text(352, 100 - 20, "Level title");
+		draw_text(352, 200 - 20, "Level description");
+		
+		if !loading
+		{
+			var leveltitle = draw_textfield(352, 100);
+			var leveldesc = draw_textfield(352, 200,, 200);
+		}
+		if draw_editorbutton(382, 450, lang_string("editor.menu.search.upload")) && !loading
+		{
+			level_name = leveltitle;
+			level_desc = leveldesc;
+			scr_requestlevelupload(leveltitle, leveldesc, level_string);
+			loading = true;
 		}
 		break;
 	

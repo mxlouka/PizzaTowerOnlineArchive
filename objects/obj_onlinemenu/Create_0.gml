@@ -100,7 +100,6 @@ userid = -1;
 
 // level verification
 gmsroom = -1;
-beatlevel = false;
 loadlist = [];
 
 // other shit
