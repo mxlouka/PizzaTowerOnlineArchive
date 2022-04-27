@@ -98,9 +98,8 @@ if player && !player.cutscene && (player.state != states.firemouth or global.gam
 					bad.hithsp = -8 * bad.image_xscale;
 					bad.hitvsp = -8;
 				}
-				bad.invtime = 25;
-					
 				scr_hitthrow(bad, id, lag);
+				bad.invtime = 25;
 			}
 			
 			scr_soundeffect(sfx_punch);

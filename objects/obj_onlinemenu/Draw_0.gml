@@ -438,7 +438,8 @@ switch menu
 				if string_contains(level_category, "GAMEPLAY_")
 				{
 					gameplay_chosen = string_copy(level_category, string_pos("GAMEPLAY_", level_category) + 9, 1);
-					if global.gameplay != gameplay_chosen
+					if (gameplay_chosen == 0 && global.gameplay != 0)
+					or (gameplay_chosen == 1 && global.gameplay == 0)
 						menu = menutypes.warngameplay;
 				}
 				else
@@ -760,7 +761,7 @@ switch menu
 			showtext = true;
 			alarm[0] = room_speed * 2;
 			
-			if loginback != -1
+			if loginback == -1
 				scr_requestpage_alt(page);
 			loginback = -1;
 		}
@@ -1086,6 +1087,7 @@ switch menu
 			if draw_editorbutton(32, 32, lang_string("editor.menu.cancel"))
 				menu = menutypes.leveldetails;
 			
+			draw_set_halign(fa_center);
 			draw_set_valign(fa_top);
 			draw_set_font(global.font_small);
 			draw_text(960 / 2, 192, lang_string("editor.menu.wannarate"));
@@ -1108,10 +1110,11 @@ switch menu
 		}
 		else
 		{
+			draw_set_halign(fa_center);
 			draw_set_valign(fa_top);
 			draw_set_font(global.font_small);
-			
 			draw_text(960 / 2, 192, lang_string("editor.menu.logintorate"));
+			
 			if draw_editorbutton(384, 296, lang_string("editor.menu.search.login"))
 			{
 				loginback = menu;

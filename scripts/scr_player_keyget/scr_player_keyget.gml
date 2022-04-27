@@ -1,7 +1,6 @@
 function scr_player_keyget()
 {
 	hsp = 0
-	
 	vsp = 0
 	image_speed = 0.35
 
@@ -23,6 +22,6 @@ function scr_player_keyget()
 	{
 		global.keyget = false
 		state = states.normal
-		image_index = 0
 	}
 }
+
