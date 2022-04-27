@@ -30,8 +30,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "freezer",
-    "path": "folders/Objects/level_structure/freezer.yy",
+    "name": "terror nation",
+    "path": "folders/Objects/level_structure/terror nation.yy",
   },
   "resourceVersion": "1.0",
   "name": "obj_washingmachinemount",

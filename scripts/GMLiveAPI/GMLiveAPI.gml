@@ -16,7 +16,7 @@ function live_preinit_init_funcs() {
 		if (string_length(l_name) >= 64) l_name = string_copy(l_name, 1, 64);
 		var l_fc = string_ord_at(l_name, 1);
 		if (l_fc == 60) break;
-		if (!(l_fc == 95 || l_fc >= 97 && l_fc <= 122 || l_fc >= 65 && l_fc <= 90)) continue;
+		if (!(l_fc == 95 or l_fc >= 97 && l_fc <= 122 or l_fc >= 65 && l_fc <= 90)) continue;
 		var l_m = { name: l_name, func: method(undefined, l_scr), used: false }
 		l_fm[?l_name] = l_m;
 		ds_list_add(l_fl, l_m);
@@ -268,49 +268,49 @@ function live_preinit_init_arrays() {
 		return view_current
 	});
 	gml_var_add("view_visible[]", function(l_set, l_val, l_ind) {
-		if (l_ind < 0 || l_ind > 7) return gml_thread_error("Index (" + string(l_ind) + ") is out of range [0..7]");
+		if (l_ind < 0 or l_ind > 7) return gml_thread_error("Index (" + string(l_ind) + ") is out of range [0..7]");
 		if (l_set) {
 			view_visible[l_ind] = l_val;
 			return undefined;
 		} else return view_visible[l_ind];
 	});
 	gml_var_add("view_xport[]", function(l_set, l_val, l_ind) {
-		if (l_ind < 0 || l_ind > 7) return gml_thread_error("Index (" + string(l_ind) + ") is out of range [0..7]");
+		if (l_ind < 0 or l_ind > 7) return gml_thread_error("Index (" + string(l_ind) + ") is out of range [0..7]");
 		if (l_set) {
 			view_xport[l_ind] = l_val;
 			return undefined;
 		} else return view_xport[l_ind];
 	});
 	gml_var_add("view_yport[]", function(l_set, l_val, l_ind) {
-		if (l_ind < 0 || l_ind > 7) return gml_thread_error("Index (" + string(l_ind) + ") is out of range [0..7]");
+		if (l_ind < 0 or l_ind > 7) return gml_thread_error("Index (" + string(l_ind) + ") is out of range [0..7]");
 		if (l_set) {
 			view_yport[l_ind] = l_val;
 			return undefined;
 		} else return view_yport[l_ind];
 	});
 	gml_var_add("view_wport[]", function(l_set, l_val, l_ind) {
-		if (l_ind < 0 || l_ind > 7) return gml_thread_error("Index (" + string(l_ind) + ") is out of range [0..7]");
+		if (l_ind < 0 or l_ind > 7) return gml_thread_error("Index (" + string(l_ind) + ") is out of range [0..7]");
 		if (l_set) {
 			view_wport[l_ind] = l_val;
 			return undefined;
 		} else return view_wport[l_ind];
 	});
 	gml_var_add("view_hport[]", function(l_set, l_val, l_ind) {
-		if (l_ind < 0 || l_ind > 7) return gml_thread_error("Index (" + string(l_ind) + ") is out of range [0..7]");
+		if (l_ind < 0 or l_ind > 7) return gml_thread_error("Index (" + string(l_ind) + ") is out of range [0..7]");
 		if (l_set) {
 			view_hport[l_ind] = l_val;
 			return undefined;
 		} else return view_hport[l_ind];
 	});
 	gml_var_add("view_surface_id[]", function(l_set, l_val, l_ind) {
-		if (l_ind < 0 || l_ind > 7) return gml_thread_error("Index (" + string(l_ind) + ") is out of range [0..7]");
+		if (l_ind < 0 or l_ind > 7) return gml_thread_error("Index (" + string(l_ind) + ") is out of range [0..7]");
 		if (l_set) {
 			view_surface_id[l_ind] = l_val;
 			return undefined;
 		} else return view_surface_id[l_ind];
 	});
 	gml_var_add("view_camera[]", function(l_set, l_val, l_ind) {
-		if (l_ind < 0 || l_ind > 7) return gml_thread_error("Index (" + string(l_ind) + ") is out of range [0..7]");
+		if (l_ind < 0 or l_ind > 7) return gml_thread_error("Index (" + string(l_ind) + ") is out of range [0..7]");
 		if (l_set) {
 			view_camera[l_ind] = l_val;
 			return undefined;

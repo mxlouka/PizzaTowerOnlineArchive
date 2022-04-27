@@ -318,19 +318,19 @@ function lang_load(lang)
 		ds_map_add(global.langmap, "msg.level.forest", "Gnome Forest WIP");
 		ds_map_add(global.langmap, "msg.level.beach", "Pineapple Beach");
 		ds_map_add(global.langmap, "msg.level.kungfu", "Kung Fu");
-		ds_map_add(global.langmap, "msg.level.minigolf", "Golf");
-		ds_map_add(global.langmap, "msg.level.space", "Space");
-		ds_map_add(global.langmap, "msg.level.city", "City");
-		ds_map_add(global.langmap, "msg.level.sewer", "Sewers");
-		ds_map_add(global.langmap, "msg.level.war", "War");
+		ds_map_add(global.langmap, "msg.level.minigolf", "Golf WIP");
+		ds_map_add(global.langmap, "msg.level.space", "Space WIP");
+		ds_map_add(global.langmap, "msg.level.city", "City WIP");
+		ds_map_add(global.langmap, "msg.level.sewer", "Sewers WIP");
+		ds_map_add(global.langmap, "msg.level.war", "War WIP");
 		ds_map_add(global.langmap, "msg.level.factory", "Factory");
 		ds_map_add(global.langmap, "msg.level.mansion", "Mansion");
 		ds_map_add(global.langmap, "msg.level.freezer", "Freezer");
-		ds_map_add(global.langmap, "msg.level.kidsparty", "Kids Party");
+		ds_map_add(global.langmap, "msg.level.kidsparty", "Kids Party WIP");
 		ds_map_add(global.langmap, "msg.level.dragonlair", "Dragon Lair");
 		ds_map_add(global.langmap, "msg.level.chateau", "Pizzascare");
 		ds_map_add(global.langmap, "msg.level.strongcold", "Strongcold");
-		ds_map_add(global.langmap, "msg.level.exit", "Exit");
+		ds_map_add(global.langmap, "msg.level.exit", "Exit WIP");
 		
 		ds_map_add(global.langmap, "msg.level.golf", "Golf");
 		ds_map_add(global.langmap, "msg.level.snickchallenge", "Snick Challenge");

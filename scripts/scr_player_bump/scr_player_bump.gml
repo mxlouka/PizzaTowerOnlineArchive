@@ -41,3 +41,4 @@ function scr_player_bump()
 	if sprite_index != spr_player_catched && sprite_index != spr_rockethitwall && sprite_index != spr_tumbleend && sprite_index != spr_hitwall
 		sprite_index = ((!skateboarding) ? spr_bump : spr_clownbump);
 }
+

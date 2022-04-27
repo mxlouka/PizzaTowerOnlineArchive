@@ -4,7 +4,7 @@ if room == rm_editor {
         return;
     if (obj_editor.type > 2)
         return;
-    if (place_meeting(x, y, obj_editor_button)/* || place_meeting(x, y, obj_script_button)*/)
+    if (place_meeting(x, y, obj_editor_button)/* or place_meeting(x, y, obj_script_button)*/)
         return;
 	
 	x += 32 * image_xscale

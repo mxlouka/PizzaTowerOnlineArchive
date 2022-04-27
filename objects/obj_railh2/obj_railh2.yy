@@ -31,8 +31,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "factory",
-    "path": "folders/Objects/level_structure/factory.yy",
+    "name": "terror nation",
+    "path": "folders/Objects/level_structure/terror nation.yy",
   },
   "resourceVersion": "1.0",
   "name": "obj_railh2",

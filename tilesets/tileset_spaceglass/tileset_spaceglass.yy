@@ -1,0 +1,46 @@
+{
+  "spriteId": {
+    "name": "tile_spaceglass",
+    "path": "sprites/tile_spaceglass/tile_spaceglass.yy",
+  },
+  "tileWidth": 32,
+  "tileHeight": 32,
+  "tilexoff": 2,
+  "tileyoff": 2,
+  "tilehsep": 4,
+  "tilevsep": 4,
+  "spriteNoExport": true,
+  "textureGroupId": {
+    "name": "Default",
+    "path": "texturegroups/Default",
+  },
+  "out_tilehborder": 2,
+  "out_tilevborder": 2,
+  "out_columns": 2,
+  "tile_count": 4,
+  "autoTileSets": [],
+  "tileAnimationFrames": [],
+  "tileAnimationSpeed": 15.0,
+  "tileAnimation": {
+    "FrameData": [
+      0,
+      1,
+      2,
+      3,
+    ],
+    "SerialiseFrameCount": 1,
+  },
+  "macroPageTiles": {
+    "SerialiseWidth": 0,
+    "SerialiseHeight": 0,
+    "TileSerialiseData": [],
+  },
+  "parent": {
+    "name": "space",
+    "path": "folders/Tile Sets/space.yy",
+  },
+  "resourceVersion": "1.0",
+  "name": "tileset_spaceglass",
+  "tags": [],
+  "resourceType": "GMTileSet",
+}
