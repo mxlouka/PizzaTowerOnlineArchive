@@ -12,11 +12,19 @@ if instance_exists(obj_onlinemenu)
 		state = states.titlescreen;
 	}
 	
-	obj_onlinemenu.gmsroom = -1;
-	if obj_onlinemenu.level_id == 0
-		obj_onlinemenu.menu = menutypes.upload;
-	else
-		obj_onlinemenu.menu = menutypes.leveldetails;
+	with obj_onlinemenu
+	{
+		gmsroom = -1;
+		if level_id == 0
+			menu = menutypes.upload;
+		else
+		{
+			if userid == level_userid
+				menu = menutypes.leveldetails;
+			else
+				menu = menutypes.vote;
+		}
+	}
 	room_goto(editor_entrance);
 }
 else

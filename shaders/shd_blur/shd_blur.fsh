@@ -2,8 +2,8 @@ varying vec2 v_vTexcoord;
 varying vec4 v_vColour;
 uniform vec3 size;//width,height,radius
 
-const int Quality = 4;
-const int Directions = 16;
+const int Quality = 3;
+const int Directions = 8;
 const float Pi = 6.28318530718;//pi * 2
 
 void main()

@@ -14,10 +14,10 @@ function scr_requestpage_alt()
 	loading = true;
 }
 
-function scr_requestlevel_alt(levelid)
+function scr_requestlevel_alt(levelid, auth = "")
 {
 	// send request
-	request = http_get("http://ptoleveleditor.000webhostapp.com/api/level_info.php?id=" + string(levelid));
+	request = http_get("http://ptoleveleditor.000webhostapp.com/api/level_info.php?id=" + string(levelid) + "&auth=" + auth);
 	requestype = reqtypes.read_level;
 	level_id = levelid;
 	loading = true;
@@ -52,6 +52,14 @@ function scr_requestlevelupload(name, desc, content, category = "")
 	// please don't abuse this.
 	request = http_post_string("http://ptoleveleditor.000webhostapp.com/api/level_publish.php", "auth=" + global.auth + "&name=" + name + "&description=" + desc + "&content=" + content + (category != "" ? "&category=" + category : ""));
 	requestype = reqtypes.upload;
+	loading = true;
+}
+
+function scr_requestleveldelete(levelid)
+{
+	// please don't abuse this.
+	request = http_post_string("http://ptoleveleditor.000webhostapp.com/api/level_delete.php", "auth=" + global.auth + "&id=" + levelid);
+	requestype = reqtypes.delete_level;
 	loading = true;
 }
 

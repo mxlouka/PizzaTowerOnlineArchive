@@ -345,7 +345,15 @@ if state == states.gameover && y > room_height * 2
 	room = global.checkpointroom
 	if global.checkpointroom == editor_entrance
 	{
-		obj_onlinemenu.menu = menutypes.leveldetails;
+		with obj_onlinemenu
+		{
+			gmsroom = -1;
+			if level_id == 0
+				menu = menutypes.listfiles;
+			else
+				menu = menutypes.leveldetails;
+		}
+		
 		state = states.titlescreen;
 		targetDoor = "A";
 	}

@@ -26,7 +26,7 @@ if !kick
 		instance_destroy()
 
 	//Go back from hitting wall
-	if floor(image_index) = image_number -1  && sprite_index = spr_playerN_noisebombhitwall 
+	if floor(image_index) == image_number - 1  && sprite_index = spr_playerN_noisebombhitwall 
 		sprite_index = spr_playerN_noisebomb
 
 	//Flash 

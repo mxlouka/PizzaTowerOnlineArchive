@@ -13,8 +13,13 @@ var loads = scr_loadlevel(obj_onlinemenu.level_string);
 if loads <= 0 && (!debug or loads == -4)
 {
 	scr_playerreset();
-	obj_player1.targetDoor = "B";
-	obj_player1.state = states.titlescreen;
+	with obj_onlinemenu
+		gameplay_chosen = -1;
+	with obj_player
+	{
+		targetDoor = "B";
+		state = states.titlescreen;
+	}
 	
 	room_goto(editor_entrance);
 	exit;

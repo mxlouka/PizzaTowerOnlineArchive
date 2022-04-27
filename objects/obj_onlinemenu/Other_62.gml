@@ -2,8 +2,9 @@ if live_call() return live_result;
 
 if ds_map_find_value(async_load, "id") == request
 {
-	if ds_map_find_value(async_load, "status") == 0
+	if async_load[?"status"] == 0
 	{
+		request = "";
 		loading = false;
 		asyncresult = ds_map_find_value(async_load, "result");
 		
@@ -32,12 +33,14 @@ if ds_map_find_value(async_load, "id") == request
 				level_desc = string_replace_all(level_desc, "&lt;", "<");
 				level_desc = string_replace_all(level_desc, "&gt;", ">");
 				level_desc = string_replace_all(level_desc, "&quot;", "\"");
+				level_desc = string_replace_all(level_desc, "\\", "");
 			}
 			
 			level_string = ds_map_find_value(map, "levelString");
-			level_userid = ds_map_find_value(map, "creator");
+			level_userid = ds_map_find_value(map, "userid");
 			level_author = ds_map_find_value(map, "author");
 			level_created = ds_map_find_value(map, "date");
+			level_category = ds_map_find_value(map, "category");
 		}
 		
 		if requestype == reqtypes.read_paging
@@ -120,9 +123,19 @@ if ds_map_find_value(async_load, "id") == request
 		if requestype == reqtypes.upload
 		{
 			var levelid = ds_map_find_value(map, "id");
-			level_string = undefined;
-			menu = menutypes.leveldetails;
-			scr_requestlevel_alt(levelid);
+			if levelid != undefined
+			{
+				level_string = undefined;
+				menu = menutypes.leveldetails;
+				scr_requestlevel_alt(levelid);
+			}
+		}
+		
+		if requestype = reqtypes.delete_level
+		{
+			records = undefined;
+			menu = menutypes.levelbrowser;
+			scr_requestpage_alt(page);
 		}
 		
 		var msg = ds_map_find_value(json_decode(asyncresult), "message");
@@ -132,6 +145,14 @@ if ds_map_find_value(async_load, "id") == request
 			message = string_upper(string(msg));
 			alarm[0] = 200;
 		}
+	}
+	else if async_load[?"status"] < 0
+	{
+		showtext = true;
+		message = "Server error!";
+		alarm[0] = 200;
+		loading = false;
+		trace(async_load[?"http_status"]);
 	}
 }
 
