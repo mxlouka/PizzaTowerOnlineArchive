@@ -34,8 +34,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "weirdwest",
-    "path": "folders/Objects/level_structure/weirdwest.yy",
+    "name": "weird west",
+    "path": "folders/Objects/level_structure/weird west.yy",
   },
   "resourceVersion": "1.0",
   "name": "obj_tntblock",

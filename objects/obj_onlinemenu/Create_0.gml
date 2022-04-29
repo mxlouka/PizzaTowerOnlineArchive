@@ -16,7 +16,8 @@ enum reqtypes
 	login,
 	register,
 	upload,
-	rate_level
+	rate_level,
+	delete_level
 }
 enum menutypes
 {
@@ -31,7 +32,9 @@ enum menutypes
 	upload,
 	vote,
 	listfiles,
-	userinfo
+	userinfo,
+	choosegameplay,
+	warngameplay
 }
 
 records = undefined; // the level listing
@@ -64,6 +67,9 @@ searchstring = "";
 searchstring_real = "";
 selectedsearch = false;
 
+cooldown = 0;
+textboxes = ds_map_create();
+
 // password button
 passwordstring = "";
 selectedpassword = false;
@@ -77,9 +83,11 @@ if check_online()
 		regedit = gms_ini_player_read("saveData", "regedit");
 	gms_chat_toggle(false);
 }
+loginback = -1;
 
 // etc
 textline = false;
+deletion_confirm = 0;
 
 response = "";
 map = undefined;
@@ -92,6 +100,7 @@ level_string = undefined;
 level_userid = undefined;
 level_author = undefined;
 level_created = undefined;
+level_category = undefined;
 
 // login status
 if !variable_global_exists("auth")
@@ -101,6 +110,8 @@ userid = -1;
 // level verification
 gmsroom = -1;
 loadlist = [];
+gameplay_store = global.gameplay;
+gameplay_chosen = -1;
 
 // other shit
 with obj_player

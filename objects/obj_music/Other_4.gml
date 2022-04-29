@@ -355,7 +355,10 @@ else if (!global.panic or string_letters(roomname) == "dragonlair" or string_let
 	{
 		musplay = mu_entrancesecret
 		with obj_player
+		{
 			if character == "SP" musplay = mu_entrancesecretSP;
+			if character == "PP" musplay = mu_entrancesecretPP;
+		}
 	}
 	if string_letters(roomname) == "medievalsecret"
 	or string_letters(roomname) == "ancientsecret"

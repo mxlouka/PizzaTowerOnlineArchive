@@ -13,3 +13,4 @@ if !mouse_check_button(mb_middle) && !keyboard_check_direct(vk_printscreen)
 	draw_set_halign(fa_top);
 	draw_set_valign(fa_left);
 }
+

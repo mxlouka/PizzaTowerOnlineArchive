@@ -120,6 +120,7 @@ switch sel[0]
 			[mu_sanctumsecret, "A Secret Under The\nFlooded Ruins", "loypoll"],
 			[mu_mansionsecret, "you found a secret\nin the mansion", "loypoll"],
 			[mu_beachsecret, "A Secret Buried\nin The Sand", "loypoll"],
+			[mu_entrancesecretPP, "A Secret in The\nColor of Your Soul", "loypoll"],
 			[mu_medievalsecret_re, "MEDIEVALSECRET", "loypoll"],
 			[mu_ruinsecret_re, "RUINSECRET", "loypoll"],
 			[mu_dungeonsecret_re, "DUNGEONSECRET", "loypoll"],

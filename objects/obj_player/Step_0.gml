@@ -147,6 +147,7 @@ switch state
 	case states.frozen: scr_player_frozen (); break;
 	case states.spindash: scr_player_spindash (); break;
 	case states.golf: scr_player_golf (); break;
+	case states.rocket: scr_player_rocket (); break;
 	case states.cotton: if sugaryspire scr_player_cotton (); break;
 }
 global.coop = false;
@@ -345,7 +346,15 @@ if state == states.gameover && y > room_height * 2
 	room = global.checkpointroom
 	if global.checkpointroom == editor_entrance
 	{
-		obj_onlinemenu.menu = menutypes.leveldetails;
+		with obj_onlinemenu
+		{
+			gmsroom = -1;
+			if level_id == 0
+				menu = menutypes.listfiles;
+			else
+				menu = menutypes.leveldetails;
+		}
+		
 		state = states.titlescreen;
 		targetDoor = "A";
 	}

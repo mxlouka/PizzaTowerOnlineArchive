@@ -1,4 +1,4 @@
-var act = ((action == NREM || action == NRES || action == NMOV) ? 1 : 0);
+var act = ((action == NREM or action == NRES or action == NMOV) ? 1 : 0);
 if (act == 0 && scr_stylecheck(0))
 or (act == 1 && !scr_stylecheck(0))
 {

@@ -81,7 +81,7 @@ if global.gameplay == 0
 	draw_set_alpha(1);
 	
 	// tv frame
-	draw_sprite_ext(spr_tvempty, -1, tvx, tvy, 1, 1, 0, c_white, (alpha < 1 ? 0 : 1));
+	draw_sprite_ext(sugary ? spr_tvempty_ss : spr_tvempty, -1, tvx, tvy, 1, 1, 0, c_white, (alpha < 1 ? 0 : 1));
 }
 
 #endregion

@@ -27,8 +27,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "adventureisland",
-    "path": "folders/Objects/level_structure/adventureisland.yy",
+    "name": "adventure island",
+    "path": "folders/Objects/level_structure/adventure island.yy",
   },
   "resourceVersion": "1.0",
   "name": "obj_gnomecustomer",

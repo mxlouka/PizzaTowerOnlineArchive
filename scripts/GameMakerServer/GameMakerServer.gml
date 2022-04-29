@@ -216,7 +216,7 @@ function gms_action_get_argument(argument0) {
 function gms_chat(argument0, argument1) {
 	//(text[, color[, to]])
 	XServer_verify();
-	if(!is_string(argument0) || !is_real(argument1))
+	if(!is_string(argument0) or !is_real(argument1))
 	{
 	    XServer_error("gms_chat: Expected the first argument to be a string, and the second one to be a real");
 	    exit;
@@ -251,7 +251,7 @@ function gms_chat(argument0, argument1) {
 
 function gms_chat_ext(argument0, argument1, argument2) {
 	XServer_verify();
-	if(!is_string(argument0) || !is_real(argument1) || !is_string(argument2))
+	if(!is_string(argument0) or !is_real(argument1) or !is_string(argument2))
 	{
 	    XServer_error("gms_chat_ext: Expected the first argument to be a string, the second one to be a real, and the third argument to be string");
 	    exit;
@@ -265,7 +265,7 @@ function gms_chat_ext(argument0, argument1, argument2) {
 function gms_chat_bind_pos(argument0, argument1, argument2, argument3) {
 	XServer_verify();
 	//gms_chat_bind_pos(x1, y1, x2, y2)
-	if(!is_real(argument0) || !is_real(argument1) || !is_real(argument2) ||  !is_real(argument3))
+	if(!is_real(argument0) or !is_real(argument1) or !is_real(argument2) or  !is_real(argument3))
 	{
 	    XServer_error("gms_chat_bind_pos: Expected all arguments to be reals, but found one or more strings.");
 	    exit;
@@ -279,7 +279,7 @@ function gms_chat_bind_pos(argument0, argument1, argument2, argument3) {
 
 function gms_chat_bind_room() {
 	XServer_verify();
-	if(!is_real(argument0) || !is_real(argument1))
+	if(!is_real(argument0) or !is_real(argument1))
 	{
 	    XServer_error("gms_chat_bind_room: Expected all arguments to be reals, but found one or more strings.");exit
 	}
@@ -293,7 +293,7 @@ function gms_chat_bind_view(argument0, argument1, argument2) {
 /// @param view_id
 /// @param  up/down (0/1
 XServer_verify();
-if(!is_real(argument0) || !is_real(argument1) || !is_real(argument2))
+if(!is_real(argument0) or !is_real(argument1) or !is_real(argument2))
 {
     XServer_error("gms_chat_bind_view: Expected all arguments to be reals, but found one or more strings.");
     exit
@@ -311,7 +311,7 @@ global.__chat_height = argument2;
 function gms_chat_colors(argument0, argument1, argument2) {
 XServer_verify();
 //server_chat_colors(textcol, bgcol, bgalpha);
-if(!is_real(argument0) || !is_real(argument1) || !is_real(argument2))
+if(!is_real(argument0) or !is_real(argument1) or !is_real(argument2))
 {
     XServer_error("gms_chat_colors: Expected all arguments to be reals, but found one or more strings.");exit
 }
@@ -506,7 +506,7 @@ global.__chat_teamkey   = argument2;
 
 function gms_chat_local(argument0, argument1) {
 XServer_verify();
-if(!is_string(argument0) || !is_real(argument1))
+if(!is_string(argument0) or !is_real(argument1))
 {
     XServer_error("server_chat_local: One or more arguments are not of the right type (string, real)")exit
 }
@@ -598,7 +598,7 @@ if(global.__chat_bubbles)
 }
 if(global.__draw_enabled)
 {
-    if((global.__chat_bind >= 2 && view_current == global.__chat_bind - 2) || global.__chat_bind < 2)
+    if((global.__chat_bind >= 2 && view_current == global.__chat_bind - 2) or global.__chat_bind < 2)
     { 
         gms_chat_draw()
     }
@@ -622,7 +622,7 @@ XServer_logout();
 }
 
 function gms_friend_send_request() {
-if(!is_real(argument1) || !is_string(argument0))
+if(!is_real(argument1) or !is_string(argument0))
 {
     XServer_error("server_friend_send_request: Expected a string as the first arument and a real as the second argument. Keep in mind a callback script should be provided as a resource, not as a script. There shouldn't be quotes around the script name.")
 }
@@ -659,7 +659,7 @@ function gms_ini_game_delete(argument0, argument1) {
 	/// @param section
 	/// @param key
 	XServer_verify();
-	if(!is_string(argument0) || !is_string(argument1))
+	if(!is_string(argument0) or !is_string(argument1))
 	{
 	    XServer_error("GameINI: section & key should be string, but found one or more reals.");
 	    exit;
@@ -678,7 +678,7 @@ function gms_ini_game_read(argument0, argument1) {
 	/// @param section
 	/// @param key
 	XServer_verify();
-	if(!is_string(argument0) || !is_string(argument1))
+	if(!is_string(argument0) or !is_string(argument1))
 	{
 	    XServer_error("GameINI: section & key should be string, but found one or more reals.");
 	    exit;
@@ -700,7 +700,7 @@ function gms_ini_game_write(argument0, argument1) {
 	/// @param value
 	XServer_verify();
 	if(!XServer_require_connection()) return 0;
-	if(!is_string(argument0) || !is_string(argument1))
+	if(!is_string(argument0) or !is_string(argument1))
 	{
 	    XServer_error("GameINI: section & key should be string, but found one or more reals.");
 	    exit;
@@ -719,7 +719,7 @@ function gms_ini_player_delete(argument0, argument1) {
 	/// @param section
 	/// @param key
 	XServer_verify();
-	if(!is_string(argument0) || !is_string(argument1))
+	if(!is_string(argument0) or !is_string(argument1))
 	{
 	    XServer_error("GameINI: section & key should be string, but found one or more reals.");
 	    exit;
@@ -737,7 +737,7 @@ function gms_ini_player_read(argument0, argument1) {
 	/// @param section
 	/// @param key
 	XServer_verify();
-	if(!is_string(argument0) || !is_string(argument1))
+	if(!is_string(argument0) or !is_string(argument1))
 	{
 	    XServer_error("GameINI: section & key should be string, but found one or more reals.");
 	    exit;
@@ -757,7 +757,7 @@ function gms_ini_player_write(argument0, argument1, argument2) {
 	/// @param key
 	/// @param value
 	XServer_verify();
-	if(!is_string(argument0) || !is_string(argument1))
+	if(!is_string(argument0) or !is_string(argument1))
 	{
 	    XServer_error("GameINI: section & key should be string, but found one or more reals.");
 	    exit;
@@ -852,7 +852,7 @@ function gms_optimize_variables(argument0, argument1) {
 /// @description server_optimize_variables(sync_sprite, sync_imageindex)
 /// @param sync_sprite
 /// @param  sync_imageindex
-if(!is_real(argument0) || !is_real(argument1))
+if(!is_real(argument0) or !is_real(argument1))
 {
     XServer_error("server_optimize_variables: Expected all arguments to be reals, but found one or more strings.");
     exit;
@@ -1022,7 +1022,7 @@ show_debug_message("Connected.");
 global.__simple_mode      = !(!real(string(argument0)));
 global.__version_num      = real(string(argument1));
 gms_setversion(global.__version_num);
-if(argument2 < 0 || argument3 < 0)
+if(argument2 < 0 or argument3 < 0)
 {
     global.__obj_player       = -100000;
     global.__obj_other_player = -100000;
@@ -2733,7 +2733,7 @@ if(!gms_highscore_list_exists(argument0))
     _hs_container = wle_find(global.__xhs_window, "highscores.container");
     _hs_title = wle_find(global.__xhs_window, "highscores.title");
     
-    if(_hs_container == -1 || _hs_title == -1)
+    if(_hs_container == -1 or _hs_title == -1)
     {
         show_error("The highscore screen needs a 'highscore-container' and a 'highscore-title' element to function properly", false);
     }else{
@@ -3725,7 +3725,7 @@ border:
 
 </layout>");
 }
-if ds_queue_size(global.__xmessage_queue) == 0 && (global.__xms_waittime <= 0 || !global.__xms_open)
+if ds_queue_size(global.__xmessage_queue) == 0 && (global.__xms_waittime <= 0 or !global.__xms_open)
 {
     var _textfield;
     _textfield = wle_find(global.__xms_window, "message.title");
@@ -6152,7 +6152,7 @@ if(!global.__in_action)
                 break;
             case 10://P2p message
                 var __arg, __n;
-                if(global.__script_p2p == -1 || !script_exists(global.__script_p2p))
+                if(global.__script_p2p == -1 or !script_exists(global.__script_p2p))
                 {
                     XServer_error("Received a P2P message, but no script is set to handle P2P messages. gms_script_set_p2p(script) should be called before any P2P messages are received.");
                 }
@@ -6504,7 +6504,7 @@ if(!global.__in_action)
                 break;
             case 52: // Trusted transaction result
                 var __arg, __n;
-                if(global.__script_trusted_transaction_result == -1 || !script_exists(global.__script_trusted_transaction_result))
+                if(global.__script_trusted_transaction_result == -1 or !script_exists(global.__script_trusted_transaction_result))
                 {
                     XServer_error("An invalid trusted transaction result script has been set.");
                 }
@@ -6639,7 +6639,7 @@ __tc=-1;
 for(__i=1; __i<=global.__maxteam; __i+=1)
 {
     __tw[__i] = gms_team_score_get(__i) / (gms_team_player_count(__i) + 1) + gms_team_player_count(__i) * 100;
-    if(__tw[__i] < __tl || __tl == -1)// || (__tw[__i] <= __tl + 100 && irandom(global.__maxteam) <= __i))
+    if(__tw[__i] < __tl or __tl == -1)// or (__tw[__i] <= __tl + 100 && irandom(global.__maxteam) <= __i))
     {
         __tl = __tw[__i];
         __tc = __i;
@@ -6675,7 +6675,7 @@ return gms_team_get_current() == gms_other_get_real(argument0, "team")
 
 function gms_team_score_add() {
 XServer_verify();
-if(!is_real(argument0) || !is_real(argument1))
+if(!is_real(argument0) or !is_real(argument1))
 {
     XServer_error("server_team_score_add: Got one or more string arguments, but expected two reals.");
     exit;
@@ -6767,7 +6767,7 @@ var __i, __c;
 for(__i = 1; __i <= string_length(argument0); __i += 1)
 {
     __c = ord(string_char_at(argument0, __i));
-    if!((__c >= ord("a") && __c <= ord("z"))||(__c >= ord("A") && __c <= ord("Z")) || (__c >= ord("0") && __c <= ord("9")) || (__c == ord("_")))
+    if!((__c >= ord("a") && __c <= ord("z"))||(__c >= ord("A") && __c <= ord("Z")) or (__c >= ord("0") && __c <= ord("9")) or (__c == ord("_")))
     {
         return false;
     }
@@ -7114,7 +7114,7 @@ if(!global.__xls_isloggingin)
                 gms_login_set_password(_password);
             }
             
-            if _hasAccount || global.__ls_allow_guest
+            if _hasAccount or global.__ls_allow_guest
             {
                 gms_login_execute(-5);
             }else{
@@ -7169,7 +7169,7 @@ if(__xr == 0)
         }
     }
 }else{
-    XGms_login_error(gms_login_error_tostring(__xr), __xr == 1 || __xr == 3);
+    XGms_login_error(gms_login_error_tostring(__xr), __xr == 1 or __xr == 3);
 }
 }
 
@@ -7348,7 +7348,7 @@ if global.__xls_username_get != ""
         {
             if(!global.__winel[_f1, 36] && !global.__winel[_f2, 36])
             {
-                if(_result || !global.__ls_allow_guest)
+                if(_result or !global.__ls_allow_guest)
                 {
                     wle_perform(global.__xls_window, 48, true)
                 }else{
@@ -7492,7 +7492,7 @@ if argument0 != -1
                     __tt = tt_ease;
                 }
                 
-                if(__tt != tt_shake || !global.__winel[argument0, 36])
+                if(__tt != tt_shake or !global.__winel[argument0, 36])
                 {
                     _tw = wle_tween(argument0);
                     
@@ -7502,24 +7502,24 @@ if argument0 != -1
                     while !XGms_undef_ined(__key)
                     {
                         if __key == 9
-                            || __key == 10
-                            || __key == 5
-                            || __key == 6
-                            || __key == 7
-                            || __key == 8
-                            || __key == 13
-                            || __key == 14
-                            || __key == 19
-                            || __key == 18
-                            || __key == 25
-                            || __key == 32
-                            || __key == 55
-                            || __key == 56
-                            || __key == 57
-                            || __key == 58
-                            || __key == wle_hashname("padding-horizontal")
-                            || __key == wle_hashname("padding-vertical")
-                            || __key == 72
+                            or __key == 10
+                            or __key == 5
+                            or __key == 6
+                            or __key == 7
+                            or __key == 8
+                            or __key == 13
+                            or __key == 14
+                            or __key == 19
+                            or __key == 18
+                            or __key == 25
+                            or __key == 32
+                            or __key == 55
+                            or __key == 56
+                            or __key == 57
+                            or __key == 58
+                            or __key == wle_hashname("padding-horizontal")
+                            or __key == wle_hashname("padding-vertical")
+                            or __key == 72
                         {
                             global.__winel[_tw, 35] = true
                         }
@@ -7627,7 +7627,7 @@ while(__queue_pointer < global.__wincache[__cache, 0])
         global.__winel[_currel, 71] = global.__winel[m2, 71] * (1 - _new_proc) + global.__winel[m3, 71] * _new_proc;
         global.__winel[_currel, 70] = global.__winel[m2, 70] * (1 - _new_proc) + global.__winel[m3, 70] * _new_proc;
             
-        if global.__winel[m3, 35] || __need_position
+        if global.__winel[m3, 35] or __need_position
         {
             //BAD HACK. NO. Should not be neccecary if I manage to fix the positioning function
             global.__winel[m3, 35] = true
@@ -7806,7 +7806,7 @@ while(__queue_pointer < global.__wincache[__cache, 0])
                     }
                 }
                 
-                if(keyboard_check(vk_backspace) || global.__tb_simulate_back)
+                if(keyboard_check(vk_backspace) or global.__tb_simulate_back)
                 {
                     global.__tb_simulate_back = 0;
                     _rp_backspace = global.__winel[_currel, 82];
@@ -7924,7 +7924,7 @@ while(__queue_pointer < global.__wincache[__cache, 0])
                     global.__winel[_currel, 81] = 0;
                 }
                 
-                if keyboard_check_pressed(vk_enter) || (keyboard_check_direct(vk_tab) && !global.__tab_pressed)
+                if keyboard_check_pressed(vk_enter) or (keyboard_check_direct(vk_tab) && !global.__tab_pressed)
                 {
                     var _next_tab;
                     _next_tab = _currel;
@@ -7980,7 +7980,7 @@ while(__queue_pointer < global.__wincache[__cache, 0])
                             _guess = round((_p1 + _p2) / 2);
                             _d = string_width(string_hash_to_newline(string_copy(_t + " ", 1, _guess)));
                             
-                            if(abs(_d - _aimwidth) <= 5 || _p1 == _p2)
+                            if(abs(_d - _aimwidth) <= 5 or _p1 == _p2)
                             {
                                 break;
                             }else if(_d < _aimwidth)
@@ -8015,7 +8015,7 @@ while(__queue_pointer < global.__wincache[__cache, 0])
                             _guess = round((_p1 + _p2) / 2);
                             _d = string_width(string_hash_to_newline(string_copy(_t + " ", 1, _guess)));
                             
-                            if(abs(_d - _aimwidth) <= 5 || _p1 == _p2)
+                            if(abs(_d - _aimwidth) <= 5 or _p1 == _p2)
                             {
                                 break;
                             }else if(_d < _aimwidth)
@@ -8031,7 +8031,7 @@ while(__queue_pointer < global.__wincache[__cache, 0])
                     }
                 }
                 
-                if(mouse_check_button_released(mb_left) || keyboard_check_released(vk_shift))
+                if(mouse_check_button_released(mb_left) or keyboard_check_released(vk_shift))
                 {
                     if(_select2 < _select1)
                     {
@@ -8064,13 +8064,13 @@ while(__queue_pointer < global.__wincache[__cache, 0])
             _surf = global.__winel[_currel, 94];
             _ih = global.__winel[_currel, 12];
             
-            if(surface_get_width(_surf) != abs(x2 - x1 - 10) || surface_get_height(_surf) != _ih)
+            if(surface_get_width(_surf) != abs(x2 - x1 - 10) or surface_get_height(_surf) != _ih)
             {
                 surface_free(_surf);
                 _surf = -1;
             }
             
-            if((_surf == -1 || !surface_exists(_surf)) && _ih > 0)
+            if((_surf == -1 or !surface_exists(_surf)) && _ih > 0)
             {
                 
                 _surf = surface_create(abs(x2 - x1 - 10), _ih);
@@ -8127,7 +8127,7 @@ while(__queue_pointer < global.__wincache[__cache, 0])
                         {
                             _scroll -= _momentum;
                             _momentum *= 0.9;
-                            if(_scroll < 0 || _scroll > _ih - __hh)
+                            if(_scroll < 0 or _scroll > _ih - __hh)
                             {
                                 _momentum = 0;
                             }
@@ -8218,7 +8218,7 @@ while(__queue_pointer < global.__wincache[__cache, 0])
                         var __it;
                         __it = ds_list_find_value(m, i);
                         
-                        if(global.__winel[__it, 4] < _scroll || global.__winel[__it, 2] > __hh + _scroll) continue;
+                        if(global.__winel[__it, 4] < _scroll or global.__winel[__it, 2] > __hh + _scroll) continue;
                         
                         if(__step) wle_step(__it, argument1 - x1, argument2 - y1);
                         wle_draw(__it, 1, false);
@@ -8267,11 +8267,11 @@ while(__queue_pointer < global.__wincache[__cache, 0])
     if argument2
     {
         if x1 >= room_width
-            || y1 >= room_height
-            || x2 <= 0
-            || y2 <= 0
-            || x2 <= x1
-            || y2 <= y1
+            or y1 >= room_height
+            or x2 <= 0
+            or y2 <= 0
+            or x2 <= x1
+            or y2 <= y1
         {
             __queue_pointer = global.__winskip[__cache, __queue_pointer]; 
             continue 
@@ -8566,10 +8566,10 @@ if global.__xwindow_error_type
     global.__tween_factor      = 60 / room_speed
 }
 if wle_step(argument0, mouse_x, mouse_y) 
-    || global.__winel[argument0, 1] != argument1
-    || global.__winel[argument0, 2] != argument2
-    || global.__winel[argument0, 3] != argument3
-    || global.__winel[argument0, 4] != argument4
+    or global.__winel[argument0, 1] != argument1
+    or global.__winel[argument0, 2] != argument2
+    or global.__winel[argument0, 3] != argument3
+    or global.__winel[argument0, 4] != argument4
 {
     wle_position(argument0, argument1, argument2, argument3, argument4)
 }
@@ -8631,7 +8631,7 @@ while(__queue_pointer > 0)
     _rs = global.__winel[_currel, 34];
     
     var _hor_margin, _ver_margin, _hor_padding, _ver_padding;    
-    if(_rs == el_button || _rs == el_label || _rs == el_textbox)
+    if(_rs == el_button or _rs == el_label or _rs == el_textbox)
     {
         if(global.__winel[_currel, 100])
         {
@@ -8855,7 +8855,7 @@ while(__queue_pointer < global.__wincache[__cache, 0])
                             _xoff = global.__winel[_el, 9] * room_width
                             _yoff = global.__winel[_el, 10] * room_height
                             
-                            if __type || !global.__winel[_el, 36]
+                            if __type or !global.__winel[_el, 36]
                             {
                                 global.__winel[_el, 1] = x1 + _xoff + global.__winel[_el, 5];
                                 global.__winel[_el, 2] = y1 + _yoff + global.__winel[_el, 7];
@@ -9007,7 +9007,7 @@ if(_first == "$")
         pow += 1
     }
     return dec;
-}else if(_first == "'" || _first == "\"")
+}else if(_first == "'" or _first == "\"")
 {
     //string
     return string_copy(txt, 2, string_length(txt) - 2);
@@ -9097,7 +9097,7 @@ for(i = 1; i <= len; i += 1)
         c_value += char
         continue;
     }
-    if(char == chr(10) || char == chr(13) || char == chr(9))
+    if(char == chr(10) or char == chr(13) or char == chr(9))
     {
         continue;
     }
@@ -9190,7 +9190,7 @@ for(i = 1; i <= len; i += 1)
     if(char == chr(9))
     {
         char = "\\t";
-    }else if(char == chr(10) || char == chr(13))
+    }else if(char == chr(10) or char == chr(13))
     {
         _line_num += 1;
         char = " "
@@ -9335,7 +9335,7 @@ for(i = 1; i <= len; i += 1)
         case "\\":
             var _next;
             _next = string_char_at(txt, i + 1);
-            if(_next == "<" || _next == ">" || _next == "/" || _next == "\\" || _next == "[" || _next == "]" || _next == ",")
+            if(_next == "<" or _next == ">" or _next == "/" or _next == "\\" or _next == "[" or _next == "]" or _next == ",")
             {
                 switch(location)
                 {
@@ -9724,7 +9724,7 @@ while _pos <= _strlen
             show_error("Error while parsing styles: property '" + _curname + "' out of bounds: '" + string(argument0) + "'", global.__xwindow_error_type);
         }
         
-        if(_curname == "background" || _curname == "background-1" || _curname == "background-2" || _curname == "background-3" || _curname == "background-4")
+        if(_curname == "background" or _curname == "background-1" or _curname == "background-2" or _curname == "background-3" or _curname == "background-4")
         {
             if(!ds_map_exists(_current_map, "background-alpha"))
             {
@@ -9792,7 +9792,7 @@ ds_stack_destroy(_name_stack);
 }
 
 function wle_add(argument0, argument1) {
-if argument0 == -1 || argument1 == -1 return 0;
+if argument0 == -1 or argument1 == -1 return 0;
 ds_list_add(global.__winel[argument0, 0], argument1);
 }
 
@@ -10312,7 +10312,7 @@ global.__winel[_el, 9] = 0;//Element name: "x-offset"
 global.__winel[_el, 10] = 0;//Element name: "y-offset"
 global.__winel[_el, 11] = 0;//Element name: "content-w"
 global.__winel[_el, 12] = 0;//Element name: "content-h"
-if argument0 == el_canvas || argument0 == el_container || argument0 == el_multielement
+if argument0 == el_canvas or argument0 == el_container or argument0 == el_multielement
 {
     global.__winel[_el, 13] = sz_max;//Element name: "width"
     global.__winel[_el, 14] = sz_max;//Element name: "height"
@@ -10542,7 +10542,7 @@ function wle_element_position(argument0, argument1, argument2, argument3, argume
 // 0x01: Horizontal move
 // 0x02: Vertical move
 //
-if argument7 || !global.__winel[argument0, 36]
+if argument7 or !global.__winel[argument0, 36]
 {
     var _xoff, _yoff, _result;
     _xoff = global.__winel[argument0, 9] * room_width;
@@ -12901,7 +12901,7 @@ while(true)
                     var _type = buffer_read(_rr, buffer_u8),
                         _id   = XGms_cache_player_read(_rr);
                     
-                    if(_type == 0 || _type == 2)
+                    if(_type == 0 or _type == 2)
                     {
                         //SetPosition(16);
                         if(!ds_map_exists(global.__player, _id))
@@ -12951,7 +12951,7 @@ while(true)
                             //SetPosition(24);
                             if(debug_mode) show_error("The server is sending corrupt data: The player that was supposed to login, is already logged in.", false);
                         }
-                    }else if(_type == 1 || _type == 3){
+                    }else if(_type == 1 or _type == 3){
                         if(ds_map_exists(global.__player, _id))
                         {
                             ds_map_delete(global.__player, _id);
@@ -14089,7 +14089,7 @@ switch(global.__spc)
         }
         break;
     case 10:
-        if (abs(_speedto) <= 0.1 || _delay > 15)
+        if (abs(_speedto) <= 0.1 or _delay > 15)
         {
             if (point_distance(_xnow, _ynow, _xto, _yto) > _speedlast && _speedlast >= 0.01)
             {
@@ -14184,7 +14184,7 @@ if (_delay > 0)
     if progress > 0
     {
         _speedUp = 0
-    } else if abs(_speedto) <= 0.1 || currentDistance / _speedto > 30 {
+    } else if abs(_speedto) <= 0.1 or currentDistance / _speedto > 30 {
         _speedUp = _speedcorrection
     } else {
         _speedUp = _speedto * -progress
@@ -14220,7 +14220,7 @@ ds_map_replace(_p, "#last-direction", _dirto);
 
 function XServer_readvariablename(argument0, argument1, argument2) {
 //XServer_writevariable(buffer, cacheID, type)
-if(argument2 == 0 || argument2 == 1)
+if(argument2 == 0 or argument2 == 1)
 {
     return XServer_readstring(argument0);
 }else{
@@ -14237,15 +14237,15 @@ var xPos, yPos, dir, sp, obj_index, message_id = argument0;
 var syncID = -1, senderID = 0;
 senderID = XGms_cache_player_read(argument1);
 if(message_id != 26 && message_id != 27) syncID = buffer_read(argument1, buffer_u16) + 1000000;
-if(message_id == 26 || message_id == 27)//OneTime
+if(message_id == 26 or message_id == 27)//OneTime
 {
     ds_map_replace(_a, "type", 4);
     ds_map_replace(_a, "from", senderID);
-}else if(message_id == 8 || message_id == 28)
+}else if(message_id == 8 or message_id == 28)
 {
     ds_map_replace(_a, "type", 13);
     ds_map_replace(_a, "from", senderID);
-}else if(message_id == 29 || message_id == 30)
+}else if(message_id == 29 or message_id == 30)
 {
     ds_map_replace(_a, "type", 14);
     ds_map_replace(_a, "from", senderID);
@@ -14374,12 +14374,12 @@ ds_map_add(_a, 4, dir);
 ds_map_add(_a, 20, "direction");
 ds_map_add(_a, 5, sp);
 ds_map_add(_a, 21, "speed");
-if(message_id == 29 || message_id == 30)//Full
+if(message_id == 29 or message_id == 30)//Full
 {
     var _s = XServer_new_instance(syncID, 0, xPos, yPos, sp, dir, true, senderID, argument2);
     ds_map_add(global.__instance, syncID, _s);
     ds_list_add(global.__instance_idmap, syncID);
-}else if(message_id == 8 || message_id == 28)//Create-destroy
+}else if(message_id == 8 or message_id == 28)//Create-destroy
 {
     var _s = XServer_new_instance(syncID, 0, xPos, yPos, sp, dir, false, senderID, argument2);
     ds_map_add(global.__instance, syncID, _s);
@@ -14394,7 +14394,7 @@ for(var i = 0; i < var_count; i++)
         _val = XGms_ve_readValue(_rr, global.__variable_receive_cache_type[4, _type]);
     
     ds_map_add(_a, 23 + i, _name);
-    if(message_id == 29 || message_id == 30)
+    if(message_id == 29 or message_id == 30)
     {
         ds_map_add(_s, "*" + string(_name), _val);
         ds_map_add(_s, ">" + string(_name), 0.01);//Precision
@@ -14490,11 +14490,11 @@ if(argument4 == 0 && argument5 == 0)
 {
     flags |= 128 | 64 | 0 | 16;
 }
-else if (argument4 >= 255 && argument4 <= 4096 && argument5 >= 255 && argument5 <= 4096 && ((argument4 & 1) != 0 || argument4 > 510) && ((argument5 & 1) != 0 || argument5 > 510))
+else if (argument4 >= 255 && argument4 <= 4096 && argument5 >= 255 && argument5 <= 4096 && ((argument4 & 1) != 0 or argument4 > 510) && ((argument5 & 1) != 0 or argument5 > 510))
 {
     //XY: 12bit combi
     flags |= 128 | 64 | 32 | 0;
-}else if(argument4 > 65535 || argument4 < 0)
+}else if(argument4 > 65535 or argument4 < 0)
 {
     //XY: int, int combi
     flags |= 128 | 64 | 32 | 16;
@@ -15074,8 +15074,8 @@ if (XServer_is_real(argument0))
         
         //sign bit will only be set when a float cannot represent the value precise enough, or the value does not fit in a float.
         needsDouble = argument0 < -FLT_MAX
-            || argument0 > FLT_MAX
-            || argument1 < DEFAULT_PRECISION//(getPrecision(value, (double)(float)value) > minPrecision);
+            or argument0 > FLT_MAX
+            or argument1 < DEFAULT_PRECISION//(getPrecision(value, (double)(float)value) > minPrecision);
         
         //variable type is floating point by default
         bestVariableType = $f;
@@ -15108,7 +15108,7 @@ if (XServer_is_real(argument0))
                         // - the variable type only changes when it gives a better result, or the result is
                         //the same but the numBytes is lower (better precision at a lower cost).
                         if ((precision + DEFAULT_PRECISION < bestPrecision && numBytes <= bestNumBytes)
-                            || (precision <= bestPrecision && numBytes < bestNumBytes))
+                            or (precision <= bestPrecision && numBytes < bestNumBytes))
                         {
                             //update best solution
                             bestVariableType = variableType;
@@ -15367,7 +15367,7 @@ return _rid
 }
 
 function XServer_is_real(argument0) {
-return is_real(argument0) || is_int32(argument0) || is_int64(argument0) || is_bool(argument0)
+return is_real(argument0) or is_int32(argument0) or is_int64(argument0) or is_bool(argument0)
 }
 
 function gms_protect_set(argument0, argument1) {

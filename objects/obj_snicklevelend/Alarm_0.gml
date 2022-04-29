@@ -9,8 +9,14 @@ if instance_exists(obj_onlinemenu)
 		state = states.titlescreen;
 	}
 	
-	obj_onlinemenu.gmsroom = -1;
-	obj_onlinemenu.menu = menutypes.leveldetails;
+	with obj_onlinemenu
+	{
+		gmsroom = -1;
+		if userid == level_userid
+			menu = menutypes.leveldetails;
+		else
+			menu = menutypes.vote;
+	}
 	room_goto(editor_entrance);
 }
 else

@@ -48,7 +48,7 @@ if (con == 8)
 if (con == 9)
 {
     timer += 1
-    if (quick_mode == 1 || skiprunback == 1)
+    if (quick_mode == 1 or skiprunback == 1)
     {
         if (timer < 40)
         {

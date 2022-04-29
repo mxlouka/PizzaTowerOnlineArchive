@@ -6,17 +6,17 @@ function scr_loadlevel(argument0)
 	// level doesn't even exist
 	if _wrapper == -1
 	{
-		show_message("Invalid level can't load");
+		show_message(lang_string("editor.play.jsonfailed"));
 		return -4;
 	}
-
+	
 	var _list = ds_map_find_value(_wrapper, "ROOT");
 	var _unsupported = ds_list_create();
 
 	// root missing
 	if _list == undefined
 	{
-		show_message("ROOT missing from level, can't load");
+		show_message(lang_string("editor.play.noroot"));
 		ds_map_destroy(_wrapper);
 		return -4;
 	}
@@ -49,6 +49,8 @@ function scr_loadlevel(argument0)
 		obj_hatchoice,
 		obj_snickexf,
 		obj_snickexg,
+		obj_snickexh,
+		obj_snickexi,
 		obj_snickexgquill,
 		obj_grabbablenoise,
 		obj_shootsign,
@@ -164,14 +166,14 @@ function scr_loadlevel(argument0)
 				ds_list_add(_unsupported, string(_obj));
 		}
 		// detect forbidden objects
-		else if ds_list_find_index(_forbidden, _getobj) != -1
-			trace("FORBIDDEN OBJECT " + _obj);
+		else
+			trace("FORBIDDEN OBJECT " + string(_obj));
 	}
 
 	// list unsupported objects
 	if ds_list_size(_unsupported) != 0
 	{
-		var str = "This level has unsupported objects (report if abuse):\n";
+		var str = lang_string("editor.play.badobject") + "\n";
 		for(i = 0; i < ds_list_size(_unsupported); i++)
 			str += "\n" + ds_list_find_value(_unsupported, i);
 	

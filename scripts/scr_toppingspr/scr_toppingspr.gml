@@ -1,7 +1,7 @@
 function scr_collectsprite(single = false, escape = false)
 {
 	var spr = -1, toppings = [spr_sausagecollect];
-	var char = (instance_exists(obj_player1) ? obj_player1.character : "P");
+	var char = (instance_exists(obj_player) ? obj_player.character : "P");
 	
 	if object_index == obj_collectescape or escape
 	{

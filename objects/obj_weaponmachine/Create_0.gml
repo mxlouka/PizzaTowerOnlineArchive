@@ -11,4 +11,8 @@ else
 
 with obj_player1
 	if character == "S" instance_destroy(other);
+if !check_online()
+	sprite_index = spr_weaponmachine_score;
+collect_shake = 0;
+needtops = 30;
 

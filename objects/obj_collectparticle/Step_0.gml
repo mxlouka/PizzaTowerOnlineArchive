@@ -18,3 +18,4 @@ if outofx && outofy
 
 if !point_in_camera(x + camera_get_view_x(view_camera[0]), y + camera_get_view_y(view_camera[0]), view_camera[0])
 	instance_destroy();
+

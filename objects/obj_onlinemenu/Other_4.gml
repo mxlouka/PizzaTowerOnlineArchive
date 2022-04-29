@@ -1,6 +1,8 @@
 // random background
+ds_map_clear(textboxes);
 if room == editor_entrance
 {
+	global.gameplay = gameplay_store;
 	gmsroom = -1;
 	if check_online()
 		gms_chat_toggle(false);

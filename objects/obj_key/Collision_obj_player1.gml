@@ -25,3 +25,4 @@ with other
 			instance_destroy(obj_peppermandestroyable);
 	}
 }
+

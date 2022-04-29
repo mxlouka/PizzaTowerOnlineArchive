@@ -82,7 +82,7 @@ function scr_player_punch()
 			    breakdance--
 			
 			landAnim = false
-			if ((movespeed <= 0) && ((sprite_index == spr_player_breakdancesuper) || (sprite_index == spr_player_buttattackend)))
+			if ((movespeed <= 0) && ((sprite_index == spr_player_breakdancesuper) or (sprite_index == spr_player_buttattackend)))
 			    state = states.normal
 			if breakdance <= 0 && sprite_index == spr_player_breakdance
 			    state = states.normal

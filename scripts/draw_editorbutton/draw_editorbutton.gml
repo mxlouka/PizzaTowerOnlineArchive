@@ -21,5 +21,11 @@ function draw_editorbutton(xx, yy, str, sel = false)
 	draw_set_halign(fa_left);
 	draw_set_valign(fa_top);
 	
-	return hover && mouse_check_button_pressed(mb_left);
+	if mouse_check_button_pressed(mb_left) && hover
+		return 1;
+	else if hover
+		return -1;
+	else
+		return 0;
 }
+

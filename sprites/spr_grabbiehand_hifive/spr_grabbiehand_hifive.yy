@@ -147,7 +147,7 @@
     "eventStubScript": null,
     "parent": {"name":"spr_grabbiehand_hifive","path":"sprites/spr_grabbiehand_hifive/spr_grabbiehand_hifive.yy",},
     "resourceVersion": "1.4",
-    "name": "",
+    "name": "spr_grabbiehand_hifive",
     "tags": [],
     "resourceType": "GMSequence",
   },
