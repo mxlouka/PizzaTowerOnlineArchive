@@ -379,7 +379,7 @@ switch menu
 		}
 		
 		// upload level
-		if paging_type == 3 && !loading && debug
+		if paging_type == 3 && !loading
 		{
 			if draw_editorbutton(704, 98, global.auth == "" ? lang_string("editor.menu.search.login") : lang_string("editor.menu.search.upload"))
 			{
@@ -433,7 +433,7 @@ switch menu
 		if level_string != undefined
 		{
 			// load level
-			if draw_editorbutton(384, 296, lang_string("editor.menu.level.play")) && viewpos == 0
+			if draw_editorbutton(384, debug ? 296 : 360, lang_string("editor.menu.level.play")) && viewpos == 0
 			{
 				if string_contains(level_category, "GAMEPLAY_")
 				{

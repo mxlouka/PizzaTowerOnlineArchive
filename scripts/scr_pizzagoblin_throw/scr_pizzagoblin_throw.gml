@@ -21,6 +21,8 @@ function scr_pizzagoblin_throw()
 		global.throw_frame[obj_tank] = 6
 		global.throw_frame[obj_miniufo] = 3
 		global.throw_frame[obj_miniufo_grounded] = 11
+		global.throw_frame[obj_thug_blue] = 9
+		global.throw_frame[obj_thug_green] = 9
 		
 		global.throw_frame[obj_cottonwitch] = 7
 		
@@ -43,6 +45,8 @@ function scr_pizzagoblin_throw()
 		global.throw_sprite[obj_tank] = spr_tank_shoot
 		global.throw_sprite[obj_miniufo] = spr_ufolive_shoot
 		global.throw_sprite[obj_miniufo_grounded] = spr_ufogrounded_shoot
+		global.throw_sprite[obj_thug_blue] = spr_shrimp_knife
+		global.throw_sprite[obj_thug_green] = spr_shrimp_throw
 		
 		global.throw_sprite[obj_cottonwitch] = spr_cottonwitch_shoot
 		
@@ -65,6 +69,8 @@ function scr_pizzagoblin_throw()
 		global.reset_timer[obj_tank] = 100
 		global.reset_timer[obj_miniufo] = 100
 		global.reset_timer[obj_miniufo_grounded] = 100
+		global.reset_timer[obj_thug_blue] = 60
+		global.reset_timer[obj_thug_green] = 60
 		
 		global.reset_timer[obj_cottonwitch] = 100
 	}
@@ -186,7 +192,7 @@ function scr_pizzagoblin_throw()
 					with instance_create(x, y, obj_cottonwitch_projectile)
 						image_xscale = other.image_xscale
 					break
-		
+				
 				case obj_swedishmonkey:
 					if global.stylethreshold >= 3
 						var banan = instance_create(x, y, obj_evilbanana);
@@ -265,6 +271,25 @@ function scr_pizzagoblin_throw()
 	                    sprite_index = spr_ufogrounded_bullet
 	                    image_xscale = other.image_xscale
 	                }
+	                break
+				
+				case obj_thug_blue:
+	                with instance_create(x + 8 * image_xscale, y, obj_robotknife)
+	                {
+	                    image_xscale = other.image_xscale
+	                    hsp = other.image_xscale * 5
+	                }
+	                break
+				
+				case obj_thug_green:
+					/*
+	                with instance_create(x, y, obj_junkenemy)
+		            {
+		                image_xscale = other.image_xscale
+		                hsp = other.image_xscale * 7
+		                vsp = -8
+		            }
+					*/
 	                break
 			}
 		}

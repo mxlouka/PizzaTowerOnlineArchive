@@ -7,20 +7,23 @@ if state == states.walk
 {
 	if !chasing
 	{
-		if targetplayer.x > x - 400 && targetplayer.x < x + 400
-		&& targetplayer.y <= y + 20 && targetplayer.y >= y - 20
-        {
-            chasing = true;
-			state = states.charge;
-			attack_count = attack_max;
-			
-			if targetplayer.x != x
-				image_xscale = sign(targetplayer.x - x);
-			sprite_index = walkspr;
-			image_index = 0;
-			
-			bombreset = attackreset;
-        }
+		if object_index == obj_thug_red or global.gameplay != 0
+		{
+			if targetplayer.x > x - 400 && targetplayer.x < x + 400
+			&& targetplayer.y <= y + 20 && targetplayer.y >= y - 20
+	        {
+	            chasing = true;
+				state = states.charge;
+				attack_count = attack_max;
+				
+				if targetplayer.x != x
+					image_xscale = sign(targetplayer.x - x);
+				sprite_index = walkspr;
+				image_index = 0;
+				
+				bombreset = attackreset;
+	        }
+		}
 	}
 	else
 	{
@@ -145,7 +148,7 @@ if state == states.punch
     }
 }
 
-switch (state)
+switch state
 {
     case states.idle: scr_enemy_idle (); break;
     case states.turn: scr_enemy_turn (); break;
@@ -191,7 +194,7 @@ if global.stylethreshold >= 3 && ragecooldown <= 0
                 sprite_index = spr_shrimp_knife
 				
                 if player.x != x
-                    image_xscale =	-sign(x - player.x);
+                    image_xscale = -sign(x - player.x);
 				
                 image_index = 0;
                 flash = true;
@@ -220,7 +223,7 @@ if state != states.stun
 
 if !boundbox
 {
-	with instance_create(x,y,obj_baddiecollisionbox)
+	with instance_create(x, y, obj_baddiecollisionbox)
 	{
 		sprite_index = other.sprite_index
 		mask_index = sprite_index
