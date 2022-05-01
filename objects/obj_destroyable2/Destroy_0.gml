@@ -36,7 +36,10 @@ if ds_list_find_index(global.saveroom, id) == -1 && !global.snickchallenge
 	create_baddiegibsticks(x + sprite_width / 2, y + sprite_height / 2);
 	
 	with instance_create(x, y, obj_collect)
+	{
 		ID = other.id;
+		depth = other.depth;
+	}
 	tile_layer_delete_at(1, x, y);
 	
 	if audio_is_playing(sfx_breakblock1) or audio_is_playing(sfx_breakblock2)

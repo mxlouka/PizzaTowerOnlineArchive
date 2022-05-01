@@ -17,6 +17,7 @@ if variable_global_exists("logged")
 global.optimize = 0;
 global.autotile = true;
 global.loadeditor = false;
+global.jukebox = -1;
 
 // clear excess players
 while instance_number(obj_player) > 1

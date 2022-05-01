@@ -12,6 +12,7 @@ function scr_fakepeppino_hit()
 			{
 				if state != states.backbreaker
 				{
+					scr_transfobump()
 					state = states.backbreaker
 					sprite_index = spr_hurt
 					x = other.x + (other.image_xscale * 50)
@@ -40,7 +41,10 @@ function scr_fakepeppino_hit()
 
 	//Attack
 	if sprite_index == spr_fakepeppino_grabattack && floor(image_index) == 4
+	{
+		state = states.normal
 		scr_hurtplayer(obj_player);
+	}
 	
 	if sprite_index == spr_fakepeppino_grabattack && floor(image_index) >= image_number - 1
 	{
