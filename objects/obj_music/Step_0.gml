@@ -8,7 +8,7 @@ if !scr_stylecheck(0, 2)
 {
 	if !global.panic && !global.snickchallenge && !global.miniboss && room != Realtitlescreen
 	{
-		with obj_player1
+		with playerobj
 		{
 			var _state = state;
 			if _state == states.hitlag
@@ -51,7 +51,7 @@ if !scr_stylecheck(0, 2)
 	var pitch = true;
 	with obj_startgate
 		if drawing pitch = false;
-	with obj_player1
+	with playerobj
 		if state == states.frozen pitch = false;
 	
 	if pitch
@@ -81,20 +81,23 @@ if global.panic && !(room == custom_lvl_room && global.disableescapemusic)
 		// pizza time
 		else
 		{
-			if obj_player1.character == "N"
-				musplay = global.gameplay == 0 ? mu_noiseescape_OLD : mu_noiseescape;
-			else if obj_player1.character == "S"
-				musplay = mu_snickescape;
-			else if obj_player1.character == "PP"
+			switch playerobj.character
 			{
-				musplay = mu_pizzatime_PP;
-				if global.streamer
-					musplay = mu_pizzatime_PP_streamer;
+				default: musplay = mu_pizzatime; break;
+				case "N": musplay = mu_noiseescape; break;
+				case "V": musplay = mu_noiseescape_OLD; break;
+				case "S": musplay = mu_snickescape; break;
+				
+				case "PP":
+					musplay = mu_pizzatime_PP;
+					if global.streamer
+						musplay = mu_pizzatime_PP_streamer;
+					break;
+				
+				case "SP":
+					musplay = global.gameplay == 0 ? mu_pizzyescape_OLD : mu_pizzyescape;
+					break;
 			}
-			else if obj_player1.character == "SP"
-				musplay = global.gameplay == 0 ? mu_pizzyescape_OLD : mu_pizzyescape;
-			else // peppino, etc
-				musplay = mu_pizzatime;
 		}
 	}
 }

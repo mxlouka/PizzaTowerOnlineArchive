@@ -2,7 +2,6 @@ if room == rm_editor
     return;
 
 targetplayer = instance_nearest(x, y, obj_player)
-
 if slide_buffer > 0
     slide_buffer--
 
@@ -43,10 +42,9 @@ if state == states.charge
 if state == states.idle
 {
     image_speed = 0.35
-	
     if !patrolling
     {
-        if collision_line(x, y, targetplayer.x, targetplayer.y, obj_solid, 0, 1) == noone 
+        if collision_line(x, y, targetplayer.x, targetplayer.y, obj_solid, 0, 1) == noone
 		&& ((image_xscale < 0 && targetplayer.x < x) or (image_xscale > 0 && targetplayer.x > x))
 		&& targetplayer.y < y + threshold_y && targetplayer.y > y - threshold_y
         {
@@ -61,7 +59,6 @@ if state == states.idle
 else if state == states.grabbed
 {
     var player = asset_get_index("obj_player" + string(grabbedby))
-	
     with player
         scr_pummel();
 	
@@ -107,7 +104,7 @@ else if state == states.chase
         ram_spd = ram_spd_max
 	
     hsp = image_xscale * ram_spd
-    if scr_solid(x + sign(hsp), y)
+    if scr_solid(x + sign(hsp), y) or place_meeting(x + hsp * 2, y, obj_hallway)
     {
         bombreset = 200
         invincible = false
@@ -139,9 +136,6 @@ switch state
         break
     case states.pizzagoblinthrow:
         scr_pizzagoblin_throw()
-        break
-    case states.grabbed:
-        scr_enemy_grabbed()
         break
 }
 

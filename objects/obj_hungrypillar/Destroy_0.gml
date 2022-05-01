@@ -47,13 +47,19 @@ if room == rm_editor exit;
 		
 		if check_sugary()
 			sugary = true;
+		if scr_stylecheck(2) && global.stylethreshold >= 3
+		{
+			haspalette = true;
+			spr_palette = spr_minijohn_palette;
+			paletteselect = 2;
+		}
 	}
 	
 	scr_soundeffect(sfx_killenemy)
 
 	if !instance_exists(obj_endlevelfade)
 	{
-		instance_create(x,y+ 600, obj_itspizzatime)
+		instance_create(x, y, obj_itspizzatime)
 		global.panic = true
 		
 		var roomname = room_get_name(room);
@@ -84,7 +90,6 @@ if room == rm_editor exit;
 				
 				if global.gameplay != 0
 					global.minutes = 3
-				
 				break
 	
 			case "dungeon_10":
@@ -214,7 +219,7 @@ if room == rm_editor exit;
 				global.seconds = 59
 				break
 				
-		    case "cotton_12": // <---- tranny
+		    case "cotton_12":
 				global.minutes = 3
 				global.seconds = 59
 				break
@@ -255,7 +260,6 @@ if room == rm_editor exit;
 			if global.seconds > 40
 				global.seconds = 59;
 		}
-		
 		if global.snickrematch
 			instance_create(room_width / 2, -50, obj_snickexi);
 		
@@ -266,9 +270,8 @@ if room == rm_editor exit;
 		global.wave = 0;
 		global.maxwave = (global.minutes * 60 + global.seconds) * 60;
 	}
-
 	//ds_list_add(global.saveroom, id)
-
+	
 	with obj_panicdebris
 	{
 		canflash = true;

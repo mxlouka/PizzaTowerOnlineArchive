@@ -113,6 +113,8 @@ if pause && !instance_exists(obj_option)
 				gotoroom = kungfu_1;
 			else if string_startswith(roomname, "war")
 				gotoroom = war_1;
+			else if string_startswith(roomname, "space")
+				gotoroom = space_1;
 			else if string_startswith(roomname, "etb")
 				gotoroom = etb_1;
 			else if string_startswith(roomname, "ancient")

@@ -14,8 +14,6 @@ if global.panic
 		appa = max(lerp(1.0, 1.0 - MAX_BLUR, global.wave / global.maxwave), 0.01);
 	}
 }
-else
-	camera_set_view_angle(view_camera[0], 0);
 
 if drawshit
 {

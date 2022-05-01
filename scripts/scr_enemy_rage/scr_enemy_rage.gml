@@ -161,6 +161,44 @@ function scr_enemy_rage()
 				sprite_index = idlespr
 	        }
 			break;
+		
+		case obj_soldier:
+            hsp = 0
+            if !hitboxcreate
+            {
+                hitboxcreate = true
+                with instance_create(x, y, obj_forkhitbox)
+                {
+                    image_xscale = other.image_xscale
+                    ID = other.id
+                }
+            }
+            if floor(image_index) >= image_number - 1
+            {
+                ragebuffer = 100
+                state = states.walk
+                sprite_index = walkspr
+            }
+            break
+		
+		case obj_fencer:
+            var thespeed = 0
+            if image_index > 7
+                thespeed = 12
+			
+            hsp = image_xscale * thespeed
+            if floor(image_index) == image_number - 1
+            {
+                with instance_create(x, y, obj_forkhitbox)
+                    ID = other.id
+				
+                charging = 1
+                state = states.charge
+                movespeed = 5
+                vsp = -7
+                sprite_index = spr_fencer_chargestart
+            }
+            break
 	}
 	
 	var railmeet = instance_place(x, y + 1, obj_railparent);

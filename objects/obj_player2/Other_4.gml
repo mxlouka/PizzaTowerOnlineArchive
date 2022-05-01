@@ -1,1 +1,3 @@
-/// @description cancel
+if global.coop
+	event_inherited();
+

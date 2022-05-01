@@ -11,7 +11,7 @@ if player
 	else
 	{
 		//Burn player
-		if player.state != states.boots && player.state != states.gameover && player.state != states.rideweenie
+		if player.state != states.boots && player.state != states.gameover && player.state != states.rideweenie && player.state != states.hitlag
 		{
 			with player
 				scr_transfobump(false);

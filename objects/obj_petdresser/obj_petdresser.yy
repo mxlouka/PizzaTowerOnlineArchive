@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_placeholderblock",
-    "path": "sprites/spr_placeholderblock/spr_placeholderblock.yy",
+    "name": "spr_petdresser",
+    "path": "sprites/spr_petdresser/spr_petdresser.yy",
   },
   "solid": false,
   "visible": true,

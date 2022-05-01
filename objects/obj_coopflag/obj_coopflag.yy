@@ -1,5 +1,8 @@
 {
-  "spriteId": null,
+  "spriteId": {
+    "name": "spr_flagpeppino",
+    "path": "sprites/spr_flagpeppino/spr_flagpeppino.yy",
+  },
   "solid": false,
   "visible": true,
   "spriteMaskId": null,

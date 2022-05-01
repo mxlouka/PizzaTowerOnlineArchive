@@ -50,7 +50,7 @@ if bombreset > 0
 	bombreset = max(bombreset - 1, 0);
 
 //Identify the player
-var targetplayer = instance_nearest(x, y, obj_player1)
+var targetplayer = instance_nearest(x, y, obj_player)
 
 //Throw Bomb at
 if instance_exists(targetplayer)
@@ -73,17 +73,7 @@ if instance_exists(targetplayer)
 	}
 }
 
-//Taunt attack
-if targetplayer.sprite_index == targetplayer.spr_taunt && state != states.pizzagoblinthrow
-if ((targetplayer.x > x - 400) && (targetplayer.x < x + 400)) && (y <= targetplayer.y+20 && y >= targetplayer.y- 20)
-{
-	bombreset = 0
-	if state == states.stun
-		state = states.walk
-	stunned = 0
-}
-
-if boundbox == false
+if !boundbox
 {
 	with instance_create(x,y,obj_baddiecollisionbox)
 	{

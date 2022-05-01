@@ -2,10 +2,11 @@
 /// @param palette_sprite_index
 /// @param  palette_index
 /// @param palette is surface
-function pal_swap_set() {
+function pal_swap_set()
+{
 	if !check_shaders()
 		exit;
-	
+	 
 	shader_set(Pal_Shader);
 	var _pal_sprite=argument[0];
 	var _pal_index=argument[1];

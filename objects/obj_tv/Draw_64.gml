@@ -41,34 +41,30 @@ if global.gameplay == 0
 {
 	//Draw TV
 	var tvx = 832, tvy = 74;
-	draw_set_alpha(alpha);
+	if !surface_exists(surf)
+		surf = surface_create(960, 540);
+	surface_set_target(surf);
+	draw_clear_alpha(c_black, 0);
+	
+	var sprit = tvsprite;
 	if global.combotime > 0 && tvsprite == spr_tvcombo
 	{
 		// combo tv
-		if !surface_exists(surf)
-			surf = surface_create(960, 540);
+		draw_sprite_ext(scr_sprite_charsuffix(spr_tvcomboclear, sugary ? "ss" : -1), tvimg, tvx, tvy, 1, 1, 0, c_white, 1);
 		
-		surface_set_target(surf);
-		draw_clear_alpha(c_black, 0);
-		
-		draw_sprite_ext(scr_sprite_charsuffix(spr_tvcomboclear, sugary ? "ss" : -1), -1, tvx, tvy, 1, 1, 0, c_white, 1);
-		
-		var sprit = scr_sprite_charsuffix(spr_tvcombo, sugary ? "ss" : -1);
+		sprit = scr_sprite_charsuffix(spr_tvcombo, sugary ? "ss" : -1);
 		draw_sprite_part_ext(sprit, imageindexstore % 5, 0, 0, 16 + (global.combotime / 60) * 148, 177, tvx - sprite_get_xoffset(sprit), tvy - sprite_get_yoffset(sprit), 1, 1, c_white, 1);
-		surface_reset_target();
-		
-		draw_surface_ext(surf, 0, 0, 1, 1, 0, c_white, alpha);
 		draw_text(tvx + 20, tvy + 1, string(global.combo));
 	}
-	else if room != strongcold_endscreen && room != Realtitlescreen
+	else if room != Realtitlescreen
 	{
 		// default ss tv if the equivalent sprite doesn't exist
-		var sprit = scr_sprite_charsuffix(tvsprite, sugary ? "ss" : -1);
+		sprit = scr_sprite_charsuffix(tvsprite, sugary ? "ss" : -1);
 		if sugary && !string_endswith(sprite_get_name(sprit), "_ss")
 			sprit = spr_tvdefault_ss;
 		
 		// tv
-		draw_sprite_ext(sprit, -1, tvx, tvy, 1, 1, 0, c_white, alpha);
+		draw_sprite_ext(sprit, tvimg, tvx, tvy, 1, 1, 0, c_white, 1);
 		
 		// text
 		if (tvsprite == spr_tvdefault or sprit == spr_tvdefault_ss) && !global.miniboss
@@ -81,7 +77,15 @@ if global.gameplay == 0
 	draw_set_alpha(1);
 	
 	// tv frame
-	draw_sprite_ext(sugary ? spr_tvempty_ss : spr_tvempty, -1, tvx, tvy, 1, 1, 0, c_white, (alpha < 1 ? 0 : 1));
+	if room != Realtitlescreen && sprit != spr_tvhurt_ss
+		draw_sprite_ext(sugary ? spr_tvempty_ss : spr_tvempty, tvimg, tvx, tvy, 1, 1, 0, c_white, 1);
+	
+	surface_reset_target();
+	draw_surface_ext(surf, 0, 0, 1, 1, 0, c_white, alpha);
+	
+	// image speed
+	tvimg += image_speed * sprite_get_speed(sprit);
+	tvimg = tvimg % sprite_get_number(sprit);
 }
 
 #endregion

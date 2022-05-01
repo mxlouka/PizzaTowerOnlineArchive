@@ -154,7 +154,12 @@ function endlevel()
 				global.rank = "d"
 		}
 		else
-			global.rank = "d";
+		{
+			if room == custom_lvl_room
+				global.rank = "s";
+			else
+				global.rank = "d";
+		}
 	}
 	
 	instance_destroy(obj_snickexe);

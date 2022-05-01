@@ -10,12 +10,13 @@ switch (state)
     case states.hit: scr_enemy_hit (); break;
     case states.stun: scr_enemy_stun (); break;
     case states.pizzagoblinthrow: scr_pizzagoblin_throw (); break;
+    case states.rage: scr_enemy_rage (); break;
     // grabbed state here
 }
-if state == states.stun && stunned > 100 && birdcreated = false
+if state == states.stun && stunned > 100 && !birdcreated
 {
 	birdcreated = true
-	with instance_create(x,y, obj_enemybird)
+	with instance_create(x, y, obj_enemybird)
 		ID = other.id
 }
 
@@ -26,14 +27,30 @@ if state != states.stun
 scr_scareenemy()
 
 //Identify the player
-var targetplayer = instance_nearest(x, y, obj_player1);
+var targetplayer = instance_nearest(x, y, obj_player);
+if ragebuffer > 0
+    ragebuffer--
 
 //Charge
-if instance_exists(targetplayer) && x != targetplayer.x && grounded && !rematchscare
+if instance_exists(targetplayer) && !rematchscare
 {
-	if ((targetplayer.x > x - 400) && (targetplayer.x < x + 400)) && (y <= targetplayer.y+20 && y >= targetplayer.y- 20)
+	if (targetplayer.x > x - 400 && targetplayer.x < x + 400) && (y <= targetplayer.y + 20 && y >= targetplayer.y - 20)
 	{
-		if state == states.walk && !charging
+		if state != states.rage && ragebuffer <= 0 && global.stylethreshold >= 3 && (state == states.walk or state == states.charge)
+	    {
+	        state = states.rage
+	        sprite_index = spr_fencer_rage
+	        if x != targetplayer.x
+	            image_xscale = -sign(x - targetplayer.x)
+			
+	        ragebuffer = 100
+	        image_index = 0
+	        image_speed = 0.5
+	        flash = 1
+	        alarm[4] = 5
+	        create_heatattack_afterimage(x, y, sprite_index, image_index, image_xscale)
+	    }
+		else if x != targetplayer.x && grounded && state == states.walk && !charging
 		{
 			charging = true
 			state = states.charge
@@ -44,24 +61,11 @@ if instance_exists(targetplayer) && x != targetplayer.x && grounded && !rematchs
 	}
 }
 
-//Taunt attack
-/*
-if targetplayer.sprite_index =  targetplayer.spr_taunt && state != states.charge
-if  ((targetplayer.x > x - 400) && (targetplayer.x < x + 400)) && (y <= targetplayer.y+20 && y >= targetplayer.y- 20)
-{
-bombreset = 0
-if state == states.stun
-state = states.walk
-stunned = 0
-}
-*/
-
 if state == states.stun or state == states.walk
 {
 	charging = false
 	movespeed = 0
 }
-
 
 //Charge sprite
 if sprite_index = spr_chargestart && floor(image_index) = image_number -1
@@ -72,28 +76,25 @@ if (flash == true && alarm[2] <= 0) {
    alarm[2] = 0.15 * room_speed; // Flashes for 0.8 seconds before turning back to normal
 }
 
-
-
-if !hitboxcreate && (state == states.walk or state == states.charge) && !rematchscare
+if !hitboxcreate && (state == states.walk or state == states.rage or state == states.charge) && !rematchscare
 {
 	hitboxcreate = true
-	with instance_create(x,y,obj_forkhitbox)
+	with instance_create(x, y, obj_forkhitbox)
 		ID = other.id
 }
 
 if state != states.grabbed
 	depth = 0
 
-
 if state != states.stun
 	thrown = false
 
 if !boundbox
 {
-	with instance_create(x,y,obj_baddiecollisionbox)
+	with instance_create(x, y, obj_baddiecollisionbox)
 	{
 		sprite_index = spr_fencer
-		mask_index = other.mask_index
+		mask_index = sprite_index
 		baddieID = other.id
 		other.boundbox = true
 	}

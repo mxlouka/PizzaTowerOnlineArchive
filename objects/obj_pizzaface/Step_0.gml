@@ -24,9 +24,11 @@ if place_meeting(x, y, playerid) && !instance_exists(obj_fadeout) && !instance_e
 		obj_camera.ded = false
 		instance_destroy()
 	}
-	else if !instance_exists(obj_toppinwarrior)
+	else
 	{
-		with playerid
+		if sugary && global.collect > 0
+			scr_hurtplayer(playerid, 100);
+		else with playerid
 		{
 			image_blend = c_white;
 			grav = 0.5;
@@ -50,5 +52,9 @@ if place_meeting(x, y, playerid) && !instance_exists(obj_fadeout) && !instance_e
 	instance_destroy()
 }
 
+if maxspeed < 5 or !sugary
+	maxspeed += 0.01
 
-maxspeed += 0.01
+if sugary && x != playerid.x
+	image_xscale = -sign(x - playerid.x);
+

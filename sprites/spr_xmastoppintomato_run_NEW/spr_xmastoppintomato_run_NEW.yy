@@ -114,7 +114,7 @@
   "nineSlice": null,
   "parent": {
     "name": "NEW",
-    "path": "folders/Sprites/NEW.yy",
+    "path": "folders/Sprites/followers/toppin/strongcold/NEW.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_xmastoppintomato_run_NEW",

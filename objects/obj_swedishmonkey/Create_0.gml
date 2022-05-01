@@ -23,7 +23,7 @@ grounded = true
 
 idlespr = spr_swedishmonkey_idle
 stunfallspr = spr_swedishmonkey_stun
-walkspr =spr_swedishmonkey_walk
+walkspr = spr_swedishmonkey_walk
 stunspr = spr_swedishmonkey_stun
 grabbedspr = spr_swedishmonkey_stun
 scaredspr = spr_swedishmonkey_scared
@@ -35,7 +35,10 @@ boundbox = false
 spr_dead = spr_swedishmonkey_dead
 important = false
 heavy = true
-depth =0
+depth = 0
+
+paletteselect = 0
+spr_palette = spr_swedishmonkey_palette
 
 grabbedby = 0
 stuntouchbuffer = 0

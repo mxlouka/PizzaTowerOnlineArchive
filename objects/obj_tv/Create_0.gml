@@ -30,6 +30,7 @@ pizzacoinframe = 0
 manualhide = false
 surf = -1
 panicy = 0
+tvimg = 0
 
 depth = -9998;
 

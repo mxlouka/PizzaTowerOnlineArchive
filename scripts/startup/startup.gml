@@ -265,6 +265,10 @@ function scr_petspr(index)
 			spr_petidle = spr_petnerd_idle;
 			spr_petrun = spr_petnerd_move;
 			break;
+		case 8:
+			spr_petidle = spr_petsneck_idle;
+			spr_petrun = spr_petsneck_move;
+			break;
 	}
 }
 

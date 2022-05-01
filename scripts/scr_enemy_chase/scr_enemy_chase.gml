@@ -22,6 +22,13 @@ function scr_enemy_chase()
 		var railmeet = instance_place(x, y + 1, obj_railparent);
 		if railmeet then hsp += railmeet.spdh;
 		
+		// jump
+		if object_index == obj_charcherry
+		{
+			if grounded && scr_solid(x + image_xscale, y - 4, false)
+				vsp = -8;
+		}
+		
 		//Slow down
 		if abs(momentum) > 0
 			momentum = max(abs(momentum) - 0.1, 0) * sign(momentum);

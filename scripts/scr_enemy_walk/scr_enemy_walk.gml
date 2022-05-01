@@ -1,32 +1,56 @@
 function scr_enemy_walk()
 {
-	if object_index != obj_pickle && object_index != obj_tankOLD && movespeed != 0
-	    hsp = image_xscale * (movespeed + (global.baddiespeed - 1));
-	else if object_index == obj_pickle
+	switch object_index
 	{
-		if !walked
-		{
-			hsp += accel * sign(image_xscale)
-			if hsp < -movespeed or hsp > movespeed
+		// non-moving enemies
+		case obj_trash:
+		case obj_fencer:
+		case obj_rancher:
+		case obj_banditochicken:
+		case obj_ancho:
+		case obj_thug_red:
+		case obj_thug_green:
+		case obj_thug_blue:
+			hsp = 0;
+			break;
+		
+		case obj_ninja:
+			if global.gameplay != 0
 			{
-			    hsp = movespeed * sign(image_xscale)
-			    walked = true;
+				hsp = 0;
+				break;
 			}
-		}
-		else
-		{
-			hsp -= deccel * sign(image_xscale)
-			if hsp > -deccel_threshold && hsp < deccel_threshold
-			    walked = false;
-		}
+		
+		// default movement
+		default:
+			if movespeed != 0
+				hsp = image_xscale * (movespeed + (global.baddiespeed - 1));
+			break;
+		
+		// special cases
+		case obj_tankOLD:
+			if slide_buffer <= 0
+				hsp = image_xscale * movespeed;
+			break;
+		
+		case obj_pickle:
+			if !walked
+			{
+				hsp += accel * sign(image_xscale)
+				if hsp < -movespeed or hsp > movespeed
+				{
+				    hsp = movespeed * sign(image_xscale)
+				    walked = true;
+				}
+			}
+			else
+			{
+				hsp -= deccel * sign(image_xscale)
+				if hsp > -deccel_threshold && hsp < deccel_threshold
+				    walked = false;
+			}
+			break;
 	}
-	else if object_index == obj_tankOLD
-	{
-	    if slide_buffer <= 0
-	        hsp = image_xscale * movespeed;
-	}
-	else
-		hsp = 0;
 	
 	var railmeet = instance_place(x, y + 1, obj_railparent);
 	if railmeet then hsp += railmeet.spdh;
@@ -46,6 +70,7 @@ function scr_enemy_walk()
 	if place_meeting(x + hsp * 2, y, obj_hallway)
 	or (sold && !inst_relation(sold, obj_slope))
 	{
+		hsp = 0;
 		if object_index == obj_forknight or object_index == obj_smurfknight
 		{
 			image_xscale *= -1
@@ -53,18 +78,18 @@ function scr_enemy_walk()
 			sprite_index = turnspr
 			state = states.idle
 		}
-		else if object_index = obj_indiancheese && global.gameplay != 0
+		else if object_index == obj_indiancheese && scr_stylecheck(2)
 		{
 			image_xscale *= -1
 			image_index = 0
 			sprite_index = spr_indiancheese_turn
 			state = states.idle
 		}
-		else if object_index = obj_tankOLD
+		else if object_index == obj_tankOLD or object_index == obj_tank
 		{
 			image_xscale *= -1
 			image_index = 0
-			sprite_index = turnspr 
+			sprite_index = spr_tank_turn 
 			state = states.turn
 		}
 		else
@@ -86,7 +111,7 @@ function scr_enemy_walk()
 		{
 			if movespeed > 0 && grounded
 			{
-				if object_index == obj_ninja
+				if object_index == obj_ninja && global.gameplay == 0
 				{
 					vsp = -11
 			
@@ -101,11 +126,11 @@ function scr_enemy_walk()
 					sprite_index = turnspr
 					state = states.idle
 				}
-				else if object_index == obj_tankOLD
+				else if object_index == obj_tankOLD or object_index == obj_tank
 				{
 					image_xscale *= -1
 					image_index = 0
-					sprite_index = turnspr 
+					sprite_index = spr_tank_turn 
 					state = states.turn
 				}
 				else

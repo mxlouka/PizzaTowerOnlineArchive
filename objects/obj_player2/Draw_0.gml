@@ -1,1 +1,3 @@
-/// @description cancel out draw
+if global.coop
+	event_inherited();
+

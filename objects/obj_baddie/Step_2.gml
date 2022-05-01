@@ -38,7 +38,7 @@ if state != states.grabbed
 	clipin = 60;
 	scr_collide();
 }
-else
+else if object_index != obj_tankOLD
 	scr_enemy_grabbed();
 
 if invtime > 0
@@ -64,5 +64,15 @@ if sold && !inst_relation(sold, obj_slope)
 	&& (!inst_relation(sold, obj_destructibles)
 	or (inst_isobj(sold, obj_onewaybigblock) && sign(sold.image_xscale) == -sign(image_xscale)))
 		instance_destroy();
+}
+
+// provoke
+var targetplayer = obj_player;
+if targetplayer && targetplayer.x > x - 400 && targetplayer.x < x + 400 && y <= targetplayer.y + 20 && y >= targetplayer.y - 20
+&& targetplayer.state == states.backbreaker && state != states.pizzagoblinthrow
+{
+	stunned = 0;
+	bombreset = 0;
+	scaredbuffer = 0;
 }
 

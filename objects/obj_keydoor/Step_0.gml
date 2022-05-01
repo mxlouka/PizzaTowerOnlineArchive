@@ -1,44 +1,56 @@
-if (obj_player.state == states.normal or obj_player.state == states.mach1 or obj_player.state == states.pogo or obj_player.state == states.mach2 or obj_player.state == states.mach3 or obj_player.state == states.Sjumpprep) && (sprite_index == spr_doorkey or sprite_index == spr_keydoor_ss) && obj_player.key_up && obj_player.grounded && global.key_inv > 0 && place_meeting(x, y, obj_player) 
+var player = instance_place(x, y, obj_player);
+if player
 {
-	ds_list_add(global.saveroom, id)
-	
-	obj_player.state = states.victory
-	obj_player.image_index = 0
-	obj_player.keydoor = true
-	obj_player.doorx = x + 50;
-	
-	with instance_create(x + 50, y + 50, obj_lock)
-		if other.sprite_index == spr_keydoor_ss
-			sprite_index = spr_lock_ss
-	
-	image_index = 0
-	if sprite_index == spr_keydoor_ss
-		sprite_index = spr_door_ss
-	else
-		sprite_index = spr_doorkeyopen
-	
-	image_speed = 0.35
-	
-	global.key_inv -= 1
-}
-
-if sprite_index == spr_doorkeyopen && floor(image_index) >= 2
-	sprite_index = spr_doorvisited
-
-if floor(obj_player.image_index) >= obj_player.image_number - 1 && obj_player.state == states.victory && place_meeting(x, y, obj_player)
-{
-	with obj_player
+	// unlock door
+	if player.key_up && player.grounded && global.key_inv > 0
+	&& (sprite_index == spr_doorkey or sprite_index == spr_keydoor_ss)
+	&& (player.state == states.normal or player.state == states.mach1 or player.state == states.pogo or player.state == states.mach2 or player.state == states.mach3 or player.state == states.Sjumpprep)
 	{
-		targetDoor = other.targetDoor
-		targetRoom = other.targetRoom
-		
-		if !instance_exists(obj_fadeout)
+		if scr_stylecheck(2)
+			scr_soundeffect(sfx_unlockdoor)
+		ds_list_add(global.saveroom, id)
+	
+		with player
 		{
-			scr_soundeffect(sfx_door)
-			instance_create(x, y, obj_fadeout)
+			state = states.victory
+			image_index = 0
+			keydoor = true
+			doorx = other.x + 50
+		}
+	
+		with instance_create(x + 50, y + 50, obj_lock)
+			if other.sprite_index == spr_keydoor_ss
+				sprite_index = spr_lock_ss
+	
+		image_index = 0
+		if sprite_index == spr_keydoor_ss
+			sprite_index = spr_door_ss
+		else
+			sprite_index = spr_doorkeyopen
+	
+		image_speed = 0.35
+		global.key_inv -= 1
+	}
+	
+	// travel
+	if floor(player.image_index) >= player.image_number - 1 && player.state == states.victory
+	{
+		with player
+		{
+			targetDoor = other.targetDoor
+			targetRoom = other.targetRoom
+		
+			if !instance_exists(obj_fadeout)
+			{
+				if scr_stylecheck(2)
+					scr_soundeffect(sfx_door)
+				instance_create(x, y, obj_fadeout)
+			}
 		}
 	}
 }
+if sprite_index == spr_doorkeyopen && floor(image_index) >= 2
+	sprite_index = spr_doorvisited
 
 if targetRoom != room
 {

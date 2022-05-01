@@ -11,71 +11,121 @@ switch (state)
     // grabbed state here
 }
 
-if state == states.stun && stunned > 100 && birdcreated = false
+if state == states.stun && stunned > 100 && !birdcreated
 {
 	birdcreated = true
-	with instance_create(x,y, obj_enemybird)
+	with instance_create(x, y, obj_enemybird)
 		ID = other.id
 }
 
 if state != states.stun
 	birdcreated = false
 
-//Chargehitbox
-if !hitboxcreate && state == states.charge && grounded && obj_player.state != states.mach3 && obj_player.state != states.mach2
+if place_meeting(x + hsp, y, obj_iceblock) && state == states.charge
 {
-	hitboxcreate = true
-	with instance_create(x, y, obj_forkhitbox)
+    with instance_place(x + hsp, y, obj_iceblock)
+        instance_destroy()
+}
+
+var targetplayer = instance_nearest(x, y, obj_player)
+if global.gameplay != 0
+{
+	if state == states.walk && attack_cooldown <= 0
 	{
-		sprite_index = spr_player_mask
-		ID = other.id
+	    if targetplayer.x > x - 200 && targetplayer.x < x + 200
+		&& targetplayer.y < y + 50 && targetplayer.y > y - 50
+	    {
+	        flame_buffer = flame_max
+	        state = states.charge
+			
+			if x != targetplayer.x
+				image_xscale = sign(targetplayer.x - x)
+			
+	        sprite_index = spr_peasanto_flameattack
+	        image_index = 0
+			image_speed = 0.35
+			
+	        vsp = -5
+	        hitboxcreate = false
+	    }
 	}
+	if state == states.charge
+	{
+	    if !hitboxcreate
+	    {
+	        hitboxcreate = true
+	        with instance_create(x, y, obj_peasantohitbox)
+	            ID = other.id
+	    }
+	    if flame_buffer <= 0
+	    {
+	        state = states.walk
+	        sprite_index = walkspr
+	        attack_cooldown = attack_max
+	    }
+	    if hsp != 0 && floor(image_index) >= image_number - 1
+	        instance_create(x - image_xscale * 20, y + 43, obj_cloudeffect)
+	}
+	
+	if flame_buffer > 0
+		flame_buffer--
+	if attack_cooldown > 0
+	    attack_cooldown--
+	
+	if sprite_index == idlespr && (hsp != 0 or vsp != 0)
+		sprite_index = walkspr
 }
-
-//Charge
-if state != states.walk && state != states.idle && state != states.grabbed && state != states.hit && (state != states.stun or stunned <= 0) && angry == false && !thrown && hp > 0
+else
 {
-	grav = 0.5	
-	vsp = -5
-	image_index = 0
-	state = states.charge
-	angry = true
-	thrown = false
+	//Chargehitbox
+	if !hitboxcreate && state == states.charge && grounded && targetplayer.state != states.mach3 && targetplayer.state != states.mach2
+	{
+		hitboxcreate = true
+		with instance_create(x, y, obj_forkhitbox)
+		{
+			sprite_index = spr_player_mask
+			ID = other.id
+		}
+	}
+
+	//Charge
+	if state != states.walk && state != states.idle && state != states.grabbed && state != states.hit && (state != states.stun or stunned <= 0) && !angry && !thrown && hp > 0
+	{
+		grav = 0.5	
+		vsp = -5
+		image_index = 0
+		state = states.charge
+		angry = true
+		thrown = false
+	}
+	
+	if state == states.charge
+		movespeed = 4;
+	if state == states.walk
+		movespeed = 1;
+	
+	if state != states.stun && state != states.grabbed && state != states.idle && state != states.charge && state != states.hit
+		angry = false
 }
-
-if state == states.charge
-	movespeed = 4;
-if state == states.walk
-	movespeed = 1;
-
-if state != states.stun && state != states.grabbed && state != states.idle && state != states.charge && state != states.hit
-	angry = false
-
-scr_scareenemy();
 
 //Flash
-if (flash == true && alarm[2] <= 0) {
+if flash == true && alarm[2] <= 0
    alarm[2] = 0.15 * room_speed; // Flashes for 0.8 seconds before turning back to normal
-}
-
-
 
 if state != states.grabbed
-depth = 0
-
-
+	depth = 0
 
 if state != states.stun
-thrown= false
+	thrown = false
 
-if boundbox = false
+if !boundbox
 {
-with instance_create(x,y,obj_baddiecollisionbox)
-{
-sprite_index = other.sprite_index
-mask_index = sprite_index
-baddieID = other.id
-other.boundbox = true
-}
+	with instance_create(x, y, obj_baddiecollisionbox)
+	{
+		sprite_index = other.sprite_index
+		mask_index = sprite_index
+		baddieID = other.id
+		other.boundbox = true
+	}
 }
 

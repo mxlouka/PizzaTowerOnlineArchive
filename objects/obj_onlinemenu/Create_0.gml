@@ -17,7 +17,8 @@ enum reqtypes
 	register,
 	upload,
 	rate_level,
-	delete_level
+	delete_level,
+	user_info
 }
 enum menutypes
 {
@@ -101,6 +102,12 @@ level_userid = undefined;
 level_author = undefined;
 level_created = undefined;
 level_category = undefined;
+
+// user details
+user_name = undefined;
+user_lastlogin = undefined;
+user_created = undefined;
+user_admin = undefined;
 
 // login status
 if !variable_global_exists("auth")

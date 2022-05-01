@@ -8,3 +8,4 @@ if image_alpha >= 1
 	draw_text(860, 440 + hud_posY, string(global.pigtotal));
 
 draw_set_alpha(1);
+

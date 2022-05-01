@@ -30,13 +30,11 @@ if (flash == true && alarm[2] <= 0) {
    alarm[2] = 0.15 * room_speed; // Flashes for 0.8 seconds before turning back to normal
 }
 
-
 if state != states.grabbed
-depth = 0
-
+	depth = 0
 
 if state != states.stun
-thrown= false
+	thrown = false
 
 //Scared
 if state != states.chase && image_alpha >= 1
@@ -46,7 +44,7 @@ if bombreset > 0
 	bombreset = max(bombreset - 1, 0);
 
 //Fade
-if bombreset = 0 && state == states.walk
+if bombreset <= 0 && state == states.walk
 {
 	attacking = false;
 	targetplayer = instance_nearest(x,y,obj_player1)
@@ -60,7 +58,6 @@ if bombreset = 0 && state == states.walk
 		fade = true
 	}
 }
-
 
 //Teleport
 if state == states.chase
@@ -136,28 +133,10 @@ if state == states.chase
             state = states.pizzagoblinthrow
         }
     }
-	
-	/*
-	if fade = true && image_alpha > 0 
-	image_alpha --
-
-
-
-	if fade = true && image_alpha = 0
-	{
-	fade = false
-	x = targetplayer.x
-	y = targetplayer.y
-	}
-
-	if fade = false && image_alpha < 1
-	image_alpha ++
-	*/
 }
 
 //Attack
 invincible = attacking;
-
 if state == states.idle
 {
     if scaredbuffer > 0 && attacking
@@ -167,13 +146,13 @@ if state == states.idle
     }
 }
 
-if boundbox = false
+if !boundbox
 {
-with instance_create(x,y,obj_baddiecollisionbox)
-{
-sprite_index = other.sprite_index
-mask_index = sprite_index
-baddieID = other.id
-other.boundbox = true
-}
+	with instance_create(x,y,obj_baddiecollisionbox)
+	{
+		sprite_index = other.sprite_index
+		mask_index = sprite_index
+		baddieID = other.id
+		other.boundbox = true
+	}
 }

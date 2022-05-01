@@ -26,3 +26,4 @@ devdoor_addaction("goto rm_test", function() {
 });
 goto = -1;
 targetDoor = "A";
+

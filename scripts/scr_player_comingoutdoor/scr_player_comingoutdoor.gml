@@ -29,7 +29,7 @@ function scr_player_comingoutdoor()
 		movespeed = 0
 		state = states.normal
 	
-		if keydoor && character == "P"
+		if keydoor && character == "P" && scr_stylecheck(2)
 		{
 			move = 0;
 		

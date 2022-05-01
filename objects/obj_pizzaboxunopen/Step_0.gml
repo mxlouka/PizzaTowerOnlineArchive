@@ -128,10 +128,7 @@ if sprite_index == spr_open
 		instance_destroy();
 }
 
-if place_meeting(x, y, obj_otherplayer)
-	image_alpha = 0.5;
-else
-	image_alpha = 1;
-
-with obj_player1
+image_alpha = place_meeting(x, y, obj_otherplayer) ? 0.5 : 1;
+with obj_player
 	if character == "S" instance_destroy(other);
+

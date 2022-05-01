@@ -1,3 +1,5 @@
+if live_call() return live_result;
+
 optionselected = 0
 optionsaved_fullscreen = global.option_fullscreen
 optionsaved_resolution = global.option_resolution
@@ -27,6 +29,7 @@ camy = 0;
 holdkey = -1;
 holdkeyt = 0;
 music = -1;
+smoothcamx = 0;
 
 roomname = noone;
 if !instance_exists(obj_roomname)

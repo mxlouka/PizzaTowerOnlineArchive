@@ -10,6 +10,7 @@ selarray = [
 	[spr_petwmouse_idle, "WORLDMOUSE", "Stupid fucking mouse."],
 	[spr_petmariro_move, choose("MARIRO", "MARIOR", "MARIROR", "MAIRORR"), "Seuaper Maroi!"],
 	[spr_petnerd_idle, "NERDLING", ""],
+	[spr_petsneck_idle, "SNECK", "Sneck is here for you."],
 ];
 spr_idle = selarray[0][0];
 

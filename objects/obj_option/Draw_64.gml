@@ -1,5 +1,4 @@
-if live_call()
-	return live_result;
+if live_call() return live_result;
 
 var s = 72;
 var c1 = c_black;
@@ -204,7 +203,7 @@ if menu == 2
 			}
 			else if global.gameplay == 2
 			{
-				draw_sprite_ext(spr_player_crazyrun, img * .35, 640, 280, 2, 2, 0, c_white, 1);
+				draw_sprite_ext(spr_player_airattack, img * .35, 640, 280, 2, 2, 0, c_white, 1);
 				draw_text(640, 420, lang_string("options.other.gameplay.remix.desc"));
 			}
 			else
@@ -355,10 +354,10 @@ if menu == 2
 							isp = 0.35;
 						}
 						break;
-				
+					
 					case 3:
 						movespeed = 0;
-					
+						
 						img2 += 0.35;
 						if state == 3.1
 						{
@@ -372,9 +371,9 @@ if menu == 2
 						x = lerp(x, 660, 0.1);
 						movespeed = floor(min(x - xprevious, 24));
 						x = xprevious;
-					
+						
 						if floor(x) >= 650 && floor(x) <= 670 && state != 3.1
-							state = 4;
+							state = 0;
 						break;
 				}
 				x = wrap(x + movespeed, -100, 960 + 100);
@@ -411,33 +410,36 @@ if menu == 2
 			switch floor(state)
 			{
 				default:
-					if state != 0
-					{
-						state = 3.1;
-						img2 = 0;
-					}
-					else
-						state = 4;
+					state = 3.1;
+					img2 = 0;
 				
 				case 3:
-					movespeed = 0;
-					
 					img2 += 0.35;
-					if state == 3.1
+					
+					if x > 660
 					{
-						spr = spr_player_machslidestart;
-						if img2 >= 6
-							state = 3;
+						movespeed = Approach(movespeed, 0, 0.5);
+						spr = spr_player_machslideboost;
+						x += movespeed;
+						
+						if img2 >= 9
+							state = 5;
 					}
 					else
-						spr = spr_player_machslide;
-					
-					x = lerp(x, 660, 0.1);
-					movespeed = floor(min(x - xprevious, 24));
-					x = xprevious;
-					
-					if floor(x) >= 650 && floor(x) <= 670 && state != 3.1
-						state = 4;
+					{
+						if state == 3.1
+						{
+							spr = spr_player_machslidestart;
+							if img2 >= 6
+								state = 3;
+						}
+						else
+							spr = spr_player_machslide;
+						
+						x = lerp(x, 660, 0.1);
+						if x >= 650 && state != 3.1
+							state = 4;
+					}
 					break;
 				
 				case 4:
@@ -446,8 +448,16 @@ if menu == 2
 					isp = .15;
 					x = lerp(x, 660, 0.75);
 					break;
+				
+				case 5:
+					movespeed = -12;
+					spr = spr_player_mach;
+					if x <= 660
+						state = 4;
+					
+					x += movespeed;
+					break;
 			}
-			x = wrap(x + movespeed, -100, 960 + 100);
 			
 			pal_swap_set(spr_peppalette, 1, false);
 			draw_sprite_ext(spr, (floor(state) == 3 ? img2 : (state == 0 ? lerp(0, sprite_get_number(spr), movespeed / 12) : img * isp)), x, 280 + (global.panicshake * random_range(-4, 4)), (movespeed == 0 ? 2 : sign(movespeed) * 2), 2, 0, c_white, 1)
@@ -739,12 +749,19 @@ if menu == 2
 			draw_set_colour(c_ltgray);
 			draw_text(640, 96, lang_string("options.other.fpscount.desc"));
 			
-			draw_set_colour(c_white);
-			if global.showfps
-				draw_arrow(640 + 140, 240 + 120, 960 - 60, 540 - 60, 16);
-			else
-				draw_text_transformed(640, 260, string(fps), 2, 2, 0);
+			if fps < 30
+				draw_text(640, 480, "Fun fact, your computer is terrible.");
 			
+			draw_set_colour(c_white);
+			
+			var shitass = round(35 + sin(current_time / 500) * 25);
+			draw_text_transformed(640, 400, string(shitass), 2, 2, 0);
+				
+			img2 += 0.35 * (shitass / 60);
+			
+			pal_swap_set(spr_peppalette, 1, false);
+			draw_sprite_ext(spr_player_move, img2, 640, 240, 2, 2, 0, c_white, 1)
+			pal_swap_reset();
 			break;
 		
 		#endregion
@@ -760,7 +777,7 @@ if menu == 2
 			draw_set_colour(c_ltgray);
 			draw_text(640, 96, lang_string("options.other.camsmooth.desc"));
 			
-			var slidery = 280;
+			var slidery = 420;
 			draw_set_font(global.font_small);
 			draw_text_transformed(640, slidery - 48, string(floor(global.camerasmoothing * 100)) + "%", 2, 2, 0);
 			
@@ -771,6 +788,61 @@ if menu == 2
 			draw_circle(450 + (global.camerasmoothing * 400), slidery + 8, 21, false);
 			draw_set_colour(c_white);
 			draw_circle(450 + (global.camerasmoothing * 400), slidery + 8, 20, false);
+			
+			var spr = spr_player_idle;
+			switch state
+			{
+				default:
+					spr = spr_player_move;
+					movespeed = 1;
+					x += movespeed * 8;
+					
+					if x >= 800
+					{
+						state = 1;
+						img2 = 0;
+					}
+					break;
+				
+				case 1:
+					img2 += 0.35;
+					if img2 >= 10
+					{
+						img2 = 0;
+						state = 2;
+					}
+					break;
+				
+				case 2:
+					spr = spr_player_move;
+					movespeed = -1;
+					x += movespeed * 8;
+					
+					if x <= 500
+					{
+						state = 3;
+						img2 = 0;
+					}
+					break
+				
+				case 3:
+					img2 += 0.35;
+					if img2 >= 10
+					{
+						img2 = 0;
+						state = 0;
+					}
+					break;
+			}
+			
+			pal_swap_set(spr_peppalette, 1, false);
+			draw_sprite_ext(spr, img * 0.35, x, 260, sign(movespeed), 1, 0, c_white, 1)
+			pal_swap_reset();
+			
+			smoothcamx = lerp(smoothcamx, x, 1 - (global.camerasmoothing * 0.9));
+			
+			draw_set_colour(c_white);
+			draw_rectangle(round(smoothcamx) - 960 / 10, 260 - 540 / 10, round(smoothcamx) + 960 / 10, 260 + 540 / 10, true);
 			break;
 		
 		#endregion
@@ -797,8 +869,9 @@ if menu == 2
 			surf = -1;
 			global.wave = 0;
 		}
-		if optionselected != 4
+		if optionselected != 4 && optionselected != 13
 		{
+			smoothcamx = 660;
 			x = 660;
 			
 			if state != 3.1
@@ -806,7 +879,7 @@ if menu == 2
 				movespeed = 0;
 				state = 0;
 			}
-			if optionselected != 6
+			if optionselected != 6 && optionselected != 12
 				img2 = 0;
 		}
 	}

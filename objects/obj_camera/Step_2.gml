@@ -1,4 +1,4 @@
-player = obj_player1
+player = playerobj
 
 if collect_shake > 0
     collect_shake = min(collect_shake * 0.5, 20);
@@ -27,16 +27,6 @@ or (instance_exists(obj_gms) && global.__chat)
 else 
 	drawhud = true
 visible = true;
-
-/*
-if global.combo >= 10
-{
-	global.SAGEcombo10 = true
-	ini_open("saveData.ini")
-	ini_write_string("SAGE2019","combo10",true);
-	ini_close()	
-}
-*/
 
 if room == timesuproom
 	timestop = true;
@@ -81,8 +71,6 @@ if global.panicshake
 else
 	shake_mag_panic = 0;
 
-///snap view to the section of the room that the player's in
-
 // hitlag shake
 if instance_exists(player) && player.state == states.hitlag
 {
@@ -90,7 +78,7 @@ if instance_exists(player) && player.state == states.hitlag
 	shake_mag_acc = 0.5;
 }
 
-//calculate the shake magnitude here
+// decelerate shaking
 if shake_mag > 0
     shake_mag = max(shake_mag - shake_mag_acc, 0);
 
@@ -171,11 +159,10 @@ if instance_exists(player) && player.state != states.timesup && player.state != 
 		{
 			if chargecamera == 0 && abs(chargeprev) > 2
 				chargesmooth = chargeprev;
-		
 			chargesmooth = median(chargesmooth - 16, 0, chargesmooth + 16);
-		
+			
 			// mach
-			if (player.state == states.mach3 or player.state == states.tumble or player.state == states.rideweenie or player.state == states.machroll)
+			if (player.state == states.mach3 or player.state == states.tumble or player.state == states.rideweenie or player.state == states.machroll or player.state == states.rocket)
 			{
 				var ch = sign(player.xscale) * 100, chspd = 2;
 				if global.gameplay != 0
@@ -184,12 +171,12 @@ if instance_exists(player) && player.state != states.timesup && player.state != 
 					if (ch > 0 && chargecamera < 0) or (ch < 0 && chargecamera > 0)
 						chspd = 8;
 				}
-			
+				
 				chargecamera = Approach(chargecamera, ch, chspd);
 			}
 			else if chargecamera != 0
 				chargecamera = Approach(chargecamera, 0, (player.state == states.machslide ? 8 : 2));
-		
+			
 			// crouch
 			if ((player.state == states.crouch or (player.character == "S" && player.state == states.normal)) && player.hsp == 0)
 			&& !crouchcameragoingback && player.key_down
@@ -239,11 +226,6 @@ if instance_exists(player) && player.state != states.timesup && player.state != 
 				// calculate target pos
 				var tx = target.x - (cam_width / 2) + chargecamera + chargesmooth + pancur[0];
 				var ty = target.y - (cam_height / 2) + floor(crouchcamera) + pancur[1];
-			
-				/*
-				tx = clamp(tx, 0 + shkh, room_width - cam_width);
-				ty = clamp(ty, 0 + shkv, room_height - cam_height);
-				*/
 			
 				// go to position
 				var xx = Approach(camera_get_view_x(cam_view), tx, maxspeed);
@@ -362,6 +344,7 @@ if instance_exists(player) && player.state != states.timesup && player.state != 
 }
 
 // update wave
+var panicangle = 0;
 if global.panic or global.snickchallenge
 {
 	var camsmooth = max(alarm[1] / 60, 0);
@@ -372,7 +355,9 @@ if global.panic or global.snickchallenge
 	
 	// tilting
 	if check_sugary()
-		camera_set_view_angle(view_camera[0], sin(current_time / 10000) * (global.wave / global.maxwave) * 2);
+		panicangle = sin(current_time / 10000) * (global.wave / global.maxwave) * 3;
 }
 
 frameone = false;
+camera_set_view_angle(view_camera[0], angle + panicangle);
+

@@ -28,7 +28,7 @@
   "gridY": 0,
   "frames": [
     {"compositeImage":{"FrameId":{"name":"627acdf7-5728-4fc0-807d-6a1855435a4e","path":"sprites/bg_dungeon1_re/bg_dungeon1_re.yy",},"LayerId":null,"resourceVersion":"1.0","name":"composite","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"627acdf7-5728-4fc0-807d-6a1855435a4e","path":"sprites/bg_dungeon1_re/bg_dungeon1_re.yy",},"LayerId":{"name":"e9d99f6e-b7f1-4674-ae2a-2129005ce7fc","path":"sprites/bg_dungeon1_re/bg_dungeon1_re.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+        {"FrameId":{"name":"627acdf7-5728-4fc0-807d-6a1855435a4e","path":"sprites/bg_dungeon1_re/bg_dungeon1_re.yy",},"LayerId":{"name":"b9f8811d-bb60-42d1-b797-8e213b3c0be3","path":"sprites/bg_dungeon1_re/bg_dungeon1_re.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
       ],"parent":{"name":"bg_dungeon1_re","path":"sprites/bg_dungeon1_re/bg_dungeon1_re.yy",},"resourceVersion":"1.0","name":"627acdf7-5728-4fc0-807d-6a1855435a4e","tags":[],"resourceType":"GMSpriteFrame",},
   ],
   "sequence": {
@@ -47,7 +47,7 @@
             {"id":"a1bcf3e1-46be-4aac-ba3e-cdbe76eea175","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"627acdf7-5728-4fc0-807d-6a1855435a4e","path":"sprites/bg_dungeon1_re/bg_dungeon1_re.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
           ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
     ],
-    "visibleRange": {"x":0.0,"y":0.0,},
+    "visibleRange": null,
     "lockOrigin": false,
     "showBackdrop": true,
     "showBackdropImage": false,
@@ -68,7 +68,7 @@
     "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"e9d99f6e-b7f1-4674-ae2a-2129005ce7fc","tags":[],"resourceType":"GMImageLayer",},
+    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"Layer 1 (2)","resourceVersion":"1.0","name":"b9f8811d-bb60-42d1-b797-8e213b3c0be3","tags":[],"resourceType":"GMImageLayer",},
   ],
   "nineSlice": null,
   "parent": {

@@ -50,7 +50,7 @@ var targetplayer = instance_nearest(x, y, obj_player)
 //Throw Bomb at
 if x != targetplayer.x && state != states.pizzagoblinthrow && bombreset <= 0 && grounded && !rematchscare
 {
-	if ((targetplayer.x > x - 400) && (targetplayer.x < x + 400)) && (y <= targetplayer.y+20 && y >= targetplayer.y- 20)
+	if (targetplayer.x > x - 400 && targetplayer.x < x + 400) && (y <= targetplayer.y + 20 && y >= targetplayer.y - 20)
 	{
 		if state == states.walk or state == states.idle
 		{
@@ -61,18 +61,6 @@ if x != targetplayer.x && state != states.pizzagoblinthrow && bombreset <= 0 && 
 		}
 	}
 }
-
-//Taunt attack
-/*
-if targetplayer.sprite_index =  targetplayer.spr_taunt && state != states.pizzagoblinthrow
-if ((targetplayer.x > x - 400) && (targetplayer.x < x + 400)) && (y <= targetplayer.y+20 && y >= targetplayer.y- 20)
-{
-bombreset = 0
-if state == states.stun
-state = states.walk
-stunned = 0
-}
-*/
 
 if !boundbox
 {

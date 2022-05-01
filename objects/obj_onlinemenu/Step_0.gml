@@ -54,10 +54,5 @@ if menu == menutypes.levelbrowser
 		ds_list_add(records, map);
 	}
 }
+global.coop = false
 
-with obj_player2
-{
-	visible = false
-    x = -100000
-    y = -100000
-}

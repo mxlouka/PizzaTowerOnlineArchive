@@ -4,11 +4,14 @@ if !instance_exists(ID) && room != custom_lvl_room
 if instance_exists(ID)
 {
 	x = ID.x;
-	if ID.object_index == obj_smurfknight
-		x += ID.image_xscale * 10;
 	y = ID.y;
 	image_xscale = ID.image_xscale;
 	image_index = ID.image_index;
+	
+	if ID.object_index == obj_smurfknight
+		x += ID.image_xscale * 10;
+	if ID.object_index == obj_sausageman
+		y -= 20;
 	
 	if object_get_parent(ID.object_index) == obj_baddie && ID.rematchscare
 	{
@@ -17,7 +20,7 @@ if instance_exists(ID)
 	}
 	else
 	{
-		with (ID)
+		with ID
 		{
 			if object_index == obj_coolpineapple
 			or object_index == obj_forknight
@@ -26,25 +29,40 @@ if instance_exists(ID)
 			or object_index == obj_noisey
 			or object_index == obj_sausageman
 			{
-				if object_index == obj_sausageman
-					other.y = y - 20
-				
 				if state != states.walk && state != states.rage
 				{
 					hitboxcreate = false
 					instance_destroy(other)
 				}
 			}
-
+			
+			if object_index == obj_robot
+	        {
+	            if state != states.mach2 && state != states.slap && state != states.tackle
+	            {
+	                hitboxcreate = false
+	                instance_destroy(other)
+	            }
+	            else if state == state != states.slap
+	                other.x = x + image_xscale * 32
+	        }
+			
+			if object_index == obj_soldier
+	        {
+	            other.x = x + image_xscale * 24
+	            if state != states.rage
+	                instance_destroy(other)
+	        }
+			
 			if object_index == obj_weeniesquire
 			{
-				if stun = true
+				if stun
 				{
 					hitboxcreate = false
 					instance_destroy(other)
 				}
 			}
-
+			
 			if object_index == obj_boulder
 			{
 				if hitwall = false
@@ -54,7 +72,8 @@ if instance_exists(ID)
 			//SAGE2019
 			if object_index == obj_snickexe or object_index == obj_snickexg or object_index == obj_snickexi
 			{
-				if obj_player1.instakillmove or obj_player1.state == states.handstandjump or obj_player1.state == states.punch
+				var player = instance_nearest(x, y, obj_player)
+				if player && (player.instakillmove or player.state == states.handstandjump or player.state == states.punch)
 				{
 					instance_destroy(other)
 					hitboxcreate = false
@@ -78,17 +97,28 @@ if instance_exists(ID)
 
 			if object_index == obj_peasanto
 			or object_index == obj_fencer
-			or object_index == obj_ninja
+			or (object_index == obj_ninja && global.gameplay == 0)
 			or object_index == obj_pizzice
 			or object_index == obj_ancho
 			{
 				if (state != states.charge && state != states.rage)
-				or (obj_player1.state == states.handstandjump && global.gameplay == 0)
+				or (obj_player.state == states.handstandjump && global.gameplay == 0)
 				{
 					hitboxcreate = false
 					instance_destroy(other)
 				}
 			}
+			else if object_index == obj_ninja
+	        {
+	            if state != states.charge && state != states.punch
+	                instance_destroy(other)
+	            if state == states.punch
+	            {
+	                if image_index > 14
+	                    instance_destroy(other)
+	                other.x = x + image_xscale * 24
+	            }
+	        }
 
 			if object_index == obj_fencer
 			{

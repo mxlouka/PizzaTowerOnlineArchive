@@ -25,7 +25,7 @@ grounded = true
 
 idlespr = spr_indiancheese_walk
 stunfallspr = spr_indiancheese_stun
-walkspr =spr_indiancheese_walk
+walkspr = spr_indiancheese_walk
 grabbedspr = spr_indiancheese_stun
 scaredspr = spr_indiancheese_scared
 image_xscale = -1
@@ -42,3 +42,7 @@ arcprojectiletimer = 25
 
 if global.gameplay != 0
 	movespeed = 4
+
+spr_palette = spr_indiancheese_palette
+paletteselect = 0
+

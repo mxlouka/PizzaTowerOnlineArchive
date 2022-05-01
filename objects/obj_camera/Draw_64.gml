@@ -370,7 +370,7 @@ else
 		var sw = sprite_get_width(heatfill);
 	    var sh = sprite_get_height(heatfill);
 		
-		if !scr_stylecheck(2) && !repainted
+		if !repainted
 		{
 			if sprite_exists(_heatpal)
 				pal_swap_set(_heatpal, global.stylethreshold, 0);
@@ -413,7 +413,7 @@ else
 		    draw_sprite_ext(_srankpizza, pizzascore_index, hud_xx, hud_yy, 1, 1, 0, c_white, alpha);
 		
 		// draw in front of the pizza if repainted
-		if !scr_stylecheck(2) && repainted
+		if repainted
 		{
 			draw_sprite_part(spr_heatmeter_fillPP, pizzascore_index, 0, 0, sw * b, sh, hud_xx - 89, hud_yy - 87);
 		    draw_sprite_ext(spr_heatmeterPP, pizzascore_index, hud_xx, hud_yy, 1, 1, 0, c_white, alpha);
@@ -489,8 +489,6 @@ else
 			{
 			    var bx = hud_xx - 25;
 			    var by = hud_yy + 20;
-				if scr_stylecheck(2)
-					by -= 32;
 			    var bpad = 25;
 			    var bspr = spr_peppinobullet_collectible;
 			
@@ -549,7 +547,7 @@ if instance_exists(obj_player) && obj_player.character == "V" && showhud
 if showhud
 {
 	var styley = 0;
-	if scr_stylecheck(2) or (sugary && global.gameplay != 0)
+	if sugary && global.gameplay != 0
 		styley -= 32;
 	
 	// key inventory type beat

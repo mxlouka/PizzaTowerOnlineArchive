@@ -8,7 +8,7 @@ if state == states.chase && !other.cutscene
 			with parry_inst
 				event_user(0);
 		}
-		else
+		else if !instakillmove
 		{
 			if character == "V"
 				scr_hurtplayer(id);

@@ -1,1 +1,3 @@
-draw_text(0, 0, "")
+if room == rm_test
+	draw_self();
+

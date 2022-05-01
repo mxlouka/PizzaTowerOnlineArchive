@@ -26,6 +26,7 @@ if refresh <= 0
 			vsp = -5;
 			other.baddieid = id;
 			important = true;
+			depth = 0;
 		}
 		
 		refresh = 100;

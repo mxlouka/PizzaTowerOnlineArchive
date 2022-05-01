@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_ninja_idle",
-    "path": "sprites/spr_ninja_idle/spr_ninja_idle.yy",
+    "name": "spr_ninjaNEW_idle",
+    "path": "sprites/spr_ninjaNEW_idle/spr_ninjaNEW_idle.yy",
   },
   "solid": false,
   "visible": true,

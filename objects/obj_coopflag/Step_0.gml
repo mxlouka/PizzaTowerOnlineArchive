@@ -1,45 +1,31 @@
-if obj_player1.spotlight = true 
+if !global.coop
 {
-x = obj_player1.x
-y = obj_player1. y
-image_xscale = obj_player1.xscale
+	visible = false;
+	exit;
+}
 
-if obj_player1.character = "P" && sprite_index != spr_flagpeppino
+var player = obj_player1;
+if !player.spotlight
+	player = obj_player2;
+
+var flagspr = spr_flagpeppino
+switch player.character
 {
-	alarm[1] = -1
+	default: flagspr = spr_flagpeppino; break;
+	case "N": flagspr = spr_flagnoise; break;
+}
+	
+x = player.x
+y = player.y
+image_xscale = player.xscale
+
+if sprite_index != flagspr
+{
 	visible = true
-sprite_index = spr_flagpeppino
-alarm[0] = 150
-alarm[2] = 200
-}
-else if obj_player1.character = "N" && sprite_index != spr_flagnoise
-{	visible = true
-sprite_index = spr_flagnoise
+	sprite_index = flagspr
+		
 	alarm[1] = -1
-alarm[0] = 150
-alarm[2] = 200
-}
-
-}
-else
-{
-x = obj_player2.x
-y = obj_player2. y
-image_xscale = obj_player2.xscale
-
-if obj_player2.character = "P" && sprite_index != spr_flagpeppino
-{	visible = true
-sprite_index = spr_flagpeppino
-	alarm[1] = -1
-alarm[0] = 150
-alarm[2] = 200
-}
-else if obj_player2.character = "N" && sprite_index != spr_flagnoise
-{	visible = true
-sprite_index = spr_flagnoise
-	alarm[1] = -1
-alarm[0] = 150
-alarm[2] = 200
-}
+	alarm[0] = 150
+	alarm[2] = 200
 }
 

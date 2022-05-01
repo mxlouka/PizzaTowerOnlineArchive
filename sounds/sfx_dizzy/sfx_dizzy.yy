@@ -15,7 +15,7 @@
     "path": "audiogroups/audiogroup_default",
   },
   "soundFile": "sfx_dizzy",
-  "duration": 2.965363,
+  "duration": 2.960363,
   "parent": {
     "name": "screams",
     "path": "folders/Sounds/sfx/screams.yy",

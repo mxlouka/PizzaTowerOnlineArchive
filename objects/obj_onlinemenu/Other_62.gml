@@ -131,11 +131,23 @@ if ds_map_find_value(async_load, "id") == request
 			}
 		}
 		
-		if requestype = reqtypes.delete_level
+		if requestype == reqtypes.delete_level
 		{
 			records = undefined;
 			menu = menutypes.levelbrowser;
 			scr_requestpage_alt(page);
+		}
+		
+		if requestype == reqtypes.user_info
+		{
+			user_name = map[?"username"];
+			user_lastlogin = map[?"lastlogin"];
+			user_created = map[?"created"];
+			user_admin = map[?"admin"];
+			
+			var records_get = map[?"levels"];
+			records = records_get;
+			yview = 0;
 		}
 		
 		var msg = ds_map_find_value(json_decode(asyncresult), "message");

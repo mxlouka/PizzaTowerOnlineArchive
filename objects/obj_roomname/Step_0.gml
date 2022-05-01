@@ -12,3 +12,15 @@ else
 	yi = max(yi - 1, -50);
 }
 
+// hide
+alpha = 1;
+if scr_stylecheck(2)
+{
+	with obj_player
+	{
+		if x >= _camx + other.xi - 384 / 2 && x <= _camx + other.xi + 384 / 2
+		&& y >= _camy + other.yi - 72 / 2 && y <= _camy + other.yi + 72 / 2
+			other.alpha = 0.5;
+	}
+}
+

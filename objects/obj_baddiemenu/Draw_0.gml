@@ -14,9 +14,12 @@ if content != noone && showbaddie
 	
 	if spr == spr_noisey_walk_NEW && global.gameplay == 0
 		spr = spr_noisey_walk;
+	if spr == spr_ninjaNEW_idle && global.gameplay == 0
+		spr = spr_ninja_idle;
 	if spr == spr_charcherry_wait
 		spr = spr_charcherry_run;
 	
 	draw_sprite_ext(spr, 0, x, y - 64, image_xscale, image_yscale, image_angle, image_blend, 0.5);
 	pal_swap_reset();
 }
+

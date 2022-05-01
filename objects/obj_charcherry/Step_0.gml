@@ -26,15 +26,15 @@ switch state
 		if vsp < 0
 			vsp = 0;
 		
-		if global.panic && sprite_index != spr_charcherry_popout
+		if global.panic && sprite_index != popoutspr
 		&& targetplayer.x > x - 400 && targetplayer.x < x + 400
 		&& y <= targetplayer.y + 60 && y >= targetplayer.y - 60
 		{
 			image_index = 0;
-			sprite_index = spr_charcherry_popout;
+			sprite_index = popoutspr;
 		}
 		
-		if sprite_index == spr_charcherry_popout
+		if sprite_index == popoutspr
 		{
 			if floor(image_index) >= 22
 				state = states.walk;
@@ -72,6 +72,6 @@ if state == states.walk or state == states.idle
 	state = states.chase;
 }
 
-if sprite_index == spr_charcherry_popout && floor(image_index) >= image_number - 1
-	sprite_index = spr_charcherry_run;
+if sprite_index == popoutspr && floor(image_index) >= image_number - 1
+	sprite_index = walkspr;
 

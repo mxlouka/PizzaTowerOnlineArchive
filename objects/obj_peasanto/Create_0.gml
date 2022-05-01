@@ -1,9 +1,18 @@
 event_inherited();
 
+attack_cooldown = 0
+attack_max = 120
+flame_buffer = 0
+flame_max = 120
+angrytime = 0
+
 grav = 0.5;
 hsp = 0;
 vsp = 0;
 movespeed = 1
+if global.gameplay != 0
+	movespeed = 2
+
 state = states.walk
 stunned = 0
 alarm[0] = 150
@@ -23,7 +32,7 @@ grounded = true
 chargereset = 0
 idlespr = spr_peasanto_idle
 stunfallspr = spr_peasanto_stun
-walkspr =spr_peasanto_walk
+walkspr = spr_peasanto_walk
 grabbedspr = spr_peasanto_stun
 scaredspr = spr_peasanto_stun
 image_xscale = -1
@@ -35,6 +44,7 @@ angry = false
 spr_dead = spr_peasanto_dead
 important = false
 heavy = false
-depth =0
+depth = 0
 
 sprite_index = walkspr
+

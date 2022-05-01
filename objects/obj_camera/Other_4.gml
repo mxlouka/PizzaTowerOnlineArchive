@@ -13,6 +13,7 @@ shake_mag = 0;
 shake_mag_acc = 0;
 
 zoom = 1
+angle = 0
 
 targetoverride = noone
 targetgoingback = false

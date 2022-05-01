@@ -1,6 +1,6 @@
 if room == rm_editor exit;
 
-switch (state)
+switch state
 {
     case states.idle: scr_enemy_idle (); break;
     case states.turn: scr_enemy_turn (); break;
@@ -12,35 +12,27 @@ switch (state)
     // grabbed state here
 }
 
-
-
-
 //Flash
-if (flash == true && alarm[2] <= 0) {
+if flash == true && alarm[2] <= 0
    alarm[2] = 0.15 * room_speed; // Flashes for 0.8 seconds before turning back to normal
-}
 
 if state == states.walk
-state = states.idle
-
-
-
+	state = states.idle
 
 if state != states.grabbed
-depth = 0
-
+	depth = 0
 
 if state != states.stun 
-thrown= false
+	thrown = false
 
-if boundbox = false
+if !boundbox
 {
-with instance_create(x,y,obj_baddiecollisionbox)
-{
-sprite_index = other.sprite_index
-mask_index = sprite_index
-baddieID = other.id
-other.boundbox = true
-}
+	with instance_create(x, y, obj_baddiecollisionbox)
+	{
+		sprite_index = other.sprite_index
+		mask_index = sprite_index
+		baddieID = other.id
+		other.boundbox = true
+	}
 }
 

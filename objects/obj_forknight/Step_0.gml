@@ -33,7 +33,7 @@ if (flash == true && alarm[2] <= 0) {
 }
 
 // Heat attack
-var player = instance_nearest(x, y, obj_player1);
+var player = instance_nearest(x, y, obj_player);
 if global.stylethreshold >= 3 && ragecooldown == 0 && object_index == obj_forknight
 {
     if state == states.walk && instance_exists(player)

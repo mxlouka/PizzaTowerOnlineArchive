@@ -17,23 +17,20 @@ function scr_player_mach3()
 	
 		move = key_right + key_left
 		move2 = key_right2 + key_left2
-	
-		/*
+		
 		if fightball && global.coop
 		{
-			if object_index = obj_player1
+			if object_index == obj_player1
 			{
 				x = obj_player2.x
 				y = obj_player2.y
 			}
-				
-			if object_index = obj_player2
+			if object_index == obj_player2
 			{
 				x = obj_player1.x
 				y = obj_player1.y
 			}
 		}
-		*/
 		#endregion
 	}
 	#region not noise, not vigi & noise
@@ -199,9 +196,9 @@ function scr_player_mach3()
 			}
 			
 			//Bump
-			if scr_solidwall(x + xscale, y) && ((!scr_slope() && !place_meeting(x + sign(hsp), y, obj_slope)) or scr_solidwall(x + sign(hsp), y) or scr_solidwall(x, y - 32)) && !place_meeting(x + sign(hsp), y, obj_metalblock) && !place_meeting(x + sign(hsp), y, obj_destructibles) && (grounded or fightball)
+			if scr_solidwall(x + xscale, y) && ((!scr_slope() && !place_meeting(x + sign(hsp), y, obj_slope)) or scr_solidwall(x + sign(hsp), y) or (scr_solidwall(x, y - 32) && !place_meeting(x, y - 32, obj_destructibles))) && !place_meeting(x + sign(hsp), y, obj_metalblock) && !place_meeting(x + sign(hsp), y, obj_destructibles) && (grounded or fightball)
 			{
-				if !fightball
+				with (fightball ? id : obj_player)
 				{
 					sprite_index = spr_hitwall
 					scr_soundeffect(sfx_groundpound)
@@ -221,7 +218,7 @@ function scr_player_mach3()
 						if point_in_camera(x, y, view_camera[0])
 						{
 							stun = true
-							alarm[0] = 0
+							alarm[0] = 200
 							ministun = false
 							vsp = -5
 							hsp = 0
@@ -237,46 +234,6 @@ function scr_player_mach3()
 					image_index = 0
 					
 					instance_create(x + 10 * xscale, y + 10, obj_bumpeffect)
-				}
-				else
-				{
-					with obj_player
-					{
-						sprite_index = spr_hitwall
-						scr_soundeffect(sfx_groundpound)
-						scr_soundeffect(sfx_bumpwall)
-						
-						with obj_camera
-						{
-							shake_mag = 20;
-							shake_mag_acc = 40 / room_speed;
-						}
-
-						hsp = 0
-						image_speed = 0.35
-
-						with obj_baddie
-						{
-							if point_in_camera(x, y, view_camera[0])
-							{
-								stun = true
-								alarm[0] = 0
-								ministun = false
-								vsp = -5
-								hsp = 0
-							}
-						}
-						
-						flash = false
-
-						state = states.bump
-						hsp = 2.5 * -xscale
-						vsp = -3
-						mach2 = 0
-						image_index = 0
-						
-						instance_create(x + 10 * xscale,y + 10, obj_bumpeffect)
-					}
 					fightball = false
 				}
 			}
@@ -323,7 +280,7 @@ function scr_player_mach3()
 				movespeed -= 0.1
 
 			//Pogo
-			if key_attack2 && character == "N" && !fightball
+			if key_attack2 && !fightball
 			{
 				sprite_index = spr_playerN_pogostart
 				image_index = 0
@@ -342,7 +299,7 @@ function scr_player_mach3()
 					sprite_index = spr_playerN_jetpackboost	
 			}
 			
-			if character == "N" && key_jump2 && !fightball
+			if key_jump2 && !fightball
 			{
 				scr_soundeffect(sfx_jump)
 				scr_soundeffect(sfx_woosh)
@@ -367,7 +324,7 @@ function scr_player_mach3()
 			}
 
 			//Jump Stop
-			if (!key_jump2) && !jumpstop && vsp < 0.5 && fightball
+			if !key_jump2 && !jumpstop && vsp < 0.5 && fightball
 			{
 				vsp /= 10
 				jumpstop = true
@@ -377,7 +334,7 @@ function scr_player_mach3()
 				jumpstop = false
 
 			//Jump
-			if (input_buffer_jump < 8) && grounded && !(move == 1 && xscale == -1) && !(move == -1 && xscale == 1) && fightball
+			if input_buffer_jump < 8 && grounded && !(move == 1 && xscale == -1) && !(move == -1 && xscale == 1) && fightball
 			{
 				input_buffer_jump = 8
 				scr_soundeffect(sfx_jump)
@@ -391,25 +348,25 @@ function scr_player_mach3()
 			}
 			
 			//Bump
-			if (scr_solid(x+sign(hsp),y, false))  &&   (!place_meeting(x+sign(hsp),y,obj_slope) or scr_solid(x+sign(hsp),y, false)) && (!place_meeting(x+sign(hsp),y,obj_metalblock) && character != "V")  && (!place_meeting(x+sign(hsp),y,obj_destructibles) && character != "V")  && !place_meeting(x+sign(hsp),y,obj_hungrypillar) 
+			if scr_solid(x + sign(hsp), y, false) && !place_meeting(x + sign(hsp), y, obj_metalblock) && !place_meeting(x + sign(hsp), y, obj_destructibles)
 			{
-
 				sprite_index = spr_hitwall
 				scr_soundeffect(sfx_groundpound)
 				scr_soundeffect(sfx_bumpwall)
-					with (obj_camera) {
-
-					shake_mag=20;
-					shake_mag_acc=40/room_speed;
+				
+				with obj_camera
+				{
+					shake_mag = 20;
+					shake_mag_acc = 40 / room_speed;
 				}
 
 				hsp = 0
 				image_speed = 0.35
 
-					with (obj_baddie)
+				with obj_baddie
 				{
-					if point_in_camera(x, y, view_camera[0]) {
-
+					if point_in_camera(x, y, view_camera[0])
+					{
 						stun = true
 						alarm[0] = 200
 						ministun = false
@@ -425,7 +382,7 @@ function scr_player_mach3()
 				vsp = -3
 				mach2 = 0
 				image_index = 0
-				instance_create(x-10,y+10,obj_bumpeffect)
+				instance_create(x - 10, y + 10, obj_bumpeffect)
 			}
 		}
 	}
@@ -591,83 +548,40 @@ function scr_player_mach3()
 		}
 		
 		//Bump
-		if scr_solidwall(x + xscale, y) && !scr_slope() && (!place_meeting(x+sign(hsp),y,obj_slope) or scr_solid(x+sign(hsp),y, false)) && (grounded or fightball)
+		if scr_solidwall(x + xscale, y) && ((!scr_slope() && !place_meeting(x + sign(hsp), y, obj_slope)) or scr_solidwall(x + sign(hsp), y)) && (grounded or fightball)
 		{
-			if !fightball
-			{
-				sprite_index = spr_hitwall
-				scr_soundeffect(sfx_groundpound)
-				scr_soundeffect(sfx_bumpwall)
+			sprite_index = spr_hitwall
+			scr_soundeffect(sfx_groundpound)
+			scr_soundeffect(sfx_bumpwall)
+			
+			hsp = 0
+			image_speed = 0.35
+			flash = false
 				
-				with (obj_camera)
-				{
-					shake_mag=20;
-					shake_mag_acc=40/room_speed;
-				}
-
-				hsp = 0
-				image_speed = 0.35
-
-				with (obj_baddie)
-				{
-					if point_in_camera(x, y, view_camera[0])
-					{
-						stun = true
-						alarm[0] = 200
-						ministun = false
-						vsp = -5
-						hsp = 0
-					}
-				}
-				flash = false
-
-				state = states.bump
-				hsp = 2.5 * -xscale
-				vsp = -3
-				mach2 = 0
-				image_index = 0
-				instance_create(x + 10 * xscale, y + 10, obj_bumpeffect)
-			}
-			else
+			with obj_camera
 			{
-				with obj_player
-				{
-					sprite_index = spr_hitwall
-					scr_soundeffect(sfx_groundpound)
-					scr_soundeffect(sfx_bumpwall)
-					
-					with (obj_camera)
-					{
-						shake_mag=20;
-						shake_mag_acc=40/room_speed;
-					}
-
-					hsp = 0
-					image_speed = 0.35
-
-					with (obj_baddie)
-					{
-						if point_in_camera(x, y, view_camera[0])
-						{
-							stun = true
-							alarm[0] = 200
-							ministun = false
-							vsp = -5
-							hsp = 0
-						}
-					}
-					flash = false
-
-					state = states.bump
-					hsp = 2.5 * -xscale
-					vsp = -3
-					mach2 = 0
-					image_index = 0
-					instance_create(x + 10 * xscale, y + 10, obj_bumpeffect)
-		
-				}
-				fightball = false
+				shake_mag = 20;
+				shake_mag_acc = 40 / room_speed;
 			}
+			
+			with obj_baddie
+			{
+				if point_in_camera(x, y, view_camera[0])
+				{
+					stun = true
+					alarm[0] = 200
+					ministun = false
+					vsp = -5
+					hsp = 0
+				}
+			}
+			
+			state = states.bump
+			hsp = 2.5 * -xscale
+			vsp = -3
+			mach2 = 0
+			image_index = 0
+			instance_create(x + 10 * xscale, y + 10, obj_bumpeffect)
 		}
     
 		//Vigilante revolver

@@ -36,6 +36,7 @@ function scr_collide_destructibles()
 			or state == states.faceplant or state == states.rideweenie or state == states.tacklecharge
 			or state == states.machroll or state == states.knightpepslopes or state == states.tumble
 			or state == states.hookshot or state == states.crouchslide or state == states.cheeseball
+			or state == states.rocket
 			or (state == states.barrel && sprite_index == spr_barrelroll)
 			or (state == states.punch && sprite_index != spr_breakdanceuppercut)
 			or (state == states.firemouth && global.gameplay != 0)

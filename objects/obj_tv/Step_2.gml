@@ -107,7 +107,7 @@ if global.gameplay == 0
 	or (global.collect >= global.brank && !shownrankb)
 	or (global.collect >= global.crank && !shownrankc))
 	{
-		image_speed = 0
+		image_speed = 0.1
 		showtext = true
 		alarm[0] = 200
 		
@@ -252,6 +252,8 @@ if global.gameplay == 0
 	{
 		showtext = true
 		message = "GOT THE KEY!"
+		if check_sugary()
+			message = "KEY OBTAINED!"
 		alarm[0] = 50
 	}
 	
@@ -263,6 +265,12 @@ if global.gameplay == 0
 			message = "UH OH..."
 			alarm[0] = 50
 		}
+	}
+	
+	if sprite_index != tvsprite
+	{
+		tvimg = 0;
+		sprite_index = tvsprite;
 	}
 }
 

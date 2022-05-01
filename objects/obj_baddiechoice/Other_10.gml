@@ -7,8 +7,11 @@ else
 
 if spr_idle == spr_noisey_walk_NEW && global.gameplay == 0
 	spr_idle = spr_noisey_walk;
+if spr_idle == spr_ninjaNEW_idle && global.gameplay == 0
+	spr_idle = spr_ninja_idle;
 if spr_idle == spr_charcherry_wait
 	spr_idle = spr_charcherry_run;
 
 selmin = 0;
 selmax = array_length(selarray) - 1;
+

@@ -15,3 +15,4 @@ if open
 		draw_text(8, 8 + i * 16, actions[i][0]);
 	}
 }
+

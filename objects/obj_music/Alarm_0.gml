@@ -1,4 +1,4 @@
-/// @description 
+/// @description switch editor music
 if scr_checkskin(checkskin.p_anton)
 {
 	alarm[0] = 1;
@@ -13,20 +13,12 @@ or lemusic == -1
 	var mus = obj_music_set.music_editor;
 	if mus == mu_entrance
 	{
-		switch obj_player1.character
+		switch playerobj.character
 		{
-			case "P":
-				mus = mu_entrance
-				break
-			case "N":
-				mus = mu_noiseentrance
-				break
-			case "SP":
-				mus = mu_waffle
-				break
-			case "S":
-				mus = mu_snickentrance
-				break
+			default: mus = mu_entrance break
+			case "N": case "V": mus = mu_noiseentrance break
+			case "S": mus = mu_snickentrance break
+			case "SP": mus = mu_waffle break
 		}
 	}
 	var musfinal = mus;

@@ -6,6 +6,8 @@ with other
 		sprite_index = spr_cotton_idle;
 		
 		scr_soundeffect(sfx_shotgunblast);
-		instance_create(x, y, obj_genericpoofeffect);
+		with instance_create(x, y, obj_genericpoofeffect)
+			sprite_index = spr_poofeffectcotton;
 	}
 }
+

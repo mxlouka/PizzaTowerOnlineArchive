@@ -76,8 +76,6 @@ if (pause or pausefad == 2 or pausefad == 4)
 			draw_set_valign(fa_top);
 			
 			// options
-			i += 0.35;
-		
 			draw_text_auto(960 / 2 , 100, lang_string("pause.continue"),,, selected == 0 ? 1 : 0.5);
 			draw_text_auto(960 / 2, 150, lang_string("pause.retry"),,, selected == 1 ? 1 : 0.5);
 			draw_text_auto(960 / 2, 200, gototitle ? lang_string("pause.title") : lang_string("pause.exit"),,, selected == 2 ? 1 : 0.5);
@@ -90,8 +88,8 @@ if (pause or pausefad == 2 or pausefad == 4)
 			
 			switch character
 			{
-				default:
 				case "P":
+				default:
 					var _spr_resume = _ppanic ? spr_player_panic : spr_player_idle;
 					var _spr_options = spr_file1;
 					var _spr_retry = _ppanic ? spr_player_hurtidle : spr_player_mach;
@@ -115,6 +113,14 @@ if (pause or pausefad == 2 or pausefad == 4)
 					_spr_palette = spr_pizzpalette;
 					break;
 				
+				case "SN":
+					_spr_resume = spr_playerSN_idle;
+					_spr_options = spr_playerSN_taunt;
+					_spr_retry = spr_playerSN_idle;
+					_spr_exit = spr_playerSN_idle;
+					_spr_palette = spr_pizzpalette;
+					break;
+				
 				case "PP":
 					_spr_resume = _ppanic ? spr_playerPP_panic : spr_playerPP_idle;
 					_spr_options = spr_playerPP_gottreasure;
@@ -132,11 +138,27 @@ if (pause or pausefad == 2 or pausefad == 4)
 					break;
 				
 				case "S":
-					var _spr_resume = _ppanic ? spr_snick_idle : spr_snick_idle;
-					var _spr_options = spr_snick_idleanim;
+					var _spr_resume = spr_snick_idle;
+					var _spr_options = [spr_snick_idleanim, 4];
 					var _spr_retry = _ppanic ? spr_snick_superpeelout : spr_snick_mach3;
 					var _spr_exit = spr_snick_bump;
 					var _spr_palette = spr_snickpalette;
+					break;
+				
+				case "CT":
+					var _spr_resume = _ppanic ? spr_playerCT_panic : spr_playerCT_idle;
+					var _spr_options = [spr_playerCT_taunt, 5];
+					var _spr_retry = _ppanic ? spr_playerCT_crazyrun : spr_playerCT_mach2;
+					var _spr_exit = [spr_playerCT_entergate, 22];
+					var _spr_palette = spr_cheemspalette;
+					break;
+				
+				case "PUFFER":
+					var _spr_resume = spr_pufferfish_idle;
+					var _spr_options = spr_pufferfish_idle;
+					var _spr_retry = spr_pufferfish_idle;
+					var _spr_exit = spr_pufferfish_move;
+					var _spr_palette = spr_pufferpalette;
 					break;
 			}
 			
@@ -147,41 +169,75 @@ if (pause or pausefad == 2 or pausefad == 4)
 				case 2: _pspr = _spr_exit; break;
 				case 3: _pspr = _spr_options; break;
 			}
+			if is_array(_pspr)
+				i = _pspr[1];
+			else
+				i += 0.35 * sprite_get_speed(_pspr);
 			
 			pal_swap_set(_spr_palette, paletteselect, false);
-			draw_sprite_ext(_pspr, i, 200, 200, 2, 2, 0, c_white, 1);
+			draw_sprite_ext(is_array(_pspr) ? _pspr[0] : _pspr, i, 200, 200, 2, 2, 0, c_white, 1);
 			pal_swap_reset();
 			
 			var hud_xx = 750, hud_yy = 450;
 			if global.gameplay == 0
 			{
 				// tv
-				draw_sprite_ext(spr_tvdefault, 0, hud_xx, hud_yy, 1, 1, 0, c_white, 1);
+				var tvsprite = spr_tvdefault;
+				if character == "SP" or character == "SN"
+					tvsprite = spr_tvdefault_ss;
+				if character == "PP"
+					tvsprite = spr_tvdefault_PP;
+				
+				draw_sprite_ext(tvsprite, 0, hud_xx + 50, hud_yy, 1, 1, 0, c_white, 1);
 				draw_set_halign(fa_center);
-				draw_text(hud_xx - 4, hud_yy - 14, string(global.collect));
+				draw_text(hud_xx + 50 - 4, hud_yy - 14, string(global.collect));
 			}
 			else
 			{
 				// pizza
 				var sugary = (character == "SP" or character == "SN");
-				draw_sprite_ext(sugary ? spr_candyscore : spr_pizzascore, 0, hud_xx, hud_yy, 1, 1, 0, c_white, 1);
-			
-				var _score = global.collect;
-				if !sugary
+				
+				var _pizzascore = spr_pizzascore;
+				if sugary
+					_pizzascore = spr_candyscore;
+				if character == "PP"
+					_pizzascore = spr_pizzascorePP;
+				
+				draw_sprite_ext(_pizzascore, 0, hud_xx, hud_yy, 1, 1, 0, c_white, 1);
+				
+				// collect
+				var _crankpizza = character == "PP" ? spr_pizzascore_pepperPP : spr_pizzascore_pepper;
+				var _brankpizza = character == "PP" ? spr_pizzascore_pepperoniPP : spr_pizzascore_pepperoni;
+				var _arankpizza = character == "PP" ? spr_pizzascore_olivePP : spr_pizzascore_olive;
+				var _srankpizza = character == "PP" ? spr_pizzascore_shroomPP : spr_pizzascore_shroom;
+		
+				if sugary or _pizzascore == spr_pizzascoreN
 				{
-				    if _score >= global.crank
-				        draw_sprite_ext(spr_pizzascore_pepper, 0, hud_xx, hud_yy, 1, 1, 0, c_white, 1);
-				    if _score >= global.brank
-				        draw_sprite_ext(spr_pizzascore_pepperoni, 0, hud_xx, hud_yy, 1, 1, 0, c_white, 1);
-				    if _score >= global.arank
-				        draw_sprite_ext(spr_pizzascore_olive, 0, hud_xx, hud_yy, 1, 1, 0, c_white, 1);
-				    if _score >= global.srank
-				        draw_sprite_ext(spr_pizzascore_shroom, 0, hud_xx, hud_yy, 1, 1, 0, c_white, 1);
+					_crankpizza = -1;
+					_brankpizza = -1;
+					_arankpizza = -1;
+					_srankpizza = -1;
 				}
-			
+				
+				var _score = global.collect;
+				if _score >= global.crank && sprite_exists(_crankpizza)
+				    draw_sprite_ext(_crankpizza, 0, hud_xx, hud_yy, 1, 1, 0, c_white, 1);
+				if _score >= global.brank && sprite_exists(_brankpizza)
+				    draw_sprite_ext(_brankpizza, 0, hud_xx, hud_yy, 1, 1, 0, c_white, 1);
+				if _score >= global.arank && sprite_exists(_arankpizza)
+				    draw_sprite_ext(_arankpizza, 0, hud_xx, hud_yy, 1, 1, 0, c_white, 1);
+				if _score >= global.srank && sprite_exists(_srankpizza)
+				    draw_sprite_ext(_srankpizza, 0, hud_xx, hud_yy, 1, 1, 0, c_white, 1);
+				
 				draw_set_valign(fa_top);
 			    draw_set_halign(fa_left);
-			    draw_set_font(sugary ? global.candyfont : global.collectfont);
+				
+			    if sugary
+					draw_set_font(global.candyfont)
+				else if character == "PP"
+					draw_set_font(global.collectfontPP)
+				else
+					draw_set_font(global.collectfont)
 			
 			    var str = string(_score);
 			    var num = string_length(str);

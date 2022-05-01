@@ -31,6 +31,15 @@ turnspr = spr_charcherry_run
 recoveryspr = spr_charcherry_wait
 grabbedspr = spr_charcherry_wait
 scaredspr = spr_charcherry_wait
+popoutspr = spr_charcherry_popout
+
+if scr_stylecheck(2)
+{
+	fallspr = spr_charcherry_run_NEW
+	walkspr = spr_charcherry_run_NEW
+	turnspr = spr_charcherry_run_NEW
+	popoutspr = spr_charcherry_popout_NEW
+}
 
 image_xscale = -1
 hp = 1
@@ -59,7 +68,7 @@ stuntouchbuffer = 0
 // death
 custom_death_fnc = function()
 {
-	instance_create(x, y, obj_bombexplosion);
+	instance_create(x, y, obj_playerexplosion);
 	instance_create(x, y, obj_bangeffect);
 	
 	with instance_create(x, y, obj_sausageman_dead)
@@ -70,3 +79,4 @@ custom_death_fnc = function()
 }
 
 sugaryenemy = true;
+

@@ -46,3 +46,4 @@ function scr_collide()
 	
 	__scr_collide = true;
 }
+

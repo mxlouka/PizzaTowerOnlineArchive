@@ -29,7 +29,7 @@ function scr_player_mach2()
 	//Jump
 	if input_buffer_jump < 8 && grounded && move != -xscale
 	{
-		input_buffer_jump = 8;
+		input_buffer_jump = 8
 		
 		image_index = 0
 		sprite_index = spr_secondjump1

@@ -56,38 +56,25 @@ var targetplayer = instance_nearest(x,y ,obj_player)
 //Throw Bomb at
 if x != targetplayer.x && state != states.pizzagoblinthrow && bombreset = 0  && grounded
 {
-if ((targetplayer.x > x - 400) && (targetplayer.x < x + 400)) && (y <= targetplayer.y+20 && y >= targetplayer.y- 20)
-{
-if (state == states.walk or state == states.idle) 
-{
+	if ((targetplayer.x > x - 400) && (targetplayer.x < x + 400)) && (y <= targetplayer.y+20 && y >= targetplayer.y- 20)
+	{
+		if (state == states.walk or state == states.idle) 
+		{
+			sprite_index = spr_kentukykenny_throw
+			image_index = 0
+			image_xscale = -sign(x - targetplayer.x)
+			state = states.pizzagoblinthrow
+		}
+	}
+}
 
-sprite_index = spr_kentukykenny_throw
-image_index = 0
-image_xscale = -sign(x - targetplayer.x)
-state = states.pizzagoblinthrow
-}
-}
-}
-
-//Taunt attack
-/*
-if targetplayer.sprite_index =  targetplayer.spr_taunt && state != states.pizzagoblinthrow
-if ((targetplayer.x > x - 400) && (targetplayer.x < x + 400)) && (y <= targetplayer.y+20 && y >= targetplayer.y- 20)
+if !boundbox
 {
-bombreset = 0
-if state == states.stun
-state = states.walk
-stunned = 0
-}
-*/
-
-if boundbox = false
-{
-with instance_create(x,y,obj_baddiecollisionbox)
-{
-sprite_index = other.sprite_index
-mask_index = sprite_index
-baddieID = other.id
-other.boundbox = true
-}
+	with instance_create(x,y,obj_baddiecollisionbox)
+	{
+		sprite_index = other.sprite_index
+		mask_index = sprite_index
+		baddieID = other.id
+		other.boundbox = true
+	}
 }

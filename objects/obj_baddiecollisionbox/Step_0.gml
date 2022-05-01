@@ -106,149 +106,9 @@ if player && !player.cutscene && (player.state != states.firemouth or global.gam
 			scr_failmod(mods.pacifist);
 			exit;
 		}
-			
-		//Stomp
-		if instance_exists(bad) && y < bad.y && !attacking && sprite_index != spr_player_mach2jump && sprite_index != spr_swingding && ((state = states.boots && vsp > 0) or state == states.jump  or state == states.mach1 or state == states.grab) && vsp > 0 && bad.vsp >= 0 && sprite_index != spr_stompprep && (sprite_index != spr_swingding or global.gameplay == 0) && !bad.invincible && bad.stompable
-		{
-			scr_soundeffect(sfx_stompenemy)
-				
-			if bad.object_index != obj_tank && bad.object_index != obj_bigcheese
-			{
-				if x != bad.x
-					bad.image_xscale = -sign(bad.x - x)
-				
-				if global.gameplay != 0
-				{
-					bad.hsp = xscale * 5
-	                bad.vsp = -5
-				}
-				bad.image_index = 0
-				bad.state = states.stun
-				if bad.stunned < 100
-					bad.stunned = 100
-			}
-			
-			instance_create(x, y + 50, obj_stompeffect)
-			stompAnim = true
-			
-			if scr_stylecheck(2)
-				bad.yscale = 0.35;
-			
-			if key_jump2
-				vsp = -14
-			else
-				vsp = -9
-				
-			if state == states.jump
-				sprite_index = spr_stompprep
-		}
-			
-		//Pogo
-		if place_meeting(x, y + 1, other) && state == states.pogo && vsp > 0 && bad.vsp >= 0 && sprite_index != spr_playerN_pogobounce && !bad.invincible
-		{
-			if !pogochargeactive or bad.object_index == obj_pizzaballOLD
-			{
-				pogospeedprev = false
-				bad.vsp = -3
-				scr_soundeffect(sfx_stompenemy)
-				bad.state = states.stun
-				if scr_stylecheck(2)
-					bad.yscale = 0.35;
-				if bad.stunned < 100
-					bad.stunned = 100
-				sprite_index = spr_playerN_pogobounce
-			}
-			else if !bad.thrown
-			{
-				pogospeedprev = false
-				scr_throwenemy()
-				if global.gameplay != 0
-					increase_combo();
-				sprite_index = spr_playerN_pogobouncemach
-			}
-				
-			instance_create(x, y + 50, obj_stompeffect)
-			image_index = 0
-			movespeed = 0
-			vsp = 0
-		}
-			
-		// Cotton
-		if state == states.cotton && (sprite_index == spr_cotton_attack or sprite_index == spr_cotton_maxrun or sprite_index == spr_cotton_drill) && bad.instantkillable && !bad.thrown
-		{
-			scr_soundeffect(sfx_punch);
-			if sprite_index == spr_cotton_drill
-			{
-				if bad.vsp < 8
-					bad.vsp = 8;
-				bad.hsp = 0;
-			}
-			else
-			{
-				if bad.vsp > -12
-					bad.vsp = -12; 
-				bad.hsp = xscale * 15;
-			}
-				
-			with bad
-			{
-				if global.gameplay == 0
-				{
-					hp = 0;
-					scr_throwenemy(id);
-				}
-				else
-				{
-					if hp > 0
-						hp = 0;
-					image_xscale = -other.xscale;
-					hithsp = hsp;
-					hitvsp = vsp;
-					scr_hitthrow(id, other, 8);
-				}
-			}
-		}
 		
-		//Stun from touching
-		if !bad.thrown && bad.stuntouchbuffer == 0 && bad.state != states.pizzagoblinthrow && bad.vsp > 0 && state != states.punch && state != states.tackle && state != states.superslam && state != states.pogo && state != states.machslide  && state != states.freefall && (state != states.mach2 or bad.object_index == obj_pizzaballOLD) && state != states.handstandjump && state != states.hurt && bad.state != states.chase
-		&& bad.bumpable && !bad.invincible 
-		&& ((bad.object_index != obj_pizzice && bad.object_index != obj_ninja) or bad.state != states.charge)
-		{
-			if bad.object_index != obj_tank
-			{
-				scr_soundeffect(sfx_bumpwall)
-				
-				if state != states.bombpep && state != states.mach1 && state != states.crouchslide && state != states.machroll && state != states.mach2 && state != states.mach3 && state != states.revolver && state != states.dynamite && state != states.climbwall && state != states.frozen && state != states.cotton
-					movespeed = 0
-				
-				bad.stuntouchbuffer = 50
-				
-				if bad.object_index = obj_pizzaballOLD
-					global.golfhit += 1
-				if bad.stunned < 100
-					bad.stunned = 100
-				
-				if x != bad.x
-					bad.image_xscale = -sign(bad.x - x)
-				bad.vsp = -5
-				bad.hsp = -bad.image_xscale * 2
-				bad.state = states.stun
-				bad.image_index = 0
-			}
-			else
-			{
-				bad.stuntouchbuffer = 10;
-				if y == bad.y && state != states.stunned && grounded && !hurted && (bad.state == states.walk or bad.state == states.pizzagoblinthrow) && bad.image_xscale == -sign(bad.x - x)
-                {
-                    state = states.stunned
-                    sprite_index = spr_squished
-                    image_index = 0
-                }
-			}
-		}
-			
 		//Attack
-		if instance_exists(bad) && (state == states.handstandjump && sprite_index != spr_attackdash && sprite_index != spr_airattackstart && sprite_index != spr_airattack) && !bad.invincible && character != "S"
+		else if instance_exists(bad) && (state == states.handstandjump && sprite_index != spr_attackdash && sprite_index != spr_airattackstart && sprite_index != spr_airattack) && !bad.invincible && character != "S"
 		{
 			if (!bad.thrown or global.gameplay != 0) // && (character = "P" or character = "N" or character == "SP" or bad.object_index == obj_pizzaballOLD)
 			{
@@ -291,6 +151,144 @@ if player && !player.cutscene && (player.state != states.firemouth or global.gam
 				movespeed = 0;
 					
 				scr_throwenemy(bad);
+			}
+		}
+			
+		//Stomp
+		else if instance_exists(bad) && y < bad.y && !attacking && sprite_index != spr_player_mach2jump && sprite_index != spr_swingding && ((state = states.boots && vsp > 0) or state == states.jump  or state == states.mach1 or state == states.grab) && vsp > 0 && bad.vsp >= 0 && sprite_index != spr_stompprep && (sprite_index != spr_swingding or global.gameplay == 0) && !bad.invincible && bad.stompable
+		{
+			scr_soundeffect(sfx_stompenemy)
+			if bad.object_index != obj_tank && (bad.object_index != obj_bigcheese or global.gameplay == 0)
+			{
+				if x != bad.x
+					bad.image_xscale = -sign(bad.x - x)
+				
+				if global.gameplay != 0
+				{
+					bad.hsp = xscale * 5
+	                bad.vsp = -5
+				}
+				bad.image_index = 0
+				bad.state = states.stun
+				if bad.stunned < 100
+					bad.stunned = 100
+			}
+			if scr_stylecheck(2)
+				bad.yscale = 0.35;
+			
+			instance_create(x, y + 50, obj_stompeffect)
+			stompAnim = true
+			
+			if key_jump2
+				vsp = -14
+			else
+				vsp = -9
+				
+			if state == states.jump
+				sprite_index = spr_stompprep
+		}
+			
+		//Pogo
+		else if place_meeting(x, y + 1, other) && state == states.pogo && vsp > 0 && bad.vsp >= 0 && sprite_index != spr_playerN_pogobounce && !bad.invincible
+		{
+			if !pogochargeactive or bad.object_index == obj_pizzaballOLD
+			{
+				pogospeedprev = false
+				bad.vsp = -3
+				scr_soundeffect(sfx_stompenemy)
+				bad.state = states.stun
+				if scr_stylecheck(2)
+					bad.yscale = 0.35;
+				if bad.stunned < 100
+					bad.stunned = 100
+				sprite_index = spr_playerN_pogobounce
+			}
+			else if !bad.thrown
+			{
+				pogospeedprev = false
+				scr_throwenemy()
+				if global.gameplay != 0
+					increase_combo();
+				sprite_index = spr_playerN_pogobouncemach
+			}
+				
+			instance_create(x, y + 50, obj_stompeffect)
+			image_index = 0
+			movespeed = 0
+			vsp = 0
+		}
+			
+		// Cotton
+		else if state == states.cotton && (sprite_index == spr_cotton_attack or sprite_index == spr_cotton_maxrun or sprite_index == spr_cotton_drill) && bad.instantkillable && !bad.thrown
+		{
+			scr_soundeffect(sfx_punch);
+			if sprite_index == spr_cotton_drill
+			{
+				if bad.vsp < 8
+					bad.vsp = 8;
+				bad.hsp = 0;
+			}
+			else
+			{
+				if bad.vsp > -12
+					bad.vsp = -12; 
+				bad.hsp = xscale * 15;
+			}
+				
+			with bad
+			{
+				if global.gameplay == 0
+				{
+					hp = 0;
+					scr_throwenemy(id);
+				}
+				else
+				{
+					if hp > 0
+						hp = 0;
+					image_xscale = -other.xscale;
+					hithsp = hsp;
+					hitvsp = vsp;
+					scr_hitthrow(id, other, 8);
+				}
+			}
+		}
+		
+		//Stun from touching
+		else if !bad.thrown && bad.stuntouchbuffer == 0 && bad.state != states.pizzagoblinthrow && bad.vsp > 0 && state != states.punch && state != states.tackle && state != states.superslam && state != states.pogo && state != states.machslide  && state != states.freefall && (state != states.mach2 or bad.object_index == obj_pizzaballOLD) && state != states.handstandjump && state != states.hurt && bad.state != states.chase
+		&& bad.bumpable && !bad.invincible 
+		&& ((bad.object_index != obj_pizzice && bad.object_index != obj_ninja) or bad.state != states.charge)
+		{
+			if bad.object_index != obj_tank
+			{
+				scr_soundeffect(sfx_bumpwall)
+				
+				if state != states.bombpep && state != states.mach1 && state != states.crouchslide && state != states.machroll && state != states.mach2 && state != states.mach3 && state != states.revolver && state != states.dynamite && state != states.climbwall && state != states.frozen && state != states.cotton
+					movespeed = 0
+				
+				bad.stuntouchbuffer = 50
+				
+				if bad.object_index = obj_pizzaballOLD
+					global.golfhit += 1
+				if bad.stunned < 100
+					bad.stunned = 100
+				
+				if x != bad.x
+					bad.image_xscale = -sign(bad.x - x)
+				bad.vsp = -5
+				bad.hsp = -bad.image_xscale * 2
+				bad.state = states.stun
+				bad.image_index = 0
+			}
+			else
+			{
+				bad.stuntouchbuffer = 10;
+				if y == bad.y && state != states.stunned && grounded && !hurted && (bad.state == states.walk or bad.state == states.pizzagoblinthrow) && bad.image_xscale == -sign(bad.x - x)
+                {
+                    state = states.stunned
+                    sprite_index = spr_squished
+                    image_index = 0
+                }
 			}
 		}
 	}

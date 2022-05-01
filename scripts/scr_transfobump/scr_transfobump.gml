@@ -4,7 +4,8 @@ function scr_transfobump(_setstate = true)
 	{
 		// cotton
 		scr_soundeffect(sfx_hitenemy);
-		instance_create(x, y, obj_genericpoofeffect);
+		with instance_create(x, y, obj_genericpoofeffect)
+			sprite_index = spr_poofeffectcotton;
 		
 		if _setstate
 		{

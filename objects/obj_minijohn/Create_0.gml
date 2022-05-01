@@ -40,8 +40,8 @@ important = false
 heavy = false
 depth = 0
 
-paletteselect = 1
-spr_palette = palette_cheeseslime
+paletteselect = 0
+spr_palette = spr_minijohn_palette
 
 grabbedby = 0
 momentum = 5

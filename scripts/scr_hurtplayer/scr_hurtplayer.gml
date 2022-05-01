@@ -1,4 +1,4 @@
-function scr_hurtplayer(argument0 = obj_player)
+function scr_hurtplayer(argument0 = obj_player, loseamount = 50)
 {
 	with argument0
 	{
@@ -236,22 +236,23 @@ function scr_hurtplayer(argument0 = obj_player)
 			image_index = 0
 			flash = true
 			
-			if character == "SP" repeat 5
-				with instance_create(x, y, obj_slapstar)
+			if character == "SP" && global.gameplay == 0
+			{
+				repeat 5 with instance_create(x, y, obj_slapstar)
 				{
 					sprite_index = spr_slapstar_ss;
 					image_index = irandom_range(0, image_number - 1);
 					hsp = random_range(-10, 10);
 					angspd = random(2);
 				}
+			}
 			
-			var loseamount = 50;
 			if !global.pizzadelivery or global.gameplay == 0
 			{
 				if !(global.snickchallenge && shotgunAnim)
 				{
-					if character != "SP"
-						repeat (min(global.collect, ceil(loseamount / 5))) instance_create(x,y,obj_pizzaloss);
+					if character != "SP" or global.gameplay != 0
+						repeat (min(global.collect, ceil(loseamount / 5))) instance_create(x, y, obj_pizzaloss);
 					
 					if !hurted
 					{

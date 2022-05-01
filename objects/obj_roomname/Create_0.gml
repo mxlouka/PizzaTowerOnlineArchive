@@ -5,4 +5,5 @@ yi = -50
 showtext = false;
 
 depth = -100;
+alpha = 1;
 

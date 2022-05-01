@@ -75,12 +75,7 @@ with obj_dashpad {
 if !instance_exists(obj_escapetimer)
     instance_create_layer(128, 0, "Instances", obj_escapetimer)
 
-with obj_player2
-{
-    x = -1000000000
-    y = -1000000000
-}
-
+global.coop = false
 if obj_onlinemenu.menu != -1
 {
 	obj_onlinemenu.menu = -1;

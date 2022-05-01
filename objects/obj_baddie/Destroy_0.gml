@@ -36,7 +36,11 @@ if ds_list_find_index(global.baddieroom, id) == -1
 			{
 				haspalette = other.haspalette;
 				spr_palette = other.spr_palette;
-				paletteselect = other.paletteselect;
+				
+				if scr_stylecheck(2) && global.stylethreshold >= 3
+					paletteselect = 2;
+				else
+					paletteselect = other.paletteselect;
 			}
 			if variable_instance_exists(other, "sugaryenemy")
 				sugary = other.sugaryenemy;

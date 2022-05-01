@@ -34,6 +34,15 @@ function scr_player_taunt()
 				image_index = irandom(sprite_get_number(spr_taunt))
 				sprite_index = spr_taunt
 				image_speed = 0
+				
+				// new gameplay removed beter :(
+				if sprite_index == spr_player_taunt
+				{
+					if image_index == 10 && global.gameplay == 1
+						image_index = 9;
+					if image_index == 11 && global.gameplay != 2
+						image_index = 9;
+				}
 			}
 			with instance_create(x, y, obj_taunteffect)
 			{

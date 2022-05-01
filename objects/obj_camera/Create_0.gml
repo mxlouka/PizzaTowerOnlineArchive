@@ -4,7 +4,6 @@ alarm[1] = -1
 global.seconds = 59
 global.minutes = 0
 global.miniboss = false
-angle = 0
 frame = 0
 global.pizza = 0
 global.pizzameter = 0
@@ -13,7 +12,6 @@ basement = false
 shake_mag = 0;
 shake_mag_panic = 0;
 shake_mag_acc = 0;
-zoom = false
 hudframe = 0
 
 chargecamera = 0
@@ -41,7 +39,7 @@ global.maxwave = 0
 global.wave = 0
 ded = false
 
-player = obj_player1
+player = playerobj
 shoving = false
 bang = false
 image_speed = 0.35
@@ -78,5 +76,8 @@ hud_posY = 0;
 pizzascore_index = 0;
 pizzascore_number = sprite_get_number(spr_pizzascore);
 detach = false;
+
 keyimg = 0;
+zoom = 0;
+angle = 0;
 

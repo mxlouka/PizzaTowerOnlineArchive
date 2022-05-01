@@ -106,7 +106,7 @@ function lang_load(lang)
 		// other options descriptions and stuff
 		ds_map_add(global.langmap, "options.other.erase.desc", "All your progress and configurations will be cleansed.\nThe game has to restart after this.");
 		
-		ds_map_add(global.langmap, "options.other.gameplay.desc", "Pizza Tower changed a lot throughout development.\nSome people may prefer the moveset and music from older builds.");
+		ds_map_add(global.langmap, "options.other.gameplay.desc", "Pizza Tower changed a lot throughout development.\nSome people may prefer the moveset from older builds.");
 		ds_map_add(global.langmap, "options.other.gameplay.nonpatron", "This option is reserved for Patrons only."); // haha this idea failed
 		ds_map_add(global.langmap, "options.other.gameplay.old", "OLD");
 		ds_map_add(global.langmap, "options.other.gameplay.remix", "REMIX");
@@ -163,7 +163,7 @@ function lang_load(lang)
 		ds_map_add(global.langmap, "options.other.fpscount.desc", "Shows an FPS counter at the bottom right of the screen.");
 		
 		ds_map_add(global.langmap, "options.other.camsmooth.title", "SMOOTH CAMERA");
-		ds_map_add(global.langmap, "options.other.camsmooth.desc", "Smooths out the camera movement, just for fun.\nIf you unironically use this you are sick.");
+		ds_map_add(global.langmap, "options.other.camsmooth.desc", "Smooths out the camera movement, if you want that.");
 		
 		ds_map_add(global.langmap, "options.other.pauseblur.title", "PAUSE BLUR");
 		ds_map_add(global.langmap, "options.other.pauseblur.desc", "Makes the pause menu background a blur effect.\nCauses mild lag.");
@@ -181,7 +181,7 @@ function lang_load(lang)
 		ds_map_add(global.langmap, "manual.controls.content", "You can see and change the controls in the options,\nbut there are extra controls exclusive to the mod:\n\n- T to open the chat\n- ENTER to begin typing and again to send a message\n- ESCAPE to exit the chat, if it's open");
 		
 		ds_map_add(global.langmap, "manual.commands", "Online - Chat Commands");
-		ds_map_add(global.langmap, "manual.commands.content", "There are some commands that can be used in chat:\n\n/list - Lists all players that are currently in-game\n/t - Toggles a mini-chat in the bottom left corner of the screen\n/ping - Pongs you back\n/dance - Dance");
+		ds_map_add(global.langmap, "manual.commands.content", "There are some commands that can be used in chat:\n\n/list - Lists all players that are currently in-game\n/t - Toggles a mini-chat in the bottom left corner of the screen\n/ping - Pongs you back");
 		
 		ds_map_add(global.langmap, "manual.rules", "Online - Rules");
 		ds_map_add(global.langmap, "manual.rules.content", "Of course, every online game has rules to follow:");
@@ -321,7 +321,7 @@ function lang_load(lang)
 		ds_map_add(global.langmap, "msg.level.minigolf", "Golf WIP");
 		ds_map_add(global.langmap, "msg.level.space", "Space WIP");
 		ds_map_add(global.langmap, "msg.level.city", "City WIP");
-		ds_map_add(global.langmap, "msg.level.sewer", "Sewers WIP");
+		ds_map_add(global.langmap, "msg.level.sewer", "Sewers");
 		ds_map_add(global.langmap, "msg.level.war", "War WIP");
 		ds_map_add(global.langmap, "msg.level.factory", "Factory");
 		ds_map_add(global.langmap, "msg.level.mansion", "Mansion");

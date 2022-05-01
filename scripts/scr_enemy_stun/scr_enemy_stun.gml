@@ -16,11 +16,12 @@ function scr_enemy_stun()
 	
 	if grounded
 	{
-		if object_index == obj_peasanto && angry != 1
-			stunned -= 4;
-		
 		if global.gameplay == 0
+		{
 			stunned--;
+			if object_index == obj_peasanto && angry != 1
+				stunned -= 4;
+		}
 		else
 		{
 			switch global.stylethreshold
@@ -86,8 +87,8 @@ function scr_enemy_stun()
 		grav = 0.5;
 	}
 	
-	if floor(image_index) == image_number - 1 && stunned <= 0 && (object_index != obj_peasanto or angry)
-	&& (grounded or global.gameplay == 0)
+	if stunned <= 0 && (object_index != obj_peasanto or angry or global.gameplay != 0)
+	&& ((floor(image_index) >= image_number - 1 && grounded) or global.gameplay == 0)
 	{
 		if object_index != obj_miniufo && object_index != obj_ancho && object_index != obj_pizzaboy
 		&& global.gameplay == 0

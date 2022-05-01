@@ -47,7 +47,7 @@ if bombreset > 0
 	bombreset = max(bombreset - 1, 0);
 
 //Identify the player
-var targetplayer = instance_nearest(x, y, obj_player1)
+var targetplayer = instance_nearest(x, y, obj_player)
 
 //Kick
 if instance_exists(targetplayer)
@@ -68,29 +68,16 @@ if instance_exists(targetplayer)
 		}
 	}
 }
+if grounded && state == states.pizzagoblinthrow && floor(image_index) == 3
+	vsp = -5
 
-//Taunt attack
-/*
-if targetplayer.sprite_index =  targetplayer.spr_taunt && state != states.pizzagoblinthrow
-if ((targetplayer.x > x - 400) && (targetplayer.x < x + 400)) && (y <= targetplayer.y+20 && y >= targetplayer.y- 20)
+if !boundbox
 {
-bombreset = 0
-if state == states.stun
-state = states.walk
-stunned = 0
-}
-*/
-
-if grounded && state == states.pizzagoblinthrow  && floor(image_index) = 3
-vsp = -5
-
-if boundbox = false
-{
-with instance_create(x,y,obj_baddiecollisionbox)
-{
-sprite_index = spr_pepgoblin
-mask_index = sprite_index
-baddieID = other.id
-other.boundbox = true
-}
+	with instance_create(x,y,obj_baddiecollisionbox)
+	{
+		sprite_index = spr_pepgoblin
+		mask_index = sprite_index
+		baddieID = other.id
+		other.boundbox = true
+	}
 }

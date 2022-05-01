@@ -60,6 +60,17 @@ if global.gameplay != 0
 	    hsp = 0
 	    vsp = 0
 	}
+	
+	if state == states.walk
+	{
+	    if turntimer > 0
+	        turntimer--
+	}
+	if turntimer <= 0
+	{
+	    image_xscale *= -1
+	    turntimer = 600
+	}
 }
 else if laserbuffer <= 0 && state == states.walk
 {

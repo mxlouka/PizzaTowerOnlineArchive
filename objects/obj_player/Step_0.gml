@@ -150,7 +150,6 @@ switch state
 	case states.rocket: scr_player_rocket (); break;
 	case states.cotton: if sugaryspire scr_player_cotton (); break;
 }
-global.coop = false;
 
 // hardoween noise gravity
 if scr_checkskin(checkskin.n_hardoween)
@@ -314,11 +313,9 @@ if flashflicker
 }
 
 //Fightball off
-/*
 if !global.coop
 	fightball = false
 if state != states.mach3 && state != states.grabbed
-*/
 	fightball = false
 
 //Thrown at enemy

@@ -7,6 +7,7 @@ y = -100
 
 alarm[1] = 10
 
-if check_sugary()
+sugary = check_sugary();
+if sugary
 	sprite_index = spr_coneball;
 

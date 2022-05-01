@@ -1,2 +1,6 @@
-with obj_solid
-	visible = true
+with all
+{
+	if !persistent
+		visible = true
+}
+

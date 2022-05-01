@@ -107,14 +107,13 @@ else if (!global.panic or string_letters(roomname) == "dragonlair" or string_let
 	if string_letters(roomname) == "entrance"
 	or (string_letters(roomname) == "waffle" && sugaryspire)
 	{
-		if obj_player1.character == "N"
-			musplay = mu_noiseentrance
-		else if obj_player1.character == "S"
-			musplay = mu_snickentrance
-		else if obj_player1.character == "SP"
-			musplay = mu_waffle
-		else
-			musplay = mu_entrance
+		switch playerobj.character
+		{
+			default: musplay = mu_entrance break
+			case "N": case "V": musplay = mu_noiseentrance break
+			case "S": musplay = mu_snickentrance break
+			case "SP": musplay = mu_waffle break
+		}
 	}
 	
 	if string_letters(roomname) == "dungeon"

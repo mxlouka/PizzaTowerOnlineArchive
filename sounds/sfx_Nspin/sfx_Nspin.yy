@@ -15,7 +15,7 @@
     "path": "audiogroups/audiogroup_default",
   },
   "soundFile": "sfx_Nspin",
-  "duration": 0.406791,
+  "duration": 0.401791,
   "parent": {
     "name": "sfx",
     "path": "folders/Sounds/sfx.yy",

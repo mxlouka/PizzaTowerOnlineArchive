@@ -57,9 +57,17 @@ function scr_requestlevelupload(name, desc, content, category = "")
 
 function scr_requestleveldelete(levelid)
 {
-	// please don't abuse this.
+	// send request
 	request = http_post_string("http://ptoleveleditor.000webhostapp.com/api/level_delete.php", "auth=" + global.auth + "&id=" + levelid);
 	requestype = reqtypes.delete_level;
+	loading = true;
+}
+
+function scr_requestuserinfo(userid)
+{
+	// send request
+	request = http_post_string("http://ptoleveleditor.000webhostapp.com/api/user_info.php", "?id=" + userid);
+	requestype = reqtypes.user_info;
 	loading = true;
 }
 

@@ -14,91 +14,58 @@ switch (state)
 }
 
 
-if  state = states.stun && stunned > 100 && birdcreated = false
+if state == states.stun && stunned > 100 && !birdcreated
 {
-birdcreated = true
-with instance_create(x,y, obj_enemybird)
-ID = other.id
+	birdcreated = true
+	with instance_create(x,y, obj_enemybird)
+		ID = other.id
 }
 
 if state != states.stun
-birdcreated = false
-
-
-
-
-
-
-//Sprites
-idlespr = spr_canongoblin_walk
-stunfallspr = spr_canongoblin_stun
-walkspr =spr_canongoblin_walk
-stunspr = spr_canongoblin_stun
-grabbedspr = spr_canongoblin_stun
-
+	birdcreated = false
 
 //Scared
 scr_scareenemy()
-
-
-
-
 
 //Flash
 if (flash == true && alarm[2] <= 0) {
    alarm[2] = 0.15 * room_speed; // Flashes for 0.8 seconds before turning back to normal
 }
 
-
 if state != states.grabbed
-depth = 0
-
+	depth = 0
 
 if state != states.stun
-thrown= false
+	thrown = false
 
 
 if bombreset > 0
 	bombreset = max(bombreset - 1, 0);
 
 //Identify the player
-var targetplayer = instance_nearest(x,y ,obj_player)
-
+var targetplayer = instance_nearest(x, y, obj_player)
 
 //Throw Bomb at
-if x != targetplayer.x && state != states.pizzagoblinthrow && bombreset = 0  && grounded
+if x != targetplayer.x && state != states.pizzagoblinthrow && bombreset >= 0 && grounded
 {
-if ((targetplayer.x > x - 400) && (targetplayer.x < x + 400)) && (y <= targetplayer.y+20 && y >= targetplayer.y- 20)
-{
-if (state == states.walk or state == states.idle) 
-{
+	if (targetplayer.x > x - 400 && targetplayer.x < x + 400) && (y <= targetplayer.y+20 && y >= targetplayer.y- 20)
+	{
+		if state == states.walk or state == states.idle
+		{
+			image_index = 0
+			image_xscale = -sign(x - targetplayer.x)
+			state = states.pizzagoblinthrow
+		}
+	}
+}
 
-image_index = 0
-image_xscale = -sign(x - targetplayer.x)
-state = states.pizzagoblinthrow
-}
-}
-}
-
-//Taunt attack
-/*
-if targetplayer.sprite_index =  targetplayer.spr_taunt && state != states.pizzagoblinthrow
-if ((targetplayer.x > x - 400) && (targetplayer.x < x + 400)) && (y <= targetplayer.y+20 && y >= targetplayer.y- 20)
+if !boundbox
 {
-bombreset = 0
-if state == states.stun
-state = states.walk
-stunned = 0
-}
-*/
-
-if boundbox = false
-{
-with instance_create(x,y,obj_baddiecollisionbox)
-{
-sprite_index = other.sprite_index
-mask_index = sprite_index
-baddieID = other.id
-other.boundbox = true
-}
+	with instance_create(x,y,obj_baddiecollisionbox)
+	{
+		sprite_index = other.sprite_index
+		mask_index = sprite_index
+		baddieID = other.id
+		other.boundbox = true
+	}
 }

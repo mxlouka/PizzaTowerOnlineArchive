@@ -44,22 +44,8 @@ if (flash == true && alarm[2] <= 0) {
    alarm[2] = 0.15 * room_speed; // Flashes for 0.8 seconds before turning back to normal
 }
 
-
-
 if state != states.grabbed
 	depth = 0
-
-//Taunt attack
-/*
-if obj_player1.sprite_index == obj_player1.spr_taunt && state != states.pizzagoblinthrow
-if ((obj_player1.x > x - 400) && (obj_player1.x < x + 400)) && (y <= obj_player1.y+20 && y >= obj_player1.y- 20)
-{
-	bombreset = 0
-	if state == states.stun
-		state = states.walk
-	stunned = 0
-}
-*/
 
 if state != states.stun
 	thrown= false

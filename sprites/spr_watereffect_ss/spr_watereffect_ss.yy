@@ -112,8 +112,8 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "sugary spire",
-    "path": "folders/Sprites/sugary spire.yy",
+    "name": "particle",
+    "path": "folders/Sprites/sugary spire/particle.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_watereffect_ss",

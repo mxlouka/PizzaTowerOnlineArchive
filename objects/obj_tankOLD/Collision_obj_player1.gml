@@ -55,10 +55,7 @@ if state != states.chase
                 with baddie
                 {
                     state = states.grabbed
-                    if player.object_index == obj_player1
-                        grabbedby = 1
-                    else
-                        grabbedby = 2
+                    grabbedby = 1
                 }
             }
             else if state == states.freefall && freefallsmash < 11

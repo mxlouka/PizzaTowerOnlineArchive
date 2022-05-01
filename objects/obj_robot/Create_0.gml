@@ -1,5 +1,9 @@
 event_inherited();
 
+machspeed = 16
+startmachspeed = 8
+tacklespeed = 11
+
 grav = 0.5;
 hsp = 0;
 vsp = 0;
@@ -35,4 +39,8 @@ boundbox = false
 spr_dead = spr_robot_dead
 important = false
 heavy = false
-depth =0
+depth = 0
+
+spr_palette = spr_robot_palette
+paletteselect = 0
+

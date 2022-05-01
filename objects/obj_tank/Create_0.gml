@@ -29,6 +29,7 @@ stunfallspr = spr_tank_stun
 walkspr = spr_tank_walk
 grabbedspr = spr_tank_stun
 scaredspr = spr_tank_stun
+turnspr = spr_tank_turn
 flash = 0
 slapped = 0
 birdcreated = 0

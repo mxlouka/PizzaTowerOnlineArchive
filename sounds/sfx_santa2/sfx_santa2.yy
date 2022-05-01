@@ -15,7 +15,7 @@
     "path": "audiogroups/audiogroup_default",
   },
   "soundFile": "sfx_santa2",
-  "duration": 1.7291,
+  "duration": 1.7241,
   "parent": {
     "name": "sfx",
     "path": "folders/Sounds/sfx.yy",
