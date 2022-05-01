@@ -94,10 +94,6 @@ if ds_map_find_value(async_load, "id") == request
 			passwordstring = "";
 			selectedpassword = false;
 			registering = false;
-			
-			regedit = true;
-			if !gms_self_isguest()
-				gms_ini_player_write("saveData", "regedit", 1);
 		}
 		
 		if requestype == reqtypes.tp_level

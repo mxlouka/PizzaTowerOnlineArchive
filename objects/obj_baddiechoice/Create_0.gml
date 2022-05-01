@@ -20,7 +20,7 @@ selarray = [
 	[obj_pickle, "PICKLE", "Pepinillo."],
 	[obj_rancher, "RANCH SHOOTER", "Doesn't really shoot ranch though."],
 	[obj_swedishmonkey, "SWEDISH MONKEY", "Desperate to get a laugh."],
-	[obj_bigcheese, "BIG CHEESE", "Now with no scared animation!"],
+	[obj_bigcheese, "BIG CHEESE", "Born with it's hard hat, eventually learned to get scared."],
 	[obj_pizzaball, "GREASEBALL", "Everything in this game has to be cheese.\nEven a golf ball."],
 	[obj_pizzaballOLD, "OLD GREASEBALL", "You see, instead of actually using them as a golf ball,\nyou beat the shit out of them."],
 	[obj_spitcheese, "SPIT CHEESE", "Makes sense."],

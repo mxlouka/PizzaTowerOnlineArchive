@@ -567,11 +567,9 @@ switch menu
 	#endregion
 	#region login / register
 	case menutypes.login:
-		var lg_name = "";
+		var lg_name = "admin";
 		if check_online()
 			lg_name = string_copy(gms_self_name(), 1, 32);
-		if debug
-			lg_name = "admin";
 		
 		#region black box
 		
@@ -697,24 +695,21 @@ switch menu
 			#endregion
 			#region register
 			
-			if !regedit
+			if draw_editorbutton(384, 296 + 64, lang_string("editor.menu.login.register")) && !loading
 			{
-				if draw_editorbutton(384, 296 + 64, lang_string("editor.menu.login.register")) && !loading
+				if passwordstring == ""
 				{
-					if passwordstring == ""
-					{
-						message = lang_string("editor.menu.login.dumbfuck");
-						showtext = true;
-						alarm[0] = room_speed * 2;
-					}
-					else
-					{
-						selectedpassword = false;
-						passconfirm1 = passwordstring;
-						passwordstring = "";
-						keyboard_string = "";
-						registering = true;
-					}
+					message = lang_string("editor.menu.login.dumbfuck");
+					showtext = true;
+					alarm[0] = room_speed * 2;
+				}
+				else
+				{
+					selectedpassword = false;
+					passconfirm1 = passwordstring;
+					passwordstring = "";
+					keyboard_string = "";
+					registering = true;
 				}
 			}
 			
@@ -723,12 +718,6 @@ switch menu
 		else
 		{
 			#region confirm password
-			
-			if regedit
-			{
-				registering = false;
-				exit;
-			}
 			
 			if draw_editorbutton(384, 296, lang_string("editor.menu.login.register")) && !loading
 			{

@@ -77,13 +77,8 @@ selectedpassword = false;
 registering = false;
 passconfirm1 = "";
 
-regedit = false;
 if check_online()
-{
-	if gms_ini_player_exists("saveData", "regedit")
-		regedit = gms_ini_player_read("saveData", "regedit");
 	gms_chat_toggle(false);
-}
 loginback = -1;
 
 // etc
