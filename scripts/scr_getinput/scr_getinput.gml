@@ -1,6 +1,6 @@
 function scr_getinput(force = false)
 {
-	with obj_player
+	with obj_player1
 		online_busy = false;
 	
 	var cont = global.cont;
@@ -11,7 +11,7 @@ function scr_getinput(force = false)
 	or (instance_exists(obj_hubelevator) && obj_hubelevator.state == 1)
 	or instance_exists(obj_dialoguebox))
 	{
-		with obj_player
+		with obj_player1
 			online_busy = true;
 		
 		if !force
@@ -45,26 +45,29 @@ function scr_getinput(force = false)
 	if !variable_instance_exists(id, "stickpressed")
 		stickpressed = true;
 	
-	key_up = keyboard_check(global.key_up)
-	key_up2 = keyboard_check_pressed(global.key_up)
-	key_right = keyboard_check(global.key_right)
-	key_right2 = keyboard_check_pressed(global.key_right)
-	key_left = -keyboard_check(global.key_left)
-	key_left2 = -keyboard_check_pressed(global.key_left)
-	key_down = keyboard_check(global.key_down)
-	key_down2 = keyboard_check_pressed(global.key_down)
-	key_jump = keyboard_check_pressed(global.key_jump)
-	key_jump2 = keyboard_check(global.key_jump)
-	key_slap = keyboard_check(global.key_slap)
-	key_slap2 = keyboard_check_pressed(global.key_slap)
-	key_taunt = keyboard_check(global.key_taunt)
-	key_taunt2 =  keyboard_check_pressed(global.key_taunt)
-	key_attack = keyboard_check(global.key_attack)
-	key_attack2 = keyboard_check_pressed(global.key_attack)
-	key_shoot = keyboard_check(global.key_shoot)
-	key_shoot2 = keyboard_check_pressed(global.key_shoot)
-	key_start = keyboard_check_pressed(global.key_start)
-	key_escape = keyboard_check_pressed(vk_escape)
+	if cont <= -1 or !global.coop
+	{
+		key_up = keyboard_check(global.key_up)
+		key_up2 = keyboard_check_pressed(global.key_up)
+		key_right = keyboard_check(global.key_right)
+		key_right2 = keyboard_check_pressed(global.key_right)
+		key_left = -keyboard_check(global.key_left)
+		key_left2 = -keyboard_check_pressed(global.key_left)
+		key_down = keyboard_check(global.key_down)
+		key_down2 = keyboard_check_pressed(global.key_down)
+		key_jump = keyboard_check_pressed(global.key_jump)
+		key_jump2 = keyboard_check(global.key_jump)
+		key_slap = keyboard_check(global.key_slap)
+		key_slap2 = keyboard_check_pressed(global.key_slap)
+		key_taunt = keyboard_check(global.key_taunt)
+		key_taunt2 =  keyboard_check_pressed(global.key_taunt)
+		key_attack = keyboard_check(global.key_attack)
+		key_attack2 = keyboard_check_pressed(global.key_attack)
+		key_shoot = keyboard_check(global.key_shoot)
+		key_shoot2 = keyboard_check_pressed(global.key_shoot)
+		key_start = keyboard_check_pressed(global.key_start)
+		key_escape = keyboard_check_pressed(vk_escape)
+	}
 	
 	// gamepad
 	if cont > -1

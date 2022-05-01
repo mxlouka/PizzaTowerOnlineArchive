@@ -328,9 +328,7 @@ else
 {
 	if (!instance_exists(obj_player) or obj_player.state != states.gameover) && showhud
 	{
-		if ((instance_exists(obj_player)
-		&& obj_player.x < camera_get_view_x(view_camera[0]) + 250
-		&& obj_player.y < camera_get_view_y(view_camera[0]) + 169)
+		if ((instance_exists(obj_player) && point_in_rectangle(obj_player.x, obj_player.y, _camx, _camy, _camx + 250, _camy + 169))
 		or manualhide) && !instance_exists(obj_fadeout)
 			hud_posY = Approach(hud_posY, -300, 15);
 		else
@@ -516,7 +514,8 @@ else
 #endregion
 
 //Draw Text
-draw_set_font(check_sugary() ? global.sugarybigfont : global.bigfont)
+var sg = check_sugary();
+draw_set_font(sg ? global.sugarybigfont : global.bigfont)
 draw_set_halign(fa_center);
 draw_set_color(c_white)
 
@@ -534,7 +533,7 @@ if global.panic or global.snickchallenge or global.miniboss or global.timedgate
 	var xx = random_range(1, -1) + 480;
 	if global.modifier == mods.no_toppings && global.gameplay != 0
 		xx -= 75;
-	draw_text_color(xx, random_range(1, -1) + (global.gameplay == 0 ? 65 : min(obj_tv.yi - 70, 540 - 60)), string(_minutes) + _middletext + string(_seconds), _color, _color, _color, _color, image_alpha);
+	draw_text_color(xx, random_range(1, -1) + (global.gameplay == 0 ? 65 : min(obj_tv.yi - 70 - (sg * 20), 540 - 60)), string(_minutes) + _middletext + string(_seconds), _color, _color, _color, _color, image_alpha);
 }
 
 if instance_exists(obj_player) && obj_player.character == "V" && showhud
@@ -563,7 +562,7 @@ if showhud
 		
 		if global.key_inv > 0
 		{
-			var keyspr = check_sugary() ? spr_key_ss : spr_key;
+			var keyspr = sg ? spr_key_ss : spr_key;
 			keyimg = (keyimg + 0.35) % sprite_get_number(keyspr);
 			
 			draw_sprite_ext(keyspr, keyimg, xx, yy + styley, 1, 1, 0, c_white, alpha)
@@ -576,7 +575,7 @@ if showhud
 	{
 		if global.key_inv > 0
 		{
-			var keyspr = check_sugary() ? spr_keyinvSP_ss : spr_keyinvSP;
+			var keyspr = sg ? spr_keyinvSP_ss : spr_keyinvSP;
 			keyimg = (keyimg + 0.35) % sprite_get_number(keyspr);
 			
 			draw_sprite_ext(keyspr, keyimg, 696, 86 + obj_tv.hud_posY + styley, 1, 1, 0, c_white, alpha);

@@ -88,3 +88,20 @@ if basetext
 }
 draw_set_alpha(1);
 
+// coop
+if global.coop
+{
+	draw_set_font(global.font_small);
+	draw_set_halign(fa_center);
+	draw_set_valign(fa_top);
+	draw_set_colour(c_ltgray);
+	
+	var cooptext = "";
+	if playerid.object_index == obj_player1
+		cooptext = "Player 1";
+	if playerid.object_index == obj_player2
+		cooptext = "Player 2";
+	
+	draw_text_auto(960 / 2, 32, cooptext,,,talpha);
+}
+

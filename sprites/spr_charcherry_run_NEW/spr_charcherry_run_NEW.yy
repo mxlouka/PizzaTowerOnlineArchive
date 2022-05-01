@@ -47,7 +47,7 @@
     "spriteId": {"name":"spr_charcherry_run_NEW","path":"sprites/spr_charcherry_run_NEW/spr_charcherry_run_NEW.yy",},
     "timeUnits": 1,
     "playback": 1,
-    "playbackSpeed": 14.0,
+    "playbackSpeed": 1.0,
     "playbackSpeedType": 1,
     "autoRecord": true,
     "volume": 1.0,

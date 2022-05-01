@@ -64,8 +64,16 @@ function scr_player_backbreaker()
 		{
 			if key_taunt2 && taunttimer != 20 && !(instance_exists(obj_snicklevelend) && obj_snicklevelend.image_index > 0) && tauntstoredstate == states.normal
 			{
-				if instance_exists(obj_skinchoice) == false
-					instance_create(0, 0, obj_skinchoice);
+				if !instance_exists(obj_skinchoice)
+				{
+					with instance_create(0, 0, obj_skinchoice)
+					{
+						playerid = other.id;
+						noisetype = other.noisetype;
+						sel = [other.paletteselect, other.character];
+						event_user(0);
+					}
+				}
 			}
 		}
 

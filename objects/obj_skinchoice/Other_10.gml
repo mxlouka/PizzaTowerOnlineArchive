@@ -32,6 +32,7 @@ switch sel[1]
 			["HYPOTHERMIA", "Lesson learned. Don't bathe inside of a freezer."],
 			["BONMARIO", "Property of Bonmario of America INC."],
 			["LEAN", "This whole Lean thing is starting to get a little annoying."],
+			["DRUNKEN", "Don't ask about the clothes."],
 		];
 		if global.streamer
 		{
@@ -303,10 +304,10 @@ switch sel[1]
 }
 var basepal = (sel[1] == "P" or sel[1] == "SP" or sel[1] == "SN");
 
-if sel[1] != obj_player1.character
+if sel[1] != playerid.character
 	sel[0] = basepal;
 else
-	sel[0] = obj_player1.paletteselect;
+	sel[0] = playerid.paletteselect;
 
 selmin = 0;
 selmax = pal_swap_get_pal_count(spr_palette) - 1;
@@ -317,3 +318,4 @@ if !check_shaders()
 	if basepal
 		selarray[0] = selarray[1];
 }
+

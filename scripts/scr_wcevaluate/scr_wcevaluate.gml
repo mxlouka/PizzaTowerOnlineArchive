@@ -250,7 +250,7 @@ function scr_wcevaluate(argument0)
 				with all
 				{
 					if object_index != other.object_index
-						instance_destroy(self, false);
+						instance_destroy(id, false);
 				}
 				audio_resume_all();
 				audio_stop_all();

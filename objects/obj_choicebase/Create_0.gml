@@ -6,6 +6,8 @@ scr_soundeffect(sfx_diagopen);
 keyboard_clear(global.key_up);
 keyboard_clear(global.key_taunt);
 
+playerid = playerobj;
+
 img = 0;
 xoffset = 0;
 yoffset = 0;

@@ -986,7 +986,7 @@
     {"id":{"name":"spr_anchobounce_re","path":"sprites/spr_anchobounce_re/spr_anchobounce_re.yy",},"order":3,},
     {"id":{"name":"spr_player_slapdash","path":"sprites/spr_player_slapdash/spr_player_slapdash.yy",},"order":195,},
     {"id":{"name":"spr_player_knock","path":"sprites/spr_player_knock/spr_player_knock.yy",},"order":196,},
-    {"id":{"name":"scr_toppingspr","path":"scripts/scr_toppingspr/scr_toppingspr.yy",},"order":51,},
+    {"id":{"name":"scr_collectsprite","path":"scripts/scr_collectsprite/scr_collectsprite.yy",},"order":51,},
     {"id":{"name":"grinch_10","path":"rooms/grinch_10/grinch_10.yy",},"order":10,},
     {"id":{"name":"spr_player_givepizza","path":"sprites/spr_player_givepizza/spr_player_givepizza.yy",},"order":197,},
     {"id":{"name":"spr_rankPPA","path":"sprites/spr_rankPPA/spr_rankPPA.yy",},"order":2,},

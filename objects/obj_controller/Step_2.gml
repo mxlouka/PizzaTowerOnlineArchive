@@ -81,9 +81,26 @@ if global.gamepadvibration
 		if vibration[1] <= 0
 			vibration[1] = 0;
 	}
+	
+	if global.cont2 == -1
+		vibration2 = [0, 0, 0];
+	else if vibration2[0] > 0 or vibration2[1] > 0
+	{
+		vibration2[0] *= vibration2[2];
+		vibration2[1] *= vibration2[2];
+	
+		if vibration2[0] <= 0
+			vibration2[0] = 0;
+		if vibration2[1] <= 0
+			vibration2[1] = 0;
+	}
 }
 else
+{
 	vibration = [0, 0, 0];
+	vibration2 = [0, 0, 0];
+}
 
 gamepad_set_vibration(global.cont, vibration[0], vibration[1]);
+gamepad_set_vibration(global.cont2, vibration2[0], vibration2[1]);
 

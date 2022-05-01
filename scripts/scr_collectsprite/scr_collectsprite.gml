@@ -1,7 +1,7 @@
 function scr_collectsprite(single = false, escape = false)
 {
 	var spr = -1, toppings = [spr_sausagecollect];
-	var char = (instance_exists(obj_player) ? obj_player.character : "P");
+	var char = (instance_exists(playerobj) ? playerobj.character : "P");
 	
 	if object_index == obj_collectescape or escape
 	{
@@ -61,3 +61,4 @@ function scr_collectsprite(single = false, escape = false)
 		spr = toppings[irandom(array_length(toppings) - 1)];
 	return spr;
 }
+

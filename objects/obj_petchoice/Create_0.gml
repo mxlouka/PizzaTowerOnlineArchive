@@ -13,9 +13,6 @@ selarray = [
 	[spr_petsneck_idle, "SNECK", "Sneck is here for you."],
 ];
 spr_idle = selarray[0][0];
-
-with obj_player
-	other.sel[0] = petfollow + 1;
 selvert = false;
 
 event_user(0);

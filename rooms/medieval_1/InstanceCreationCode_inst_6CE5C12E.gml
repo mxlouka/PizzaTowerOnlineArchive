@@ -1,2 +1,2 @@
 if !global.snickchallenge
-	instance_destroy(self, false);
+	instance_destroy(id, false);

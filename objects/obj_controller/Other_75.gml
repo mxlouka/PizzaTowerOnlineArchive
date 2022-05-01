@@ -1,26 +1,37 @@
-if os_type == os_switch
-{
-	// switch code here
-	
-	exit;
-}
-
 if async_load[? "event_type"] == "gamepad discovered"
 {
 	var ind = async_load[? "pad_index"];
 	if global.cont != ind
 	{
-		if connected
-			ds_list_add(othergamepad, global.cont);
-		
-		with obj_roomname
+		if global.coop && global.cont2 == -1 && global.cont != -1
 		{
-			message = "USING GAMEPAD " + string(ind);
-			showtext = true;
-			alarm[0] = room_speed;
+			with obj_roomname
+			{
+				message = "PLAYER 2 GAMEPAD " + string(ind);
+				showtext = true;
+				alarm[0] = room_speed;
+			}
+			global.cont2 = ind;
+		}
+		else if global.coop && global.cont2 != -1 && global.cont != -1
+			ds_list_add(othergamepad, global.cont);
+		else
+		{
+			if connected
+				ds_list_add(othergamepad, global.cont);
+			
+			with obj_roomname
+			{
+				message = "USING GAMEPAD " + string(ind);
+				if global.coop
+					message = "PLAYER 1 GAMEPAD " + string(ind);
+				showtext = true;
+				alarm[0] = room_speed;
+			}
+		
+			global.cont = ind;
 		}
 		
-		global.cont = ind;
 		connected = true;
 		scr_soundeffect(sfx_contin);
 	}
@@ -32,7 +43,7 @@ if async_load[? "event_type"] == "gamepad lost"
 	
 	if size > -1
 	{
-		if global.cont == pad
+		if global.cont == pad && !global.coop
 		{
 			var ind = ds_list_find_value(othergamepad, size);
 			ds_list_delete(othergamepad, size);
@@ -51,15 +62,31 @@ if async_load[? "event_type"] == "gamepad lost"
 	}
 	else
 	{
-		with obj_roomname
+		if global.cont2 == pad
 		{
-			message = "GAMEPAD " + string(pad) + " OUT";
-			showtext = true;
-			alarm[0] = room_speed;
+			with obj_roomname
+			{
+				message = "PLAYER 2 GAMEPAD OUT";
+				showtext = true;
+				alarm[0] = room_speed;
+			}
 		}
+		else
+		{
+			with obj_roomname
+			{
+				message = "GAMEPAD " + string(pad) + " OUT";
+				if global.coop
+					message = "PLAYER 1 GAMEPAD OUT";
+				showtext = true;
+				alarm[0] = room_speed;
+			}
 		
-		global.cont = -1;
-		connected = false;
+			global.cont = -1;
+		}
+		if global.cont == -1 && global.cont2 == -1
+			connected = false;
 	}
 	scr_soundeffect(sfx_contout);
 }
+

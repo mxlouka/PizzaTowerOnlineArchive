@@ -20,10 +20,8 @@ if global.modifier == mods.no_toppings && !instance_exists(obj_choicebase)
 	draw_set_halign(fa_center);
 	draw_set_valign(fa_top);
 	
-	scr_toppingspr();
-	
 	// text position
-	var yy = min(obj_tv.yi - 70, 540 - 60);
+	var yy = min(obj_tv.yi - 70 - (check_sugary() * 10), 540 - 60);
 	var xx = 960 / 2;
 	if global.panic && global.gameplay != 0
 		xx += 75;

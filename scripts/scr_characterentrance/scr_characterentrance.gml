@@ -1,4 +1,4 @@
-function scr_characterentrance(argument0)
+function scr_characterentrance()
 {
 	// shitk golf
 	if (audio_is_playing(mu_minigolf) && scr_checkskin(checkskin.s_shit))

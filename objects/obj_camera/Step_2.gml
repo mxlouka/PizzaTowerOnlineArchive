@@ -359,5 +359,5 @@ if global.panic or global.snickchallenge
 }
 
 frameone = false;
-camera_set_view_angle(view_camera[0], angle + panicangle);
+camera_set_view_angle(view_camera[0], round(angle) + panicangle);
 

@@ -1,4 +1,8 @@
-scr_getinput(true);
+if instance_exists(playerid) && playerid.object_index == obj_player2
+	scr_getinput2(true);
+else
+	scr_getinput(true);
+
 if room == Realtitlescreen or room == characterselect
 {
 	instance_destroy();

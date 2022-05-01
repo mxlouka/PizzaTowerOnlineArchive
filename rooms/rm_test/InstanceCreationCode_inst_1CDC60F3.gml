@@ -13,7 +13,7 @@ func = function()
 	if active
 	{
 		with obj_camera
-			angle = round(lerp(angle, 0, 0.25));
+			angle = lerp(angle, 0, 0.25);
 		with obj_camera
 			zoom = lerp(zoom, 1, 0.25);
 	}

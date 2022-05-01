@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_doorunvisited",
-    "path": "sprites/spr_doorunvisited/spr_doorunvisited.yy",
+    "name": "spr_costumerdoor",
+    "path": "sprites/spr_costumerdoor/spr_costumerdoor.yy",
   },
   "solid": false,
   "visible": true,

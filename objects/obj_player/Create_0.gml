@@ -29,7 +29,9 @@ movespeed = 0
 jumpstop = false
 
 visible = true
-state = states.titlescreen
+state = states.normal
+if room == Realtitlescreen
+	state = states.titlescreen
 
 jumpAnim = true
 landAnim = false

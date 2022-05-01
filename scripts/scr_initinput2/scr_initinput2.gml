@@ -1,7 +1,7 @@
-function scr_initinput2() {
+function scr_initinput2()
+{
 	ini_open("saveData.ini");
-
-
+	
 	global.key_upN = ini_read_string("ControlsKeys2","up",ord("W"))  
 	global.key_rightN = ini_read_string("ControlsKeys2","right",ord("D"))
 	global.key_leftN = ini_read_string("ControlsKeys2","left",ord("A"))
@@ -12,8 +12,7 @@ function scr_initinput2() {
 	global.key_shootN = ini_read_string("ControlsKeys2","shoot",ord("I"))
 	global.key_attackN = ini_read_string("ControlsKeys2","attack",ord("J"))
 	global.key_startN = ini_read_string("ControlsKeys2","start",ord("P"))
-
-
+	
 	global.key_upCN = ini_read_string("ControllerButton","up",gp_padu)
 	global.key_rightCN = ini_read_string("ControllerButton","right",gp_padr)
 	global.key_leftCN = ini_read_string("ControllerButton","left",gp_padl)
@@ -24,8 +23,7 @@ function scr_initinput2() {
 	global.key_shootCN = ini_read_string("ControllerButton","shoot",gp_face2)
 	global.key_attackCN = ini_read_string("ControllerButton","attack",gp_shoulderr)
 	global.key_startCN = ini_read_string("ControllerButton","start",gp_start)
-
+	
 	ini_close();
-
-
 }
+

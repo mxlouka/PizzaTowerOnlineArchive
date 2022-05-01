@@ -17,7 +17,7 @@ function scr_collide_player()
 				// make sure the player doesnt go too fast and miss the hallway
 				with instance_place(x, y, obj_verticalhallway)
 				{
-					event_perform(ev_collision, obj_player1);
+					event_perform(ev_collision, obj_player);
 					break;
 				}
 				
@@ -55,7 +55,7 @@ function scr_collide_player()
 				}
 				with instance_place(x, y, obj_hallway)
 				{
-					event_perform(ev_collision, obj_player1);
+					event_perform(ev_collision, obj_player);
 					break;
 				}
 				

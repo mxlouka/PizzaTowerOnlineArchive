@@ -1,10 +1,11 @@
 function scr_initenemy()
 {
-	basegrav = 0.5;
-	grav = 0.5;
-	hsp = 0;
-	vsp = 0;
-	yscale = 1;
+	state = states.walk
+	basegrav = 0.5
+	grav = 0.5
+	hsp = 0
+	vsp = 0
+	yscale = 1
 	stunned = 0
 	alarm[0] = 150
 	roaming = true

@@ -623,19 +623,15 @@ else
 	// hide tv if player overlapping it
 	var change_pos = false;
 	
-	if instance_exists(obj_player1)
-	&& obj_player1.x > camera_get_view_x(view_camera[0]) + camera_get_view_width(view_camera[0]) - 224
-	&& obj_player1.y < camera_get_view_y(view_camera[0]) + 187
-	    change_pos = true;
-	
-	if bubblespr != noone && instance_exists(obj_player1)
-	&& obj_player1.x > camera_get_view_x(view_camera[0]) + 316
-	&& obj_player1.y < camera_get_view_y(view_camera[0]) + 101
-	    change_pos = true;
-	
+	with obj_player
+	{
+		if point_in_rectangle(x, y, _camx + _camw - 224, _camy, _camx + _camw, _camy + 187)
+			change_pos = true;
+		if other.bubblespr != noone && point_in_rectangle(x, y, _camx + _camw - 644, _camy, _camx + _camw, _camy + 101)
+			change_pos = true;
+	}
 	if manualhide
 		change_pos = true;
-	
 	if instance_exists(obj_fadeout)
 		change_pos = false;
 	

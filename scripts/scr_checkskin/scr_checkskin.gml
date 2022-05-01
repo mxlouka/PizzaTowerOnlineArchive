@@ -1,6 +1,14 @@
-function scr_checkskin(argument0)
+function scr_checkskin(skin, player = undefined)
 {
-	if !instance_exists(obj_player)
+	if player == undefined
+	{
+		if inst_relation(id, obj_player)
+			player = id;
+		else
+			player = playerobj;
+	}
+	
+	if !instance_exists(player)
 		return false;
 	
 	enum checkskin
@@ -17,25 +25,25 @@ function scr_checkskin(argument0)
 		s_sbombic
 	}
 	
-	if argument0 == checkskin.p_anton // anton or annie
+	if skin == checkskin.p_anton // anton or annie
 		return (obj_player.character == "P" && obj_player.paletteselect == 13) or (obj_player.character == "SP" && obj_player.paletteselect == 13);
-	if argument0 == checkskin.p_antononly // only anton (for the voice clip)
+	if skin == checkskin.p_antononly // only anton (for the voice clip)
 		return obj_player.character == "P" && obj_player.paletteselect == 13;
-	if argument0 == checkskin.p_peter
+	if skin == checkskin.p_peter
 		return obj_player.character == "P" && obj_player.paletteselect == 17;
-	if argument0 == checkskin.p_sage
+	if skin == checkskin.p_sage
 		return obj_player.character == "P" && obj_player.paletteselect == 18;
-	if argument0 == checkskin.p_gray
+	if skin == checkskin.p_gray
 		return obj_player.character == "P" && obj_player.paletteselect == 5;
-	if argument0 == checkskin.n_hardoween
+	if skin == checkskin.n_hardoween
 		return global.gameplay == 0 && obj_player.noisetype == 1 && obj_player.character == "N" && obj_player.paletteselect == 1;
-	if argument0 == checkskin.n_big
+	if skin == checkskin.n_big
 		return obj_player.character == "N" && obj_player.paletteselect == 14;
-	if argument0 == checkskin.n_nose
+	if skin == checkskin.n_nose
 		return false;
-	if argument0 == checkskin.s_shit
+	if skin == checkskin.s_shit
 		return obj_player.character == "S" && obj_player.paletteselect == 11;
-	if argument0 == checkskin.s_sbombic
+	if skin == checkskin.s_sbombic
 		return obj_player.character == "S" && obj_player.paletteselect == 13;
 	
 	return false;

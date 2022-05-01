@@ -139,13 +139,13 @@ else
 	else if string_startswith(r, "grinch")
 		det = "Grinch";
 	
-	else if string_startswith(r, "cotton")
+	else if string_startswith(r, "cotton") && sugaryspire
 		det = "Cottontown";
 	
-	else if string_startswith(r, "jawbreaker")
+	else if string_startswith(r, "jawbreaker") && sugaryspire
 		det = "Jawbreaker Mines";
 	
-	else if string_startswith(r, "sanctum")
+	else if string_startswith(r, "sanctum") && !global.streamer
 		det = "La Burrata Temple";
 	
 	else if room == rm_test

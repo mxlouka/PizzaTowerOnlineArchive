@@ -5,7 +5,10 @@
   },
   "solid": false,
   "visible": true,
-  "spriteMaskId": null,
+  "spriteMaskId": {
+    "name": "spr_doorvisited",
+    "path": "sprites/spr_doorvisited/spr_doorvisited.yy",
+  },
   "persistent": false,
   "parentObjectId": null,
   "physicsObject": false,

@@ -1,5 +1,6 @@
 /// @description literal "controller" support
 global.cont = -1;
+global.cont2 = -1;
 connected = false;
 othergamepad = ds_list_create();
 
@@ -15,5 +16,6 @@ for (var i = 0; i < gp_num; i++)
 }
 
 vibration = [0, 0, 0];
+vibration2 = [0, 0, 0];
 prevstate = states.normal;
 

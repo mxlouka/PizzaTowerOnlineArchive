@@ -3,7 +3,7 @@ if room == rm_editor exit;
 if state == states.stun
 {
 	image_index = 5;
-	sprite_index = spr_charcherry_popout;
+	sprite_index = popoutspr;
 	state = states.cherrywait;
 }
 

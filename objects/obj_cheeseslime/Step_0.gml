@@ -1,6 +1,6 @@
 if room == rm_editor exit;
 
-switch (state)
+switch state
 {
     case states.idle: scr_enemy_idle (); break;
     case states.turn: scr_enemy_turn (); break;

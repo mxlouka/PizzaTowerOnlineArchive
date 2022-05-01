@@ -9,21 +9,5 @@ selarray = [
 ];
 spr_idle = selarray[0][0];
 
-with obj_player
-{
-	// auto select current hat
-	if hatsprite != -1
-	{
-		for(var i = 0; i < array_length(other.selarray); i++)
-		{
-			if other.selarray[i][0] == hatsprite
-			{
-				other.sel[0] = i;
-				break;
-			}
-		}
-	}
-}
-
 selvert = false;
 event_user(0);

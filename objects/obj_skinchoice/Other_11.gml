@@ -1,9 +1,9 @@
-if obj_player1.state == states.normal
+if playerid.state == states.normal
 {
-	var prevanton = scr_checkskin(checkskin.p_anton);
-	var prev = obj_player1.character;
+	var prevanton = scr_checkskin(checkskin.p_anton, playerid);
+	var prev = playerid.character;
 	
-	with obj_player1
+	with playerid
 	{
 		shot = false;
 		shotgunAnim = false;
@@ -15,19 +15,11 @@ if obj_player1.state == states.normal
 		sprite_index = spr_idle;
 		scr_changetoppings();
 		
-		/*
-		ds_list_copy(palcolors, other.palcolors);
-		custompal_update(palcolors);
-		*/
-		
 		noisetype = other.noisetype;
-	
+		
 		if character != prev
 		or paletteselect != other.sel[0]
 		{
-			with obj_global
-				event_user(0);
-			
 			instance_create(x, y, obj_genericpoofeffect);
 			if global.gameplay != 0 && character != prev
 			{
@@ -41,23 +33,25 @@ if obj_player1.state == states.normal
 		paletteselect = other.sel[0];
 	}
 		
-	if ((scr_checkskin(checkskin.p_anton) && !prevanton))
-	or ((!scr_checkskin(checkskin.p_anton) && prevanton))
+	if ((scr_checkskin(checkskin.p_anton, playerid) && !prevanton))
+	or ((!scr_checkskin(checkskin.p_anton, playerid) && prevanton))
 	{
 		// reset song if anton
-		with obj_hungrypillar
+		if playerid.object_index == playerobj
 		{
-			audio_stop_sound(song);
-			song = -1;
+			with obj_hungrypillar
+			{
+				audio_stop_sound(song);
+				song = -1;
+			}
+			with obj_music
+			{
+				fadeoff = 0;
+				event_perform(ev_other, ev_room_start);
+			}
 		}
 		
-		with obj_music
-		{
-			fadeoff = 0;
-			event_perform(ev_other, ev_room_start);
-		}
-		
-		if scr_checkskin(checkskin.p_antononly)
+		if scr_checkskin(checkskin.p_antononly, playerid)
 			scr_soundeffect(sfx_antonball);
 		else
 			scr_soundeffect(sfx_collecttoppin);
@@ -65,7 +59,7 @@ if obj_player1.state == states.normal
 	else
 	{
 		scr_soundeffect(sfx_collecttoppin);
-		scr_characterentrance(sel[1]);
+		scr_characterentrance();
 	}
 	
 	selected = true;
@@ -75,3 +69,4 @@ if obj_player1.state == states.normal
 	t = 2;
 	con = 0;
 }
+

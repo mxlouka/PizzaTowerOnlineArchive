@@ -1,5 +1,6 @@
 if open
 {
+	image_index = 1;
 	scr_getinput();
 	
 	var move = -key_up2 + key_down2;
@@ -46,3 +47,6 @@ if open
 		}
 	}
 }
+else
+	image_index = 0;
+
