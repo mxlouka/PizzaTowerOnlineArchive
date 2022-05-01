@@ -20,6 +20,3 @@ secretpasscodeinput = sugaryspire;
 
 global.facesolids = false;
 
-globalvar playerobj;
-playerobj = obj_player;
-

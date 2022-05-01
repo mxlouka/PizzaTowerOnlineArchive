@@ -272,8 +272,6 @@ fightball = false
 superslameffectid = obj_null
 speedlineseffectid = obj_null
 angryeffectid = obj_null
-
-global.coop = false
 thrown = false
 
 mach1snd = -1

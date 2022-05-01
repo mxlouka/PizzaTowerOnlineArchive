@@ -62,6 +62,10 @@ global.lastroom -= 1;
 global.saveslot = "";
 global.fun = irandom_range(1, 1000);
 
+globalvar playerobj;
+playerobj = obj_player;
+global.coop = false;
+
 // unlock sugary spire content
 globalvar sugaryspire;
 sugaryspire = true;
