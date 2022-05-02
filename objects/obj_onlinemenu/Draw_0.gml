@@ -705,6 +705,7 @@ switch menu
 				}
 				else
 				{
+					// go to confirm password
 					selectedpassword = false;
 					passconfirm1 = passwordstring;
 					passwordstring = "";
@@ -729,9 +730,9 @@ switch menu
 				}
 				else
 				{
-					passconfirm1 = "";
 					selectedpassword = false;
-					scr_requestregister_alt(lg_name, md5_string_utf8(passwordstring));
+					scr_requestregister_alt(lg_name, md5_string_utf8(passconfirm1));
+					passconfirm1 = "";
 				}
 			}
 			

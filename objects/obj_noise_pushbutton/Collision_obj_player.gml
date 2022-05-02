@@ -1,28 +1,25 @@
-
-with (obj_player)
+if other.instakillmove
 {
-if state == states.mach2
-machpunchAnim = true
-
-if state == states.mach2 or state == states.mach3
-{
-with instance_create(other.x,other.y,obj_sausageman_dead)
-sprite_index = spr_noise_dead
-instance_create(other.x,other.y,obj_bangeffect)
-instance_create(other.x,other.y,obj_slapstar)
-instance_create(other.x,other.y,obj_baddiegibs)
-instance_create(other.x,other.y,obj_baddiegibs)
-instance_create(other.x,other.y,obj_baddiegibs)
-scr_sleep(50)
-    with (obj_camera) {
-
-    shake_mag=5;
-    shake_mag_acc=20/room_speed;
-}
-instance_create(other.x,other.y,obj_bangeffect)
-
-instance_destroy(other)
-
-}
+	with obj_camera
+	{
+		shake_mag = 3;
+		shake_mag_acc = 3 / room_speed;
+	}
+	
+	scr_soundeffect(sfx_killenemy);
+	repeat 3
+		instance_create(x, y, obj_slapstar);
+	repeat 3
+		create_particle(x, y, particles.baddiegibs);
+	if global.gameplay != 0
+	{
+		instance_create(x, y, obj_genericpoofeffect);
+		instance_create(x, y, obj_parryeffect);
+	}
+	instance_create(x, y, obj_bangeffect);
+	
+	with instance_create(x, y, obj_sausageman_dead)
+		sprite_index = spr_noise_dead;
+	instance_destroy();
 }
 

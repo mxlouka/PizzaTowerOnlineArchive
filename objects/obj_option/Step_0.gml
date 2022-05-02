@@ -313,7 +313,7 @@ else if menu == 1
 	if optionselected == 3
 	{
 		var mgprev = global.musicgame;
-		if (key_right2 or keyboard_check_pressed(vk_right)) && global.musicgame < 1 + debug
+		if (key_right2 or keyboard_check_pressed(vk_right)) && global.musicgame < 1
 			global.musicgame++;
 		if (-key_left2 or keyboard_check_pressed(vk_left)) && global.musicgame > 0
 			global.musicgame--;
@@ -327,7 +327,7 @@ else if menu == 1
 				audio_stop_sound(music);
 				
 				with obj_music
-					event_perform(ev_other, ev_room_start);
+					event_perform(ev_alarm, 1);
 				music = global.music;
 			}
 			else

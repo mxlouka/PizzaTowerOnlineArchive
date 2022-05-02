@@ -78,14 +78,7 @@ if ds_map_find_value(async_load, "id") == request
 			if auth_get != undefined
 			{
 				global.auth = auth_get;
-				if userid_get != undefined
-					userid = userid_get;
-			}
-			else
-			{
-				message = lang_string("editor.menu.async.unauthorized");
-				showtext = true;
-				alarm[0] = room_speed * 2;
+				userid = userid_get;
 			}
 		}
 		
@@ -94,6 +87,15 @@ if ds_map_find_value(async_load, "id") == request
 			passwordstring = "";
 			selectedpassword = false;
 			registering = false;
+			
+			var auth_get = ds_map_find_value(map, "auth");
+			var userid_get = ds_map_find_value(map, "id");
+			
+			if auth_get != undefined
+			{
+				global.auth = auth_get;
+				userid = userid_get;
+			}
 		}
 		
 		if requestype == reqtypes.tp_level

@@ -24,6 +24,7 @@ if player && !player.cutscene && (player.state != states.firemouth or global.gam
 		//Insta kill
 		if bad.invtime <= 0 && instakillmove && (!bad.thrown or global.gameplay != 0) && !bad.invincible && bad.instantkillable
 		{
+			suplexmove = false
 			if state == states.mach3 && sprite_index != spr_mach3hit && (character = "P" or character = "V" or (character == "N" && noisetype == 1))
 			{
 				if !fightball
@@ -90,7 +91,10 @@ if player && !player.cutscene && (player.state != states.firemouth or global.gam
 				bad.hithsp = 0;
 					
 				if key_up
+				{
 					bad.hitvsp = -11;
+					bad.thrown_vertically = true;
+				}
 				else if key_down
 					bad.hitvsp = 11;
 				else

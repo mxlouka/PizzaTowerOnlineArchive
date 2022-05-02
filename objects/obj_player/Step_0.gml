@@ -228,7 +228,7 @@ if ((global.combo >= 3 && global.gameplay == 0) or (supercharge == 4 && global.g
 	else
 		anger = 100
 }
-if global.combotime > 0 && !cutscene
+if global.combotime > 0 && !cutscene && !(character == "SP" && state == states.tacklecharge)
     global.combotime -= 0.5;
 if global.combotime <= 0 && state != states.backbreaker
 {
@@ -645,8 +645,8 @@ or (state == states.punch && scr_stylecheck(0, 2))
 or state == states.climbwall or (state == states.jump && sprite_index == spr_playerN_noisebombspinjump)
 or pogochargeactive or state == states.hookshot or state == states.mach2
 or state == states.tacklecharge or state == states.machslide
-or (state == states.machroll && scr_stylecheck(0, 2))
-or (state == states.handstandjump && scr_stylecheck(0, 2))
+or (state == states.machroll)
+or (state == states.handstandjump)
 or (state == states.Sjump && scr_stylecheck(0, 2))
 or (state == states.chainsaw && mach2 >= 100)
 or (state == states.faceplant && !scr_stylecheck(0))
@@ -679,28 +679,6 @@ else
 	{
 		if !keep && playerid == other.id
 			instance_destroy();
-	}
-}
-
-// suplex trail
-if !scr_stylecheck(0, 2) && !scr_checkskin(checkskin.n_nose)
-{
-	if state == states.handstandjump or state == states.tumble or state == states.machroll
-	{
-		suplextrail -= 1;
-		if suplextrail <= 0
-		{
-			suplextrail = 3;
-			with instance_create(x, y, obj_suplextrail)
-			{
-				sprite_index = other.drawspr;
-				image_index = other.image_index;
-				image_xscale = other.xscale;
-				image_yscale = other.yscale;
-				image_angle = other.img_angle;
-				depth = other.depth + 1;
-			}
-		}
 	}
 }
 
@@ -780,7 +758,7 @@ if ((place_meeting(x, y, obj_door) && !place_meeting(x, y, obj_doorblocked)) or 
 	
 	if !arrowexists
 	{
-		with instance_create(x, y - 50, obj_uparrow)
+		with instance_create(x + hsp, y - 50 + vsp, obj_uparrow)
 			 playerid = other.id
 	}
 }

@@ -35,14 +35,28 @@ selarray = [
 	["special1", "SMOKED SAUSAGE MAN", "What did I tell you?"],
 	[obj_weeniesquire, "WEENIE SQUIRE", "HOG RIDER"],
 	[obj_thug_red, "SHRIMP THUG", "Stereotypical street criminal, for the chinese themed level."],
+	["bluethug", "BLUE THUG", "On a mission to stab an italian man with a flying knife."],
+	["greenthug", "GREEN THUG", "I dare you to find it if you can."],
 	[obj_soldier, "PIZZA SOLDIER", "He's camping."],
+	[obj_miniufo_grounded, "GROUNDED UFOLIVE", "No need for a spaceship when you have a death wish."],
 ]
+if global.gameplay != 0
+{
+	for(var i = array_length(selarray) - 1; i > 0; i--)
+	{
+		if selarray[i][0] == "greenthug"
+			array_delete(selarray, i, 1);
+		if selarray[i][0] == "bluethug"
+			array_delete(selarray, i, 1);
+	}
+}
 if sugaryspire
 {
 	array_push(selarray,
-		[obj_gumslime, "GUMSLIME", "Totally useless. Cannon fodder."],
-		[obj_smurfknight, "SMOREKNIGHT", "Forknight! Now with diabetes."],
-		[obj_charcherry, "CHAR CHERRY", "Ch... cherry?! That's a walking fuckin' bomb!"],
+		[obj_coneboy, "CONEBOY", "Cardboard, now with a grain of sa-... sugar."],
+		[obj_gumslime, "GUMSLIME", "Yeah, just um... replace the cheese with gum. Good enough. New enemy."],
+		[obj_smurfknight, "SMOREKNIGHT", "You would not want to suffer the same fate that this Forknight had to."],
+		[obj_charcherry, "CHAR CHERRY", "Cherry?! That's a walking fucking bomb!"],
 		[obj_cottonwitch, "COTTON WITCH", "Not only is it a food swap but a gender swap as well."]
 	);
 }

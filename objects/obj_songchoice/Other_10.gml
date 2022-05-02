@@ -189,6 +189,7 @@ switch sel[0]
 			[mu_snickescape_pc, "06 Minutes Til' Boom", "loypoll"],
 			//[mu_snickentrance, "Freefallin'", "loypoll"],
 			//[mu_hub2, "Quintessence", "loypoll"],
+			[mu_tunnel_pc, "Tunnely Shimbers", "loypoll"],
 			[mu_pizzatime_PP_pc, "It's Piss Time!", "loypoll", 5],
 			[mu_hube_pc, "Saturdays", "loypoll"],
 			[mu_hubarcade_pc, "ARCADE", "loypoll"],

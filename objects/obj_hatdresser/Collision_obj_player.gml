@@ -13,6 +13,7 @@ if player.key_up2 && player.state == states.normal && !instance_exists(obj_choic
 				if selarray[i][0] == player.hatsprite
 				{
 					sel[0] = i;
+					event_user(0);
 					break;
 				}
 			}

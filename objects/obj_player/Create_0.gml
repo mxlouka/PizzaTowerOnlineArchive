@@ -412,7 +412,6 @@ global.mort = false;
 global.gerome = false;
 
 global.stylelock = false;
-suplextrail = 0;
 
 endtumble = false
 hascollision = true

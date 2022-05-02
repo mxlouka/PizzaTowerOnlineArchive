@@ -9,6 +9,16 @@ if content != noone && showbaddie
 		spr = spr_sausageman_idle;
 		pal_swap_set(spr_sausageman_palette, 1, false);
 	}
+	else if content == "bluethug"
+	{
+		spr = spr_shrimp_idle;
+		pal_swap_set(spr_shrimppalette, 2, false);
+	}
+	else if content == "greenthug"
+	{
+		spr = spr_shrimp_idle;
+		pal_swap_set(spr_shrimppalette, 1, false);
+	}
 	else
 		spr = object_get_sprite(content);
 	
@@ -17,7 +27,11 @@ if content != noone && showbaddie
 	if spr == spr_ninjaNEW_idle && global.gameplay == 0
 		spr = spr_ninja_idle;
 	if spr == spr_charcherry_wait
+	{
 		spr = spr_charcherry_run;
+		if global.gameplay == 2
+			spr = spr_charcherry_run_NEW;
+	}
 	
 	draw_sprite_ext(spr, 0, x, y - 64, image_xscale, image_yscale, image_angle, image_blend, 0.5);
 	pal_swap_reset();

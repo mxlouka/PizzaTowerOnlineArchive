@@ -30,7 +30,7 @@ if room == rm_editor exit;
 		create_particle(x, y, particles.baddiegibs);
 		instance_create(x, y, obj_slapstar)
 	}
-
+	
 	with obj_camera
 	{
 		alarm[1] = 60;
@@ -54,7 +54,6 @@ if room == rm_editor exit;
 			paletteselect = 2;
 		}
 	}
-	
 	scr_soundeffect(sfx_killenemy)
 
 	if !instance_exists(obj_endlevelfade)
@@ -73,7 +72,7 @@ if room == rm_editor exit;
 				global.minutes = 2
 				global.seconds = 59
 				break
-				
+			
 			case "entrance_10":
 				global.minutes = 2
 				global.seconds = 30
@@ -91,7 +90,7 @@ if room == rm_editor exit;
 				if global.gameplay != 0
 					global.minutes = 3
 				break
-	
+			
 			case "dungeon_10":
 				global.minutes = 4
 				global.seconds = 30
@@ -191,14 +190,12 @@ if room == rm_editor exit;
 				global.minutes = 2
 				global.seconds = 30
 				break
-
-
+			
 			case "floor3_roomtreasure":
 				global.minutes = 2
 				global.seconds = 30
 				break
-
-
+			
 			case "floor2_roomtreasure":
 				global.minutes = 2
 				global.seconds = 30

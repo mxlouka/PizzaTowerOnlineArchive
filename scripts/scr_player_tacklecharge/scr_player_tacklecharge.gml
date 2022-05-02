@@ -51,9 +51,11 @@ function scr_player_tacklecharge()
 		input_buffer_jump = 0
 	
 	// xmas break punch
-	if key_slap2
+	if key_slap2 && character != "SP"
 	{
+		scr_soundeffect(sfx_punch)
 	    state = states.punch
+		sprite_index = spr_punch
 	    image_index = 1
 	    image_speed = 0.35
 	}

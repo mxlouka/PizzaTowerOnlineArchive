@@ -25,11 +25,12 @@ if y >= ystart
 		
 		if object_index == obj_title
 		{
-			with obj_player1
+			with obj_player
 			{
 				state = states.backbreaker;
 				sprite_index = spr_bossintro;
 				image_index = 0;
+				image_speed = 0.35;
 				vsp = -4;
 			}
 		}

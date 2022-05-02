@@ -1,7 +1,12 @@
 hspeed = -0.9
-obj_tv.message = "UH OH... HERE COMES THE NOISE..."
-obj_tv.showtext = true
-obj_tv.alarm[0] = 210
-obj_player.sprite_index = spr_player_idle
+sprite_index = spr_noise_walk
+noie = scr_sound(mu_noiseappear, false)
 
+with obj_player
+{
+	state = states.actor
+	xscale = 1
+	sprite_index = spr_idle
+	image_speed = 0.35
+}
 

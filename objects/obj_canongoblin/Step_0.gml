@@ -46,9 +46,9 @@ if bombreset > 0
 var targetplayer = instance_nearest(x, y, obj_player)
 
 //Throw Bomb at
-if x != targetplayer.x && state != states.pizzagoblinthrow && bombreset >= 0 && grounded
+if x != targetplayer.x && state != states.pizzagoblinthrow && bombreset <= 0 && grounded
 {
-	if (targetplayer.x > x - 400 && targetplayer.x < x + 400) && (y <= targetplayer.y+20 && y >= targetplayer.y- 20)
+	if (targetplayer.x > x - 400 && targetplayer.x < x + 400) && (y <= targetplayer.y + 20 && y >= targetplayer.y - 20)
 	{
 		if state == states.walk or state == states.idle
 		{

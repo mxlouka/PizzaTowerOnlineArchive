@@ -294,7 +294,6 @@ function lang_load(lang)
 		
 		ds_map_add(global.langmap, "editor.menu.async.invalid", "Invalid Data");
 		ds_map_add(global.langmap, "editor.menu.async.unexpected", "Unexpected Results?");
-		ds_map_add(global.langmap, "editor.menu.async.unauthorized", "Unauthorized!");
 		
 		ds_map_add(global.langmap, "editor.play.jsonfailed", "The loaded file doesn't have a valid level format.");
 		ds_map_add(global.langmap, "editor.play.noroot", "ROOT missing from level JSON, can't load.");

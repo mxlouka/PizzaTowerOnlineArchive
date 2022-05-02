@@ -1,5 +1,7 @@
 if room == rm_editor exit;
 
+var redthug = object_index == obj_thug_red or global.gameplay != 0;
+
 var targetplayer = obj_player1;
 if bombreset > 0
     bombreset--;
@@ -7,7 +9,7 @@ if state == states.walk
 {
 	if !chasing
 	{
-		if object_index == obj_thug_red or global.gameplay != 0
+		if redthug
 		{
 			if targetplayer.x > x - 400 && targetplayer.x < x + 400
 			&& targetplayer.y <= y + 20 && targetplayer.y >= y - 20
@@ -47,7 +49,7 @@ else if state == states.chase
             image_xscale = sign(targetplayer.x - x)
         hsp = image_xscale * chasespeed;
     }
-    if bombreset <= 0 && grounded
+    if bombreset <= 0 && grounded && redthug
     {
         if targetplayer.x > x - attackthreshold_x && targetplayer.x < x + attackthreshold_x
 		&& targetplayer.y > y - attackthreshold_y && targetplayer.y < y + attackthreshold_y

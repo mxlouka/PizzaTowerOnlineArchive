@@ -20,7 +20,7 @@ if global.panic
 var hide = false;
 with obj_player
 {
-    if x > _camx + xx && y > _camy + yy
+    if x > _camx + other.xx && y > _camy + other.yy
         hide = true;
 }
 
@@ -40,3 +40,4 @@ if room == timesuproom or !global.showgnomelist
     visible = false;
 else
     visible = true;
+

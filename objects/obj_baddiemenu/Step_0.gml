@@ -45,9 +45,14 @@ if refresh <= 0 && content != noone
 		var _c = content;
 		if _c == "special1"
 			_c = obj_sausageman;
+		if _c == "bluethug"
+			_c = obj_thug_blue;
+		if _c == "greenthug"
+			_c = obj_thug_green;
 		
 		with instance_create(x, y - 20, _c)
 		{
+			depth = 0;
 			image_xscale = other.image_xscale;
 			state = states.stun;
 			stunned = 50;

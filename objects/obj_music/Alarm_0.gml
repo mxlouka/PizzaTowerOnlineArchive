@@ -37,3 +37,4 @@ or lemusic == -1
 	pausedmusic = musfinal
 	lemusic = mus
 }
+

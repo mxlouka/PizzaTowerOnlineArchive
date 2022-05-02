@@ -11,5 +11,5 @@ if global.seconds < 0
 	global.seconds += 60;
 	global.minutes -= 1;
 }
-
 alarm[1] = 60
+
