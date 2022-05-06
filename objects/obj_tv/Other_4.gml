@@ -12,7 +12,7 @@ switch room
 	case floor3_room0: global.srank = 6500; break; // factory
 	case floor4_room0: global.srank = 5800; break; // sewer
 	case floor5_room1: global.srank = 7800; break; // freezer
-	case golf_room1: global.srank = (scr_stylecheck(1) ? 3200 : 4500); break;
+	case golf_room1: global.srank = (global.gameplay != 0 ? 3200 : 4500); break;
 	case farm_1: global.srank = 10300; break;
 	case graveyard_1: case graveyard_1_NEW: global.srank = 11850; break;
 	case dungeon_1: global.srank = 10300; break;
@@ -24,7 +24,7 @@ switch room
 	
 	case etb_1: global.srank = 7000; break;
 	case grinch_1: global.srank = 7000; break;
-	case ancient_1: global.srank = 13000; break;
+	case ancient_1: global.srank = 12900; break;
 	case sanctum_1: global.srank = 19800; break;
 	case cotton_1: global.srank = 12400; break;
 }

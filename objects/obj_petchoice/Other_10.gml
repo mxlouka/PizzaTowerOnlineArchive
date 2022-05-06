@@ -2,7 +2,7 @@
 spr_idle = selarray[sel[0]][0];
 
 locked = false;
-if sel[0] == 7
+if sel[0] == 6
 	locked = !file_exists("mario_information");
 
 selmin = 0;

@@ -18,7 +18,7 @@ switch sel[1]
 			["THE NOISE", "...woag?"],
 			["SKETCH", "He crashed into somebody."],
 			["GRINCH", "It's Claus!!!!"],
-			["PURPLE", "He wasn't involved in slaughter."],
+			["LEAN", "No, he wasn't involved in slaughter."],
 			["ANTON", "Ugh, I HATE him."],
 			["UNFINISHED", "i found a hole in this sprite"],
 			["LIGHT", "People also look for Fluorescent Peppino."],
@@ -31,8 +31,8 @@ switch sel[1]
 			["GAMEBOY", "One of his greatest achievements."],
 			["HYPOTHERMIA", "Lesson learned. Don't bathe inside of a freezer."],
 			["BONMARIO", "Property of Bonmario of America INC."],
-			["LEAN", "This whole Lean thing is starting to get a little annoying."],
 			["DRUNKEN", "Don't ask about the clothes."],
+			["ASCENDED PEDDITO", "Likes death, dislikes the livings."],
 		];
 		if global.streamer
 		{

@@ -24,3 +24,4 @@ else
 	if audio_is_playing(mu_ranksuck_pc)
 		alarm[0] = room_speed * 2;
 }
+

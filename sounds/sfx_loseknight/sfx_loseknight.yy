@@ -15,7 +15,7 @@
     "path": "audiogroups/audiogroup_default",
   },
   "soundFile": "sfx_loseknight",
-  "duration": 0.941,
+  "duration": 0.936,
   "parent": {
     "name": "sfx",
     "path": "folders/Sounds/sfx.yy",

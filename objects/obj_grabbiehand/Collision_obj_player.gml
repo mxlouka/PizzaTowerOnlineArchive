@@ -44,7 +44,7 @@ vsp = 0
 grabbing = true
 sprite_index = spr_grabbiehand_catch
 other.image_index = 0
-obj_player.sprite_index = spr_player_catched
+obj_player.sprite_index = spr_catched
 other.state = states.bump
 other.x = x
 other.y = y 
@@ -59,7 +59,7 @@ if sprite_index = spr_grabbiehand_catch
 other.vsp = 0
 other.hsp = 0
 other.state = states.bump
-obj_player.sprite_index = spr_player_catched
+obj_player.sprite_index = spr_catched
 other.x = x
 other.y = y 
 }

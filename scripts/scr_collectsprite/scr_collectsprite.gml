@@ -3,7 +3,7 @@ function scr_collectsprite(single = false, escape = false)
 	var spr = -1, toppings = [spr_sausagecollect];
 	var char = (instance_exists(playerobj) ? playerobj.character : "P");
 	
-	if object_index == obj_collectescape or escape
+	if (object_index == obj_collectescape or escape) && global.gameplay != 0
 	{
 		if char == "SP"
 			toppings = [spr_collectescape1_ss, spr_collectescape2_ss, spr_collectescape3_ss, spr_collectescape4_ss, spr_collectescape5_ss];

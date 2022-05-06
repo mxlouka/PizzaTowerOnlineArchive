@@ -16,7 +16,7 @@ function create_collect(x, y, sprite)
 
 function create_baddiegibsticks(x, y)
 {
-	if scr_stylecheck(0, 2)
+	if scr_stylecheck(0)
 		exit;
 	
 	with instance_create(x, y, obj_baddiegibsstick)
@@ -52,8 +52,14 @@ function create_particle(x, y, par)
 						angspd = random(2);
 						hsp = random_range(-10, 10);
 					}
+					if bad.object_index == obj_pizzice
+					{
+						sprite_index = global.gameplay == 0 ? spr_pizzice_gibs : spr_newpizzice_gibs;
+						image_index = irandom_range(0, image_number - 1);
+					}
 				}
 			}
 			break;
 	}
 }
+

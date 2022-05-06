@@ -275,6 +275,9 @@ function scr_characterspr(char = character)
 				spr_airattackstart = spr_player_airattackstart;
 				spr_airattack = spr_player_airattack;
 				
+				spr_catched = spr_player_catched;
+				spr_grind = spr_player_grind;
+				
 				spr_cotton_idle = spr_playerSP_cotton_idle;
 				spr_cotton_walk = spr_playerSP_cotton_walk;
 				spr_cotton_run = spr_playerSP_cotton_run;
@@ -1582,6 +1585,9 @@ function scr_characterspr(char = character)
 				
 				spr_barrelroll = spr_playerPP_barrelroll;
 				spr_dashpadmach = spr_playerPP_dashpad;
+				spr_Current = spr_playerPP_current;
+				spr_catched = spr_playerPP_catched;
+				spr_grind = spr_playerPP_grinding;
 				
 				snd_fireass = sfx_scream5_PP;
 				break;

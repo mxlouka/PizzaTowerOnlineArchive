@@ -110,7 +110,9 @@ function scr_pizzagoblin_throw()
 		if floor(image_index) == global.throw_frame[object_index]
 		{
 			// Set bomb timer and animation frame
-			bombreset = ceil(global.reset_timer[object_index] / max((global.stylethreshold + 1) / 2, 1));
+			bombreset = global.reset_timer[object_index];
+			if scr_stylecheck(2)
+				bombreset = ceil(bombreset / max((global.stylethreshold + 1) / 2, 1));
 			
 			if point_in_camera(x, y, view_camera[0])
 			{

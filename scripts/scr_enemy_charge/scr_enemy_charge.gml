@@ -71,18 +71,18 @@ function scr_enemy_charge()
 	{
 		hsp = image_xscale * (movespeed + (global.baddiespeed - 1))
 		image_speed = 0.35
-
+		
 		if place_meeting(x + hsp * 2, y, obj_hallway)
 		or (scr_solid(x + image_xscale, y) && !place_meeting(x + image_xscale, y, obj_slope))
 			image_xscale *= -1;
-
-		sprite_index = spr_pizzice_walk
+		
+		sprite_index = walkspr
 	}
 	
 	//Fencer
 	if object_index == obj_fencer or object_index == obj_banditochicken
 	{
-		if (grounded or (grounded && !place_meeting(x,y,obj_platform)))
+		if grounded
 			hsp = image_xscale * (movespeed + (global.baddiespeed - 1))
 		else
 			hsp = 0

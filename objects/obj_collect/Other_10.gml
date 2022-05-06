@@ -10,3 +10,4 @@ create_collect(x, y, sprite_index);
 	
 instance_destroy();
 scr_failmod(mods.no_toppings);
+

@@ -56,31 +56,7 @@ function scr_hurtplayer(argument0 = obj_player, loseamount = 50)
 		
 		//Boxxed
 		else if state == states.boxxedpep
-		{
-			scr_soundeffect(sfx_loseknight)
-			grav = basegrav
-			
-			with instance_create(x,y,obj_boxxeddebris)
-				image_index = 0;
-			with instance_create(x,y,obj_boxxeddebris)
-				image_index = 1;
-			with instance_create(x,y,obj_boxxeddebris)
-				image_index = 2;
-			with instance_create(x,y,obj_boxxeddebris)
-				image_index = 3;
-			with instance_create(x,y,obj_boxxeddebris)
-				image_index = 4;
-		
-			hsp = -xscale * 4;
-			vsp = -5
-			
-			state = states.bump
-			
-			alarm[5] = 2
-			alarm[7] = 120
-			alarm[8] = 60
-			hurted = true
-		}
+			scr_transfobump();
 	    
 		//Tumble
 		else if state == states.tumble
@@ -96,7 +72,7 @@ function scr_hurtplayer(argument0 = obj_player, loseamount = 50)
 		
 			repeat 9
 				instance_create(x, y, obj_slimedebris) 
-		
+			
 			hsp = xscale * -5;
 			vsp = -3
 		
@@ -215,9 +191,7 @@ function scr_hurtplayer(argument0 = obj_player, loseamount = 50)
 			scr_soundeffect(sfx_pephurt)
 
 			alarm[8] = 100
-			alarm[7] = 50
-			if global.gameplay != 0
-				alarm[7] = 30;
+			alarm[7] = 30
 			
 			if xscale = other.image_xscale
 				sprite_index = spr_hurtjump
@@ -225,12 +199,31 @@ function scr_hurtplayer(argument0 = obj_player, loseamount = 50)
 				sprite_index = spr_hurt
 			movespeed = 12
 			vsp = -5
-			/*
-			if global.gameplay != 0
-				vsp = random_range(-20, -5);
-			*/
 			timeuntilhpback = 300
-
+			
+			if global.gameplay == 0
+			{
+				alarm[8] = 60
+				alarm[7] = 120
+				movespeed = 8
+				
+				if character == "S"
+		        {
+					if global.collect == 0
+					{
+			            state = states.gameover
+			            sprite_index = spr_deathstart
+						exit
+					}
+					else
+					{
+						repeat min(global.collect, ceil(loseamount / 2))
+							instance_create(x, y, obj_pizzaloss_recollect);
+						global.collect = 0;
+					}
+		        }
+			}
+			
 			instance_create(x, y, obj_spikehurteffect)
 			state = states.hurt
 			image_index = 0
@@ -306,15 +299,15 @@ function scr_hurtplayer_weak(argument0)
 			
 			repeat 3
 			{
-				with instance_create(x,y,obj_slapstar)
+				with instance_create(x, y, obj_slapstar)
 					gms_instance_sync(id, is_onetime | isc_local);
-				with instance_create(x,y,obj_baddiegibs)
+				with instance_create(x, y, obj_baddiegibs)
 					gms_instance_sync(id, is_onetime | isc_local);
 			}
 			with obj_camera
 			{
-				shake_mag=3;
-				shake_mag_acc=3/room_speed;
+				shake_mag = 3;
+				shake_mag_acc = 3 / room_speed;
 			}
 		
 			state = states.hurt

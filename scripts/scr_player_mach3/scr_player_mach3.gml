@@ -170,7 +170,7 @@ function scr_player_mach3()
 			//Machroll
 			if key_down && !fightball && !place_meeting(x, y, obj_dashpad)
 			{
-				with instance_create(x,y,obj_jumpdust)
+				with instance_create(x, y, obj_jumpdust)
 				image_xscale = other.xscale
 				flash = false
 				state = states.machroll
@@ -181,11 +181,9 @@ function scr_player_mach3()
 			}
 
 			// Climbwall
-			if (!grounded && !place_meeting(x + hsp, y, obj_destructibles) && !place_meeting(x + hsp, y, obj_metalblock))
-			or (grounded && !place_meeting(x + hsp, y, obj_destructibles) && !place_meeting(x + hsp, y, obj_metalblock) && scr_slope())
+			if scr_solidwall(x + hsp, y) && scr_solid(x + hsp, y - 8) && !place_meeting(x + hsp, y, obj_destructibles) && !place_meeting(x + hsp, y, obj_metalblock) && (scr_slope() or !grounded)
 			{
-				if (!grounded && scr_solidwall(x + hsp, y))
-				or (grounded && scr_solidwall(x + hsp, y) && scr_solidwall(x + hsp, y - 32) && !scr_solidwall(x, y - 32))
+				if !grounded or (!scr_solidwall(x, y - 32) or place_meeting(x, y - 32, obj_destructibles))
 				{
 					wallspeed = movespeed;
 					if global.gameplay == 0
@@ -196,7 +194,7 @@ function scr_player_mach3()
 			}
 			
 			//Bump
-			if scr_solidwall(x + xscale, y) && ((!scr_slope() && !place_meeting(x + sign(hsp), y, obj_slope)) or scr_solidwall(x + sign(hsp), y) or (scr_solidwall(x, y - 32) && !place_meeting(x, y - 32, obj_destructibles))) && !place_meeting(x + sign(hsp), y, obj_metalblock) && !place_meeting(x + sign(hsp), y, obj_destructibles) && (grounded or fightball)
+			if state != states.climbwall && scr_solidwall(x + xscale, y) && !place_meeting(x + sign(hsp), y, obj_metalblock) && !place_meeting(x + sign(hsp), y, obj_destructibles) && (grounded or fightball)
 			{
 				with (fightball ? id : obj_player)
 				{
@@ -671,7 +669,7 @@ function scr_player_mach3()
 		image_speed = 0.75
 
 	//Super Jump
-	if key_up && !fightball && (!(character == "N" && noisetype == 0) && character != "V") && (grounded or character == "PP") && sprite_index != spr_dashpadmach
+	if key_up && !fightball && (!(character == "N" && noisetype == 0) && character != "V") && (grounded or character == "PP" or (character == "S" && global.gameplay == 0)) && sprite_index != spr_dashpadmach
 	{
 		sprite_index = spr_superjumpprep
 		scr_soundeffect(sfx_superjumpprep);

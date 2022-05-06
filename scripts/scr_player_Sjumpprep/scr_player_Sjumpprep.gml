@@ -53,9 +53,9 @@ function scr_player_Sjumpprep() {
 					movespeed = 2; // lil' speed up why not
 			}
 			
-			if character = "S"
+			if character == "S"
 			{
-				if floor(image_index) = image_number-1 && sprite_index = spr_snick_superjumpprep
+				if floor(image_index) >= image_number - 1 && sprite_index == spr_snick_superjumpprep
 					sprite_index = spr_snick_superjumplight
 				if move != 0
 					xscale = move
@@ -65,21 +65,19 @@ function scr_player_Sjumpprep() {
 				if sprite_index != spr_superjumpprep
 				{
 					if sign(hsp) == 0
-					{
 						sprite_index = spr_superjumppreplight
-					}
-					if  sign(hsp) == 1
+					if sign(hsp) == 1
 					{
-						if xscale = 1
+						if xscale == 1
 							sprite_index = spr_superjumpright
-						if xscale = -1
+						if xscale == -1
 							sprite_index = spr_superjumpleft
 					}
 					if sign(hsp) == -1
 					{
-						if xscale = 1
+						if xscale == 1
 							sprite_index = spr_superjumpleft
-						if xscale = -1
+						if xscale == -1
 							sprite_index = spr_superjumpright
 					}
 				}
@@ -100,7 +98,7 @@ function scr_player_Sjumpprep() {
 				crouchAnim = true
 			}
 
-			if !key_up && (grounded or character == "PP") && (character == "S" or (sprite_index == spr_superjumppreplight or sprite_index == spr_superjumpleft or sprite_index == spr_superjumpright)) && ((!scr_solid(x, y - 16) && !scr_solid(x, y - 32)) or place_meeting(x, y - 32, obj_destructibles))
+			if !key_up && (grounded or character == "PP" or (character == "S" && global.gameplay == 0)) && (character == "S" or (sprite_index == spr_superjumppreplight or sprite_index == spr_superjumpleft or sprite_index == spr_superjumpright)) && ((!scr_solid(x, y - 16) && !scr_solid(x, y - 32)) or place_meeting(x, y - 32, obj_destructibles))
 			{
 				scr_soundeffect(sfx_superjumprelease)
 				instance_create(x, y, obj_explosioneffect)
@@ -120,7 +118,7 @@ function scr_player_Sjumpprep() {
 			pogochargeactive = false
 			pogocharge = 50
 
-			if floor(image_index) >= image_number-1
+			if floor(image_index) >= image_number - 1
 			{
 				if sprite_index == spr_playerN_jetpackstart
 				{
@@ -152,7 +150,7 @@ function scr_player_Sjumpprep() {
 			if sprite_index == spr_playerN_jetpackstart
 				image_speed = 0.5
 			else
-				image_speed = 0.3
+				image_speed = 0.35
 		}
 		break;
 	}

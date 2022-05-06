@@ -29,6 +29,6 @@ if !locked
 	paldesc = ((sel[0] < array_length(selarray) && array_length(selarray[sel[0]]) >= 3) ? selarray[sel[0]][2] : "loypoll please add details");
 
 // NERD!! lmfao
-if sel[0] == 8
+if sel[0] == 7
 	draw_sprite(spr_nerd, 0, 960 / 2, 540 - 64);
 

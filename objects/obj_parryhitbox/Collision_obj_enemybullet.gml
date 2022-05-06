@@ -1,6 +1,8 @@
 with other.id
 {
-	rebound = true
+	if scr_stylecheck(2)
+		rebound = true
+	
     var _dir = sign(image_xscale)
     if x != other.x
         _dir = sign(x - other.x)
@@ -8,3 +10,4 @@ with other.id
 }
 if !collisioned
     event_user(0)
+

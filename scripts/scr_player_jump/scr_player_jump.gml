@@ -160,7 +160,8 @@ function scr_player_jump()
 		jumpAnim = true
 		jumpstop = false
 		image_index = 0
-		movespeed = 2
+		if !scr_stylecheck(2)
+			movespeed = 2
 		freefallstart = 0
 		
 		grav = 0;

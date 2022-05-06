@@ -46,13 +46,13 @@ if global.option_fullscreen && !window_get_fullscreen()
 }
 global.option_fullscreen = window_get_fullscreen();
 
+/*
 if secretpasscodeinput != sugaryspire && room != room_of_dog
 	room_goto(room_of_dog);
 
 // unlock sugary spire
 if !sugaryspire && room == Realtitlescreen && keyboard_lastchar != "" && !secretpasscodeinput
 {
-	/*
 	secretpasscode += keyboard_lastchar;
 	keyboard_lastchar = "";
 	
@@ -75,6 +75,6 @@ if !sugaryspire && room == Realtitlescreen && keyboard_lastchar != "" && !secret
 			if id != other.id instance_destroy();
 		room_goto(rm_blank);
 	}
-	*/
 }
+*/
 

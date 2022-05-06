@@ -23,7 +23,7 @@ grounded = true
 
 idlespr = spr_fencer
 stunfallspr = spr_fencer_stun
-walkspr =spr_fencer
+walkspr = spr_fencer
 grabbedspr = spr_fencer_stun
 scaredspr = spr_fencer_scared
 spr_chargestart = spr_fencer_chargestart

@@ -159,7 +159,7 @@ if player && !player.cutscene && (player.state != states.firemouth or global.gam
 		}
 			
 		//Stomp
-		else if instance_exists(bad) && y < bad.y && !attacking && sprite_index != spr_player_mach2jump && sprite_index != spr_swingding && ((state = states.boots && vsp > 0) or state == states.jump  or state == states.mach1 or state == states.grab) && vsp > 0 && bad.vsp >= 0 && sprite_index != spr_stompprep && (sprite_index != spr_swingding or global.gameplay == 0) && !bad.invincible && bad.stompable
+		else if instance_exists(bad) && y < bad.y && !attacking && sprite_index != spr_player_mach2jump && sprite_index != spr_swingding && ((state == states.boots && vsp > 0) or state == states.jump or state == states.mach1 or state == states.grab) && vsp > 0 && bad.vsp >= 0 && sprite_index != spr_stompprep && (sprite_index != spr_swingding or global.gameplay == 0) && !bad.invincible && bad.stompable
 		{
 			scr_soundeffect(sfx_stompenemy)
 			if bad.object_index != obj_tank && (bad.object_index != obj_bigcheese or global.gameplay == 0)
@@ -167,11 +167,27 @@ if player && !player.cutscene && (player.state != states.firemouth or global.gam
 				if x != bad.x
 					bad.image_xscale = -sign(bad.x - x)
 				
+				if bad.object_index == obj_pizzaballOLD
+					global.golfhit += 1
+				
 				if global.gameplay != 0
 				{
 					bad.hsp = xscale * 5
 	                bad.vsp = -5
 				}
+				else
+				{
+					scr_soundeffect(sfx_bumpwall)
+					if state != states.bombpep && state != states.mach1 && state != states.crouchslide && state != states.machroll && state != states.mach2 && state != states.mach3 && state != states.revolver && state != states.dynamite && state != states.climbwall && state != states.frozen && state != states.cotton
+						movespeed = 0
+					
+					bad.stuntouchbuffer = 50
+					
+					bad.vsp = -5
+					bad.hsp = -bad.image_xscale * 2
+					bad.image_index = 0
+				}
+				
 				bad.image_index = 0
 				bad.state = states.stun
 				if bad.stunned < 100

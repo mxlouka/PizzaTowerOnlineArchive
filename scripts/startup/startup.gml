@@ -254,18 +254,14 @@ function scr_petspr(index)
 			spr_petrun = spr_petslug_move;
 			break;
 		case 5:
-			spr_petidle = spr_petwmouse_idle;
-			spr_petrun = spr_petwmouse_move;
-			break;
-		case 6:
 			spr_petidle = spr_petmariro;
 			spr_petrun = spr_petmariro_move;
 			break;
-		case 7:
+		case 6:
 			spr_petidle = spr_petnerd_idle;
 			spr_petrun = spr_petnerd_move;
 			break;
-		case 8:
+		case 7:
 			spr_petidle = spr_petsneck_idle;
 			spr_petrun = spr_petsneck_move;
 			break;
@@ -285,7 +281,7 @@ function game_is_compiled()
 
 function setup_pizzamart()
 {
-	if obj_player.character == "S" or obj_player.character == "V" or scr_stylecheck(2)
+	if obj_player.character == "S" or obj_player.character == "V" or (scr_stylecheck(2) && !global.snickchallenge)
 	{
 		// shields
 		with instance_create(264, 328, obj_pizzashield_collectible)

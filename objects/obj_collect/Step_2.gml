@@ -12,3 +12,4 @@ if player && player.state != states.gameover && player.state != states.hitlag
 }
 if place_meeting(x, y, obj_antonball)
 	event_user(0);
+

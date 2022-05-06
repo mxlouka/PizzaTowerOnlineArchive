@@ -3,42 +3,25 @@ function scr_player_machroll()
 	var railh = 0, railmeet = instance_place(x, y + 1, obj_railparent);
 	if railmeet then railh = railmeet.spdh;
 	hsp = xscale * movespeed + railh;
-
+	
 	mach2 = 100
 	machslideAnim = true
-
+	
 	move = key_right + key_left
-
-
-
-
-	switch (character)
+	
+	switch character
 	{
 		default:
 		if character != "N" or (character == "N" && noisetype == 1)
-		{
-
-			//Animations
-
-
-   
-
-
-
-
-
-
-                  
+		{ 
 		    //Bump
-		    if (scr_solidwall(x+xscale,y)) && !place_meeting(x+sign(hsp),y,obj_slope) && !place_meeting(x+sign(hsp),y,obj_destructibles)
+		    if scr_solidwall(x + xscale,y) && !place_meeting(x + sign(hsp), y, obj_slope) && !place_meeting(x + sign(hsp), y, obj_destructibles)
 		    {
 				scr_soundeffect(sfx_bumpwall)
-
-
+				
 				hsp = 0
 				image_speed = 0.35
-
-
+				
 			    flash = false
 			    combo = 0
 			    state = states.bump
@@ -46,17 +29,16 @@ function scr_player_machroll()
 			    vsp = -3
 			    mach2 = 0
 			    image_index = 0
-			    instance_create(x+10,y+10,obj_bumpeffect)
+			    instance_create(x + 10 * xscale, y + 10, obj_bumpeffect)
 		    }
 
 			if !(instance_exists(dashcloudid)) && grounded
-			with instance_create(x,y+43,obj_cloudeffect)
+			with instance_create(x, y + 43, obj_cloudeffect)
 			{
 				image_xscale = other.xscale
-			   other.dashcloudid = id
-	
+				other.dashcloudid = id
 			}
-
+			
 			if grounded && sprite_index != spr_playerV_divekickstart
 				sprite_index = spr_machroll 
 			else
@@ -69,7 +51,7 @@ function scr_player_machroll()
 			}
 			image_speed = 0.8
 		
-			if (!key_down && !(scr_solid(x+27,y-32)) && !(scr_solid(x-27,y-32)) && !(scr_solid(x,y-32)) && !(scr_solid(x,y-16))) 
+			if !key_down && state != states.bump
 			{
 				image_index = 0
 				scr_soundeffect(sfx_rollgetup)
@@ -79,13 +61,13 @@ function scr_player_machroll()
 				if movespeed < 12 or global.gameplay == 0
 				{
 					state = states.mach2;
-					if character = "S"
+					if character == "S"
 						sprite_index = spr_mach;
 				}
 				else
 				{
 					state = states.mach3;
-					if character = "S"
+					if character == "S"
 						sprite_index = spr_mach4;
 				}
 			}
@@ -101,14 +83,13 @@ function scr_player_machroll()
 		if character == "N" && noisetype == 0
 		{
 			//Bump
-		    if (scr_solid(x+xscale,y, false)) && !place_meeting(x+sign(hsp),y,obj_slope) && !place_meeting(x+sign(hsp),y,obj_destructibles)
+		    if scr_solid(x + xscale,y, false) && !place_meeting(x + sign(hsp), y, obj_slope) && !place_meeting(x + sign(hsp), y, obj_destructibles)
 		    {
 				scr_soundeffect(sfx_bumpwall)
-
+				
 				hsp = 0
 				image_speed = 0.35
-
-
+				
 			    flash = false
 			    combo = 0
 			    state = states.bump
@@ -116,45 +97,40 @@ function scr_player_machroll()
 			    vsp = -3
 			    mach2 = 0
 			    image_index = 0
-			    instance_create(x+10 * xscale,y+10,obj_bumpeffect)
+			    instance_create(x + 10 * xscale, y + 10, obj_bumpeffect)
 			}
-	   
-			if ((!key_down or !grounded) && !(scr_solid(x+27,y-32)) && !(scr_solid(x-27,y-32)) && !(scr_solid(x,y-32)) && !(scr_solid(x,y-16))) 
+			
+			if (!key_down or !grounded) && state != states.bump
 			{
 				image_index = 0
 				scr_soundeffect(sfx_rollgetup)
 			    state = states.mach3
 				sprite_index = spr_playerN_jetpackboost
 			}
-	   
-	   
-			if !(instance_exists(dashcloudid)) && grounded
-			with instance_create(x,y+43,obj_cloudeffect)
+			
+			if !instance_exists(dashcloudid) && grounded
+			with instance_create(x, y + 43, obj_cloudeffect)
 			{
 				image_xscale = other.xscale
 				other.dashcloudid = id
 			}
-	   
 			image_speed = 0.8
 		}
 		break
 	   
 		case "V":
-
 			//Animations
-			if sprite_index =spr_playerV_divekickstart && floor(image_index) = image_number -1
+			if sprite_index == spr_playerV_divekickstart && floor(image_index) >= image_number - 1
 				sprite_index = spr_playerV_divekick
-                  
+			
 		    //Bump
-		    if (scr_solid(x+xscale,y, false)) && !place_meeting(x+sign(hsp),y,obj_slope)
+		    if scr_solid(x + xscale, y, false) && !place_meeting(x + sign(hsp), y, obj_slope)
 		    {
 				scr_soundeffect(sfx_bumpwall)
-
-
+				
 				hsp = 0
 				image_speed = 0.35
-
-
+				
 			    flash = false
 			    combo = 0
 			    state = states.bump
@@ -162,33 +138,29 @@ function scr_player_machroll()
 			    vsp = -3
 			    mach2 = 0
 			    image_index = 0
-			    instance_create(x+10,y+10,obj_bumpeffect)
-
+			    instance_create(x + 10 * xscale, y + 10, obj_bumpeffect)
 		    }
-    
-			if !(instance_exists(dashcloudid)) && grounded
-			with instance_create(x,y+43,obj_cloudeffect)
+			
+			if !instance_exists(dashcloudid) && grounded
+			with instance_create(x, y + 43, obj_cloudeffect)
 			{
 				image_xscale = other.xscale
-			   other.dashcloudid = id
-	
+				other.dashcloudid = id
 			}
-
+			
 			if grounded && sprite_index != spr_playerV_divekickstart
-			sprite_index = spr_machroll
+				sprite_index = spr_machroll
 			else
 			{
 				if sprite_index != spr_dive 
 				{
-			sprite_index = spr_dive 
-			vsp = 10
+					sprite_index = spr_dive 
+					vsp = 10
 				}
 			}
-
-
 			image_speed = 0.8
-
-			if (!key_down && !(scr_solid(x+27,y-32)) && !(scr_solid(x-27,y-32)) && !(scr_solid(x,y-32)) && !(scr_solid(x,y-16))) 
+			
+			if !key_down && !scr_solid(x + 27 * xscale, y - 32) && !scr_solid(x, y - 32)
 			{
 				image_index = 0
 				scr_soundeffect(sfx_rollgetup)

@@ -11,7 +11,8 @@ if other.object_index == obj_spitcheesespike or other.object_index == obj_bandit
 		if object_index == obj_robotknife
 		{
 			image_xscale *= -1;
-			parry = true;
+			if scr_stylecheck(2)
+				parry = true;
 		}
     }
 }
@@ -26,18 +27,22 @@ else if other.object_index == obj_noisegoblin_arrow
 		or (direction > 90 or direction < 270) && x > other.x
             _dir = -1;
 		
-        speed = _dir * speed * 1.5;
-		parry = true;
+        speed = _dir * speed;
+		if scr_stylecheck(2)
+		{
+			speed *= 1.5;
+			parry = true;
+		}
 		
 		image_angle += 180;
     }
 }
-else if other.object_index == obj_pizzacutter2
+else if other.object_index == obj_pizzacutter2 && scr_stylecheck(2)
 {
 	with other.ID
 		dir = -dir;
 }
-else if other.object_index == obj_movingoutlet
+else if other.object_index == obj_movingoutlet && scr_stylecheck(2)
 {
 	with other.id
 	{
@@ -65,3 +70,4 @@ else if other.object_index == obj_forkhitbox
 
 if !collisioned
     event_user(0);
+

@@ -1,4 +1,56 @@
-/// @description controller vibration
+// reconnect controller or continue with keyboard
+if disconnected
+{
+	// get all controllers plugged in and use whichever gets a button press
+	var gp_num = gamepad_get_device_count();
+	for (var i = 0; i < gp_num; i++)
+	{
+		if gamepad_is_connected(i)
+		{
+			var checkbutt = scr_checkanygamepad(i);
+			if gamepad_button_check_pressed(i, checkbutt)
+			{
+				global.cont = i;
+				disconnected = false;
+				
+				with obj_roomname
+				{
+					message = "USING GAMEPAD " + string(i);
+					showtext = true;
+					alarm[0] = room_speed;
+				}
+			}
+			break;
+		}
+	}
+	
+	// didn't use controller, but pressed enter
+	if disconnected && keyboard_check_pressed(vk_anykey)
+	{
+		global.cont = -1;
+		disconnected = false;
+		
+		with obj_roomname
+		{
+			message = "USING KEYBOARD";
+			showtext = true;
+			alarm[0] = room_speed;
+		}
+	}
+	
+	// something was pressed here, move on with life
+	if !disconnected
+	{
+		if !onpause
+			audio_resume_all();
+		while array_length(instlist) > 0
+			instance_activate_object(array_pop(instlist));
+	}
+}
+
+// controller functions
+if global.cont == -1 && global.cont2 == -1
+	connected = false;
 if !connected
 	exit;
 

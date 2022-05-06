@@ -3,18 +3,19 @@ hsp = 0
 vsp = random_range(-2, -4)
 grav = 0.5
 
-if obj_player1.character == "N"
-	sprite_index = spr_halloweenspinningpizza
-if obj_player1.character == "S"
-	sprite_index = spr_snickcollectible2
-if obj_player1.character == "SP"
-	sprite_index = spr_pizzaslice_ss
-if obj_player1.character == "PP"
-	sprite_index = spr_pizzaslice_PP
+switch obj_player.character
+{
+	case "N": sprite_index = spr_halloweenspinningpizza; break;
+	case "S": sprite_index = spr_snickcollectible2; image_speed = 0.35; break;
+	case "SP": sprite_index = spr_pizzaslice_ss; break;
+	case "PP": sprite_index = spr_pizzaslice_PP; break;
+}
 
 if string_startswith(room_get_name(room), "strongcold")
 	sprite_index = spr_xmasspinningslice;
-
 if global.snickrematch
 	sprite_index = spr_pizzaslice_re
+
+if sprite_index == spr_snickcollectible2
+	mask_index = spr_snickcollectible2
 

@@ -196,7 +196,7 @@ function scr_enemy_rage()
                 state = states.charge
                 movespeed = 5
                 vsp = -7
-                sprite_index = spr_fencer_chargestart
+                sprite_index = spr_chargestart
             }
             break
 	}

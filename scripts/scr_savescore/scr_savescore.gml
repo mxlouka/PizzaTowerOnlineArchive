@@ -105,6 +105,8 @@ function scr_levelname()
 
 	if string_endswith(namestring, "treasure")
 		namestring = string_replace(namestring, "treasure", "");
+	if string_endswith(namestring, "NEW")
+		namestring = string_replace(namestring, "NEW", "");
 	
 	if global.snickrematch && !global.snickchallenge
 		namestring += "_re";
@@ -113,14 +115,26 @@ function scr_levelname()
 
 function endlevel()
 {
+	// give pizzacoin if online mode
+	if check_online()
+	{
+		with obj_pizzacoinindicator
+			show = room_speed;
+		with obj_global
+			alarm[0] = room_speed / 2;
+	}
+	
+	// stop the music
 	if !audio_is_playing(global.jukebox)
 		audio_stop_sound(global.music)
+	
+	// necessary shit idk
 	if global.timeattack with obj_timeattack
 		stop = true;
-
 	with obj_player
 		targetDoor = "none"
-	obj_camera.alarm[2] = -1
+	with obj_camera
+		alarm[2] = -1
 	
 	// get the level name
 	var namestring = scr_levelname();
@@ -162,12 +176,14 @@ function endlevel()
 		}
 	}
 	
+	// absolutely annihilate the snicks
 	instance_destroy(obj_snickexe);
 	instance_destroy(obj_snickexf);
 	instance_destroy(obj_snickexg);
 	instance_destroy(obj_snickexh);
 	instance_destroy(obj_snickexi);
 	
+	// save score IF you have no modifier on
 	if global.modifier == -1
 	{
 		if namestring == "snickrematch" && global.rank == "s"

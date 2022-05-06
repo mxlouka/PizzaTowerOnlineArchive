@@ -24,7 +24,7 @@ if global.synceffect
 }
 
 // settings
-gameversion = 9;
+gameversion = 9.1;
 gms_settings(true, gameversion, obj_player1, obj_otherplayer);
 
 // scripts

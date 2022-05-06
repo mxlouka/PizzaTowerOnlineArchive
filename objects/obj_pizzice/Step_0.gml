@@ -12,53 +12,50 @@ switch (state)
 }
 
 
-if  state = states.stun && stunned > 100 && birdcreated = false
+if state == states.stun && stunned > 100 && !birdcreated
 {
-birdcreated = true
-with instance_create(x,y, obj_enemybird)
-ID = other.id
+	birdcreated = true
+	with instance_create(x, y, obj_enemybird)
+		ID = other.id
 }
-
 
 if state == states.idle or state == states.walk
-state = states.charge
+	state = states.charge
 
-if  hitboxcreate = false && (state == states.charge) && obj_player.state != states.mach3 && obj_player.state != states.mach2 && obj_player1.state != states.handstandjump
+var player = instance_nearest(x, y, obj_player);
+if !hitboxcreate && state == states.charge && (!player or (player.state != states.mach3 && player.state != states.mach2 && player.state != states.handstandjump))
 {
-hitboxcreate = true
-with instance_create(x,y,obj_forkhitbox)
-{
-sprite_index = spr_player_mask
-ID = other.id
-}
+	hitboxcreate = true
+	with instance_create(x, y, obj_forkhitbox)
+	{
+		sprite_index = spr_player_mask
+		ID = other.id
+	}
 }
 
 if state != states.stun
-birdcreated = false
+	birdcreated = false
 
 //Flash
 if (flash == true && alarm[2] <= 0) {
    alarm[2] = 0.15 * room_speed; // Flashes for 0.8 seconds before turning back to normal
 }
 
-
-scr_scareenemy();
-
 if state != states.grabbed
-depth = 0
-
+	depth = 0
 
 if state != states.stun 
-thrown= false
+	thrown = false
 
-if boundbox = false
+
+if !boundbox
 {
-with instance_create(x,y,obj_baddiecollisionbox)
-{
-sprite_index = other.sprite_index
-mask_index = sprite_index
-baddieID = other.id
-other.boundbox = true
-}
+	with instance_create(x,y,obj_baddiecollisionbox)
+	{
+		sprite_index = other.sprite_index
+		mask_index = sprite_index
+		baddieID = other.id
+		other.boundbox = true
+	}
 }
 

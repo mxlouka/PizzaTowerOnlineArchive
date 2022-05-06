@@ -17,7 +17,7 @@ function scr_player_grind() {
 	}
 
 	//Animations
-	sprite_index = spr_player_grind
+	sprite_index = spr_grind
 	image_speed = 0.35
 
 	//Effects

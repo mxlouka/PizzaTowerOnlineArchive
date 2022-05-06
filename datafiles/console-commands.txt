@@ -32,7 +32,6 @@ This is a guide for the console, which is only usable in offline mode or in debu
 	sleep <miliseconds (number)> - Freezes the game for a set amount of miliseconds
 	repeat <times> <command> - Repeats any command a specific amount of times (very big numbers can crash the game)
 
-	swapfont - Swaps the font from the normal font to font0 to allow more characters (run again to undo)
 	consolesize <size (number)> - Sets the vertical size for the console
 		(minimum is 20, maximum is 540 (fullscreen) and default is 260)
 	consolecolor <R> <G> <B> (0-255 numbers) - Sets the console's color

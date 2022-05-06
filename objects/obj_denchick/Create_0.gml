@@ -13,7 +13,11 @@ if room != rm_denchick
 
 audio_stop_all();
 with all
-	if id != other.id && (object_index != obj_wc or !debug) instance_destroy(id, false);
+{
+	if id != other.id
+	&& (object_index != obj_wc or !debug) && object_index != obj_controller && object_index != obj_roomname
+		instance_destroy(id, false);
+}
 
 alarm[0] = irandom_range(10, 30)
 con = -1

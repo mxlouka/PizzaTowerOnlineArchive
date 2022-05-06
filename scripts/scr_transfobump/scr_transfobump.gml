@@ -28,6 +28,30 @@ function scr_transfobump(_setstate = true)
 		repeat 6 with instance_create(x, y, obj_debris)
 			sprite_index = spr_feather;
 	}
+	else if state == states.boxxedpep
+	{
+		scr_soundeffect(sfx_loseknight)
+		grav = basegrav
+		
+		for(var i = 0; i < 4; i++)
+		{
+			with instance_create(x, y, obj_boxxeddebris)
+				image_index = i;
+		}
+		
+		if _setstate
+		{
+			hsp = -xscale * 4;
+			vsp = -5
+			
+			state = states.bump
+			
+			alarm[5] = 2
+			alarm[7] = 120
+			alarm[8] = 60
+			hurted = true
+		}
+	}
 	else if (state == states.knightpep or state == states.knightpepattack or state == states.knightpepslopes)
 	&& sprite_index != spr_knightpepstart
 	{

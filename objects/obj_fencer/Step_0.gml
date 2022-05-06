@@ -40,6 +40,9 @@ if instance_exists(targetplayer) && !rematchscare
 	    {
 	        state = states.rage
 	        sprite_index = spr_fencer_rage
+			if global.snickrematch
+				sprite_index = spr_fencer_rage_re
+			
 	        if x != targetplayer.x
 	            image_xscale = -sign(x - targetplayer.x)
 			

@@ -26,24 +26,26 @@ if ds_list_find_index(global.baddieroom, id) == -1
 				create_particle(x, y, particles.baddiegibs);
 		}
 		
-		with instance_create(x, y, obj_sausageman_dead)
+		if sprite_exists(spr_dead)
 		{
-			sprite_index = other.spr_dead;
-			if global.gameplay != 0 && other.hsp != 0
-				hsp = clamp(other.hsp, -12, 12);
-			
-			if variable_instance_exists(other, "haspalette") && other.haspalette
+			with instance_create(x, y, obj_sausageman_dead)
 			{
-				haspalette = other.haspalette;
-				spr_palette = other.spr_palette;
+				image_speed = 0;
+				sprite_index = other.spr_dead;
 				
-				if scr_stylecheck(2) && global.stylethreshold >= 3
-					paletteselect = 2;
-				else
+				if global.gameplay != 0 && other.hsp != 0
+					hsp = clamp(other.hsp, -12, 12);
+			
+				if variable_instance_exists(other, "haspalette") && other.haspalette
+				{
+					haspalette = other.haspalette;
+					spr_palette = other.spr_palette;
+				
 					paletteselect = other.paletteselect;
+				}
+				if variable_instance_exists(other, "sugaryenemy")
+					sugary = other.sugaryenemy;
 			}
-			if variable_instance_exists(other, "sugaryenemy")
-				sugary = other.sugaryenemy;
 		}
 		
 		if !important
@@ -91,7 +93,7 @@ if ds_list_find_index(global.baddieroom, id) == -1
 			if !global.snickchallenge
 			{
 				var num = 10;
-				if scr_stylecheck(0, 2)
+				if global.gameplay == 0
 				{
 					if global.combo <= 1
 						num = 10;

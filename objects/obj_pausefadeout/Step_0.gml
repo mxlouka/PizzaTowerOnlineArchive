@@ -51,7 +51,7 @@ if fadealpha >= 1 && !fadein
 		{
 			if object_index != obj_pause && object_index != obj_otherplayer && object_index != obj_gms
 			&& object_index != obj_wc && object_index != obj_onlinemenu && object_index != obj_gmlive
-			&& object_index != obj_inputdisplay && id != other.id
+			&& object_index != obj_inputdisplay && object_index != obj_controller && id != other.id
 			{
 				array_push(obj_pause.objectlist, id);
 				instance_deactivate_object(id);

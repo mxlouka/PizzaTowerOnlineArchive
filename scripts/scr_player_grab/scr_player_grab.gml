@@ -230,7 +230,7 @@ function scr_player_grab()
 		
 		image_index = 0
 		sprite_index = spr_haulingland
-		if move != 0 && character == "P"
+		if abs(hsp) > 0 && character == "P"
 			sprite_index = spr_player_haulingland2
 		
 		//movespeed = 2
