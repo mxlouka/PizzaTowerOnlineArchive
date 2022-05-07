@@ -7,7 +7,7 @@ if global.gameplay != 0
 	    {
 	        image_speed = 0
 	        sprite_index = spr_newpizzice_gibs
-	        image_index = random_range(0, image_number)
+	        image_index = random(image_number)
 	    }
 	}
 }

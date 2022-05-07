@@ -19,11 +19,24 @@ if room == custom_lvl_room
 	}
 }
 
-if thrown && state != states.hit
+// inside a block
+var sold = instance_place(x, y, obj_solid);
+if sold && !inst_relation(sold, obj_slope)
+{
+	if state != states.grabbed && state != states.hit
+	&& !inst_isobj(sold, obj_enemyblock)
+	&& (!inst_relation(sold, obj_destructibles) or !thrown
+	or (inst_relation(sold, obj_onewaybigblock) && sign(image_xscale) == -sign(other.hsp)))
+		instance_destroy();
+}
+
+// break blocks when thrown
+if thrown && state != states.hit && abs(hsp) > 0
 {
 	with obj_destructibles
 	{
 		if place_meeting(x - other.hsp, y, other)
+		&& !(inst_relation(id, obj_onewaybigblock) && sign(image_xscale) == sign(other.hsp))
 		{
 			if scr_stylecheck(2)
 				momentum[0] = other.hsp;
@@ -33,6 +46,8 @@ if thrown && state != states.hit
 	if abs(hsp) < 24 && grav == 0
 		grav = 0.35;
 }
+
+// collide or get grabbed
 if state != states.grabbed
 {
 	clipin = 60;
@@ -41,7 +56,7 @@ if state != states.grabbed
 else if object_index != obj_tankOLD
 	scr_enemy_grabbed();
 
-if invtime > 0
+if invtime > 0 && state != states.hit
 	invtime--;
 
 yscale = Approach(yscale, 1, 0.1);
@@ -53,17 +68,6 @@ if global.gameplay != 0
 		image_speed = 0.35 + (global.baddiespeed * 0.05);
 	if sprite_index == walkspr && hsp != 0 && grounded && floor(image_index) >= image_number - 1 && image_number > 1
 		instance_create(x - image_xscale * 20, y + 43, obj_cloudeffect);
-}
-
-// inside a block
-var sold = instance_place(x, y, obj_solid);
-if sold && !inst_relation(sold, obj_slope)
-{
-	if state != states.grabbed && state != states.hit
-	&& !inst_isobj(sold, obj_enemyblock)
-	&& (!inst_relation(sold, obj_destructibles)
-	or (inst_isobj(sold, obj_onewaybigblock) && sign(sold.image_xscale) == -sign(image_xscale)))
-		instance_destroy();
 }
 
 // provoke

@@ -150,7 +150,7 @@ function scr_player_mach2()
 	}
 	
 	// Climbwall
-	if scr_solidwall(x + hsp, y) && scr_solid(x + hsp, y - 8) && (!place_meeting(x + hsp, y, obj_destructibles) or character == "V") && (scr_slope() or !grounded)
+	if scr_solidwall(x + hsp, y) && scr_solid(x + xscale, y - 5) && scr_solid(x + xscale, y - 10) && (!place_meeting(x + hsp, y, obj_destructibles) or character == "V") && (scr_slope() or !grounded)
 	&& (!grounded or (!scr_solidwall(x, y - 32) or place_meeting(x, y - 32, obj_destructibles)))
 	{
 		if (!key_attack && character != "S") or (character == "S" && move == 0)

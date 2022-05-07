@@ -74,7 +74,7 @@ function scr_player_mach3()
 			crouchslideAnim = true
 
 			//Jump Stop
-			if !key_jump2 && jumpstop = false && vsp < 0.5 
+			if !key_jump2 && !jumpstop && vsp < 0.5 
 			{
 				vsp /= 10
 				jumpstop = true
@@ -181,7 +181,7 @@ function scr_player_mach3()
 			}
 
 			// Climbwall
-			if scr_solidwall(x + hsp, y) && scr_solid(x + hsp, y - 8) && !place_meeting(x + hsp, y, obj_destructibles) && !place_meeting(x + hsp, y, obj_metalblock) && (scr_slope() or !grounded)
+			if scr_solidwall(x + hsp, y) && scr_solid(x + xscale, y - 5) && scr_solid(x + xscale, y - 10) && !place_meeting(x + hsp, y, obj_destructibles) && !place_meeting(x + hsp, y, obj_metalblock) && (scr_slope() or !grounded)
 			{
 				if !grounded or (!scr_solidwall(x, y - 32) or place_meeting(x, y - 32, obj_destructibles))
 				{

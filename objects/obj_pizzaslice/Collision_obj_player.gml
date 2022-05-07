@@ -1,6 +1,6 @@
 if other.state == states.gameover or other.state == states.hitlag exit;
 
-if obj_player1.character == "V" 
+if other.character == "V" 
 	global.playerhealth = clamp(global.playerhealth + 5, 0, 100)
 
 global.collect += 25

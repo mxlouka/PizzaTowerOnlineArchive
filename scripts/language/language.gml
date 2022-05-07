@@ -112,8 +112,8 @@ function lang_load(lang)
 		ds_map_add(global.langmap, "options.other.gameplay.remix", "REMIX");
 		ds_map_add(global.langmap, "options.other.gameplay.final", "NEW");
 		ds_map_add(global.langmap, "options.other.gameplay.old.desc", "Moveset mostly from before the April 2021 Patreon build.");
-		ds_map_add(global.langmap, "options.other.gameplay.final.desc", "Recreation of the final version of the game.");
-		ds_map_add(global.langmap, "options.other.gameplay.remix.desc", "The \"perfect mix\" between the other two gameplay styles. (WIP)");
+		ds_map_add(global.langmap, "options.other.gameplay.final.desc", "Includes stuff from the latest released Patreon build.");
+		ds_map_add(global.langmap, "options.other.gameplay.remix.desc", "Improves upon the NEW gameplay, adding various\nquality of life improvements and features. (WIP)");
 		
 		ds_map_add(global.langmap, "options.other.wavybg.title", "WAVY BACKGROUND");
 		ds_map_add(global.langmap, "options.other.wavybg.desc", "When it's Pizza Time, the background slowly distorts\nand tints red depending on your time left.");

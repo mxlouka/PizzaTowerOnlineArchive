@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_plug",
-    "path": "sprites/spr_plug/spr_plug.yy",
+    "name": "spr_cheesespike",
+    "path": "sprites/spr_cheesespike/spr_cheesespike.yy",
   },
   "solid": false,
   "visible": true,

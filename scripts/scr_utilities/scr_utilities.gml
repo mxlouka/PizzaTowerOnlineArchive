@@ -139,8 +139,6 @@ function scr_hitthrow(baddie, player, lag = 5)
 			hitY = --y;
 			state = states.hit;
 			
-			stuntouchbuffer = lag * 3;
-			
 			hsp = hithsp;
 			vsp = hitvsp;
 						

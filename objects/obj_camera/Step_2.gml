@@ -97,6 +97,33 @@ else
 // camera zoom
 camera_set_view_size(view_camera[0], 960 / zoom, 540 / zoom);
 
+// calculate shaking
+if shake_mag != 0
+or shake_mag_panic != 0
+{
+	var shkh = 0, shkv = 0;
+	
+	if scr_stylecheck(0)
+	{
+		shkh = 0;
+		shkv = irandom_range(-shake_mag, shake_mag);
+	}
+	else
+	{
+		shkh = irandom_range(-shake_mag, shake_mag);
+		shkv = irandom_range(-shake_mag, shake_mag) + irandom_range(-shake_mag, shake_mag);
+		// that's how it is in april build
+	}
+		
+	if shake_mag_panic != 0
+		shkv += irandom_range(-shake_mag_panic, shake_mag_panic);
+}
+else
+{
+	shkh = 0;
+	shkv = 0;
+}
+
 // actual camera
 if instance_exists(player) && player.state != states.timesup && player.state != states.rotate && player.state != states.gameover && room != editor_entrance
 {
@@ -108,33 +135,6 @@ if instance_exists(player) && player.state != states.timesup && player.state != 
 	var cam_height = camera_get_view_height(cam_view);
 	var cam_xprev = camera_get_view_x(cam_view);
 	var cam_yprev = camera_get_view_y(cam_view);
-	
-	// calculate shaking
-	if shake_mag != 0
-	or shake_mag_panic != 0
-	{
-		var shkh = 0, shkv = 0;
-		
-		if scr_stylecheck(0)
-		{
-			shkh = 0;
-			shkv = irandom_range(-shake_mag, shake_mag);
-		}
-		else
-		{
-			shkh = irandom_range(-shake_mag, shake_mag);
-			shkv = irandom_range(-shake_mag, shake_mag) + irandom_range(-shake_mag, shake_mag);
-			// that's how it is in april build
-		}
-		
-		if shake_mag_panic != 0
-			shkv += irandom_range(-shake_mag_panic, shake_mag_panic);
-	}
-	else
-	{
-		shkh = 0;
-		shkv = 0;
-	}
 	
 	// detached golf camera
 	if detach && player.state == states.golf
@@ -314,6 +314,7 @@ if instance_exists(player) && player.state != states.timesup && player.state != 
 		#endregion
 	}
 	
+	// player outside camera
 	if target != player && !WC_oobcam
 	{
 		var _l = camera_get_view_x(cam_view);
@@ -341,6 +342,16 @@ if instance_exists(player) && player.state != states.timesup && player.state != 
 			}
 		}
 	}
+}
+else
+{
+	// don't move camera with any object but support shaking
+	if lastx == -1 && lasty == -1
+	{
+		lastx = _camx;
+		lasty = _camy;
+	}
+	camera_set_view_pos(view_camera[0], lastx + shkh, lasty + shkv);
 }
 
 // update wave

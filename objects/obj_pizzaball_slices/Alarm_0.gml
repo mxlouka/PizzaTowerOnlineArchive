@@ -12,3 +12,4 @@ if count <= 0
 	instance_destroy();
 else
 	alarm[0] = spd;
+

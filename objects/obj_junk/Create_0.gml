@@ -15,4 +15,5 @@ mask_index = spr_player_mask
 depth = -5
 stuntouchbuffer = 0
 clipin = 50
+swordhitbox = false
 

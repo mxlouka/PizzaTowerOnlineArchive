@@ -1,7 +1,7 @@
-if (place_meeting(x+1,y,obj_player1) or place_meeting(x-1,y,obj_player1)) && obj_player1.state = states.cheeseball
-instance_destroy()
+with obj_player
+{
+	if state == states.cheeseball && place_meeting(x + xscale, y, other)
+		instance_destroy(other);
+}
+image_alpha = place_meeting(x, y, obj_otherplayer) ? 0.5 : 1;
 
-if place_meeting(x, y, obj_otherplayer)
-	image_alpha = 0.5;
-else
-	image_alpha = 1;

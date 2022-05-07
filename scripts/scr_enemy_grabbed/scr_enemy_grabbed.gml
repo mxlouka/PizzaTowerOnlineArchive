@@ -211,7 +211,7 @@ function scr_enemy_grabbed()
 			}
 			
 			if (scr_solid(x, y) && object_index == obj_pizzaballOLD)
-			or place_meeting(x - (image_xscale * 32), y, obj_onewaybigblock)
+			or place_meeting(x - (image_xscale * 24), y, obj_onewaybigblock)
 			{
 				x = player.x
 				y = player.y
@@ -255,9 +255,8 @@ function scr_enemy_grabbed()
 			else
 				hp -= 1
 		}
-
-
-		if _state = states._throw 
+		
+		if _state == states._throw 
 		{
 			global.hit += 1
 			if object_index = obj_pizzaballOLD
@@ -266,7 +265,7 @@ function scr_enemy_grabbed()
 			alarm[1] = 5
 
 			thrown = true
-			x =player.x
+			x = player.x
 			y = player.y
 			state = states.stun
 			hsp = -image_xscale * 8

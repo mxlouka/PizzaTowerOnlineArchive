@@ -82,7 +82,7 @@ if global.panic && !(room == custom_lvl_room && global.disableescapemusic)
 		{
 			switch playerobj.character
 			{
-				default: musplay = mu_pizzatime; break;
+				default: musplay = global.gameplay == 0 ? mu_pizzatime_OLD : mu_pizzatime; break;
 				case "N": musplay = mu_noiseescape; break;
 				case "V": musplay = mu_noiseescape_OLD; break;
 				case "S": musplay = mu_snickescape; break;

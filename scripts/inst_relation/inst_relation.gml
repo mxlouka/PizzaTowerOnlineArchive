@@ -9,3 +9,4 @@ function inst_relation(instance, object)
 		return true;
 	return false;
 }
+

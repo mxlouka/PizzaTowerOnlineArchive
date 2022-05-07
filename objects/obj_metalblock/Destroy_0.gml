@@ -10,7 +10,9 @@ if ds_list_find_index(global.saveroom, id) == -1
 		{
 			sprite_index = spr_metaldebris_ss;
 			image_index = random_range(0, 7);
-			//hsp = random_range(-8, 8);
+			
+			if global.gameplay == 0
+				hsp = random_range(-8, 8);
 		}
 		else if other.sprite_index == spr_metalbescape
 			sprite_index = spr_metalblockdebrisescape;

@@ -6,8 +6,6 @@ else if obj_player1.character == "SP"
 	sprite_index = spr_destroyable2big_ss
 else if obj_player1.character == "PP"
 	sprite_index = spr_bigbreakable_PP
-else if !scr_stylecheck(0, 2)
-	sprite_index = spr_bigbreakable_NEW
 
 if string_startswith(room_get_name(room), "strongcold")
 	sprite_index = spr_xmasbigblock

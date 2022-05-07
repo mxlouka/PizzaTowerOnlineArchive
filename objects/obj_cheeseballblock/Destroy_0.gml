@@ -1,15 +1,19 @@
-if  ds_list_find_index(global.saveroom, id) = -1
+if ds_list_find_index(global.saveroom, id) = -1
 {
-with instance_create(x+ 32,y+ 32,obj_metaldebris)
-sprite_index =spr_cheeseballblockdebris
-with instance_create(x+ 32,y+ 32,obj_metaldebris)
-sprite_index =spr_cheeseballblockdebris
-with instance_create(x+ 32,y+ 32,obj_metaldebris)
-sprite_index =spr_cheeseballblockdebris
-with instance_create(x + 32,y+ 32,obj_metaldebris)
-sprite_index =spr_cheeseballblockdebris
-scr_soundeffect(choose(sfx_breakblock1,sfx_breakblock2))
-
-ds_list_add(global.saveroom, id) 
+	repeat 4
+	{
+		with instance_create(x + sprite_width / 2, y + sprite_height / 2, obj_metaldebris)
+			sprite_index = spr_cheeseballblockdebris
+	}
+	
+	with obj_camera
+	{
+	    shake_mag = 20;
+	    shake_mag_acc = 40 / room_speed;
+	}
+	gp_vibration(1, 1, 0.8);
+	
+	scr_soundeffect(sfx_breakmetal)
+	ds_list_add(global.saveroom, id) 
 }
 

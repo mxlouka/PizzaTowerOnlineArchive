@@ -11,8 +11,7 @@ if other.object_index == obj_spitcheesespike or other.object_index == obj_bandit
 		if object_index == obj_robotknife
 		{
 			image_xscale *= -1;
-			if scr_stylecheck(2)
-				parry = true;
+			parry = true;
 		}
     }
 }

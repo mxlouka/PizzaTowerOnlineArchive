@@ -51,3 +51,4 @@ global.snickchallenge = false;
 global.snickrematch = false;
 
 room_speed = 60;
+

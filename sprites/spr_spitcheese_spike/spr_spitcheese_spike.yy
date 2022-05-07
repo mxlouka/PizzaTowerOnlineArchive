@@ -67,7 +67,7 @@
     "eventStubScript": null,
     "parent": {"name":"spr_spitcheese_spike","path":"sprites/spr_spitcheese_spike/spr_spitcheese_spike.yy",},
     "resourceVersion": "1.4",
-    "name": "",
+    "name": "spr_spitcheese_spike",
     "tags": [],
     "resourceType": "GMSequence",
   },

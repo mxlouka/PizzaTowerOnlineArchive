@@ -1,9 +1,6 @@
 {
-  "ConfigValues": {
-    "debug": {"audioGroupId":"{\"name\":\"audiogroup_default\",\"path\":\"audiogroups/audiogroup_default\"}",},
-  },
   "conversionMode": 0,
-  "compression": 0,
+  "compression": 1,
   "volume": 1.0,
   "preload": false,
   "bitRate": 128,
@@ -14,8 +11,8 @@
     "name": "audiogroup_default",
     "path": "audiogroups/audiogroup_default",
   },
-  "soundFile": "mu_pizzatime",
-  "duration": 231.672,
+  "soundFile": "mu_pizzatime.ogg",
+  "duration": 228.620178,
   "parent": {
     "name": "music",
     "path": "folders/Sounds/music.yy",

@@ -285,34 +285,39 @@ if grounded && !g && sprite_index == spr_punchball
 if place_meeting(x, y, obj_boilingsauce)
 	depth = 106;
 
-if place_meeting(x,y,obj_swordhitbox) && thrown == false && stuntouchbuffer <= 0
+if !place_meeting(x, y, obj_swordhitbox)
+	swordhitbox = false
+
+if place_meeting(x, y, obj_swordhitbox) && !swordhitbox && stuntouchbuffer <= 0
 && !(object_index == obj_tombstone && unpickable)
 {
+	swordhitbox = true
 	grabbed = false
 	thrown = true
 	
 	repeat 6
-		instance_create(x,y,obj_slapstar)
-	with (obj_camera) {
-
-	    shake_mag=3;
-	    shake_mag_acc=3/room_speed;
+		instance_create(x, y, obj_slapstar)
+	with obj_camera
+	{
+	    shake_mag = 3;
+	    shake_mag_acc = 3 / room_speed;
 	}
 
-	if scr_solid(x,y)
+	if scr_solid(x, y)
 	{
 		x = playerid.x
 		y = playerid.y
 	}
-
+	
 	grav = 0.5
-
+	
 	other.alarm[8] = 60
 	other.alarm[7] = 120
+	
 	with playerid
 	{
 		move = key_right + key_left
-		if sprite_index = spr_uppercutfinishingblow
+		if sprite_index == spr_uppercutfinishingblow
 			other.vsp = -25
 		else
 		{
@@ -323,4 +328,4 @@ if place_meeting(x,y,obj_swordhitbox) && thrown == false && stuntouchbuffer <= 0
 }
 
 if stuntouchbuffer > 0
-	stuntouchbuffer --
+	stuntouchbuffer--

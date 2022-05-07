@@ -1,5 +1,5 @@
 event_inherited()
-image_speed = 0.4
+image_speed = 0.35
 
 switch obj_player1.character
 {
@@ -10,3 +10,4 @@ switch obj_player1.character
 		sprite_index = spr_breakabletvS;
 		break;
 }
+

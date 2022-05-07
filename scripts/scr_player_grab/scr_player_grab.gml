@@ -158,7 +158,7 @@ function scr_player_grab()
 			ladderbuffer --
 		
 		//Hit head
-		if scr_solid(x,y-1) && jumpstop = false && jumpAnim = true
+		if scr_solid(x, y - 1) && !jumpstop && jumpAnim
 		{
 			vsp = grav
 			jumpstop = true
@@ -195,12 +195,12 @@ function scr_player_grab()
 		input_buffer_jump = 0
 
 	//Input jumping
-	if (grounded && (input_buffer_jump < 8) && !key_down && !key_attack && vsp > 0 ) && sprite_index != spr_swingding
+	if (grounded && input_buffer_jump < 8 && !key_down && !key_attack && vsp > 0 ) && sprite_index != spr_swingding
 	{
 		scr_soundeffect(sfx_jump)
 		sprite_index = spr_haulingjump
-		instance_create(x,y,obj_highjumpcloud2)
-		if heavy = false
+		instance_create(x, y, obj_highjumpcloud2)
+		if !heavy
 			vsp = -11
 		else
 			vsp = -6
@@ -209,17 +209,20 @@ function scr_player_grab()
 
 	//Animations
 	//Walk
-	if grounded && move != 0 && sprite_index = spr_haulingidle && baddiegrabbedID.object_index != obj_pizzaballOLD
+	if grounded && move != 0 && sprite_index == spr_haulingidle && baddiegrabbedID.object_index != obj_pizzaballOLD
+	{
 		sprite_index = spr_haulingwalk
-	else if grounded && move = 0 && sprite_index = spr_haulingwalk
+		image_index = 0
+	}
+	else if grounded && move == 0 && sprite_index == spr_haulingwalk
 		sprite_index = spr_haulingidle
-
-	if (sprite_index = spr_haulingstart && floor(image_index) = image_number - 1) 
+	
+	if sprite_index = spr_haulingstart && floor(image_index) >= image_number - 1
 		sprite_index = spr_haulingidle
-
+	
 	//Fall
-	if (sprite_index = spr_haulingjump && floor(image_index) = image_number - 1) 
-	or (!grounded && (sprite_index = spr_haulingwalk or sprite_index = spr_haulingidle))
+	if (sprite_index == spr_haulingjump && floor(image_index) >= image_number - 1)
+	or (!grounded && (sprite_index == spr_haulingwalk or sprite_index == spr_haulingidle))
 		sprite_index = spr_haulingfall
 	
 	//Land
@@ -230,13 +233,21 @@ function scr_player_grab()
 		
 		image_index = 0
 		sprite_index = spr_haulingland
-		if abs(hsp) > 0 && character == "P"
-			sprite_index = spr_player_haulingland2
+		if abs(hsp) > 0
+			sprite_index = spr_haulingland2
 		
-		//movespeed = 2
+		if global.gameplay == 0
+			movespeed = 2
 	}
-
-	if (sprite_index == spr_haulingland or sprite_index == spr_player_haulingland2) && floor(image_index) >= image_number - 1
+	if spr_haulingland2 != spr_haulingland
+	{
+		if sprite_index == spr_haulingland2 && hsp == 0
+			sprite_index = spr_haulingland;
+		if sprite_index == spr_haulingland && abs(hsp) > 0
+			sprite_index = spr_haulingland2;
+	}
+	
+	if (sprite_index == spr_haulingland or sprite_index == spr_haulingland2) && floor(image_index) >= image_number - 1
 		sprite_index = spr_haulingidle
 	
 	//Swing Ding

@@ -13,13 +13,6 @@ function scr_enemy_hit()
 	    vsp = hitvsp;
 	    hsp = hithsp;
 		
-		/*
-	    global.hit += 1;
-	    if other.object_index == obj_pizzaball
-	    or other.object_index == obj_pizzaballOLD
-	        global.golfhit += 1;
-		*/
-		
 	    global.combotime = 60;
 	    global.heattime = 60;
 	    alarm[1] = 5;
@@ -30,3 +23,4 @@ function scr_enemy_hit()
 	        instance_destroy();
 	}
 }
+
