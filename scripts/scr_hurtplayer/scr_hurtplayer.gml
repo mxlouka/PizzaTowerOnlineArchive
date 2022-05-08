@@ -94,10 +94,10 @@ function scr_hurtplayer(argument0 = obj_player, loseamount = 50)
 		}
 
 		//Pizza Shield
-		else if pizzashield = true
+		else if pizzashield
 		{
 			pizzashield = false
-			with instance_create(x,y,obj_sausageman_dead)
+			with instance_create(x, y, obj_sausageman_dead)
 				sprite_index = spr_pizzashield_collectible
 			hsp = -xscale * 4
 			vsp = -5
@@ -109,9 +109,7 @@ function scr_hurtplayer(argument0 = obj_player, loseamount = 50)
 			hurted = true
 			scr_soundeffect(sfx_pephurt)
 		}
-    
-    
-    
+		
 		//Hurt
 		else if state != states.grabbed && !cutscene && invhurt_buffer <= 0
 		&& ((state != states.hurt && !hurted)/* or global.gameplay != 0*/)

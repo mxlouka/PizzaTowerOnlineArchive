@@ -65,6 +65,7 @@
         {"properties":[],"isDnd":false,"objectId":{"name":"obj_collect","path":"objects/obj_collect/obj_collect.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":672.0,"y":1056.0,"resourceVersion":"1.0","name":"inst_1D6F8E48","tags":[],"resourceType":"GMRInstance",},
         {"properties":[],"isDnd":false,"objectId":{"name":"obj_baddiespawner","path":"objects/obj_baddiespawner/obj_baddiespawner.yy",},"inheritCode":false,"hasCreationCode":true,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":256.0,"y":1024.0,"resourceVersion":"1.0","name":"inst_748302D8","tags":[],"resourceType":"GMRInstance",},
         {"properties":[],"isDnd":false,"objectId":{"name":"obj_baddiespawner","path":"objects/obj_baddiespawner/obj_baddiespawner.yy",},"inheritCode":false,"hasCreationCode":true,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":1184.0,"y":832.0,"resourceVersion":"1.0","name":"inst_6E6168B6","tags":[],"resourceType":"GMRInstance",},
+        {"properties":[],"isDnd":false,"objectId":{"name":"obj_vigidelete","path":"objects/obj_vigidelete/obj_vigidelete.yy",},"inheritCode":false,"hasCreationCode":true,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":608.0,"y":384.0,"resourceVersion":"1.0","name":"inst_375D12A6","tags":[],"resourceType":"GMRInstance",},
       ],"visible":true,"depth":0,"userdefinedDepth":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"gridX":32,"gridY":32,"layers":[],"hierarchyFrozen":false,"effectEnabled":true,"effectType":null,"properties":[],"resourceVersion":"1.0","name":"Instances_1","tags":[],"resourceType":"GMRInstanceLayer",},
     {"tilesetId":{"name":"tileset_secret","path":"tilesets/tileset_secret/tileset_secret.yy",},"x":0,"y":0,"tiles":{"SerialiseWidth":50,"SerialiseHeight":44,"TileSerialiseData":[
 59,59,59,59,59,59,59,59,59,59,59,59,59,59,59,59,59,59,59,59,59,59,59,59,59,59,59,59,59,59,59,59,59,59,59,59,59,59,59,59,59,59,59,59,59,59,59,59,59,59,
@@ -169,6 +170,7 @@
     {"name":"inst_1D6F8E48","path":"rooms/beach_secret6/beach_secret6.yy",},
     {"name":"inst_748302D8","path":"rooms/beach_secret6/beach_secret6.yy",},
     {"name":"inst_6E6168B6","path":"rooms/beach_secret6/beach_secret6.yy",},
+    {"name":"inst_375D12A6","path":"rooms/beach_secret6/beach_secret6.yy",},
   ],
   "inheritCreationOrder": false,
   "sequenceId": null,

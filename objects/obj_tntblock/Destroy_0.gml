@@ -2,15 +2,12 @@ if ds_list_find_index(global.saveroom, ID) == -1
 {
 	instance_create(x + sprite_width / 2, y + sprite_height / 2, obj_playerexplosion);
 	
-	with instance_place(x + 1, y, obj_rockblock)
-		alarm[1] = 8;
-	with instance_place(x - 1, y, obj_rockblock)
-		alarm[1] = 8;
-	with instance_place(x, y + 1, obj_rockblock)
-		alarm[1] = 8;
-	with instance_place(x, y - 1, obj_rockblock)
-		alarm[1] = 8;
-
+	with obj_rockblock
+	{
+		if point_distance(x + sprite_width / 2, y + sprite_height / 2, other.x + other.sprite_width / 2, other.y + other.sprite_height / 2) <= sprite_width
+			alarm[1] = 2;
+	}
+	
 	repeat 6
 	with instance_create(x + sprite_width / 2, y + sprite_height / 2, obj_tntblockdebris)
 		momentum = other.momentum;

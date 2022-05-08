@@ -15,9 +15,12 @@ function scr_playerreset()
 	}
 	
 	// modifiers
+	global.failedmod = false;
 	global.toppings = 0;
 	
 	// other shit
+	global.spaceblockswitch = true
+	global.pizzacoin = global.pizzacoinstart
 	global.bullet = 3;
 	global.mort = false;
 	global.stylethreshold = 0;
@@ -32,37 +35,12 @@ function scr_playerreset()
     global.failcutscene = false;
     global.pizzadelivery = false;
 	
-	global.checkpointDoor = "A"
-	global.checkpointroom = hub_room1
-	global.checkpointCollect = 0
-	global.checkpointCollectN = 0
-	global.hp = 8
-	global.checkpoint_hp = 0
-	global.checkpoint_shroomfollow = false
-	global.checkpoint_cheesefollow = false
-	global.checkpoint_tomatofollow = false
-	global.checkpoint_pineapplefollow = false
-	global.checkpoint_sausagefollow = false
-	global.checkpoint_key_inv = false
-	global.checkpoint_pizzasdelivered = 0
-	global.checkpoint_gnomecheck0 = false
-	global.checkpoint_gnomecheck1 = false
-	global.checkpoint_gnomecheck2 = false
-	global.checkpoint_gnomecheck3 = false
-	global.checkpoint_gnomecheck4 = false
-	global.checkpoint_pizzacoin = global.pizzacoinstart
-	
 	global.raceid = 0;
 	global.golfhit = 0;
 	global.funmode = false;
 	
 	global.minutes = 2;
 	global.seconds = 59;
-	
-	if ds_exists(global.old_baddieroom, ds_type_list)
-		ds_list_clear(global.old_baddieroom)
-	if ds_exists(global.old_saveroom, ds_type_list)
-		ds_list_clear(global.old_saveroom)
 	
 	global.timeractive = false
 	global.wave = 0
@@ -166,6 +144,7 @@ function scr_playerreset()
 		image_blend = c_white;
 		canfall = true;
 		
+		supercharge = 0
 		supercharged = false
 		pizzapepper = 0
 		pizzashield = false
@@ -261,31 +240,9 @@ function scr_playerreset()
 		global.treasure = false
 		global.combo = 0
 		global.combotime = 0
-		global.pizzacoin = global.pizzacoinstart
 		global.toppintotal = 1
 		global.hit = 0
-
-
-		ini_open("saveData.ini");
-		// SAGE2019 achievements
-		global.SAGEshotgunsnick = ini_read_string("SAGE2019","shotgunsnick",false);
-		global.SAGEshotgunsnicknumber = 0
-
-		global.SAGEdungeonbackup = ini_read_string("SAGE2019","dungeonbackup",false);
-		global.SAGEsrank = ini_read_string("SAGE2019","srank",false);
-		global.SAGEsnicksrank = ini_read_string("SAGE2019","snicksrank",false);
-		global.SAGEcombo10 = ini_read_string("SAGE2019","combo10",false);
-		global.SAGEsecret = ini_read_string("SAGE2019","secret",false);
-
-		global.SAGEknight = ini_read_string("SAGE2019","knight",false);
-		global.SAGEknighttaken = false
- 
-		global.SAGEtoppin = ini_read_string("SAGE2019","toppin",false);
-		global.SAGEtreasure = ini_read_string("SAGE2019","treasure",false);
-		ini_close()
-
-
-
+		
 		in_water = false
 		key_particles = false
 		barrel = false
@@ -310,30 +267,28 @@ function scr_playerreset()
 		dashdust = false
 		throwforce = 0
 		hurtsound = false
-
+		
 		idleanim = 0
 		momentum = false
 		cutscene = false
 		grabbing = false
 		dir = xscale
-
-
-
+		
 		goingdownslope = false
 		goingupslope = false
 		fallinganimation = 0
 		bombpeptimer = 100
 		slapbuffer = 0
-		slaphand= 1
-
+		slaphand = 1
+		
 		suplexmove = false
 		suplexhavetomash = 0
-
+		
 		timeuntilhpback = 300
-
+		
 		anger = 0
 		angry = false
-
+		
 		springsjump = false;
 		keydoor = false;
 		sprgot = -1;
@@ -346,3 +301,4 @@ function scr_playerreset()
 		konami = "";
 	}
 }
+

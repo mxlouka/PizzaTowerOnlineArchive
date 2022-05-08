@@ -3,8 +3,6 @@ function scr_player_knightpep()
 	alarm[5] = 2
 	alarm[7] = 60
 	
-	global.SAGEknighttaken = true
-
 	//Movement
 	if (sprite_index = spr_knightpepwalk or sprite_index = spr_knightpepjump or sprite_index = spr_knightpepfall or sprite_index = spr_knightpepidle or (sprite_index == spr_knightpepland && global.gameplay != 0))
 	{

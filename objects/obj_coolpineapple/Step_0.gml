@@ -34,12 +34,15 @@ if inv_timer > 0
     {
         var player_inst = instance_place(x, y, obj_player1)
         var player_state = player_inst.state
+		
         if player_inst.instakillmove or player_state == states.handstandjump
         {
             scr_hurtplayer(player_inst)
+			
             var abs_hsp = abs(player_inst.hsp)
             if player_inst.x != x
                 player_inst.hsp = sign(x - player_inst.x) * abs_hsp
+			
             if state != states.parry
             {
                 sprite_index = parryspr
@@ -51,7 +54,7 @@ if inv_timer > 0
     }
 }
 else
-    invincible = 0
+    invincible = false
 
 if state == states.walk
 {
@@ -59,7 +62,7 @@ if state == states.walk
     if cooldown_count > 0
     {
         cooldown_count--
-        if (instance_exists(taunteffect_inst) && (taunteffect_inst.object_index == obj_baddietaunteffect))
+        if instance_exists(taunteffect_inst) && taunteffect_inst.object_index == obj_baddietaunteffect
         {
             instance_destroy(taunteffect_inst)
             taunteffect_inst = noone
@@ -68,6 +71,12 @@ if state == states.walk
     else
     {
 		cooldown_count = cooldown_max
+		
+		taunt_count = taunt_max
+	    taunt_storedstate = state
+	    taunt_storedmovespeed = movespeed
+	    taunt_storedhsp = hsp
+		
 		if global.stylethreshold < 3
         {
 			if point_in_camera(x, y, view_camera[0])
@@ -78,10 +87,6 @@ if state == states.walk
 	        sprite_index = spr_coolpinea_taunt
 	        image_speed = 0
 	        image_index = choose(0, 1, 2)
-	        taunt_count = taunt_max
-	        taunt_storedstate = state
-	        taunt_storedmovespeed = movespeed
-	        taunt_storedhsp = hsp
 	        state = states.backbreaker
 	        hsp = 0
 	        vsp = 0
@@ -110,8 +115,8 @@ switch state
 	case states.backbreaker:
 		image_speed = 0
 	    inv_timer = inv_max
-	    invincible = 1
-	    killbyenemy = 0
+	    invincible = true
+	    killbyenemy = false
 	    hsp = 0
 	    vsp = 0
 	
@@ -120,8 +125,8 @@ switch state
 	    else
 	    {
 	        sprite_index = walkspr
-	        invincible = 0
-	        killbyenemy = 1
+	        invincible = false
+	        killbyenemy = true
 	        grav = taunt_storedgrav
 	        state = taunt_storedstate
 	        hsp = taunt_storedhsp
@@ -158,8 +163,8 @@ switch state
 	    }
 	
 	    inv_timer = inv_max
-	    invincible = 1
-	    killbyenemy = 0
+	    invincible = true
+	    killbyenemy = false
 	
 	    if movespeed > 0
 	        movespeed -= 0.5
@@ -167,11 +172,11 @@ switch state
 	        movespeed = 0
 	    hsp = movespeed * -image_xscale
 	
-	    if image_index > image_number - 1
+	    if image_index >= image_number - 1
 	    {
 	        sprite_index = walkspr
-	        invincible = 0
-	        killbyenemy = 1
+	        invincible = false
+	        killbyenemy = true
 	        grav = taunt_storedgrav
 	        state = taunt_storedstate
 	        hsp = taunt_storedhsp
@@ -209,8 +214,8 @@ switch state
             }
 			
             inv_timer = inv_max
-            invincible = 1
-            killbyenemy = 0
+            invincible = true
+            killbyenemy = false
 			
             if trail_count > 0
                 trail_count--

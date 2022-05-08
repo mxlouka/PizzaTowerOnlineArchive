@@ -1,0 +1,3 @@
+character = "";
+invert = false;
+

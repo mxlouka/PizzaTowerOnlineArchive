@@ -8,7 +8,7 @@ if ds_list_find_index(global.saveroom, id) == -1
 	{
 		if point_distance(x + sprite_width / 2, y + sprite_height / 2, other.x + other.sprite_width / 2, other.y + other.sprite_height / 2) <= sprite_width
 		&& id != other.id
-			alarm[1] = 8;
+			alarm[1] = 2;
 	}
 	
 	repeat 7

@@ -1,6 +1,6 @@
 function scr_enemy_idle() 
 {
-	if vsp > 1 && (grounded or (grounded && !place_meeting(x, y, obj_platform)))
+	if vsp > 1 && grounded
 	{
 		instance_create(x, y, obj_landcloud)
 		image_index = 0

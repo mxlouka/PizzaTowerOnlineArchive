@@ -24,7 +24,7 @@ switch room
 	
 	case etb_1: global.srank = 7000; break;
 	case grinch_1: global.srank = 7000; break;
-	case ancient_1: global.srank = 12900; break;
+	case ancient_1: global.srank = 12800; break;
 	case sanctum_1: global.srank = 19800; break;
 	case cotton_1: global.srank = 12400; break;
 }
@@ -88,7 +88,7 @@ for (var i = 0; i < array_length(layers); i++;)
 }
 
 // handle unfinished rooms
-if string_startswith(room_get_name(room), "sanctum_")
+if string_startswith(room_get_name(room), "sanctum_") or string_startswith(room_get_name(room), "space_")
 {
 	// detects if there's any "Tiles_" layers in the room.
 	var hastiles = false;

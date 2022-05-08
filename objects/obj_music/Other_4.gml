@@ -231,11 +231,13 @@ else if (!global.panic or string_letters(roomname) == "dragonlair" or string_let
 	}
 	
 	if string_letters(roomname) == "war" 
+		musplay = mu_warintro
+	
+	if string_letters(roomname) == "space"
 	{
-		if instance_exists(obj_hungrypillar)
-			musplay = mu_warintro
-		else
-			musplay = mu_war
+		musplay = mu_space
+		if global.gameplay == 1
+			musplay = mu_pinball
 	}
 	
 	if sugaryspire
@@ -348,7 +350,7 @@ else if (!global.panic or string_letters(roomname) == "dragonlair" or string_let
 			}
 		}
 	}
-
+	
 	// secrets
 	if string_letters(roomname) == "entrancesecret"
 	{
@@ -393,12 +395,19 @@ else if (!global.panic or string_letters(roomname) == "dragonlair" or string_let
 		musplay = mu_farmsecret
 	if string_letters(roomname) == "ufosecret" 
 		musplay = mu_pinballsecret
-	if string_letters(roomname) == "kungfusecret" 
-		musplay = mu_kungfusecret
 	if string_letters(roomname) == "forestsecret"
 		musplay = mu_forestsecret
 	if string_letters(roomname) == "beachsecret"
 		musplay = mu_beachsecret
+	if string_letters(roomname) == "kungfusecret" 
+		musplay = mu_kungfusecret
+	if string_letters(roomname) == "spacesecret"
+	{
+		musplay = mu_spacesecret
+		if global.gameplay == 1
+			musplay = mu_pinballsecret
+	}
+	
 	if string_letters(roomname) == "cottonsecret"
 		musplay = mu_cottonsecret
 	if string_letters(roomname) == "jawbreakersecret"

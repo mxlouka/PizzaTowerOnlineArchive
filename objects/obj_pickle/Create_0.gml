@@ -14,6 +14,10 @@ pos = 0;
 attack_offset = 16;
 ground_check = 128;
 attacking = false;
+cloneid = noone;
+
+if global.gameplay != 0
+	threshold_x = 200;
 
 grav = 0.5;
 hsp = 0;
@@ -41,7 +45,7 @@ stunfallspr = spr_pickle_stun
 walkspr =spr_pickle_walk
 stunspr = spr_pickle_stun
 grabbedspr = spr_pickle_stun
-scaredspr = spr_pickle_stun
+scaredspr = spr_pickle_scared
 image_xscale = -1
 flash = false
 slapped = false

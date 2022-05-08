@@ -24,7 +24,18 @@ if global.gameplay == 0
 	{
 		var _state = obj_player.state;
 		if _state == states.backbreaker
-			_state = obj_player.storedstate;
+		{
+			with obj_teleporter
+			{
+				if alarm[0] > -1 or alarm[1] > -1
+					_state = storedstate;
+			}
+			with obj_warplaser
+			{
+				if alarm[0] > -1 or alarm[1] > -1
+					_state = storedstate;
+			}
+		}
 		if _state == states.hitlag
 			_state = obj_player.tauntstoredstate;
 		
@@ -47,11 +58,11 @@ if global.gameplay == 0
 
 		if obj_player.character == "P"
 		{
-			if obj_player.sprite_index = spr_knightpep_thunder
+			if obj_player.sprite_index == spr_knightpep_thunder
 				hudface = spr_pepinoHUDthunder
-			else if obj_player.sprite_index != spr_knightpep_start && (_state = states.knightpep or _state = states.knightpepslopes)
+			else if obj_player.sprite_index != spr_knightpep_start && (_state == states.knightpep or _state == states.knightpepslopes)
 				hudface = spr_pepinoHUDknight
-			else if obj_player.sprite_index = spr_bombpep_end
+			else if obj_player.sprite_index == spr_bombpep_end
 				hudface = spr_pepinoHUDbombend
 			else if instance_exists(obj_itspizzatime)  or obj_player.sprite_index = spr_bombpep_intro or obj_player.sprite_index = spr_bombpep_runabouttoexplode or obj_player.sprite_index = spr_bombpep_run or obj_player.sprite_index = spr_player_fireass
 				hudface = spr_pepinoHUDscream

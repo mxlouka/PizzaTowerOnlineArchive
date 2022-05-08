@@ -274,11 +274,19 @@ function scr_player_grab()
 		}
 	}
 	
+	// tackle charge in remix
+	if key_shoot2 && scr_stylecheck(2)
+	{
+		state = states.tacklecharge
+		sprite_index = spr_charge
+		scr_soundeffect(sfx_suplexdash)
+	}
+	
 	if key_attack && sprite_index != spr_swingding
 	{
 		if global.gameplay == 0
 		{
-			state = states.tacklecharge	
+			state = states.tacklecharge
 			sprite_index = spr_charge
 			scr_soundeffect(sfx_suplexdash)
 		}

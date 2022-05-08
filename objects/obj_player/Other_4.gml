@@ -54,12 +54,6 @@ if !oldhallway
 	if verticalhallway
 		y += vhallwaydirection * 50;
 	
-	if targetDoor = "CH" && instance_exists(obj_checkpoint)
-	{
-		x = obj_checkpoint.x;
-		y = obj_checkpoint.y - 46;
-	}
-	
 	if is_real(targetDoor)
 	{
 		if !audio_is_playing(global.music)

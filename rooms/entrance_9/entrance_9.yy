@@ -166,7 +166,6 @@
         {"properties":[],"isDnd":false,"objectId":{"name":"obj_pizzaboxunopen","path":"objects/obj_pizzaboxunopen/obj_pizzaboxunopen.yy",},"inheritCode":false,"hasCreationCode":true,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":1504.0,"y":416.0,"resourceVersion":"1.0","name":"inst_67CB88A6","tags":[],"resourceType":"GMRInstance",},
         {"properties":[],"isDnd":false,"objectId":{"name":"obj_lampost","path":"objects/obj_lampost/obj_lampost.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":1627.0,"y":436.0,"resourceVersion":"1.0","name":"inst_1D7D2B71","tags":[],"resourceType":"GMRInstance",},
         {"properties":[],"isDnd":false,"objectId":{"name":"obj_lampost","path":"objects/obj_lampost/obj_lampost.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":1154.0,"y":436.0,"resourceVersion":"1.0","name":"inst_E55F136","tags":[],"resourceType":"GMRInstance",},
-        {"properties":[],"isDnd":false,"objectId":{"name":"obj_checkpoint","path":"objects/obj_checkpoint/obj_checkpoint.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":2272.0,"y":448.0,"resourceVersion":"1.0","name":"inst_40A54566","tags":[],"resourceType":"GMRInstance",},
       ],"visible":true,"depth":0,"userdefinedDepth":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"gridX":32,"gridY":32,"layers":[],"hierarchyFrozen":false,"effectEnabled":true,"effectType":null,"properties":[],"resourceVersion":"1.0","name":"Instances_1","tags":[],"resourceType":"GMRInstanceLayer",},
     {"tilesetId":{"name":"tileset_entrance","path":"tilesets/tileset_entrance/tileset_entrance.yy",},"x":0,"y":0,"tiles":{"SerialiseWidth":78,"SerialiseHeight":38,"TileSerialiseData":[
 87,87,87,87,87,87,87,87,87,87,87,87,87,87,87,87,87,87,87,87,87,87,87,87,87,87,87,87,87,87,87,87,87,87,87,87,87,87,87,87,87,87,87,87,87,87,87,87,87,87,87,87,87,87,87,87,87,87,87,87,87,87,87,87,87,87,87,87,87,87,87,87,87,87,87,87,87,87,
@@ -358,7 +357,6 @@
     {"name":"inst_67CB88A6","path":"rooms/entrance_9/entrance_9.yy",},
     {"name":"inst_1D7D2B71","path":"rooms/entrance_9/entrance_9.yy",},
     {"name":"inst_E55F136","path":"rooms/entrance_9/entrance_9.yy",},
-    {"name":"inst_40A54566","path":"rooms/entrance_9/entrance_9.yy",},
     {"name":"inst_67397620","path":"rooms/entrance_9/entrance_9.yy",},
     {"name":"inst_5FD837DB","path":"rooms/entrance_9/entrance_9.yy",},
     {"name":"inst_45F89AA4","path":"rooms/entrance_9/entrance_9.yy",},

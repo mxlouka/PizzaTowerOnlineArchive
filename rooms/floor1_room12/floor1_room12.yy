@@ -87,7 +87,6 @@
         {"properties":[],"isDnd":false,"objectId":{"name":"obj_solid","path":"objects/obj_solid/obj_solid.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":11.0,"scaleY":3.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":2080.0,"y":832.0,"resourceVersion":"1.0","name":"inst_3BD1E72","tags":[],"resourceType":"GMRInstance",},
         {"properties":[],"isDnd":false,"objectId":{"name":"obj_solid","path":"objects/obj_solid/obj_solid.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":6.0,"scaleY":3.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":2240.0,"y":768.0,"resourceVersion":"1.0","name":"inst_58D5C5CC","tags":[],"resourceType":"GMRInstance",},
         {"properties":[],"isDnd":false,"objectId":{"name":"obj_freemilk","path":"objects/obj_freemilk/obj_freemilk.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":2156.0,"y":776.0,"resourceVersion":"1.0","name":"inst_22785F45","tags":[],"resourceType":"GMRInstance",},
-        {"properties":[],"isDnd":false,"objectId":{"name":"obj_checkpoint","path":"objects/obj_checkpoint/obj_checkpoint.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":576.0,"y":416.0,"resourceVersion":"1.0","name":"inst_3D31E84D","tags":[],"resourceType":"GMRInstance",},
       ],"visible":true,"depth":0,"userdefinedDepth":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"gridX":32,"gridY":32,"layers":[],"hierarchyFrozen":false,"effectEnabled":true,"effectType":null,"properties":[],"resourceVersion":"1.0","name":"Instances_1","tags":[],"resourceType":"GMRInstanceLayer",},
     {"tilesetId":{"name":"tile_ufo_tileset","path":"tilesets/tile_ufo_tileset/tile_ufo_tileset.yy",},"x":0,"y":0,"tiles":{"SerialiseWidth":79,"SerialiseHeight":32,"TileSerialiseData":[
 48,49,48,49,48,49,48,49,48,49,48,49,76,65,65,78,48,49,48,49,48,49,48,49,48,49,48,49,48,49,48,49,48,49,48,49,48,49,48,49,48,49,48,49,48,49,48,49,48,49,48,49,48,49,48,49,48,49,48,49,48,49,48,49,48,49,48,49,48,49,48,49,48,49,48,49,48,49,48,
@@ -202,7 +201,6 @@
     {"name":"inst_3BD1E72","path":"rooms/floor1_room12/floor1_room12.yy",},
     {"name":"inst_58D5C5CC","path":"rooms/floor1_room12/floor1_room12.yy",},
     {"name":"inst_22785F45","path":"rooms/floor1_room12/floor1_room12.yy",},
-    {"name":"inst_3D31E84D","path":"rooms/floor1_room12/floor1_room12.yy",},
   ],
   "inheritCreationOrder": false,
   "sequenceId": null,

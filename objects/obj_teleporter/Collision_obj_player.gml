@@ -14,12 +14,14 @@ if start
 		storedimageindex = player.image_index
 		storedspriteindex = player.sprite_index
 		storedfreefallsmash = player.freefallsmash
-		repeat 8 with instance_create(x+random_range(50,-50),y+random_range(50,-50),obj_cloudeffect)
+		
+		repeat 8 with instance_create(x + random_range(50, -50), y + random_range(50, -50), obj_cloudeffect)
 		{
 			sprite_index = spr_teleporteffect
 			if check_online()
 				gms_instance_sync(id, is_onetime | isc_local);
 		}
+		
 		alarm[0] = 25
 		player.hsp = 0
 		player.vsp = 0

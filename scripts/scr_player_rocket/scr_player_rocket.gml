@@ -32,13 +32,16 @@ function scr_player_rocket()
     if movespeed < 24 && move == xscale
     {
         movespeed += 0.1
-        if !instance_exists(crazyruneffectid) && grounded
+        if !instance_exists(crazyruneffectid) && grounded && sprite_index != spr_rocketstart
         {
-            with instance_create(x, y, obj_crazyruneffect)
-            {
-                playerid = other.object_index
-                other.crazyruneffectid = id
-            }
+			if movespeed > 12
+			{
+	            with instance_create(x, y, obj_crazyruneffect)
+	            {
+	                playerid = other.object_index
+	                other.crazyruneffectid = id
+	            }
+			}
             if sprite_index == spr_crazyrun
             {
                 with instance_create(x, y, obj_dashcloud)
@@ -67,9 +70,8 @@ function scr_player_rocket()
 	
     if scr_solid(x + sign(hsp), y)
 	&& (!place_meeting(x + sign(hsp), y, obj_slope) or place_meeting(x + sign(hsp), y, obj_solid))
-	&& !place_meeting((x + sign(hsp)), y, obj_metalblock)
-	&& character != "V" && !place_meeting(x + sign(hsp), y, obj_destructibles)
-	&& character != "V" && !place_meeting(x + sign(hsp), y, obj_hungrypillar)
+	&& (!place_meeting(x + sign(hsp), y, obj_metalblock) or character == "V")
+	&& (!place_meeting(x + sign(hsp), y, obj_destructibles) or character == "V")
     {
         pizzapepper = false
         sprite_index = spr_rockethitwall
@@ -133,3 +135,4 @@ function scr_player_rocket()
     else
         image_speed = 0.4
 }
+

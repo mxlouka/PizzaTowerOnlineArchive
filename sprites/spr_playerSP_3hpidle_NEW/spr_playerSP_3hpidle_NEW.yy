@@ -98,7 +98,7 @@
     "spriteId": {"name":"spr_playerSP_3hpidle_NEW","path":"sprites/spr_playerSP_3hpidle_NEW/spr_playerSP_3hpidle_NEW.yy",},
     "timeUnits": 1,
     "playback": 1,
-    "playbackSpeed": 0.35,
+    "playbackSpeed": 1.0,
     "playbackSpeedType": 1,
     "autoRecord": true,
     "volume": 1.0,

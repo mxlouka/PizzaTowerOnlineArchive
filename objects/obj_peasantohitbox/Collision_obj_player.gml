@@ -1,3 +1,6 @@
+if place_meeting(x, y, obj_parryhitbox)
+	exit;
+
 with other
 {
     if character == "V"

@@ -13,8 +13,8 @@ function scr_player_punch()
 				facehurt = false
 			}
 			jumpstop = false
-			
 			anger = 100
+			
 			var railh = 0, railmeet = instance_place(x, y + 1, obj_railparent);
 			if railmeet then railh = railmeet.spdh;
 			hsp = move * movespeed + railh;
@@ -40,11 +40,10 @@ function scr_player_punch()
 				else if movespeed > 3 && movespeed < 6 
 					image_speed = 0.45
 				else
-					image_speed = 0.60
+					image_speed = 0.6
 			}
 			else 
 				image_speed = 0.35
-	
 		}
 		
 		if !grounded
@@ -110,7 +109,7 @@ function scr_player_punch()
 		crouchslideAnim = true
 		crouchAnim = true
 		
-		if floor(image_index) >= image_number -1 or move == -xscale
+		if floor(image_index) >= image_number - 1 or move == -xscale
 			state = states.normal
 		
 		//Animations

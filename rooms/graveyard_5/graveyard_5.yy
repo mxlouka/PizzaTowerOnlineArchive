@@ -233,7 +233,6 @@
         {"properties":[],"isDnd":false,"objectId":{"name":"obj_vigidelete","path":"objects/obj_vigidelete/obj_vigidelete.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":6.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":1888.0,"y":192.0,"resourceVersion":"1.0","name":"inst_3E3AC206","tags":[],"resourceType":"GMRInstance",},
         {"properties":[],"isDnd":false,"objectId":{"name":"obj_vigidelete","path":"objects/obj_vigidelete/obj_vigidelete.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":3.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":2304.0,"y":480.0,"resourceVersion":"1.0","name":"inst_5155D373","tags":[],"resourceType":"GMRInstance",},
         {"properties":[],"isDnd":false,"objectId":{"name":"obj_vigidelete","path":"objects/obj_vigidelete/obj_vigidelete.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":3.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":2272.0,"y":864.0,"resourceVersion":"1.0","name":"inst_7A0D3099","tags":[],"resourceType":"GMRInstance",},
-        {"properties":[],"isDnd":false,"objectId":{"name":"obj_checkpoint","path":"objects/obj_checkpoint/obj_checkpoint.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":1568.0,"y":1984.0,"resourceVersion":"1.0","name":"inst_6F74B3D5","tags":[],"resourceType":"GMRInstance",},
       ],"visible":true,"depth":0,"userdefinedDepth":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"gridX":32,"gridY":32,"layers":[],"hierarchyFrozen":false,"effectEnabled":true,"effectType":null,"properties":[],"resourceVersion":"1.0","name":"Instances_1","tags":[],"resourceType":"GMRInstanceLayer",},
     {"tilesetId":{"name":"tileset_graveyardunderground","path":"tilesets/tileset_graveyardunderground/tileset_graveyardunderground.yy",},"x":0,"y":0,"tiles":{"SerialiseWidth":110,"SerialiseHeight":69,"TileSerialiseData":[
 34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,74,48,48,48,48,48,48,48,48,48,48,48,48,48,76,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,
@@ -529,7 +528,6 @@
     {"name":"inst_44753243","path":"rooms/graveyard_5/graveyard_5.yy",},
     {"name":"inst_1AEAECC6","path":"rooms/graveyard_5/graveyard_5.yy",},
     {"name":"inst_3E3AC206","path":"rooms/graveyard_5/graveyard_5.yy",},
-    {"name":"inst_6F74B3D5","path":"rooms/graveyard_5/graveyard_5.yy",},
     {"name":"inst_5155D373","path":"rooms/graveyard_5/graveyard_5.yy",},
     {"name":"inst_7A0D3099","path":"rooms/graveyard_5/graveyard_5.yy",},
   ],

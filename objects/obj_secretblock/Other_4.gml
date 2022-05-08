@@ -1,4 +1,4 @@
-if ds_list_find_index(global.saveroom, id) != -1  
+if ds_list_find_index(global.saveroom, ID) != -1  
 {
 	var lay_id = get_layer("Tiles_1");
 	var map_id = layer_tilemap_get_id(lay_id);
@@ -14,3 +14,4 @@ if ds_list_find_index(global.saveroom, id) != -1
 
 	instance_destroy() 
 }
+

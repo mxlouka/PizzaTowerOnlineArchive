@@ -1,4 +1,6 @@
-var playerid = obj_player1;
+var playerid = obj_player;
+if !instance_exists(playerid)
+	exit;
 
 x = Approach(x, playerid.x, maxspeed);
 y = Approach(y, playerid.y, maxspeed);
@@ -17,8 +19,8 @@ if place_meeting(x, y, playerid) && !instance_exists(obj_fadeout) && !instance_e
 			instance_destroy(global.toppinwarriorid4)
 		else if variable_global_exists("toppinwarriorid5") && instance_exists(global.toppinwarriorid5)	
 			instance_destroy(global.toppinwarriorid5)	
-	
-		instance_create(x,y,obj_flash)
+		
+		instance_create(x, y, obj_flash)
 		global.seconds = 59
 		obj_camera.alarm[1] = 60
 		obj_camera.ded = false
@@ -26,8 +28,11 @@ if place_meeting(x, y, playerid) && !instance_exists(obj_fadeout) && !instance_e
 	}
 	else
 	{
-		if sugary && global.collect > 0
-			scr_hurtplayer(playerid, 100);
+		if sugary && (global.collect > 0 or place_meeting(x, y, obj_parryhitbox) or playerid.state == states.parry)
+		{
+			if !place_meeting(x, y, obj_parryhitbox)
+				scr_hurtplayer(playerid, 100);
+		}
 		else with playerid
 		{
 			image_blend = c_white;
@@ -45,16 +50,19 @@ if place_meeting(x, y, playerid) && !instance_exists(obj_fadeout) && !instance_e
 				audio_stop_all()
 				scr_soundeffect(mu_timesup)
 			}
-			
-			instance_destroy(obj_hallway);
+			instance_destroy(obj_fadeout)
+			instance_destroy(other)
 		}
 	}
-	instance_destroy()
 }
 
 if maxspeed < 5 or !sugary
+{
 	maxspeed += 0.01
+	if maxspeed < 1
+		maxspeed += 0.1;
+}
 
 if sugary && x != playerid.x
-	image_xscale = -sign(x - playerid.x);
+	image_xscale = sign(x - playerid.x);
 

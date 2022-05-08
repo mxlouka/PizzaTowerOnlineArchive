@@ -47,12 +47,15 @@ if room == rm_editor exit;
 		
 		if check_sugary()
 			sugary = true;
+		
+		/*
 		if scr_stylecheck(2) && global.stylethreshold >= 3
 		{
 			haspalette = true;
 			spr_palette = spr_minijohn_palette;
 			paletteselect = 2;
 		}
+		*/
 	}
 	scr_soundeffect(sfx_killenemy)
 
@@ -274,10 +277,5 @@ if room == rm_editor exit;
 		canflash = true;
 		event_user(0);
 	}
-}
-with obj_checkpoint
-{
-	if sprite_index == spr_checkpoint
-		instance_destroy();
 }
 

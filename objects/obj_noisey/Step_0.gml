@@ -13,7 +13,7 @@ switch (state)
 
 if global.gameplay != 0
 {
-	walkspr = phase == 0 ? spr_noisey_walk : spr_noisey_bouncefall;
+	walkspr = phase == 0 ? walkspr : spr_noisey_bouncefall;
 	if state == states.walk && phase == 1
 	{
 	    if grounded && sprite_index != spr_noisey_bounceland && vsp > 0
@@ -41,7 +41,7 @@ if global.gameplay != 0
 if state == states.stun && stunned > 100 && birdcreated = false
 {
 	birdcreated = true
-	with instance_create(x,y, obj_enemybird)
+	with instance_create(x, y, obj_enemybird)
 		ID = other.id
 }
 

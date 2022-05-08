@@ -22,3 +22,4 @@ with obj_timedgateclock
 global.timedgatetime = time;
 global.timedgatetime += seconds * room_speed;
 global.timedgatetime += minutes * room_speed * room_speed;
+

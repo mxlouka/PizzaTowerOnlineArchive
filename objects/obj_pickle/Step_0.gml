@@ -1,6 +1,9 @@
 if room == rm_editor exit;
 
-switch (state)
+if !instance_exists(cloneid)
+    cloneid = noone
+
+switch state
 {
     case states.idle: scr_enemy_idle (); break;
     case states.charge: scr_enemy_charge (); break;
@@ -13,7 +16,6 @@ switch (state)
     case states.grabbed: image_alpha = 1; scr_enemy_grabbed (); break;
 	case states.chase: scr_enemy_chase (); break;
 }
-
 
 if state == states.stun && stunned > 100 && !birdcreated
 {
@@ -43,11 +45,17 @@ if state != states.chase && image_alpha >= 1
 if bombreset > 0
 	bombreset = max(bombreset - 1, 0);
 
+if sprite_index == scaredspr && global.gameplay != 0
+{
+    image_alpha = 1
+    attacking = false
+}
+
 //Fade
 if bombreset <= 0 && state == states.walk
 {
 	attacking = false;
-	targetplayer = instance_nearest(x,y,obj_player1)
+	targetplayer = instance_nearest(x, y, obj_player)
 
 	if targetplayer.x > x - threshold_x && targetplayer.x < x + threshold_x
 	&& y <= targetplayer.y + threshold_y && y >= targetplayer.y - threshold_y
@@ -125,12 +133,33 @@ if state == states.chase
             image_index = 0;
             sprite_index = spr_pickle_attack;
 			
-            var old_xscale = image_xscale;
-            image_xscale = -sign(x - targetplayer.x)
-            if image_xscale == 0
-                image_xscale = old_xscale;
+			if x != targetplayer.x
+				image_xscale = -sign(x - targetplayer.x)
 			
             state = states.pizzagoblinthrow
+			if global.stylethreshold >= 3 && cloneid == noone
+            {
+                var tx = image_xscale * 32
+                if scr_solid(x + tx, y)
+                    tx = 0
+				
+                cloneid = instance_create(x + tx, y, object_index)
+                with cloneid
+                {
+                    cloneid = other.id
+                    important = true
+                    bombreset = 0
+                    image_index = 0
+                    image_xscale = other.image_xscale
+                    state = states.pizzagoblinthrow
+                    hsp = other.image_xscale * 2
+                    vsp = -6
+                }
+				
+                flash = true
+                alarm[4] = 5
+                create_heatattack_afterimage(x, y, sprite_index, image_index, image_xscale)
+            }
         }
     }
 }

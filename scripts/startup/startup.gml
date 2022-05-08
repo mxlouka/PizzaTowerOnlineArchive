@@ -281,7 +281,7 @@ function game_is_compiled()
 
 function setup_pizzamart()
 {
-	if obj_player.character == "S" or obj_player.character == "V" or (scr_stylecheck(2) && !global.snickchallenge)
+	if obj_player.character == "S" or obj_player.character == "V"
 	{
 		// shields
 		with instance_create(264, 328, obj_pizzashield_collectible)

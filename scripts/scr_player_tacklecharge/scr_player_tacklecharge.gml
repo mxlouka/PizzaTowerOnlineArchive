@@ -15,7 +15,7 @@ function scr_player_tacklecharge()
 	var railh = 0, railmeet = instance_place(x, y + 1, obj_railparent);
 	if railmeet then railh = railmeet.spdh;
 	hsp = xscale * movespeed + railh;
-
+	
 	move2 = key_right2 + key_left2
 	move = key_right + key_left
 	
@@ -34,8 +34,7 @@ function scr_player_tacklecharge()
 
 	if grounded && vsp > 0
 		jumpstop = false
-
-
+	
 	//Jump
 	if input_buffer_jump < 8 && grounded 
 	{
@@ -54,12 +53,13 @@ function scr_player_tacklecharge()
 	if key_slap2 && character != "SP"
 	{
 		scr_soundeffect(sfx_punch)
-	    state = states.punch
+		state = states.punch
 		sprite_index = spr_punch
-	    image_index = 1
-	    image_speed = 0.35
+		image_index = 1
+		image_speed = 0.35
+		exit
 	}
- 
+	
 	//Bump
 	if scr_solid(x + hsp, y) && !place_meeting(x + hsp, y, obj_slope) && !place_meeting(x + hsp, y, obj_destructibles)
 	{
@@ -167,7 +167,7 @@ function scr_player_tacklecharge()
 	}
 	
 	//Back to other states
-	if ((!key_attack && move != xscale) or (move == -xscale)) && grounded && character != "SP"
+	if ((!key_attack && !key_shoot && move != xscale) or (move == -xscale)) && grounded && character != "SP"
 	{
 		if (character != "N" or (character == "N" && noisetype == 1))
 		&& move == -xscale

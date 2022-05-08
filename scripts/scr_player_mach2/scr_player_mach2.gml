@@ -136,9 +136,9 @@ function scr_player_mach2()
 	}
 
 	//Machroll
-	if key_down && !place_meeting(x,y,obj_dashpad) && (sprite_index != spr_mach2jump or character != "SP")
+	if key_down && !place_meeting(x, y, obj_dashpad) && (sprite_index != spr_mach2jump or character != "SP")
 	{
-		with instance_create(x,y,obj_jumpdust)
+		with instance_create(x, y, obj_jumpdust)
 			image_xscale = other.xscale
 		
 		flash = false
@@ -150,26 +150,31 @@ function scr_player_mach2()
 	}
 	
 	// Climbwall
-	if scr_solidwall(x + hsp, y) && scr_solid(x + xscale, y - 5) && scr_solid(x + xscale, y - 10) && (!place_meeting(x + hsp, y, obj_destructibles) or character == "V") && (scr_slope() or !grounded)
-	&& (!grounded or (!scr_solidwall(x, y - 32) or place_meeting(x, y - 32, obj_destructibles)))
+	var slop = scr_slope();
+	var bump = scr_solidwall(x + hsp, y) && (!slop or scr_solid(x + xscale, y - 10)) && (!place_meeting(x + hsp, y, obj_destructibles) or character == "V");
+	
+	if bump && (slop or !grounded)
 	{
-		if (!key_attack && character != "S") or (character == "S" && move == 0)
+		if !grounded or (!scr_solidwall(x, y - 32) or place_meeting(x, y - 32, obj_destructibles))
 		{
-			instance_create(x, y + 43, obj_cloudeffect)
+			if (!key_attack && character != "S") or (character == "S" && move == 0)
+			{
+				instance_create(x, y + 43, obj_cloudeffect)
 			
-			vsp = -movespeed
-			state = states.normal
-			movespeed = 0
-		}
-		else
-		{
-			wallspeed = movespeed
-			vsp = -wallspeed
-			state = states.climbwall
+				vsp = -movespeed
+				state = states.normal
+				movespeed = 0
+			}
+			else
+			{
+				wallspeed = movespeed
+				vsp = -wallspeed
+				state = states.climbwall
+			}
 		}
 	}
-	else if grounded && scr_solidwall(x + hsp, y) && (!place_meeting(x + hsp, y, obj_destructibles) or character == "V")
-	&& ((!scr_slope() && !place_meeting(x + sign(hsp), y, obj_slope)) or scr_solidwall(x, y - 1))
+	
+	if state != states.climbwall && grounded && bump
 	{
 		movespeed = 0
 		state = states.normal

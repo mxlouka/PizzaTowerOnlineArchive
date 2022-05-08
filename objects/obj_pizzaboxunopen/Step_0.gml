@@ -1,3 +1,10 @@
+// no toppins as snick
+if object_get_parent(content) == obj_pizzakinparent
+{
+	with obj_player
+		if character == "S" instance_destroy(other);
+}
+
 if (place_meeting(x, y, obj_player1) or place_meeting(x, y, obj_antonball)) && obj_player1.state != states.gameover
 && sprite_index == spr_closed
 {
@@ -109,6 +116,19 @@ if (place_meeting(x, y, obj_player1) or place_meeting(x, y, obj_antonball)) && o
 		if content == obj_pizzakinpineapple or content == obj_toppincandy
 			global.pineapplefollow = true;
 	}
+	
+	if object_get_parent(content) == obj_baddie
+    {
+        scr_soundeffect(sfx_enemyprojectile)
+        with instance_create(x, y - 25, content)
+        {
+            image_xscale = other.image_xscale
+            state = states.stun
+            stunned = 20
+            vsp = -5
+        }
+		instance_create(x, y - 25, obj_genericpoofeffect);
+    }
 	
 	image_index = 0;
 	sprite_index = spr_open

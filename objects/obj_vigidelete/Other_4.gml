@@ -1,4 +1,5 @@
-if obj_player1.character = "V"
+var checker = (character == "" && (obj_player.character == "V" or obj_player.character == "S")) or obj_player.character == character;
+if (!invert && checker) or (invert && !checker)
 {
 	with all
 	{
@@ -6,3 +7,4 @@ if obj_player1.character = "V"
 			instance_destroy(id, false);
 	}
 }
+

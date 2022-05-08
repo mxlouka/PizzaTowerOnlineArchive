@@ -62,7 +62,6 @@ else
 	instance_activate_all();
 	
 	scr_playerreset();
-	
 	if scr_stylecheck(2)
 	{
 		with obj_player

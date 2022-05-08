@@ -330,19 +330,22 @@ if state != states.freefall && state != states.hitlag
 	freefallsmash = 0
 
 //Die
-if (global.playerhealth <= 0 && state != states.gameover)
+if global.playerhealth <= 0 && state != states.gameover
 {
 	image_index = 0
 	sprite_index = spr_dead
 	state = states.gameover
 }
 
-// reset from checkpoint
+// game over
 if state == states.gameover && y > room_height * 2
 {
-	room = global.checkpointroom
-	if global.checkpointroom == editor_entrance
+	scr_playerreset();
+	if instance_exists(obj_onlinemenu)
 	{
+		targetDoor = "B";
+		state = states.titlescreen;
+		
 		with obj_onlinemenu
 		{
 			gmsroom = -1;
@@ -351,107 +354,33 @@ if state == states.gameover && y > room_height * 2
 			else
 				menu = menutypes.leveldetails;
 		}
-		
-		state = states.titlescreen;
-		targetDoor = "A";
+		room_goto(editor_entrance);
 	}
-	
-    var old_checkroom = global.checkpointroom
-    var old_checkDoor = global.checkpointDoor
-    var old_points = global.checkpointCollect
-    var old_pointsN = global.checkpointCollectN
-    var old_pizzadelivery = global.pizzadelivery
-    var old_pizzasdelivered = global.checkpoint_pizzasdelivered
-    var old_failcutscene = global.failcutscene
-    var old_hp = global.checkpoint_hp
-    var old_shroomfollow = global.checkpoint_shroomfollow
-    var old_cheesefollow = global.checkpoint_cheesefollow
-    var old_tomatofollow = global.checkpoint_tomatofollow
-    var old_sausagefollow = global.checkpoint_sausagefollow
-    var old_pineaplefollow = global.checkpoint_pineapplefollow
-    var old_gnomecheck0 = global.checkpoint_gnomecheck0
-    var old_gnomecheck1 = global.checkpoint_gnomecheck1
-    var old_gnomecheck2 = global.checkpoint_gnomecheck2
-    var old_gnomecheck3 = global.checkpoint_gnomecheck3
-    var old_gnomecheck4 = global.checkpoint_gnomecheck4
-    var old_key_inv = global.checkpoint_key_inv
-	
-	if global.checkpoint_pizzacoin == -1
-		var old_pizzacoin = global.pizzacoinstart;
 	else
-		var old_pizzacoin = global.checkpoint_pizzacoin;
-	
-    var older_baddieroom = ds_list_create()
-    var older_saveroom = ds_list_create()
-	
-    ds_list_copy(older_baddieroom, global.old_baddieroom)
-    ds_list_copy(older_saveroom, global.old_saveroom)
-	
-    scr_playerreset()
-	
-    global.checkpoint_hp = old_hp
-    global.hp = old_hp
-    global.checkpointDoor = old_checkDoor
-    targetDoor = old_checkDoor
-    global.checkpointroom = old_checkroom
-    global.collect = old_points
-    global.collectN = old_pointsN
-    global.checkpointCollect = old_points
-    global.checkpointCollectN = old_pointsN
-    global.pizzadelivery = old_pizzadelivery
-    global.pizzasdelivered = old_pizzasdelivered
-    global.failcutscene = old_failcutscene
-    global.checkpoint_pizzasdelivered = old_pizzasdelivered
-    global.shroomfollow = old_shroomfollow
-    global.cheesefollow = old_cheesefollow
-    global.tomatofollow = old_tomatofollow
-    global.sausagefollow = old_sausagefollow
-    global.pineapplefollow = old_pineaplefollow
-    global.checkpoint_shroomfollow = old_shroomfollow
-    global.checkpoint_cheesefollow = old_cheesefollow
-    global.checkpoint_tomatofollow = old_tomatofollow
-    global.checkpoint_sausagefollow = old_sausagefollow
-    global.checkpoint_pineapplefollow = old_pineaplefollow
-    global.key_inv = old_key_inv
-    global.checkpoint_key_inv = old_key_inv
-	global.pizzacoin = old_pizzacoin
-	
-    global.checkpoint_gnomecheck0 = old_gnomecheck0
-    global.checkpoint_gnomecheck1 = old_gnomecheck1
-    global.checkpoint_gnomecheck2 = old_gnomecheck2
-    global.checkpoint_gnomecheck3 = old_gnomecheck3
-    global.checkpoint_gnomecheck4 = old_gnomecheck4
-    if instance_exists(obj_gnome_checklist)
-    {
-        with obj_gnome_checklist
-        {
-            gnome_check[0] = old_gnomecheck0
-            gnome_check[1] = old_gnomecheck1
-            gnome_check[2] = old_gnomecheck2
-            gnome_check[3] = old_gnomecheck3
-            gnome_check[4] = old_gnomecheck4
-        }
-    }
-    if !ds_list_empty(older_baddieroom)
-    {
-        ds_list_copy(global.old_baddieroom, older_baddieroom)
-        ds_list_destroy(older_baddieroom)
-    }
-    if !ds_list_empty(older_saveroom)
-    {
-        ds_list_copy(global.old_saveroom, older_saveroom)
-        ds_list_destroy(older_saveroom)
-    }
-    if !ds_list_empty(global.old_baddieroom)
-    {
-        ds_list_clear(global.baddieroom)
-        ds_list_copy(global.baddieroom, global.old_baddieroom)
-    }
-    if !ds_list_empty(global.old_saveroom)
-    {
-        ds_list_clear(global.saveroom)
-        ds_list_copy(global.saveroom, global.old_saveroom)
-    }
+	{
+		if scr_stylecheck(2)
+		{
+			targetDoor = "NONE";
+			if backtohubstartx == 0 && backtohubstarty == 0
+				targetDoor = "A";
+			else
+			{
+				x = backtohubstartx;
+				y = backtohubstarty;
+			}
+			room_goto(backtohubroom);
+		
+			backtohubstartx = 0;
+			backtohubstarty = 0;
+			backtohubroom = hub_room1;
+		}
+		else
+		{
+			with obj_player
+				targetDoor = "A";
+			room_goto(hub_room1);
+		}
+	}
 }
 
 //Out of grab
@@ -549,7 +478,7 @@ else
 	grabbing = false
 
 //Instant-Kill Attack
-if (state == states.barrel) or (state == states.crouchslide) or (state == states.faceplant) or (state == states.rideweenie) or (state == states.mach3) or (state == states.jump && sprite_index = spr_playerN_noisebombspinjump) or (state == states.slipnslide) or (state == states.hurt && thrown = true) or (state == states.mach2) or (state == states.climbwall) or (state == states.freefall) or (state == states.tumble) or (state == states.fireass) or (state == states.firemouth) or (state == states.hookshot) or (state == states.skateboard) or  (state = states.mach4) or (state == states.Sjump) or (state == states.machroll) or (state == states.machfreefall) or (state == states.tacklecharge)  or (state == states.superslam && sprite_index = spr_piledriver) or (state == states.knightpep) or (state == states.knightpepattack) or (state == states.knightpepslopes)  or (state == states.boxxedpep) or (state == states.cheesepep) or (state == states.cheeseball) or (state == states.slipbanan) or (state == states.spindash) or (state == states.handstandjump && (sprite_index == spr_attackdash or sprite_index == spr_airattackstart or sprite_index == spr_airattack)) or state == states.chainsawbump
+if state == states.barrel or (state == states.crouchslide) or (state == states.faceplant) or (state == states.rideweenie) or (state == states.mach3) or (state == states.jump && sprite_index = spr_playerN_noisebombspinjump) or (state == states.slipnslide) or (state == states.hurt && thrown = true) or (state == states.mach2) or (state == states.climbwall) or (state == states.freefall) or (state == states.tumble) or (state == states.fireass) or (state == states.firemouth) or (state == states.hookshot) or (state == states.skateboard) or  (state = states.mach4) or (state == states.Sjump) or (state == states.machroll) or (state == states.machfreefall) or (state == states.tacklecharge)  or (state == states.superslam && sprite_index = spr_piledriver) or (state == states.knightpep) or (state == states.knightpepattack) or (state == states.knightpepslopes)  or (state == states.boxxedpep) or (state == states.cheesepep) or (state == states.cheeseball) or (state == states.slipbanan) or (state == states.spindash) or (state == states.handstandjump && (sprite_index == spr_attackdash or sprite_index == spr_airattackstart or sprite_index == spr_airattack)) or state == states.chainsawbump or state == states.rocket
 	instakillmove = true
 else
 	instakillmove = false

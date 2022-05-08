@@ -79,7 +79,6 @@ global.coop = false
 if obj_onlinemenu.menu != -1
 {
 	obj_onlinemenu.menu = -1;
-	global.checkpointDoor = "B"
-	global.checkpointroom = editor_entrance
 	scr_setcoin(0);
 }
+
