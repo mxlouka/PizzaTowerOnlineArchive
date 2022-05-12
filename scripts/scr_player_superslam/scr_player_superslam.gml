@@ -6,7 +6,7 @@ function scr_player_superslam()
 		exit;
 	}
 
-	if sprite_index == spr_piledriver or sprite_index == spr_playerSP_piledriverstart
+	if sprite_index == spr_piledriver or sprite_index == spr_piledriverstart
 	{
 		move = key_left + key_right;
 		hsp = move * movespeed;
@@ -66,9 +66,9 @@ function scr_player_superslam()
 	crouchslideAnim = true
 	crouchAnim = true
 	
-	if floor(image_index) = image_number - 1
+	if floor(image_index) >= image_number - 1
 	{
-		if sprite_index == spr_playerSP_piledriverstart
+		if sprite_index == spr_piledriverstart
 			sprite_index = spr_piledriver;
 		
 		if sprite_index = spr_piledriverland

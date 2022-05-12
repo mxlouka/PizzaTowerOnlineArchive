@@ -99,7 +99,12 @@ if drawing
 		if toppin1
 		{
 			if level == "strongcold"
-				draw_sprite(spr_xmasshroomtoppin_idle, -1, x - 75, y - 120)
+			{
+				if global.gameplay == 0
+					draw_sprite(spr_xmasshroomtoppin_idle, -1, x - 75, y - 120)
+				else
+					draw_sprite(spr_xmastoppinshroom_NEW, 2, x - 75, y - 120)
+			}
 			else if sugary
 			{
 				if global.gameplay == 0
@@ -132,7 +137,12 @@ if drawing
 		if toppin2
 		{
 			if level == "strongcold"
-				draw_sprite(spr_xmascheesetoppin_idle, -1, x - 35, y - 120)
+			{
+				if global.gameplay == 0
+					draw_sprite(spr_xmascheesetoppin_idle, -1, x - 35, y - 120)
+				else
+					draw_sprite(spr_xmastoppincheese_NEW, 5, x - 35, y - 120)
+			}
 			else if sugary
 				draw_sprite(spr_toppinchoco, -1, x - 35, y - 120)
 			else
@@ -160,7 +170,12 @@ if drawing
 		if toppin3
 		{
 			if level == "strongcold"
-				draw_sprite(spr_xmastomatotoppin_idle, -1, x, y - 120)
+			{
+				if global.gameplay == 0
+					draw_sprite(spr_xmastomatotoppin_idle, -1, x, y - 120)
+				else
+					draw_sprite(spr_xmastoppintomato_NEW, 2, x, y - 120)
+			}
 			else if sugary
 				draw_sprite(spr_toppincrack, image_index + 1, x, y - 120)
 			else
@@ -188,7 +203,12 @@ if drawing
 		if toppin4
 		{
 			if level == "strongcold"
-				draw_sprite(spr_xmassausagetoppin_idle, -1, x + 35, y - 120)
+			{
+				if global.gameplay == 0
+					draw_sprite(spr_xmassausagetoppin_idle, -1, x + 35, y - 120)
+				else
+					draw_sprite(spr_xmastoppinsausage_NEW, 0, x + 35, y - 120)
+			}
 			else if sugary
 				draw_sprite(spr_toppinworm, -1, x + 35, y - 120)
 			else
@@ -216,7 +236,12 @@ if drawing
 		if toppin5
 		{
 			if level == "strongcold"
-				draw_sprite(spr_xmaspineappletoppin_idle, -1, x + 75, y - 120)
+			{
+				if global.gameplay == 0
+					draw_sprite(spr_xmaspineappletoppin_idle, -1, x + 75, y - 120)
+				else
+					draw_sprite(spr_xmastoppinpineapple_NEW, 0, x + 75, y - 120)
+			}
 			else if sugary
 				draw_sprite(spr_toppincandy, image_index + 1, x + 75, y - 120)
 			else
@@ -243,7 +268,8 @@ if drawing
 	
 	// draw the score
 	if level != "eatery" && level != ""
-		draw_text(x,y + scory, string(highscore))
+		draw_text(x, y + scory, string(highscore))
 	
 	ini_close();
 }
+

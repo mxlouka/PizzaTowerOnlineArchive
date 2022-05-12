@@ -17,8 +17,8 @@
   "soundFile": "sfx_screamSP",
   "duration": 1.165714,
   "parent": {
-    "name": "pto extra",
-    "path": "folders/Sounds/pto extra.yy",
+    "name": "sfx",
+    "path": "folders/Sounds/pto extra/sugary spire/sfx.yy",
   },
   "resourceVersion": "1.0",
   "name": "sfx_screamSP",

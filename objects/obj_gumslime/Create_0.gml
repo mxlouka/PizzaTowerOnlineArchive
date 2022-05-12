@@ -11,6 +11,8 @@ scaredspr = spr_gumslime_scared
 spr_dead = spr_gumslime_dead
 
 sprite_index = walkspr
-movespeed = 2
+if global.gameplay == 0
+	movespeed = 2
 
 sugaryenemy = true
+

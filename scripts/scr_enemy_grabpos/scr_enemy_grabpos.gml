@@ -90,46 +90,50 @@ function scr_enemy_driverpos(player)
 {
 	if player.character == "P" or player.character == "PP"
 	{
+		x = player.x
 		y = player.y
-		if floor(player.image_index) == 0
+		if player.sprite_index == player.spr_piledriver
 		{
-			depth = 0
-			x = player.x + (player.xscale * 10)
-		}
-		if floor(player.image_index) == 1
-		{
-			depth = 0
-			x = player.x + (player.xscale * 5)
-		}
-		if floor(player.image_index) == 2
-		{
-			depth = 0
-			x = player.x
-		}
-		if floor(player.image_index) == 3
-		{
-			depth = 0
-			x = player.x + (player.xscale * -5)
-		}
-		if floor(player.image_index) == 4
-		{
-			depth = 0
-			x = player.x + (player.xscale * -10)
-		}
-		if floor(player.image_index) == 5
-		{
-			depth = -8
-			x = player.x + (player.xscale * -5)
-		}
-		if floor(player.image_index) == 6
-		{
-			depth = -8
-			x = player.x 
-		}
-		if floor(player.image_index) == 7
-		{
-			depth = -8
-			x = player.x + (player.xscale * 5)
+			if floor(player.image_index) == 0
+			{
+				depth = 0
+				x = player.x + (player.xscale * 10)
+			}
+			if floor(player.image_index) == 1
+			{
+				depth = 0
+				x = player.x + (player.xscale * 5)
+			}
+			if floor(player.image_index) == 2
+			{
+				depth = 0
+				x = player.x
+			}
+			if floor(player.image_index) == 3
+			{
+				depth = 0
+				x = player.x + (player.xscale * -5)
+			}
+			if floor(player.image_index) == 4
+			{
+				depth = 0
+				x = player.x + (player.xscale * -10)
+			}
+			if floor(player.image_index) == 5
+			{
+				depth = -8
+				x = player.x + (player.xscale * -5)
+			}
+			if floor(player.image_index) == 6
+			{
+				depth = -8
+				x = player.x 
+			}
+			if floor(player.image_index) == 7
+			{
+				depth = -8
+				x = player.x + (player.xscale * 5)
+			}
 		}
 	}
 	else if player.character == "SP"
@@ -140,7 +144,7 @@ function scr_enemy_driverpos(player)
 		
 		depth = 0
 		
-		if player.sprite_index == spr_playerSP_piledriverstart
+		if player.sprite_index == player.spr_piledriverstart
 		{
 			if floor(player.image_index) == 0
 			{
@@ -150,7 +154,7 @@ function scr_enemy_driverpos(player)
 			if floor(player.image_index) >= 1
 				y -= 26;
 		}
-		else if player.sprite_index == spr_playerSP_piledriverland
+		else if player.sprite_index == player.spr_piledriverland
 		{
 			x -= image_xscale * 32;
 			if floor(player.image_index) == 0

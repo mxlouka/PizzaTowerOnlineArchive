@@ -17,7 +17,6 @@ if fadealpha > 1
 				}
 				if baddiegrabbedID != 0 && baddiegrabbedID != obj_null && instance_exists(baddiegrabbedID)
 				&& baddiegrabbedID.object_index != obj_pizzaballOLD
-				&& baddiegrabbedID.object_index != obj_miniufo
 				&& baddiegrabbedID.object_index != obj_otherplayer
 				{
 					with baddiegrabbedID

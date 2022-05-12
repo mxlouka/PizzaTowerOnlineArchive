@@ -1,4 +1,3 @@
-// loosely... "based off" the D3 mod
 function layer_get_parallax(layer_id)
 {
 	var n = layer_get_name(layer_id);
@@ -13,16 +12,18 @@ function layer_get_parallax(layer_id)
 		case "Backgrounds_Ground2": return [_camx * 0.25, 0]; break;
 		case "Backgrounds_H1": return [_camx * 0.25, _camy]; break;
 		
+		case "Backgrounds_sky": return [_camx * 0.85, _camy * 0.85]; break;
+		case "Backgrounds_sky2": return [_camx, _camy]; break;
+		case "Backgrounds_sky3": return [_camx * 0.95, _camy * 0.95]; break;
+		
+		case "Backgrounds_scroll": return [_camx * 0.25, _camy * 0.25]; break;
+		
 		// pinpan moment
 		case "Backgrounds_steamcc1": return [_camx * 0.95, _camy * 0.95]; break;
 		case "Backgrounds_steamcc2": return [_camx * 0.8, _camy * 0.8]; break;
 		case "Backgrounds_steamcc3": return [_camx * -0.25, (room_height - 560) + ((room_height - (_camy + _camh)) * 0.25)]; break;
 		case "Backgrounds_steamcc4": return [_camx * 0.4, (room_height - 540) + ((room_height - (_camy + _camh)) * -0.4)]; break;
 		case "Backgrounds_steamcc5": return [_camx * 0.7, _camy * 0.7]; break;
-		
-		case "Backgrounds_sky": return [_camx * 0.85, _camy * 0.85]; break;
-		case "Backgrounds_sky2": return [_camx, _camy]; break;
-		case "Backgrounds_sky3": return [_camx * 0.95, _camy * 0.95]; break;
 	}
 	return [0, 0];
 }

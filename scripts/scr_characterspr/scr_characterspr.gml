@@ -82,12 +82,13 @@ function scr_characterspr(char = character)
 				spr_idle5 = spr_player_handgesture3
 				spr_idle6 = spr_player_handgesture4
 				
+				spr_piledriverstart = spr_player_piledriver
 				spr_piledriver = spr_player_piledriver
 				spr_piledriverland = spr_player_piledriverland
 				spr_charge = spr_player_charge
+				
 				spr_mach3jump = spr_player_mach3jump
 				spr_mach4 = spr_player_mach4
-
 				spr_machclimbwall = spr_player_climbwall
 				spr_dive = spr_player_dive
 				spr_machroll = spr_player_machroll
@@ -1120,7 +1121,7 @@ function scr_characterspr(char = character)
 				spr_mach3jump = spr_playerSP_mach3jump
 				spr_mach4 = spr_playerSP_mach4
 				
-				spr_punch = spr_playerSP_suplexmash4
+				spr_punch = spr_playerSP_punch
 				spr_backkick = spr_player_backkick
 				spr_shoulder = spr_player_shoulder
 				spr_uppunch = spr_player_uppunch
@@ -1146,28 +1147,30 @@ function scr_characterspr(char = character)
 				spr_tackle = spr_playerSP_tackle
 				spr_airdash1 = spr_playerSP_airdash1
 				spr_airdash2 = spr_playerSP_airdash2
-
+				
 				spr_idle1 = spr_playerSP_idlegesture1
 				spr_idle2 = spr_playerSP_idlegesture2
 				spr_idle3 = spr_playerSP_idlegesture1
 				spr_idle4 = spr_playerSP_idlegesture2
 				spr_idle5 = spr_playerSP_idlegesture1
 				spr_idle6 = spr_playerSP_idlegesture2
-
+				
+				spr_piledriverstart = spr_playerSP_piledriverstart
 				spr_piledriver = spr_playerSP_piledriver
 				spr_piledriverland = spr_playerSP_piledriverland
+				
 				spr_charge = spr_playerSP_tackle
-
+				
 				spr_machclimbwall = spr_playerSP_climbwall
 				spr_dive = spr_playerSP_dive
 				spr_machroll = spr_playerSP_machroll
 				spr_hitwall = spr_playerSP_mach3hitwall
-
+				
 				spr_superjumpland = spr_playerSP_superjumpland
 				spr_walljumpstart = spr_playerSP_mach2jump
 				spr_superjumpprep = spr_playerSP_superjumpprep
 				spr_superjump = spr_playerSP_superjump
-
+				
 				spr_superjumppreplight = spr_playerSP_superjumppreplight
 				spr_superjumpright =  spr_playerSP_superjumpright
 				spr_superjumpleft = spr_playerSP_superjumpleft
@@ -1358,10 +1361,28 @@ function scr_characterspr(char = character)
 				
 				spr_palette = spr_pizzpalette;
 				
+				// new sprites
+				if global.gameplay != 0
+				{
+					spr_piledriverstart = spr_playerSP_piledriverstart_NEW
+					spr_piledriver = spr_playerSP_piledriver_NEW
+					spr_piledriverland = spr_playerSP_piledriverland_NEW
+					
+					spr_suplexmash1 = spr_playerSP_suplexmash1_NEW
+					spr_suplexmash2 = spr_playerSP_suplexmash2_NEW
+					spr_suplexmash3 = spr_playerSP_suplexmash3_NEW
+					spr_suplexmash4 = spr_playerSP_suplexmash4_NEW
+					
+					spr_suplexdash = spr_playerSP_suplexdash_NEW
+					
+					spr_3hpidle = spr_playerSP_3hpidle_NEW
+					spr_3hpwalk = spr_playerSP_3hpwalk_NEW
+				}
+				
 				// SOUNDS
 				snd_fireass = sfx_screamSP;
 				break;
-	
+		
 		#endregion
 		#region PIZZANO
 		
@@ -1655,6 +1676,11 @@ function scr_characterspr(char = character)
 			spr_knightpepfall = spr_playerCT_knightfall;
 			spr_knightpepthunder = spr_playerCT_thunder;
 			spr_knightpepwalk = spr_playerCT_knightwalk;
+			spr_knightpepland = spr_playerCT_knightland;
+			spr_knightpepdownslope = spr_playerCT_knightdownslope;
+			spr_knightpepcharge = spr_playerCT_knightcharge;
+			
+			spr_suplexdash = spr_playerCT_suplexdash;
 			
 			spr_dead = spr_playerCT_dead;
 			spr_deathend = spr_playerCT_dead;

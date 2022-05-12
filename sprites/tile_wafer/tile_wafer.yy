@@ -24,8 +24,8 @@
     "path": "texturegroups/Default",
   },
   "swatchColours": null,
-  "gridX": 0,
-  "gridY": 0,
+  "gridX": 32,
+  "gridY": 32,
   "frames": [
     {"compositeImage":{"FrameId":{"name":"ee2ad97d-ca75-450d-8369-159a4c01dc33","path":"sprites/tile_wafer/tile_wafer.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
         {"FrameId":{"name":"ee2ad97d-ca75-450d-8369-159a4c01dc33","path":"sprites/tile_wafer/tile_wafer.yy",},"LayerId":{"name":"cf95843f-5125-4e5b-9c2f-c9b7aef2e7c9","path":"sprites/tile_wafer/tile_wafer.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},

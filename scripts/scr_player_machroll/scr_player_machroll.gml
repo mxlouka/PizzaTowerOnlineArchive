@@ -51,7 +51,7 @@ function scr_player_machroll()
 			}
 			image_speed = 0.8
 		
-			if !key_down && state != states.bump
+			if !key_down && state != states.bump && (!scr_solid(x, y - 32) or character == "S")
 			{
 				image_index = 0
 				scr_soundeffect(sfx_rollgetup)
@@ -80,7 +80,7 @@ function scr_player_machroll()
 		        state = states.punch
 		    }
 		}
-		if character == "N" && noisetype == 0
+		else
 		{
 			//Bump
 		    if scr_solid(x + xscale,y, false) && !place_meeting(x + sign(hsp), y, obj_slope) && !place_meeting(x + sign(hsp), y, obj_destructibles)

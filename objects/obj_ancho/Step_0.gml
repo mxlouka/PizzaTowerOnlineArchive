@@ -1,6 +1,6 @@
 if room == rm_editor exit;
 
-switch (state)
+switch state
 {
     case states.idle: scr_enemy_idle (); break;
     case states.charge: scr_enemy_charge (); break;
@@ -17,7 +17,7 @@ switch (state)
 if state == states.stun && stunned > 100 && !birdcreated
 {
 	birdcreated = true
-	with instance_create(x,y, obj_enemybird)
+	with instance_create(x, y, obj_enemybird)
 		ID = other.id
 }
 
@@ -54,13 +54,13 @@ if state != states.charge
 	scr_scareenemy()
 
 //Charge sprite
-if sprite_index = spr_chargestart && floor(image_index) = image_number -1
+if sprite_index == spr_chargestart && floor(image_index) >= image_number - 1
 {
 	//Chargehitbox
-	if  hitboxcreate = false && (state == states.charge)  
+	if !hitboxcreate && state == states.charge
 	{
 		hitboxcreate = true
-		with instance_create(x,y,obj_forkhitbox)
+		with instance_create(x, y, obj_forkhitbox)
 			ID = other.id
 	}
 	sprite_index = spr_charge
@@ -92,7 +92,7 @@ if ((targetplayer.x > x - treshx) && (targetplayer.x < x + treshx)) && (y <= tar
         sprite_index = spr_rage1
 		
         if x != targetplayer.x
-            image_xscale = (-sign((x - targetplayer.x)))
+            image_xscale = -sign(x - targetplayer.x)
 		
         ragebuffer = 100
         image_index = 0

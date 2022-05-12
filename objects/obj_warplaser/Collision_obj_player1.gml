@@ -1,5 +1,5 @@
 player = other.object_index
-if global.gameplay == 0
+if global.gameplay == 0 && instance_exists(object)
 {
 	if player.state != states.backbreaker && player.state != states.gameover
 	{

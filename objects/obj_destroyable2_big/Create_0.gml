@@ -3,7 +3,11 @@ hp = 2
 if obj_player1.character == "N"
 	sprite_index = spr_halloweenbigblock
 else if obj_player1.character == "SP"
+{
 	sprite_index = spr_destroyable2big_ss
+	if global.gameplay != 0
+		sprite_index = spr_destroyable2big_NEW_ss
+}
 else if obj_player1.character == "PP"
 	sprite_index = spr_bigbreakable_PP
 

@@ -1,7 +1,11 @@
 if obj_player1.character == "N"
 	sprite_index = spr_halloweensmallblock
 else if obj_player1.character == "SP"
+{
 	sprite_index = spr_destroyable2_ss
+	if global.gameplay != 0
+		sprite_index = spr_destroyable2_NEW_ss
+}
 else if obj_player1.character == "PP"
 	sprite_index = spr_destroyable2_PP
 

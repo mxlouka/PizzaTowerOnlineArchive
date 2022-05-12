@@ -115,18 +115,22 @@ if pause && !instance_exists(obj_option)
 				gotoroom = war_1;
 			else if string_startswith(roomname, "space")
 				gotoroom = space_1;
+			
 			else if string_startswith(roomname, "etb")
 				gotoroom = etb_1;
 			else if string_startswith(roomname, "ancient")
 				gotoroom = ancient_1;
 			else if string_startswith(roomname, "grinch")
 				gotoroom = grinch_1;
+			else if string_startswith(roomname, "sanctum")
+				gotoroom = sanctum_1;
+			
+			else if string_startswith(roomname, "entryway")
+				gotoroom = entryway_1;
 			else if string_startswith(roomname, "cotton")
 				gotoroom = cotton_1;
 			else if string_startswith(roomname, "jawbreaker")
 				gotoroom = jawbreaker_1;
-			else if string_startswith(roomname, "sanctum")
-				gotoroom = sanctum_1;
 			else if room == custom_lvl_room
 				gotoroom = room;
 			

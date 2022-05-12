@@ -646,8 +646,8 @@
     "TileSerialiseData": [],
   },
   "parent": {
-    "name": "SUGARY SPIRE",
-    "path": "folders/Tile Sets/SUGARY SPIRE.yy",
+    "name": "mines",
+    "path": "folders/Tile Sets/SUGARY SPIRE/mines.yy",
   },
   "resourceVersion": "1.0",
   "name": "tileset_jawbreaker",

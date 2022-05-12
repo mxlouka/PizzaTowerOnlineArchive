@@ -27,7 +27,7 @@ function scr_enemy_grabbed()
 		else
 			visible = true;
 		
-		with (player)
+		with player
 		{
 			suplexhavetomash = other.hp - 1
 			//Suplex mash
@@ -49,14 +49,14 @@ function scr_enemy_grabbed()
 				instance_create(other.x, other.y, obj_baddiegibs)
 				other.flash = true
 				
-				with (obj_camera)
+				with obj_camera
 				{
-				    shake_mag=3;
-				    shake_mag_acc=3/room_speed;
+				    shake_mag = 3;
+				    shake_mag_acc = 3 / room_speed;
 				}
 			}
 			
-			if !((_state = states.grab) or  (_state = states.finishingblow) or (_state = states.grabbing) or (_state = states._throw) or (_state = states.slam) or (_state = states.tacklecharge) or (_state = states.punch) or (_state = states.superslam) or (_state = states.backkick) or (_state = states.uppunch) or (_state = states.shoulder) or (_state == states.backbreaker))
+			if !(_state == states.grab or _state == states.finishingblow or _state == states.grabbing or _state == states._throw or _state == states.slam or _state == states.tacklecharge or _state == states.punch or _state == states.superslam or _state == states.backkick or _state == states.uppunch or _state == states.shoulder or _state == states.backbreaker)
 			{
 				other.x = x 
 				other.y = y 
@@ -67,7 +67,7 @@ function scr_enemy_grabbed()
 
 		hsp = 0
 		
-		if _state = states.punch or _state == states.parry or _state == states.tackle
+		if _state == states.punch or _state == states.parry or _state == states.tackle
 		{
 			alarm[3] = 3
 			global.hit += 1
@@ -78,10 +78,14 @@ function scr_enemy_grabbed()
 			instance_create(x + player.xscale * 30, y, obj_bumpeffect)
 			alarm[1] = 5
 			
+			if _state == states.punch
+				image_xscale = -player.xscale
+			
 			thrown = true
 			x = player.x
 			vsp = 0
-			y = player.y
+			y = player.y - 1
+			grounded = false
 			
 			state = states.stun
 			hsp = -image_xscale * 25
@@ -90,15 +94,15 @@ function scr_enemy_grabbed()
 			increase_combo();
 			repeat 3
 			{
-				instance_create(x,y,obj_slapstar)
+				instance_create(x, y, obj_slapstar)
 				create_particle(x, y, particles.baddiegibs)
 			}
 			flash = true
 			
-			with (obj_camera) 
+			with obj_camera
 			{
-			    shake_mag=3;
-			    shake_mag_acc=3/room_speed;
+			    shake_mag = 3;
+			    shake_mag_acc = 3 / room_speed;
 			}
 		}
 
@@ -110,11 +114,13 @@ function scr_enemy_grabbed()
 			
 			// clip in bounds
 			with player
+			{
 				if scr_solid(x + xscale, y)
 				{
 					other.clipin = 1;
 					other.x = x;
 				}
+			}
 			while scr_solid(x, y) && clipin > 0
 			{
 				clipin--;
@@ -345,7 +351,14 @@ function scr_enemy_grabbed()
 					depth = 0;
 			}
 			else
+			{
 				x = player.x + (player.xscale * 15)
+				if player.character == "PP"
+				{
+					depth = -8
+					x = player.x + (player.xscale * 35)
+				}
+			}
 		}
 
 		if player.sprite_index = player.spr_piledriverland
@@ -409,7 +422,7 @@ function scr_enemy_grabbed()
 		
 		if (_state == states.superslam
 		&& player.sprite_index == player.spr_piledriver
-		or player.sprite_index == spr_playerSP_piledriverstart) 
+		or player.sprite_index == player.spr_piledriverstart) 
 			scr_enemy_driverpos(player);
 		
 		else if (_state == states.grab

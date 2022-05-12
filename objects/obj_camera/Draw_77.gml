@@ -39,3 +39,4 @@ if drawshit
 }
 else if room != rm_deltarune
 	application_surface_draw_enable(true);
+

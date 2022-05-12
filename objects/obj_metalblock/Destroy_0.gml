@@ -9,11 +9,10 @@ if ds_list_find_index(global.saveroom, id) == -1
 		if other.sprite_index == spr_metalblock_ss
 		{
 			sprite_index = spr_metaldebris_ss;
-			image_index = random_range(0, 7);
-			
-			if global.gameplay == 0
-				hsp = random_range(-8, 8);
+			hsp = random_range(-8, 8);
 		}
+		else if other.sprite_index == spr_metalblock_NEW_ss
+			sprite_index = spr_metaldebris_NEW_ss;
 		else if other.sprite_index == spr_metalbescape
 			sprite_index = spr_metalblockdebrisescape;
 		else if other.sprite_index == spr_metalbescape_NEW
@@ -23,6 +22,7 @@ if ds_list_find_index(global.saveroom, id) == -1
 		else if other.sprite_index == spr_metalb_NEW
 			sprite_index = spr_metalblockdebris_NEW;
 		
+		image_index = random(image_number);
 		momentum = other.momentum;
 	}
 	

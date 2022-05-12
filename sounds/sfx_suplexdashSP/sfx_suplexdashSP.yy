@@ -17,8 +17,8 @@
   "soundFile": "sfx_suplexdashSP",
   "duration": 0.391837,
   "parent": {
-    "name": "pto extra",
-    "path": "folders/Sounds/pto extra.yy",
+    "name": "sfx",
+    "path": "folders/Sounds/pto extra/sugary spire/sfx.yy",
   },
   "resourceVersion": "1.0",
   "name": "sfx_suplexdashSP",

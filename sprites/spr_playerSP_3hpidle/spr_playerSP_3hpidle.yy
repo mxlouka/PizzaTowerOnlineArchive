@@ -50,7 +50,7 @@
     "spriteId": {"name":"spr_playerSP_3hpidle","path":"sprites/spr_playerSP_3hpidle/spr_playerSP_3hpidle.yy",},
     "timeUnits": 1,
     "playback": 1,
-    "playbackSpeed": 0.75,
+    "playbackSpeed": 0.7,
     "playbackSpeedType": 1,
     "autoRecord": true,
     "volume": 1.0,

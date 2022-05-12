@@ -11,7 +11,7 @@ if grabbed == true
 	if _state == states.hitlag
 		_state = playerid.tauntstoredstate;
 	
-	if _state = states.finishingblow or _state = states.grabbing or _state = states.grab or _state = states._throw or _state = states.slam or _state = states.tacklecharge or _state == states.backbreaker
+	if _state == states.finishingblow or _state == states.grabbing or _state == states.grab or _state == states._throw or _state == states.slam or _state == states.tacklecharge or _state == states.backbreaker
 	{
 		thrown = false
 		grav = 0
@@ -24,7 +24,7 @@ if grabbed == true
 	else
 		visible = true;
 	
-	with (playerid)
+	with playerid
 	{
 		//Suplex mash
 		scr_getinput();
@@ -65,68 +65,64 @@ if grabbed == true
 	}
 
 
-	if (_state = states.grab && playerid.sprite_index = playerid.spr_swingding)
+	if _state == states.grab && playerid.sprite_index == playerid.spr_swingding
 	{
-		if floor(playerid.image_index) = 0
+		if floor(playerid.image_index) == 0
 		{
 			depth = -8
-			x = playerid.x + (playerid.xscale * 25)
+			x = playerid.x + playerid.xscale * 25
 			y = playerid.y
 		}
-		if floor(playerid.image_index) = 1
+		if floor(playerid.image_index) == 1
 		{
 			depth = -8
 			x = playerid.x 
 			y = playerid.y
 		}
-		if floor(playerid.image_index) = 2
+		if floor(playerid.image_index) == 2
 		{
 			depth = -8
-			x = playerid.x + (playerid.xscale * -25)
+			x = playerid.x + playerid.xscale * -25
 			y = playerid.y
 		}
-		if floor(playerid.image_index) = 3
+		if floor(playerid.image_index) == 3
 		{
 			depth = 0
-			x = playerid.x + (playerid.xscale * -50)
+			x = playerid.x + playerid.xscale * -50
 			y = playerid.y
 		}
-		if floor(playerid.image_index) = 4
+		if floor(playerid.image_index) == 4
 		{
 			depth = 0
-			x = playerid.x + (playerid.xscale * -25)
+			x = playerid.x + playerid.xscale * -25
 			y = playerid.y
 		}
-		if floor(playerid.image_index) = 5
+		if floor(playerid.image_index) == 5
 		{
 			depth = 0
 			x = playerid.x 
 			y = playerid.y
 		}
-		if floor(playerid.image_index) = 6
+		if floor(playerid.image_index) == 6
 		{
 			depth = 0
-			x = playerid.x + (playerid.xscale * 25)
+			x = playerid.x + playerid.xscale * 25
 			y = playerid.y
 		}
-		if floor(playerid.image_index) = 7
+		if floor(playerid.image_index) == 7
 		{
 			depth = 0
-			x = playerid.x + (playerid.xscale * 50)
+			x = playerid.x + playerid.xscale * 50
 			y = playerid.y
 		}
 	}
 	else
 		depth = -6
-
-
-
-
-
-	if _state = states.shoulder 
+	
+	if _state == states.shoulder 
 	{
 		grav = 0.5
-		instance_create(x , y+20, obj_bumpeffect)
+		instance_create(x, y + 20, obj_bumpeffect)
 		grabbed = false
 		thrown = true
 		x = playerid.x
@@ -147,19 +143,17 @@ if grabbed == true
 		}
 
 		repeat 6
-			instance_create(x,y,obj_slapstar)
+			instance_create(x, y, obj_slapstar)
 
-	    with (obj_camera) {
-
-		    shake_mag=3;
-		    shake_mag_acc=3/room_speed;
+	    with obj_camera
+		{
+		    shake_mag = 3;
+		    shake_mag_acc = 3 / room_speed;
 		}
 
 	}
-
-
-
-	if _state = states._throw 
+	
+	if _state == states._throw 
 	{
 		grav = 0.5
 		grabbed = false
@@ -171,69 +165,73 @@ if grabbed == true
 		hsp = -image_xscale * 10
 		vsp = -10
 	}
-
-
-
-
-
-	if _state = states.uppunch
+	
+	if _state == states.uppunch
 	{
-		instance_create(x +(-playerid.xscale * 15), y-50, obj_bumpeffect)
-
+		instance_create(x + -playerid.xscale * 15, y - 50, obj_bumpeffect)
+		
 		grav = 0.5
 		thrown = true
-
-
+		
 		hsp = -image_xscale * 2
 		grabbed = false
 		vsp = -20
 		
-		instance_create(x,y,obj_slapstar)
+		instance_create(x, y, obj_slapstar)
 		flash = true
 		
-	    with (obj_camera) {
-
-		    shake_mag=3;
-		    shake_mag_acc=3/room_speed;
+	    with obj_camera
+		{
+		    shake_mag = 3;
+		    shake_mag_acc = 3 / room_speed;
 		}
 	}
-
-
-	//if _state = states.backbreaker && floor(playerid.image_index) < 2
-	//{
-	//x = playerid.x + (-image_xscale *8)
-	//y = playerid.y - 45
-	//}
-
-	//if _state = states.backbreaker && floor(playerid.image_index) >= 2
-	//{ 
-	//x = playerid.x
-	//y = playerid.y 
-	//state = states.hit
-	//hsp = -image_xscale * 5
-	//vsp = -12
-	//instance_create(x,y,obj_bangeffect)
-	//}
-
-	//Charge
-	if _state = states.tacklecharge 
+	
+	if _state == states.punch
 	{
-		x = playerid.x + (playerid.xscale * 15)
+		instance_create(x + playerid.xscale * 30, y, obj_bumpeffect)
+		image_xscale = -playerid.xscale
+			
+		thrown = true
+		x = player.x
+		vsp = 0
+		y = player.y
+		
+		state = states.stun
+		hsp = -image_xscale * 25
+		
+		increase_combo();
+		repeat 3
+		{
+			instance_create(x, y, obj_slapstar)
+			create_particle(x, y, particles.baddiegibs)
+		}
+		flash = true
+		
+		with obj_camera
+		{
+			shake_mag = 3;
+			shake_mag_acc = 3 / room_speed;
+		}
+	}
+	
+	//Charge
+	if _state == states.tacklecharge 
+	{
+		x = playerid.x + playerid.xscale * 15
 		y = playerid.y
 	}
-
-
-
-	if _state = states.superslam
+	
+	if _state == states.superslam
 	{
 		scr_enemy_driverpos(playerid);
 		
-		if playerid.sprite_index = playerid.spr_piledriverland 
-		&& (floor(playerid.image_index) = playerid.image_number - 1)
+		if playerid.sprite_index == playerid.spr_piledriverland 
+		&& floor(playerid.image_index) == playerid.image_number - 1
 		{
 			depth = -5
 			repeat 6
-				instance_create(x,y,obj_slapstar)
+				instance_create(x, y, obj_slapstar)
 
 			grabbed = false
 			thrown = true

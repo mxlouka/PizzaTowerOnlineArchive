@@ -26,6 +26,8 @@ if content != noone && showbaddie
 		spr = spr_noisey_walk;
 	if spr == spr_ninjaNEW_idle && global.gameplay == 0
 		spr = spr_ninja_idle;
+	if spr == spr_newpizzice_walk && global.gameplay == 0
+		spr = spr_pizzice_walk;
 	if spr == spr_charcherry_wait
 	{
 		spr = spr_charcherry_run;

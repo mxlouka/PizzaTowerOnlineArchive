@@ -1,6 +1,6 @@
 if room == rm_editor exit;
 
-switch (state)
+switch state
 {
     case states.idle: scr_enemy_idle (); break;
     case states.charge: scr_enemy_charge (); break;
@@ -79,6 +79,11 @@ else if laserbuffer <= 0 && state == states.walk
 	
 	laserbuffer = 100
 }
+
+if global.stylethreshold >= 3
+	spr_dead = spr_ufolive_heatdeath
+else
+	spr_dead = spr_ufolive_dead
 
 //Flash
 if (flash == true && alarm[2] <= 0) {

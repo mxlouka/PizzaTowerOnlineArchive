@@ -105,7 +105,7 @@ else if (!global.panic or string_letters(roomname) == "dragonlair" or string_let
 	}
 	
 	if string_letters(roomname) == "entrance"
-	or (string_letters(roomname) == "waffle" && sugaryspire)
+	or (string_letters(roomname) == "entryway" && sugaryspire)
 	{
 		switch playerobj.character
 		{

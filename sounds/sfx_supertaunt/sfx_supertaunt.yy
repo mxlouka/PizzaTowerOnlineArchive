@@ -17,8 +17,8 @@
   "soundFile": "sfx_supertaunt.wav",
   "duration": 1.846145,
   "parent": {
-    "name": "sfx",
-    "path": "folders/Sounds/sfx.yy",
+    "name": "pto extra",
+    "path": "folders/Sounds/pto extra.yy",
   },
   "resourceVersion": "1.0",
   "name": "sfx_supertaunt",

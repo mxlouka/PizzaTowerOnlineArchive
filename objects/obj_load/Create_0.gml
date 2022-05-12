@@ -60,7 +60,7 @@ while room_exists(global.lastroom)
 global.lastroom -= 1;
 
 global.saveslot = "";
-global.fun = irandom_range(1, 1000);
+global.fun = irandom_range(0, 100);
 
 globalvar playerobj;
 playerobj = obj_player;

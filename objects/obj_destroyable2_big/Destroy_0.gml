@@ -26,6 +26,8 @@ if ds_list_find_index(global.saveroom, id) = -1 && !global.snickchallenge
 				sprite_index = spr_halloweenbigdebris
 			else if other.sprite_index == spr_destroyable2big_ss
 				sprite_index = spr_bigpizzadebris_ss
+			else if other.sprite_index == spr_destroyable2big_NEW_ss
+				sprite_index = spr_bigpizzadebris_NEW_ss
 			else if other.sprite_index == spr_bigbreakable_PP
 				sprite_index = spr_bigpizzadebris_PP
 			else

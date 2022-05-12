@@ -1,6 +1,6 @@
 function scr_player_taunt()
 {
-	with obj_player
+	with (inst_relation(id, obj_player) ? id : obj_player)
 	{
 		if (!instance_exists(obj_fadeout) or obj_fadeout.fadein)
 		&& state != states.backbreaker
@@ -21,7 +21,12 @@ function scr_player_taunt()
 					scr_soundeffect(sfx_taunt)
 			}
 			else
-				scr_soundeffect(sfx_taunt)
+			{
+				if character == "SP"
+					scr_soundeffect(sfx_tauntSP_1, sfx_tauntSP_2, sfx_tauntSP_3, sfx_tauntSP_4, sfx_tauntSP_5, sfx_tauntSP_6, sfx_tauntSP_7, sfx_tauntSP_8);
+				else
+					scr_soundeffect(sfx_taunt)
+			}
 			
 			if supercharged && character != "S" && character != "V" && character != "PP"
 			{
@@ -30,9 +35,12 @@ function scr_player_taunt()
 			}
 			else
 			{
+				if character == "SP"
+					spr_taunt = spr_pizzelle_taunt;
+				
 				taunttimer = 20
-				image_index = irandom(sprite_get_number(spr_taunt))
 				sprite_index = spr_taunt
+				image_index = irandom(sprite_get_number(sprite_index))
 				image_speed = 0
 				
 				// new gameplay removed beter :(

@@ -137,9 +137,9 @@ function scr_player_mach3()
 
 		//Back to other states
 		//Machslide
-		if sprite_index != spr_dashpadmach
+		if sprite_index != spr_dashpadmach or spr_mach4 == spr_dashpadmach
 		{
-			if ((!key_attack && !fightball) && grounded && (character != "V" && character != "S")) or (character = "S" && (move == 0 or move != xscale) && grounded) && !fightball
+			if ((!key_attack && !fightball) && grounded && character != "S") or (character == "S" && (move == 0 or move != xscale) && grounded) && !fightball
 			{
 				sprite_index = spr_machslidestart
 				scr_soundeffect(sfx_break)
@@ -147,17 +147,15 @@ function scr_player_mach3()
 				image_index = 0
 			}
 				
-			if move == -xscale && grounded && (character != "V" && character != "S") && !fightball && vsp >= 0
+			if move == -xscale && grounded && character != "S" && !fightball && vsp >= 0
 			{
 				scr_soundeffect(sfx_machslideboost)
-
 				sprite_index = spr_mach3boost
-
 				state = states.machslide
 				image_index = 0
 			}
 		}
-    
+		
 		//Machroll
 		if key_down && !fightball && !place_meeting(x, y, obj_dashpad)
 		{
@@ -450,11 +448,11 @@ function scr_player_mach3()
 		image_speed = 0.35
 	if sprite_index == spr_rollgetup
 		image_speed = 0.5
-	if sprite_index == spr_mach3hit or sprite_index == spr_dashpadmach or sprite_index == spr_crazyrun
+	if sprite_index == spr_mach3hit or (sprite_index == spr_dashpadmach && spr_mach4 != spr_dashpadmach) or sprite_index == spr_crazyrun
 		image_speed = 0.75
 
 	//Super Jump
-	if key_up && !fightball && (!(character == "N" && noisetype == 0) && character != "V") && (grounded or character == "PP" or (character == "S" && global.gameplay == 0)) && sprite_index != spr_dashpadmach
+	if key_up && !fightball && (!(character == "N" && noisetype == 0) && character != "V") && (grounded or character == "PP" or (character == "S" && global.gameplay == 0)) && (sprite_index != spr_dashpadmach or spr_mach4 == spr_dashpadmach)
 	{
 		sprite_index = spr_superjumpprep
 		scr_soundeffect(sfx_superjumpprep);
@@ -467,3 +465,4 @@ function scr_player_mach3()
 	if key_taunt2
 		scr_player_taunt();
 }
+

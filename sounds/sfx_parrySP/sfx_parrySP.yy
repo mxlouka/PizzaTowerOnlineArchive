@@ -18,7 +18,7 @@
   "duration": 1.058707,
   "parent": {
     "name": "sfx",
-    "path": "folders/Sounds/sfx.yy",
+    "path": "folders/Sounds/pto extra/sugary spire/sfx.yy",
   },
   "resourceVersion": "1.0",
   "name": "sfx_parrySP",

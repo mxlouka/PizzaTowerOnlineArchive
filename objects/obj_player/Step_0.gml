@@ -188,7 +188,7 @@ if global.heattime <= 0 && global.style > -1 && !global.stylelock
 if state == states.victory && place_meeting(x, y, obj_startgate) && global.style > -1
 	global.style -= 5;
 
-if cutscene
+if cutscene or global.miniboss
     global.heattime = 60;
 
 //Titlescreen

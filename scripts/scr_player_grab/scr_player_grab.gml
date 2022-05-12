@@ -341,8 +341,9 @@ function scr_player_grab()
 	{
 		if character == "SP"
 		{
-			scr_soundeffect(sfx_jump);
-			sprite_index = spr_playerSP_piledriverstart;
+			if scr_stylecheck(0, 2)
+				scr_soundeffect(sfx_jump);
+			sprite_index = spr_piledriverstart;
 		}
 		else
 			sprite_index = spr_piledriver;

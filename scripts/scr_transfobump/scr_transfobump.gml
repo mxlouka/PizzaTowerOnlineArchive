@@ -56,13 +56,14 @@ function scr_transfobump(_setstate = true)
 	&& sprite_index != spr_knightpepstart
 	{
 		// knight armor debris
-		if character == "P" or character == "N" or character == "SP" or character == "PP"
+		if character == "P" or character == "N" or character == "SP" or character == "PP" or character == "CT"
 		{
 			var debrisspr = spr_knightdebris;
 			switch character
 			{
 				case "N": sprite_index = spr_playerN_knightarmor; break;
 				case "SP": sprite_index = spr_knightdebrisSP; break;
+				case "CT": sprite_index = spr_knightdebrisCT; break;
 			}
 		
 			for(var i = 0; i < sprite_get_number(debrisspr); i++)

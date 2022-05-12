@@ -61,14 +61,17 @@ if ds_list_find_index(global.baddieroom, id) == -1
 	
 	if !important
 	{
-		if random_range(1, 100) >= 95 && global.gameplay == 0 // 5% chance
+		if random_range(1, 100) >= 95 && scr_stylecheck(0, 2) // 5% chance
 		{
-			scr_soundeffect(sfx_scream1, sfx_scream2, sfx_scream3,
+			var screamsnd = scr_soundeffect(sfx_scream1, sfx_scream2, sfx_scream3,
 			sfx_scream4, sfx_scream5, sfx_scream6, sfx_scream7, sfx_scream8,
 			sfx_scream9, sfx_scream10);
+			
+			if scr_stylecheck(2)
+				audio_sound_gain(screamsnd, 0, audio_sound_length(screamsnd) * 1000);
 		}
 		
-		if object_index == obj_swedishmonkey && irandom_range(1, 100) == 5 // 1% chance
+		if scr_stylecheck(2) && object_index == obj_swedishmonkey && irandom_range(1, 100) == 5 // 1% chance
 			scr_soundeffect(sfx_monkey);
 		
 		if object_index != obj_miniufo or global.stylethreshold < 3

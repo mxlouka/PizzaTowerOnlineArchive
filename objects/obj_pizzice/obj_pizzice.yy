@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_pizzice_walk",
-    "path": "sprites/spr_pizzice_walk/spr_pizzice_walk.yy",
+    "name": "spr_newpizzice_walk",
+    "path": "sprites/spr_newpizzice_walk/spr_newpizzice_walk.yy",
   },
   "solid": false,
   "visible": true,

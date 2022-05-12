@@ -12,10 +12,8 @@ if string_startswith(roomname, "floor3_room")
 	sprite_index = spr_ladder_factory;
 
 // sugary
-if string_startswith(roomname, "cotton_")
+if check_sugary()
 	sprite_index = spr_ladderSP_rope;
-else if check_sugary()
-	sprite_index = spr_ladderSP;
 
 if string_endswith(string_letters(roomname), "sanctum")
 	visible = false

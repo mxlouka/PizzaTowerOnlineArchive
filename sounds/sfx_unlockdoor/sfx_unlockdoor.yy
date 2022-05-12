@@ -14,8 +14,8 @@
   "soundFile": "sfx_unlockdoor.mp3",
   "duration": 1.8808,
   "parent": {
-    "name": "sfx",
-    "path": "folders/Sounds/sfx.yy",
+    "name": "pto extra",
+    "path": "folders/Sounds/pto extra.yy",
   },
   "resourceVersion": "1.0",
   "name": "sfx_unlockdoor",

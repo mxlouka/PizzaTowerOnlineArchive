@@ -1905,8 +1905,8 @@
     "TileSerialiseData": [],
   },
   "parent": {
-    "name": "SUGARY SPIRE",
-    "path": "folders/Tile Sets/SUGARY SPIRE.yy",
+    "name": "cotton",
+    "path": "folders/Tile Sets/SUGARY SPIRE/cotton.yy",
   },
   "resourceVersion": "1.0",
   "name": "tileset_cotton",

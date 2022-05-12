@@ -126,6 +126,7 @@ switch sel[0]
 			[mu_ruinsecret_re, "RUINSECRET", "loypoll"],
 			[mu_dungeonsecret_re, "DUNGEONSECRET", "loypoll"],
 			[mu_strongcoldsecret_re, "STRONGCOLDSECRET", "loypoll"],
+			[mu_entrancesecret_ss, "there's a secret\ninside my tower?", "loypoll"],
 		]
 		break;
 	
@@ -226,6 +227,7 @@ switch sel[0]
 			[mu_medievalsecret_re_pc, "MEDIEVALSECRET", "loypoll"],
 			[mu_ruinsecret_re_pc, "RUINSECRET", "loypoll"],
 			[mu_dungeonsecret_re_pc, "DUNGEONSECRET", "loypoll"],
+			[mu_entrancesecret_ss_pc, "there's a secret\ninside my tower?", "loypoll"],
 		]
 		if sugaryspire
 		{

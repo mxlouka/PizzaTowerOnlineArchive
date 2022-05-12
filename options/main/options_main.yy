@@ -1,6 +1,6 @@
 {
   "ConfigValues": {
-    "debug": {"option_lastchanged":"11 December 2021 14:05:50","option_sci_usesci":"true",},
+    "debug": {"option_lastchanged":"12 May 2022 19:48:51","option_sci_usesci":"true","option_game_speed":"60",},
   },
   "option_gameguid": "ebf7bd96-5dd8-4c8d-abed-66a6ba177f20",
   "option_gameid": "0",
