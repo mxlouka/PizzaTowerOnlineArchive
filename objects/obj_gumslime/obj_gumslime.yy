@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_gumslime_walk",
-    "path": "sprites/spr_gumslime_walk/spr_gumslime_walk.yy",
+    "name": "spr_gumslime_walk_NEW",
+    "path": "sprites/spr_gumslime_walk_NEW/spr_gumslime_walk_NEW.yy",
   },
   "solid": false,
   "visible": true,

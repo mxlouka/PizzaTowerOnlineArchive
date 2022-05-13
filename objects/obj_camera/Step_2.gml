@@ -343,7 +343,7 @@ if instance_exists(player) && player.state != states.timesup && player.state != 
 		}
 	}
 }
-else
+else if !(instance_exists(player) && player.state == states.rotate)
 {
 	// don't move camera with any object but support shaking
 	if lastx == -1 && lasty == -1

@@ -8,24 +8,29 @@ function scr_enemy_grabbed()
 	    instance_destroy()
 	}
 	
-	if grabbedby == 1
+	if instance_exists(player)
 	{
 		image_xscale = -player.xscale
-		stunned = 200					
+		stunned = 200
 		
 		var _state = player.state;
 		if _state == states.hitlag
 			_state = player.tauntstoredstate;
-		
 		player.baddiegrabbedID = id
 		
-		if _state == states.grabbing or _state = states.grab or _state = states._throw or _state = states.slam or _state = states.tacklecharge or _state == states.backbreaker
+		if _state == states.grabbing or _state = states.grab or _state = states._throw or _state = states.slam or _state = states.tacklecharge or _state == states.backbreaker or _state == states.hitlag
 		{
 			scr_enemy_grabpos(player);
 			visible = _state != states.backbreaker;
 		}
 		else
 			visible = true;
+		
+		if player.state == states.hitlag
+		{
+			x += random_range(-4, 4);
+			y += random_range(-4, 4);
+		}
 		
 		with player
 		{
@@ -277,12 +282,8 @@ function scr_enemy_grabbed()
 			hsp = -image_xscale * 8
 			vsp = -6
 		}
-
-
-
-
-
-		if _state = states.uppunch
+		
+		if _state == states.uppunch
 		{
 			alarm[3] = 3
 			global.hit += 1

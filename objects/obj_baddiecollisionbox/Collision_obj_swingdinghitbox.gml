@@ -16,3 +16,4 @@ if instance_exists(baddieID)
 		baddieID.hitLag = 8;
 	}
 }
+

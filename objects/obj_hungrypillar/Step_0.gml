@@ -29,8 +29,10 @@ if global.musicvolume > 0 && global.jukebox == -1
 		{
 			if audio_is_paused(song)
 				audio_resume_sound(song);
-		
-			var vol = clamp((1 - (point_distance(x, y, obj_player1.x, obj_player1.y) / 300)) + 1, 0, 1);
+			
+			var vol = 1;
+			if scr_stylecheck(2)
+				vol = clamp((1 - (point_distance(x, y, p.x, p.y) / 300)) + 1, 0, 1);
 			if room == custom_lvl_room && instance_exists(obj_player1.cam)
 			{
 				if !rectangle_in_rectangle(

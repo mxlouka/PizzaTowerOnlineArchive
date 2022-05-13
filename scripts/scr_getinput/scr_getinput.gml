@@ -9,6 +9,7 @@ function scr_getinput(force = false)
 	or (instance_exists(obj_wc) && (obj_wc.WC_consoleopen or obj_wc.WC_assetfinder > -1))
 	or (instance_exists(obj_choicebase))
 	or (instance_exists(obj_hubelevator) && obj_hubelevator.state == 1)
+	or instance_exists(obj_arcademenu)
 	or instance_exists(obj_dialoguebox))
 	{
 		with obj_player1
@@ -105,3 +106,4 @@ function scr_getinput(force = false)
 	else
 		stickpressed = true;
 }
+

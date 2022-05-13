@@ -19,6 +19,7 @@ function scr_player_cheeseball()
 	    image_index = 0
 	    flash = true
 	    state = states.bump
+		jumpstop = true
 	}
 	sprite_index = spr_cheeseballed
 	

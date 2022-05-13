@@ -21,3 +21,4 @@ depth = 5
 
 baddielist = ds_list_create()
 currentarena = ds_list_create()
+

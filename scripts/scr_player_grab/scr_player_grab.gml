@@ -354,18 +354,6 @@ function scr_player_grab()
 		image_speed = 0.35;
 	}
 	
-	//Effects
-	var step1 = 4;
-	var step2 = 10;
-	if character == "SP"
-	{
-		step1 = 2;
-		step2 = 6;
-	}
-
-	if !(instance_exists(obj_cloudeffect)) && grounded && move != 0 && (floor(image_index) = step1 or floor(image_index) = step2) && baddiegrabbedID.object_index != obj_pizzaballOLD
-		instance_create(x,y+43,obj_cloudeffect)
-	
 	//Crouch
 	if key_down && grounded
 	{
@@ -375,12 +363,24 @@ function scr_player_grab()
 		image_index = 0
 		idle = 0
 	}
-
-	if move != 0 && (floor(image_index) = 3 or floor(image_index) = 8) && steppy = false
-		steppy = true
-
-	if move != 0 && floor(image_index) != 3 && floor(image_index) != 8
-		steppy = false
+	
+	// Effects
+	var step1 = 4;
+	var step2 = 10;
+	if character == "SP"
+	{
+		step1 = 2;
+		step2 = 6;
+	}
+	
+	if abs(hsp) > 0 && grounded && sprite_index == spr_haulingwalk && (floor(image_index) == step1 or floor(image_index) == step2)
+	{
+		if !steppy
+			instance_create(x, y + 43, obj_cloudeffect);
+		steppy = true;
+	}
+	else
+		steppy = false;
 	
 	if sprite_index != spr_swingding
 		image_speed = 0.35

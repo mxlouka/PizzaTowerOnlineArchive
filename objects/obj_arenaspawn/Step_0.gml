@@ -34,6 +34,8 @@ switch state
 					}
                     sprite_index = spr_arenagate_close;
                 }
+				with obj_door
+					instance_create(x, y, obj_doorblocked);
 				
                 cutscene_count = cutscene_max;
                 sprite_index = spr_arenagate_close;
@@ -145,6 +147,11 @@ switch state
                 cutscene_count = outro_max;
                 with obj_music
                     arena = false;
+				with obj_doorblocked
+				{
+					instance_create(x, y, obj_dooropening);
+					instance_destroy(id, false);
+				}
             }
             else
             {

@@ -1,3 +1,0 @@
-character = "S";
-invert = true;
-

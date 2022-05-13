@@ -171,7 +171,7 @@ function scr_player_mach3()
 
 		// Climbwall
 		var slop = scr_slope();
-		var bump = scr_solidwall(x + hsp, y) && (!slop or scr_solid(x + xscale, y - 10)) && ((!place_meeting(x + hsp, y, obj_destructibles) && !place_meeting(x + hsp, y, obj_metalblock)) or character == "V");
+		var bump = scr_solidwall(x + hsp, y) && (!slop or scr_solid(x + xscale, y - 10)) && ((!place_meeting(x + hsp, y, obj_destructibles) && !place_meeting(x + hsp, y, obj_metalblock) && !place_meeting(x + hsp, y, obj_mach3solid)) or character == "V");
 			
 		if bump && (slop or !grounded)
 		{
