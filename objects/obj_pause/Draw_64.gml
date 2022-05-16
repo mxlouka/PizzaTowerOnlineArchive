@@ -234,14 +234,17 @@ if (pause or pausefad == 2 or pausefad == 4)
 				}
 				
 				var _score = global.collect;
-				if _score >= global.crank && sprite_exists(_crankpizza)
-				    draw_sprite_ext(_crankpizza, 0, hud_xx, hud_yy, 1, 1, 0, c_white, 1);
-				if _score >= global.brank && sprite_exists(_brankpizza)
-				    draw_sprite_ext(_brankpizza, 0, hud_xx, hud_yy, 1, 1, 0, c_white, 1);
-				if _score >= global.arank && sprite_exists(_arankpizza)
-				    draw_sprite_ext(_arankpizza, 0, hud_xx, hud_yy, 1, 1, 0, c_white, 1);
-				if _score >= global.srank && sprite_exists(_srankpizza)
-				    draw_sprite_ext(_srankpizza, 0, hud_xx, hud_yy, 1, 1, 0, c_white, 1);
+				if global.srank > 0
+				{
+					if _score >= global.crank && sprite_exists(_crankpizza)
+					    draw_sprite_ext(_crankpizza, 0, hud_xx, hud_yy, 1, 1, 0, c_white, 1);
+					if _score >= global.brank && sprite_exists(_brankpizza)
+					    draw_sprite_ext(_brankpizza, 0, hud_xx, hud_yy, 1, 1, 0, c_white, 1);
+					if _score >= global.arank && sprite_exists(_arankpizza)
+					    draw_sprite_ext(_arankpizza, 0, hud_xx, hud_yy, 1, 1, 0, c_white, 1);
+					if _score >= global.srank && sprite_exists(_srankpizza)
+					    draw_sprite_ext(_srankpizza, 0, hud_xx, hud_yy, 1, 1, 0, c_white, 1);
+				}
 				
 				draw_set_valign(fa_top);
 			    draw_set_halign(fa_left);

@@ -30,29 +30,34 @@ function scr_player_slipbanan()
 	
 	if sprite_index == spr_slipbanan2
 	{
-		if sugary && !grounded
-			sprite_index = spr_rockethitwall;
-		
-		var slop = instance_place(x, y + 1, obj_slope);
-		if slop && slop.image_xscale != 0
+		if sugary
 		{
-			if xscale != -sign(slop.image_xscale)
+			if !grounded
+				sprite_index = spr_rockethitwall;
+			
+			var slop = instance_place(x, y + 1, obj_slope);
+			if slop && slop.image_xscale != 0
 			{
-				movespeed -= 0.1;
-				if movespeed <= 0
+				if xscale != -sign(slop.image_xscale)
 				{
-					xscale = -sign(slop.image_xscale);
-					movespeed = 0;
+					movespeed -= 0.1;
+					if movespeed <= 0
+					{
+						xscale = -sign(slop.image_xscale);
+						movespeed = 0;
+					}
 				}
+				else if movespeed < 12
+					movespeed += 0.1;
 			}
-			else if movespeed < 12
-				movespeed += 0.1;
+			else
+			{
+				movespeed = Approach(movespeed, 0, 0.5);
+				if movespeed <= 0
+					state = states.normal;
+			}
 		}
-		else
-			movespeed = Approach(movespeed, 0, 0.5);
 		
-	    if sugary && movespeed <= 0
-	        state = states.normal;
 		if floor(image_index) >= image_number - 1
 		{
 			if sugary

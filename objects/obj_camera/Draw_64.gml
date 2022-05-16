@@ -419,14 +419,17 @@ else
 		}
 		
 		var _score = global.collect;
-		if _score >= global.crank && sprite_exists(_crankpizza)
-		    draw_sprite_ext(_crankpizza, pizzascore_index, hud_xx, hud_yy, 1, 1, 0, c_white, alpha);
-		if _score >= global.brank && sprite_exists(_brankpizza)
-		    draw_sprite_ext(_brankpizza, pizzascore_index, hud_xx, hud_yy, 1, 1, 0, c_white, alpha);
-		if _score >= global.arank && sprite_exists(_arankpizza)
-		    draw_sprite_ext(_arankpizza, pizzascore_index, hud_xx, hud_yy, 1, 1, 0, c_white, alpha);
-		if _score >= global.srank && sprite_exists(_srankpizza)
-		    draw_sprite_ext(_srankpizza, pizzascore_index, hud_xx, hud_yy, 1, 1, 0, c_white, alpha);
+		if global.srank > 0
+		{
+			if _score >= global.crank && sprite_exists(_crankpizza)
+			    draw_sprite_ext(_crankpizza, pizzascore_index, hud_xx, hud_yy, 1, 1, 0, c_white, alpha);
+			if _score >= global.brank && sprite_exists(_brankpizza)
+			    draw_sprite_ext(_brankpizza, pizzascore_index, hud_xx, hud_yy, 1, 1, 0, c_white, alpha);
+			if _score >= global.arank && sprite_exists(_arankpizza)
+			    draw_sprite_ext(_arankpizza, pizzascore_index, hud_xx, hud_yy, 1, 1, 0, c_white, alpha);
+			if _score >= global.srank && sprite_exists(_srankpizza)
+			    draw_sprite_ext(_srankpizza, pizzascore_index, hud_xx, hud_yy, 1, 1, 0, c_white, alpha);
+		}
 		
 		// draw in front of the pizza if repainted
 		if repainted
