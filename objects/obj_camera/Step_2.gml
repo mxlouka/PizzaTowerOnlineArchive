@@ -366,7 +366,10 @@ if global.panic or global.snickchallenge
 	
 	// tilting
 	if check_sugary()
-		panicangle = sin((current_time / (global.wave / global.maxwave)) / 5000) * (global.wave / global.maxwave) * 4;
+	{
+		var mult = global.wave / global.maxwave;
+		panicangle = sin((current_time * mult) / 5000) * mult * 4;
+	}
 }
 
 frameone = false;

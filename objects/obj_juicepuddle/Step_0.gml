@@ -12,9 +12,16 @@ else
 	if sprite_index == spr_juicepuddlesplash && image_index >= image_number - 1
 		sprite_index = spr_juicepuddledone;
 	
+	img_angle = 0;
+	
 	var slope = instance_place(x, y + 1, obj_slope);
-	if slope
-		img_angle = 45 / slope.image_xscale;
+	if slope with slope
+	{
+		var m = sign(image_xscale) * (bbox_bottom - bbox_top) / (bbox_right - bbox_left);
+		other.img_angle = 45 * m;
+	}
+	if place_meeting(x, y + 1, obj_solid)
+		img_angle /= 2;
 	
 	var player = instance_place(x, y, obj_player);
 	if player
