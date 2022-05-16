@@ -7,8 +7,10 @@ function scr_slope(xx = x, yy = y + 1)
 	y = yy;
 	
 	var slope = instance_place(x, y, obj_slope)
-	if slope {
-		with slope {
+	if slope
+	{
+		with slope
+		{
 			var object_side = 0
 			var slope_start = 0
 			var slope_end = 0

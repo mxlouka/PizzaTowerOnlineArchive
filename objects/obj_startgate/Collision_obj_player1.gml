@@ -1,7 +1,7 @@
 var player = other;
 with player
 {
-	if place_meeting(x, y, other) && key_up && grounded && scr_solid(x, y + 1)
+	if place_meeting(x, y, other) && key_up && grounded && vsp >= 0
 	&& (state == states.normal or state == states.mach1 or state == states.mach2)
 	&& !instance_exists(obj_fadeout)
 	{
@@ -10,6 +10,16 @@ with player
 		or room == hub_roomPLN)
 		&& !global.panic && !audio_is_playing(global.jukebox)
 			audio_stop_sound(global.music);
+		
+		// snap to ground just in case
+		for(var i = 0; i < 8; i++)
+		{
+			if scr_solid(x, y + i + 1)
+			{
+				y += i;
+				break;
+			}
+		}
 		
 		backtohubstartx = other.x
 		backtohubstarty = y

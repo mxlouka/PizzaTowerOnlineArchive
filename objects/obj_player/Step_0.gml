@@ -455,6 +455,9 @@ if input_buffer_secondjump < 8
 if input_buffer_highjump < 8
 	input_buffer_highjump++
 
+if input_buffer_faceplant < 8
+	input_buffer_faceplant++
+
 if shoot_buffer > 0
     shoot_buffer--;
 
@@ -567,6 +570,10 @@ if state != states.comingoutdoor && c < 255
 	image_blend = c_white;
 }
 
+// pizzelle one time super jump
+if grounded && state != states.Sjump
+	sjump = true;
+
 // colorful afterimages
 if state == states.mach3 or pizzapepper > 0 or sprite_index == spr_barrelroll
 or state == states.parry or state == states.rideweenie 
@@ -578,7 +585,6 @@ or (state == states.machroll)
 or (state == states.handstandjump)
 or (state == states.Sjump && scr_stylecheck(0, 2))
 or (state == states.chainsaw && mach2 >= 100)
-or (state == states.faceplant && !scr_stylecheck(0))
 or (state == states.cotton && (sprite_index == spr_cotton_run or sprite_index == spr_cotton_maxrun))
 {
 	if !macheffect
@@ -607,7 +613,12 @@ else
 	with obj_mach3effect
 	{
 		if !keep && playerid == other.id
-			instance_destroy();
+		{
+			if playerid.character != "SP" or global.gameplay == 0
+				instance_destroy();
+			else
+				image_alpha -= 0.1;
+		}
 	}
 }
 
@@ -620,6 +631,12 @@ if y > room_height + 200 && !cutscene
 	
 	x = roomstartx;
 	y = roomstarty;
+	if instance_exists(obj_falloffrespawn)
+	{
+		var falloffrespawn = instance_nearest(x, y, obj_falloffrespawn);
+		x = falloffrespawn.x;
+		y = falloffrespawn.y;
+	}
 	
 	if !skateboarding
 	{
@@ -678,7 +695,7 @@ cutscene = (
 
 //SAGE2019
 //Up arrow
-if ((place_meeting(x, y, obj_door) && !place_meeting(x, y, obj_doorblocked)) or place_meeting(x, y, obj_dresser) or place_meeting(x, y, obj_menuphone) or place_meeting(x, y, obj_filedoor) or place_meeting(x, y, obj_devdoor) or place_meeting(x, y, obj_arcademachine) or place_meeting(x, y, obj_arcadehub) or place_meeting(x, y, obj_snick) or place_meeting(x, y, obj_keydoor) or place_meeting(x, y, obj_door_editor) or place_meeting(x, y, obj_keydoor_editor) or place_meeting(x, y, obj_baddiemenu) or place_meeting(x, y, obj_npcparent) or place_meeting(x, y, obj_eatery_cashreg) or place_meeting(x, y, obj_taxi) or (place_meeting(x, y, obj_hubelevator) && instance_place(x, y, obj_hubelevator).state == 0) or (place_meeting(x, y, obj_geromedoor) && global.gerome) or (place_meeting(x,y,obj_exitgate) && (global.panic or global.snickchallenge) && character != "S"))
+if ((place_meeting(x, y, obj_door) && !place_meeting(x, y, obj_doorblocked)) or place_meeting(x, y, obj_dresser) or place_meeting(x, y, obj_menuphone) or place_meeting(x, y, obj_filedoor) or place_meeting(x, y, obj_devdoor) or place_meeting(x, y, obj_arcademachine) or place_meeting(x, y, obj_arcadehub) or place_meeting(x, y, obj_snick) or place_meeting(x, y, obj_keydoor) or place_meeting(x, y, obj_door_editor) or place_meeting(x, y, obj_keydoor_editor) or place_meeting(x, y, obj_baddiemenu) or place_meeting(x, y, obj_npcparent) or place_meeting(x, y, obj_eatery_cashreg) or place_meeting(x, y, obj_taxi) or (place_meeting(x, y, obj_hubelevator) && instance_place(x, y, obj_hubelevator).state == 0) or (place_meeting(x, y, obj_geromedoor) && global.gerome) or (place_meeting(x, y, obj_exitgate) && (global.panic or global.snickchallenge) && character != "S" && !global.failedmod) or (place_meeting(x, y, obj_startgate) && state == states.normal && scr_stylecheck(2)))
 && grounded && vsp >= 0 && state == states.normal
 {
 	var arrowexists = false;

@@ -5,5 +5,5 @@ if check_online()
 }
 else
 	global.roommessage = lang_string("roomname.hub_room1");
-
 global.golfhit = 0;
+

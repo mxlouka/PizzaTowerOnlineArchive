@@ -8,7 +8,7 @@ function point_in_camera(x, y, cam)
 	return point_in_rectangle(x, y, camx, camy, camx + camw, camy + camh);
 }
 
-function instance_in_camera(inst, cam)
+function instance_in_camera(inst = id, cam = view_camera[0])
 {
 	var camx = camera_get_view_x(cam);
 	var camy = camera_get_view_y(cam);
@@ -71,8 +71,9 @@ function check_sugary(rmin = room)
 	
 	return rmin == hub_roomSP
 	or string_startswith(room_get_name(rmin), "cotton_")
-	or string_startswith(room_get_name(rmin), "jawbreaker_")
+	or string_startswith(room_get_name(rmin), "mines_")
 	or string_startswith(room_get_name(rmin), "entryway_")
+	or string_startswith(room_get_name(rmin), "molasses_")
 }
 
 function gp_vibration(left, right, dec)
@@ -160,7 +161,7 @@ function scr_hitthrow(baddie, player, lag = 5)
 			tauntstoredstate = state;
 			tauntstoredvsp = vsp;
 			state = states.hitlag;
-						
+			
 			hitLag = lag;
 			hitX = x;
 			hitY = y;

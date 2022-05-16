@@ -1,7 +1,4 @@
 if object_index == obj_hungrypillar
 	exit;
+image_alpha = place_meeting(x, y, obj_otherplayer) ? 0.5 : 1;
 
-if place_meeting(x, y, obj_otherplayer)
-	image_alpha = 0.5;
-else
-	image_alpha = 1;

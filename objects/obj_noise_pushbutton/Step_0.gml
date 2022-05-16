@@ -16,6 +16,7 @@ if sprite_index == spr_noise_button
 	if floor(image_index) == 87 && !global.panic
 	{
 		// setup pizzatime
+		scr_soundeffect(sfx_killenemy);
 		instance_create(x, y, obj_itspizzatime)
 		global.panic = true
 	
@@ -35,10 +36,11 @@ if sprite_index == spr_noise_button
 	
 		with obj_camera
 			alarm[1] = 60;
-	
+		
 		// scare player
 		with obj_player
 		{
+			scr_soundeffect(snd_fireass);
 			state = states.backbreaker;
 			sprite_index = spr_bossintro;
 			image_index = 0;

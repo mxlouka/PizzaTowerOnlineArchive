@@ -37,7 +37,7 @@ function scr_player_timesup()
 		y = 270
 	}
 	
-	if floor(image_index) >= 9
+	if floor(image_index) >= image_number - 1
 		image_speed = 0
 }
 

@@ -19,7 +19,8 @@ if instance_exists(obj_player1)
 	{
 		case "SP":
 		case "SN":
-			str1 = "It seems the gate behind the candyman has slammed shut! No way around it.";
+			str1 = "It seems as though our infamous candyman has ended in a completely different universe!";
+			str2 = "It looks like he will have to explore this deeply strange place...";
 			break;
 		case "N":
 			str1 = "It seems the gate behind the gremlin has slammed shut! No way around it.";

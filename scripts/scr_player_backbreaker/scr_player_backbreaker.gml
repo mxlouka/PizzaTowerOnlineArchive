@@ -1,16 +1,15 @@
 function scr_player_backbreaker()
 {
 	mach2 = 0
-	if sprite_index != spr_player_machfreefall
+	if sprite_index != spr_machfreefall
 	{
 		hsp = 0
 		movespeed = 0
 	}
 	else
 		hsp = xscale * movespeed
-
+	
 	move = key_right2 + key_left2
-
 	landAnim = false
 	
 	//Tower Intro
@@ -19,7 +18,6 @@ function scr_player_backbreaker()
 		state = states.machslide
 		sprite_index = spr_crouchslide
 	}
-	
 	if !visible
 		vsp = 0;
 	

@@ -49,11 +49,14 @@ if place_meeting(x, y, obj_player1) && !player && obj_player1.state != states.ga
 				other.y = treasure_y - 35
 				other.player = true
 				
-				with obj_tv
+				if global.gameplay == 0
 				{
-					showtext = true
-					message = "YOU GOT A TOWER SECRET TREASURE!"
-					alarm[2] = 200
+					with obj_tv
+					{
+						showtext = true
+						message = "YOU GOT THE TOWER SECRET TREASURE!"
+						alarm[2] = 200
+					}
 				}
 				
 				if global.timeattack with obj_timeattack

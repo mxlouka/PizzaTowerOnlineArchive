@@ -5,5 +5,8 @@ if sync
 	image_index = ds_map_find_value(variable_map, "img");
 	image_xscale = ds_map_find_value(variable_map, "xscale");
 	image_blend = ds_map_find_value(variable_map, "blend");
+	sugary = ds_map_find_value(variable_map, "sugary");
+	if sugary
+		color2 = ds_map_find_value(variable_map, "blend2");
 }
 

@@ -40,6 +40,7 @@ if myturn
 	
 	with obj_music
 		fadeoff = 0
-	if global.timeattack with obj_timeattack
+	with obj_timeattack
 		alarm[1] = 60;
 }
+

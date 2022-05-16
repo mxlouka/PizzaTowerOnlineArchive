@@ -12,7 +12,7 @@
     "path": "audiogroups/audiogroup_default",
   },
   "soundFile": "sfx_tauntSP_4.wav",
-  "duration": 0.581723,
+  "duration": 0.757551,
   "parent": {
     "name": "sfx",
     "path": "folders/Sounds/pto extra/sugary spire/sfx.yy",

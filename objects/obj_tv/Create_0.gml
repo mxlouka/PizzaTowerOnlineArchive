@@ -57,6 +57,13 @@ idleanim = 180
 collect_shake = 0
 
 sugary = false
+sugary_propeller = 0
+combo_prev = global.combo
+combo_shake = 0
+combo_fade = 0
+sprite_prev = -1
+static_timer = 0
+happy_timer = 0
 
 if global.gameplay != 0
 {

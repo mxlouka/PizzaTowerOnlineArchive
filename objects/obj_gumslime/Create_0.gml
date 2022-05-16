@@ -15,6 +15,7 @@ if global.gameplay != 0
 	idlespr = spr_gumslime_idle_NEW
 	walkspr = spr_gumslime_walk_NEW
 	grabbedspr = spr_gumslime_stunned_NEW
+	stunfallspr = spr_gumslime_stunned_NEW
 	scaredspr = spr_gumslime_scared_NEW
 	spr_dead = spr_gumslime_dead_NEW
 }

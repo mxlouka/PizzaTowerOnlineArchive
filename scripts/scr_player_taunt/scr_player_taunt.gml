@@ -13,12 +13,12 @@ function scr_player_taunt()
 			tauntstoredstate = state
 			state = states.backbreaker
 			
-			if supercharged
+			if supercharged && !audio_is_playing(sfx_supertaunt) && !audio_is_playing(sfx_supertaunt_SP) && scr_stylecheck(2)
 			{
-				if !audio_is_playing(sfx_supertaunt) && scr_stylecheck(2)
-					scr_soundeffect(sfx_supertaunt)
+				if character == "SP"
+					scr_soundeffect(sfx_supertaunt_SP)
 				else
-					scr_soundeffect(sfx_taunt)
+					scr_soundeffect(sfx_supertaunt)
 			}
 			else
 			{
@@ -35,9 +35,6 @@ function scr_player_taunt()
 			}
 			else
 			{
-				if character == "SP"
-					spr_taunt = spr_pizzelle_taunt;
-				
 				taunttimer = 20
 				sprite_index = spr_taunt
 				image_index = irandom(sprite_get_number(sprite_index))

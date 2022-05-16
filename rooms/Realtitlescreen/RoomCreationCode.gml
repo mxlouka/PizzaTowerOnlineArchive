@@ -51,4 +51,6 @@ global.snickchallenge = false;
 global.snickrematch = false;
 
 room_speed = 60;
+if !instance_exists(obj_fadein)
+	instance_create(0, 0, obj_fadein);
 

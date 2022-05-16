@@ -13,3 +13,5 @@ if instance_exists(obj_pausefadeout)
 	instance_destroy(obj_pausefadeout)
 
 cont = true;
+depth = -1000;
+

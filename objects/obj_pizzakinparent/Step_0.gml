@@ -26,7 +26,8 @@ if sprite_index == _spr_intro && floor(image_index) >= image_number - 1 && _spr_
 	sprite_index = _spr_idle
 
 // animation
-if sprite_index != _spr_intro or _spr_intro == _spr_run
+if (sprite_index != _spr_intro or _spr_intro == _spr_run)
+&& (sprite_index != spr_taunt or spr_taunt == -1)
 {
 	// Sprites
 	if abs(x - xprevious) > 2
@@ -38,3 +39,33 @@ if sprite_index != _spr_intro or _spr_intro == _spr_run
 		sprite_index = _spr_idle;
 	depth = -6;
 }
+
+// taunt
+if spr_taunt != -1
+{
+	if playerid.sprite_index == playerid.spr_taunt && sprite_index != spr_taunt
+	{
+		with instance_create(x, y, obj_cloudeffect)
+		{
+			depth = other.depth + 1;
+			sprite_index = spr_confectitaunt;
+		}
+		
+		sprite_index = spr_taunt;
+		image_index = random(image_number);
+	}
+	if sprite_index == spr_taunt
+	{
+		lerpx = x;
+		lerpy = y;
+		
+		followqueue = [playerid.x, playerid.y];
+		image_speed = 0;
+		
+		if playerid.sprite_index != playerid.spr_taunt
+			sprite_index = _spr_idle;
+	}
+	else
+		image_speed = 0.35;
+}
+

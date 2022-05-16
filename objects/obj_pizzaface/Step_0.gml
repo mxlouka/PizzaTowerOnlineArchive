@@ -33,25 +33,28 @@ if place_meeting(x, y, playerid) && !instance_exists(obj_fadeout) && !instance_e
 			if !place_meeting(x, y, obj_parryhitbox)
 				scr_hurtplayer(playerid, 100);
 		}
-		else with playerid
+		else if !playerid.hurted or !sugary
 		{
-			image_blend = c_white;
-			grav = 0.5;
-			a = 0;
-			targetDoor = "A"
-			room = timesuproom
-			state = states.timesup
-			sprite_index = spr_Timesup
-			image_index = 0
-			image_speed = 0.35
-			
-			if !audio_is_playing(global.jukebox)
+			with playerid
 			{
-				audio_stop_all()
-				scr_soundeffect(mu_timesup)
+				image_blend = c_white;
+				grav = 0.5;
+				a = 0;
+				targetDoor = "A"
+				room = timesuproom
+				state = states.timesup
+				sprite_index = spr_Timesup
+				image_index = 0
+				image_speed = 0.35
+				
+				if !audio_is_playing(global.jukebox)
+				{
+					audio_stop_all()
+					scr_soundeffect(mu_timesup)
+				}
+				instance_destroy(obj_fadeout)
+				instance_destroy(other)
 			}
-			instance_destroy(obj_fadeout)
-			instance_destroy(other)
 		}
 	}
 }

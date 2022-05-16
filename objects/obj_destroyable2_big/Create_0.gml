@@ -1,4 +1,4 @@
-hp = 2
+event_inherited()
 
 if obj_player1.character == "N"
 	sprite_index = spr_halloweenbigblock

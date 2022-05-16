@@ -18,7 +18,7 @@ if global.timeattack && !(instance_exists(obj_gms) && global.__chat)
 	draw_set_valign(fa_top);
 	draw_set_color(c_yellow)
 	
-	var yy = min(obj_tv.yi - 70, 540 - 60);
+	var yy = min(obj_tv.yi - 70 - (check_sugary() * 10), 540 - 60);
 	if global.panic or global.snickchallenge or global.modifier == mods.no_toppings
 		yy -= 40;
 	var xx = 960 / 2;
@@ -37,3 +37,4 @@ if global.timeattack && !(instance_exists(obj_gms) && global.__chat)
 	draw_set_halign(fa_left);
 	draw_text(xx + strw, yy + 16, precisertext + string(precise));
 }
+

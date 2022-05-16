@@ -29,86 +29,88 @@ draw_set_color(c_white);
 #region option
 if menu == 0
 {
-	var starty = 75;
+	camy = lerp(camy, min((-optionselected + 2) * 20, 0), 0.1);
+	var startx = 960 / 2 + camx, starty = 75 + camy;
 	
 	// other config
 	if !(instance_exists(obj_pause) && obj_pause.pause)
-	{
-		starty = 35;
-		draw_text_colour(960 / 2, starty + 455, lang_string("options.otherconfig"), c_white, c_white, c_white, c_white, (optionselected == 5 ? 1 : 0.5))
-	}
+		draw_text_colour(startx, starty + 410, lang_string("options.otherconfig"), c_white, c_white, c_white, c_white, (optionselected == 5 ? 1 : 0.5))
 	
-	draw_text_colour(960 / 2, starty, lang_string("options.fullscreen"), c_white, c_white, c_white, c_white, (optionselected == 0 ? 1 : 0.5))
-	draw_text_colour(960 / 2 - 100, starty + 50, lang_string("options.on"), c_white, c_white, c_white, c_white, (optionsaved_fullscreen == 0 ? 1 : 0.5));
-	draw_text_colour(960 / 2 + 100, starty + 50, lang_string("options.off"), c_white, c_white, c_white, c_white, (optionsaved_fullscreen == 1 ? 1 : 0.5));
+	draw_text_colour(startx, starty, lang_string("options.fullscreen"), c_white, c_white, c_white, c_white, (optionselected == 0 ? 1 : 0.5))
+	draw_text_colour(startx - 100, starty + 40, lang_string("options.on"), c_white, c_white, c_white, c_white, (optionsaved_fullscreen == 0 ? 1 : 0.5));
+	draw_text_colour(startx + 100, starty + 40, lang_string("options.off"), c_white, c_white, c_white, c_white, (optionsaved_fullscreen == 1 ? 1 : 0.5));
 	
-	draw_text_colour(960 / 2, starty + 120, lang_string("options.resolution"), c_white, c_white, c_white, c_white, (optionselected == 1 ? 1 : 0.5))
-	draw_text_colour(960 / 2 - 180, starty + 170, "480X270", c_white, c_white, c_white, c_white, (optionsaved_resolution == 0 ? 1 : 0.5));
-	draw_text_colour(960 / 2, starty + 170, "960X540", c_white, c_white, c_white, c_white, (optionsaved_resolution == 1 ? 1 : 0.5));
-	draw_text_colour(960 / 2 + 200, starty + 170, "1920X1080", c_white, c_white, c_white, c_white, (optionsaved_resolution == 2 ? 1 : 0.5));
+	draw_text_colour(startx, starty + 110, lang_string("options.resolution"), c_white, c_white, c_white, c_white, (optionselected == 1 ? 1 : 0.5))
+	draw_text_colour(startx - 180, starty + 150, "480X270", c_white, c_white, c_white, c_white, (optionsaved_resolution == 0 ? 1 : 0.5));
+	draw_text_colour(startx, starty + 150, "960X540", c_white, c_white, c_white, c_white, (optionsaved_resolution == 1 ? 1 : 0.5));
+	draw_text_colour(startx + 200, starty + 150, "1920X1080", c_white, c_white, c_white, c_white, (optionsaved_resolution == 2 ? 1 : 0.5));
 	
 	// key config
-	draw_text_colour(960 / 2, starty + 230, lang_string("options.keyconfig"), c_white, c_white, c_white, c_white, (optionselected == 2 ? 1 : 0.5))
+	draw_text_colour(startx, starty + 210, lang_string("options.keyconfig"), c_white, c_white, c_white, c_white, (optionselected == 2 ? 1 : 0.5))
 	
 	// sound config
-	draw_text_colour(960 / 2, starty + 270, lang_string("options.soundconfig"), c_white, c_white, c_white, c_white, (optionselected == 3 ? 1 : 0.5))
+	draw_text_colour(startx, starty + 250, lang_string("options.soundconfig"), c_white, c_white, c_white, c_white, (optionselected == 3 ? 1 : 0.5))
 	
 	// sound config
-	draw_text_colour(960 / 2, starty + 340, lang_string("options.vibration"), c_white, c_white, c_white, c_white, (optionselected == 4 ? 1 : 0.5))
-	draw_text_colour(960 / 2 - 100, starty + 380, lang_string("options.on"), c_white, c_white, c_white, c_white, (optionsaved_vibration == 0 ? 1 : 0.5));
-	draw_text_colour(960 / 2 + 100, starty + 380, lang_string("options.off"), c_white, c_white, c_white, c_white, (optionsaved_vibration == 1 ? 1 : 0.5));
+	draw_text_colour(startx, starty + 310, lang_string("options.vibration"), c_white, c_white, c_white, c_white, (optionselected == 4 ? 1 : 0.5))
+	draw_text_colour(startx - 100, starty + 350, lang_string("options.on"), c_white, c_white, c_white, c_white, (optionsaved_vibration == 0 ? 1 : 0.5));
+	draw_text_colour(startx + 100, starty + 350, lang_string("options.off"), c_white, c_white, c_white, c_white, (optionsaved_vibration == 1 ? 1 : 0.5));
+	
+	// desc
+	draw_set_font(global.font_small);
+	draw_text_auto(startx, 15 + camy, "(Press the JUMP key to save the selected setting.)",,,0.75);
 }
 #endregion
 
 #region sound options
 if menu == 1
 {
-	var m1y = 50;
-	var m2y = m1y + 100;
+	var centre = 960 / 2 + camx;
+	var m1y = 50, m2y = m1y + 100;
 	
-	draw_text_colour(960 / 2, m1y, lang_string("options.sound.master"), c_white, c_white, c_white, c_white, (optionselected == 0 ? 1 : 0.5));
-	draw_text_colour(960 / 2, m2y, lang_string("options.sound.music"), c_white, c_white, c_white, c_white, (optionselected == 1 ? 1 : 0.5));
-	
-	draw_set_colour(c_gray);
-	draw_rectangle(230, m1y + 56, 730, m1y + 56 + 16, false);
-	draw_set_colour(c_white);
-	draw_rectangle(230, m1y + 56, 230 + (global.mastervolume * 500), m1y + 56 + 16, false);
-	draw_set_colour(c_black);
-	draw_circle(230 + (global.mastervolume * 500), m1y + 56 + 8, 21, false);
-	draw_set_colour(c_white);
-	draw_circle(230 + (global.mastervolume * 500), m1y + 56 + 8, 20, false);
+	draw_text_colour(centre, m1y, lang_string("options.sound.master"), c_white, c_white, c_white, c_white, (optionselected == 0 ? 1 : 0.5));
+	draw_text_colour(centre, m2y, lang_string("options.sound.music"), c_white, c_white, c_white, c_white, (optionselected == 1 ? 1 : 0.5));
 	
 	draw_set_colour(c_gray);
-	draw_rectangle(230, m2y + 56, 730, m2y + 56 + 16, false);
+	draw_rectangle(230 + camx, m1y + 56, 730 + camx, m1y + 56 + 16, false);
 	draw_set_colour(c_white);
-	draw_rectangle(230, m2y + 56, 230 + (global.musicvolume * 500), m2y + 56 + 16, false);
+	draw_rectangle(230 + camx, m1y + 56, 230 + camx + (global.mastervolume * 500), m1y + 56 + 16, false);
 	draw_set_colour(c_black);
-	draw_circle(230 + (global.musicvolume * 500), m2y + 56 + 8, 21, false);
+	draw_circle(230 + camx + (global.mastervolume * 500), m1y + 56 + 8, 21, false);
 	draw_set_colour(c_white);
-	draw_circle(230 + (global.musicvolume * 500), m2y + 56 + 8, 20, false);
+	draw_circle(230 + camx + (global.mastervolume * 500), m1y + 56 + 8, 20, false);
+	
+	draw_set_colour(c_gray);
+	draw_rectangle(230 + camx, m2y + 56, 730 + camx, m2y + 56 + 16, false);
+	draw_set_colour(c_white);
+	draw_rectangle(230 + camx, m2y + 56, 230 + camx + (global.musicvolume * 500), m2y + 56 + 16, false);
+	draw_set_colour(c_black);
+	draw_circle(230 + camx + (global.musicvolume * 500), m2y + 56 + 8, 21, false);
+	draw_set_colour(c_white);
+	draw_circle(230 + camx + (global.musicvolume * 500), m2y + 56 + 8, 20, false);
 	
 	if optionselected == 0
 	{
 		draw_set_font(global.font_small);
-		draw_text(230 + (global.mastervolume * 500), m1y + 56 + 1, string(round(global.mastervolume * 100)) + "%");
+		draw_text(230 + camx + (global.mastervolume * 500), m1y + 56 + 1, string(round(global.mastervolume * 100)) + "%");
 		draw_set_font(global.bigfont);
 	}
 	if optionselected == 1
 	{
 		draw_set_font(global.font_small);
-		draw_text(230 + (global.musicvolume * 500), m2y + 56 + 1, string(round(global.musicvolume * 100)) + "%");
+		draw_text(230 + camx + (global.musicvolume * 500), m2y + 56 + 1, string(round(global.musicvolume * 100)) + "%");
 		draw_set_font(global.bigfont);
 	}
 	
-	draw_text_colour(960 / 2, m2y + 125, lang_string("options.sound.mach"), c_white, c_white, c_white, c_white, (optionselected == 2 ? 1 : 0.5))
-	draw_text_colour(960 / 2 - 100, m2y + 175, lang_string("options.sound.machold"), c_white, c_white, c_white, c_white, (global.machsound == 1 ? 1 : 0.5));
-	draw_text_colour(960 / 2 + 100, m2y + 175, lang_string("options.sound.machnew"), c_white, c_white, c_white, c_white, (global.machsound == 0 ? 1 : 0.5));
+	draw_text_colour(centre, m2y + 125, lang_string("options.sound.mach"), c_white, c_white, c_white, c_white, (optionselected == 2 ? 1 : 0.5))
+	draw_text_colour(centre - 100, m2y + 175, lang_string("options.sound.machold"), c_white, c_white, c_white, c_white, (global.machsound == 1 ? 1 : 0.5));
+	draw_text_colour(centre + 100, m2y + 175, lang_string("options.sound.machnew"), c_white, c_white, c_white, c_white, (global.machsound == 0 ? 1 : 0.5));
 	
-	draw_text_colour(960 / 2, m2y + 250, lang_string("options.sound.game"), c_white, c_white, c_white, c_white, (optionselected == 3 ? 1 : 0.5));
+	draw_text_colour(centre, m2y + 250, lang_string("options.sound.game"), c_white, c_white, c_white, c_white, (optionselected == 3 ? 1 : 0.5));
 	
 	var mus1pos = -100, mus2pos = 100;
-	draw_text_colour(960 / 2 + mus1pos, m2y + 300, lang_string("options.sound.normal"), c_white, c_white, c_white, c_white, (global.musicgame == 0 ? 1 : 0.5));
-	draw_text_colour(960 / 2 + mus2pos, m2y + 300, lang_string("options.sound.castle"), c_white, c_white, c_white, c_white, (global.musicgame == 1 ? 1 : 0.5));
+	draw_text_colour(centre + mus1pos, m2y + 300, lang_string("options.sound.normal"), c_white, c_white, c_white, c_white, (global.musicgame == 0 ? 1 : 0.5));
+	draw_text_colour(centre + mus2pos, m2y + 300, lang_string("options.sound.castle"), c_white, c_white, c_white, c_white, (global.musicgame == 1 ? 1 : 0.5));
 }
 #endregion
 #region other option
@@ -122,6 +124,7 @@ if menu == 2
 	if img >= (60 * 60) * 10
 		img = 0;
 	
+	var xbase = 72 + camx;
 	var ybase = 32 + camy;
 	var cursory = 32 + 8 + (16 * optionselected)
 		+ ((optionselected > 1) * 16)
@@ -131,26 +134,31 @@ if menu == 2
 	draw_sprite(spr_cursor, img * .3, 32, cursory + camy);
 	camy = lerp(camy, min(-cursory + camera_get_view_height(view_camera[0]) / 2, 0), 0.1);
 	
-	draw_text_colour(72, ybase + (16 * 0), lang_string("options.other.erase"), c_red, c_red, c_red, c_red, (optionselected == 0 ? 1 : 0.5));
-	draw_text_colour(72, ybase + (16 * 1), lang_string("options.other.gameplay"), c_white, c_white, c_white, c_white, (optionselected == 1 ? 1 : 0.5));
+	draw_text_colour(xbase, ybase + (16 * 0), lang_string("options.other.erase"), c_red, c_red, c_red, c_red, (optionselected == 0 ? 1 : 0.5));
+	draw_text_colour(xbase, ybase + (16 * 1), lang_string("options.other.gameplay"), c_white, c_white, c_white, c_white, (optionselected == 1 ? 1 : 0.5));
 	
-	draw_text_colour(72, ybase + (16 * 3), lang_string("options.other.wavybg"), c_white, c_white, c_white, c_white, (optionselected == 2 ? 1 : 0.5));
-	draw_text_colour(72, ybase + (16 * 4), lang_string("options.other.blur"), c_white, c_white, c_white, c_white, (optionselected == 3 ? 1 : 0.5));
-	draw_text_colour(72, ybase + (16 * 5), lang_string("options.other.shaky"), c_white, c_white, c_white, c_white, (optionselected == 4 ? 1 : 0.5));
-	draw_text_colour(72, ybase + (16 * 6), lang_string("options.other.panicbg"), c_white, c_white, c_white, c_white, (optionselected == 5 ? 1 : 0.5));
-	draw_text_colour(72, ybase + (16 * 7), lang_string("options.other.demo3"), c_white, c_white, c_white, c_white, (optionselected == 6 ? 1 : 0.5));
+	draw_text_colour(xbase, ybase + (16 * 3), lang_string("options.other.wavybg"), c_white, c_white, c_white, c_white, (optionselected == 2 ? 1 : 0.5));
+	draw_text_colour(xbase, ybase + (16 * 4), lang_string("options.other.blur"), c_white, c_white, c_white, c_white, (optionselected == 3 ? 1 : 0.5));
+	draw_text_colour(xbase, ybase + (16 * 5), lang_string("options.other.shaky"), c_white, c_white, c_white, c_white, (optionselected == 4 ? 1 : 0.5));
+	draw_text_colour(xbase, ybase + (16 * 6), lang_string("options.other.panicbg"), c_white, c_white, c_white, c_white, (optionselected == 5 ? 1 : 0.5));
+	draw_text_colour(xbase, ybase + (16 * 7), lang_string("options.other.demo3"), c_white, c_white, c_white, c_white, (optionselected == 6 ? 1 : 0.5));
 	
-	draw_text_colour(72, ybase + (16 * 9), lang_string("options.other.playernames"), c_white, c_white, c_white, c_white, (optionselected == 7 ? 1 : 0.5));
-	draw_text_colour(72, ybase + (16 * 10), lang_string("options.other.chatbubbles"), c_white, c_white, c_white, c_white, (optionselected == 8 ? 1 : 0.5));
-	draw_text_colour(72, ybase + (16 * 11), lang_string("options.other.synceffects"), c_white, c_white, c_white, c_white, (optionselected == 9 ? 1 : 0.5));
-	draw_text_colour(72, ybase + (16 * 12), lang_string("options.other.fuckoffptd"), c_white, c_white, c_white, c_white, (optionselected == 10 ? 1 : 0.5));
-	//draw_text_colour(72, ybase + (16 * 15), lang_string("options.other.onlinepvp"), c_white, c_white, c_white, c_white, (optionselected == 11 ? 1 : 0.5));
+	draw_text_colour(xbase, ybase + (16 * 9), lang_string("options.other.playernames"), c_white, c_white, c_white, c_white, (optionselected == 7 ? 1 : 0.5));
+	draw_text_colour(xbase, ybase + (16 * 10), lang_string("options.other.chatbubbles"), c_white, c_white, c_white, c_white, (optionselected == 8 ? 1 : 0.5));
+	draw_text_colour(xbase, ybase + (16 * 11), lang_string("options.other.synceffects"), c_white, c_white, c_white, c_white, (optionselected == 9 ? 1 : 0.5));
+	draw_text_colour(xbase, ybase + (16 * 12), lang_string("options.other.fuckoffptd"), c_white, c_white, c_white, c_white, (optionselected == 10 ? 1 : 0.5));
+	//draw_text_colour(xbase, ybase + (16 * 15), lang_string("options.other.onlinepvp"), c_white, c_white, c_white, c_white, (optionselected == 11 ? 1 : 0.5));
 	
-	draw_text_colour(72, ybase + (16 * 14), lang_string("options.other.drpc"), c_white, c_white, c_white, c_white, (optionselected == 11 ? 1 : 0.5));
-	draw_text_colour(72, ybase + (16 * 15), lang_string("options.other.fpscount"), c_white, c_white, c_white, c_white, (optionselected == 12 ? 1 : 0.5));
-	draw_text_colour(72, ybase + (16 * 16), lang_string("options.other.camsmooth"), c_white, c_white, c_white, c_white, (optionselected == 13 ? 1 : 0.5));
-	draw_text_colour(72, ybase + (16 * 17), lang_string("options.other.inputdisplay"), c_white, c_white, c_white, c_white, (optionselected == 14 ? 1 : 0.5));
+	draw_text_colour(xbase, ybase + (16 * 14), lang_string("options.other.drpc"), c_white, c_white, c_white, c_white, (optionselected == 11 ? 1 : 0.5));
+	draw_text_colour(xbase, ybase + (16 * 15), lang_string("options.other.fpscount"), c_white, c_white, c_white, c_white, (optionselected == 12 ? 1 : 0.5));
+	draw_text_colour(xbase, ybase + (16 * 16), lang_string("options.other.camsmooth"), c_white, c_white, c_white, c_white, (optionselected == 13 ? 1 : 0.5));
+	draw_text_colour(xbase, ybase + (16 * 17), lang_string("options.other.inputdisplay"), c_white, c_white, c_white, c_white, (optionselected == 14 ? 1 : 0.5));
 	
+	var camalpha = 1;
+	if camx != 0
+		camalpha = lerp(1, 0, camx / 960);
+	
+	draw_set_alpha(camalpha);
 	switch optionselected
 	{
 		#region erase game
@@ -303,10 +311,10 @@ if menu == 2
 				if global.panicmelt or global.wave > 0.1
 				{
 					gpu_set_blendmode(bm_subtract);
-					draw_set_alpha(appa);
+					draw_set_alpha(appa * camalpha);
 					draw_rectangle(0, 0, 960, 540, false);
 					gpu_set_blendmode(bm_normal);
-					draw_set_alpha(1);
+					draw_set_alpha(camalpha);
 				}
 				else
 					draw_clear_alpha(c_black, 0);
@@ -709,9 +717,9 @@ if menu == 2
 			draw_text(640, 96, lang_string("options.other.drpc.desc"));
 			
 			draw_set_colour($E66054);
-			draw_set_alpha(0.25);
+			draw_set_alpha(0.25 * camalpha);
 			draw_roundrect(460 + 5, 180 + 5, 820 + 5, 340 + 5, false);
-			draw_set_alpha(1);
+			draw_set_alpha(camalpha);
 			draw_roundrect(460, 180, 820, 340, false);
 			
 			if global.richpresence
@@ -861,6 +869,8 @@ if menu == 2
 		
 		#endregion
 	}
+	draw_set_alpha(1);
+	
 	if optionselected != 3
 	{
 		if global.wave > 0
@@ -884,7 +894,5 @@ if menu == 2
 		}
 	}
 }
-else
-	camy = 0;
 
 #endregion

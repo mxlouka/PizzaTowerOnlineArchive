@@ -17,17 +17,7 @@ function scr_player_handstandjump()
 		movespeed = 10;
 		
 		if move != xscale && move != 0
-		{
-			state = states.normal
-			if global.gameplay != 0 && !grounded
-			{
-				image_index = 0;
-				sprite_index = spr_suplexcancel;
-				jumpAnim = true;
-				grav = basegrav;
-				state = states.jump;
-			}
-		}
+			state = states.normal;
 		
 		if floor(image_index) >= image_number - 1
 		{
@@ -65,14 +55,35 @@ function scr_player_handstandjump()
 		    vsp = -11
 			dir = predir;
 		}
-		
 		image_speed = 0.35
-	
-		//Effects
-		if !(instance_exists(obj_slidecloud)) && grounded && movespeed > 5
-		with instance_create(x,y,obj_slidecloud)
-			image_xscale = other.xscale
-	
+		
+		//Faceplant roll
+		if key_slap2
+		{
+			image_index = 0
+			sprite_index = spr_faceplant
+			
+			state = states.faceplant
+			image_speed = 0.5
+			with instance_create(x, y, obj_jumpdust)
+				image_xscale = other.xscale
+			
+			with instance_create(x, y, obj_crazyrunothereffect)
+			{
+				playerid = other.object_index	
+				other.crazyruneffectid = id
+			}
+		}
+		
+		// Body slam
+		if key_down2 && !grounded
+		{
+			image_index = 0
+			state = states.freefallprep
+			vsp = -5
+			sprite_index = spr_bodyslamstart
+			momentum = true
+		}
 		#endregion
 	}
 	else
@@ -92,6 +103,29 @@ function scr_player_handstandjump()
 		
 		if global.gameplay != 0 && character != "S"
 			movespeed = 10;
+		
+		// shoulder bash
+		if key_slap2 && character == "P" && sprite_index != spr_attackdash && sprite_index != spr_airattack && sprite_index != spr_airattackstart && scr_stylecheck(2)
+		{
+			scr_soundeffect(sfx_suplexdashSP);
+			image_index = 0;
+			
+			with instance_create(x, y, obj_crazyrunothereffect)
+				image_xscale = other.xscale;
+			
+			if grounded
+			{
+				sprite_index = spr_attackdash;
+				with instance_create(x + (xscale * -50), y, obj_superdashcloud)
+					image_xscale = other.xscale;
+			}
+			else
+			{
+				if vsp > -4
+					vsp = -4;
+				sprite_index = spr_airattackstart;
+			}
+		}
 		
 		//Jump Stop
 		if !key_jump2 && !jumpstop && vsp < 0.5 && !stompAnim
@@ -205,6 +239,32 @@ function scr_player_handstandjump()
 			dir = predir;
 		}
 		
+		//Faceplant roll
+		if key_slap2 && (global.gameplay == 0 or character == "SP") && (character == "P" or character == "N" or character == "SP")
+		{
+			movespeed = 8
+			if !grounded
+				vsp = -5
+		
+			image_index = 0
+			sprite_index = spr_faceplant
+			
+			if character == "N"
+				scr_soundeffect(sfx_Nspin)
+			
+			state = states.faceplant
+			image_speed = 0.5
+			with instance_create(x, y, obj_jumpdust)
+				image_xscale = other.xscale
+			
+			if !(instance_exists(crazyruneffectid))
+			with instance_create(x,y,obj_crazyrunothereffect)
+			{
+				playerid = other.object_index	
+				other.crazyruneffectid = id
+			}
+		}
+		
 		//Effects
 		if !(instance_exists(obj_slidecloud)) && grounded && movespeed > 5
 		with instance_create(x,y,obj_slidecloud)
@@ -279,32 +339,6 @@ function scr_player_handstandjump()
 	    mort = 1;
 	}
 	
-	//Faceplant roll
-	if key_slap2 && global.gameplay == 0 && (character == "P" or character == "N" or character == "SP")
-	{
-		movespeed = 8
-		if !grounded
-			vsp = -5
-		
-		image_index = 0
-		sprite_index = spr_faceplant
-			
-		if character == "N"
-			scr_soundeffect(sfx_Nspin)
-			
-		state = states.faceplant
-		image_speed = 0.5
-		with instance_create(x, y, obj_jumpdust)
-			image_xscale = other.xscale
-			
-		if !(instance_exists(crazyruneffectid))
-		with instance_create(x,y,obj_crazyrunothereffect)
-		{
-			playerid = other.object_index	
-			other.crazyruneffectid = id
-		}
-	}
-	
 	// Bump
 	if !place_meeting(x + xscale, y, obj_destructibles) && character != "S"
 	{
@@ -313,7 +347,8 @@ function scr_player_handstandjump()
 		{
 			grav = basegrav
 			movespeed = 0
-			vsp = -3
+			if character != "SP"
+				vsp = -3
 			mach2 = 0
 			image_index = 0
 			machslideAnim = true
@@ -322,7 +357,7 @@ function scr_player_handstandjump()
 			scr_soundeffect(sfx_bumpwall);
 			instance_create(x + (10 * xscale), y + 10, obj_bumpeffect);
 			
-			if global.gameplay == 0
+			if global.gameplay == 0 or character == "SP"
 			{
 				state = states.bump;
 				hsp = 2.5 * -xscale;

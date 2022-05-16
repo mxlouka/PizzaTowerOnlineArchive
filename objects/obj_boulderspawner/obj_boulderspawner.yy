@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_noiseboulder",
-    "path": "sprites/spr_noiseboulder/spr_noiseboulder.yy",
+    "name": "spr_meatball_idle",
+    "path": "sprites/spr_meatball_idle/spr_meatball_idle.yy",
   },
   "solid": false,
   "visible": false,

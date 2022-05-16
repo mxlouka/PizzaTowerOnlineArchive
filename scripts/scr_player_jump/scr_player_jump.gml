@@ -33,6 +33,8 @@ function scr_player_jump()
 		_acc = 0.25;
 		_msp = 8;
 	}
+	if character == "SP"
+		_msp = 7;
 	
 	if move != 0 
 	{
@@ -56,14 +58,14 @@ function scr_player_jump()
 	landAnim = true
 
 	//Jump Stop
-	if (!key_jump2) && jumpstop = false && vsp < 0.5 && stompAnim =false
+	if !key_jump2 && !jumpstop && vsp < 0.5 && !stompAnim
 	{
 		vsp /= 10
 		jumpstop = true
 	}
 
 	//Hit head
-	if scr_solid(x,y-1) && jumpstop = false && jumpAnim = true
+	if scr_solid(x, y - 1) && !jumpstop && jumpAnim
 	{
 		vsp = grav
 		jumpstop = true
@@ -297,12 +299,12 @@ function scr_player_jump()
 	{
 		image_index = 0
 		state = states.freefallprep
-		if character != "N" && character != "V" && character != "SP"
+		if character != "N" && character != "V"
 			vsp = -5
 		else
 			vsp = -7
 		
-		if !shotgunAnim
+		if !shotgunAnim or character == "SP"
 			sprite_index = spr_bodyslamstart
 		else
 		{
@@ -356,9 +358,9 @@ function scr_player_jump()
 
 
 	//Freefall
-	if grounded && (sprite_index = spr_facestomp or sprite_index = spr_freefall)
+	if grounded && (sprite_index == spr_facestomp or sprite_index == spr_freefall)
 	{
-	    with (obj_baddie)
+	    with obj_baddie
 		{
 			if point_in_camera(x, y, view_camera[0])
 			{
@@ -366,10 +368,10 @@ function scr_player_jump()
 				hsp = 0
 			}
 		}
-	    with (obj_camera)
+	    with obj_camera
 		{
-			shake_mag=10;
-			shake_mag_acc=30/room_speed;
+			shake_mag = 10;
+			shake_mag_acc = 30 / room_speed;
 		}
 		
 		audio_stop_sound(sfx_groundpound)
@@ -428,26 +430,27 @@ function scr_player_jump()
 		else if !suplexmove
 		{
 			suplexmove = true
-			if character != "SP"
-			{
-				suplexdashsnd =	scr_soundeffect(sfx_suplexdash)
-				sprite_index = spr_suplexdashjumpstart
 			
-				if global.gameplay == 0
-					vsp = -4
-			}
+			if global.gameplay != 0 or character != "SP"
+				suplexdashsnd =	scr_soundeffect(sfx_suplexdash)
 			else
-			{
 				scr_soundeffect(sfx_suplexdashSP);
-				sprite_index = spr_suplexdash
-			}
+				
+			sprite_index = spr_suplexdashjumpstart
+			if character == "SP"
+				sprite_index = spr_suplexdash;
+			else if global.gameplay == 0
+				vsp = -4
+			
 			state = states.handstandjump
 			image_index = 0
 			
-			if character != "N"
-				movespeed = 6
+			if character == "SP"
+				movespeed = 10;
+			else if scr_checkskin(checkskin.n_hardoween)
+				movespeed = 4;
 			else
-				movespeed = 4
+				movespeed = 6;
 			
 			if global.gameplay != 0
 				instance_create(x, y, obj_crazyrunothereffect)
@@ -505,37 +508,16 @@ function scr_player_jump()
 			if character == "P"
 			{
 				// breakdance
-				if global.gameplay == 0
-				{
-					scr_soundeffect(sfx_breakdance);
-					vsp = -4;
-					movespeed = 9;
-					state = states.punch;
-					sprite_index = spr_player_breakdancestart;
-					breakdance = 35;
-					image_index = 0;
-					instance_create(x, y, obj_swingdinghitbox);
+				scr_soundeffect(sfx_breakdance);
+				vsp = -4;
+				movespeed = 9;
+				state = states.punch;
+				sprite_index = spr_player_breakdancestart;
+				breakdance = 35;
+				image_index = 0;
+				instance_create(x, y, obj_swingdinghitbox);
 				
-					grav = basegrav;
-				}
-				
-				// shoulder bash
-				else if !suplexmove
-				{
-					suplexmove = true;
-					
-					suplexdashsnd = scr_soundeffect(sfx_suplexdash);
-					image_index = 0;
-					if vsp > -4
-						vsp = -4;
-					sprite_index = spr_airattackstart;
-					state = states.handstandjump;
-					
-					with instance_create(x, y, obj_crazyrunothereffect)
-						image_xscale = other.xscale;
-					
-					grav = basegrav;
-				}
+				grav = basegrav;
 			}
 			
 			// noise bomb

@@ -1,3 +1,4 @@
+event_inherited()
 if room == rm_editor exit;
 
 depth = 1

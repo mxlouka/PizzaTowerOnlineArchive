@@ -1,10 +1,11 @@
-if scr_stylecheck(2)
+if global.gameplay != 0
 {
-	image_alpha = 0;
+	visible = false;
 	alarm[2] = 3;
 }
 else
 {
-	obj_mach3effect.image_alpha = 0;
+	obj_mach3effect.visible = false;
 	alarm[2] = 3;
 }
+

@@ -67,3 +67,4 @@ sprite_index = walkspr
 grabbedby = 0
 stuntouchbuffer = 0
 scaredbuffer = 0
+

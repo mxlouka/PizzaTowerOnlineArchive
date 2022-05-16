@@ -5,7 +5,10 @@
   },
   "solid": false,
   "visible": true,
-  "spriteMaskId": null,
+  "spriteMaskId": {
+    "name": "spr_dresser",
+    "path": "sprites/spr_dresser/spr_dresser.yy",
+  },
   "persistent": false,
   "parentObjectId": null,
   "physicsObject": false,

@@ -6,10 +6,9 @@ if global.panic or (global.snickchallenge && global.collect <= 0)
 		with instance_create(0, 0, obj_rematchloss)
 			instance_deactivate_all(true);
 	}
-	else
+	else if !instance_exists(obj_pizzaface)
 	{
 		instance_create(room_width / 2, -100, obj_pizzaface)
-		scr_soundeffect(sfx_pizzaface)
 		alarm[2] = -1
 	}
 }
@@ -35,10 +34,12 @@ if global.timedgate
 
 if global.miniboss
 {
-	with obj_player1
+	with obj_player
 	{
-		instance_create(x,y,obj_bangeffect)
-		repeat(6) instance_create(x,y,obj_slapstar)
+		instance_create(x, y, obj_bangeffect)
+		repeat 6
+			instance_create(x, y, obj_slapstar)
+		
 		state = states.ejected
 		vsp = -10
 		if !audio_is_playing(global.jukebox)
@@ -46,6 +47,7 @@ if global.miniboss
 			audio_stop_all()
 			scr_soundeffect(mu_timesup)
 		}
+		scr_soundeffect(sfx_killenemy);
 		instance_destroy(obj_noisebomb);
 	}
 	alarm[2] = -1

@@ -4,6 +4,14 @@ depth = -9999;
 
 choices = [
 	[
+		[mods.pacifist, "Pacifist Challenge", function()
+		{
+			scr_soundeffect(sfx_step);
+			if global.modifier == mods.pacifist
+				global.modifier = -1;
+			else
+				global.modifier = mods.pacifist;
+		}],
 		[mods.no_toppings, "No Toppings Challenge", function()
 		{
 			scr_soundeffect(sfx_step);
@@ -15,6 +23,7 @@ choices = [
 	],
 ]
 
+/*
 if debug
 {
 	choices = [

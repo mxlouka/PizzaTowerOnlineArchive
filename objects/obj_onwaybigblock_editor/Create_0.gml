@@ -1,3 +1,4 @@
+hp = 1
 depth = 6
 mysolid = noone
 momentum = [0, 0]

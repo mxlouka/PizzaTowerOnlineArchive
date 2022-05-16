@@ -2,6 +2,38 @@ if live_call() return live_result;
 scr_getinput();
 
 //Move Up and down
+if menuto != -1
+{
+	if menuto < menu
+	{
+		camx = lerp(camx, -960, -0.5);
+		if camx >= 960
+		{
+			if menu == 1
+				optionselected = 3;
+			if menu == 2
+				optionselected = 5;
+			
+			menu = menuto;
+			menuto = -1;
+			camx = -960;
+		}
+	}
+	else
+	{
+		camx = lerp(camx, 960, -0.5);
+		if camx <= -960
+		{
+			menu = menuto;
+			menuto = -1;
+			camx = 960;
+		}
+	}
+	exit;
+}
+else
+	camx = lerp(camx, 0, 0.25);
+
 if !instance_exists(obj_keyconfig) && !instance_exists(obj_erasegame)
 {
 	if !(instance_exists(obj_pause) && obj_pause.pause)
@@ -71,7 +103,7 @@ if !instance_exists(obj_keyconfig) && !instance_exists(obj_erasegame)
 if menu == 0
 {
 	//Full Screen
-	if optionselected == 0 
+	if optionselected == 0
 	{
 		if (key_right2 or keyboard_check_pressed(vk_right)) && optionsaved_fullscreen == 0
 		{
@@ -86,7 +118,7 @@ if menu == 0
 		
 		if key_jump or keyboard_check_pressed(vk_enter)
 		{
-			scr_soundeffect(sfx_unlock)
+			scr_soundeffect(sfx_enemyprojectile)
 			
 			ini_open("saveData.ini");
 			global.option_fullscreen = !optionsaved_fullscreen
@@ -103,6 +135,8 @@ if menu == 0
 			}
 		}
 	}
+	else
+		optionsaved_fullscreen = !global.option_fullscreen;
 	
 	//Resolution
 	if optionselected == 1
@@ -112,16 +146,16 @@ if menu == 0
 			scr_soundeffect(sfx_step)
 			optionsaved_resolution += 1
 		}
-
+		
 		if (-key_left2 or keyboard_check_pressed(vk_left)) && optionsaved_resolution > 0
 		{
 			scr_soundeffect(sfx_step)
 			optionsaved_resolution -= 1
 		}
-
-		if (key_jump or keyboard_check_pressed(vk_enter))
+		
+		if key_jump or keyboard_check_pressed(vk_enter)
 		{
-			scr_soundeffect(sfx_unlock)
+			scr_soundeffect(sfx_enemyprojectile)
 			
 			ini_open("saveData.ini");
 			global.option_resolution = optionsaved_resolution
@@ -146,6 +180,8 @@ if menu == 0
 			}
 		}
 	}
+	else
+		optionsaved_resolution = global.option_resolution;
 	
 	// key config
 	if optionselected == 2 && !instance_exists(obj_keyconfig)
@@ -161,7 +197,7 @@ if menu == 0
 	&& ((key_jump or keyboard_check_pressed(vk_enter)))
 	{
 		scr_soundeffect(sfx_step)
-		menu = 1
+		menuto = 1
 		optionselected = 0
 		
 		if instance_exists(obj_music) && global.musicvolume > 0
@@ -184,7 +220,7 @@ if menu == 0
 		
 		if key_jump or keyboard_check_pressed(vk_enter)
 		{
-			scr_soundeffect(sfx_unlock)
+			scr_soundeffect(sfx_enemyprojectile)
 			global.gamepadvibration = !optionsaved_vibration
 			
 			ini_open("saveData.ini");
@@ -201,14 +237,17 @@ if menu == 0
 			}
 		}
 	}
+	else
+		optionsaved_vibration = !global.gamepadvibration;
 	
 	// other options
 	if optionselected == 5 && !instance_exists(obj_keyconfig)
 	&& ((key_jump or keyboard_check_pressed(vk_enter)))
 	{
 		scr_soundeffect(sfx_step)
-		menu = 2
+		menuto = 2
 		optionselected = 0
+		camy = 0
 	}
 
 	//Finish
@@ -343,8 +382,7 @@ else if menu == 1
 	if (key_slap2 or keyboard_check_pressed(vk_escape)) && !instance_exists(obj_keyconfig)
 	{
 		scr_soundeffect(sfx_enemyprojectile)
-		menu = 0
-		optionselected = 3
+		menuto = 0
 		
 		audio_stop_sound(sfx_mach2);
 		audio_stop_sound(sfx_mach2_old);
@@ -542,8 +580,7 @@ else if menu == 2 && !instance_exists(obj_erasegame)
 	if (key_slap2 or keyboard_check_pressed(vk_escape)) && !instance_exists(obj_keyconfig)
 	{
 		scr_soundeffect(sfx_enemyprojectile)
-		menu = 0
-		optionselected = 5
+		menuto = 0
 		
 		ini_open("saveData.ini");
 		ini_write_real("online", "gameplay", global.gameplay)

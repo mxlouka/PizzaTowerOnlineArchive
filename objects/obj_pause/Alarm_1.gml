@@ -31,7 +31,6 @@ if gototitle
 		targetDoor = "A"
 		scr_characterspr()
 	}
-	
 	scr_playerreset();
 }
 else if room == custom_lvl_room
@@ -79,7 +78,7 @@ else
 			// no need for this anymore
 			backtohubstartx = 0;
 			backtohubstarty = 0;
-			backtohubroom = hub_room1;
+			backtohubroom = patron ? hub_room1 : hub_roomSAGE;
 		}
 	}
 	else
@@ -91,8 +90,5 @@ else
 }
 
 // create nice fadeout
-with instance_create(0, 0, obj_fadeout)
-{
-	fadealpha = 1;
-	fadein = true;
-}
+instance_create(0, 0, obj_fadein);
+

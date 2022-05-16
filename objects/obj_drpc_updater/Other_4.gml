@@ -139,11 +139,17 @@ else
 	else if string_startswith(r, "grinch")
 		det = "Grinch";
 	
+	else if string_startswith(r, "entryway") && sugaryspire
+		det = "Entryway";
+	
 	else if string_startswith(r, "cotton") && sugaryspire
 		det = "Cottontown";
 	
-	else if string_startswith(r, "jawbreaker") && sugaryspire
-		det = "Jawbreaker Mines";
+	else if string_startswith(r, "mines") && sugaryspire
+		det = "Sugarshack Mines";
+	
+	else if string_startswith(r, "molasses") && sugaryspire
+		det = "Molasses Swamp";
 	
 	else if string_startswith(r, "sanctum") && !global.streamer
 		det = "La Burrata Temple";

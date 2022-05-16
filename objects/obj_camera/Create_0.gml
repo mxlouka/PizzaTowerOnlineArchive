@@ -67,6 +67,7 @@ manualhide = false;
 zoom = 1
 frameone = false;
 global.roombgs = [];
+shaderfade = 0;
 
 // new shit
 lastcollect = -1;

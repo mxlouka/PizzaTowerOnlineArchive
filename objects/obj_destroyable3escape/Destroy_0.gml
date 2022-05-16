@@ -20,10 +20,15 @@ if ds_list_find_index(global.saveroom, id) == -1 && global.panic
 		
 			if other.sprite_index == spr_bigdestroyableescape_NEW
 				sprite_index = spr_debrisescape_NEW
+			else if other.sprite_index == spr_bigdestroyableescape_ss
+				sprite_index = spr_bigdebrisescape_ss
+			else if other.sprite_index == spr_bigdestroyableescapeNEW_ss
+				sprite_index = spr_bigdebrisescapeNEW_ss
 			else
 				sprite_index = spr_bigdebrisescape
 			
-			momentum = other.momentum;
+			image_index = random(image_number)
+			momentum = other.momentum
 		}
 	}
 	

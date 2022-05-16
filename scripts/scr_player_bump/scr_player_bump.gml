@@ -9,9 +9,13 @@ function scr_player_bump()
 	
 	if grounded && vsp >= 0
 	{
-		var railh = 0, railmeet = instance_place(x, y + 1, obj_railparent);
-		if railmeet then railh = railmeet.spdh;
-		hsp = railh;
+		var railmeet = instance_place(x, y + 1, obj_railparent);
+		if railmeet then hsp = railmeet.spdh;
+		
+		if character == "SP"
+			hsp = Approach(hsp, 0, 0.25);
+		else
+			hsp = 0;
 	}
 	
 	var can_end = true;
@@ -25,7 +29,7 @@ function scr_player_bump()
 	if sprite_index == spr_rockethitwall && grounded
 		image_index = image_number - 1;
 	
-	if floor(image_index) = image_number -1
+	if floor(image_index) >= image_number -1
 	{
 		endtumble = false
 		if !skateboarding

@@ -63,9 +63,18 @@ if ds_list_find_index(global.baddieroom, id) == -1
 	{
 		if random_range(1, 100) >= 95 && scr_stylecheck(0, 2) // 5% chance
 		{
-			var screamsnd = scr_soundeffect(sfx_scream1, sfx_scream2, sfx_scream3,
-			sfx_scream4, sfx_scream5, sfx_scream6, sfx_scream7, sfx_scream8,
-			sfx_scream9, sfx_scream10);
+			var screamsnd = -1;
+			if check_sugary()
+			{
+				screamsnd = scr_soundeffect(sfx_scream1_ss, sfx_scream2_ss, sfx_scream3_ss,
+				sfx_scream4_ss, sfx_scream5_ss, sfx_scream6_ss);
+			}
+			else
+			{
+				screamsnd = scr_soundeffect(sfx_scream1, sfx_scream2, sfx_scream3,
+				sfx_scream4, sfx_scream5, sfx_scream6, sfx_scream7, sfx_scream8,
+				sfx_scream9, sfx_scream10);
+			}
 			
 			if scr_stylecheck(2)
 				audio_sound_gain(screamsnd, 0, audio_sound_length(screamsnd) * 1000);

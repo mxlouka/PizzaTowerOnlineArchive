@@ -105,6 +105,15 @@ function scr_playersounds()
 		// stop suplex dash sound
 		if audio_is_playing(suplexdashsnd) && state != states.handstandjump && state != states.punch
 			audio_stop_sound(suplexdashsnd)
+		
+		// bitch sound
+		if sprite_index == spr_mach2jump && character == "SP" && global.gameplay != 0
+		{
+			if !audio_is_playing(flipsnd)
+				flipsnd = scr_soundeffect(sfx_flip_ss)
+		}
+		else
+			audio_stop_sound(flipsnd)
 	}
 }
 

@@ -11,4 +11,5 @@ storedspriteindex = spr_player_idle
 
 if global.gameplay != 0
 	vsp = 5;
+rebound = false;
 

@@ -1,4 +1,7 @@
 {
+  "ConfigValues": {
+    "debug": {"textureGroupId":"{\"name\":\"tg_grinch\",\"path\":\"texturegroups/tg_grinch\"}",},
+  },
   "bboxMode": 0,
   "collisionKind": 1,
   "type": 0,

@@ -11,14 +11,14 @@
   "collisionTolerance": 0,
   "swfPrecision": 2.525,
   "bbox_left": 0,
-  "bbox_right": 3,
+  "bbox_right": 4,
   "bbox_top": 0,
-  "bbox_bottom": 3,
+  "bbox_bottom": 7,
   "HTile": false,
   "VTile": false,
   "For3D": false,
-  "width": 4,
-  "height": 4,
+  "width": 5,
+  "height": 8,
   "textureGroupId": {
     "name": "Default",
     "path": "texturegroups/Default",
@@ -27,9 +27,9 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"668b9331-2b76-45f8-b8cc-6712d0aa1779","path":"sprites/spr_heatmeter_candy_palette/spr_heatmeter_candy_palette.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"668b9331-2b76-45f8-b8cc-6712d0aa1779","path":"sprites/spr_heatmeter_candy_palette/spr_heatmeter_candy_palette.yy",},"LayerId":{"name":"0ece0d7d-36f0-4b9e-8311-0a7aa59b262a","path":"sprites/spr_heatmeter_candy_palette/spr_heatmeter_candy_palette.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"spr_heatmeter_candy_palette","path":"sprites/spr_heatmeter_candy_palette/spr_heatmeter_candy_palette.yy",},"resourceVersion":"1.0","name":"668b9331-2b76-45f8-b8cc-6712d0aa1779","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"3acf74fe-d53f-4e14-ba40-86950e23e8b6","path":"sprites/spr_heatmeter_candy_palette/spr_heatmeter_candy_palette.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"3acf74fe-d53f-4e14-ba40-86950e23e8b6","path":"sprites/spr_heatmeter_candy_palette/spr_heatmeter_candy_palette.yy",},"LayerId":{"name":"a4ba25a8-f52e-4e78-9f33-c56c45b5e88b","path":"sprites/spr_heatmeter_candy_palette/spr_heatmeter_candy_palette.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"spr_heatmeter_candy_palette","path":"sprites/spr_heatmeter_candy_palette/spr_heatmeter_candy_palette.yy",},"resourceVersion":"1.0","name":"3acf74fe-d53f-4e14-ba40-86950e23e8b6","tags":[],"resourceType":"GMSpriteFrame",},
   ],
   "sequence": {
     "spriteId": {"name":"spr_heatmeter_candy_palette","path":"sprites/spr_heatmeter_candy_palette/spr_heatmeter_candy_palette.yy",},
@@ -44,7 +44,7 @@
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
       {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"af038974-9fc4-42a4-84d1-c54472e9029b","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"668b9331-2b76-45f8-b8cc-6712d0aa1779","path":"sprites/spr_heatmeter_candy_palette/spr_heatmeter_candy_palette.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"807585c6-c696-4124-a0ea-83d9fe1e3dfc","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"3acf74fe-d53f-4e14-ba40-86950e23e8b6","path":"sprites/spr_heatmeter_candy_palette/spr_heatmeter_candy_palette.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
           ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
     ],
     "visibleRange": null,
@@ -68,7 +68,7 @@
     "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"0ece0d7d-36f0-4b9e-8311-0a7aa59b262a","tags":[],"resourceType":"GMImageLayer",},
+    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"a4ba25a8-f52e-4e78-9f33-c56c45b5e88b","tags":[],"resourceType":"GMImageLayer",},
   ],
   "nineSlice": null,
   "parent": {

@@ -27,7 +27,7 @@ else
 var xx = x, yy = y;
 if array_length(followqueue) > LAG_STEPS // lag steps are 20
 {
-	xx = followqueue[0];
+	xx = followqueue[0] + xoffset;
 	yy = followqueue[1];
 	array_delete(followqueue, 0, 2);
 }
@@ -40,13 +40,14 @@ else if array_length(followqueue) >= 2
 	}
 	
 	var amt = clamp(array_length(followqueue) / LAG_STEPS, 0, 1);
-	xx = lerp(lerpx, followqueue[0], amt);
+	xx = lerp(lerpx, followqueue[0] + xoffset, amt);
 	yy = lerp(lerpy, followqueue[1], amt);
 }
+x = xx;
 y = yy;
-x = xx + xoffset;
 
 image_blend = leader.image_blend;
 image_alpha = leader.image_alpha;
 if object_index != obj_geromefollow or !instance_exists(obj_geromeanim)
 	visible = leader.visible;
+

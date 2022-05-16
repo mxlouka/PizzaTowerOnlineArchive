@@ -80,7 +80,6 @@ function scr_initenemy()
 	haspalette = false
 	rematchscare = false
 	clipin = 60
-	sugaryenemy = false
 	
 	haspalette = false;
 	spr_palette = palette_cheeseslime;

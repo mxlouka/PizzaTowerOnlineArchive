@@ -6,6 +6,7 @@ enum mods
 	pacifist,
 	no_toppings,
 	hardmode,
+	shadow
 }
 global.modifier = -1;
 global.toppings = 0;

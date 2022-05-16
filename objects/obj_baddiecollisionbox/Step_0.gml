@@ -89,7 +89,7 @@ if player && !player.cutscene && (player.state != states.firemouth or global.gam
 			{
 				bad.image_xscale = -xscale;
 				bad.hithsp = 0;
-					
+				
 				if key_up
 				{
 					bad.hitvsp = -11;

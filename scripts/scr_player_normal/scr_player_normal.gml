@@ -27,6 +27,8 @@ function scr_player_normal()
 		_acc = 0.25;
 		_msp = 8;
 	}
+	if character == "SP" && global.gameplay != 0
+		_msp = 7;
 	
 	//Idles Anim
 	if character != "S"
@@ -57,9 +59,9 @@ function scr_player_normal()
 					sprite_index = spr_pistolwalk
 				else if mort
 					sprite_index = spr_pmortwalk
-				else if global.stylethreshold == 2
+				else if global.stylethreshold == 2 && character != "SP"
 		            sprite_index = spr_3hpwalk
-		        else if global.stylethreshold >= 3
+		        else if global.stylethreshold >= 3 && character != "SP"
 		            sprite_index = spr_ragemove
 				else if global.minutes <= 0 && global.seconds <= 0
 				&& !instance_exists(obj_toppinwarrior)
@@ -114,9 +116,9 @@ function scr_player_normal()
 										sprite_index = spr_pistolidle
 									else if mort
 										sprite_index = spr_pmortidle
-									else if global.stylethreshold == 2
+									else if global.stylethreshold == 2 && character != "SP"
 					                    sprite_index = spr_3hpidle
-					                else if global.stylethreshold >= 3
+					                else if global.stylethreshold >= 3 && character != "SP"
 					                    sprite_index = spr_rageidle
 									else if global.minutes <= 0 && global.seconds <= 0
 									&& !instance_exists(obj_toppinwarrior)
@@ -392,11 +394,11 @@ function scr_player_normal()
 		else if character != "S" && character != "V" && !suplexmove
 		{
 			suplexmove = true
-			if character != "SP"
+			if character != "SP" or global.gameplay != 0
 				suplexdashsnd =	scr_soundeffect(sfx_suplexdash);
 			else
 				scr_soundeffect(sfx_suplexdashSP);
-	
+			
 			if !(character == "SP" && state == states.jump && vsp < 0)
 			{
 				state = states.handstandjump
@@ -479,33 +481,15 @@ function scr_player_normal()
 		{
 			if character == "P"
 			{
-				// breakdance
-				if global.gameplay == 0
-				{
-					scr_soundeffect(sfx_breakdance);
-					movespeed = 9;
-					state = states.punch;
-					sprite_index = spr_player_breakdancestart;
-					with instance_create(x, y, obj_dashcloud2)
-						image_xscale = other.xscale;
-					breakdance = 35;
-					image_index = 0;
-					instance_create(x, y, obj_swingdinghitbox);
-				}
-				
-				// shoulder bash
-				else
-				{
-					suplexdashsnd = scr_soundeffect(sfx_suplexdash);
-					image_index = 0;
-					sprite_index = spr_attackdash;
-					state = states.handstandjump;
-					
-					with instance_create(x, y, obj_crazyrunothereffect)
-						image_xscale = other.xscale;
-					with instance_create(x + (xscale * -50), y, obj_superdashcloud)
-				        image_xscale = other.xscale;
-				}
+				scr_soundeffect(sfx_breakdance);
+				movespeed = 9;
+				state = states.punch;
+				sprite_index = spr_player_breakdancestart;
+				with instance_create(x, y, obj_dashcloud2)
+					image_xscale = other.xscale;
+				breakdance = 35;
+				image_index = 0;
+				instance_create(x, y, obj_swingdinghitbox);
 			}
 			
 			// noise bomb

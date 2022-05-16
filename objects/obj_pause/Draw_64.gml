@@ -20,7 +20,8 @@ if (pause or pausefad == 2 or pausefad == 4)
 		
 		draw_set_colour(c_black);
 		draw_set_alpha(pausealpha);
-		draw_rectangle(0, 0, 960, 540, false);
+		draw_rectangle(-64, -64, 960 + 64, 540 + 64, false);
+		draw_set_alpha(1);
 	}
 	else if sprite_exists(pausebg)
 		sprite_delete(pausebg);
@@ -39,7 +40,7 @@ if (pause or pausefad == 2 or pausefad == 4)
 		
 		draw_set_colour(c_black);
 		draw_set_alpha(pausealpha);
-		draw_rectangle(0, 0, 960, 540, false);
+		draw_rectangle(-64, -64, 960 + 64, 540 + 64, false);
 		draw_set_alpha(1);
 	}
 	if pausefad == 3
@@ -71,9 +72,15 @@ if (pause or pausefad == 2 or pausefad == 4)
 		{
 			draw_set_alpha(1);
 			draw_set_colour(c_white);
-			draw_set_font(global.bigfont);
 			draw_set_halign(fa_left);
 			draw_set_valign(fa_top);
+			
+			draw_set_font(global.font_small);
+			draw_text(16, 16, "Time Taken:");
+			draw_set_font(character == "SP" ? global.sugarybigfont : global.bigfont);
+			draw_text(16, 36, string(global.taminutes) + ":" + (global.taseconds < 10 ? "0" : "") + string(global.taseconds));
+			
+			draw_set_font(global.bigfont);
 			
 			// options
 			draw_text_auto(960 / 2 , 100, lang_string("pause.continue"),,, selected == 0 ? 1 : 0.5);
@@ -211,12 +218,19 @@ if (pause or pausefad == 2 or pausefad == 4)
 				var _arankpizza = character == "PP" ? spr_pizzascore_olivePP : spr_pizzascore_olive;
 				var _srankpizza = character == "PP" ? spr_pizzascore_shroomPP : spr_pizzascore_shroom;
 		
-				if sugary or _pizzascore == spr_pizzascoreN
+				if _pizzascore == spr_pizzascoreN
 				{
 					_crankpizza = -1;
 					_brankpizza = -1;
 					_arankpizza = -1;
 					_srankpizza = -1;
+				}
+				if sugary
+				{
+					_crankpizza = spr_candyscore_crank;
+					_brankpizza = spr_candyscore_brank;
+					_arankpizza = spr_candyscore_arank;
+					_srankpizza = spr_candyscore_srank;
 				}
 				
 				var _score = global.collect;

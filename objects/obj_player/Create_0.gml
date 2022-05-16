@@ -174,10 +174,10 @@ mach4snd = -1
 tumble2snd = -1
 tumble1snd = -1
 tumble3snd = -1
-
 superjumpholdsnd = -1
 superjumpprepsnd = -1
 suplexdashsnd = -1
+flipsnd = -1
 
 pogospeed = 2
 pogocharge = 100
@@ -246,6 +246,7 @@ grabbedby = -1;
 shake = 0;
 drawspr = sprite_index;
 online_busy = false;
+sjump = true;
 
 // hat
 hatsprite = -1;
@@ -293,6 +294,8 @@ godmode = false
 
 konami = "";
 konamiend = "UUDDLRLRBA";
+
+input_buffer_faceplant = 8;
 
 // globals
 if !variable_global_exists("saveroom")

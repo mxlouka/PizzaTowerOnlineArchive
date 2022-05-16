@@ -1,13 +1,8 @@
-if (drop == false && !instance_exists(obj_pepperman)) or global.gameplay != 0
+if (!drop && !instance_exists(obj_pepperman)) or global.gameplay != 0
 {
 	with other
 	{
-		var b = 1;
-		for (i = 0; i <  array_length_1d(transformation)-1; i+=1)
-			if state = transformation[i] && state != states.barrel
-				b = 0;
-
-		if b == 1
+		if scr_transformationcheck()
 		{
 			if global.gameplay == 0
 			{
@@ -27,7 +22,7 @@ if (drop == false && !instance_exists(obj_pepperman)) or global.gameplay != 0
 					other.vsp = -5
 					state = states.slipnslide
 					if movespeed < 12
-					movespeed = 12
+						movespeed = 12
 				}
 			}
 			else
@@ -46,3 +41,4 @@ if (drop == false && !instance_exists(obj_pepperman)) or global.gameplay != 0
 		}
 	}
 }
+

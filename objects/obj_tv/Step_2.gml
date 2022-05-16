@@ -305,8 +305,28 @@ else
 	}
 	
 	var pchar = "";
+	var _state = states.normal;
 	if instance_exists(obj_player)
+	{
 		pchar = obj_player.character;
+		_state = obj_player.state;
+		
+		if _state == states.hitlag
+			_state = obj_player.tauntstoredstate;
+		if _state == states.backbreaker
+		{
+			with obj_teleporter
+			{
+				if alarm[0] > -1 or alarm[1] > -1
+					_state = storedstate;
+			}
+			with obj_warplaser
+			{
+				if alarm[0] > -1 or alarm[1] > -1
+					_state = storedstate;
+			}
+		}
+	}
 	
 	switch state
 	{
@@ -319,31 +339,10 @@ else
 					idlespr = spr_tv_placeholder;
 				else
 				{
-					var _state = states.normal;
-					if instance_exists(obj_player1)
-					{
-						_state = obj_player1.state;
-				        if _state == states.hitlag
-				            _state = obj_player1.tauntstoredstate;
-						if _state == states.backbreaker
-						{
-							with obj_teleporter
-							{
-								if alarm[0] > -1 or alarm[1] > -1
-									_state = storedstate;
-							}
-							with obj_warplaser
-							{
-								if alarm[0] > -1 or alarm[1] > -1
-									_state = storedstate;
-							}
-						}
-					}
-					
 			        switch _state
 			        {
 						default:
-							with obj_player1
+							with obj_player
 			                {
 			                    if shotgunAnim
 			                        other.idlespr = spr_tv_shotgun;
@@ -389,7 +388,7 @@ else
 			                break;
 			
 			            case states.stunned:
-							with obj_player1
+							with obj_player
 							{
 								if sprite_index == spr_squished
 									other.idlespr = spr_tv_squished;
@@ -541,10 +540,27 @@ else
 				animset = tvsprite;
 			
 			// sugary spire exclusive tv sprites
-			if sugary && global.panic
-				sprite_index = spr_tv_escapeSP;
-			else if pchar == "SP" && tvsprite == spr_tv_idle && obj_player.angry
-				sprite_index = spr_tv_angrySP;
+			if pchar == "SP" && happy_timer > 0
+			{
+				happy_timer--;
+				sprite_index = spr_tv_happySP;
+				idlespr = sprite_index;
+			}
+			else if pchar == "SP" && (_state == states.mach1 or _state == states.handstandjump or _state == states.crouchslide)
+				sprite_index = spr_tv_mach1SP;
+			else if pchar == "SP" && (_state == states.mach2 or _state == states.machslide)
+				sprite_index = spr_tv_mach2SP;
+			else if pchar == "SP" && (_state == states.mach3 or _state == states.machroll)
+			{
+				sprite_index = spr_tv_mach3SP;
+				if obj_player.sprite_index == obj_player.spr_crazyrun
+					sprite_index = spr_tv_mach4SP;
+			}
+			else if pchar == "SP" && _state == states.hurt
+			{
+				sprite_index = spr_tv_hurtSP;
+				idlespr = sprite_index;
+			}
 			
 			// set tv sprite to the corresponding character
 			else if tvsprite != spr_tv_open && animset != spr_tv_open

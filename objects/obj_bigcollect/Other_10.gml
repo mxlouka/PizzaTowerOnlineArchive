@@ -10,3 +10,7 @@ create_collect(x, y, sprite_index);
 
 instance_destroy();
 scr_failmod(mods.no_toppings);
+
+with obj_tv
+	happy_timer = room_speed * 2;
+

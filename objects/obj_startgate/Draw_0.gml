@@ -70,7 +70,9 @@ if drawing
 	if level == "etb"
 		outof = 2;
 	if level == "mansion"
-	or level == "cotton"
+		outof = 3;
+	
+	if check_sugary()
 		outof = 3;
 	
 	// where the score number should be displayed
@@ -92,7 +94,7 @@ if drawing
 		
 		// sugary spire toppins
 		var sugary = false;
-		if level == "cotton" or level == "jawbreaker" or level == "waffle"
+		if level == "cotton" or level == "mines" or level == "waffle"
 			sugary = true;
 		
 		// shroom

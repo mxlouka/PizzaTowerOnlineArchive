@@ -12,10 +12,8 @@ if ds_list_find_index(global.saveroom, id) == -1 && !global.snickchallenge
 				outof = 2;
 			if string_startswith(room_get_name(room), "floor2_")
 				outof = 3;
-			if string_startswith(room_get_name(room), "cotton_")
-				outof = 3;
 		}
-	
+		
 		with obj_tv
 		{
 			if sg

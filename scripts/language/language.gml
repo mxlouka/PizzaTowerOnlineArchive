@@ -344,7 +344,8 @@ function lang_load(lang)
 		
 		ds_map_add(global.langmap, "msg.level.entryway", "Entryway WIP");
 		ds_map_add(global.langmap, "msg.level.cotton", "Cottontown");
-		ds_map_add(global.langmap, "msg.level.jawbreaker", "Jawbreaker Mines WIP");
+		ds_map_add(global.langmap, "msg.level.mines", "Sugarshack Mines WIP");
+		ds_map_add(global.langmap, "msg.level.molasses", "Molasses Swamp WIP");
 		
 		// roomname
 		ds_map_add(global.langmap, "roomname.characterselect", "Mode Select");
@@ -357,6 +358,7 @@ function lang_load(lang)
 		ds_map_add(global.langmap, "roomname.hub_arcade", "Arcade");
 		ds_map_add(global.langmap, "roomname.hub_roomSP", "Spire Floor 1");
 		ds_map_add(global.langmap, "roomname.hub_roomPLN", "Nightmare Hub");
+		ds_map_add(global.langmap, "roomname.hub_roomSAGE", "Sage Hub");
 		
 		ds_map_add(global.langmap, "roomname.hub_outside2", "Outside");
 		ds_map_add(global.langmap, "roomname.hub_outside3", "Hub of Fun");
@@ -367,19 +369,19 @@ function lang_load(lang)
 		ds_map_add(global.langmap, "roomname.hub_outside3e", "Freerun");
 		ds_map_add(global.langmap, "roomname.hub_outside4", "Please Just Do Better");
 		
-		ds_map_add(global.langmap, "roomname.entryway_secret1", "Gumslime Paradise");
-		ds_map_add(global.langmap, "roomname.entryway_secret2", "Wet Floor");
-		ds_map_add(global.langmap, "roomname.entryway_secret3", "Fine China");
-		ds_map_add(global.langmap, "roomname.entryway_1", "Operation Crunch Creak Construct");
-		ds_map_add(global.langmap, "roomname.entryway_2", "Hard Hat Required");
-		ds_map_add(global.langmap, "roomname.entryway_3", "Orange City");
-		ds_map_add(global.langmap, "roomname.entryway_4", "Construction Conglomerate");
-		ds_map_add(global.langmap, "roomname.entryway_5", "Had A Joke But I'm Still Working On It");
-		ds_map_add(global.langmap, "roomname.entryway_6", "Down And Around");
-		ds_map_add(global.langmap, "roomname.entryway_7", "Wires And Boxes");
-		ds_map_add(global.langmap, "roomname.entryway_8", "City Outskirts");
-		ds_map_add(global.langmap, "roomname.entryway_9", "Nailed It");
-		ds_map_add(global.langmap, "roomname.entryway_10", "Beary Careful");
+		ds_map_add(global.langmap, "roomname.entryway_secret1", "");
+		ds_map_add(global.langmap, "roomname.entryway_secret2", "");
+		ds_map_add(global.langmap, "roomname.entryway_secret3", "");
+		ds_map_add(global.langmap, "roomname.entryway_1", "");
+		ds_map_add(global.langmap, "roomname.entryway_2", "");
+		ds_map_add(global.langmap, "roomname.entryway_3", "");
+		ds_map_add(global.langmap, "roomname.entryway_4", "");
+		ds_map_add(global.langmap, "roomname.entryway_5", "");
+		ds_map_add(global.langmap, "roomname.entryway_6", "");
+		ds_map_add(global.langmap, "roomname.entryway_7", "");
+		ds_map_add(global.langmap, "roomname.entryway_8", "");
+		ds_map_add(global.langmap, "roomname.entryway_9", "");
+		ds_map_add(global.langmap, "roomname.entryway_10", "");
 		
 		ds_map_add(global.langmap, "roomname.cotton_secret1", "Rocky Road");
 		ds_map_add(global.langmap, "roomname.cotton_secret2", "Kick Gum And Chew Gum");

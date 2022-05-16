@@ -40,5 +40,9 @@ function scr_soundeffect_ext(snd, loops = false)
 	if snd == sfx_collecttopping or snd == sfx_toppingSP
 		audio_stop_sound(snd);
 	
-	return audio_play_sound(snd, 0, loops);
+	var sndplay = audio_play_sound(snd, 0, loops);
+	if room != rm_disclaimer
+		audio_sound_gain(sndplay, global.soundvolume, 0);
+	return sndplay;
 }
+

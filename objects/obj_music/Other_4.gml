@@ -74,7 +74,7 @@ else if (!global.panic or string_letters(roomname) == "dragonlair" or string_let
 	if string_startswith(roomname, "hub_arcade")
 		musplay = mu_hubarcade
 	if string_startswith(roomname, "hub_roomSP") && sugaryspire
-		musplay = mu_sugarytitle
+		musplay = mu_sugaryhub
 	if string_startswith(roomname, "rm_test")
 		musplay = mu_mall
 	if string_startswith(roomname, "hub_roomE")
@@ -252,8 +252,8 @@ else if (!global.panic or string_letters(roomname) == "dragonlair" or string_let
 					musplay = mu_cotton2
 	        }
 	    }
-		if string_letters(roomname) == "jawbreaker"
-			musplay = mu_jawbreaker
+		if string_letters(roomname) == "mines"
+			musplay = mu_mines
 	}
 	
 	//desert
@@ -410,8 +410,8 @@ else if (!global.panic or string_letters(roomname) == "dragonlair" or string_let
 	
 	if string_letters(roomname) == "cottonsecret"
 		musplay = mu_cottonsecret
-	if string_letters(roomname) == "jawbreakersecret"
-		musplay = mu_jawbreakersecret
+	if string_letters(roomname) == "minessecret"
+		musplay = mu_minessecret
 	if string_letters(roomname) == "sanctumsecret"
 		musplay = mu_sanctumsecret
 	

@@ -47,6 +47,7 @@ global.panicshake = ini_read_real("online", "panicshake", true); // shaking
 global.panicnightmare = ini_read_real("online", "panicnightmare", true); // panic backgrounds
 
 global.musicvolume = ini_read_real("online", "musicvolume", 0.6);
+global.soundvolume = ini_read_real("online", "soundvolume", 1);
 global.mastervolume = ini_read_real("online", "mastervolume", 1);
 global.machsound = ini_read_real("online", "machsound", 0);
 global.musicgame = ini_read_real("online", "musicgame", 0);

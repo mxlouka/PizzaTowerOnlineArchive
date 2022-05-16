@@ -32,7 +32,7 @@ function scr_player_machroll()
 			    instance_create(x + 10 * xscale, y + 10, obj_bumpeffect)
 		    }
 
-			if !(instance_exists(dashcloudid)) && grounded
+			if !instance_exists(dashcloudid) && grounded
 			with instance_create(x, y + 43, obj_cloudeffect)
 			{
 				image_xscale = other.xscale
@@ -148,14 +148,17 @@ function scr_player_machroll()
 				other.dashcloudid = id
 			}
 			
-			if grounded && sprite_index != spr_playerV_divekickstart
-				sprite_index = spr_machroll
-			else
+			if sprite_index != spr_playerV_divekickstart
 			{
-				if sprite_index != spr_dive 
+				if grounded
+					sprite_index = spr_machroll
+				else
 				{
-					sprite_index = spr_dive 
-					vsp = 10
+					if sprite_index != spr_dive 
+					{
+						sprite_index = spr_dive 
+						vsp = 10
+					}
 				}
 			}
 			image_speed = 0.8
@@ -173,3 +176,4 @@ function scr_player_machroll()
 			}
 	}
 }
+

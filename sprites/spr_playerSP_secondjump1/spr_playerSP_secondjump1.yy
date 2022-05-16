@@ -44,7 +44,7 @@
     "spriteId": {"name":"spr_playerSP_secondjump1","path":"sprites/spr_playerSP_secondjump1/spr_playerSP_secondjump1.yy",},
     "timeUnits": 1,
     "playback": 1,
-    "playbackSpeed": 0.8,
+    "playbackSpeed": 0.7,
     "playbackSpeedType": 1,
     "autoRecord": true,
     "volume": 1.0,

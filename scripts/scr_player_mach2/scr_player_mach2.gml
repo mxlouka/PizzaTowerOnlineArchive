@@ -1,6 +1,6 @@
 function scr_player_mach2()
 {
-	if windingAnim < 2000 && (character == "P" or character == "SP")
+	if windingAnim < 2000 && character == "P"
 		windingAnim++
 	
 	var railh = 0, railmeet = instance_place(x, y + 1, obj_railparent);
@@ -136,17 +136,28 @@ function scr_player_mach2()
 	}
 
 	//Machroll
-	if key_down && !place_meeting(x, y, obj_dashpad) && (sprite_index != spr_mach2jump or character != "SP")
+	if ((key_down && character != "SP") or key_down2) && !place_meeting(x, y, obj_dashpad)
 	{
-		with instance_create(x, y, obj_jumpdust)
-			image_xscale = other.xscale
-		
-		flash = false
-		state = states.machroll
-		vsp = 10
-		
-		if character = "V"
-			sprite_index = spr_playerV_divekickstart 
+		if character == "SP"
+		{
+			if grounded
+			{
+				sprite_index = spr_crouchslip
+				state = states.crouchslide
+			}
+		}
+		else
+		{
+			with instance_create(x, y, obj_jumpdust)
+				image_xscale = other.xscale
+			
+			flash = false
+			state = states.machroll
+			vsp = 10
+			
+			if character == "V"
+				sprite_index = spr_playerV_divekickstart
+		}
 	}
 	
 	// Climbwall
@@ -213,7 +224,7 @@ function scr_player_mach2()
 		sprite_index = spr_walljumpend
 	
 	//Snick peelout
-	if key_attack && !scr_solid(x+xscale,y,false) && character == "S" && grounded && vsp >= 0
+	if key_attack && !scr_solid(x + xscale, y, false) && character == "S" && grounded && vsp >= 0
 	{
 		state = states.handstandjump
 		movespeed = 0
@@ -235,32 +246,6 @@ function scr_player_mach2()
 		state = states.machslide
 		
 		sprite_index = spr_machslideboost
-	}
-	
-	// pizzelle faceplant roll
-	if !grounded && key_slap2 && global.gameplay != 0 && character == "SP"
-	{
-		scr_soundeffect(sfx_suplexdashSP);
-		if movespeed < 10
-			movespeed = 10;
-		if vsp > -5
-			vsp = -5;
-		
-		image_index = 0
-		sprite_index = spr_faceplant
-		
-		state = states.faceplant
-		image_speed = 0.35
-		with instance_create(x, y, obj_jumpdust)
-			image_xscale = other.xscale
-			
-		if !instance_exists(crazyruneffectid)
-		with instance_create(x, y, obj_crazyrunothereffect)
-		{
-			playerid = other.object_index	
-			other.crazyruneffectid = id
-		}
-		exit;
 	}
 	
 	//Vigilante revolver

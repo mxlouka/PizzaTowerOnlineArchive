@@ -1,3 +1,5 @@
+if live_call() return live_result;
+
 // snick rematch vignette
 if ((room == dungeon_10 or room == dungeon_9 or room == snick_challengeend) && global.snickchallenge && global.snickrematch)
 {
@@ -110,12 +112,19 @@ else
 		}
 		*/
 		
+		var current_sprite = sprite_get_name(sprite_index);
+		var tvoff = string_startswith(current_sprite, "spr_tv_off") or string_startswith(current_sprite, "spr_tv_open");
+		if tvoff
+			sprite_prev = -1
+		else if sprite_prev == -1
+			sprite_prev = sprite_index
+		
 		var offset_x = irandom_range(-collect_shake, collect_shake);
 		var offset_y = irandom_range(-collect_shake, collect_shake);
 		if sugary
 		{
 			offset_x -= 1;
-			offset_y -= 33;
+			offset_y -= 32 + sin(current_time / 500) * 2;
 		}
 		
 		if room != strongcold_endscreen && room != Realtitlescreen
@@ -123,60 +132,129 @@ else
 			// tv
 			if sprite_exists(sprite_index)
 			{
-				// apply player palette
-				var tempvar = sprite_index != spr_tv_placeholder && sprite_index != spr_tv_placeholderSP && sprite_index != spr_tv_placeholderPP
-				&& sprite_index != spr_tv_off && sprite_index != spr_tv_offSP && sprite_index != spr_tv_offPP
-				&& sprite_index != spr_tv_open && sprite_index != spr_tv_openSP && sprite_index != spr_tv_openPP;
+				var tvspr = sprite_index;
+				if sugary && sprite_prev != -1 && idlespr != sprite_prev
+				{
+					static_timer = 15;
+					sprite_prev = idlespr;
+				}
+				if static_timer > 0
+				{
+					tvspr = spr_tv_staticSP;
+					tvimg += 0.35;
+					static_timer--;
+				}
+				else
+					tvimg = image_index;
 				
-				if tempvar
+				// apply player palette
+				if !tvoff && !string_startswith(current_sprite, "spr_tv_placeholder")
 				{
 					with obj_player
 						pal_swap_set(spr_palette, paletteselect, false);
 				}
 				
-			    draw_sprite_ext(sprite_index, -1, 833 + offset_x, 107 + offset_y + hud_posY, 1, 1, 0, c_white, alpha);
+			    draw_sprite_ext(tvspr, tvimg, 833 + offset_x, 107 + offset_y + hud_posY, 1, 1, 0, c_white, alpha);
 				pal_swap_reset();
 				
-				if !sugary && tempvar && !(instance_exists(obj_player) && (obj_player.character == "PP" or obj_player.character == "CT"))
-					draw_sprite_ext(spr_tv_frame, -1, 833 + offset_x, 107 + offset_y + hud_posY, 1, 1, 0, c_white, alpha);
+				if !sugary && !tvoff && !(instance_exists(obj_player) && (obj_player.character == "PP" or obj_player.character == "CT"))
+					draw_sprite_ext(spr_tv_frame, 0, 833 + offset_x, 107 + offset_y + hud_posY, 1, 1, 0, c_white, alpha);
+				
+				if sugary && !tvoff
+				{
+					var propeller = spr_tvpropeller;
+					if tvspr == spr_tv_staticSP
+						propeller = spr_tvpropellerstatic;
+					
+					sugary_propeller += image_speed;
+					sugary_propeller = sugary_propeller % sprite_get_number(propeller);
+					draw_sprite_ext(propeller, sugary_propeller, 833 + offset_x, 107 + offset_y + hud_posY, 1, 1, 0, c_white, alpha);
+				}
 			}
+			combo_shake = Approach(combo_shake, 0, 0.25);
 			
 			// draw combo
-			if global.combo != 0 && global.combotime > 0
-			&& sprite_index != spr_tv_open && sprite_index != spr_tv_off && sprite_index != spr_tv_openSP && sprite_index != spr_tv_offSP && sprite_index != spr_tv_openPP && sprite_index != spr_tv_offPP
+			combo_fade = 1;
+			if sugary
+				combo_fade = min(global.combotime / 5, 1);
+			if global.combo != 0 && global.combotime > 0 && !tvoff
 			{
+				// i fucking hate sugary spire
+				if combo_prev < global.combo && sugary
+				{
+					combo_shake = 5;
+					combo_prev = global.combo;
+				}
+				if !sugary
+					combo_prev = global.combo;
+				
 				var tvcombo = spr_tv_combo;
 				if sugary
 					tvcombo = spr_tv_comboSP;
 				if instance_exists(obj_player) && obj_player.character == "PP"
 					tvcombo = spr_tv_comboPP;
 				
-			    draw_sprite_ext(tvcombo, -1, 833 + offset_x, 107 + offset_y + hud_posY, 1, 1, 0, c_white, alpha)
+			    draw_sprite_ext(tvcombo, -1, 833 + offset_x, 107 + offset_y + hud_posY, 1, 1, 0, c_white, alpha * combo_fade)
 				
-				var str = string(global.combo);
+				var str = string(combo_prev);
 			    if global.combo < 10 && global.combo > -1
 			        str = "0" + str;
 				
 			    draw_set_halign(fa_left);
 			    draw_set_valign(fa_top);
 			    draw_set_font(global.combofont);
+				
 			    var num = string_length(str);
 			    var w = round(string_width(str) / num);
+				
 			    for (var i = 0; i < num; i++)
 			    {
 			        var char = string_char_at(str, i + 1);
 			        var xx = i * w, yy = i * 5;
-			        draw_text(789 + xx + offset_x, 91 - yy + offset_y + hud_posY, char);
+			        draw_text_auto(789 + xx + offset_x + random_range(-combo_shake, combo_shake), 91 - yy + offset_y + hud_posY + random_range(-combo_shake, combo_shake), char,,,combo_fade);
 			    }
+				
+				// sugary combo timer
+				if !surface_exists(surf)
+					surf = surface_create(112, 32);
+				else
+				{
+					var b = global.combotime / 55;
+					
+					surface_set_target(surf);
+					draw_clear_alpha(c_black, 0);
+					draw_sprite_tiled(spr_barpop2_ss, 0, -current_time / 30, 0);
+					draw_set_blend_mode(bm_subtract);
+					draw_set_colour(c_black);
+					draw_rectangle(112 * b, 0, 112, 32, false);
+					draw_set_blend_mode(bm_normal);
+					draw_set_colour(#480028);
+					draw_rectangle(0, 0, 112, 32, false);
+					draw_sprite(spr_barpop3_ss, 0, 112 * b, 0);
+					draw_set_blend_mode(bm_subtract);
+					draw_sprite(spr_barpop_ss, 1, 0, 0);
+					draw_set_blend_mode(bm_normal);
+					surface_reset_target();
+					
+					draw_set_alpha(combo_fade);
+					draw_surface(surf, 833 + offset_x - 73, 107 + offset_y + hud_posY + 34);
+					draw_sprite(spr_barpop_ss, 0, 833 + offset_x - 73, 107 + offset_y + hud_posY + 34);
+					draw_set_alpha(1);
+				}
 			}
-		
-			var barxx = -26;
-			var baryy = 30;
-			draw_sprite(spr_barpop, 0, 832 + barxx, 250 + baryy);
-			var sw = sprite_get_width(spr_barpop);
-			var sh = sprite_get_height(spr_barpop);
-			var b = global.combotime / 55;
-			draw_sprite_part(spr_barpop, 1, 0, 0, sw * b, sh, 832 + barxx, 250 + baryy);
+			else
+				combo_prev = 0;
+			
+			if !sugary
+			{
+				var barxx = -26;
+				var baryy = 30;
+				draw_sprite(spr_barpop, 0, 832 + barxx, 250 + baryy);
+				var sw = sprite_get_width(spr_barpop);
+				var sh = sprite_get_height(spr_barpop);
+				var b = global.combotime / 55;
+				draw_sprite_part(spr_barpop, 1, 0, 0, sw * b, sh, 832 + barxx, 250 + baryy);
+			}
 		}
 	
 		if bubblespr != noone
@@ -239,4 +317,4 @@ or instance_exists(obj_pizzaball)
 	draw_text(960 - 25, 200, string(string(global.golfhit) + " " + (global.golfhit == 1 ? "GOLF HIT" : "GOLF HITS")))
 	draw_set_halign(fa_center);
 }
-	
+

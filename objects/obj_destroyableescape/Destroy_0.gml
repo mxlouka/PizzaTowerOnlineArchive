@@ -8,9 +8,14 @@ if ds_list_find_index(global.saveroom, id) = -1 && global.panic
 			image_xscale = abs(other.image_xscale);
 			image_yscale = abs(other.image_yscale);
 			
-			sprite_index = spr_debrisescape;
 			if other.sprite_index == spr_destroyableescape_NEW
 				sprite_index = spr_debrisescape_NEW;
+			else if other.sprite_index == spr_destroyableescapeNEW_ss
+				sprite_index = spr_debrisescapeNEW_ss;
+			else if other.sprite_index == spr_destroyableescape_ss
+				sprite_index = spr_debrisescape_ss;
+			else
+				sprite_index = spr_debrisescape;
 			
 			momentum = other.momentum;
 		}

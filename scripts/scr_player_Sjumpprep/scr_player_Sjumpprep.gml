@@ -98,7 +98,7 @@ function scr_player_Sjumpprep() {
 				crouchAnim = true
 			}
 
-			if !key_up && (grounded or character == "PP" or (character == "S" && global.gameplay == 0)) && (character == "S" or (sprite_index == spr_superjumppreplight or sprite_index == spr_superjumpleft or sprite_index == spr_superjumpright)) && ((!scr_solid(x, y - 16) && !scr_solid(x, y - 32)) or place_meeting(x, y - 32, obj_destructibles))
+			if !key_up && (grounded or character == "PP" or (character == "S" && global.gameplay == 0) or (character == "SP" && sjump)) && (character == "S" or (sprite_index == spr_superjumppreplight or sprite_index == spr_superjumpleft or sprite_index == spr_superjumpright)) && (!scr_solid(x, y - 32) or place_meeting(x, y - 32, obj_destructibles))
 			{
 				scr_soundeffect(sfx_superjumprelease)
 				instance_create(x, y, obj_explosioneffect)
@@ -109,15 +109,15 @@ function scr_player_Sjumpprep() {
 			}
 			image_speed = 0.35
 		}
-
+		
 		if character == "N" && noisetype == 0
 		{
 			hsp = 0
 			vsp = 0
-
+			
 			pogochargeactive = false
 			pogocharge = 50
-
+			
 			if floor(image_index) >= image_number - 1
 			{
 				if sprite_index == spr_playerN_jetpackstart
@@ -146,7 +146,7 @@ function scr_player_Sjumpprep() {
 					vsp = -15
 				}
 			}
-
+			
 			if sprite_index == spr_playerN_jetpackstart
 				image_speed = 0.5
 			else
@@ -157,3 +157,4 @@ function scr_player_Sjumpprep() {
 	if !audio_is_playing(superjumpholdsnd) && !audio_is_playing(sfx_superjumpprep)
 		superjumpholdsnd = scr_soundeffect_ext(sfx_superjumphold, true);
 }
+

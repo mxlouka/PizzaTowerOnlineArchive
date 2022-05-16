@@ -12,3 +12,7 @@ with obj_followcharacter
 	if object_index != obj_petfollow instance_destroy();
 
 alarm[1] = 500
+
+if global.modifier != -1
+	sprite_index = spr_modfailed;
+

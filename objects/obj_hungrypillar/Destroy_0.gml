@@ -224,6 +224,11 @@ if room == rm_editor exit;
 				global.seconds = 59
 				break
 			
+		    case "entryway_11":
+				global.minutes = 2
+				global.seconds = 29
+				break
+			
 			case "custom_lvl_room":
 				with obj_destroyableescape
 			        alarm[0] = 1

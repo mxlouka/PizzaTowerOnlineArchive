@@ -3,7 +3,7 @@ function scr_player_mach3()
 	#region not pogo noise
 	if character != "N" or noisetype == 1
 	{
-		if windingAnim < 2000 && (character == "P" or character == "SP")
+		if windingAnim < 2000 && character == "P"
 			windingAnim += 1;
 		
 		var railh = 0, railmeet = instance_place(x, y + 1, obj_railparent);
@@ -35,9 +35,10 @@ function scr_player_mach3()
 			{
 				if scr_checkskin(checkskin.n_hardoween)
 					movespeed += 0.1;
+				
 				movespeed += 0.1;
 			}
-				
+			
 			if sprite_index == spr_crazyrun && global.gameplay != 0
 			{
 				if !instance_exists(crazyruneffectid) && grounded
@@ -178,7 +179,7 @@ function scr_player_mach3()
 			if !grounded or (!scr_solidwall(x, y - 32) or place_meeting(x, y - 32, obj_destructibles))
 			{
 				wallspeed = movespeed;
-				if global.gameplay == 0
+				if global.gameplay == 0 && character != "SP"
 					wallspeed = 10;
 				vsp = -wallspeed;
 				state = states.climbwall;
@@ -452,7 +453,7 @@ function scr_player_mach3()
 		image_speed = 0.75
 
 	//Super Jump
-	if key_up && !fightball && (!(character == "N" && noisetype == 0) && character != "V") && (grounded or character == "PP" or (character == "S" && global.gameplay == 0)) && (sprite_index != spr_dashpadmach or spr_mach4 == spr_dashpadmach)
+	if key_up && !fightball && (!(character == "N" && noisetype == 0) && character != "V") && (grounded or character == "PP" or (character == "S" && global.gameplay == 0) or character == "SP") && (sprite_index != spr_dashpadmach or spr_mach4 == spr_dashpadmach)
 	{
 		sprite_index = spr_superjumpprep
 		scr_soundeffect(sfx_superjumpprep);

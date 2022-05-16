@@ -232,14 +232,14 @@ switch sel[0]
 			array_push(selarray, 
 				[mu_pizzyescape_pc, "Glucose Getaway", "loypoll", 5],
 				[mu_pizzyescape_OLD_pc, "Glucose Getaway\n(OLD)", "loypoll", 5],
-				[mu_sugarytitle_pc, "Title (WIP)", "loypoll"],
+				//[mu_sugaryhub_pc, "Welcome Back!", "loypoll"],
 				[mu_waffle_pc, "Down - To - Noise", "loypoll"],
 				[mu_cotton_pc, "Steamy Cotton Candy", "loypoll"],
 				[mu_cotton2_pc, "Around The Gateau's Gears", "loypoll"],
-				[mu_jawbreaker_pc, "Mineshaft Depths", "loypoll"],
+				[mu_mines_pc, "Mineshaft Depths", "loypoll"],
 				[mu_cottonsecret_pc, "Lookie! You've found\na steamy surprise.", "loypoll"],
 				[mu_wafflesecret_pc, "there's a secret\ninside my breakfast?", "loypoll"],
-				[mu_jawbreakersecret_pc, "a jawbreaking secret.", "loypoll"],
+				[mu_minessecret_pc, "a jawbreaking secret.", "loypoll"],
 			);
 		}
 		break;
@@ -248,14 +248,15 @@ switch sel[0]
 		selarray = [
 			[mu_pizzyescape, "Glucose Getaway", "RodMod", 5],
 			[mu_pizzyescape_OLD, "Glucose Getaway\n(OLD)", "RodMod", 5],
-			[mu_sugarytitle, "Title (WIP)", "Jessie Productions"],
+			[mu_sugaryhub, "Welcome Back!", "101Undertale"],
 			[mu_waffle, "Down - To - Noise", "RodMod"],
 			[mu_cotton, "Steamy Cotton Candy", "RodMod"],
 			[mu_cotton2, "Around The Gateau's Gears", "RodMod"],
-			[mu_jawbreaker, "Mineshaft Depths", "RodMod"],
+			[mu_mines, "Mineshaft Depths", "RodMod"],
+			[mu_mines2, "Cobalt Catastrophe", "RodMod"],
 			[mu_cottonsecret, "Lookie! You've found\na steamy surprise.", "RodMod"],
 			[mu_wafflesecret, "there's a secret\ninside my breakfast?", "RodMod"],
-			[mu_jawbreakersecret, "a jawbreaking secret.", "RodMod"],
+			[mu_minessecret, "a jawbreaking secret.", "RodMod"],
 		]
 		break;
 }

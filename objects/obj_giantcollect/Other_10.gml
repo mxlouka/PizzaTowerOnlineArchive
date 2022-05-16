@@ -31,3 +31,7 @@ if global.gameplay != 0
         _y += 16;
     }
 }
+
+with obj_tv
+	happy_timer = room_speed * 5;
+

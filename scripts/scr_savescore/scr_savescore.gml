@@ -129,8 +129,8 @@ function endlevel()
 		audio_stop_sound(global.music)
 	
 	// necessary shit idk
-	if global.timeattack with obj_timeattack
-		stop = true;
+	with obj_timeattack
+		stop = true
 	with obj_player
 		targetDoor = "none"
 	with obj_camera
@@ -140,16 +140,8 @@ function endlevel()
 	var namestring = scr_levelname();
 	
 	// calculate ranks
-	if global.failedmod
-		global.rank = "d";
-	else if global.modifier == mods.no_toppings
-	{
-		if string_endswith(string_letters(room_get_name(room)), "treasure")
-		or global.gameplay == 0
-			global.rank = "s";
-		else
-			global.rank = "a";
-	}
+	if global.modifier != -1
+		global.rank = "a";
 	else
 	{
 		if namestring == "golf" && global.funmode

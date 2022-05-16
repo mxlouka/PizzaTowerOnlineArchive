@@ -5,7 +5,10 @@
   },
   "solid": false,
   "visible": true,
-  "spriteMaskId": null,
+  "spriteMaskId": {
+    "name": "spr_baddiespawner",
+    "path": "sprites/spr_baddiespawner/spr_baddiespawner.yy",
+  },
   "persistent": false,
   "parentObjectId": null,
   "physicsObject": false,

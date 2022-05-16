@@ -5,7 +5,7 @@ function scr_player_climbwall()
 		default:
 		if character != "N" or noisetype == 1
 		{
-			if windingAnim < 200 && (character == "P" or character == "SP")
+			if windingAnim < 2000 && character == "P"
 				windingAnim++
 			
 			move = key_left + key_right;
@@ -14,12 +14,12 @@ function scr_player_climbwall()
 
 			vsp = -wallspeed + (place_meeting(x + xscale, y, obj_railv) * -3);
 			
-			if place_meeting(x + xscale, y, obj_unclimbablewall)//character == "SP"
+			if place_meeting(x + xscale, y, obj_unclimbablewall)
 			{
 				if wallspeed > 0
-					wallspeed -= 0.35;
-				if wallspeed > 16
-					wallspeed = 16;
+					wallspeed -= 1;
+				if wallspeed > 6
+					wallspeed = 6;
 				
 				if sprite_index != spr_machclimbwall && wallspeed < 8
 					wallspeed = 8;
@@ -65,7 +65,11 @@ function scr_player_climbwall()
 				}
 				
 				if character == "SP"
+				{
 					sprite_index = spr_playerSP_hitceiling
+					if global.gameplay != 0
+						sprite_index = spr_playerSP_hitceiling_NEW
+				}
 				else
 					sprite_index = spr_superjumpland
 				
@@ -110,12 +114,17 @@ function scr_player_climbwall()
 			//Jump
 			if key_jump && wallspeed > 0
 			{
-				if character == "SP" && abs(wallspeed) > 16
+				if character == "SP" && abs(wallspeed) >= 12
 				{
 					movespeed = abs(wallspeed);
 					instance_create(x, y, obj_jumpdust);
 					sprite_index = spr_mach4;
 					state = states.mach3;
+				}
+				else if character == "SP" && key_down
+				{
+					state = states.machroll
+					vsp = 10
 				}
 				else
 				{
@@ -127,8 +136,7 @@ function scr_player_climbwall()
 					state = states.mach2;
 					image_index = 0;
 					
-					if !key_down or character != "SP"
-						sprite_index = spr_walljumpstart;
+					sprite_index = spr_walljumpstart;
 				}
 				
 				vsp = (character == "SP" ? -9 : -11);

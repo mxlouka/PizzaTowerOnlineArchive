@@ -15,17 +15,13 @@ function scr_player_freefall()
 	if !grounded
 	{
 		hsp = move * movespeed;
-
-		
-		if move != xscale && momentum = true && movespeed != 0 
-		{
+		if move != xscale && momentum && movespeed != 0 
 			movespeed -= 0.05
-		}
-
-		if movespeed = 0
+		
+		if movespeed == 0
 			momentum = false
 
-		if (move = 0 && momentum = false) or scr_solid(x+(hsp),y)
+		if (move == 0 && !momentum) or scr_solid(x + hsp, y)
 		{
 			movespeed = 0
 			mach2 = 0
@@ -35,13 +31,10 @@ function scr_player_freefall()
 		if movespeed > 7 
 			movespeed -= 0.05
 
-		if ((scr_solid(x+1,y) && move == 1) or (scr_solid(x-1,y) && move == -1))
-		{
+		if scr_solid(x + move,y)
 			movespeed = 0
-		}
 
 		//Turn
-
 		if dir != xscale 
 		{
 			mach2 = 0
@@ -56,8 +49,9 @@ function scr_player_freefall()
 		}
 		if move != 0
 			xscale = move
-	
-		if key_attack2 && character = "SP" && freefallsmash > 10
+		
+		// cancel out
+		if key_attack2 && character == "SP" && freefallsmash > 10
 		{
 			landAnim = false;
 			mach2 = 35;
@@ -72,7 +66,7 @@ function scr_player_freefall()
 			with instance_create(x, y, obj_mach3effect)
 			{
 				hspeed = 0;
-			
+				
 				playerid = other.object_index
 				image_index = other.image_index - 1
 				image_xscale = other.xscale
@@ -81,7 +75,7 @@ function scr_player_freefall()
 			with instance_create(x, y, obj_mach3effect)
 			{
 				hspeed = -10;
-			
+				
 				playerid = other.object_index
 				image_index = other.image_index - 1
 				image_xscale = other.xscale
@@ -90,8 +84,9 @@ function scr_player_freefall()
 		
 			flash = true
 		    state = states.mach2
+			if global.gameplay != 0
+				vsp = -7;
 		}
-	
 	}
     
 	freefallsmash ++

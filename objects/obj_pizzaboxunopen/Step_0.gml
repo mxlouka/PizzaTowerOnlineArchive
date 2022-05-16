@@ -77,6 +77,9 @@ if (place_meeting(x, y, obj_player1) or place_meeting(x, y, obj_antonball)) && o
 	
 	if object_get_parent(content) == obj_pizzakinparent
 	{
+		with obj_tv
+			happy_timer = room_speed * 5;
+		
 		with instance_create(x, y, obj_smallnumber)
 			number = "1000";
 		global.collect += 1000;

@@ -12,10 +12,10 @@ function scr_throwenemy(bad = other.baddieID)
 				instance_create(x, y, obj_slapstar)
 				create_particle(x, y, particles.baddiegibs);
 			}
-			with (obj_camera)
+			with obj_camera
 			{
-				shake_mag=3;
-				shake_mag_acc=3/room_speed;
+				shake_mag = 3;
+				shake_mag_acc = 3 / room_speed;
 			}
 			
 			alarm[3] = 3

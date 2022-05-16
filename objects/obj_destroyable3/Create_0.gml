@@ -1,4 +1,4 @@
-hp = 2
+event_inherited()
 depth = 1
 
 if global.gameplay == 1

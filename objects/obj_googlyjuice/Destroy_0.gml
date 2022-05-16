@@ -1,0 +1,15 @@
+event_inherited();
+
+scr_soundeffect(sfx_killjuice);
+with instance_create(x, y, obj_juicepuddle)
+	palette = other.paletteselect;
+
+repeat 6
+{
+	with instance_create(x, y, obj_baddiegibs)
+	{
+	    sprite_index = spr_juicedebris
+	    image_index = random(image_number)
+	}
+}
+

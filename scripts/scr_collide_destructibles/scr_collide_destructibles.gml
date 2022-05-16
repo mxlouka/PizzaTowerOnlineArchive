@@ -1,10 +1,11 @@
 function scr_collide_destructibles()
 {
-	with obj_player1
+	with obj_player
 	{
 		if (state == states.jump && sprite_index == spr_playerN_noisebombspinjump)
 		or (state == states.pogo && pogochargeactive)
 		or (state == states.knightpep && global.gameplay != 0)
+		or state == states.slipbanan
 		{
 			with instance_place(x + hsp + xscale, y, obj_destructibles)
 			{
@@ -45,7 +46,7 @@ function scr_collide_destructibles()
 			{
 				with instance_place(x + hsp, y, obj_destructibles)
 				{
-					if inst_relation(self, obj_bigdestructibles) && other.state == states.handstandjump
+					if inst_relation(self, obj_bigdestructibles) && (other.state == states.handstandjump or (other.state == states.mach2 && hp > 1))
 					{
 						// grab on big blocks
 						with other
@@ -69,11 +70,17 @@ function scr_collide_destructibles()
 								}
 							}
 						}
+						hp--;
+						if hp <= 0
+							instance_destroy();
+						else
+							event_user(0);
 					}
+					else
+						instance_destroy();
 					if scr_stylecheck(2)
 						momentum[0] = other.hsp;
 					gp_vibration(0.8, 0.8, 0.5);
-					instance_destroy();
 				}
 				
 				if state == states.mach2

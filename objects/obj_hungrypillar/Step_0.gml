@@ -42,8 +42,8 @@ if global.musicvolume > 0 && global.jukebox == -1
 			}
 			
 			var mv = global.musicvolume;
-			audio_sound_gain(song, vol * mv, 0);
-			audio_sound_gain(global.music, mv - (vol * mv), 0);
+			audio_sound_gain(song, vol * mv, 2000);
+			audio_sound_gain(global.music, mv - (vol * mv), 2000);
 		}
 	}
 	else if !global.panic
@@ -59,6 +59,8 @@ if global.musicvolume > 0 && global.jukebox == -1
 				song = scr_soundeffect_ext(mu_dungeondepth_pc, true);
 			else if scr_checkskin(checkskin.p_anton)
 				song = scr_soundeffect_ext(mu_antondepth, true);
+			else if check_sugary()
+				song = scr_soundeffect_ext(mu_gummyharry, true)
 			else
 				song = scr_soundeffect_ext(mu_dungeondepth, true);
 			

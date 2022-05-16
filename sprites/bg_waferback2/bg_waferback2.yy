@@ -72,8 +72,8 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "wafer",
-    "path": "folders/Sprites/tilesets/SUGARY SPIRE/wafer.yy",
+    "name": "entryway",
+    "path": "folders/Sprites/tilesets/SUGARY SPIRE/entryway.yy",
   },
   "resourceVersion": "1.0",
   "name": "bg_waferback2",

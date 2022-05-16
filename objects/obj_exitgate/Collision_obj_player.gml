@@ -46,7 +46,7 @@ with other
 	
 	if grounded && x > other.x - 160 && x < other.x + 160 && key_up2
 	&& (state == states.normal or state == states.mach1 or state == states.mach2 or state == states.mach3)
-	&& (global.panic or global.snickchallenge)
+	&& (global.panic or global.snickchallenge) && !global.failedmod
 	{
 		state = states.door;
 		doorx = other.x;

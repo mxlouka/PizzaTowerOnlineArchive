@@ -14,7 +14,10 @@ if global.modifier != -1
 			modstate = "Pacifist MOD.";
 			break;
 		case mods.hardmode:
-			modstate = "April Hardmode MOD.";
+			modstate = "Hardmode MOD.";
+			break;
+		case mods.shadow:
+			modstate = "Shadow Follower MOD.";
 			break;
 	}
 	if global.failedmod

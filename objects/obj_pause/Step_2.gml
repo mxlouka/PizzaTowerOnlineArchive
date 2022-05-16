@@ -1,7 +1,7 @@
 if live_call()
 	return live_result;
 
-gototitle = room == hub_room1 or room == cowboytask or room == Titlescreen or room == Scootertransition;
+gototitle = room == hub_room1 or room == hub_roomSAGE or room == hub_roomE2 or room == cowboytask or room == Titlescreen or room == Scootertransition;
 with obj_player
 {
 	if place_meeting(x, y, obj_startgate) && state == states.victory
@@ -129,8 +129,6 @@ if pause && !instance_exists(obj_option)
 				gotoroom = entryway_1;
 			else if string_startswith(roomname, "cotton")
 				gotoroom = cotton_1;
-			else if string_startswith(roomname, "jawbreaker")
-				gotoroom = jawbreaker_1;
 			else if room == custom_lvl_room
 				gotoroom = room;
 			

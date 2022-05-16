@@ -1,5 +1,6 @@
 function scr_player_tackle()
 {
+	suplexmove = false
 	combo = 0
 	
 	mach2 = 0
@@ -25,3 +26,4 @@ function scr_player_tackle()
 	//Animations
 	image_speed = 0.35
 }
+

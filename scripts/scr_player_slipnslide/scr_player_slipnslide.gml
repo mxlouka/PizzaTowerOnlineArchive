@@ -1,8 +1,7 @@
-function scr_player_slipnslide() {
+function scr_player_slipnslide() 
+{
 	mach2 = 0
-
-
-
+	
 	jumpAnim = true
 	dashAnim = true
 	landAnim = false
@@ -40,7 +39,7 @@ function scr_player_slipnslide() {
 	}
 	
 	//Bump
-	if (scr_solid(x+xscale,y)) && !place_meeting(x+sign(hsp),y,obj_slope)
+	if scr_solid(x + xscale, y) && !place_meeting(x+sign(hsp),y,obj_slope)
 	{
 		if global.gameplay == 0
 		{
@@ -78,8 +77,8 @@ function scr_player_slipnslide() {
 	with instance_create(x,y,obj_slidecloud)
 		image_xscale = other.xscale
 
-	if !(instance_exists(obj_slidecloud)) && grounded && movespeed > 1.5 && place_meeting(x, y + 1, obj_current)
-	with instance_create(x,y,obj_slidecloud)
+	if !instance_exists(obj_slidecloud) && grounded && movespeed > 1.5 && place_meeting(x, y + 1, obj_current)
+	with instance_create(x, y, obj_slidecloud)
 	{
 		image_xscale = other.xscale
 		sprite_index = spr_watereffect
@@ -90,3 +89,4 @@ function scr_player_slipnslide() {
 	if sprite_index == spr_slipnslide && place_meeting(x, y + 1, obj_current) && character == "P"
 		sprite_index = spr_Current
 }
+

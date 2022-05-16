@@ -7,6 +7,7 @@ optionsaved_vibration = global.gamepadvibration
 depth = -99
 
 menu = 0;
+menuto = -1;
 
 mo = random(32);
 c2 = make_colour_hsv((257 / 360) * 255, (39 / 100) * 255, (23 / 100) * 255);
@@ -26,6 +27,7 @@ movespeed = 0;
 
 dbg_live = false;
 camy = 0;
+camx = 0;
 holdkey = -1;
 holdkeyt = 0;
 music = -1;

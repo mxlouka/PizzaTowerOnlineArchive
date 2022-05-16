@@ -4,4 +4,6 @@ vsp = 0
 grav = 0.5
 drop = false
 
+with obj_player
+	state = states.titlescreen;
 

@@ -23,6 +23,8 @@ if ds_list_find_index(global.saveroom, id) == -1 && global.panic
 		
 			if other.sprite_index == spr_destroyable2bigescape_ss
 				sprite_index = spr_bigdebrisescape_ss
+			else if other.sprite_index == spr_destroyable2bigescapeNEW_ss
+				sprite_index = spr_bigbreak2escapedebris_ss
 			else if other.sprite_index == spr_bigbreakableescape_PP
 				sprite_index = spr_bigdebrisescape_PP
 			else

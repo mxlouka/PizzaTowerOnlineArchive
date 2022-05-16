@@ -1266,8 +1266,8 @@ function scr_characterspr(char = character)
 
 				spr_squished = spr_player_squished
 				spr_supertaunt1 = spr_playerSP_supertaunt1
-				spr_supertaunt2 = spr_playerSP_supertaunt1
-				spr_supertaunt3 = spr_playerSP_supertaunt2
+				spr_supertaunt2 = spr_playerSP_supertaunt2
+				spr_supertaunt3 = spr_playerSP_supertaunt3
 				spr_supertaunt4 = spr_playerSP_supertaunt2
 				
 				spr_taunt = spr_playerSP_taunt
@@ -1309,7 +1309,7 @@ function scr_characterspr(char = character)
 				
 				spr_rocketstart = spr_player_rocketstart;
 				spr_rocket = spr_player_rocket;
-				spr_rockethitwall = spr_player_rockethitwall;
+				spr_rockethitwall = spr_playerSP_rockethitwall;
 				
 				spr_slipbanan1 = spr_playerSP_slipbanan;
 				spr_slipbanan2 = spr_playerSP_slipbanan2;
@@ -1377,6 +1377,18 @@ function scr_characterspr(char = character)
 					
 					spr_3hpidle = spr_playerSP_3hpidle_NEW
 					spr_3hpwalk = spr_playerSP_3hpwalk_NEW
+					
+					spr_mach = spr_playerSP_mach2_NEW
+					spr_mach4 = spr_playerSP_mach4_NEW
+					spr_secondjump1 = spr_playerSP_secondjump1_NEW
+					spr_secondjump2 = spr_playerSP_secondjump2_NEW
+					spr_machpunch1 = spr_playerSP_machpunch1_NEW
+					spr_machpunch2 = spr_playerSP_machpunch2_NEW
+					spr_mach3jump = spr_playerSP_mach3jump_NEW
+					
+					spr_jump = spr_playerSP_jump_NEW
+					spr_land = spr_playerSP_land_NEW
+					spr_land2 = spr_playerSP_land2_NEW
 				}
 				
 				// SOUNDS

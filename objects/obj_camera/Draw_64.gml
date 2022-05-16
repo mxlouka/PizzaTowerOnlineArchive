@@ -403,12 +403,19 @@ else
 		var _arankpizza = repainted ? spr_pizzascore_olivePP : spr_pizzascore_olive;
 		var _srankpizza = repainted ? spr_pizzascore_shroomPP : spr_pizzascore_shroom;
 		
-		if sugary or _pizzascore == spr_pizzascoreN
+		if _pizzascore == spr_pizzascoreN
 		{
 			_crankpizza = -1;
 			_brankpizza = -1;
 			_arankpizza = -1;
 			_srankpizza = -1;
+		}
+		if sugary
+		{
+			_crankpizza = spr_candyscore_crank;
+			_brankpizza = spr_candyscore_brank;
+			_arankpizza = spr_candyscore_arank;
+			_srankpizza = spr_candyscore_srank;
 		}
 		
 		var _score = global.collect;
@@ -589,10 +596,10 @@ if showhud
 			var keyspr = sg ? spr_keyinvSP_ss : spr_keyinvSP;
 			keyimg = (keyimg + 0.35) % sprite_get_number(keyspr);
 			
-			draw_sprite_ext(keyspr, keyimg, 696, 86 + obj_tv.hud_posY + styley, 1, 1, 0, c_white, alpha);
+			draw_sprite_ext(keyspr, keyimg, 700, 89 + obj_tv.hud_posY + styley, 1, 1, 0, c_white, alpha);
 		}
 		else
-			draw_sprite_ext(spr_invSP, -1, 696, 86 + obj_tv.hud_posY + styley, 1, 1, 0, c_white, alpha);
+			draw_sprite_ext(spr_invSP, -1, 696, 89 + obj_tv.hud_posY + styley, 1, 1, 0, c_white, alpha);
 	}
 }
 draw_set_blend_mode(bm_normal);

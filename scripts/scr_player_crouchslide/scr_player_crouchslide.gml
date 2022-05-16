@@ -21,7 +21,7 @@ function scr_player_crouchslide()
 		if !grounded && character == "SP"
 			sprite_index = spr_playerSP_jumpdive2;
 		
-		if grounded && input_buffer_jump < 8 && !scr_solid((x + 27), (y - 32)) && !scr_solid((x - 27), (y - 32)) && !scr_solid(x, (y - 32)) && !scr_solid(x, (y - 16))
+		if grounded && input_buffer_jump < 8 && !scr_solid(x + 27 * xscale, y - 32) && !scr_solid(x, y - 16)
 		{
 			input_buffer_jump = 8;
 			if character == "P"
@@ -68,12 +68,11 @@ function scr_player_crouchslide()
 	    jumpstop = false
 	}
 	
-	if sprite_index == spr_player_jumpdive1 && floor(image_index) == image_number - 1
+	if sprite_index == spr_player_jumpdive1 && floor(image_index) >= image_number - 1
 	    sprite_index = spr_player_jumpdive2
-	
 	mask_index = spr_crouchmask
 	
-	if (grounded && key_attack && ((!scr_solid((x + 27), (y - 32))) && ((!scr_solid((x - 27), (y - 32))) && ((!scr_solid(x, (y - 32))) && (!scr_solid(x, (y - 16))))))) && (character != "N" or (character == "N" && noisetype == 1))
+	if (grounded && key_attack2 && !scr_solid(x + 27 * xscale, y - 32) && !scr_solid(x, y - 16)) && (character != "N" or (character == "N" && noisetype == 1))
 	{
 	    movespeed = 8
 		//scr_soundeffect(sfx_rollgetup)
@@ -82,7 +81,11 @@ function scr_player_crouchslide()
 	    sprite_index = spr_rollgetup
 	}
 	
-	if (movespeed <= 5 or (scr_solidwall(x + xscale, y) && !place_meeting(x + sign(hsp), y, obj_destructibles)))
+	var minspeed = 5;
+	if character == "SP"
+		minspeed = 0;
+	
+	if (movespeed <= minspeed or (scr_solidwall(x + xscale, y) && !place_meeting(x + sign(hsp), y, obj_destructibles)))
 	{
 		if !key_down && grounded
 			state = states.normal

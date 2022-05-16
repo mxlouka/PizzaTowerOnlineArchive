@@ -1,7 +1,8 @@
 /// @description pal_swap_init_system(shader,enable indexing <optional>)
 /// @param shader
 /// @param enable indexing <optional>
-function pal_swap_init_system() {
+function pal_swap_init_system()
+{
 	//Initiates the palette system.  Call once at the beginning of your game somewhere.
 	//---
 	//Enabiling "indexing" allows you to use pal_swap_get_pal_color() which will return the rgb color
@@ -14,14 +15,11 @@ function pal_swap_init_system() {
 	Pal_UVs = shader_get_uniform(argument[0], "palette_UVs");
 	Pal_Index = shader_get_uniform(argument[0], "palette_index");
 	Pal_Texture = shader_get_sampler_index(argument[0], "palette_texture");
-
+	
 	if(argument_count>1 && argument[1])
 	{
 	    globalvar Pal_Map;
 	    Pal_Map = ds_map_create();
 	}
-
-
-
-
 }
+

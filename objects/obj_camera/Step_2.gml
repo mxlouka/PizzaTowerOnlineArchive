@@ -366,9 +366,9 @@ if global.panic or global.snickchallenge
 	
 	// tilting
 	if check_sugary()
-		panicangle = sin(current_time / 10000) * (global.wave / global.maxwave) * 3;
+		panicangle = sin((current_time / (global.wave / global.maxwave)) / 5000) * (global.wave / global.maxwave) * 4;
 }
 
 frameone = false;
-camera_set_view_angle(view_camera[0], round(angle) + panicangle);
+camera_set_view_angle(view_camera[0], Approach(camera_get_view_angle(view_camera[0]), round(angle) + panicangle, 1));
 

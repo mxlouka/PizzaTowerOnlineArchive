@@ -15,7 +15,7 @@
     "path": "audiogroups/audiogroup_default",
   },
   "soundFile": "sfx_groundpound",
-  "duration": 1.085,
+  "duration": 1.08,
   "parent": {
     "name": "sfx",
     "path": "folders/Sounds/sfx.yy",

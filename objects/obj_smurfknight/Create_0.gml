@@ -11,6 +11,8 @@ scaredspr = spr_smurfknight_scared
 spr_dead = spr_smurfknight_dead
 
 sprite_index = walkspr
-movespeed = 2
+if global.gameplay == 0
+	movespeed = 2
 
 sugaryenemy = true
+

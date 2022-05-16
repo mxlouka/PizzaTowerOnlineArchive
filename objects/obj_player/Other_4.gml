@@ -116,3 +116,4 @@ if baddiegrabbedID != 0 && baddiegrabbedID != obj_null && baddiegrabbedID != obj
 		if baddieID == other.baddiegrabbedID
 			persistent = false;
 }
+

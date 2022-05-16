@@ -15,7 +15,7 @@
     "path": "audiogroups/audiogroup_default",
   },
   "soundFile": "sfx_pizzaface",
-  "duration": 2.779694,
+  "duration": 2.774694,
   "parent": {
     "name": "screams",
     "path": "folders/Sounds/sfx/screams.yy",

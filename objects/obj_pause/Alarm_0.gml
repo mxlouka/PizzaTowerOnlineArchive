@@ -35,11 +35,8 @@ if gotoroom != -1
 
 // reset time attack
 global.timeattack = timeattack;
-if timeattack
-{
-	with obj_timeattack
-		alarm[1] = 60;
-}
+with obj_timeattack
+	alarm[1] = 60;
 
 // create nice fadeout instead of just a cut into the level
 with instance_create(0, 0, obj_fadeout)

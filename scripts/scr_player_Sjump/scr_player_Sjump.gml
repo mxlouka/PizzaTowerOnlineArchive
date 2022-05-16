@@ -1,9 +1,8 @@
 function scr_player_Sjump()
 {
 	hsp = 0
-
 	mach2 = 0
-
+	
 	jumpAnim = true
 	dashAnim = true
 	landAnim = false
@@ -12,8 +11,9 @@ function scr_player_Sjump()
 	crouchslideAnim = true
 	crouchAnim = false
 	machhitAnim = false
-
+	
 	move = key_right + key_left
+	sjump = false
 	
 	// set vsp
 	if global.gameplay == 0 or springsjump or sprite_index == spr_playerV_superjump2
@@ -75,9 +75,11 @@ function scr_player_Sjump()
         
 			if sprite_index == spr_superjump or sprite_index == spr_playerV_superjump2 or sprite_index == spr_superspringplayer
 			{
+				/*
 				if sprite_index == spr_superspringplayer && character == "SP"
 					sprite_index = spr_playerSP_hitceiling;
 				else
+				*/
 					sprite_index = spr_superjumpland;
 			}
         
@@ -113,8 +115,13 @@ function scr_player_Sjump()
 				springsjump = false;
 				if move != 0
 					xscale = move
-			
+				
 				sprite_index = spr_mach4
+				if global.gameplay != 0
+				{
+					image_index = 0
+					sprite_index = spr_dashpadmach
+				}
 				state = states.mach3
 				movespeed = 12
 			}

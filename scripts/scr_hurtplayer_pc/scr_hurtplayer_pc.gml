@@ -1,6 +1,6 @@
 function scr_hurtplayer_pc(collectloss = 100, player = obj_pc_player)
 {
-	if player.canmove && player.state != states.pipe
+	if player.canmove && player.state != pc_states.pipe
 	{
 		if !audio_is_playing(sfx_pephurt)
 			audio_play_sound(sfx_pephurt, 0, false);

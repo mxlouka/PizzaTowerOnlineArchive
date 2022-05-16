@@ -13,8 +13,11 @@ function scr_player_faceplant()
 	else
 	{
 		momentum = true;
-		if movespeed < 12
+		if movespeed < 12 && character != "SP"
 			movespeed += 0.5;
+		
+		if key_slap2
+			input_buffer_faceplant = 0;
 	}
 	
 	//Bump
@@ -53,13 +56,13 @@ function scr_player_faceplant()
 	    vsp = -3
 	    mach2 = 0
 	    image_index = 0
-	    instance_create(x + 10, y + 10, obj_bumpeffect)
+	    instance_create(x + 10 * xscale, y + 10, obj_bumpeffect)
 	}
 	
-	if floor(image_index) >= image_number - 1
+	if floor(image_index) >= image_number - 1 && input_buffer_faceplant >= 8
 	{
 		image_speed = 0.35
-		if !scr_stylecheck(0)
+		if !scr_stylecheck(0) && character != "SP"
 		{
 			if movespeed < 12
 				movespeed = 12;

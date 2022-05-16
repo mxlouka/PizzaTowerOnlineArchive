@@ -53,7 +53,10 @@ function scr_playerreset()
 	global.giantkey = false
 	
 	with obj_timeattack
+	{
+		alarm[1] = -1
 		stop = false
+	}
 	
 	with obj_roomname
 	{

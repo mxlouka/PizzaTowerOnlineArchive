@@ -1,22 +1,11 @@
-
-
-//Which level is it
-
-if rank = "none"
-visible = false
-else
 visible = true
-
-
-
-if rank = "s"
-image_index = 0
-if rank = "a"
-image_index = 1
-if rank = "b"
-image_index = 2
-if rank = "c"
-image_index = 3
-if rank = "d"
-image_index = 4
+switch string_lower(rank)
+{
+	case "none": visible = false; break;
+	case "s": image_index = 0; break;
+	case "a": image_index = 1; break;
+	case "b": image_index = 2; break;
+	case "c": image_index = 3; break;
+	case "d": image_index = 4; break;
+}
 
