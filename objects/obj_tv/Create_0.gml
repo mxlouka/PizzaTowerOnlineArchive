@@ -67,6 +67,7 @@ happy_timer = 0
 panic_timer = 0
 panic_anim = 0
 panic_sprite = -1
+popsurf = -1
 
 if global.gameplay != 0
 {

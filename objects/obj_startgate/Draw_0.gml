@@ -152,10 +152,10 @@ if drawing
 		}
 		
 		draw_sprite_ext(toppin1spr, 0, x - 75, y - 120, 1, 1, 0, toppin1 ? c_white : c_black, 1);
-		draw_sprite_ext(toppin1spr, 0, x - 35, y - 120, 1, 1, 0, toppin2 ? c_white : c_black, 1);
-		draw_sprite_ext(toppin1spr, 0, x, y - 120, 1, 1, 0, toppin3 ? c_white : c_black, 1);
-		draw_sprite_ext(toppin1spr, 0, x + 35, y - 120, 1, 1, 0, toppin4 ? c_white : c_black, 1);
-		draw_sprite_ext(toppin1spr, 0, x + 75, y - 120, 1, 1, 0, toppin5 ? c_white : c_black, 1);
+		draw_sprite_ext(toppin2spr, 0, x - 37, y - 120, 1, 1, 0, toppin2 ? c_white : c_black, 1);
+		draw_sprite_ext(toppin3spr, 0, x, y - 120, 1, 1, 0, toppin3 ? c_white : c_black, 1);
+		draw_sprite_ext(toppin4spr, 0, x + 37, y - 120, 1, 1, 0, toppin4 ? c_white : c_black, 1);
+		draw_sprite_ext(toppin5spr, 0, x + 75, y - 120, 1, 1, 0, toppin5 ? c_white : c_black, 1);
 	}
 	
 	// draw the score

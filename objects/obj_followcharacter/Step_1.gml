@@ -25,7 +25,7 @@ else
 
 // follow them!!!
 var xx = x, yy = y;
-if array_length(followqueue) > LAG_STEPS // lag steps are 20
+if array_length(followqueue) >= LAG_STEPS // lag steps are 20
 {
 	xx = followqueue[0] + xoffset;
 	yy = followqueue[1];

@@ -217,13 +217,13 @@ else
 				// sugary combo timer
 				if sugary
 				{
-					if !surface_exists(surf)
-						surf = surface_create(112, 32);
+					if !surface_exists(popsurf)
+						popsurf = surface_create(112, 32);
 					else
 					{
 						var b = global.combotime / 55;
 					
-						surface_set_target(surf);
+						surface_set_target(popsurf);
 						draw_clear_alpha(c_black, 0);
 						draw_sprite_tiled(spr_barpop2_ss, 0, -current_time / 30, 0);
 						draw_set_colour(#480028);
@@ -235,7 +235,7 @@ else
 						surface_reset_target();
 					
 						draw_set_alpha(combo_fade);
-						draw_surface(surf, 833 + offset_x - 73, 107 + offset_y + hud_posY + 34);
+						draw_surface(popsurf, 833 + offset_x - 73, 107 + offset_y + hud_posY + 34);
 						draw_sprite(spr_barpop_ss, 0, 833 + offset_x - 73, 107 + offset_y + hud_posY + 34);
 						draw_set_alpha(1);
 					}
