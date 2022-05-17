@@ -93,8 +93,8 @@
     "resourceType": "GMNineSliceData",
   },
   "parent": {
-    "name": "Sprites",
-    "path": "folders/Sprites.yy",
+    "name": "debug sprites",
+    "path": "folders/Sprites/debug sprites.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_secretwall_trigger",

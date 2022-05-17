@@ -2,7 +2,7 @@
 //Grab
 if other.state == states.handstandjump && other.character != "S"
 {
-    instance_create(x + (obj_player1.xscale * 40), y, obj_punchdust)
+    instance_create(x + (other.xscale * 40), y, obj_punchdust)
     with other.id
     {
         image_index = 0;

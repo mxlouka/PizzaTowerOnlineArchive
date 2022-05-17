@@ -539,11 +539,40 @@ else
 			else if floor(image_index) >= image_number - 1
 				animset = tvsprite;
 			
+			// sugary spire panic tvs
+			if sugary && global.panic
+			{
+				if panic_anim <= 0
+					panic_timer--
+				if panic_timer <= 0
+				{
+					panic_sprite = choose(spr_tv_escape1SP, spr_tv_escape2SP, spr_tv_escape3SP, spr_tv_escape4SP, spr_tv_escape5SP, spr_tv_escape6SP, spr_tv_escape7SP);
+					panic_anim = room_speed * 5
+					panic_timer = room_speed * random_range(5, 10)
+				}
+			}
+			
 			// sugary spire exclusive tv sprites
-			if pchar == "SP" && happy_timer > 0
+			if sugary && panic_anim > 0
+			{
+				panic_anim--;
+				sprite_index = panic_sprite;
+				idlespr = sprite_index;
+			}
+			else if pchar == "SP" && happy_timer > 0
 			{
 				happy_timer--;
 				sprite_index = spr_tv_happySP;
+				idlespr = sprite_index;
+			}
+			else if pchar == "SP" && obj_player.angry
+			{
+				sprite_index = spr_tv_angrySP;
+				idlespr = sprite_index;
+			}
+			else if pchar == "SP" && global.combo >= 3 && global.combotime > 0
+			{
+				sprite_index = spr_tv_menacingSP;
 				idlespr = sprite_index;
 			}
 			else if pchar == "SP" && (_state == states.mach1 or _state == states.handstandjump or _state == states.crouchslide)

@@ -6,7 +6,7 @@ if !broken && !global.panic && !global.snickchallenge && global.gameplay == 0
 	{
 		if player.state == states.backbreaker && player.sprite_index == player.spr_taunt
 		{
-			scr_soundeffect(sfx_collectgiantpizza);
+			scr_soundeffect(sfx_secretwall);
 			broken = true;
 			y = -9999;
 			
@@ -26,3 +26,4 @@ if broken && layer_exists(mylayer)
 		mylayer = -1;
 	}
 }
+

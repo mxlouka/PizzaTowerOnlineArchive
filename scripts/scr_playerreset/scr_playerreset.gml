@@ -62,6 +62,7 @@ function scr_playerreset()
 	{
 		yi = -50;
 		showtext = false;
+		ds_list_clear(seenlist);
 	}
 		
 	global.timedgate = false

@@ -4,7 +4,7 @@ scr_soundeffect(sfx_collectgiantpizza);
 
 global.collect += 1000;
 
-with instance_create(x,y,obj_smallnumber)
+with instance_create(x, y, obj_smallnumber)
 	number = string(1000);
 
 if global.bullet < 3

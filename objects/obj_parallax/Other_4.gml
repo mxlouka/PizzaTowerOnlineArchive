@@ -22,6 +22,19 @@ if string_startswith(roomname, "cotton_") && sugaryspire
 	}
 }
 
+// change color of entryway effect layer
+if string_startswith(roomname, "entryway_")
+{
+	var layerfx = layer_get_fx("Effect_1");
+	if layerfx != -1
+	{
+		if global.panic or roomname == "entryway_11" // nighttime color
+			fx_set_parameter(layerfx, "g_TintCol", [216 / 255, 183 / 255, 228 / 255, 1]);
+		else // normal sunset color
+			fx_set_parameter(layerfx, "g_TintCol", [255 / 255, 221 / 255, 204 / 255, 1]);
+	}
+}
+
 // tile layer depths
 if layer_exists("Tiles_1")
 	layer_depth("Tiles_1", 100)

@@ -5,11 +5,16 @@ msg = string(msg);
 
 if room != rank_room && room != timesuproom && room != editor_entrance && room != custom_lvl_room && room != Realtitlescreen
 {
-	if msg != ""
+	if !ds_list_find_index(seenlist, room)
 	{
-		message = msg;
-		showtext = true;
-		alarm[0] = 200;
+		if scr_stylecheck(2)
+			ds_list_add(seenlist, room);
+		if msg != ""
+		{
+			message = msg;
+			showtext = true;
+			alarm[0] = 200;
+		}
 	}
 }
 else

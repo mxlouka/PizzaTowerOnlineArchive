@@ -69,7 +69,7 @@
   },
   "parent": {
     "name": "Entryway",
-    "path": "folders/Rooms/Extra Levels/Sugary Spire/Entryway.yy",
+    "path": "folders/Rooms/Sugary Spire/Entryway.yy",
   },
   "resourceVersion": "1.0",
   "name": "entryway_TEMPLATE",

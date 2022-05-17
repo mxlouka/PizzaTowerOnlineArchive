@@ -1323,8 +1323,6 @@ function scr_characterspr(char = character)
 				spr_breakdanceuppercut = spr_playerSP_uppercut;
 				spr_breakdanceuppercutend = spr_playerSP_uppercutend;
 				
-				spr_suplexland = spr_player_backflip;
-				
 				spr_pmortwalk = spr_player_mortwalk;
 				spr_pmortidle = spr_player_mortidle;
 				spr_pmortjump = spr_player_mortjump;

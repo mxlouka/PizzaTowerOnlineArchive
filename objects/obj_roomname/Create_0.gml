@@ -7,3 +7,5 @@ showtext = false;
 depth = -100;
 alpha = 1;
 
+seenlist = ds_list_create()
+

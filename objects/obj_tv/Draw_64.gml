@@ -215,31 +215,30 @@ else
 			    }
 				
 				// sugary combo timer
-				if !surface_exists(surf)
-					surf = surface_create(112, 32);
-				else
+				if sugary
 				{
-					var b = global.combotime / 55;
+					if !surface_exists(surf)
+						surf = surface_create(112, 32);
+					else
+					{
+						var b = global.combotime / 55;
 					
-					surface_set_target(surf);
-					draw_clear_alpha(c_black, 0);
-					draw_sprite_tiled(spr_barpop2_ss, 0, -current_time / 30, 0);
-					draw_set_blend_mode(bm_subtract);
-					draw_set_colour(c_black);
-					draw_rectangle(112 * b, 0, 112, 32, false);
-					draw_set_blend_mode(bm_normal);
-					draw_set_colour(#480028);
-					draw_rectangle(0, 0, 112, 32, false);
-					draw_sprite(spr_barpop3_ss, 0, 112 * b, 0);
-					draw_set_blend_mode(bm_subtract);
-					draw_sprite(spr_barpop_ss, 1, 0, 0);
-					draw_set_blend_mode(bm_normal);
-					surface_reset_target();
+						surface_set_target(surf);
+						draw_clear_alpha(c_black, 0);
+						draw_sprite_tiled(spr_barpop2_ss, 0, -current_time / 30, 0);
+						draw_set_colour(#480028);
+						draw_rectangle(112 * b, 0, 112, 32, false);
+						draw_sprite(spr_barpop3_ss, 0, 112 * b, 0);
+						draw_set_blend_mode(bm_subtract);
+						draw_sprite(spr_barpop_ss, 1, 0, 0);
+						draw_set_blend_mode(bm_normal);
+						surface_reset_target();
 					
-					draw_set_alpha(combo_fade);
-					draw_surface(surf, 833 + offset_x - 73, 107 + offset_y + hud_posY + 34);
-					draw_sprite(spr_barpop_ss, 0, 833 + offset_x - 73, 107 + offset_y + hud_posY + 34);
-					draw_set_alpha(1);
+						draw_set_alpha(combo_fade);
+						draw_surface(surf, 833 + offset_x - 73, 107 + offset_y + hud_posY + 34);
+						draw_sprite(spr_barpop_ss, 0, 833 + offset_x - 73, 107 + offset_y + hud_posY + 34);
+						draw_set_alpha(1);
+					}
 				}
 			}
 			else

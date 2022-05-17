@@ -94,178 +94,68 @@ if drawing
 		
 		// sugary spire toppins
 		var sugary = false;
-		if level == "cotton" or level == "mines" or level == "waffle"
+		if level == "cotton" or level == "mines" or level == "entryway" or level == "molasses"
 			sugary = true;
 		
-		// shroom
-		if toppin1
+		// toppins
+		var toppin1spr = spr_toppinshroom;
+		var toppin2spr = spr_toppincheese;
+		var toppin3spr = spr_toppintomato;
+		var toppin4spr = spr_toppinsausage;
+		var toppin5spr = spr_toppinpineapple;
+		
+		if level == "strongcold"
 		{
-			if level == "strongcold"
+			if global.gameplay == 0
 			{
-				if global.gameplay == 0
-					draw_sprite(spr_xmasshroomtoppin_idle, -1, x - 75, y - 120)
-				else
-					draw_sprite(spr_xmastoppinshroom_NEW, 2, x - 75, y - 120)
-			}
-			else if sugary
-			{
-				if global.gameplay == 0
-					draw_sprite(spr_toppinmallow, -1, x - 75, y - 120)
-				else
-					draw_sprite(spr_toppinmallow_NEW, 2, x - 75, y - 120)
+				toppin1spr = spr_xmasshroomtoppin_idle;
+				toppin2spr = spr_xmascheesetoppin_idle;
+				toppin3spr = spr_xmastomatotoppin_idle;
+				toppin4spr = spr_xmassausagetoppin_idle;
+				toppin5spr = spr_xmaspineappletoppin_idle;
 			}
 			else
 			{
-				if global.gameplay == 0
-					draw_sprite(spr_toppinshroom, -1, x - 75, y - 120)
-				else
-					draw_sprite(spr_toppinshroom_NEW, 3, x - 75, y - 120)
+				toppin1spr = spr_xmastoppinshroom_NEW;
+				toppin2spr = spr_xmastoppincheese_NEW;
+				toppin3spr = spr_xmastoppintomato_NEW;
+				toppin4spr = spr_xmastoppinsausage_NEW;
+				toppin5spr = spr_xmastoppinpineapple_NEW;
 			}
 		}
-		else
+		else if sugary
 		{
-			if sugary
-				draw_sprite(spr_toppinSP_startgate, 0, x - 75, y - 120);
+			if global.gameplay == 0
+			{
+				toppin1spr = spr_toppinmallow;
+				toppin2spr = spr_toppinchoco;
+				toppin3spr = spr_toppincrack;
+				toppin4spr = spr_toppinworm;
+				toppin5spr = spr_toppinworm_run;
+			}
 			else
 			{
-				if global.gameplay == 0
-					draw_sprite(spr_toppinshroom_pause, -1, x- 75, y - 120)
-				else
-					draw_sprite(spr_toppinNEW_startgate, 4, x- 75, y - 120)
+				toppin1spr = spr_toppinmallow_taunt_NEW;
+				toppin2spr = spr_toppinchoco_taunt_NEW;
+				toppin3spr = spr_toppincrack_taunt_NEW;
+				toppin4spr = spr_toppinworm_taunt_NEW;
+				toppin5spr = spr_toppincandy_taunt_NEW;
 			}
 		}
-
-		// cheese
-		if toppin2
+		else if global.gameplay != 0
 		{
-			if level == "strongcold"
-			{
-				if global.gameplay == 0
-					draw_sprite(spr_xmascheesetoppin_idle, -1, x - 35, y - 120)
-				else
-					draw_sprite(spr_xmastoppincheese_NEW, 5, x - 35, y - 120)
-			}
-			else if sugary
-				draw_sprite(spr_toppinchoco, -1, x - 35, y - 120)
-			else
-			{
-				if global.gameplay == 0
-					draw_sprite(spr_toppincheese, -1, x - 35, y - 120)
-				else
-					draw_sprite(spr_toppincheese_NEW, 5, x - 35, y - 120)
-			}
-		}
-		else
-		{
-			if sugary
-				draw_sprite(spr_toppinSP_startgate, 1, x - 35, y - 120);
-			else
-			{
-				if global.gameplay == 0
-					draw_sprite(spr_toppincheese_pause, -1, x- 35, y - 120)
-				else
-					draw_sprite(spr_toppinNEW_startgate, 2, x- 35, y - 120)
-			}
-		}
-
-		// tomato
-		if toppin3
-		{
-			if level == "strongcold"
-			{
-				if global.gameplay == 0
-					draw_sprite(spr_xmastomatotoppin_idle, -1, x, y - 120)
-				else
-					draw_sprite(spr_xmastoppintomato_NEW, 2, x, y - 120)
-			}
-			else if sugary
-				draw_sprite(spr_toppincrack, image_index + 1, x, y - 120)
-			else
-			{
-				if global.gameplay == 0
-					draw_sprite(spr_toppintomato, -1, x, y - 120)
-				else
-					draw_sprite(spr_toppintomato_NEW, 2, x, y - 120)
-			}
-		}
-		else
-		{
-			if sugary
-				draw_sprite(spr_toppinSP_startgate, 2, x, y - 120);
-			else
-			{
-				if global.gameplay == 0
-					draw_sprite(spr_toppintomato_pause, -1, x, y - 120)
-				else
-					draw_sprite(spr_toppinNEW_startgate, 3, x, y - 120)
-			}
+			toppin1spr = spr_toppinshroom_NEW;
+			toppin2spr = spr_toppincheese_NEW;
+			toppin3spr = spr_toppintomato_NEW;
+			toppin4spr = spr_toppinsausage_NEW;
+			toppin5spr = spr_toppinpineapple_NEW;
 		}
 		
-		// sausage
-		if toppin4
-		{
-			if level == "strongcold"
-			{
-				if global.gameplay == 0
-					draw_sprite(spr_xmassausagetoppin_idle, -1, x + 35, y - 120)
-				else
-					draw_sprite(spr_xmastoppinsausage_NEW, 0, x + 35, y - 120)
-			}
-			else if sugary
-				draw_sprite(spr_toppinworm, -1, x + 35, y - 120)
-			else
-			{
-				if global.gameplay == 0
-					draw_sprite(spr_toppinsausage, -1, x + 35, y - 120)
-				else
-					draw_sprite(spr_toppinsausage_NEW, 0, x + 35, y - 120)
-			}
-		}
-		else
-		{
-			if sugary
-				draw_sprite(spr_toppinSP_startgate, 3, x + 35, y - 120);
-			else
-			{
-				if global.gameplay == 0
-					draw_sprite(spr_toppinsausage_pause, -1, x + 35, y - 120)
-				else
-					draw_sprite(spr_toppinNEW_startgate, 1, x + 35, y - 120)
-			}
-		}
-		
-		// pineapple
-		if toppin5
-		{
-			if level == "strongcold"
-			{
-				if global.gameplay == 0
-					draw_sprite(spr_xmaspineappletoppin_idle, -1, x + 75, y - 120)
-				else
-					draw_sprite(spr_xmastoppinpineapple_NEW, 0, x + 75, y - 120)
-			}
-			else if sugary
-				draw_sprite(spr_toppincandy, image_index + 1, x + 75, y - 120)
-			else
-			{
-				if global.gameplay == 0
-					draw_sprite(spr_toppinpineapple, -1, x + 75, y - 120)
-				else
-					draw_sprite(spr_toppinpineapple_NEW, 0, x + 75, y - 120)
-			}
-		}
-		else
-		{
-			if sugary
-				draw_sprite(spr_toppinSP_startgate, 4, x + 75, y - 120);
-			else
-			{
-				if global.gameplay == 0
-					draw_sprite(spr_toppinpineapple_pause, -1, x + 75, y - 120)
-				else
-					draw_sprite(spr_toppinNEW_startgate, 0, x + 75, y - 120)
-			}
-		}
+		draw_sprite_ext(toppin1spr, 0, x - 75, y - 120, 1, 1, 0, toppin1 ? c_white : c_black, 1);
+		draw_sprite_ext(toppin1spr, 0, x - 35, y - 120, 1, 1, 0, toppin2 ? c_white : c_black, 1);
+		draw_sprite_ext(toppin1spr, 0, x, y - 120, 1, 1, 0, toppin3 ? c_white : c_black, 1);
+		draw_sprite_ext(toppin1spr, 0, x + 35, y - 120, 1, 1, 0, toppin4 ? c_white : c_black, 1);
+		draw_sprite_ext(toppin1spr, 0, x + 75, y - 120, 1, 1, 0, toppin5 ? c_white : c_black, 1);
 	}
 	
 	// draw the score

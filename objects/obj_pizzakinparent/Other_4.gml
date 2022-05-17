@@ -27,3 +27,4 @@ switch object_index
             instance_destroy()
         break
 }
+

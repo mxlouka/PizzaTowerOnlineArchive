@@ -1,5 +1,14 @@
 if ds_list_find_index(global.saveroom, id) = -1
 {
+	if sprite_index == spr_bigdestroyablehard_ss
+	{
+		with instance_create(x + sprite_width / 2, y + sprite_height / 2, obj_debris)
+		{
+			sprite_index = spr_bigdebrisbandage_ss
+			momentum = other.momentum
+		}
+	}
+	
 	var rep = global.gameplay == 0 ? 7 : 8;
 	for(var i = 0; i <= rep; i++)
 	{

@@ -64,6 +64,9 @@ combo_fade = 0
 sprite_prev = -1
 static_timer = 0
 happy_timer = 0
+panic_timer = 0
+panic_anim = 0
+panic_sprite = -1
 
 if global.gameplay != 0
 {

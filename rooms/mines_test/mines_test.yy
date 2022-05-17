@@ -382,7 +382,7 @@
   },
   "parent": {
     "name": "Jawbreaker Mines",
-    "path": "folders/Rooms/Extra Levels/Sugary Spire/Jawbreaker Mines.yy",
+    "path": "folders/Rooms/Sugary Spire/Jawbreaker Mines.yy",
   },
   "resourceVersion": "1.0",
   "name": "mines_test",

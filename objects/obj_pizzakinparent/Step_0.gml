@@ -59,7 +59,11 @@ if spr_taunt != -1
 		lerpx = x;
 		lerpy = y;
 		
-		followqueue = [playerid.x, playerid.y];
+		var target = playerid;
+		if instance_exists(followid)
+			target = followid;
+		
+		followqueue = [target.x, target.y];
 		image_speed = 0;
 		
 		if playerid.sprite_index != playerid.spr_taunt

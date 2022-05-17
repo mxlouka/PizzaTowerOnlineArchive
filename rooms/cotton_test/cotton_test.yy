@@ -92,7 +92,7 @@
   },
   "parent": {
     "name": "Cottontown",
-    "path": "folders/Rooms/Extra Levels/Sugary Spire/Cottontown.yy",
+    "path": "folders/Rooms/Sugary Spire/Cottontown.yy",
   },
   "resourceVersion": "1.0",
   "name": "cotton_test",

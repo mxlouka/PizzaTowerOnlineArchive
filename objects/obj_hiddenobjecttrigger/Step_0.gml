@@ -10,5 +10,6 @@ if place_meeting(x, y, obj_player)
         }
     }
 }
-if _sound
-    scr_soundeffect(sfx_collectgiantpizza);
+if _sound && !audio_is_playing(sfx_collectgiantpizza)
+    scr_soundeffect(sfx_secretwall);
+

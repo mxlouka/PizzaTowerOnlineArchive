@@ -247,7 +247,7 @@ if grabbed == true
 				{
 					jumpAnim = true;
 				    state = states.jump;
-				    sprite_index = spr_suplexland;
+				    sprite_index = character == "SP" ? spr_machfreefall : spr_suplexland;
 				    vsp = -11;
 				    jumpstop = true;
 				    image_index = 0;

@@ -79,261 +79,53 @@ function scr_secretbigdebris(debris = true, blend = c_white)
 	
 	var lay_id = get_layer("Tiles_1");
 	var lay_id2 = get_layer("Tiles_2");
-	
-	if lay_id != -1
+	repeat 2
 	{
-		var map_id = layer_tilemap_get_id(lay_id);
-		var data = tilemap_get_at_pixel(map_id, x, y);
-		var data2 = tilemap_get_at_pixel(map_id, x+33, y);
-		var data3 = tilemap_get_at_pixel(map_id, x, y+33);
-		var data4 = tilemap_get_at_pixel(map_id, x+33, y+33);
-		
-		if data != -1
-			tilemap_set_at_pixel(map_id, tile_set_empty(data), x, y);
-		if data2 != -1
-			tilemap_set_at_pixel(map_id, tile_set_empty(data2), x+33, y);
-		if data3 != -1
-			tilemap_set_at_pixel(map_id, tile_set_empty(data3), x, y+33);
-		if data4 != -1
-			tilemap_set_at_pixel(map_id, tile_set_empty(data4), x+33, y+33);
-		
-		if debris
+		if lay_id != -1
 		{
-			if data != 0
+			var map_id = layer_tilemap_get_id(lay_id);
+			for(var xx = bbox_left; xx <= bbox_right - 32; xx += 32)
 			{
-				with instance_create(x + sprite_width / 2,y + sprite_height / 2,obj_secretdebris)
+				for(var yy = bbox_top; yy <= bbox_bottom - 32; yy += 32)
 				{
-					tile_dataid = data
-					tile_dataset = tilemap_get_tileset(map_id)
-					momentum = hspapply
+					var data = tilemap_get_at_pixel(map_id, xx, yy);
+					if data != -1
+						tilemap_set_at_pixel(map_id, tile_set_empty(data), x, y);
+					
+					if debris
+					{
+						if data != 0
+						{
+							with instance_create(x + sprite_width / 2,y + sprite_height / 2, obj_secretdebris)
+							{
+								tile_dataid = data
+								tile_dataset = tilemap_get_tileset(map_id)
+								momentum = hspapply
+							}
+						}
+						else if lay_id2 == -1 or lay_id == lay_id2
+						{
+							with instance_create(x + sprite_width / 2, y + sprite_height / 2, obj_debris)
+							{
+								image_xscale = abs(other.image_xscale)
+								image_yscale = abs(other.image_yscale)
+								
+								sprite_index = spr_bigdebris
+								if check_sugary()
+									sprite_index = spr_bigdebris_ss
+								
+								if blend != c_white
+								{
+									sprite_index = spr_secretbigdebris;
+									image_blend = blend;
+								}
+								momentum = hspapply
+							}
+						}
+					}
 				}
 			}
-			else if lay_id2 == -1
-				with instance_create(x + sprite_width / 2, y + sprite_height / 2, obj_debris)
-				{
-					image_xscale = abs(other.image_xscale)
-					image_yscale = abs(other.image_yscale)
-					
-					sprite_index = spr_bigdebris
-					if check_sugary()
-						sprite_index = spr_bigdebris_ss
-					
-					if blend != c_white
-					{
-						sprite_index = spr_secretbigdebris;
-						image_blend = blend;
-					}
-					momentum = hspapply
-				}
-		
-			if data2 != 0
-			{
-				with instance_create(x + sprite_width / 2,y + sprite_height / 2,obj_secretdebris)
-				{
-					tile_dataid = data2
-					tile_dataset = tilemap_get_tileset(map_id)
-					momentum = hspapply
-				}
-			}
-			else if lay_id2 == -1
-				with instance_create(x + sprite_width / 2, y + sprite_height / 2, obj_debris)
-				{
-					image_xscale = abs(other.image_xscale)
-					image_yscale = abs(other.image_yscale)
-				
-					sprite_index = spr_bigdebris
-					if check_sugary()
-						sprite_index = spr_bigdebris_ss
-					
-					if blend != c_white
-					{
-						sprite_index = spr_secretbigdebris;
-						image_blend = blend;
-					}
-					momentum = hspapply
-				}
-	
-			if data3 != 0
-			{
-				with instance_create(x + sprite_width / 2,y + sprite_height / 2,obj_secretdebris)
-				{
-					tile_dataid = data3
-					tile_dataset = tilemap_get_tileset(map_id)
-					momentum = hspapply
-				}
-			}
-			else if lay_id2 == -1
-				with instance_create(x + sprite_width / 2, y + sprite_height / 2, obj_debris)
-				{
-					image_xscale = abs(other.image_xscale)
-					image_yscale = abs(other.image_yscale)
-				
-					sprite_index = spr_bigdebris
-					if check_sugary()
-						sprite_index = spr_bigdebris_ss
-					
-					if blend != c_white
-					{
-						sprite_index = spr_secretbigdebris;
-						image_blend = blend;
-					}
-					momentum = hspapply
-				}
-	
-			if data4 != 0
-			{
-				with instance_create(x + sprite_width / 2,y + sprite_height / 2,obj_secretdebris)
-				{
-					tile_dataid = data4
-					tile_dataset = tilemap_get_tileset(map_id)
-					momentum = hspapply
-				}
-			}
-			else if lay_id2 == -1
-				with instance_create(x + sprite_width / 2, y + sprite_height / 2, obj_debris)
-				{
-					image_xscale = abs(other.image_xscale)
-					image_yscale = abs(other.image_yscale)
-				
-					sprite_index = spr_bigdebris
-					if check_sugary()
-						sprite_index = spr_bigdebris_ss
-					
-					if blend != c_white
-					{
-						sprite_index = spr_secretbigdebris;
-						image_blend = blend;
-					}
-					momentum = hspapply
-				}
 		}
-	}
-	if lay_id2 != -1
-	{
-		var map_id = layer_tilemap_get_id(lay_id2);
-		var data_ = tilemap_get_at_pixel(map_id, x, y);
-		var data2_ = tilemap_get_at_pixel(map_id, x+33, y);
-		var data3_ = tilemap_get_at_pixel(map_id, x, y+33);
-		var data4_ = tilemap_get_at_pixel(map_id, x+33, y+33);
-		
-		if data_ != -1
-			tilemap_set_at_pixel(map_id, tile_set_empty(data), x, y);
-		if data2_ != -1
-			tilemap_set_at_pixel(map_id, tile_set_empty(data2), x+33, y);
-		if data3_ != -1
-			tilemap_set_at_pixel(map_id, tile_set_empty(data3), x, y+33);
-		if data4_ != -1
-			tilemap_set_at_pixel(map_id, tile_set_empty(data4), x+33, y+33);
-		
-		if debris
-		{
-			if data_ != 0
-			{
-				with instance_create(x + sprite_width / 2, y + sprite_height / 2, obj_secretdebris)
-				{
-					tile_dataid = data_
-					tile_dataset = tilemap_get_tileset(map_id)
-					momentum = hspapply
-				}
-			}
-			else if data == -1
-				with instance_create(x + sprite_width / 2, y + sprite_height / 2, obj_debris)
-				{
-					image_xscale = abs(other.image_xscale)
-					image_yscale = abs(other.image_yscale)
-				
-					sprite_index = spr_bigdebris
-					if check_sugary()
-						sprite_index = spr_bigdebris_ss
-					
-					if blend != c_white
-					{
-						sprite_index = spr_secretbigdebris;
-						image_blend = blend;
-					}
-					momentum = hspapply
-				}
-		
-			if data2_ != 0
-			{
-				with instance_create(x + sprite_width / 2,y + sprite_height / 2,obj_secretdebris)
-				{
-					tile_dataid = data2_
-					tile_dataset = tilemap_get_tileset(map_id)
-					momentum = hspapply
-				}
-			}
-			else if data2 == -1
-				with instance_create(x + sprite_width / 2, y + sprite_height / 2, obj_debris)
-				{
-					image_xscale = abs(other.image_xscale)
-					image_yscale = abs(other.image_yscale)
-				
-					sprite_index = spr_bigdebris
-					if check_sugary()
-						sprite_index = spr_bigdebris_ss
-					
-					if blend != c_white
-					{
-						sprite_index = spr_secretbigdebris;
-						image_blend = blend;
-					}
-					momentum = hspapply
-				}
-	
-			if data3_ != 0
-			{
-				with instance_create(x + sprite_width / 2,y + sprite_height / 2,obj_secretdebris)
-				{
-					tile_dataid = data3_
-					tile_dataset = tilemap_get_tileset(map_id)
-					momentum = hspapply
-				}
-			}
-			else if data3 == -1
-				with instance_create(x + sprite_width / 2, y + sprite_height / 2, obj_debris)
-				{
-					image_xscale = abs(other.image_xscale)
-					image_yscale = abs(other.image_yscale)
-				
-					sprite_index = spr_bigdebris
-					if check_sugary()
-						sprite_index = spr_bigdebris_ss
-					
-					if blend != c_white
-					{
-						sprite_index = spr_secretbigdebris;
-						image_blend = blend;
-					}
-					momentum = hspapply
-				}
-	
-			if data4_ != 0
-			{
-				with instance_create(x + sprite_width / 2,y + sprite_height / 2,obj_secretdebris)
-				{
-					tile_dataid = data4_
-					tile_dataset = tilemap_get_tileset(map_id)
-					momentum = hspapply
-				}
-			}
-			else if data4 == -1
-				with instance_create(x + sprite_width / 2, y + sprite_height / 2, obj_debris)
-				{
-					image_xscale = abs(other.image_xscale)
-					image_yscale = abs(other.image_yscale)
-				
-					sprite_index = spr_bigdebris
-					if check_sugary()
-						sprite_index = spr_bigdebris_ss
-					
-					if blend != c_white
-					{
-						sprite_index = spr_secretbigdebris;
-						image_blend = blend;
-					}
-					momentum = hspapply
-				}
-		}
+		lay_id = lay_id2;
 	}
 }

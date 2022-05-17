@@ -121,6 +121,8 @@ if player && !player.cutscene && (player.state != states.firemouth or global.gam
 				sprite_index = spr_haulingstart
 					
 				state = states.grab
+				if character == "SP"
+					scr_soundeffect(sfx_grabenemy_ss)
 					
 				bad.state = states.grabbed
 				bad.grabbedby = 1

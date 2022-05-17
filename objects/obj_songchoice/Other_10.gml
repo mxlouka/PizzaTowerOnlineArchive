@@ -109,6 +109,7 @@ switch sel[0]
 			[mu_ruin_race, "Theatrical Shenanigans\n(Race)", "Mr. Sauceman (original), loypoll"],
 			[mu_dungeon_race, "Dungeon Freakshow\n(Race)", "Frostix (original), loypoll"],
 			
+			[mu_entrancesecret, "A Secret in The Tower", "loypoll"],
 			[mu_entrancesecretSP, "A Secret Waffle\nin The Spire", "RodMod (original), loypoll"],
 			[mu_chateausecret, "A Secret Bone\nin my Spaghetti!", "loypoll"],
 			[mu_sewersecret, "A Manhole in\nThe Sewers", "loypoll"],
@@ -210,6 +211,7 @@ switch sel[0]
 			[mu_antonpunchball_pc, "Punch Bowl", "loypoll"],
 			[mu_antonescape_pc, "VS! Sewer Slam","loypoll", 5],
 			
+			[mu_entrancesecret_pc, "A Secret in The Tower", "loypoll"],
 			[mu_entrancesecretSP_pc, "A Secret Waffle\nin The Spire", "loypoll"],
 			[mu_chateausecret_pc, "A Secret Bone\nin my Spaghetti!", "loypoll"],
 			[mu_sewersecret_pc, "A Manhole in\nThe Sewers", "loypoll"],
@@ -249,7 +251,9 @@ switch sel[0]
 			[mu_pizzyescape, "Glucose Getaway", "RodMod", 5],
 			[mu_pizzyescape_OLD, "Glucose Getaway\n(OLD)", "RodMod", 5],
 			[mu_sugaryhub, "Welcome Back!", "101Undertale"],
+			[mu_tutorial_ss, "Ragtime Ice Cream Gal", "Jessie Productions?"],
 			[mu_waffle, "Down - To - Noise", "RodMod"],
+			[mu_gummyharry, "Gummy Harry", "???"],
 			[mu_cotton, "Steamy Cotton Candy", "RodMod"],
 			[mu_cotton2, "Around The Gateau's Gears", "RodMod"],
 			[mu_mines, "Mineshaft Depths", "RodMod"],
