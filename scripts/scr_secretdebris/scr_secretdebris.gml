@@ -84,13 +84,13 @@ function scr_secretbigdebris(debris = true, blend = c_white)
 		if lay_id != -1
 		{
 			var map_id = layer_tilemap_get_id(lay_id);
-			for(var xx = bbox_left; xx <= bbox_right - 32; xx += 32)
+			for(var xx = bbox_left; xx <= bbox_right - 32 + 1; xx += 32)
 			{
-				for(var yy = bbox_top; yy <= bbox_bottom - 32; yy += 32)
+				for(var yy = bbox_top; yy <= bbox_bottom - 32 + 1; yy += 32)
 				{
 					var data = tilemap_get_at_pixel(map_id, xx, yy);
 					if data != -1
-						tilemap_set_at_pixel(map_id, tile_set_empty(data), x, y);
+						tilemap_set_at_pixel(map_id, tile_set_empty(data), xx, yy);
 					
 					if debris
 					{

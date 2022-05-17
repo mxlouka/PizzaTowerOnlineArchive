@@ -284,11 +284,11 @@ if (pause or pausefad == 2 or pausefad == 4)
 				
 				if check_sugary()
 				{
-					shroomspr = spr_toppinmallow;
-					cheesespr = spr_toppinchoco;
-					tomatospr = spr_toppincrack;
-					sausagespr = spr_toppinworm;
-					pineapplespr = spr_toppincandy;
+					shroomspr = spr_toppinmallow_NEW;
+					cheesespr = spr_toppinchoco_NEW;
+					tomatospr = spr_toppincrack_NEW;
+					sausagespr = spr_toppinworm_NEW;
+					pineapplespr = spr_toppincandy_NEW;
 				}
 				else if string_startswith(room_get_name(room), "strongcold")
 				{

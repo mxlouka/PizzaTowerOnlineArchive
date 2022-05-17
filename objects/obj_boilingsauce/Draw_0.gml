@@ -10,3 +10,4 @@ if abs(image_yscale) != 1
 	draw_set_colour($0000F8);
 	draw_rectangle(x, y + 32 * drawdir, x + sprite_width - 1, y + sprite_height - sprite_yoffset - 1, false);
 }
+

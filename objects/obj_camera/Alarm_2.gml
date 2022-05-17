@@ -11,6 +11,16 @@ if global.panic or (global.snickchallenge && global.collect <= 0)
 		instance_create(room_width / 2, -100, obj_pizzaface)
 		alarm[2] = -1
 	}
+	
+	if global.seconds == 0 && global.minutes == 0 && check_sugary()
+	{
+		if global.collect > 0
+		{
+			global.collect = max(global.collect - 5, 0);
+		    instance_create(obj_player.x, obj_player.y, obj_pizzaloss);
+		}
+		alarm[2] = 3;
+	}
 }
 else if global.snickchallenge
 {

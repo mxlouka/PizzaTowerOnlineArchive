@@ -2,7 +2,7 @@ if ds_list_find_index(global.baddieroom, id) == -1
 {
 	scr_soundeffect(sfx_killjuice);
 	with instance_create(x, y, obj_juicepuddle)
-		palette = other.paletteselect;
+		paletteselect = other.paletteselect;
 
 	repeat 6
 	{

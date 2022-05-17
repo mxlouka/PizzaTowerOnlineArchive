@@ -368,7 +368,7 @@ if global.panic or global.snickchallenge
 	if check_sugary()
 	{
 		var mult = global.wave / global.maxwave;
-		panicangle = sin((current_time / 6000) * mult) * mult * 4;
+		panicangle = sin(current_time / 8000) * mult * 4;
 	}
 }
 
