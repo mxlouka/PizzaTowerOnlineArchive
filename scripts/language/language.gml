@@ -369,19 +369,20 @@ function lang_load(lang)
 		ds_map_add(global.langmap, "roomname.hub_outside3e", "Freerun");
 		ds_map_add(global.langmap, "roomname.hub_outside4", "Please Just Do Better");
 		
-		ds_map_add(global.langmap, "roomname.entryway_secret1", "");
+		ds_map_add(global.langmap, "roomname.entryway_secret1", "Points For You");
 		ds_map_add(global.langmap, "roomname.entryway_secret2", "");
 		ds_map_add(global.langmap, "roomname.entryway_secret3", "");
-		ds_map_add(global.langmap, "roomname.entryway_1", "");
-		ds_map_add(global.langmap, "roomname.entryway_2", "");
-		ds_map_add(global.langmap, "roomname.entryway_3", "");
-		ds_map_add(global.langmap, "roomname.entryway_4", "");
-		ds_map_add(global.langmap, "roomname.entryway_5", "");
-		ds_map_add(global.langmap, "roomname.entryway_6", "");
-		ds_map_add(global.langmap, "roomname.entryway_7", "");
-		ds_map_add(global.langmap, "roomname.entryway_8", "");
-		ds_map_add(global.langmap, "roomname.entryway_9", "");
-		ds_map_add(global.langmap, "roomname.entryway_10", "");
+		ds_map_add(global.langmap, "roomname.entryway_1", "Sugary Spire Begins");
+		ds_map_add(global.langmap, "roomname.entryway_2", "Hard Hat Required");
+		ds_map_add(global.langmap, "roomname.entryway_3", "Orange City");
+		ds_map_add(global.langmap, "roomname.entryway_4", "Construction Conglomerate");
+		ds_map_add(global.langmap, "roomname.entryway_5", "Had A Joke But Im Still Working On It");
+		ds_map_add(global.langmap, "roomname.entryway_6", "Down And Around");
+		ds_map_add(global.langmap, "roomname.entryway_7", "Wires And Boxes");
+		ds_map_add(global.langmap, "roomname.entryway_8", "City Outskirts");
+		ds_map_add(global.langmap, "roomname.entryway_9", "Nailed It");
+		ds_map_add(global.langmap, "roomname.entryway_10", "Operation Crunch Creak Construct");
+		ds_map_add(global.langmap, "roomname.entryway_11", "Beary Careful");
 		
 		ds_map_add(global.langmap, "roomname.cotton_secret1", "Rocky Road");
 		ds_map_add(global.langmap, "roomname.cotton_secret2", "Kick Gum And Chew Gum");
