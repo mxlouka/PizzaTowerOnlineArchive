@@ -1,5 +1,7 @@
 audio_stop_all();
 alarm[0] = room_speed;
+
+application_surface_draw_enable(true);
 with all
 {
 	if id != other.id && object_index != obj_gms && object_index != obj_otherplayer && object_index != obj_controller

@@ -4,6 +4,7 @@ if room != room_of_dog
 	exit;
 }
 
+application_surface_draw_enable(true);
 audio_stop_all();
 with all
 	if id != other.id instance_destroy(id, false);

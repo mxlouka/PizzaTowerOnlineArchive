@@ -115,7 +115,7 @@ if (pause or pausefad == 2 or pausefad == 4)
 				case "SP":
 					_spr_resume = _ppanic ? spr_playerSP_panic : spr_playerSP_idle;
 					_spr_options = spr_playerSP_deez;
-					_spr_retry = _ppanic ? spr_playerSP_3hpidle : spr_playerSP_mach4;
+					_spr_retry = _ppanic ? spr_playerSP_3hpidle_NEW : spr_playerSP_mach4;
 					_spr_exit = spr_playerSP_winding;
 					_spr_palette = spr_pizzpalette;
 					break;

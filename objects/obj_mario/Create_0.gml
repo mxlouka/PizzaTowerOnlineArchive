@@ -3,6 +3,7 @@ if room != rm_mario
 	room_goto(rm_mario);
 	exit;
 }
+application_surface_draw_enable(true);
 
 audio_stop_all();
 with all

@@ -10,6 +10,7 @@ if room != rm_denchick
 	room_goto(rm_denchick);
 	exit;
 }
+application_surface_draw_enable(true);
 
 audio_stop_all();
 with all

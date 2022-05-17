@@ -8,7 +8,7 @@ fade = 0;
 
 depth = -1000;
 
-with obj_player1
+with obj_player
 {
 	vsp = 2;
 	image_index = 0;
@@ -19,3 +19,4 @@ with obj_player1
 instance_destroy(obj_followcharacter);
 instance_destroy(obj_debris);
 endlevel();
+
