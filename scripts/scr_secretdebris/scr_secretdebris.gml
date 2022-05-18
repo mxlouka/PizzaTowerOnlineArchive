@@ -96,7 +96,7 @@ function scr_secretbigdebris(debris = true, blend = c_white)
 					{
 						if data != 0
 						{
-							with instance_create(x + sprite_width / 2,y + sprite_height / 2, obj_secretdebris)
+							with instance_create(x + sprite_width / 2, y + sprite_height / 2, obj_secretdebris)
 							{
 								tile_dataid = data
 								tile_dataset = tilemap_get_tileset(map_id)
@@ -107,9 +107,6 @@ function scr_secretbigdebris(debris = true, blend = c_white)
 						{
 							with instance_create(x + sprite_width / 2, y + sprite_height / 2, obj_debris)
 							{
-								image_xscale = abs(other.image_xscale)
-								image_yscale = abs(other.image_yscale)
-								
 								sprite_index = spr_bigdebris
 								if check_sugary()
 									sprite_index = spr_bigdebris_ss
