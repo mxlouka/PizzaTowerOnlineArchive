@@ -36,11 +36,11 @@ if !oldhallway
 		else if box
 			x = doortarget.x + 32;
 		else
-			x = doortarget.x + 16;
+			x = doortarget.x + 18;
 		y = doortarget.y - 14;
 		
 		if targetDoor == "A" && place_meeting(x, y, obj_exitgate)
-			x -= 16;
+			x -= 18;
 	}
 	
 	// avoid spawning inside of a hallway

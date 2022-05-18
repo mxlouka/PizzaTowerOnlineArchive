@@ -73,50 +73,40 @@ function scr_secretdebris(debris = true, blend = c_white)
 
 function scr_secretbigdebris(debris = true, blend = c_white)
 {
+	var diddebris = false;
+	
 	var hspapply = [0, 0];
 	if variable_instance_exists(id, "momentum")
 		hspapply = momentum;
 	
-	var lay_id = get_layer("Tiles_1");
-	var lay_id2 = get_layer("Tiles_2");
-	repeat 2
+	var lay_ids = ["Tiles_1", "Tiles_2"]; // tile layers to use
+	while array_length(lay_ids) > 0
 	{
+		var lay_id = get_layer(array_pop(lay_ids));
 		if lay_id != -1
 		{
 			var map_id = layer_tilemap_get_id(lay_id);
-			for(var xx = bbox_left; xx <= bbox_right - 32 + 1; xx += 32)
+			if map_id != -1
 			{
-				for(var yy = bbox_top; yy <= bbox_bottom - 32 + 1; yy += 32)
+				for(var xx = x; xx < x + sprite_width; xx += 32)
 				{
-					var data = tilemap_get_at_pixel(map_id, xx, yy);
-					if data != -1
-						tilemap_set_at_pixel(map_id, tile_set_empty(data), xx, yy);
-					
-					if debris
+					for(var yy = y; yy <= y + sprite_height; yy += 32)
 					{
-						if data != 0
+						var data = tilemap_get_at_pixel(map_id, xx, yy);
+						if data != -1
+							tilemap_set_at_pixel(map_id, tile_set_empty(data), xx, yy);
+					
+						if debris
 						{
-							with instance_create(x + sprite_width / 2, y + sprite_height / 2, obj_secretdebris)
+							if data != 0
 							{
-								tile_dataid = data
-								tile_dataset = tilemap_get_tileset(map_id)
-								momentum = hspapply
-							}
-						}
-						else if lay_id2 == -1 or lay_id == lay_id2
-						{
-							with instance_create(x + sprite_width / 2, y + sprite_height / 2, obj_debris)
-							{
-								sprite_index = spr_bigdebris
-								if check_sugary()
-									sprite_index = spr_bigdebris_ss
-								
-								if blend != c_white
+								with instance_create(xx + 16, yy + 16, obj_secretdebris)
 								{
-									sprite_index = spr_secretbigdebris;
-									image_blend = blend;
+									tile_dataid = data
+									tile_dataset = tilemap_get_tileset(map_id)
+									momentum = hspapply
 								}
-								momentum = hspapply
+								diddebris = false;
 							}
 						}
 					}
@@ -124,5 +114,22 @@ function scr_secretbigdebris(debris = true, blend = c_white)
 			}
 		}
 		lay_id = lay_id2;
+	}
+	
+	if !diddebris
+	{
+		with instance_create(x + sprite_width / 2, y + sprite_height / 2, obj_debris)
+		{
+			sprite_index = spr_bigdebris
+			if check_sugary()
+				sprite_index = spr_bigdebris_ss
+								
+			if blend != c_white
+			{
+				sprite_index = spr_secretbigdebris;
+				image_blend = blend;
+			}
+			momentum = hspapply
+		}
 	}
 }
