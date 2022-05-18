@@ -113,7 +113,6 @@ function scr_secretbigdebris(debris = true, blend = c_white)
 				}
 			}
 		}
-		lay_id = lay_id2;
 	}
 	
 	if !diddebris
