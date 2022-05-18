@@ -115,7 +115,7 @@ function scr_secretbigdebris(debris = true, blend = c_white)
 		}
 	}
 	
-	if !diddebris
+	if !diddebris && debris
 	{
 		with instance_create(x + sprite_width / 2, y + sprite_height / 2, obj_debris)
 		{
