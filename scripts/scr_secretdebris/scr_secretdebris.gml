@@ -90,7 +90,7 @@ function scr_secretbigdebris(debris = true, blend = c_white)
 			{
 				for(var xx = x; xx < x + sprite_width; xx += 32)
 				{
-					for(var yy = y; yy <= y + sprite_height; yy += 32)
+					for(var yy = y; yy < y + sprite_height; yy += 32)
 					{
 						var data = tilemap_get_at_pixel(map_id, xx, yy);
 						if data != -1
