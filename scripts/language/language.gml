@@ -370,8 +370,8 @@ function lang_load(lang)
 		ds_map_add(global.langmap, "roomname.hub_outside4", "Please Just Do Better");
 		
 		ds_map_add(global.langmap, "roomname.entryway_secret1", "Points For You");
-		ds_map_add(global.langmap, "roomname.entryway_secret2", "");
-		ds_map_add(global.langmap, "roomname.entryway_secret3", "");
+		ds_map_add(global.langmap, "roomname.entryway_secret2", "Wet Floor");
+		ds_map_add(global.langmap, "roomname.entryway_secret3", "Slip And Fall");
 		ds_map_add(global.langmap, "roomname.entryway_1", "Sugary Spire Begins");
 		ds_map_add(global.langmap, "roomname.entryway_2", "Hard Hat Required");
 		ds_map_add(global.langmap, "roomname.entryway_3", "Orange City");

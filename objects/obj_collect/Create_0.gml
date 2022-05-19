@@ -7,4 +7,3 @@ depth = 1;
 if scr_depthcheck()
 	depth += 100;
 ID = -1;
-

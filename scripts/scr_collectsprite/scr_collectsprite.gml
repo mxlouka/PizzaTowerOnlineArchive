@@ -30,7 +30,14 @@ function scr_collectsprite(single = false, escape = false)
 		}
 		// pissino
 		else if char == "PP"
-			toppings = [spr_collectpiss1, spr_collectpiss2, spr_collectpiss3, spr_collectpiss4, spr_collectpiss5];
+		{
+			if global.gameplay == 0
+				toppings = [spr_collectpiss1, spr_collectpiss2, spr_collectpiss3, spr_collectpiss4, spr_collectpiss5];
+			else
+				toppings = [spr_collectpiss1_NEW, spr_collectpiss2_NEW, spr_collectpiss3_NEW, spr_collectpiss4_NEW, spr_collectpiss5_NEW]
+			
+				
+		}
 		// cheemstoon
 		else if char == "CT"
 			toppings = [spr_collect1CT, spr_collect2CT, spr_collect3CT, spr_collect4CT, spr_collect5CT];

@@ -7,10 +7,15 @@ with obj_player1
 		if global.gameplay == 0
 			other.sprite_index = choose(spr_pizzacollect1_ss, spr_pizzacollect2_ss, spr_pizzacollect3_ss);
 		else
-			other.sprite_index = choose(spr_bigcollect1_ss, spr_bigcollect2_ss, spr_bigcollect3_ss, spr_bigcollect4_ss, spr_bigcollect5_ss);
+			other.sprite_index = choose(spr_bigcollect1_ss, spr_bigcollect2_ss, spr_bigcollect3_ss, spr_bigcollect4_ss, spr_bigcollect5_ss, spr_bigcollect6_ss);
 	}
 	else if character == "PP"
-		other.sprite_index = choose(spr_pizzacollect1_PP, spr_pizzacollect2_PP, spr_pizzacollect3_PP);
+	{
+		if global.gameplay == 0
+			other.sprite_index = choose(spr_pizzacollect1_PP, spr_pizzacollect2_PP, spr_pizzacollect3_PP);
+		else
+			other.sprite_index = choose(spr_bigcollect1_PP, spr_bigcollect2_PP, spr_bigcollect3_PP, spr_bigcollect4_PP, spr_bigcollect5_PP);
+	}
 	else if character == "S"
 		other.sprite_index = spr_snickcollectible2;
 	else
