@@ -91,7 +91,7 @@ function scr_enemy_stun()
 	&& ((floor(image_index) >= image_number - 1 && grounded) or global.gameplay == 0)
 	{
 		if object_index != obj_miniufo && object_index != obj_ancho && object_index != obj_pizzaboy
-		&& global.gameplay == 0
+		&& (global.gameplay == 0 or object_index == obj_babybear)
 		{
 			vsp = -4
 			grav = 0.5

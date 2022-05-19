@@ -1,69 +1,54 @@
-function scr_secretdebris(debris = true, blend = c_white)
+function scr_secretdebris(debris = true, blend = c_white, sprite = -1)
 {
+	var diddebris = false;
+	
 	var hspapply = [0, 0];
 	if variable_instance_exists(id, "momentum")
 		hspapply = momentum;
 	
-	var lay_id = get_layer("Tiles_1");
-	if lay_id == -1
+	var lay_ids = ["Tiles_1", "Tiles_2"]; // tile layers to use
+	while array_length(lay_ids) > 0
 	{
-		map_id = -1;
-		data = -1;
+		var lay_id = get_layer(array_pop(lay_ids));
+		if lay_id != -1
+		{
+			var map_id = layer_tilemap_get_id(lay_id);
+			if map_id != -1
+			{
+				var data = tilemap_get_at_pixel(map_id, x, y);
+				if data != -1
+				{
+					tilemap_set_at_pixel(map_id, tile_set_empty(data), x, y);
+					if debris
+					{
+						repeat 4
+						{
+							with instance_create(x + sprite_width / 2, y + sprite_height / 2, obj_secretdebris)
+							{
+								sprite_index = sprite_exists(sprite) ? sprite : spr_secretdebris;
+					            tile_dataid = data;
+					            tile_dataset = tilemap_get_tileset(map_id);
+								momentum = hspapply;
+							}
+						}
+						diddebris = true;
+					}
+				}
+			}
+		}
 	}
-	else
-	{
-		var map_id = layer_tilemap_get_id(lay_id);
-		var data = tilemap_get_at_pixel(map_id, x, y);
-		if data != -1
-			tilemap_set_at_pixel(map_id, tile_set_empty(data), x, y);
-	}
-
-	lay_id = get_layer("Tiles_2");
-	if lay_id == -1
-	{
-		map_id2 = -1;
-		data2 = -1;
-	}
-	else
-	{
-		var map_id2 = layer_tilemap_get_id(lay_id);
-		var data2 = tilemap_get_at_pixel(map_id2, x, y);
-		if data2 != -1
-			tilemap_set_at_pixel(map_id2, tile_set_empty(data2), x, y);
-	}
-	
-	if debris
+	if debris && !diddebris
 	{
 		repeat 4
 		{
-			if data2 != 0 && data2 != -1
-			{
-				with instance_create(x + sprite_width / 2, y + sprite_height / 2, obj_secretdebris)
-				{
-					sprite_index = spr_secretdebris
-		            tile_dataid = data2
-		            tile_dataset = tilemap_get_tileset(map_id2)
-					momentum = hspapply
-				}
-			}
-			else if data != 0 && data != -1
-			{
-				with instance_create(x + sprite_width / 2, y + sprite_height / 2, obj_secretdebris)
-				{
-					sprite_index = spr_secretdebris
-		            tile_dataid = data
-		            tile_dataset = tilemap_get_tileset(map_id)
-					momentum = hspapply
-				}
-			}
-			else with instance_create(x + sprite_width / 2, y + sprite_height / 2, obj_debris)
+			with instance_create(x + sprite_width / 2, y + sprite_height / 2, obj_debris)
 			{
 				if blend != c_white
 				{
-					sprite_index = spr_secretdebris;
+					sprite_index = sprite_exists(sprite) ? sprite : spr_secretdebris;
 					image_blend = blend;
 				}
-				momentum = hspapply
+				momentum = hspapply;
 				image_xscale = abs(other.image_xscale);
 				image_yscale = abs(other.image_yscale);
 			}
@@ -71,7 +56,7 @@ function scr_secretdebris(debris = true, blend = c_white)
 	}
 }
 
-function scr_secretbigdebris(debris = true, blend = c_white)
+function scr_secretbigdebris(debris = true, blend = c_white, sprite = -1)
 {
 	var diddebris = false;
 	
@@ -105,6 +90,8 @@ function scr_secretbigdebris(debris = true, blend = c_white)
 									tile_dataid = data
 									tile_dataset = tilemap_get_tileset(map_id)
 									momentum = hspapply
+									if sprite_exists(sprite)
+										sprite_index = sprite
 								}
 								diddebris = false;
 							}
@@ -119,15 +106,13 @@ function scr_secretbigdebris(debris = true, blend = c_white)
 	{
 		with instance_create(x + sprite_width / 2, y + sprite_height / 2, obj_debris)
 		{
-			sprite_index = spr_bigdebris
-			if check_sugary()
-				sprite_index = spr_bigdebris_ss
-								
 			if blend != c_white
 			{
-				sprite_index = spr_secretbigdebris;
+				sprite_index = sprite_exists(sprite) ? sprite : spr_secretbigdebris;
 				image_blend = blend;
 			}
+			else
+				sprite_index = spr_bigdebris;
 			momentum = hspapply
 		}
 	}

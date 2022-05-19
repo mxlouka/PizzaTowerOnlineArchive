@@ -149,6 +149,7 @@ switch state
 	case states.golf: scr_player_golf (); break;
 	case states.rocket: scr_player_rocket (); break;
 	case states.cotton: if sugaryspire scr_player_cotton (); break;
+	case states.fling: if sugaryspire scr_player_fling (); break;
 }
 
 // hardoween noise gravity

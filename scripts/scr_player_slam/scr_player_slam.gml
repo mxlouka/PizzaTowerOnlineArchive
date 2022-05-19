@@ -1,6 +1,7 @@
-function scr_player_slam() {
+function scr_player_slam()
+{
 	if windingAnim < 200
-	windingAnim +=5
+		windingAnim += 5
 	move = key_left + key_right;
 
 	if !grounded

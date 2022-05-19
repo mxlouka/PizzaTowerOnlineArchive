@@ -5,7 +5,7 @@ function scr_player_superslam()
 		state = states.normal;
 		exit;
 	}
-
+	
 	if sprite_index == spr_piledriver or sprite_index == spr_piledriverstart
 	{
 		move = key_left + key_right;
@@ -16,47 +16,41 @@ function scr_player_superslam()
 		move = 0
 		hsp = 0
 	}
-
+	
 	if grounded && !place_meeting(x, y + 1, obj_destructibles) && sprite_index == spr_piledriver && vsp > 0
 	{
 		scr_soundeffect(sfx_groundpound)
-
+		
 	    sprite_index = spr_piledriverland
 	    jumpAnim = true
-
+		
 	    image_index = 0
-
-	    with (obj_camera) 
+		
+	    with obj_camera
 		{
-		    shake_mag=20;
-		    shake_mag_acc=40/room_speed;
+		    shake_mag = 20;
+		    shake_mag_acc = 40 / room_speed;
 		}
-
+		
 		hsp = 0
-
-
 		bounce = false
-
-		instance_create(x,y+35,obj_bangeffect)
-	    instance_create(x,y,obj_landcloud)
+		
+		instance_create(x, y + 35, obj_bangeffect)
+	    instance_create(x, y, obj_landcloud)
 	    freefallstart = 0
-
-
-
-	    with (obj_baddie)
+		
+	    with obj_baddie
 	    {
 		    if grounded && point_in_camera(x, y, view_camera[0])
 			{
-
 				image_index = 0
-
+				
 				vsp = -7
 				hsp = 0
-
 			}
 		}
 	}
-
+	
 	jumpAnim = true
 	dashAnim = true
 	landAnim = false
@@ -83,29 +77,24 @@ function scr_player_superslam()
 			}
 		}
 	}
-
+	
 	//Movespeed
 	if move != 0 
 	{
 		if movespeed < 6
-		{
 			movespeed += 0.5
-		}
-		else if floor(movespeed)= 6
-		{
+		else if floor(movespeed) == 6
 			movespeed = 6
-		}
 	}
 	else
 		movespeed = 0
-
+	
 	if movespeed > 6
 		movespeed -= 0.1
-
-	if character = "N" && move != 0
-	{
+	
+	if (character == "N" or character == "SP") && move != 0
 		xscale = move
-	}
-
+	
 	image_speed = 0.35
 }
+

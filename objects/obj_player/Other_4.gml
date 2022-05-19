@@ -78,6 +78,8 @@ else
 	x = target_x
 	y = target_y
 }
+
+// snap to wall if climbing
 if state == states.climbwall
 {
 	var xx = x;
@@ -92,6 +94,7 @@ if state == states.climbwall
 	}
 }
 
+// dont fall off the ladder Please
 if state == states.ladder
 	doorx = x;
 
@@ -108,6 +111,7 @@ roomstarty = y
 hitX = x
 hitY = y
 
+// bringing baddies through rooms (rest of the code is in obj_fadeout)
 if baddiegrabbedID != 0 && baddiegrabbedID != obj_null && baddiegrabbedID != obj_otherplayer
 {
 	with baddiegrabbedID

@@ -55,7 +55,7 @@ function scr_enemy_walk()
 	var railmeet = instance_place(x, y + 1, obj_railparent);
 	if railmeet then hsp += railmeet.spdh;
 	
-	if !grounded &&	object_index != obj_noisey && object_index != obj_ancho && object_index != obj_miniufo// && object_index != obj_clownmato
+	if !grounded &&	object_index != obj_noisey && object_index != obj_ancho && object_index != obj_miniufo && object_index != obj_babybear// && object_index != obj_clownmato
 	&& global.gameplay != 0
 	{
 		state = states.stun;

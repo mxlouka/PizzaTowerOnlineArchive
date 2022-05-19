@@ -154,4 +154,6 @@ states = {
 	spindash : 130,
 	cotton : 131,
 	cherrywait : 132, // cherry enemy
+	fling : 133,
 }
+

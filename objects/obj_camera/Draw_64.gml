@@ -374,7 +374,10 @@ else
 			heatfill = spr_heatmeter_candyfill;
 		}
 		if repainted
+		{
 			heatfill = spr_heatmeter_fillPP;
+			_heatpal = spr_heatmeter_palettePP;
+		}
 		
 		var sw = sprite_get_width(heatfill);
 	    var sh = sprite_get_height(heatfill);
@@ -434,8 +437,10 @@ else
 		// draw in front of the pizza if repainted
 		if repainted
 		{
+			pal_swap_set(_heatpal, global.stylethreshold, 0);
 			draw_sprite_part(spr_heatmeter_fillPP, pizzascore_index, 0, 0, sw * b, sh, hud_xx - 89, hud_yy - 87);
 		    draw_sprite_ext(spr_heatmeterPP, pizzascore_index, hud_xx, hud_yy, 1, 1, 0, c_white, alpha);
+			pal_swap_reset();
 		}
 		
 		// text

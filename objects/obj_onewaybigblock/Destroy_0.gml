@@ -13,6 +13,14 @@ if ds_list_find_index(global.saveroom, id) == -1
 		
 		momentum = other.momentum;
 	}
+	if sprite_index == spr_onewayblock_ss
+	{
+		with instance_create(x + sprite_width / (4 / 3), y + sprite_height / 2, obj_debris)
+		{
+			sprite_index = spr_bigdebrisbandage_ss;
+			momentum = other.momentum;
+		}
+	}
 	
 	if audio_is_playing(sfx_breakblock1) or audio_is_playing(sfx_breakblock2)
 	{

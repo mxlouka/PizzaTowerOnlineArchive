@@ -159,11 +159,11 @@ function scr_player_backbreaker()
 		state = states.normal
 	
 	//Level intro
-	if floor(image_index) = image_number - 1 && sprite_index == spr_Timesup && place_meeting(x, y, obj_exitgate)
+	if floor(image_index) >= image_number - 1 && sprite_index == spr_Timesup && place_meeting(x, y, obj_exitgate)
 		state = states.normal
 
 	//Ball goal
-	if floor(image_index) = image_number - 1 && (sprite_index == spr_player_levelcomplete or sprite_index == spr_victory)
+	if floor(image_index) >= image_number - 1 && (sprite_index == spr_player_levelcomplete or sprite_index == spr_victory)
 		state = states.normal
 	
 	//Phone
