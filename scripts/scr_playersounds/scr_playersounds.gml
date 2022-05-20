@@ -14,7 +14,7 @@ function scr_playersounds()
 		var _sfx_tumble3 = (global.machsound == 1 && sprite_index == spr_machroll) ? sfx_machroll : sfx_tumble3;
 		
 		// mach1 sound
-		if (state == states.mach1 or sprite_index == spr_cotton_run) && grounded
+		if state == states.mach1 && grounded
 		{
 			if !audio_is_playing(mach1snd)
 				mach1snd = scr_soundeffect(_sfx_mach1);
@@ -23,7 +23,7 @@ function scr_playersounds()
 			audio_stop_sound(mach1snd);
 		
 		// mach2 sound
-		if (sprite_index == spr_mach or sprite_index == spr_player_machhit or state == states.climbwall or (sprite_index == spr_cotton_maxrun && grounded)
+		if (sprite_index == spr_mach or sprite_index == spr_player_machhit or state == states.climbwall
 		or (sprite_index == spr_rollgetup && image_index >= 8))
 		&& state != states.backbreaker
 		{

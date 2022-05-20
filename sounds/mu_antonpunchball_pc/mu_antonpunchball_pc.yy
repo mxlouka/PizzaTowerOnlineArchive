@@ -15,7 +15,7 @@
   "duration": 38.4,
   "parent": {
     "name": "antonball",
-    "path": "folders/Sounds/pto extra/pizza castle/antonball.yy",
+    "path": "folders/Sounds/PTO extra/pizza castle/antonball.yy",
   },
   "resourceVersion": "1.0",
   "name": "mu_antonpunchball_pc",

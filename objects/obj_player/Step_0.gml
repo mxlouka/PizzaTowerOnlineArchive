@@ -586,7 +586,7 @@ or (state == states.machroll)
 or (state == states.handstandjump)
 or (state == states.Sjump && scr_stylecheck(0, 2))
 or (state == states.chainsaw && mach2 >= 100)
-or (state == states.cotton && (sprite_index == spr_cotton_run or sprite_index == spr_cotton_maxrun))
+or (state == states.cotton && (sprite_index == spr_cotton_attack or movespeed > 4))
 {
 	if !macheffect
 	{
@@ -716,7 +716,7 @@ else with obj_uparrow
 }
  
 // speed lines
-if state == states.mach2 or sprite_index == spr_cotton_maxrun
+if state == states.mach2 or (state == states.cotton && movespeed > 4)
 {
 	if !instance_exists(speedlineseffectid)
 	{

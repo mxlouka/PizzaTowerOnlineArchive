@@ -129,8 +129,8 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "pizzaface",
-    "path": "folders/Sprites/boss/pizzaface.yy",
+    "name": "coneball",
+    "path": "folders/Sprites/sugary spire/coneball.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_coneball",

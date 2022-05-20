@@ -88,8 +88,8 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "sugary spire",
-    "path": "folders/Sprites/sugary spire.yy",
+    "name": "hud and decoration",
+    "path": "folders/Sprites/sugary spire/hud and decoration.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_ranksign_ss",

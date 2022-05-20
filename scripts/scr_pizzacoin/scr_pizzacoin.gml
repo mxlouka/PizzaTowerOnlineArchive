@@ -6,3 +6,4 @@ function scr_setcoin(n) {
 function scr_getcoin() {
 	return global.pizzacoin + coinoffset;
 }
+

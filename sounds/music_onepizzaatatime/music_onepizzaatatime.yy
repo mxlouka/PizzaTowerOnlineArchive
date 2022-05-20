@@ -17,8 +17,8 @@
   "soundFile": "music_onepizzaatatime.ogg",
   "duration": 261.9831,
   "parent": {
-    "name": "pto extra",
-    "path": "folders/Sounds/pto extra.yy",
+    "name": "PTO extra",
+    "path": "folders/Sounds/PTO extra.yy",
   },
   "resourceVersion": "1.0",
   "name": "music_onepizzaatatime",

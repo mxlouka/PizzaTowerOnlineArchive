@@ -5,7 +5,10 @@
   },
   "solid": false,
   "visible": true,
-  "spriteMaskId": null,
+  "spriteMaskId": {
+    "name": "spr_boilingsauce",
+    "path": "sprites/spr_boilingsauce/spr_boilingsauce.yy",
+  },
   "persistent": false,
   "parentObjectId": null,
   "physicsObject": false,

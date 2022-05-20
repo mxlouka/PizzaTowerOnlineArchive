@@ -18,7 +18,7 @@
   "duration": 222.545471,
   "parent": {
     "name": "sugary spire",
-    "path": "folders/Sounds/pto extra/pizza castle/sugary spire.yy",
+    "path": "folders/Sounds/PTO extra/pizza castle/sugary spire.yy",
   },
   "resourceVersion": "1.0",
   "name": "mu_waffle_pc",

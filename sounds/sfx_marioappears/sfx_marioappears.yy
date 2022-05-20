@@ -14,8 +14,8 @@
   "soundFile": "sfx_marioappears.wav",
   "duration": 0.900896,
   "parent": {
-    "name": "pto extra",
-    "path": "folders/Sounds/pto extra.yy",
+    "name": "PTO extra",
+    "path": "folders/Sounds/PTO extra.yy",
   },
   "resourceVersion": "1.0",
   "name": "sfx_marioappears",

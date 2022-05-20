@@ -15,7 +15,7 @@
   "duration": 2.935034,
   "parent": {
     "name": "sfx",
-    "path": "folders/Sounds/pto extra/sugary spire/sfx.yy",
+    "path": "folders/Sounds/PTO extra/sugary spire/sfx.yy",
   },
   "resourceVersion": "1.0",
   "name": "sfx_scream4_ss",

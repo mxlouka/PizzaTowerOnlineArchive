@@ -5,9 +5,15 @@ if playerid == noone
 	{
 		var lookplayer = point_direction(x, y, player.x, player.y);
 		handsx = x + lengthdir_x(80, lookplayer);
-		handsy = y + max(lengthdir_y(80, lookplayer), y);
+		handsy = max(y + lengthdir_y(80, lookplayer), y);
 	}
 	sprite_index = spr_flingfrog;
+	
+	// collide
+	if player.state != states.fling
+	{
+		
+	}
 }
 if playerid != noone
 {

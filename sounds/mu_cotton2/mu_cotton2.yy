@@ -18,7 +18,7 @@
   "duration": 147.6923,
   "parent": {
     "name": "sugary spire",
-    "path": "folders/Sounds/pto extra/sugary spire.yy",
+    "path": "folders/Sounds/PTO extra/sugary spire.yy",
   },
   "resourceVersion": "1.0",
   "name": "mu_cotton2",

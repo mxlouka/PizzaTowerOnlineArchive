@@ -6,8 +6,8 @@
   "solid": false,
   "visible": true,
   "spriteMaskId": {
-    "name": "spr_cheeseblockOLD",
-    "path": "sprites/spr_cheeseblockOLD/spr_cheeseblockOLD.yy",
+    "name": "spr_cheeseblock",
+    "path": "sprites/spr_cheeseblock/spr_cheeseblock.yy",
   },
   "persistent": false,
   "parentObjectId": {

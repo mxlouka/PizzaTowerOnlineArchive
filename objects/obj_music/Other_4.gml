@@ -5,6 +5,9 @@ if wait
 	exit;
 }
 
+loopstart = -1;
+loopend = -1;
+
 lemusic = -1;
 if global.musicvolume <= 0
 {
@@ -254,9 +257,11 @@ else if (!global.panic or string_letters(roomname) == "dragonlair" or string_let
 	    }
 		if string_letters(roomname) == "mines"
 			musplay = mu_mines
+		if string_letters(roomname) == "sugarytut"
+			musplay = mu_tutorial_ss
 	}
 	
-	//desert
+	// desert
 	if string_startswith(roomname, "floor1_room")
 	or string_startswith(roomname, "floor1_mart")
 	{
@@ -407,21 +412,12 @@ else if (!global.panic or string_letters(roomname) == "dragonlair" or string_let
 		if global.gameplay == 1
 			musplay = mu_pinballsecret
 	}
-	if string_letters(roomname) == "entrywaysecret"
+	if string_letters(roomname) == "entrywaysecret" or room == entryway_secret2_fake
 	{
-		switch playerobj.character
-		{
-			default: musplay = mu_entrancesecret_ss break
-			case "SP": musplay = mu_wafflesecret break
-		}
-	}
-	if room == entryway_secret2_fake
-	{
-		switch playerobj.character
-		{
-			default: musplay = mu_entrancesecret_ss break
-			case "SP": musplay = mu_wafflesecret break
-		}
+		if playerobj.character == "SP"
+			musplay = mu_wafflesecret;
+		else
+			musplay = mu_entrancesecret_ss;
 	}
 	if string_letters(roomname) == "cottonsecret"
 		musplay = mu_cottonsecret

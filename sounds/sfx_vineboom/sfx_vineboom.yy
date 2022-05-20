@@ -17,8 +17,8 @@
   "soundFile": "sfx_vineboom.wav",
   "duration": 4.411995,
   "parent": {
-    "name": "pto extra",
-    "path": "folders/Sounds/pto extra.yy",
+    "name": "PTO extra",
+    "path": "folders/Sounds/PTO extra.yy",
   },
   "resourceVersion": "1.0",
   "name": "sfx_vineboom",

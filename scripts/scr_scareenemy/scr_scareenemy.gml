@@ -7,7 +7,7 @@ function scr_scareenemy()
 	if state != states.grabbed 
 	if ((player.x > x - 400) && (player.x < x + 400)) && (y <= player.y+60 && y >= player.y- 60)
 	{
-		if state != states.idle && state != states.stun && (player.state = states.mach3 or player.state = states.rideweenie or player.state = states.tacklecharge or (player.state == states.cotton && player.sprite_index == player.spr_cotton_maxrun)) 
+		if state != states.idle && state != states.stun && (player.state = states.mach3 or player.state = states.rideweenie or player.state = states.tacklecharge or player.state == states.cotton) 
 		{
 			if !global.snickrematch
 			{

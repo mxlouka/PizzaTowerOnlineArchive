@@ -5,7 +5,7 @@ function scr_player_slipbanan()
 		sugary = true;
 	
 	hsp = xscale * movespeed;
-	if scr_solidwall(x + xscale, y) && ((!place_meeting(x + hsp, y, obj_destructibles) && !place_meeting(x + hsp, y, obj_metalblock)) or character == "V")
+	if scr_solidwall(x + xscale, y) && ((!place_meeting(x + hsp + xscale, y, obj_destructibles) && !place_meeting(x + hsp + xscale, y, obj_metalblock)) or character == "V")
 	{
 		if sugary
 		{
@@ -35,12 +35,12 @@ function scr_player_slipbanan()
 			if !grounded
 				sprite_index = spr_rockethitwall;
 			
-			var slop = instance_place(x, y + 1, obj_slope);
+			var slop = instance_place(x, y + 2, obj_slope);
 			if slop && slop.image_xscale != 0
 			{
 				if xscale != -sign(slop.image_xscale)
 				{
-					movespeed -= 0.1;
+					movespeed -= 0.25;
 					if movespeed <= 0
 					{
 						xscale = -sign(slop.image_xscale);
@@ -48,7 +48,7 @@ function scr_player_slipbanan()
 					}
 				}
 				else if movespeed < 12
-					movespeed += 0.1;
+					movespeed += 0.25;
 			}
 			else
 			{
@@ -66,7 +66,7 @@ function scr_player_slipbanan()
 				state = states.normal;
 		}
 	}
-	else if grounded && vsp > -1 && ((!place_meeting(x, y + vsp, obj_destructibles) && !place_meeting(x, y + vsp, obj_metalblock)) or character == "V")
+	else if grounded && vsp >= 0 && ((!place_meeting(x, y + vsp, obj_destructibles) && !place_meeting(x, y + vsp, obj_metalblock)) or character == "V")
 	{
 		if sugary && sprite_index != spr_rockethitwall
 		{

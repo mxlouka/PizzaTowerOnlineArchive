@@ -1289,7 +1289,7 @@ function scr_characterspr(char = character)
 				spr_parry3 = spr_playerSP_parry3;
 				
 				spr_Current = spr_player_current;
-				spr_suplexcancel = spr_player_suplexcancel;
+				spr_suplexcancel = spr_playerSP_suplexcancel;
 				spr_suplexbump = spr_player_suplexbump;
 				
 				spr_firemouth = spr_player_firemouth;
@@ -1346,8 +1346,6 @@ function scr_characterspr(char = character)
 				
 				spr_cotton_idle = spr_playerSP_cotton_idle;
 				spr_cotton_walk = spr_playerSP_cotton_walk;
-				spr_cotton_run = spr_playerSP_cotton_run;
-				spr_cotton_maxrun = spr_playerSP_cotton_maxrun;
 				spr_cotton_slam = spr_playerSP_cotton_slam;
 				spr_cotton_jump = spr_playerSP_cotton_jump;
 				spr_cotton_fall = spr_playerSP_cotton_fall;

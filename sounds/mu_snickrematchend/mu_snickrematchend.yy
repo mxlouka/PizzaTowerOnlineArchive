@@ -18,7 +18,7 @@
   "duration": 212.506119,
   "parent": {
     "name": "snick's rematch",
-    "path": "folders/Sounds/pto extra/snick's rematch.yy",
+    "path": "folders/Sounds/PTO extra/snick's rematch.yy",
   },
   "resourceVersion": "1.0",
   "name": "mu_snickrematchend",

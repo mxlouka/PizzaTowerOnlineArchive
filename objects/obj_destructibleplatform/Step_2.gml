@@ -3,49 +3,28 @@ if place_meeting(x, y, obj_otherplayer) && !falling
 else
 	image_alpha = 1;
 
-if floor(image_index) == image_number - 1
+if floor(image_index) >= image_number - 1
 {
-	if global.gameplay == 0
+	if sprite_index == spr_idle
 	{
-		if sprite_index = spr_cheeseblockOLD
-		{
-			falling = true;
-			x = -100;
-			y = -100;
-			image_speed = 0;
-			visible = false;
-		}
-		else if sprite_index == spr_cheeseblockreform
-		{
-			falling = false;
-			sprite_index = spr_cheeseblockOLD;
-			image_speed = 0;
-			image_index = 0;
-		}
+	    sprite_index = spr_dead;
+	    falling = true;
+	    x = -100;
+	    y = -100;
 	}
-	else
+	else if sprite_index == spr_reform
 	{
-		if sprite_index == spr_cheeseblock
-	    {
-	        sprite_index = spr_cheeseblock_falling;
-	        falling = true;
-	        x = -100;
-	        y = -100;
-	    }
-	    else if sprite_index == spr_cheeseblock_reform
-	    {
-	        falling = false;
-	        sprite_index = spr_cheeseblock;
-	        image_index = 0;
-	        image_speed = 0;
-	    }
+	    falling = false;
+	    sprite_index = spr_idle;
+	    image_index = 0;
+	    image_speed = 0;
 	}
 }
-
-if (visible == false or sprite_index == spr_cheeseblock_falling) && reset > 0
+if sprite_index == spr_dead && reset > 0
 	reset--;
 
-if reset <= 0 && !place_meeting(xstart, ystart, obj_player1) && !place_meeting(xstart, ystart, obj_pizzaballOLD)
+if reset <= 0 && !place_meeting(xstart, ystart, obj_player)
+&& !place_meeting(xstart, ystart, obj_pizzaballOLD) && !place_meeting(xstart, ystart, obj_pizzaball)
 {
 	reset = 100;
 	visible = true;
@@ -53,9 +32,6 @@ if reset <= 0 && !place_meeting(xstart, ystart, obj_player1) && !place_meeting(x
 	falling = false;
 	x = xstart;
 	y = ystart;
-	
-	if global.gameplay == 0
-		sprite_index = spr_cheeseblockreform;
-	else
-		sprite_index = spr_cheeseblock_reform;
+	sprite_index = spr_reform;
 }
+

@@ -1,7 +1,10 @@
 player = playerobj
 
+// shaking when collect get
 if collect_shake > 0
     collect_shake = min(collect_shake * 0.5, 20);
+
+// shake health count
 if healthshaketime > 0
 {
 	healthshaketime--
@@ -21,6 +24,7 @@ if healthold != global.playerhealth
 }
 p2pdistancex = 0
 
+// check if it should draw the hud or not
 if room == strongcold_endscreen or room == rank_room or room == timesuproom or room == Oldtitlescreen or room == characterselect or room == editor_entrance
 or (instance_exists(obj_gms) && global.__chat)
 	drawhud = false
@@ -31,6 +35,7 @@ visible = true;
 if room == timesuproom
 	timestop = true;
 
+// spawn pizzaface
 if global.seconds <= 0 && global.minutes <= 0 && !ded
 {
 	alarm[1] = -1
@@ -42,23 +47,25 @@ if global.seconds <= 0 && global.minutes <= 0 && !ded
 	ded = true
 }
 
+// timer logic
 if global.seconds < 0 
 {
 	global.seconds = 59
 	global.minutes -= 1
 }
-
 if global.seconds > 59
 {
 	global.minutes += 1
 	global.seconds -= 59
 }
 
+// timed gate timer
 if global.timedgatetime > 0
 	global.timedgatetime--;
 else
 	global.timedgatetime = 0;
 
+// pizza time shaking
 if global.panicshake
 {
 	if global.panic && global.minutes < 1
@@ -260,9 +267,11 @@ if instance_exists(player) && player.state != states.timesup && player.state != 
 		// limit camera
 		if !WC_oobcam
 		{
+			// camera region lock
+			var leftlock = round(limitcam[0]), rightlock = round(limitcam[2]), uplock = round(limitcam[1]), downlock = round(limitcam[3]);
 			camera_set_view_pos(cam_view,
-				clamp(camera_get_view_x(cam_view), 0, room_width - cam_width) + shkh,
-				clamp(camera_get_view_y(cam_view), 0, room_height - cam_height) + shkv
+				clamp(camera_get_view_x(cam_view), leftlock, rightlock - cam_width) + shkh,
+				clamp(camera_get_view_y(cam_view), uplock, downlock - cam_height) + shkv
 			);
 		}
 	}

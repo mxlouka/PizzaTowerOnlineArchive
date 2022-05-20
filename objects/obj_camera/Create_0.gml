@@ -81,4 +81,5 @@ detach = false;
 keyimg = 0;
 zoom = 0;
 angle = 0;
+limitcam = [0, 0, 960, 540];
 

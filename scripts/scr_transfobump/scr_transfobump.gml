@@ -3,7 +3,7 @@ function scr_transfobump(_setstate = true)
 	if state == states.cotton
 	{
 		// cotton
-		scr_soundeffect(sfx_hitenemy);
+		scr_soundeffect(sfx_cottongone);
 		with instance_create(x, y, obj_genericpoofeffect)
 			sprite_index = spr_poofeffectcotton;
 		

@@ -42,10 +42,12 @@ function scr_collide_destructibles()
 			or (state == states.punch && sprite_index != spr_breakdanceuppercut)
 			or (state == states.firemouth && global.gameplay != 0)
 			or (state == states.grab && sprite_index == spr_swingding)
-			or (state == states.cotton && (sprite_index == spr_cotton_attack or sprite_index == spr_cotton_run or sprite_index == spr_cotton_maxrun))
+			or (state == states.cotton && (sprite_index == spr_cotton_attack or movespeed > 4))
 			{
 				with instance_place(x + hsp, y, obj_destructibles)
 				{
+					if scr_stylecheck(2)
+						momentum[0] = other.hsp;
 					if inst_relation(self, obj_bigdestructibles) && (other.state == states.handstandjump or (other.state == states.mach2 && hp > 1))
 					{
 						// grab on big blocks
@@ -78,8 +80,6 @@ function scr_collide_destructibles()
 					}
 					else
 						instance_destroy();
-					if scr_stylecheck(2)
-						momentum[0] = other.hsp;
 					gp_vibration(0.8, 0.8, 0.5);
 				}
 				

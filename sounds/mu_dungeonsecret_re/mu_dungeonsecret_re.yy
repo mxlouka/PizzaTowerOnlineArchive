@@ -18,7 +18,7 @@
   "duration": 71.4893646,
   "parent": {
     "name": "snick's rematch",
-    "path": "folders/Sounds/pto extra/snick's rematch.yy",
+    "path": "folders/Sounds/PTO extra/snick's rematch.yy",
   },
   "resourceVersion": "1.0",
   "name": "mu_dungeonsecret_re",

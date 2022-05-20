@@ -18,7 +18,7 @@
   "duration": 50.3931732,
   "parent": {
     "name": "secret",
-    "path": "folders/Sounds/pto extra/sugary spire/secret.yy",
+    "path": "folders/Sounds/PTO extra/sugary spire/secret.yy",
   },
   "resourceVersion": "1.0",
   "name": "mu_cottonsecret",

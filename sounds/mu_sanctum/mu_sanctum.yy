@@ -17,8 +17,8 @@
   "soundFile": "mu_sanctum.wav",
   "duration": 89.6,
   "parent": {
-    "name": "pto extra",
-    "path": "folders/Sounds/pto extra.yy",
+    "name": "PTO extra",
+    "path": "folders/Sounds/PTO extra.yy",
   },
   "resourceVersion": "1.0",
   "name": "mu_sanctum",

@@ -18,7 +18,7 @@
   "duration": 228.0771,
   "parent": {
     "name": "snick's rematch",
-    "path": "folders/Sounds/pto extra/pizza castle/snick's rematch.yy",
+    "path": "folders/Sounds/PTO extra/pizza castle/snick's rematch.yy",
   },
   "resourceVersion": "1.0",
   "name": "mu_dungeon_re_pc",

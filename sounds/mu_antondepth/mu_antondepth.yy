@@ -18,7 +18,7 @@
   "duration": 27.00626,
   "parent": {
     "name": "antonball",
-    "path": "folders/Sounds/pto extra/antonball.yy",
+    "path": "folders/Sounds/PTO extra/antonball.yy",
   },
   "resourceVersion": "1.0",
   "name": "mu_antondepth",

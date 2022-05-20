@@ -15,7 +15,7 @@
   "duration": 0.731429,
   "parent": {
     "name": "sfx",
-    "path": "folders/Sounds/pto extra/sugary spire/sfx.yy",
+    "path": "folders/Sounds/PTO extra/sugary spire/sfx.yy",
   },
   "resourceVersion": "1.0",
   "name": "sfx_tauntSP_6",

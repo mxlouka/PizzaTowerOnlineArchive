@@ -24,9 +24,9 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"2f0567f4-0611-4b0d-bc60-de355cbb03f4","path":"sprites/spr_secretwall_trigger/spr_secretwall_trigger.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"2f0567f4-0611-4b0d-bc60-de355cbb03f4","path":"sprites/spr_secretwall_trigger/spr_secretwall_trigger.yy",},"LayerId":{"name":"c7445a40-9ba9-4d18-9b0f-249653d55276","path":"sprites/spr_secretwall_trigger/spr_secretwall_trigger.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"spr_secretwall_trigger","path":"sprites/spr_secretwall_trigger/spr_secretwall_trigger.yy",},"resourceVersion":"1.0","name":"2f0567f4-0611-4b0d-bc60-de355cbb03f4","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"7118acd8-8d27-4725-96f8-5d41cdff719f","path":"sprites/spr_secretwall_trigger/spr_secretwall_trigger.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"7118acd8-8d27-4725-96f8-5d41cdff719f","path":"sprites/spr_secretwall_trigger/spr_secretwall_trigger.yy",},"LayerId":{"name":"0d4f80ff-a216-46f8-8e4c-6ed17c8e46eb","path":"sprites/spr_secretwall_trigger/spr_secretwall_trigger.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"spr_secretwall_trigger","path":"sprites/spr_secretwall_trigger/spr_secretwall_trigger.yy",},"resourceVersion":"1.0","name":"7118acd8-8d27-4725-96f8-5d41cdff719f","tags":[],"resourceType":"GMSpriteFrame",},
   ],
   "sequence": {
     "spriteId": {"name":"spr_secretwall_trigger","path":"sprites/spr_secretwall_trigger/spr_secretwall_trigger.yy",},
@@ -41,7 +41,7 @@
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
       {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"af2729e2-6031-4bb6-9a3b-00d2351d291f","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"2f0567f4-0611-4b0d-bc60-de355cbb03f4","path":"sprites/spr_secretwall_trigger/spr_secretwall_trigger.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"34c07708-82e4-44ef-8d94-7c30fb4bac92","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"7118acd8-8d27-4725-96f8-5d41cdff719f","path":"sprites/spr_secretwall_trigger/spr_secretwall_trigger.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
           ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
     ],
     "visibleRange": null,
@@ -65,13 +65,13 @@
     "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"c7445a40-9ba9-4d18-9b0f-249653d55276","tags":[],"resourceType":"GMImageLayer",},
+    {"visible":true,"isLocked":false,"blendMode":0,"opacity":60.0,"displayName":"default","resourceVersion":"1.0","name":"0d4f80ff-a216-46f8-8e4c-6ed17c8e46eb","tags":[],"resourceType":"GMImageLayer",},
   ],
   "nineSlice": {
-    "left": 5,
-    "top": 0,
-    "right": 0,
-    "bottom": 0,
+    "left": 2,
+    "top": 2,
+    "right": 2,
+    "bottom": 2,
     "guideColour": [
       4294902015,
       4294902015,
@@ -79,14 +79,14 @@
       4294902015,
     ],
     "highlightColour": 1728023040,
-    "highlightStyle": 0,
-    "enabled": false,
+    "highlightStyle": 1,
+    "enabled": true,
     "tileMode": [
       0,
       0,
       0,
       0,
-      0,
+      1,
     ],
     "resourceVersion": "1.0",
     "loadedVersion": null,

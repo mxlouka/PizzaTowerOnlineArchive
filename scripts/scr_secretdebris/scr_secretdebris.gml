@@ -16,7 +16,7 @@ function scr_secretdebris(debris = true, blend = c_white, sprite = -1)
 			if map_id != -1
 			{
 				var data = tilemap_get_at_pixel(map_id, x, y);
-				if data != -1
+				if data != -1 && data != 0
 				{
 					tilemap_set_at_pixel(map_id, tile_set_empty(data), x, y);
 					if debris
@@ -45,9 +45,12 @@ function scr_secretdebris(debris = true, blend = c_white, sprite = -1)
 			{
 				if blend != c_white
 				{
-					sprite_index = sprite_exists(sprite) ? sprite : spr_secretdebris;
+					sprite_index = spr_secretdebris;
 					image_blend = blend;
 				}
+				if sprite_exists(sprite)
+					sprite_index = sprite;
+				
 				momentum = hspapply;
 				image_xscale = abs(other.image_xscale);
 				image_yscale = abs(other.image_yscale);
@@ -78,22 +81,23 @@ function scr_secretbigdebris(debris = true, blend = c_white, sprite = -1)
 					for(var yy = y; yy < y + sprite_height; yy += 32)
 					{
 						var data = tilemap_get_at_pixel(map_id, xx, yy);
-						if data != -1
-							tilemap_set_at_pixel(map_id, tile_set_empty(data), xx, yy);
-					
-						if debris
+						if data != -1 && data != 0
 						{
-							if data != 0
+							tilemap_set_at_pixel(map_id, tile_set_empty(data), xx, yy);
+							if debris
 							{
-								with instance_create(xx + 16, yy + 16, obj_secretdebris)
+								if data != 0
 								{
-									tile_dataid = data
-									tile_dataset = tilemap_get_tileset(map_id)
-									momentum = hspapply
-									if sprite_exists(sprite)
-										sprite_index = sprite
+									with instance_create(xx + 16, yy + 16, obj_secretdebris)
+									{
+										tile_dataid = data
+										tile_dataset = tilemap_get_tileset(map_id)
+										momentum = hspapply
+										if sprite_exists(sprite)
+											sprite_index = sprite
+									}
+									diddebris = true;
 								}
-								diddebris = false;
 							}
 						}
 					}
@@ -108,11 +112,14 @@ function scr_secretbigdebris(debris = true, blend = c_white, sprite = -1)
 		{
 			if blend != c_white
 			{
-				sprite_index = sprite_exists(sprite) ? sprite : spr_secretbigdebris;
+				sprite_index = spr_secretbigdebris;
 				image_blend = blend;
 			}
 			else
 				sprite_index = spr_bigdebris;
+			
+			if sprite_exists(sprite)
+				sprite_index = sprite;
 			momentum = hspapply
 		}
 	}

@@ -174,6 +174,7 @@ switch sel[1]
 				["LAMDA", "I have nothing to say about this."],
 				["GOLDEN", "Unlocks the ability to SHINE... which is bound to no key."],
 				["GNOME WIZARD", "Despite being a wizard, he has no redeeming qualities."],
+				["SHADOW", "SHUT UP! My dad works at Sugary Spire and can give you PREGNANT."],
 			]
 			if global.streamer
 				selarray[23][1] = "You effing DONKEY.";

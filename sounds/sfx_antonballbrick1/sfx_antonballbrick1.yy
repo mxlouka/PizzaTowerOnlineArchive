@@ -18,7 +18,7 @@
   "duration": 0.438481,
   "parent": {
     "name": "antonball",
-    "path": "folders/Sounds/pto extra/antonball.yy",
+    "path": "folders/Sounds/PTO extra/antonball.yy",
   },
   "resourceVersion": "1.0",
   "name": "sfx_antonballbrick1",

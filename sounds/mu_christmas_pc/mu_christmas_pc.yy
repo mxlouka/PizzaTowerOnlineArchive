@@ -18,7 +18,7 @@
   "duration": 16.5517235,
   "parent": {
     "name": "pizza castle",
-    "path": "folders/Sounds/pto extra/pizza castle.yy",
+    "path": "folders/Sounds/PTO extra/pizza castle.yy",
   },
   "resourceVersion": "1.0",
   "name": "mu_christmas_pc",

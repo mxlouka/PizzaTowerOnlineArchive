@@ -17,8 +17,8 @@
   "soundFile": "sfx_mariotalk1.wav",
   "duration": 0.027483,
   "parent": {
-    "name": "pto extra",
-    "path": "folders/Sounds/pto extra.yy",
+    "name": "PTO extra",
+    "path": "folders/Sounds/PTO extra.yy",
   },
   "resourceVersion": "1.0",
   "name": "sfx_mariotalk1",

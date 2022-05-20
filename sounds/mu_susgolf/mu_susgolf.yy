@@ -17,8 +17,8 @@
   "soundFile": "mu_susgolf.ogg",
   "duration": 213.3803,
   "parent": {
-    "name": "pto extra",
-    "path": "folders/Sounds/pto extra.yy",
+    "name": "PTO extra",
+    "path": "folders/Sounds/PTO extra.yy",
   },
   "resourceVersion": "1.0",
   "name": "mu_susgolf",

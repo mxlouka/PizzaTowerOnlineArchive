@@ -15,7 +15,7 @@
   "duration": 54.90939,
   "parent": {
     "name": "sugary spire",
-    "path": "folders/Sounds/pto extra/sugary spire.yy",
+    "path": "folders/Sounds/PTO extra/sugary spire.yy",
   },
   "resourceVersion": "1.0",
   "name": "mu_gummyharry",

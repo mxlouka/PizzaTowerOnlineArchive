@@ -67,7 +67,31 @@
   "layers": [
     {"visible":true,"isLocked":false,"blendMode":0,"opacity":75.0,"displayName":"default","resourceVersion":"1.0","name":"8eb0c8dd-322f-40e0-b231-581cec7f5c16","tags":[],"resourceType":"GMImageLayer",},
   ],
-  "nineSlice": null,
+  "nineSlice": {
+    "left": 7,
+    "top": 5,
+    "right": 6,
+    "bottom": 6,
+    "guideColour": [
+      4294902015,
+      4294902015,
+      4294902015,
+      4294902015,
+    ],
+    "highlightColour": 1728023040,
+    "highlightStyle": 0,
+    "enabled": true,
+    "tileMode": [
+      1,
+      1,
+      1,
+      1,
+      1,
+    ],
+    "resourceVersion": "1.0",
+    "loadedVersion": null,
+    "resourceType": "GMNineSliceData",
+  },
   "parent": {
     "name": "debug sprites",
     "path": "folders/Sprites/debug sprites.yy",

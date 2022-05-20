@@ -1,7 +1,6 @@
 event_inherited();
 
 groundpound = false;
-killreward = false;
 stunnable = false;
 
 grav = 0.5;
@@ -64,19 +63,5 @@ image_speed = 0.35
 steppy = 0
 
 stuntouchbuffer = 0
-
-// death
-custom_death_fnc = function()
-{
-	instance_create(x, y, obj_playerexplosion);
-	instance_create(x, y, obj_bangeffect);
-	
-	with instance_create(x, y, obj_sausageman_dead)
-	{
-		sprite_index = other.spr_dead;
-		sugary = true;
-	}
-}
-
 sugaryenemy = true;
 

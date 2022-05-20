@@ -1,7 +1,23 @@
 if global.musicvolume <= 0
 	exit;
-if audio_is_playing(global.jukebox)
-	exit;
+
+// music loop points
+if audio_is_playing(global.music)
+{
+	var musicname = audio_get_name(global.music);
+	if string_startswith(musicname, "mu_tutorial_ss")
+	{
+		loopstart = 9.23;
+		loopend = 120;
+	}
+	
+	if loopstart > -1 or loopend > -1
+	{
+		var soundpos = audio_sound_get_track_position(global.music);
+		if soundpos >= loopend
+			audio_sound_set_track_position(global.music, loopstart + (soundpos - loopend));
+	}
+}
 
 // music pitch depending on player state
 if !scr_stylecheck(0, 2)
@@ -57,6 +73,9 @@ if !scr_stylecheck(0, 2)
 	if pitch
 		audio_sound_pitch(global.music, lerp(audio_sound_get_pitch(global.music), musicpitch, 0.35));
 }
+
+if audio_is_playing(global.jukebox)
+	exit;
 
 // music to play
 var musplay = -1;
@@ -136,7 +155,6 @@ if audio_is_playing(global.music)
 	fadeoff = audio_sound_get_track_position(global.music);
 else
 	fadeoff = 0;
-
 pausedmusic = global.music;
 
 // pln slowdown

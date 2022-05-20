@@ -18,6 +18,7 @@ function scr_initenemy()
 	bombreset = 0
 	hp = 1
 	grounded = true
+	steppy = false
 	
 	flash = false
 	birdcreated = false

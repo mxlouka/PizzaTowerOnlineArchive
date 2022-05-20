@@ -18,7 +18,7 @@
   "duration": 155.789474,
   "parent": {
     "name": "pizza castle",
-    "path": "folders/Sounds/pto extra/pizza castle.yy",
+    "path": "folders/Sounds/PTO extra/pizza castle.yy",
   },
   "resourceVersion": "1.0",
   "name": "mu_hube_pc",

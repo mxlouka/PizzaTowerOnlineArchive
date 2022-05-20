@@ -1,4 +1,4 @@
-if state == states.chase && !other.cutscene
+if (state == states.chase or sprite_index == popoutspr) && !other.cutscene
 {
 	instance_destroy();
 	with other
@@ -10,6 +10,7 @@ if state == states.chase && !other.cutscene
 		}
 		else if state != states.mach3
 		{
+			instance_create(x, y, obj_playerexplosion);
 			if character == "V"
 				scr_hurtplayer(id);
 			else
@@ -26,3 +27,4 @@ if state == states.chase && !other.cutscene
 		}
 	}
 }
+

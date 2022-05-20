@@ -1,7 +1,7 @@
 {
   "conversionMode": 0,
   "compression": 0,
-  "volume": 1.0,
+  "volume": 0.68,
   "preload": false,
   "bitRate": 128,
   "sampleRate": 44100,
@@ -15,7 +15,7 @@
   "duration": 0.230748,
   "parent": {
     "name": "sfx",
-    "path": "folders/Sounds/pto extra/sugary spire/sfx.yy",
+    "path": "folders/Sounds/PTO extra/sugary spire/sfx.yy",
   },
   "resourceVersion": "1.0",
   "name": "sfx_grabenemy_ss",

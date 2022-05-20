@@ -17,7 +17,17 @@ function scr_player_handstandjump()
 		movespeed = 10;
 		
 		if move != xscale && move != 0
+		{
 			state = states.normal;
+			if global.gameplay != 0 && !grounded
+			{
+				image_index = 0;
+				sprite_index = spr_suplexcancel;
+				jumpAnim = true;
+				grav = basegrav;
+				state = states.jump;
+			}
+		}
 		
 		if floor(image_index) >= image_number - 1
 		{

@@ -343,7 +343,7 @@ function lang_load(lang)
 		ds_map_add(global.langmap, "msg.level.sanctum", "La Burrata Temple WIP");
 		
 		ds_map_add(global.langmap, "msg.level.entryway", "Entryway WIP");
-		ds_map_add(global.langmap, "msg.level.cotton", "Cottontown");
+		ds_map_add(global.langmap, "msg.level.cotton", "Cottontown WIP");
 		ds_map_add(global.langmap, "msg.level.mines", "Sugarshack Mines WIP");
 		ds_map_add(global.langmap, "msg.level.molasses", "Molasses Swamp WIP");
 		
