@@ -51,7 +51,8 @@ function scr_collide_player()
 				with instance_place(x, y + 1, obj_destructibleplatform)
 				{
 					falling = true;
-					image_speed = 0.35;
+					sprite_index = spr_dissolve;
+					image_index = 0;
 				}
 				with instance_place(x, y, obj_hallway)
 				{

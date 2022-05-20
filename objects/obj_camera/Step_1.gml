@@ -15,24 +15,24 @@ with obj_cameraregion
 			other.limitcam[1] = Approach(other.limitcam[1], y, 32);
 			other.limitcam[3] = Approach(other.limitcam[3], y + sprite_height, 32);
 		}
-		other.angle = Approach(other.angle, angle, 2);
-		other.zoom = Approach(other.zoom, zoom, 0.25);
+		other.angle = Approach(other.angle, angle, 5);
+		other.zoom = Approach(other.zoom, zoom, 0.15);
 		exit;
 	}
 }
-zoom = Approach(zoom, 1, 0.25);
-angle = Approach(angle, 0, 2);
+zoom = Approach(zoom, 1, 0.15);
+angle = Approach(angle, 0, 5);
 limitcam[0] = Approach(limitcam[0], 0, 32);
 limitcam[1] = Approach(limitcam[1], 0, 32);
 limitcam[2] = Approach(limitcam[2], room_width, 32);
 limitcam[3] = Approach(limitcam[3], room_height, 32);
 
-if limitcam[0] < _camx
+if limitcam[0] < _camx - 32
 	limitcam[0] = 0;
-if limitcam[1] < _camy
+if limitcam[1] < _camy - 32
 	limitcam[1] = 0;
-if limitcam[2] > _camx + _camw
+if limitcam[2] > _camx + _camw + 32
 	limitcam[2] = room_width;
-if limitcam[3] > _camy + _camh
+if limitcam[3] > _camy + _camh + 32
 	limitcam[3] = room_height;
 

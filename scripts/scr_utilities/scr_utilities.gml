@@ -93,9 +93,9 @@ function increase_combo()
 	var funny = true;
 	if variable_instance_exists(id, "baddieID")
 	&& instance_exists(baddieID)
-		if baddieID.important or baddieID.object_index == obj_pizzaballOLD or baddieID.object_index == obj_pizzaboy or !baddieID.killreward then funny = false;
+		if baddieID.important or baddieID.object_index == obj_pizzaballOLD or baddieID.object_index == obj_pizzaboy or baddieID.object_index == obj_coneboy or !baddieID.killreward then funny = false;
 	if variable_instance_exists(id, "boundbox")
-		if important or object_index == obj_pizzaballOLD or object_index == obj_pizzaboy or !killreward then funny = false;
+		if important or object_index == obj_pizzaballOLD or object_index == obj_pizzaboy or object_index == obj_coneboy or !killreward then funny = false;
 	
 	if global.gameplay != 0 && funny
 	{

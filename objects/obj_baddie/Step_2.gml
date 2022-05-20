@@ -67,9 +67,9 @@ if global.gameplay != 0
 	if state == states.walk
 		image_speed = 0.35 + (global.baddiespeed * 0.05);
 		
-	if image_index >= image_number - 1
+	if floor(image_index) >= image_number - 1 && image_number > 1 && hsp != 0 && sprite_index == walkspr && grounded
 	{
-		if sprite_index == walkspr && hsp != 0 && grounded && !steppy && image_number > 1
+		if !steppy
 			instance_create(x - image_xscale * 20, bbox_bottom, obj_cloudeffect);
 		steppy = true;
 	}

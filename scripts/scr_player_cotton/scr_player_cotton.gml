@@ -19,20 +19,23 @@ function scr_player_cotton()
 	
 	if drilling
 		hsp = move;
-	else
+	else if move != 0
 	{
-		var maxspeed = 4;
-		var acc = 0.25;
+		var maxspeed = 6;
+		var acc = 0.5;
 		if key_attack && grounded
 		{
-			maxspeed = 8;
-			acc = 0.1;
+			maxspeed = 10;
+			acc = 0.25;
 		}
 		
 		if movespeed < maxspeed or grounded
 			movespeed = Approach(movespeed, maxspeed, acc);
 		hsp = move * movespeed;
 	}
+	else
+		movespeed = 0;
+	
     if vsp > 5 && !drilling
         vsp = 5;
 	
@@ -49,13 +52,16 @@ function scr_player_cotton()
 	// attack
     if key_slap2 && sprite_index != spr_cotton_attack && !suplexmove
     {
+		suplexmove = true
 		jumpstop = true
         flash = true
         image_index = 0
         sprite_index = spr_cotton_attack
-        grounded = false
 		if global.gameplay == 0 or !grounded
+		{
 			vsp = -4
+			grounded = false
+		}
         scr_soundeffect(sfx_cottonattack)
     }
 	
@@ -71,8 +77,8 @@ function scr_player_cotton()
 	// attack
     if sprite_index == spr_cotton_attack
     {
-        hsp = 8 * xscale
-        movespeed = hsp
+        movespeed = 8
+		hsp = movespeed * xscale
         move = xscale
 		
 		if grounded && global.gameplay == 0
@@ -152,14 +158,13 @@ function scr_player_cotton()
     }
 	
 	// drill move
-    if key_down2 && !grounded && !suplexmove && sprite_index != spr_cotton_slam
+    if key_down2 && !grounded && !drilling && sprite_index != spr_cotton_slam
     {
         vsp = 9
         sprite_index = spr_cotton_drill
         image_index = 0
         scr_soundeffect(sfx_suplexdashSP)
         flash = true
-        suplexmove = true;
 		
 		with instance_create(x, y, obj_mach3effect)
 		{

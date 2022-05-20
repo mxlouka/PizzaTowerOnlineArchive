@@ -68,9 +68,13 @@ if maxspeed < 5 or !sugary
 
 if sugary && x != playerid.x && sprite_index != spr_coneballturn
 {
-	image_xscale = sign(x - playerid.x);
-	sprite_index = spr_coneballturn;
-	image_index = 0;
+	var xscale = sign(x - playerid.x);
+	if image_xscale != xscale
+	{
+		image_xscale = xscale;
+		sprite_index = spr_coneballturn;
+		image_index = 0;
+	}
 }
 if image_index >= image_number - 1 && sprite_index == spr_coneballturn
 	sprite_index = spr_coneball;

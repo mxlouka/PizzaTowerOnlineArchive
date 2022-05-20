@@ -42,7 +42,7 @@ function scr_collide_destructibles()
 			or (state == states.punch && sprite_index != spr_breakdanceuppercut)
 			or (state == states.firemouth && global.gameplay != 0)
 			or (state == states.grab && sprite_index == spr_swingding)
-			or (state == states.cotton && (sprite_index == spr_cotton_attack or movespeed > 4))
+			or (state == states.cotton && (sprite_index == spr_cotton_attack or movespeed > 6))
 			{
 				with instance_place(x + hsp, y, obj_destructibles)
 				{
@@ -189,7 +189,8 @@ function scr_collide_destructibles()
 			with instance_place(x, y + 1, obj_destructibleplatform)
 			{
 				falling = true;
-				image_speed = 0.35;
+				sprite_index = spr_dissolve;
+				image_index = 0;
 			}
 		}
 		
