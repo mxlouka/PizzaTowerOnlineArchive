@@ -415,6 +415,14 @@ else if (!global.panic or string_letters(roomname) == "dragonlair" or string_let
 			case "SP": musplay = mu_wafflesecret break
 		}
 	}
+	if room == entryway_secret2_fake
+	{
+		switch playerobj.character
+		{
+			default: musplay = mu_entrancesecret_ss break
+			case "SP": musplay = mu_wafflesecret break
+		}
+	}
 	if string_letters(roomname) == "cottonsecret"
 		musplay = mu_cottonsecret
 	if string_letters(roomname) == "minessecret"
