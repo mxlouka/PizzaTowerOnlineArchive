@@ -50,6 +50,6 @@ if layer_exists("Tiles_6")
 	layer_depth("Tiles_6", 95)
 
 if layer_exists("Assets_1")
-&& (room == chateau_7 or string_startswith(room_get_name(room), "grinch_"))
+&& (room == chateau_7 or string_startswith(room_get_name(room), "grinch_")) // todo: this
 	layer_depth("Assets_1", 95)
 
