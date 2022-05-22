@@ -5,8 +5,8 @@ if !(instance_exists(obj_wc) && obj_wc.WC_oobcam)
 {
 	draw_set_color(c_black);
 
-	draw_rectangle(-64, 0, -1, room_height, false); // left
-	draw_rectangle(room_width, 0, room_width + 64, room_height, false); // right
+	draw_rectangle(-64, -64, -1, room_height + 64, false); // left
+	draw_rectangle(room_width, -64, room_width + 64, room_height + 64, false); // right
 	draw_rectangle(0, -64, room_width, -1, false); // top
 	draw_rectangle(0, room_height, room_width, room_height + 64, false); // bottom
 }

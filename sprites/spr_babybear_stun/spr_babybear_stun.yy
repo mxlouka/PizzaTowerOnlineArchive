@@ -81,7 +81,7 @@
   "nineSlice": null,
   "parent": {
     "name": "babybear",
-    "path": "folders/Sprites/sugary spire/baddie/babybear.yy",
+    "path": "folders/Sprites/SUGARY SPIRE/baddie/babybear.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_babybear_stun",

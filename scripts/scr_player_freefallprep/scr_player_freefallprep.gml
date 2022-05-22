@@ -43,7 +43,7 @@ function scr_player_freefallprep()
 	//Animations
 	image_speed = 0.5
 
-	if floor(image_index) >= image_number -1 
+	if floor(image_index) >= image_number - 1 
 	{
 		if global.gameplay == 0
 			vsp += 14

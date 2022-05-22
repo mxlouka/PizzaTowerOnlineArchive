@@ -73,7 +73,7 @@
   "nineSlice": null,
   "parent": {
     "name": "john",
-    "path": "folders/Sprites/sugary spire/john.yy",
+    "path": "folders/Sprites/SUGARY SPIRE/john.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_hungrypillardead_ss",

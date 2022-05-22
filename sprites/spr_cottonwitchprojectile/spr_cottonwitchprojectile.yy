@@ -101,7 +101,7 @@
   "nineSlice": null,
   "parent": {
     "name": "cottonwitch",
-    "path": "folders/Sprites/sugary spire/baddie/cottonwitch.yy",
+    "path": "folders/Sprites/SUGARY SPIRE/baddie/cottonwitch.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_cottonwitchprojectile",

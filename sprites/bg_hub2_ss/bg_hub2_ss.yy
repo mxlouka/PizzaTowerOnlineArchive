@@ -70,7 +70,7 @@
   "nineSlice": null,
   "parent": {
     "name": "hub",
-    "path": "folders/Sprites/tilesets/SUGARY SPIRE/hub.yy",
+    "path": "folders/Sprites/SUGARY SPIRE/tilesets/hub.yy",
   },
   "resourceVersion": "1.0",
   "name": "bg_hub2_ss",

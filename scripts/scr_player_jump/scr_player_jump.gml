@@ -143,14 +143,13 @@ function scr_player_jump()
 		
 		if sprite_index != spr_shotgunshoot
 		{
-			if global.minutes <= 0 && global.seconds <= 0
+			if shotgunAnim && character != "SP"
+				sprite_index = spr_shotgunjump
+			else if global.minutes <= 0 && global.seconds <= 0
 			&& character == "P" && !instance_exists(obj_toppinwarrior)
 				sprite_index = spr_player_hurtjump
 			else
 				sprite_index = spr_jump
-
-			if shotgunAnim
-				sprite_index = spr_shotgunjump
 		}
 
 		instance_create(x,y,obj_highjumpcloud2)
@@ -254,7 +253,7 @@ function scr_player_jump()
 			
 			if sprite_index == spr_shotgun_shootair
 				sprite_index = spr_shotgun_fall
-	
+			
 			if sprite_index == spr_suplexcancel
 				sprite_index = spr_fall
 
@@ -304,15 +303,14 @@ function scr_player_jump()
 		else
 			vsp = -7
 		
-		if !shotgunAnim or character == "SP"
+		if !shotgunAnim
 			sprite_index = spr_bodyslamstart
 		else
 		{
-			scr_soundeffect(sfx_killingblow)
 			sprite_index = spr_shotgunjump1
-			
-			if character != "N" or global.gameplay != 0
+			if (character != "N" or global.gameplay != 0) && character != "SP"
 			{
+				scr_soundeffect(sfx_killingblow)
 				with instance_create(x, y + 60, obj_shotgunbullet)
 				{
 					sprite_index = sprite10391
@@ -438,7 +436,11 @@ function scr_player_jump()
 				
 			sprite_index = spr_suplexdashjumpstart
 			if character == "SP"
+			{
 				sprite_index = spr_suplexdash;
+				if shotgunAnim
+					sprite_index = spr_shotgunsuplexdash;
+			}
 			else if global.gameplay == 0
 				vsp = -4
 			
@@ -459,7 +461,7 @@ function scr_player_jump()
 	}
 
 	// Breakdance
-	if key_shoot2 && !shotgunAnim
+	if key_shoot2 && (!shotgunAnim or character == "SP")
 	{
 		// mortimer
 		if global.mort
@@ -588,7 +590,7 @@ function scr_player_jump()
 	}
 
 	// Shotgun
-	if shotgunAnim && state == states.jump
+	else if key_shoot2 && state == states.jump
 	{
 		if shoot_buffer <= 0 && key_shoot2
 		{
@@ -598,18 +600,18 @@ function scr_player_jump()
 				// shoot in old gameplay
 				state = states.shotgun
 				
-				with instance_create(x+xscale*20,y+20,obj_shotgunbullet)
+				with instance_create(x + xscale * 20, y + 20, obj_shotgunbullet)
 					shotgun = true;
 				if character != "N"
 				{
-					with instance_create(x+xscale*20,y+20,obj_shotgunbullet)
+					with instance_create(x + xscale * 20, y + 20, obj_shotgunbullet)
 					{
-						spdh= 4
+						spdh = 4
 						shotgun = true;
 					}
-					with instance_create(x+xscale*20,y+20,obj_shotgunbullet)
+					with instance_create(x + xscale * 20, y + 20, obj_shotgunbullet)
 					{
-						spdh= -4
+						spdh = -4
 						shotgun = true;
 					}
 				}
@@ -672,7 +674,7 @@ function scr_player_jump()
 		mach2 = 0
 
 	//Land Mach1
-	if key_attack && grounded && fallinganimation < 40 && (!(character == "N" && noisetype == 0) && character != "S")
+	if key_attack && grounded && fallinganimation < 40 && (!(character == "N" && noisetype == 0) && character != "S" && !(character == "SP" && shotgunAnim))
 	{
 		if pizzapepper == 0
 		{
@@ -701,13 +703,13 @@ function scr_player_jump()
 	//state = states.boots
 	//movespeed = 2
 	//}
-
-
-
+	
 	//Pogo
-	if key_attack && character == "N" && state != states.Sjumpprep && !key_slap2 && pizzapepper <= 0 && noisetype == 0
+	if key_attack && ((character == "N" && noisetype == 0) or (character == "SP" && shotgunAnim)) && state != states.Sjumpprep && !key_slap2 && pizzapepper <= 0
 	{
 		sprite_index = spr_playerN_pogostart
+		if character == "SP"
+			sprite_index = spr_playerSP_canefall
 		image_index = 0
 		state = states.pogo
 		grav = basegrav;
@@ -740,7 +742,8 @@ function scr_player_jump()
 	    machslideAnim = false
 	    image_speed = 0.45
 		
-	    if image_index > image_number - 1
+	    if image_index >= image_number - 1
 	        sprite_index = spr_shotgunfall
 	}
 }
+

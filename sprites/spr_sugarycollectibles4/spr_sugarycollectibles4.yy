@@ -81,7 +81,7 @@
   "nineSlice": null,
   "parent": {
     "name": "toppings",
-    "path": "folders/Sprites/sugary spire/collectibles/toppings.yy",
+    "path": "folders/Sprites/SUGARY SPIRE/collectibles/toppings.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_sugarycollectibles4",

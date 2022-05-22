@@ -15,4 +15,5 @@ if sugary
 }
 else
 	scr_soundeffect(sfx_pizzaface);
+siner = 0;
 

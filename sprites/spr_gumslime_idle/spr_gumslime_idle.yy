@@ -73,7 +73,7 @@
   "nineSlice": null,
   "parent": {
     "name": "gumslime",
-    "path": "folders/Sprites/sugary spire/baddie/gumslime.yy",
+    "path": "folders/Sprites/SUGARY SPIRE/baddie/gumslime.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_gumslime_idle",

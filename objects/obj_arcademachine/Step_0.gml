@@ -1,5 +1,3 @@
-if live_call() return live_result;
-
 var piss = false;
 with obj_player
 	if character == "PP" piss = true;

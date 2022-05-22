@@ -1,5 +1,6 @@
 /// @description collect
 audio_stop_sound(sfx_collectgiantpizza);
+audio_stop_sound(sfx_secretwall);
 scr_soundeffect(sfx_collectgiantpizza);
 
 global.collect += 1000;

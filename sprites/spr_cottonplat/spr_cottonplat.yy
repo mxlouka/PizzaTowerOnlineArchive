@@ -77,7 +77,7 @@
   "nineSlice": null,
   "parent": {
     "name": "cotton",
-    "path": "folders/Sprites/tilesets/SUGARY SPIRE/cotton.yy",
+    "path": "folders/Sprites/SUGARY SPIRE/tilesets/cotton.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_cottonplat",

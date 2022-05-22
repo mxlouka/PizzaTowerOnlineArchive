@@ -309,7 +309,7 @@ function scr_player_mach3()
 			state = states.pogo
 			pogospeed = movespeed
 		}
-			
+		
 		if !fightball
 		{
 			if movespeed > 20 && sprite_index != spr_crazyrun 

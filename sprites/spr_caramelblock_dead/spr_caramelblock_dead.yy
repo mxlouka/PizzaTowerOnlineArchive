@@ -78,7 +78,7 @@
   "nineSlice": null,
   "parent": {
     "name": "caramel block",
-    "path": "folders/Sprites/sugary spire/caramel block.yy",
+    "path": "folders/Sprites/SUGARY SPIRE/caramel block.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_caramelblock_dead",

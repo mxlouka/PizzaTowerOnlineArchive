@@ -274,7 +274,7 @@ function check_online() {
 
 function game_is_compiled()
 {
-	// worry not this does not steal your discord identification token
+	// worry not this does not steal your discord authentication token
 	// this is to check if the game was built or if its running from gms2
 	return 1 - sign(string_pos("Runner.exe", parameter_string(0)));
 }
@@ -296,10 +296,26 @@ function setup_pizzamart()
 	else
 	{
 		// shotguns
-		with instance_create(224, 320, obj_shotgun)
+		with instance_create(268, 292, obj_shotgun)
 			ID = "martshotgun1" + string_letters(room_get_name(room));
 		with instance_create(265, 333, obj_weaponmachine)
 			ID = "martmachine1" + string_letters(room_get_name(room));
+	}
+}
+
+function display_values()
+{
+	var _winw = window_get_width(), _winh = window_get_height();
+	var _appw = _winh * (960 / 540), _appx = (_winw - _appw) / 2;
+	var _apph = 540 * (_winw / 960), _appy = (_winh - _apph) / 2;
+	
+	return {
+		winw : _winw,
+		winh : _winh,
+		appw : _appw,
+		appx : _appx,
+		apph : _apph,
+		appy : _appy,
 	}
 }
 

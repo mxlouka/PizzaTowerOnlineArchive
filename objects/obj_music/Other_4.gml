@@ -76,8 +76,11 @@ else if (!global.panic or string_letters(roomname) == "dragonlair" or string_let
 		musplay = mu_hub2
 	if string_startswith(roomname, "hub_arcade")
 		musplay = mu_hubarcade
-	if string_startswith(roomname, "hub_roomSP") && sugaryspire
+	if string_startswith(roomname, "hub_roomSP") or string_startswith(roomname, "sugary_outer")
+	{
+		fadeoff = 0
 		musplay = mu_sugaryhub
+	}
 	if string_startswith(roomname, "rm_test")
 		musplay = mu_mall
 	if string_startswith(roomname, "hub_roomE")
@@ -258,7 +261,10 @@ else if (!global.panic or string_letters(roomname) == "dragonlair" or string_let
 		if string_letters(roomname) == "mines"
 			musplay = mu_mines
 		if string_letters(roomname) == "sugarytut"
+		{
+			fadeoff = 0
 			musplay = mu_tutorial_ss
+		}
 	}
 	
 	// desert
@@ -412,7 +418,7 @@ else if (!global.panic or string_letters(roomname) == "dragonlair" or string_let
 		if global.gameplay == 1
 			musplay = mu_pinballsecret
 	}
-	if string_letters(roomname) == "entrywaysecret" or room == entryway_secret2_fake
+	if string_letters(roomname) == "entrywaysecret"
 	{
 		if playerobj.character == "SP"
 			musplay = mu_wafflesecret;

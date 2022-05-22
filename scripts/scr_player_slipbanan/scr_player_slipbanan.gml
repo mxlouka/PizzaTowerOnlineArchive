@@ -66,7 +66,7 @@ function scr_player_slipbanan()
 				state = states.normal;
 		}
 	}
-	else if grounded && vsp >= 0 && ((!place_meeting(x, y + vsp, obj_destructibles) && !place_meeting(x, y + vsp, obj_metalblock)) or character == "V")
+	else if scr_solid(x, y + 1) && vsp >= 0 && ((!place_meeting(x, y + vsp, obj_destructibles) && !place_meeting(x, y + vsp, obj_metalblock)) or character == "V")
 	{
 		if sugary && sprite_index != spr_rockethitwall
 		{

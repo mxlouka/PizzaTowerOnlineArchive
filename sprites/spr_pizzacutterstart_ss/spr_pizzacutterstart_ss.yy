@@ -77,7 +77,7 @@
   "nineSlice": null,
   "parent": {
     "name": "hazard",
-    "path": "folders/Sprites/sugary spire/hazard.yy",
+    "path": "folders/Sprites/SUGARY SPIRE/hazard.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_pizzacutterstart_ss",

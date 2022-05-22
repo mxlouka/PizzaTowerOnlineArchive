@@ -73,7 +73,7 @@
   "nineSlice": null,
   "parent": {
     "name": "collectibles",
-    "path": "folders/Sprites/sugary spire/collectibles.yy",
+    "path": "folders/Sprites/SUGARY SPIRE/collectibles.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_pizzaboxunopen_ss",

@@ -1,5 +1,3 @@
-if live_call() return live_result;
-
 gamearray = ["Pizza Tower", "PT ONLINE", "Pizza Castle"];
 if sugaryspire
 	array_push(gamearray, "Sugary Spire");
@@ -99,10 +97,10 @@ switch sel[0]
 			[mu_dungeondepth_re, "Rational Fear of Meat", "APY19"],
 			[mu_arcade1, "Insert Coin", "loypoll"],
 			
-			[mu_antonlevel, "Ballbuster Blues", "Tony Grayson"],
-			[mu_antonsecret, "Bonus Blitz", "Tony Grayson"],
+			[mu_antonlevel, "Dynamite Man", "Tony Grayson"],
+			[mu_antonsecret, "Red House", "Tony Grayson"],
 			[mu_antonpunchball, "Punch Bowl", "Tony Grayson"],
-			[mu_antonescape, "VS! Sewer Slam","Tony Grayson", 5],
+			[mu_antonescape, "Outta My Way!\n...It's Happy Hour!","Tony Grayson", 5],
 			[mu_antonsage, "Sage Advice", "Tony Grayson"],
 			
 			[mu_medieval_race, "Cold Spaghetti\n(Race)", "Mr. Sauceman (original), loypoll"],

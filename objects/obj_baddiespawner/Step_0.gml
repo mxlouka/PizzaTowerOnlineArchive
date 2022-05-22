@@ -18,7 +18,7 @@ if refresh <= 0
 	image_speed = 0.35
 	if floor(image_index) == 5
 	{
-		with instance_create(x + (content == obj_shotgun ? -44 : 0), y - 20, content)
+		with instance_create(x, y - 20, content)
 		{
 			image_xscale = (object_index == obj_shotgun ? 1 : other.image_xscale);
 			state = states.stun;

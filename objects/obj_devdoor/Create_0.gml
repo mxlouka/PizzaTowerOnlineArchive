@@ -11,10 +11,6 @@ function devdoor_addaction(name, meth) {
 }
 
 // actions
-devdoor_addaction("goto rm_deltarune", function() {
-	goto = rm_deltarune;
-});
-
 devdoor_addaction("goto PP_room1_fake", function() 
 {
 	goto = PP_room1_fake;

@@ -1,3 +1,4 @@
+/*
 if live_call() return live_result;
 
 if debug
@@ -9,6 +10,7 @@ if debug
 			menu = g;
 	}
 }
+*/
 
 function draw_textfield(x, y, w = 254, h = 30, maximum = 32)
 {

@@ -81,7 +81,7 @@
   "nineSlice": null,
   "parent": {
     "name": "destroyable",
-    "path": "folders/Sprites/sugary spire/destroyable.yy",
+    "path": "folders/Sprites/SUGARY SPIRE/destroyable.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_destroyable2escapeNEW_ss",

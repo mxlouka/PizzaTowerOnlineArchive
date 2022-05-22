@@ -103,6 +103,7 @@ if drawing
 		var toppin3spr = spr_toppintomato;
 		var toppin4spr = spr_toppinsausage;
 		var toppin5spr = spr_toppinpineapple;
+		var sep = 75;
 		
 		if level == "strongcold"
 		{
@@ -135,6 +136,7 @@ if drawing
 			}
 			else
 			{
+				sep = 100;
 				toppin1spr = spr_toppinmallow_taunt_NEW;
 				toppin2spr = spr_toppinchoco_taunt_NEW;
 				toppin3spr = spr_toppincrack_taunt_NEW;
@@ -151,11 +153,11 @@ if drawing
 			toppin5spr = spr_toppinpineapple_NEW;
 		}
 		
-		draw_sprite_ext(toppin1spr, 0, x - 75, y - 120, 1, 1, 0, toppin1 ? c_white : c_black, 1);
-		draw_sprite_ext(toppin2spr, 0, x - 37, y - 120, 1, 1, 0, toppin2 ? c_white : c_black, 1);
+		draw_sprite_ext(toppin1spr, 0, x - sep, y - 120, 1, 1, 0, toppin1 ? c_white : c_black, 1);
+		draw_sprite_ext(toppin2spr, 0, x - sep / 2, y - 120, 1, 1, 0, toppin2 ? c_white : c_black, 1);
 		draw_sprite_ext(toppin3spr, 0, x, y - 120, 1, 1, 0, toppin3 ? c_white : c_black, 1);
-		draw_sprite_ext(toppin4spr, 0, x + 37, y - 120, 1, 1, 0, toppin4 ? c_white : c_black, 1);
-		draw_sprite_ext(toppin5spr, 0, x + 75, y - 120, 1, 1, 0, toppin5 ? c_white : c_black, 1);
+		draw_sprite_ext(toppin4spr, 0, x + sep / 2, y - 120, 1, 1, 0, toppin4 ? c_white : c_black, 1);
+		draw_sprite_ext(toppin5spr, 0, x + sep, y - 120, 1, 1, 0, toppin5 ? c_white : c_black, 1);
 	}
 	
 	// draw the score

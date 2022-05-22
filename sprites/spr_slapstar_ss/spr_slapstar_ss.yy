@@ -81,7 +81,7 @@
   "nineSlice": null,
   "parent": {
     "name": "particle",
-    "path": "folders/Sprites/sugary spire/particle.yy",
+    "path": "folders/Sprites/SUGARY SPIRE/particle.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_slapstar_ss",

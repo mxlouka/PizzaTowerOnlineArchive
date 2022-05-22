@@ -12,6 +12,6 @@ if scr_depthcheck()
 
 pickupimg = 0
 
-with obj_player1
+with obj_player
 	if character == "S" instance_destroy(other);
 

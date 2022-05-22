@@ -84,7 +84,7 @@
     "eventStubScript": null,
     "parent": {"name":"spr_crazyrunothereffect","path":"sprites/spr_crazyrunothereffect/spr_crazyrunothereffect.yy",},
     "resourceVersion": "1.4",
-    "name": "",
+    "name": "spr_crazyrunothereffect",
     "tags": [],
     "resourceType": "GMSequence",
   },

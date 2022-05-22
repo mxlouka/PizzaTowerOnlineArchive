@@ -92,6 +92,8 @@ function scr_player_handstandjump()
 			state = states.freefallprep
 			vsp = -5
 			sprite_index = spr_bodyslamstart
+			if shotgunAnim
+				sprite_index = spr_shotgunjump1
 			momentum = true
 		}
 		#endregion
@@ -350,7 +352,7 @@ function scr_player_handstandjump()
 	}
 	
 	// Bump
-	if !place_meeting(x + xscale, y, obj_destructibles) && character != "S"
+	if !place_meeting(x + xscale, y, obj_destructibles) && ((!place_meeting(x + xscale, y, obj_shotgunblock) && !place_meeting(x + xscale, y, obj_enemyblock)) or !(character == "SP" && shotgunAnim)) && character != "S"
 	{
 		ledge_bump();
 		if scr_solid(x + xscale, y) && (!place_meeting(x + xscale, y, obj_slope) or scr_solidwall(x + xscale, y) or scr_solidwall(x, y - 1))

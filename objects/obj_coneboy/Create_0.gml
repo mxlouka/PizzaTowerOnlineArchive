@@ -1,4 +1,6 @@
 event_inherited();
+killreward = false;
+
 landspr = spr_coneboy
 idlespr = spr_coneboy
 fallspr = spr_coneboy

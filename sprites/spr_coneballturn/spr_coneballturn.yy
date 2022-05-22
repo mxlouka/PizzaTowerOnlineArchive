@@ -102,7 +102,7 @@
   "nineSlice": null,
   "parent": {
     "name": "coneball",
-    "path": "folders/Sprites/sugary spire/coneball.yy",
+    "path": "folders/Sprites/SUGARY SPIRE/coneball.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_coneballturn",

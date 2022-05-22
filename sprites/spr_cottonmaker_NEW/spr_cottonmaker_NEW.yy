@@ -80,8 +80,8 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "sugary spire",
-    "path": "folders/Sprites/sugary spire.yy",
+    "name": "SUGARY SPIRE",
+    "path": "folders/Sprites/SUGARY SPIRE.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_cottonmaker_NEW",

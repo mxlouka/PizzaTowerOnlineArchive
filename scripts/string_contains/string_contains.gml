@@ -19,3 +19,4 @@ function string_endswith(argument0, argument1) {
 		return false;
 	return (string_pos(argument1, argument0) == (string_length(argument0) - string_length(argument1)) + 1);
 }
+

@@ -7,15 +7,19 @@ if audio_is_playing(global.music)
 	var musicname = audio_get_name(global.music);
 	if string_startswith(musicname, "mu_tutorial_ss")
 	{
-		loopstart = 9.23;
-		loopend = 120;
+		loopstart = 12.69;
+		loopend = 123.46;
+	}
+	if musicname == "mu_antonescape"
+	{
+		loopstart = 109.81275;
+		loopend = 146.03916;
 	}
 	
 	if loopstart > -1 or loopend > -1
 	{
-		var soundpos = audio_sound_get_track_position(global.music);
-		if soundpos >= loopend
-			audio_sound_set_track_position(global.music, loopstart + (soundpos - loopend));
+		if audio_sound_get_track_position(global.music) >= loopend
+			audio_sound_set_track_position(global.music, loopstart + (audio_sound_get_track_position(global.music) - loopend));
 	}
 }
 

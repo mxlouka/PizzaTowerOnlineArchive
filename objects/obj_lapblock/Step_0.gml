@@ -1,5 +1,5 @@
 // break block
-if !broken && !global.panic && !global.snickchallenge && scr_stylecheck(0, 2)
+if !broken && !global.panic && !global.snickchallenge
 {
 	var player = instance_nearest(x + 32, y + 32, obj_player);
 	if player && distance_to_object(player) < 64

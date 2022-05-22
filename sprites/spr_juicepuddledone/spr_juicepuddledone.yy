@@ -118,7 +118,7 @@
   "nineSlice": null,
   "parent": {
     "name": "googlyjuice",
-    "path": "folders/Sprites/sugary spire/baddie/googlyjuice.yy",
+    "path": "folders/Sprites/SUGARY SPIRE/baddie/googlyjuice.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_juicepuddledone",

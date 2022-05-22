@@ -28,7 +28,7 @@ else
 	{
 		with player
 		{
-			if scr_transformationcheck()
+			if scr_transformationcheck() && grounded && vsp >= 0
 			{
 				if global.gameplay == 0
 				{

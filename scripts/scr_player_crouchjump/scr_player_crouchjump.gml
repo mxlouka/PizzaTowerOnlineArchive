@@ -48,7 +48,7 @@ function scr_player_crouchjump()
 	//Animations
 	if jumpAnim
 	{
-		if !shotgunAnim
+		if !shotgunAnim or character == "SP"
 			sprite_index = spr_crouchjump
 		else
 		{
@@ -63,7 +63,7 @@ function scr_player_crouchjump()
 	}
 	else
 	{
-		if !shotgunAnim
+		if !shotgunAnim or character == "SP"
 			sprite_index = spr_crouchfall
 		else
 		{

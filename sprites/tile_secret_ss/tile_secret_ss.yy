@@ -73,7 +73,7 @@
   "nineSlice": null,
   "parent": {
     "name": "secret",
-    "path": "folders/Sprites/tilesets/SUGARY SPIRE/secret.yy",
+    "path": "folders/Sprites/SUGARY SPIRE/tilesets/secret.yy",
   },
   "resourceVersion": "1.0",
   "name": "tile_secret_ss",

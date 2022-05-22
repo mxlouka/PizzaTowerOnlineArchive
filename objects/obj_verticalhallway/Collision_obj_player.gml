@@ -8,7 +8,21 @@ with other
 	    targetRoom = other.targetRoom
 		
 		verticalhallway = true
-		vhallwaydirection = other.image_yscale;
+		vhallwaydirection = other.image_yscale
+		
+		var door = noone;
+		switch targetDoor
+		{
+			case "A": door = obj_doorA; break;
+			case "B": door = obj_doorB; break;
+			case "C": door = obj_doorC; break;
+			case "D": door = obj_doorD; break;
+			case "E": door = obj_doorE; break;
+		}
+		if instance_exists(door)
+			vhallwaypos = x - door.x
+		else
+			vhallwaypos = x - other.x
 		
 		if other.targetRoom == room
 		{

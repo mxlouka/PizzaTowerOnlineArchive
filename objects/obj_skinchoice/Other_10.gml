@@ -152,7 +152,7 @@ switch sel[1]
 				["FAMILIAR GREMLIN", "Something's wrong."],
 				["SAGE", "If it ever happens I will shit bricks."],
 				["DOOM", "It's the rip and tearing patisje!"],
-				["ANNIE", "It's ball-busting time."],
+				["ANTON", "It's ball-busting time."],
 				["SCOOTER", "I- ...wh- what?"],
 				["BLURPLE", "Also known as test."],
 				["PAINTLAD", "Very original name there."],

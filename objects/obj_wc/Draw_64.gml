@@ -1,7 +1,4 @@
 /// @description world control draw gui
-if live_enabled
-	if live_call() return live_result;
-
 // dragging text
 draw_set_font(-1);
 draw_set_valign(fa_top);

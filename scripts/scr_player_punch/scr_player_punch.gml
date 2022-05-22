@@ -248,14 +248,14 @@ function scr_player_punch()
 			dir = xscale
 		
 			//Jump Stop
-			if (!key_jump2) && jumpstop = false && vsp < 0.5 && stompAnim =false 
+			if !key_jump2 && !jumpstop && vsp < 0.5 && !stompAnim
 			{
 				vsp /= 10
 				jumpstop = true
 			}
-
+			
 			//Noise Bomb
-			if key_slap2 && character = "N" 
+			if key_slap2 && character == "N" 
 			{
 				state = states._throw
 				sprite_index = spr_playerN_noisebombthrow
@@ -316,10 +316,11 @@ function scr_player_punch()
 			if key_jump
 				input_buffer_jump = 0
 		
-			if (grounded && (input_buffer_jump < 8)) 
+			if grounded && input_buffer_jump < 8
 			{
+				input_buffer_jump = 8
 				scr_soundeffect(sfx_jump)
-				instance_create(x,y,obj_highjumpcloud2)
+				instance_create(x, y, obj_highjumpcloud2)
 
 				vsp = -9
 			}
@@ -337,24 +338,24 @@ function scr_player_punch()
 			    image_index = 0
 			    machslideAnim = true
 			    machhitAnim = false
-			    instance_create(x+10,y+10,obj_bumpeffect)
+			    instance_create(x + 10 * xscale, y + 10, obj_bumpeffect)
 
 		    }
-		
+			
 			//Pogo
-			if key_attack2 && character == "N" && !pogochargeactive && noisetype == 0
+			if key_attack2 && !pogochargeactive && noisetype == 0
 			{
 				sprite_index = spr_playerN_pogostart
 				image_index = 0
 				state = states.pogo
 				pogospeed = 8
 			}
-		
+			
 			//Effects
 			if !instance_exists(obj_slidecloud) && grounded && movespeed > 5
 			with instance_create(x, y, obj_slidecloud)
 				image_xscale = other.xscale
-		
+			
 			image_speed = 0.35
 			break
 		}

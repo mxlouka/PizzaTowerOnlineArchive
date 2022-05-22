@@ -73,7 +73,7 @@
   "nineSlice": null,
   "parent": {
     "name": "entryway",
-    "path": "folders/Sprites/tilesets/SUGARY SPIRE/entryway.yy",
+    "path": "folders/Sprites/SUGARY SPIRE/tilesets/entryway.yy",
   },
   "resourceVersion": "1.0",
   "name": "bg_entryway2_clouds",

@@ -10,6 +10,10 @@ if place_meeting(x, y, obj_player)
         }
     }
 }
-if _sound && !audio_is_playing(sfx_collectgiantpizza)
+if _sound
+{
+	audio_stop_sound(sfx_collectgiantpizza);
+	audio_stop_sound(sfx_secretwall);
     scr_soundeffect(sfx_secretwall);
+}
 

@@ -1,5 +1,3 @@
-if live_call() return live_result;
-
 if disconnected
 {
 	draw_set_alpha(0.5);

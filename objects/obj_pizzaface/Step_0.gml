@@ -1,3 +1,5 @@
+if live_call() return live_result;
+
 var playerid = obj_player;
 if !instance_exists(playerid)
 	exit;

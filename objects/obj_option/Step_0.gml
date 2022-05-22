@@ -308,14 +308,12 @@ else if menu == 1
 			}
 			else
 			{
-				var musprev = global.music;
 				with obj_music
 				{
 					forcefadeoff = 4.8;
 					event_perform(ev_other, ev_room_start);
 				}
 				music = global.music;
-				global.music = musprev;
 			}
 		}
 	}

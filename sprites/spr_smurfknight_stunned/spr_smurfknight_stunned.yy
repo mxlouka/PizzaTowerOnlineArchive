@@ -81,7 +81,7 @@
   "nineSlice": null,
   "parent": {
     "name": "knight",
-    "path": "folders/Sprites/sugary spire/baddie/knight.yy",
+    "path": "folders/Sprites/SUGARY SPIRE/baddie/knight.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_smurfknight_stunned",

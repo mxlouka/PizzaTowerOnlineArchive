@@ -54,7 +54,7 @@ function scr_collide_destructibles()
 						with other
 						{
 							suplexmove = false;
-							if !shotgunAnim or global.gameplay != 0
+							if !shotgunAnim or global.gameplay != 0 or character == "SP"
 								scr_pummel();
 							else
 							{
@@ -85,6 +85,23 @@ function scr_collide_destructibles()
 				
 				if state == states.mach2
 					machpunchAnim = true;
+			}
+		}
+		
+		// Pummel with cane
+		if character == "SP" && state == states.handstandjump or state == states.freefall
+		{
+			var shotty = instance_place(x + hsp, y + vsp, obj_shotgunblock);
+			if shotty
+			{
+				with shotty
+				{
+					if scr_stylecheck(2)
+						momentum[0] = other.hsp;
+					instance_destroy();
+				}
+				scr_pummel();
+				gp_vibration(0.8, 0.8, 0.5);
 			}
 		}
 		

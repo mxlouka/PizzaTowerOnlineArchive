@@ -4,7 +4,7 @@ function scr_spotlightplayer()
 		return obj_player1;
 	else
 	{
-		if obj_player1.spotlight
+		if !instance_exists(obj_player) or obj_player1.spotlight
 			return obj_player1;
 		else
 			return obj_player2;

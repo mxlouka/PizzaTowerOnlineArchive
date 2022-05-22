@@ -271,7 +271,7 @@ function scr_player_normal()
 			
 			if sprite_index != spr_shotgunshoot
 			{
-				if shotgunAnim
+				if shotgunAnim && character != "SP"
 					sprite_index = spr_shotgunjump
 				else if global.minutes <= 0 && global.seconds <= 0 && character == "P"
 				&& !instance_exists(obj_toppinwarrior)
@@ -338,7 +338,7 @@ function scr_player_normal()
 	{
 		if sprite_index != spr_shotgunshoot
 		{
-			if !shotgunAnim
+			if !shotgunAnim or character == "SP"
 			{
 				if global.minutes <= 0 && global.seconds <= 0 && character == "P"
 				&& !instance_exists(obj_toppinwarrior)
@@ -346,7 +346,7 @@ function scr_player_normal()
 				else
 					sprite_index = spr_fall
 			}
-			else 
+			else
 				sprite_index = spr_shotgunfall
 		}
 		
@@ -433,7 +433,7 @@ function scr_player_normal()
 	}
 
 	// Breakdance
-	if key_shoot2 && !shotgunAnim
+	if key_shoot2 && (!shotgunAnim or character == "SP")
 	{
 		// mortimer
 		if global.mort && global.gameplay != 0
@@ -563,9 +563,9 @@ function scr_player_normal()
 	}
 
 	// Shotgun
-	if shotgunAnim && state == states.normal
+	else if key_shoot2 && state == states.normal
 	{
-		if shoot_buffer <= 0 && key_shoot2
+		if shoot_buffer <= 0
 		{
 			if global.gameplay == 0
 			{
@@ -650,7 +650,7 @@ function scr_player_normal()
 	//}
 
 	//Mach1
-	if key_attack && !scr_solidwall(x + xscale, y) && !(place_meeting(x + xscale, y, obj_slope) && scr_solidwall(x, y - 1)) && (!(character == "N" && noisetype == 0) && character != "S")
+	if key_attack && !scr_solidwall(x + xscale, y) && !(place_meeting(x + xscale, y, obj_slope) && scr_solidwall(x, y - 1)) && (!(character == "N" && noisetype == 0) && character != "S" && !(character == "SP" && shotgunAnim))
 	{
 		if pizzapepper == 0
 		{
@@ -670,9 +670,11 @@ function scr_player_normal()
 	}
 	
 	//Pogo
-	if key_attack && character == "N" && state != states.Sjumpprep && !key_slap2 && pizzapepper <= 0 && noisetype == 0
+	if key_attack && ((character == "N" && noisetype == 0) or (character == "SP" && shotgunAnim)) && state != states.Sjumpprep && !key_slap2 && pizzapepper <= 0
 	{
 		sprite_index = spr_playerN_pogostart
+		if character == "SP"
+			sprite_index = spr_playerSP_canefall
 		image_index = 0
 		state = states.pogo
 	}

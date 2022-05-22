@@ -1,4 +1,4 @@
-if live_call() return live_result;
+// afterimages
 with obj_mach3effect
 {
 	var alpha = image_alpha;

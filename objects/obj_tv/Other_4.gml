@@ -22,10 +22,12 @@ switch room
 	case beach_1: global.srank = 14000; break;
 	case kungfu_1: global.srank = 15000; break;
 	
-	case etb_1: global.srank = 7000; break;
+	case etb_1: global.srank = 10200; break;
 	case grinch_1: global.srank = 7000; break;
 	case ancient_1: global.srank = 12800; break;
 	case sanctum_1: global.srank = 19800; break;
+	
+	case entryway_1: global.srank = 11600; break;
 	case cotton_1: global.srank = 12400; break;
 }
 if global.snickchallenge

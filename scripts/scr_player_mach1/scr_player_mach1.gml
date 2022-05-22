@@ -154,18 +154,19 @@ function scr_player_mach1()
 	}
 	
 	//Manual Freefall
+	/*
 	if key_down && !grounded
 	{
 		if !shotgunAnim
 		{
-			image_index= 0
+			image_index = 0
 			state = states.freefallprep
 			sprite_index = spr_bodyslamstart
 			vsp =-5
 		}
 		else
 		{
-			image_index= 0
+			image_index = 0
 			state = states.freefallprep
 			sprite_index = spr_shotgunjump1
 			vsp = -5
@@ -190,6 +191,7 @@ function scr_player_mach1()
 			}
 		}
 	}
+	*/
 	
 	//Taunt
 	if key_taunt2 

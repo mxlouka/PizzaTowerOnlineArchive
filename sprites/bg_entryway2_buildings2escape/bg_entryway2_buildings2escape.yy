@@ -72,8 +72,8 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "entryway",
-    "path": "folders/Sprites/tilesets/SUGARY SPIRE/entryway.yy",
+    "name": "escape",
+    "path": "folders/Sprites/SUGARY SPIRE/tilesets/entryway/escape.yy",
   },
   "resourceVersion": "1.0",
   "name": "bg_entryway2_buildings2escape",

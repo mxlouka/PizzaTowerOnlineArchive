@@ -284,6 +284,7 @@ doorx = x;
 
 verticalhallway = false;
 vhallwaydirection = 0;
+vhallwaypos = 0;
 
 endtumble = false
 hascollision = true

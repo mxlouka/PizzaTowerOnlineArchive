@@ -118,6 +118,11 @@ function scr_playerreset()
 		bubblespr = noone
 		idleanim = 180
 		collect_shake = 0
+		
+		static_timer = 0
+		happy_timer = 0
+		panic_timer = 0
+		panic_anim = 0
 	}
 	
 	with obj_music

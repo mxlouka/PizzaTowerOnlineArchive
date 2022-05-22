@@ -38,8 +38,9 @@ function scr_enemy_chase()
 			steppy--;
 		if steppy <= 0
 		{
-			instance_create(x, y + 43, obj_cloudeffect);
+			instance_create(x, bbox_bottom, obj_cloudeffect);
 			steppy = 20;
 		}
 	}
 }
+

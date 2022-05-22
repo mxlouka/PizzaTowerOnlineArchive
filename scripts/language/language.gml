@@ -187,8 +187,8 @@ function lang_load(lang)
 		ds_map_add(global.langmap, "manual.rules.content", "Of course, every online game has rules to follow:");
 		ds_map_add(global.langmap, "manual.rules.content2", "- Don't spam (1 minute auto-mute)\n\n- Don't swear\n    (the word will change to *** for others)\n\n- Don't mod the game\n    (Except simple sprite and music changes)\n\n- When recording footage, please enable\n  streamer mode in the OTHER OPTIONS menu");
 		
-		ds_map_add(global.langmap, "manual.lapping", "Lapping (OLD gameplay)");
-		ds_map_add(global.langmap, "manual.lapping.content", "Some levels have a \"lap\" room that can be accessed in the OLD gameplay\nstyle by taunting on the left-most wall of the first room in the level.\n\nThe lap room has a big pizza portal inside. In Pizza Time, you can enter it,\nputting you back at the end of the level, and respawning all the enemies.\n\nAt the expense of a tighter time limit, you can get a lot of points from lapping.");
+		ds_map_add(global.langmap, "manual.lapping", "Lapping");
+		ds_map_add(global.langmap, "manual.lapping.content", "Some levels have a \"lap\" room that can be accessed\nby taunting on the left-most wall of the first room in the level.\n\nThe lap room has a big pizza portal inside. In Pizza Time, you can enter it,\nputting you back at the end of the level, and respawning all the enemies.\n\nAt the expense of a tighter time limit, you can get a lot of points from lapping.");
 		
 		ds_map_add(global.langmap, "manual.credits", "Credits");
 		ds_map_add(global.langmap, "manual.credits.fuckoffptd", "You can't see the credits\nin streamer mode. For safety.");
@@ -342,7 +342,7 @@ function lang_load(lang)
 		ds_map_add(global.langmap, "msg.level.grinch", "Grinch");
 		ds_map_add(global.langmap, "msg.level.sanctum", "La Burrata Temple WIP");
 		
-		ds_map_add(global.langmap, "msg.level.entryway", "Entryway WIP");
+		ds_map_add(global.langmap, "msg.level.entryway", "Entryway");
 		ds_map_add(global.langmap, "msg.level.cotton", "Cottontown WIP");
 		ds_map_add(global.langmap, "msg.level.mines", "Sugarshack Mines WIP");
 		ds_map_add(global.langmap, "msg.level.molasses", "Molasses Swamp WIP");
@@ -368,6 +368,17 @@ function lang_load(lang)
 		ds_map_add(global.langmap, "roomname.hub_outside3d", "Suplex Museum");
 		ds_map_add(global.langmap, "roomname.hub_outside3e", "Freerun");
 		ds_map_add(global.langmap, "roomname.hub_outside4", "Please Just Do Better");
+		
+		ds_map_add(global.langmap, "roomname.sugarytut_1", "The Parlor");
+		ds_map_add(global.langmap, "roomname.sugarytut_2", "Mind The Gap");
+		ds_map_add(global.langmap, "roomname.sugarytut_3", "Mascot Murdering");
+		ds_map_add(global.langmap, "roomname.sugarytut_4", "Slipping Through");
+		ds_map_add(global.langmap, "roomname.sugarytut_5", "Breaking Through");
+		ds_map_add(global.langmap, "roomname.sugarytut_6", "Running Around The Walls");
+		ds_map_add(global.langmap, "roomname.sugarytut_7", "Jumping Superbly");
+		ds_map_add(global.langmap, "roomname.sugarytut_8", ""); // unused
+		ds_map_add(global.langmap, "roomname.sugarytut_9", ""); // also unused
+		ds_map_add(global.langmap, "roomname.sugarytut_10", "Sugar Rush");
 		
 		ds_map_add(global.langmap, "roomname.entryway_secret1", "Points For You");
 		ds_map_add(global.langmap, "roomname.entryway_secret2", "Wet Floor");

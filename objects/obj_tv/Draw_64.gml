@@ -1,5 +1,3 @@
-if live_call() return live_result;
-
 // snick rematch vignette
 if ((room == dungeon_10 or room == dungeon_9 or room == snick_challengeend) && global.snickchallenge && global.snickrematch)
 {
@@ -22,7 +20,7 @@ if jumpscare > -1
         draw_sprite(spr_scares, jumpscareimage, 0, 0);
 }
 
-if room == rm_deltarune or room == rm_darkreveal or !global.showhud
+if room == rm_darkreveal or !global.showhud
 	exit;
 
 // Draw Text
@@ -225,7 +223,7 @@ else
 					
 						surface_set_target(popsurf);
 						draw_clear_alpha(c_black, 0);
-						draw_sprite_tiled(spr_barpop2_ss, 0, -current_time / 30, 0);
+						draw_sprite_tiled(spr_barpop2_ss, 0, (-current_time / 100) + global.combotime, 0);
 						draw_set_colour(#480028);
 						draw_rectangle(112 * b, 0, 112, 32, false);
 						draw_sprite(spr_barpop3_ss, 0, 112 * b, 0);

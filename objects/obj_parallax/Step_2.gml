@@ -1,5 +1,17 @@
 function layer_get_parallax(layer_id)
 {
+	var roomwidth = room_width, roomheight = room_height;
+	var _camx2 = _camx, _camy2 = _camy;
+
+	if instance_exists(obj_camera) && instance_exists(obj_player)
+	&& obj_camera.bound_camera && instance_exists(obj_player.cam)
+	{
+		roomwidth = obj_player.cam_width;
+		roomheight = obj_player.cam_width;
+		_camx2 -= obj_player.cam.x;
+		_camy2 -= obj_player.cam.y;
+	}
+	
 	var n = layer_get_name(layer_id);
 	switch n
 	{
@@ -18,12 +30,33 @@ function layer_get_parallax(layer_id)
 		
 		case "Backgrounds_scroll": return [_camx * 0.25, _camy * 0.25]; break;
 		
+		case "Backgrounds_still1":
+		case "Backgrounds_still2":
+		case "Backgrounds_stillH1":
+		case "Backgrounds_stillH2":
+		case "Backgrounds_stillH3":
+			var p = [0, 0], hor = true;
+			switch n
+			{
+				case "Backgrounds_still1": p = [0.15, 0.15]; break;
+				case "Backgrounds_still2": p = [0.25, 0.25]; break;
+				case "Backgrounds_stillH1": p = [0.25, 0.15]; hor = false; break;
+				case "Backgrounds_stillH2": p = [0.35, 0.15]; hor = false; break;
+				case "Backgrounds_stillH3": p = [0.95, 0.15]; hor = false; break;
+			}
+			if hor
+				var returnx = _camx - clamp(_camx2 * p[0] * (960 / roomwidth), 0, sprite_get_width(layer_background_get_sprite(layer_background_get_id(layer_id))) - 960);
+			else
+				returnx = _camx * p[0];
+			
+			return [returnx, _camy - clamp(_camy2 * p[1] * (540 / roomheight), 0, sprite_get_height(layer_background_get_sprite(layer_background_get_id(layer_id))) - 540)]; break;
+		
 		// pinpan moment
 		case "Backgrounds_steamcc1": return [_camx * 0.95, _camy * 0.95]; break;
-		case "Backgrounds_steamcc2": return [_camx * 0.8, _camy * 0.8]; break;
+		case "Backgrounds_steamcc2": return [_camx * 0.75, _camy * 0.75]; break;
 		case "Backgrounds_steamcc3": return [_camx * -0.25, (room_height - 560) + ((room_height - (_camy + _camh)) * 0.25)]; break;
-		case "Backgrounds_steamcc4": return [_camx * 0.4, (room_height - 540) + ((room_height - (_camy + _camh)) * -0.4)]; break;
-		case "Backgrounds_steamcc5": return [_camx * 0.7, _camy * 0.7]; break;
+		case "Backgrounds_steamcc4": return [_camx * 0.35, (room_height - 540) + ((room_height - (_camy + _camh)) * -0.35)]; break;
+		case "Backgrounds_steamcc5": return [_camx * 0.65, _camy * 0.65]; break;
 	}
 	return [0, 0];
 }
@@ -40,44 +73,5 @@ for(var i = 0; i < array_length(global.roombgs); i++)
 	
 	layer_x(l.lay, floor(l.x + parallax[0]));
 	layer_y(l.lay, floor(l.y + parallax[1]));
-}
-
-// legacy layers that i can't bother changing
-var roomwidth = room_width, roomheight = room_height;
-var _camx2 = _camx, _camy2 = _camy;
-
-if instance_exists(obj_camera) && instance_exists(obj_player)
-&& obj_camera.bound_camera && instance_exists(obj_player.cam)
-{
-	roomwidth = obj_player.cam_width;
-	roomheight = obj_player.cam_width;
-	_camx2 -= obj_player.cam.x;
-	_camy2 -= obj_player.cam.y;
-}
-
-if layer_exists("Backgrounds_still1")
-{
-	layer_x("Backgrounds_still1", _camx - clamp(_camx2 * 0.15 * (960 / roomwidth), 0, sprite_get_width(layer_background_get_sprite(layer_background_get_id(layer_get_id("Backgrounds_still1")))) - 960));
-	layer_y("Backgrounds_still1", _camy - clamp(_camy2 * 0.15 * (540 / roomheight), 0, sprite_get_height(layer_background_get_sprite(layer_background_get_id(layer_get_id("Backgrounds_still1")))) - 540));
-}
-if layer_exists("Backgrounds_still2")
-{
-	layer_x("Backgrounds_still2", _camx - clamp(_camx2 * 0.25 * (960 / roomwidth), 0, sprite_get_width(layer_background_get_sprite(layer_background_get_id(layer_get_id("Backgrounds_still1")))) - 960));
-	layer_y("Backgrounds_still2", _camy - clamp(_camy2 * 0.25 * (540 / roomheight), 0, sprite_get_height(layer_background_get_sprite(layer_background_get_id(layer_get_id("Backgrounds_still1")))) - 540));
-}
-if layer_exists("Backgrounds_stillH1")
-{
-	layer_x("Backgrounds_stillH1", _camx * 0.25);
-	layer_y("Backgrounds_stillH1", _camy - clamp(_camy2 * 0.15 * (540 / roomheight), 0, sprite_get_height(layer_background_get_sprite(layer_background_get_id(layer_get_id("Backgrounds_stillH1")))) - 540));
-}
-if layer_exists("Backgrounds_stillH2")
-{
-	layer_x("Backgrounds_stillH2", _camx * 0.35);
-	layer_y("Backgrounds_stillH2", _camy - clamp(_camy2 * 0.15 * (540 / roomheight), 0, sprite_get_height(layer_background_get_sprite(layer_background_get_id(layer_get_id("Backgrounds_stillH2")))) - 540));
-}
-if layer_exists("Backgrounds_stillH3")
-{
-	layer_x("Backgrounds_stillH3", _camx * 0.95);
-	layer_y("Backgrounds_stillH3", _camy - clamp(_camy2 * 0.15 * (540 / roomheight), 0, sprite_get_height(layer_background_get_sprite(layer_background_get_id(layer_get_id("Backgrounds_stillH3")))) - 540));
 }
 

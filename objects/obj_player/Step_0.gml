@@ -587,6 +587,7 @@ or (state == states.handstandjump)
 or (state == states.Sjump && scr_stylecheck(0, 2))
 or (state == states.chainsaw && mach2 >= 100)
 or (state == states.cotton && (sprite_index == spr_cotton_attack or movespeed > 6))
+or (state == states.pogo && character == "SP" && pogospeed >= 12)
 {
 	if !macheffect
 	{

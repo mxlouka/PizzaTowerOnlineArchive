@@ -46,15 +46,15 @@ function scr_player_crouchslide()
 				sprite_index = spr_jump
 				momentum = true
 				
-				if shotgunAnim
+				if shotgunAnim && character != "SP"
 					sprite_index = spr_shotgunjump
 				with instance_create(x, y, obj_highjumpcloud2)
 					image_xscale = other.xscale
 		
 				vsp = -11
-		
+				
 				state = states.jump
-		
+				
 				image_index = 0
 				jumpAnim = true
 			}

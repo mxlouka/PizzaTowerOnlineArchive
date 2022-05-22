@@ -20,3 +20,4 @@ diagsound = sfx_antonstep3;
 diagsound_p = -1;
 
 depth = -10001;
+

@@ -30,7 +30,7 @@ if (sprite_index != _spr_intro or _spr_intro == _spr_run)
 && (sprite_index != spr_taunt or spr_taunt == -1)
 {
 	// Sprites
-	if abs(x - xprevious) > 2
+	if x - xprevious != 0
 	{
 		sprite_index = _spr_run;
 		xscale = sign(x - xprevious);

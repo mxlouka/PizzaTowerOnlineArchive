@@ -70,7 +70,7 @@
   "nineSlice": null,
   "parent": {
     "name": "molasses",
-    "path": "folders/Sprites/tilesets/SUGARY SPIRE/molasses.yy",
+    "path": "folders/Sprites/SUGARY SPIRE/tilesets/molasses.yy",
   },
   "resourceVersion": "1.0",
   "name": "tile_molasses1",

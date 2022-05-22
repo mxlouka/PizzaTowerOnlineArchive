@@ -90,7 +90,7 @@
   "nineSlice": null,
   "parent": {
     "name": "flingfrog",
-    "path": "folders/Sprites/sugary spire/baddie/flingfrog.yy",
+    "path": "folders/Sprites/SUGARY SPIRE/baddie/flingfrog.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_flingfrogmadtire",

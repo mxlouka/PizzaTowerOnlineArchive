@@ -1,5 +1,3 @@
-if live_call() return live_result;
-
 scr_getinput(true);
 xoffset = lerp(xoffset, 0, 0.25);
 yoffset = lerp(yoffset, 0, 0.25);

@@ -1212,14 +1212,14 @@ function scr_characterspr(char = character)
 
 				spr_slipnslide = spr_playerSP_slipnslide
 				
-				spr_facehurtup = spr_playerSP_facehurt
+				spr_facehurtup = spr_playerSP_facehurtup
 				spr_facehurt = spr_playerSP_facehurt
 				
 				spr_walljumpend = spr_playerSP_mach2jump
 				spr_suplexdash = spr_playerSP_suplexdash
 				spr_suplexdashjumpstart = spr_playerSP_suplexgrabjump
 				spr_suplexdashjump = spr_playerSP_suplexgrabjump
-				spr_shotgunsuplexdash = spr_shotgun_suplexdash
+				spr_shotgunsuplexdash = spr_playerSP_canesuplex
 				
 				spr_rollgetup = spr_playerSP_rollgetup
 				
@@ -1247,17 +1247,17 @@ function scr_characterspr(char = character)
 				spr_facestomp = spr_playerSP_machfreefall1
 				spr_freefall = spr_playerSP_machfreefall2
 				
-				spr_shotgunland = spr_shotgun_land
-				spr_shotgunshoot = spr_player_shotgun
-				spr_shotgunidle = spr_shotgun_idle
-				spr_shotgunwalk = spr_shotgun_walk
+				spr_shotgunland = spr_playerSP_land
+				spr_shotgunshoot = spr_playerSP_canehit
+				spr_shotgunidle = spr_playerSP_caneidle
+				spr_shotgunwalk = spr_playerSP_canewalk
 				spr_shotgunfall = spr_shotgun_fall
 				spr_shotgunjump = spr_shotgun_jump
-				spr_shotgunjump1 = spr_player_shotgunjump1
+				spr_shotgunjump1 = spr_playerSP_canefall
 				spr_shotgunjump2 = spr_player_shotgunjump2
-				spr_shotgunjump3 = spr_player_shotgunjump3
-				spr_shotgunpullout = spr_shotgun_pullout
-
+				spr_shotgunjump3 = spr_playerSP_caneslam
+				spr_shotgunpullout = spr_playerSP_caneidle
+				
 				spr_shotgunduck = spr_shotgun_duck
 				spr_shotguncrawl = spr_shotgun_crawl
 				spr_shotgungoduck = spr_shotgun_goduck

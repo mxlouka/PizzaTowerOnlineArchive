@@ -35,6 +35,12 @@ if !oldhallway
 			x = doortarget.x + (hallwaydirection * 100);
 		else if box
 			x = doortarget.x + 32;
+		else if verticalhallway
+		{
+			x = doortarget.x + vhallwaypos;
+			if scr_solid_player(x, y)
+				x = doortarget.x + 18;
+		}
 		else
 			x = doortarget.x + 18;
 		y = doortarget.y - 14;

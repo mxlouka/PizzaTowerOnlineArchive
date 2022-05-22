@@ -73,7 +73,7 @@
   "nineSlice": null,
   "parent": {
     "name": "coneboy",
-    "path": "folders/Sprites/sugary spire/baddie/coneboy.yy",
+    "path": "folders/Sprites/SUGARY SPIRE/baddie/coneboy.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_coneboy",

@@ -16,11 +16,11 @@ if (pause or pausefad == 2 or pausefad == 4)
 			pausealpha = 0;
 		}
 		
-		draw_sprite_ext(pausebg, 0, 0, 0, 0.5, 0.5, 0, c_white, 1);
+		draw_sprite_stretched(pausebg, 0, 0, 0, 960, 540);
 		
 		draw_set_colour(c_black);
 		draw_set_alpha(pausealpha);
-		draw_rectangle(-64, -64, 960 + 64, 540 + 64, false);
+		draw_rectangle(0, 0, 960, 540, false);
 		draw_set_alpha(1);
 	}
 	else if sprite_exists(pausebg)
@@ -40,7 +40,7 @@ if (pause or pausefad == 2 or pausefad == 4)
 		
 		draw_set_colour(c_black);
 		draw_set_alpha(pausealpha);
-		draw_rectangle(-64, -64, 960 + 64, 540 + 64, false);
+		draw_rectangle(0, 0, 960, 540, false);
 		draw_set_alpha(1);
 	}
 	if pausefad == 3
@@ -56,6 +56,9 @@ if (pause or pausefad == 2 or pausefad == 4)
 		var s = 72;
 		x = (x + 0.5) % s;
 		
+		// yeah thats right bitch double surface what are you gonna do about that huh
+		if !surface_exists(pausesurf)
+			pausesurf = surface_create(960, 540);
 		if !surface_exists(surf)
 			surf = surface_create(s * 2, s * 2);
 		
@@ -66,7 +69,11 @@ if (pause or pausefad == 2 or pausefad == 4)
 		draw_roundrect_ext(s, s, s + s - 1, s + s - 1, 16, 16, false);
 		surface_reset_target();
 		
+		surface_set_target(pausesurf);
 		draw_surface_tiled(surf, x, x);
+		surface_reset_target();
+		
+		draw_surface(pausesurf, 0, 0);
 		
 		if !instance_exists(obj_option)
 		{

@@ -170,7 +170,7 @@
   "nineSlice": null,
   "parent": {
     "name": "new",
-    "path": "folders/Sprites/sugary spire/toppin/new.yy",
+    "path": "folders/Sprites/SUGARY SPIRE/toppin/new.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_toppincandy_panic_NEW",

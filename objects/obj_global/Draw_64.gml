@@ -12,7 +12,7 @@ if global.showfps
 }
 
 // topping counter
-if global.modifier == mods.no_toppings && !instance_exists(obj_choicebase)
+if global.modifier == mods.no_toppings && !instance_exists(obj_choicebase) && !(instance_exists(obj_pause) && (obj_pause.pause or obj_pause.pausefad == 2 or obj_pause.pausefad == 4))
 {
 	draw_set_font(global.bigfont);
 	draw_set_colour(global.failedmod ? c_red : c_white);

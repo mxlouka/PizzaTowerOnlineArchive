@@ -3,3 +3,4 @@ visited = false
 
 targetRoom = room
 targetDoor = "A"
+

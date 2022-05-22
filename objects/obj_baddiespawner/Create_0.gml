@@ -9,5 +9,8 @@ grounded = false
 grav = 0.5
 
 if check_sugary()
+{
+	refresh = 0
 	sprite_index = spr_baddiespawner_ss;
+}
 

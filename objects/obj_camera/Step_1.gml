@@ -27,12 +27,12 @@ limitcam[1] = Approach(limitcam[1], 0, 32);
 limitcam[2] = Approach(limitcam[2], room_width, 32);
 limitcam[3] = Approach(limitcam[3], room_height, 32);
 
-if limitcam[0] < _camx - 32
+if limitcam[0] < _camx - 64
 	limitcam[0] = 0;
-if limitcam[1] < _camy - 32
+if limitcam[1] < _camy - 64
 	limitcam[1] = 0;
-if limitcam[2] > _camx + _camw + 32
+if limitcam[2] > _camx + _camw + 64
 	limitcam[2] = room_width;
-if limitcam[3] > _camy + _camh + 32
+if limitcam[3] > _camy + _camh + 64
 	limitcam[3] = room_height;
 

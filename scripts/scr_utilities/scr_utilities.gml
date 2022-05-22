@@ -51,7 +51,6 @@ function instance_in_camera(inst = id, cam = view_camera[0])
 			yy + sprite_get_bbox_top(inst.sprite_index), 
 		camx, camy, camx + camw, camy + camh);
 	}
-	
 	return result;
 }
 
@@ -69,11 +68,13 @@ function check_sugary(rmin = room)
 	if rmin == room && !sugaryspire
 		return false;
 	
-	return rmin == hub_roomSP
+	if rmin == hub_roomSP
 	or string_startswith(room_get_name(rmin), "cotton_")
 	or string_startswith(room_get_name(rmin), "mines_")
 	or string_startswith(room_get_name(rmin), "entryway_")
 	or string_startswith(room_get_name(rmin), "molasses_")
+		return true;
+	return false;
 }
 
 function gp_vibration(left, right, dec)
@@ -93,9 +94,9 @@ function increase_combo()
 	var funny = true;
 	if variable_instance_exists(id, "baddieID")
 	&& instance_exists(baddieID)
-		if baddieID.important or baddieID.object_index == obj_pizzaballOLD or baddieID.object_index == obj_pizzaboy or baddieID.object_index == obj_coneboy or !baddieID.killreward then funny = false;
+		if baddieID.important or baddieID.object_index == obj_pizzaballOLD or !baddieID.killreward then funny = false;
 	if variable_instance_exists(id, "boundbox")
-		if important or object_index == obj_pizzaballOLD or object_index == obj_pizzaboy or object_index == obj_coneboy or !killreward then funny = false;
+		if important or object_index == obj_pizzaballOLD or !killreward then funny = false;
 	
 	if global.gameplay != 0 && funny
 	{
@@ -171,11 +172,49 @@ function scr_hitthrow(baddie, player, lag = 5)
 
 function create_heatattack_afterimage(x, y, sprite, index, xscale)
 {
+	var velocity = 6;
 	with instance_create(x, y, obj_enemyafterimage)
 	{
 		parent = other.id;
 		sprite_index = sprite;
 		image_index = index;
 		image_xscale = xscale;
+		hspeed = velocity;
+		alarm[0] = 8;
+		alarm[1] = -1;
+        alarm[2] = -1;
+	}
+	with instance_create(x, y, obj_enemyafterimage)
+	{
+		parent = other.id;
+		sprite_index = sprite;
+		image_index = index;
+		image_xscale = xscale;
+		hspeed = -velocity;
+		alarm[0] = 8;
+		alarm[1] = -1;
+        alarm[2] = -1;
+	}
+	with instance_create(x, y, obj_enemyafterimage)
+	{
+		parent = other.id;
+		sprite_index = sprite;
+		image_index = index;
+		image_xscale = xscale;
+		vspeed = velocity;
+		alarm[0] = 8;
+		alarm[1] = -1;
+        alarm[2] = -1;
+	}
+	with instance_create(x, y, obj_enemyafterimage)
+	{
+		parent = other.id;
+		sprite_index = sprite;
+		image_index = index;
+		image_xscale = xscale;
+		vspeed = -velocity;
+		alarm[0] = 8;
+		alarm[1] = -1;
+        alarm[2] = -1;
 	}
 }

@@ -81,7 +81,7 @@
   "nineSlice": null,
   "parent": {
     "name": "ladder",
-    "path": "folders/Sprites/sugary spire/ladder.yy",
+    "path": "folders/Sprites/SUGARY SPIRE/ladder.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_ladderSP_rope",

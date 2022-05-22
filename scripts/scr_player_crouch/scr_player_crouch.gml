@@ -40,13 +40,13 @@ function scr_player_crouch()
 	{
 		crouchAnim = false;
 		if move == 0
-			sprite_index = !shotgunAnim ? spr_crouch : spr_shotgunduck;
+			sprite_index = !shotgunAnim or character == "SP" ? spr_crouch : spr_shotgunduck;
 		else
-			sprite_index = !shotgunAnim ? spr_crawl : spr_shotguncrawl;
+			sprite_index = !shotgunAnim or character == "SP" ? spr_crawl : spr_shotguncrawl;
 	}
 	else
 	{
-		sprite_index = !shotgunAnim ? spr_couchstart : spr_shotgungoduck;
+		sprite_index = !shotgunAnim or character == "SP" ? spr_couchstart : spr_shotgungoduck;
 		if floor(image_index) >= image_number - 1
 			crouchAnim = false;
 	}
@@ -74,12 +74,14 @@ function scr_player_crouch()
 
 	if scr_slope() && key_down
 	{
-		movespeed = 14
-		with instance_place(x, y + 2, obj_slope)
-			other.xscale = -sign(image_xscale)
-		
-		state = states.tumble
-		sprite_index = spr_tumblestart
+		var slope = instance_place(x, y + 2, obj_slope);
+		if abs(slope.image_xscale) <= abs(slope.image_yscale)
+		{
+			xscale = -sign(slope.image_xscale)
+			movespeed = 14
+			state = states.tumble
+			sprite_index = spr_tumblestart
+		}
 	}
 	
 	//Noise Bomb Kick

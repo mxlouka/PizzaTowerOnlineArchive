@@ -98,14 +98,14 @@ function scr_player_freefall()
 		}
 
 	//Normal
-	if grounded  && !(input_buffer_jump < 8) && (!place_meeting(x, y + 1, obj_destructibles)
+	if grounded  && !(input_buffer_jump < 8) && ((!place_meeting(x, y + 1, obj_destructibles) && (!place_meeting(x, y + 1, obj_targetblock) or !(character == "SP" && shotgunAnim)))
 	or (!place_meeting(x, y, obj_platform) && place_meeting(x, y + 1, obj_platform)))
 	{
 		audio_stop_sound(sfx_groundpound)
 		scr_soundeffect(sfx_groundpound)
-		freefallsmash= 0
+		freefallsmash = 0
 		
-		if shotgunAnim = false
+		if !shotgunAnim or character == "SP"
 			sprite_index = spr_bodyslamland
 		else
 			sprite_index = spr_shotgunjump2
@@ -115,7 +115,7 @@ function scr_player_freefall()
 		jumpAnim = true
 		jumpstop = false
 			
-		with (obj_baddie)
+		with obj_baddie
 		{
 			if global.gameplay == 0 or object_index == obj_pizzaballOLD
 			{
@@ -131,22 +131,18 @@ function scr_player_freefall()
 				}
 			}
 		}
-	    with (obj_camera) {
-			shake_mag=10;
-			shake_mag_acc=30/room_speed;
+	    with obj_camera
+		{
+			shake_mag = 10;
+			shake_mag_acc = 30 / room_speed;
 		}
-			
+		
 	    combo = 0
 	    bounce = false
-    
-
-   
-
-	    instance_create(x,y,obj_landcloud)
+		
+	    instance_create(x, y, obj_landcloud)
 	    freefallstart = 0
-
-
 	}
-
 	image_speed = 0.35
 }
+

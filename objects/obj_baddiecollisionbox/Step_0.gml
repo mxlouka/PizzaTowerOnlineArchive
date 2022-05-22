@@ -114,19 +114,19 @@ if player && !player.cutscene && (player.state != states.firemouth or global.gam
 		//Attack
 		else if instance_exists(bad) && (state == states.handstandjump && sprite_index != spr_attackdash && sprite_index != spr_airattackstart && sprite_index != spr_airattack) && !bad.invincible && character != "S"
 		{
-			if (!bad.thrown or global.gameplay != 0) // && (character = "P" or character = "N" or character == "SP" or bad.object_index == obj_pizzaballOLD)
+			if (!bad.thrown or global.gameplay != 0) && !(character == "SP" && shotgunAnim && !key_slap) // && (character = "P" or character = "N" or character == "SP" or bad.object_index == obj_pizzaballOLD)
 			{
 				movespeed = 0
 				image_index = 0
 				sprite_index = spr_haulingstart
-					
+				
 				state = states.grab
 				if character == "SP"
 					scr_soundeffect(sfx_grabenemy_ss)
-					
+				
 				bad.state = states.grabbed
 				bad.grabbedby = 1
-					
+				
 				baddiegrabbedID = bad
 			}
 			else
@@ -152,9 +152,9 @@ if player && !player.cutscene && (player.state != states.firemouth or global.gam
 				if bad.object_index == obj_pizzaballOLD
 					global.golfhit += 1;
 				scr_soundeffect(sfx_killingblow)
-					
-				scr_pummel(false);
+				
 				movespeed = 0;
+				scr_pummel(character == "SP");
 					
 				scr_throwenemy(bad);
 			}

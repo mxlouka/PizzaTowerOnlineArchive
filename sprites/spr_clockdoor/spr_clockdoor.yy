@@ -73,7 +73,7 @@
   "nineSlice": null,
   "parent": {
     "name": "door",
-    "path": "folders/Sprites/sugary spire/door.yy",
+    "path": "folders/Sprites/SUGARY SPIRE/door.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_clockdoor",

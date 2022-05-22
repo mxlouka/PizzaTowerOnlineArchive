@@ -69,8 +69,8 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "generalobjects",
-    "path": "folders/Sprites/generalobjects.yy",
+    "name": "collectibles",
+    "path": "folders/Sprites/generalobjects/collectibles.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_shotgunback",

@@ -40,6 +40,7 @@ spr_dead = spr_robot_dead
 important = false
 heavy = false
 depth = 0
+sprite_index = walkspr
 
 spr_palette = spr_robot_palette
 paletteselect = 0

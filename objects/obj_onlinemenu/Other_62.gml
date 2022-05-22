@@ -1,5 +1,3 @@
-if live_call() return live_result;
-
 if ds_map_find_value(async_load, "id") == request
 {
 	if async_load[?"status"] == 0

@@ -85,7 +85,7 @@
   "nineSlice": null,
   "parent": {
     "name": "charcherry",
-    "path": "folders/Sprites/sugary spire/baddie/charcherry.yy",
+    "path": "folders/Sprites/SUGARY SPIRE/baddie/charcherry.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_charcherry_run",

@@ -97,7 +97,7 @@
   "nineSlice": null,
   "parent": {
     "name": "toppin",
-    "path": "folders/Sprites/sugary spire/toppin.yy",
+    "path": "folders/Sprites/SUGARY SPIRE/toppin.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_toppinmallow",

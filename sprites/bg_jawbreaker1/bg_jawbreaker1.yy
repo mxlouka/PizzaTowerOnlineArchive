@@ -73,7 +73,7 @@
   "nineSlice": null,
   "parent": {
     "name": "mines",
-    "path": "folders/Sprites/tilesets/SUGARY SPIRE/mines.yy",
+    "path": "folders/Sprites/SUGARY SPIRE/tilesets/mines.yy",
   },
   "resourceVersion": "1.0",
   "name": "bg_jawbreaker1",

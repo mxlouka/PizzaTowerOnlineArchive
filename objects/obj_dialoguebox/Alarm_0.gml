@@ -1,5 +1,3 @@
-if live_call() return live_result;
-
 writer++;
 if writer < string_length(dialogue[curdiag])
 {

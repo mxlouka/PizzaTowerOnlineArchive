@@ -5,7 +5,10 @@
   },
   "solid": false,
   "visible": true,
-  "spriteMaskId": null,
+  "spriteMaskId": {
+    "name": "spr_shotgun",
+    "path": "sprites/spr_shotgun/spr_shotgun.yy",
+  },
   "persistent": false,
   "parentObjectId": null,
   "physicsObject": false,

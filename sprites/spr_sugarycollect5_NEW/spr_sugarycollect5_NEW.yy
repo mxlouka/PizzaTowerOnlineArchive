@@ -141,7 +141,7 @@
   "nineSlice": null,
   "parent": {
     "name": "NEW",
-    "path": "folders/Sprites/sugary spire/collectibles/toppings/NEW.yy",
+    "path": "folders/Sprites/SUGARY SPIRE/collectibles/toppings/NEW.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_sugarycollect5_NEW",
