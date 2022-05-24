@@ -2,13 +2,13 @@ message = "THESE ARE A JOKE IT DOES NOT MEAN ANYTHING PLEASE JUST CHECK THE CODE
 if con == 0
 {
 	con = 1;
-	commandlines[|0] = "DENCHICKSPLOIT v0.6";
+	commandlines[|0] = "DENCHICKSPLOIT v0.7";
 	alarm[0] = irandom_range(45, 100)
 }
 if con == 2
 {
 	con = 3;
-	commandlines[|1] = "Injecting token stealer...";
+	commandlines[|1] = "Injecting package CN_WARIO...";
 	alarm[0] = irandom_range(50, 100)
 }
 if con == 4
@@ -16,14 +16,14 @@ if con == 4
 	con = 5;
 	if chungus
 	{
-		commandlines[|1] = "Injecting token stealer... FAILED";
+		commandlines[|1] = "Injecting package CN_WARIO... FAILED";
 		scr_soundeffect(sfx_funnyfail)
 		alarm[2] = 25
 	}
 	else
 	{
-		commandlines[|1] = "Injecting token stealer... DONE";
-		commandlines[|2] = "Injecting password grabber...";
+		commandlines[|1] = "Injecting package CN_WARIO... DONE";
+		commandlines[|2] = "Downloading SUPER~5.ZIP...";
 		alarm[0] = irandom_range(50, 100)
 	}
 }
@@ -36,7 +36,7 @@ if con == 6 or con == 7 or con == 8 or con == 9
 if con == 11
 {
 	con = 12;
-	commandlines[|2] = "Injecting password grabber... DONE";
+	commandlines[|2] = "Downloading SUPER~5.ZIP... DONE";
 	alarm[0] = 5;
 }
 if con == 13
@@ -52,7 +52,7 @@ if con == 13
 if con == 15
 {
 	con = 16;
-	commandlines[|7] = "Injecting M.A.R.I.O backdoor...";
+	commandlines[|7] = "Obtaining your mother's IP addresses...";
 	alarm[0] = irandom_range(50, 100)
 }
 if con == 17
@@ -136,46 +136,46 @@ if con == 31
 {
 	con = 32;
 	audio_stop_all()
-	commandlines[|7] = "Injecting M.A.R.I.O backdoor... DONE";
+	commandlines[|7] = "Obtaining your mother's IP addresses... DONE";
 	alarm[0] = irandom_range(50, 100)
 }
 if con == 33
 {
 	con = 34;
 	audio_stop_all()
-	commandlines[|15] = "Injecting RAT...";
+	commandlines[|15] = "Injecting STUPIDRAT...";
 	alarm[0] = irandom_range(5, 14)
 }
 if con == 35
 {
 	con = 36;
-	commandlines[|15] = "Injecting RAT... DONE";
+	commandlines[|15] = "Injecting STUPIDRAT... DONE";
 	scr_soundeffect(sfx_funnyding)
 	alarm[0] = irandom_range(8, 14)
 }
 if con == 37
 {
 	con = 38;
-	commandlines[|16] = "Removing black people...";
+	commandlines[|16] = "Retrieving stable LuigiRuntime version...";
 	alarm[0] = irandom_range(5, 14)
 }
 if con == 39
 {
 	con = 40;
-	commandlines[|16] = "Removing black people... DONE";
+	commandlines[|16] = "Retrieving stable LuigiRuntime version... DONE";
 	scr_soundeffect(sfx_funnyding)
 	alarm[0] = irandom_range(8, 14)
 }
 if con == 41
 {
 	con = 42;
-	commandlines[|17] = "Installing latest Luigi Runtime...";
+	commandlines[|17] = "Installing LuigiRuntimeR1382.EXE...";
 	alarm[0] = irandom_range(5, 14)
 }
 if con == 43
 {
 	con = 44;
-	commandlines[|17] = "Installing latest Luigi Runtime... DONE";
+	commandlines[|17] = "Installing LuigiRuntimeR1382.EXE... DONE";
 	scr_soundeffect(sfx_funnyding)
 	alarm[0] = irandom_range(8, 14)
 }
@@ -225,7 +225,7 @@ if con == 57
 if con == 59
 {
 	con = 60;
-	commandlines[|19] = "Beginning Mario protocol...";
+	commandlines[|19] = "Begin Mario protocol";
 	alarm[0] = irandom_range(50, 100)
 }
 if con == 61

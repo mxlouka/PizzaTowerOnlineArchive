@@ -1,2 +1,2 @@
-targetRoom = rm_denchick;
+targetRoom = rm_msdosjokesequence;
 

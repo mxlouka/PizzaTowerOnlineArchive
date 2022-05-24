@@ -34,7 +34,7 @@
     "path": "folders/Objects/pto stuff.yy",
   },
   "resourceVersion": "1.0",
-  "name": "obj_denchick",
+  "name": "obj_msdosjokesequence",
   "tags": [],
   "resourceType": "GMObject",
 }

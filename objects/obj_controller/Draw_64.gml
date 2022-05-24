@@ -18,7 +18,7 @@ if disconnected
 	var desc = "Press any button to continue.";
 	if room == rm_mariohell
 		desc = "Looking for secrets?";
-	if room == rm_denchick
+	if room == rm_msdosjokesequence
 		desc = "You were so mesmerized by Denchicksploit v0.6 that you\njumped and unplugged your controller on accident.";
 	
 	draw_set_font(global.font_small);

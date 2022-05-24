@@ -5,9 +5,9 @@ if check_online()
 	gms_logout();
 chungus = file_exists("mario_information");
 
-if room != rm_denchick
+if room != rm_msdosjokesequence
 {
-	room_goto(rm_denchick);
+	room_goto(rm_msdosjokesequence);
 	exit;
 }
 application_surface_draw_enable(true);
