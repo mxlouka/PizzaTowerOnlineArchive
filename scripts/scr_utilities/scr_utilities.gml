@@ -73,6 +73,7 @@ function check_sugary(rmin = room)
 	or string_startswith(room_get_name(rmin), "mines_")
 	or string_startswith(room_get_name(rmin), "entryway_")
 	or string_startswith(room_get_name(rmin), "molasses_")
+	or string_startswith(room_get_name(rmin), "sugarytut_")
 		return true;
 	return false;
 }
