@@ -2,7 +2,7 @@ with other
 {
 	y = min(y, other.y + (other.sprite_height - 46));
 	
-	if !instance_exists(obj_fadeout) && !instance_exists(obj_pausefadeout) && !obj_pause.pause
+	if !instance_exists(obj_fadeout) or obj_fadeout.fadein && !instance_exists(obj_pausefadeout) && !obj_pause.pause
 	{
 		targetDoor = other.targetDoor
 	    targetRoom = other.targetRoom
