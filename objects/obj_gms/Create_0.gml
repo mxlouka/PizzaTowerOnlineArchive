@@ -53,3 +53,4 @@ __author = "author";
 
 minichatfade = 0;
 loadsave = false;
+

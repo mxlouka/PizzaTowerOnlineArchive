@@ -94,13 +94,19 @@ if (place_meeting(x, y, obj_player1) or place_meeting(x, y, obj_antonball)) && o
 		}
 		
 		var toppinname = "TOPPIN" + (5 - global.toppintotal == 1 ? "" : "S");
-		if check_sugary()
+		var sugary = check_sugary();
+		if sugary
 			toppinname = "CONFECTI";
 		
 		with obj_tv
 		{
 			if global.toppintotal < 5
-				message = "YOU NEED " + string(5 - global.toppintotal) + " MORE " + toppinname + "!";
+			{
+				if sugary
+					message = "YOU ARE ONLY MISSING " + string(5 - global.toppintotal) + " CONFECTI!";
+				else
+					message = "YOU NEED " + string(5 - global.toppintotal) + " MORE " + toppinname + "!";
+			}
 			else
 				message = "YOU HAVE ALL " + toppinname + "!";
 			showtext = true;

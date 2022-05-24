@@ -33,6 +33,9 @@ switch sel[1]
 			["BONMARIO", "Property of Bonmario of America INC."],
 			["DRUNKEN", "Don't ask about the clothes."],
 			["ASCENDED PEDDITO", "Likes death, dislikes the livings."],
+			["VIRTUAL BOY", "The long awaited all-red palette."],
+			["GOLDEN", "He removed the pineapple pizza from the menu."],
+			["BLACK", "Ok, they ARE the clothes this time."],
 		];
 		if global.streamer
 		{

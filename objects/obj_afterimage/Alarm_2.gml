@@ -1,5 +1,3 @@
-
-obj_afterimage.image_alpha = 1
-
-alarm[2] =3
+image_alpha = 1
+alarm[1] = 3
 

@@ -12,8 +12,21 @@ if sugary
 {
 	sprite_index = spr_coneball;
 	scr_soundeffect(sfx_coneball);
+	
+	reset_pos = function()
+	{
+		x = obj_player.x + choose(800, -800);
+		y = obj_player.y + choose(800, -800);
+		
+		xx = x - _camx;
+		yy = y - _camy;
+	}
 }
 else
 	scr_soundeffect(sfx_pizzaface);
-siner = 0;
+
+siner = room_speed * random_range(4, 8);
+attack = 0;
+xx = x;
+yy = y;
 

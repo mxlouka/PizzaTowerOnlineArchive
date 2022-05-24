@@ -36,6 +36,14 @@ else if other.object_index == obj_noisegoblin_arrow
 		image_angle += 180;
     }
 }
+else if other.object_index == obj_coneprojectile
+{
+    with other.id
+    {
+        speed *= -1.25;
+		image_angle += 180;
+    }
+}
 else if other.object_index == obj_pizzacutter2 && scr_stylecheck(2)
 {
 	with other.ID

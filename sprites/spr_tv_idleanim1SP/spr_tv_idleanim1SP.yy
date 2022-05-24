@@ -232,8 +232,8 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "sugary",
-    "path": "folders/Sprites/HUD/new hud/tv/pizzelle/sugary.yy",
+    "name": "pizzelle",
+    "path": "folders/Sprites/HUD/new hud/tv/pizzelle.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_tv_idleanim1SP",

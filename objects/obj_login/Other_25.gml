@@ -36,5 +36,6 @@ if real(gms_ini_game_read("game", "version")) > obj_gms.gameversion
 if !debug
 	obj_gms.alarm[1] = 75;
 
-obj_gms.alarm[3] = 75;
+obj_gms.alarm[3] = 1;
 loading = true;
+
