@@ -22,15 +22,15 @@ if (other.state = states.handstandjump or other.state = states.punch or other.in
 
 if sprite_index == spr_gustavo_showpizza
 {
-    sprite_index = spr_gustavo_givepizza;
-    image_index = 0;
+	sprite_index = spr_gustavo_givepizza;
+	image_index = 0;
 	
-    global.showgnomelist = true;
-    global.failcutscene = false;
-    global.pizzadelivery = true;
+	global.showgnomelist = true;
+	global.failcutscene = false;
+	global.pizzadelivery = true;
 	
-    global.hp = 8;
+	global.hp = 8;
 	global.heattime = 60;
 	
-    state = states.normal;
+	state = states.normal;
 }

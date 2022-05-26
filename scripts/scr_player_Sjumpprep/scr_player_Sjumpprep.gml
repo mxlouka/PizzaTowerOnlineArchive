@@ -48,7 +48,7 @@ function scr_player_Sjumpprep() {
 		
 			if sprite_index == spr_superjumppreplight
 			{
-	            movespeed = 1;
+				movespeed = 1;
 				if scr_stylecheck(2)
 					movespeed = 2; // lil' speed up why not
 			}

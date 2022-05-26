@@ -22,15 +22,14 @@ targetoverride = noone
 targetgoingback = false
 
 // get all background layers in the room
-global.roombgs = [];
+ds_list_clear(global.roombgs);
 var l = layer_get_all();
 for (var i = 0; i < array_length(l); i++;)
 {
 	var lbg = layer_background_get_id(l[i]);
 	if lbg != -1
 	{
-		array_push(global.roombgs,
-		{
+		ds_list_add(global.roombgs, {
 			lay : l[i],
 			bg : lbg,
 			x : layer_get_x(l[i]),

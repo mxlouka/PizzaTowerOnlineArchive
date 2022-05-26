@@ -183,7 +183,7 @@ function create_heatattack_afterimage(x, y, sprite, index, xscale)
 		hspeed = velocity;
 		alarm[0] = 8;
 		alarm[1] = -1;
-        alarm[2] = -1;
+		alarm[2] = -1;
 	}
 	with instance_create(x, y, obj_enemyafterimage)
 	{
@@ -194,7 +194,7 @@ function create_heatattack_afterimage(x, y, sprite, index, xscale)
 		hspeed = -velocity;
 		alarm[0] = 8;
 		alarm[1] = -1;
-        alarm[2] = -1;
+		alarm[2] = -1;
 	}
 	with instance_create(x, y, obj_enemyafterimage)
 	{
@@ -205,7 +205,7 @@ function create_heatattack_afterimage(x, y, sprite, index, xscale)
 		vspeed = velocity;
 		alarm[0] = 8;
 		alarm[1] = -1;
-        alarm[2] = -1;
+		alarm[2] = -1;
 	}
 	with instance_create(x, y, obj_enemyafterimage)
 	{
@@ -216,6 +216,6 @@ function create_heatattack_afterimage(x, y, sprite, index, xscale)
 		vspeed = -velocity;
 		alarm[0] = 8;
 		alarm[1] = -1;
-        alarm[2] = -1;
+		alarm[2] = -1;
 	}
 }

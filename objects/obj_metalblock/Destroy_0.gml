@@ -30,8 +30,8 @@ if ds_list_find_index(global.saveroom, id) == -1
 	
 	with obj_camera
 	{
-	    shake_mag = 20;
-	    shake_mag_acc = 40 / room_speed;
+		shake_mag = 20;
+		shake_mag_acc = 40 / room_speed;
 	}
 	gp_vibration(1, 1, 0.8);
 	

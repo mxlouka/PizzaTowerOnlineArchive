@@ -50,29 +50,29 @@ if WC_showinvisible
 {
 	with all
 	{
-	    if sprite_exists(sprite_index)
-	    {
+		if sprite_exists(sprite_index)
+		{
 			// pt exclusive
-	        if variable_instance_exists(self, "xscale")
-	        {
-	            if variable_instance_exists(self, "yscale")
-	                draw_sprite_ext(sprite_index, image_index, x, y, xscale, yscale, image_angle, image_blend, 0.75);
-	            else
-	                draw_sprite_ext(sprite_index, image_index, x, y, xscale, image_yscale, image_angle, image_blend, 0.75);
-	        }
-	        else if variable_instance_exists(self, "yscale")
-	            draw_sprite_ext(sprite_index, image_index, x, y, image_xscale, yscale, image_angle, image_blend, 0.75);
-	        else
-	            draw_sprite_ext(sprite_index, image_index, x, y, image_xscale, image_yscale, image_angle, image_blend, 0.75);
+			if variable_instance_exists(self, "xscale")
+			{
+				if variable_instance_exists(self, "yscale")
+					draw_sprite_ext(sprite_index, image_index, x, y, xscale, yscale, image_angle, image_blend, 0.75);
+				else
+					draw_sprite_ext(sprite_index, image_index, x, y, xscale, image_yscale, image_angle, image_blend, 0.75);
+			}
+			else if variable_instance_exists(self, "yscale")
+				draw_sprite_ext(sprite_index, image_index, x, y, image_xscale, yscale, image_angle, image_blend, 0.75);
+			else
+				draw_sprite_ext(sprite_index, image_index, x, y, image_xscale, image_yscale, image_angle, image_blend, 0.75);
 		}
-	    else
-	    {
-	        draw_set_alpha(1);
-	        draw_set_colour(c_white);
+		else
+		{
+			draw_set_alpha(1);
+			draw_set_colour(c_white);
 			draw_set_valign(fa_middle);
-	        draw_text(x, y, object_get_name(object_index));
+			draw_text(x, y, object_get_name(object_index));
 			draw_set_valign(fa_top);
-	    }
+		}
 	}
 }
 
@@ -92,26 +92,26 @@ if instance_exists(WC_debugselected) && WC_debugselected != global && WC_debugin
 	if sprite_exists(WC_debugselected.sprite_index)
 	{
 		// redraw sprite
-	    if !WC_debugselected.visible or WC_debugselected.image_alpha <= 0
+		if !WC_debugselected.visible or WC_debugselected.image_alpha <= 0
 		{
 			// pt exclusive
-		    if variable_instance_exists(WC_debugselected, "xscale")
-		    {
-		        if variable_instance_exists(WC_debugselected, "yscale")
-		            draw_sprite_ext(WC_debugselected.sprite_index, WC_debugselected.image_index, WC_debugselected.x, WC_debugselected.y, WC_debugselected.xscale, WC_debugselected.yscale, WC_debugselected.image_angle, WC_debugselected.image_blend, 0.75);
-		        else
-		            draw_sprite_ext(WC_debugselected.sprite_index, WC_debugselected.image_index, WC_debugselected.x, WC_debugselected.y, WC_debugselected.xscale, WC_debugselected.image_yscale, WC_debugselected.image_angle, WC_debugselected.image_blend, 0.75);
-		    }
-		    else if variable_instance_exists(WC_debugselected, "yscale")
-		        draw_sprite_ext(WC_debugselected.sprite_index, WC_debugselected.image_index, WC_debugselected.x, WC_debugselected.y, WC_debugselected.image_xscale, WC_debugselected.yscale, WC_debugselected.image_angle, WC_debugselected.image_blend, 0.75);
-		    else
-		        draw_sprite_ext(WC_debugselected.sprite_index, WC_debugselected.image_index, WC_debugselected.x, WC_debugselected.y, WC_debugselected.image_xscale, WC_debugselected.image_yscale, WC_debugselected.image_angle, WC_debugselected.image_blend, 0.75);
+			if variable_instance_exists(WC_debugselected, "xscale")
+			{
+				if variable_instance_exists(WC_debugselected, "yscale")
+					draw_sprite_ext(WC_debugselected.sprite_index, WC_debugselected.image_index, WC_debugselected.x, WC_debugselected.y, WC_debugselected.xscale, WC_debugselected.yscale, WC_debugselected.image_angle, WC_debugselected.image_blend, 0.75);
+				else
+					draw_sprite_ext(WC_debugselected.sprite_index, WC_debugselected.image_index, WC_debugselected.x, WC_debugselected.y, WC_debugselected.xscale, WC_debugselected.image_yscale, WC_debugselected.image_angle, WC_debugselected.image_blend, 0.75);
+			}
+			else if variable_instance_exists(WC_debugselected, "yscale")
+				draw_sprite_ext(WC_debugselected.sprite_index, WC_debugselected.image_index, WC_debugselected.x, WC_debugselected.y, WC_debugselected.image_xscale, WC_debugselected.yscale, WC_debugselected.image_angle, WC_debugselected.image_blend, 0.75);
+			else
+				draw_sprite_ext(WC_debugselected.sprite_index, WC_debugselected.image_index, WC_debugselected.x, WC_debugselected.y, WC_debugselected.image_xscale, WC_debugselected.image_yscale, WC_debugselected.image_angle, WC_debugselected.image_blend, 0.75);
 		}
 		
 		// center of sprite
 		draw_set_alpha(1);
-	    draw_set_colour(c_red);
-	    draw_rectangle(WC_debugselected.x - 1, WC_debugselected.y - 1, WC_debugselected.x + 1, WC_debugselected.y + 1, false);
+		draw_set_colour(c_red);
+		draw_rectangle(WC_debugselected.x - 1, WC_debugselected.y - 1, WC_debugselected.x + 1, WC_debugselected.y + 1, false);
 		
 		draw_set_alpha(1);
 	}
@@ -123,12 +123,12 @@ if WC_creatingobj
 {
 	if !sprite_exists(object_get_sprite(WC_tempobj))
 	{
-	    draw_set_valign(fa_middle);
-	    draw_text(floor(mouse_x / WC_draggrid) * WC_draggrid, floor(mouse_y / WC_draggrid) * WC_draggrid, "Spawn Here");
-	    draw_set_valign(fa_top);
+		draw_set_valign(fa_middle);
+		draw_text(floor(mouse_x / WC_draggrid) * WC_draggrid, floor(mouse_y / WC_draggrid) * WC_draggrid, "Spawn Here");
+		draw_set_valign(fa_top);
 	}
 	else
-	    draw_sprite_ext(object_get_sprite(WC_tempobj), 0, floor(mouse_x / WC_draggrid) * WC_draggrid, floor(mouse_y / WC_draggrid) * WC_draggrid, 1, 1, 0, c_white, 0.5);
+		draw_sprite_ext(object_get_sprite(WC_tempobj), 0, floor(mouse_x / WC_draggrid) * WC_draggrid, floor(mouse_y / WC_draggrid) * WC_draggrid, 1, 1, 0, c_white, 0.5);
 }
 
 // dragging
@@ -137,17 +137,17 @@ if instance_exists(WC_dragobj)
 	if sprite_exists(WC_dragobj.sprite_index)
 	{
 		// pt exclusive
-	    if variable_instance_exists(WC_dragobj, "xscale")
-	    {
-	        if variable_instance_exists(WC_dragobj, "yscale")
-	            draw_sprite_ext(WC_dragobj.sprite_index, WC_dragobj.image_index, WC_dragobj.x, WC_dragobj.y, WC_dragobj.xscale, WC_dragobj.yscale, WC_dragobj.image_angle, WC_dragobj.image_blend, 0.75);
-	        else
-	            draw_sprite_ext(WC_dragobj.sprite_index, WC_dragobj.image_index, WC_dragobj.x, WC_dragobj.y, WC_dragobj.xscale, WC_dragobj.image_yscale, WC_dragobj.image_angle, WC_dragobj.image_blend, 0.75);
-	    }
-	    else if variable_instance_exists(WC_dragobj, "yscale")
-	        draw_sprite_ext(WC_dragobj.sprite_index, WC_dragobj.image_index, WC_dragobj.x, WC_dragobj.y, WC_dragobj.image_xscale, WC_dragobj.yscale, WC_dragobj.image_angle, WC_dragobj.image_blend, 0.75);
-	    else
-	        draw_sprite_ext(WC_dragobj.sprite_index, WC_dragobj.image_index, WC_dragobj.x, WC_dragobj.y, WC_dragobj.image_xscale, WC_dragobj.image_yscale, WC_dragobj.image_angle, WC_dragobj.image_blend, 0.75);
+		if variable_instance_exists(WC_dragobj, "xscale")
+		{
+			if variable_instance_exists(WC_dragobj, "yscale")
+				draw_sprite_ext(WC_dragobj.sprite_index, WC_dragobj.image_index, WC_dragobj.x, WC_dragobj.y, WC_dragobj.xscale, WC_dragobj.yscale, WC_dragobj.image_angle, WC_dragobj.image_blend, 0.75);
+			else
+				draw_sprite_ext(WC_dragobj.sprite_index, WC_dragobj.image_index, WC_dragobj.x, WC_dragobj.y, WC_dragobj.xscale, WC_dragobj.image_yscale, WC_dragobj.image_angle, WC_dragobj.image_blend, 0.75);
+		}
+		else if variable_instance_exists(WC_dragobj, "yscale")
+			draw_sprite_ext(WC_dragobj.sprite_index, WC_dragobj.image_index, WC_dragobj.x, WC_dragobj.y, WC_dragobj.image_xscale, WC_dragobj.yscale, WC_dragobj.image_angle, WC_dragobj.image_blend, 0.75);
+		else
+			draw_sprite_ext(WC_dragobj.sprite_index, WC_dragobj.image_index, WC_dragobj.x, WC_dragobj.y, WC_dragobj.image_xscale, WC_dragobj.image_yscale, WC_dragobj.image_angle, WC_dragobj.image_blend, 0.75);
 	}
 	
 	// mask
@@ -167,17 +167,17 @@ if WC_fakedragobj != noone
 	if sprite_exists(WC_fakedragobj.sprite_index)
 	{
 		// pt exclusive
-	    if variable_instance_exists(WC_fakedragobj, "xscale")
-	    {
-	        if variable_instance_exists(WC_fakedragobj, "yscale")
-	            draw_sprite_ext(WC_fakedragobj.sprite_index, WC_fakedragobj.image_index, (floor((mouse_x - WC_moffsetx) / WC_draggrid) * WC_draggrid), (floor((mouse_y - WC_moffsety) / WC_draggrid) * WC_draggrid), WC_fakedragobj.xscale, WC_fakedragobj.yscale, WC_fakedragobj.image_angle, WC_fakedragobj.image_blend, 0.75);
-	        else
-	            draw_sprite_ext(WC_fakedragobj.sprite_index, WC_fakedragobj.image_index, (floor((mouse_x - WC_moffsetx) / WC_draggrid) * WC_draggrid), (floor((mouse_y - WC_moffsety) / WC_draggrid) * WC_draggrid), WC_fakedragobj.xscale, WC_fakedragobj.image_yscale, WC_fakedragobj.image_angle, WC_fakedragobj.image_blend, 0.75);
-	    }
-	    else if variable_instance_exists(WC_fakedragobj, "yscale")
-	        draw_sprite_ext(WC_fakedragobj.sprite_index, WC_fakedragobj.image_index, (floor((mouse_x - WC_moffsetx) / WC_draggrid) * WC_draggrid), (floor((mouse_y - WC_moffsety) / WC_draggrid) * WC_draggrid), WC_fakedragobj.image_xscale, WC_fakedragobj.yscale, WC_fakedragobj.image_angle, WC_fakedragobj.image_blend, 0.75);
-	    else
-	        draw_sprite_ext(WC_fakedragobj.sprite_index, WC_fakedragobj.image_index, (floor((mouse_x - WC_moffsetx) / WC_draggrid) * WC_draggrid), (floor((mouse_y - WC_moffsety) / WC_draggrid) * WC_draggrid), WC_fakedragobj.image_xscale, WC_fakedragobj.image_yscale, WC_fakedragobj.image_angle, WC_fakedragobj.image_blend, 0.75);
+		if variable_instance_exists(WC_fakedragobj, "xscale")
+		{
+			if variable_instance_exists(WC_fakedragobj, "yscale")
+				draw_sprite_ext(WC_fakedragobj.sprite_index, WC_fakedragobj.image_index, (floor((mouse_x - WC_moffsetx) / WC_draggrid) * WC_draggrid), (floor((mouse_y - WC_moffsety) / WC_draggrid) * WC_draggrid), WC_fakedragobj.xscale, WC_fakedragobj.yscale, WC_fakedragobj.image_angle, WC_fakedragobj.image_blend, 0.75);
+			else
+				draw_sprite_ext(WC_fakedragobj.sprite_index, WC_fakedragobj.image_index, (floor((mouse_x - WC_moffsetx) / WC_draggrid) * WC_draggrid), (floor((mouse_y - WC_moffsety) / WC_draggrid) * WC_draggrid), WC_fakedragobj.xscale, WC_fakedragobj.image_yscale, WC_fakedragobj.image_angle, WC_fakedragobj.image_blend, 0.75);
+		}
+		else if variable_instance_exists(WC_fakedragobj, "yscale")
+			draw_sprite_ext(WC_fakedragobj.sprite_index, WC_fakedragobj.image_index, (floor((mouse_x - WC_moffsetx) / WC_draggrid) * WC_draggrid), (floor((mouse_y - WC_moffsety) / WC_draggrid) * WC_draggrid), WC_fakedragobj.image_xscale, WC_fakedragobj.yscale, WC_fakedragobj.image_angle, WC_fakedragobj.image_blend, 0.75);
+		else
+			draw_sprite_ext(WC_fakedragobj.sprite_index, WC_fakedragobj.image_index, (floor((mouse_x - WC_moffsetx) / WC_draggrid) * WC_draggrid), (floor((mouse_y - WC_moffsety) / WC_draggrid) * WC_draggrid), WC_fakedragobj.image_xscale, WC_fakedragobj.image_yscale, WC_fakedragobj.image_angle, WC_fakedragobj.image_blend, 0.75);
 	}
 	
 	// mask
@@ -219,9 +219,9 @@ if WC_selectobj != 0
 	}
 	
 	if !instance_exists(WC_tempobj)
-	    draw_text(mouse_x, mouse_y, "Select Object");
+		draw_text(mouse_x, mouse_y, "Select Object");
 	else
-	    draw_text(mouse_x + choose(1, -1), mouse_y, object_get_name(WC_tempobj.object_index));
+		draw_text(mouse_x + choose(1, -1), mouse_y, object_get_name(WC_tempobj.object_index));
 	
 	draw_set_valign(fa_top);
 }

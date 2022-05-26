@@ -2,15 +2,15 @@ if room == rm_editor exit;
 
 switch state
 {
-    case states.idle: scr_enemy_idle (); break;
-    case states.charge: scr_enemy_charge (); break;
-    case states.turn: scr_enemy_turn (); break;
-    case states.walk: scr_enemy_walk (); break;
-    case states.land: scr_enemy_land (); break;
-    case states.hit: scr_enemy_hit (); break;
-    case states.stun: scr_enemy_stun (); break;
-    case states.pizzagoblinthrow: scr_pizzagoblin_throw (); break;
-    // grabbed state here
+	case states.idle: scr_enemy_idle (); break;
+	case states.charge: scr_enemy_charge (); break;
+	case states.turn: scr_enemy_turn (); break;
+	case states.walk: scr_enemy_walk (); break;
+	case states.land: scr_enemy_land (); break;
+	case states.hit: scr_enemy_hit (); break;
+	case states.stun: scr_enemy_stun (); break;
+	case states.pizzagoblinthrow: scr_pizzagoblin_throw (); break;
+	// grabbed state here
 }
 if state == states.stun && stunned > 100 && !birdcreated
 {
@@ -38,7 +38,7 @@ else
 if laserbuffer > 0 && state == states.walk && global.gameplay == 0
 	laserbuffer--
 if bombreset > 0 && state == states.walk && global.gameplay != 0
-    bombreset--
+	bombreset--
 
 //Create laser
 var player = instance_nearest(x, y, obj_player)
@@ -46,30 +46,30 @@ if global.gameplay != 0
 {
 	if player.x > x - 200 && player.x < x + 200 && player.y <= y + 400 && player.y >= y - 60
 	&& x != player.x && state != states.pizzagoblinthrow && bombreset <= 0
-    {
-        if state == states.walk or state == states.idle
-        {
-            sprite_index = spr_ufolive_shoot
-            image_index = 0
-            state = states.pizzagoblinthrow
-        }
-    }
+	{
+		if state == states.walk or state == states.idle
+		{
+			sprite_index = spr_ufolive_shoot
+			image_index = 0
+			state = states.pizzagoblinthrow
+		}
+	}
 	
 	if state == states.pizzagoblinthrow or state == states.rage
 	{
-	    hsp = 0
-	    vsp = 0
+		hsp = 0
+		vsp = 0
 	}
 	
 	if state == states.walk
 	{
-	    if turntimer > 0
-	        turntimer--
+		if turntimer > 0
+			turntimer--
 	}
 	if turntimer <= 0
 	{
-	    image_xscale *= -1
-	    turntimer = 600
+		image_xscale *= -1
+		turntimer = 600
 	}
 }
 else if laserbuffer <= 0 && state == states.walk

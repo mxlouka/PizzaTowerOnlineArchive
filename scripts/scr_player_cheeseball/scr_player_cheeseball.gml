@@ -8,17 +8,17 @@ function scr_player_cheeseball()
 	&& !place_meeting(x + sign(hsp), y, obj_destructibles)
 	&& !place_meeting(x + sign(hsp), y, obj_cheeseballblock)
 	{
-	    scr_soundeffect(sfx_loseknight)
-	    grav = basegrav
+		scr_soundeffect(sfx_loseknight)
+		grav = basegrav
 		repeat 8
 			instance_create(x, y, obj_slimedebris)
 		
-	    hsp = 5 * -xscale
-	    vsp = -3
-	    visible = true
-	    image_index = 0
-	    flash = true
-	    state = states.bump
+		hsp = 5 * -xscale
+		vsp = -3
+		visible = true
+		image_index = 0
+		flash = true
+		state = states.bump
 		jumpstop = true
 	}
 	sprite_index = spr_cheeseballed
@@ -28,14 +28,14 @@ function scr_player_cheeseball()
 		input_buffer_jump = 0
 	
 	if !key_jump2 && !jumpstop && vsp < 0.5
-    {
-        vsp /= 10
-        jumpstop = true
-    }
-    if grounded && vsp > 0
-        jumpstop = false
+	{
+		vsp /= 10
+		jumpstop = true
+	}
+	if grounded && vsp > 0
+		jumpstop = false
 	if !grounded && key_down
-        vsp = 10
+		vsp = 10
 	
 	//Jump
 	if input_buffer_jump < 8 && grounded 

@@ -7,5 +7,5 @@ for (var i = 0; i < abs(image_xscale); i++)
 	if i >= abs(image_xscale) - 1
 		left = 64;
 	
-    draw_sprite_part_ext(spr_cottonplat, img, left, 0, 32, 32, x + ((sign(image_xscale) * 32) * i), y, sign(image_xscale), sign(image_yscale), c_white, image_alpha);
+	draw_sprite_part_ext(spr_cottonplat, img, left, 0, 32, 32, x + ((sign(image_xscale) * 32) * i), y, sign(image_xscale), sign(image_yscale), c_white, image_alpha);
 }

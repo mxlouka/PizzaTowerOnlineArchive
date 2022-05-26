@@ -36,5 +36,5 @@ if snick
 
 // snick rematch end slowdown
 if room == snick_challengeend && global.snickrematch
-    audio_sound_pitch(global.music, min(distance_to_object(obj_player1) / (room_width - 480), 1));
+	audio_sound_pitch(global.music, min(distance_to_object(obj_player1) / (room_width - 480), 1));
 

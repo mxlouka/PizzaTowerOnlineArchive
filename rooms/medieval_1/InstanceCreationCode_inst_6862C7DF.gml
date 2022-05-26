@@ -2,9 +2,9 @@ prompt_condition = function()
 {
 	with obj_player1
 	{
-	    if ((sprite_index == spr_Timesup && floor(image_index) == image_number - 2) or state == states.normal)
+		if ((sprite_index == spr_Timesup && floor(image_index) == image_number - 2) or state == states.normal)
 		&& (place_meeting(x, y, obj_exitgate) or global.snickchallenge)
-	        return true;
+			return true;
 	}
 	return false;
 }

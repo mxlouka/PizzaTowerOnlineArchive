@@ -90,10 +90,9 @@ exception_unhandled_handler
 // functions
 function check_bysync()
 {
-	if instance_exists(obj_gms)
+	if check_online()
 		return gms_instance_created_by_sync();
-	else
-		return false;
+	return false;
 }
 
 function create_guid()
@@ -101,9 +100,9 @@ function create_guid()
 	var r = "";
 	for (var i = 0; i < 32; i++)
 	{
-	    if i == 8 or i == 12 or i == 16 or i == 20
+		if i == 8 or i == 12 or i == 16 or i == 20
 			r += "-";
-	    r += choose("0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e", "f");
+		r += choose("0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e", "f");
 	}
 	return r;
 }

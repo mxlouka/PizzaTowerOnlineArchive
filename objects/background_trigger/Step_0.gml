@@ -1,19 +1,12 @@
-if room != rm_editor
-    return;
-
-/*
-if (selected && multiple_select == 0)
+if place_meeting(x, y, obj_player)
 {
-    if (!instance_exists(obj_script_menu))
-        inst = instance_create_depth(((x + sprite_width) + 16), (y - 32), -10000, obj_script_menu)
-    with (inst)
-    {
-        x = ((other.x + other.sprite_width) + 16)
-        y = (other.y - 32)
-        _id = other.id
-        func = 0
-        width = 160
-        height = 168
-    }
+	if !docol && cam == noone or other.cam == cam
+	{
+		scr_set_background_trigger(index)
+		scr_set_bgspd_trigger()
+	}
+	docol = true;
 }
-*/
+else
+	docol = false;
+

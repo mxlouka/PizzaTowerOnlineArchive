@@ -1,12 +1,12 @@
 if falling
 {
-    sprite_index = spr_bowlingballfalling;
+	sprite_index = spr_bowlingballfalling;
 	
-    x += hsp;
-    y += floor(vsp);
+	x += hsp;
+	y += floor(vsp);
 	
-    if vsp < 30
-        vsp += grav;
+	if vsp < 30
+		vsp += grav;
 }
 else with obj_player
 {

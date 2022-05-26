@@ -3,8 +3,8 @@ with instance_place(x, y - 1, obj_player1)
 	scr_transfobump(false);
 	
 	state = states.slipnslide
-    xscale = sign(other.image_xscale)
-    movespeed = 16
+	xscale = sign(other.image_xscale)
+	movespeed = 16
 	
 	sprite_index = spr_Current
 }

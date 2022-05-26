@@ -17,7 +17,7 @@ if global.panic or (global.snickchallenge && global.collect <= 0)
 		if global.collect > 0
 		{
 			global.collect = max(global.collect - 5, 0);
-		    instance_create(obj_player.x, obj_player.y, obj_pizzaloss);
+			instance_create(obj_player.x, obj_player.y, obj_pizzaloss);
 		}
 		alarm[2] = 3;
 	}
@@ -27,7 +27,7 @@ else if global.snickchallenge
 	if global.collect > 0
 	{
 		global.collect = max(global.collect - 5, 0);
-	    instance_create(obj_player.x, obj_player.y, obj_pizzaloss);
+		instance_create(obj_player.x, obj_player.y, obj_pizzaloss);
 	}
 	
 	if global.seconds == 0 && global.minutes == 0

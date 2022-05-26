@@ -12,9 +12,9 @@ function scr_set_bgspd_trigger() {
 	/*
 	if hsp == 0
 	{
-	    layer_x(lay_id1, 0)
-	    layer_x(lay_id2, 0)
-	    layer_x(lay_id3, 0)
+		layer_x(lay_id1, 0)
+		layer_x(lay_id2, 0)
+		layer_x(lay_id3, 0)
 	}
 	*/
 
@@ -26,9 +26,9 @@ function scr_set_bgspd_trigger() {
 	/*
 	if vsp == 0
 	{
-	    layer_y(lay_id1, 0)
-	    layer_y(lay_id2, 0)
-	    layer_y(lay_id3, 0)
+		layer_y(lay_id1, 0)
+		layer_y(lay_id2, 0)
+		layer_y(lay_id3, 0)
 	}
 	*/
 

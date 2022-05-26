@@ -1,2 +1,2 @@
+global.roommessage = "HUNGRY MACHINERY"
 
-global.roommessage = "UP TO JOHN"

@@ -14,8 +14,8 @@ if !drop && !other.godmode
 	
 	with obj_camera
 	{
-	    shake_mag = 10;
-	    shake_mag_acc = 30 / room_speed;
+		shake_mag = 10;
+		shake_mag_acc = 30 / room_speed;
 	}
 	drop = true
 }

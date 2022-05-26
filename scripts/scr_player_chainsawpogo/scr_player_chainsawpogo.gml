@@ -42,37 +42,37 @@ function scr_player_chainsawpogo() {
 
 	///Back to other states
 
-    
+	
 
 
-	        //Bump
-	    if (scr_solid(x+1,y) && xscale == 1) && !place_meeting(x+sign(hsp),y,obj_slope)
-	    {
-	    machhitAnim = false
-	    state = states.chainsawbump
-	    hsp = -2.5
-	    vsp = -3
-	    mach2 = 0
-	    image_index = 0
-	    instance_create(x+10,y+10,obj_bumpeffect)
-	//    audio_sound_gain(sfx_scream5 0.7, 0);
+			//Bump
+		if (scr_solid(x+1,y) && xscale == 1) && !place_meeting(x+sign(hsp),y,obj_slope)
+		{
+		machhitAnim = false
+		state = states.chainsawbump
+		hsp = -2.5
+		vsp = -3
+		mach2 = 0
+		image_index = 0
+		instance_create(x+10,y+10,obj_bumpeffect)
+	//	audio_sound_gain(sfx_scream5 0.7, 0);
 	//if !(audio_is_playing(sfx_bump))
 	//audio_play_sound(sfx_scream5 1, false)
-	    }
-	    else if (scr_solid(x-1,y) && xscale == -1) && !place_meeting(x+sign(hsp),y,obj_slope)
-	    {
-	    machhitAnim = false
-	    state = states.chainsawbump
-	    hsp = 2.5
-	    vsp = -3
-	    mach2 = 0
-	    image_index = 0
-	    instance_create(x-10,y+10,obj_bumpeffect)
-	    //audio_sound_gain(sfx_scream5 0.7, 0);
+		}
+		else if (scr_solid(x-1,y) && xscale == -1) && !place_meeting(x+sign(hsp),y,obj_slope)
+		{
+		machhitAnim = false
+		state = states.chainsawbump
+		hsp = 2.5
+		vsp = -3
+		mach2 = 0
+		image_index = 0
+		instance_create(x-10,y+10,obj_bumpeffect)
+		//audio_sound_gain(sfx_scream5 0.7, 0);
 	//if !(audio_is_playing(sfx_bump))
 	//audio_play_sound(sfx_scream5 1, false)
-	    }
-    
+		}
+	
 
 	if !key_down
 	{

@@ -13,8 +13,8 @@ if y >= ystart
 			scr_soundeffect(sfx_breakblock2)
 			with obj_camera
 			{
-			    shake_mag = 5;
-			    shake_mag_acc = 5 / room_speed;
+				shake_mag = 5;
+				shake_mag_acc = 5 / room_speed;
 			}
 		}
 		

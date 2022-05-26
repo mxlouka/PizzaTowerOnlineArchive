@@ -1,19 +1,19 @@
 if room == rm_editor exit;
 
 if !instance_exists(cloneid)
-    cloneid = noone
+	cloneid = noone
 
 switch state
 {
-    case states.idle: scr_enemy_idle (); break;
-    case states.charge: scr_enemy_charge (); break;
-    case states.turn: scr_enemy_turn (); break;
-    case states.walk: scr_enemy_walk (); break;
-    case states.land: scr_enemy_land (); break;
-    case states.hit: scr_enemy_hit (); break;
-    case states.stun: image_alpha = 1; scr_enemy_stun (); break;
-    case states.pizzagoblinthrow: image_alpha = 1; scr_pizzagoblin_throw (); break;
-    case states.grabbed: image_alpha = 1; scr_enemy_grabbed (); break;
+	case states.idle: scr_enemy_idle (); break;
+	case states.charge: scr_enemy_charge (); break;
+	case states.turn: scr_enemy_turn (); break;
+	case states.walk: scr_enemy_walk (); break;
+	case states.land: scr_enemy_land (); break;
+	case states.hit: scr_enemy_hit (); break;
+	case states.stun: image_alpha = 1; scr_enemy_stun (); break;
+	case states.pizzagoblinthrow: image_alpha = 1; scr_pizzagoblin_throw (); break;
+	case states.grabbed: image_alpha = 1; scr_enemy_grabbed (); break;
 	case states.chase: scr_enemy_chase (); break;
 }
 
@@ -47,8 +47,8 @@ if bombreset > 0
 
 if sprite_index == scaredspr && global.gameplay != 0
 {
-    image_alpha = 1
-    attacking = false
+	image_alpha = 1
+	attacking = false
 }
 
 //Fade
@@ -61,7 +61,7 @@ if bombreset <= 0 && state == states.walk
 	&& y <= targetplayer.y + threshold_y && y >= targetplayer.y - threshold_y
 	{
 		attacking = true
-        pos = sign(x - targetplayer.x)
+		pos = sign(x - targetplayer.x)
 		state = states.chase
 		fade = true
 	}
@@ -71,108 +71,108 @@ if bombreset <= 0 && state == states.walk
 if state == states.chase
 {
 	if fade
-    {
-        if image_alpha > 0
-        {
-            if hsp < -0.2 or hsp > 0.2
-                hsp *= 0.5;
-            image_alpha -= fadeout_time;
-        }
-        else if image_alpha <= 0
-        {
-            x = targetplayer.x;
-            y = targetplayer.y;
+	{
+		if image_alpha > 0
+		{
+			if hsp < -0.2 or hsp > 0.2
+				hsp *= 0.5;
+			image_alpha -= fadeout_time;
+		}
+		else if image_alpha <= 0
+		{
+			x = targetplayer.x;
+			y = targetplayer.y;
 			
-            if pos != 0 && !scr_solid(x + (pos * attack_offset), y)
-            {
-                x = targetplayer.x + (pos * attack_offset);
-                if place_meeting(x, y, obj_pickle)
-                {
-                    if !scr_solid(x + 32, y)
-                        x += 32;
-                    else if !scr_solid(x - 32, y)
-                        x -= 32;
-                }
-            }
+			if pos != 0 && !scr_solid(x + (pos * attack_offset), y)
+			{
+				x = targetplayer.x + (pos * attack_offset);
+				if place_meeting(x, y, obj_pickle)
+				{
+					if !scr_solid(x + 32, y)
+						x += 32;
+					else if !scr_solid(x - 32, y)
+						x -= 32;
+				}
+			}
 			
-            if !scr_solid(x, y + 1)
-            {
-                var yy = y
-                var ground = false;
-                var i = 1;
+			if !scr_solid(x, y + 1)
+			{
+				var yy = y
+				var ground = false;
+				var i = 1;
 				
-                while i < ground_check
-                {
-                    if scr_solid(x, y + i)
-                    {
-                        ground = true;
-                        i--;
-                        yy = y + i;
-                        break;
-                    }
-                    else
-                    {
-                        i++;
-                        continue;
-                    }
-                }
-                if ground
-                    y = yy;
-            }
-            fade = false;
-        }
-    }
-    else
-    {
-        if image_alpha < 1
-            image_alpha += fadein_time;
+				while i < ground_check
+				{
+					if scr_solid(x, y + i)
+					{
+						ground = true;
+						i--;
+						yy = y + i;
+						break;
+					}
+					else
+					{
+						i++;
+						continue;
+					}
+				}
+				if ground
+					y = yy;
+			}
+			fade = false;
+		}
+	}
+	else
+	{
+		if image_alpha < 1
+			image_alpha += fadein_time;
 		
-        if image_alpha >= 1
-        {
-            image_alpha = 1;
-            image_index = 0;
-            sprite_index = spr_pickle_attack;
+		if image_alpha >= 1
+		{
+			image_alpha = 1;
+			image_index = 0;
+			sprite_index = spr_pickle_attack;
 			
 			if x != targetplayer.x
 				image_xscale = -sign(x - targetplayer.x)
 			
-            state = states.pizzagoblinthrow
+			state = states.pizzagoblinthrow
 			if global.stylethreshold >= 3 && cloneid == noone
-            {
-                var tx = image_xscale * 32
-                if scr_solid(x + tx, y)
-                    tx = 0
+			{
+				var tx = image_xscale * 32
+				if scr_solid(x + tx, y)
+					tx = 0
 				
-                cloneid = instance_create(x + tx, y, object_index)
-                with cloneid
-                {
-                    cloneid = other.id
-                    important = true
-                    bombreset = 0
-                    image_index = 0
-                    image_xscale = other.image_xscale
-                    state = states.pizzagoblinthrow
-                    hsp = other.image_xscale * 2
-                    vsp = -6
-                }
+				cloneid = instance_create(x + tx, y, object_index)
+				with cloneid
+				{
+					cloneid = other.id
+					important = true
+					bombreset = 0
+					image_index = 0
+					image_xscale = other.image_xscale
+					state = states.pizzagoblinthrow
+					hsp = other.image_xscale * 2
+					vsp = -6
+				}
 				
-                flash = true
-                alarm[4] = 5
-                create_heatattack_afterimage(x, y, sprite_index, image_index, image_xscale)
-            }
-        }
-    }
+				flash = true
+				alarm[4] = 5
+				create_heatattack_afterimage(x, y, sprite_index, image_index, image_xscale)
+			}
+		}
+	}
 }
 
 //Attack
 invincible = attacking;
 if state == states.idle
 {
-    if scaredbuffer > 0 && attacking
-    {
-        image_alpha = 0.8;
-        invincible = true;
-    }
+	if scaredbuffer > 0 && attacking
+	{
+		image_alpha = 0.8;
+		invincible = true;
+	}
 }
 
 if !boundbox

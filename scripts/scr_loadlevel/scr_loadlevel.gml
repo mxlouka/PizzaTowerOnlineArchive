@@ -60,8 +60,8 @@ function scr_loadlevel(argument0)
 	// start creating the level
 	for (var i = 0; i < ds_list_size(_list); i++)
 	{
-	    var _map = ds_list_find_value(_list, i); // find object map
-	    var _obj = ds_map_find_value(_map, "obj"); // get object name from map
+		var _map = ds_list_find_value(_list, i); // find object map
+		var _obj = ds_map_find_value(_map, "obj"); // get object name from map
 	
 		var _getobj = asset_get_index(_obj); // figure object index from name
 		if _obj != undefined && ds_list_find_index(_forbidden, _getobj) == -1 // if object exists and isn't forbidden
@@ -91,7 +91,7 @@ function scr_loadlevel(argument0)
 			
 				// create the object
 				with instance_create_layer(_x, _y, lay, _getobj)
-			    {
+				{
 					__l_e_ = true; // specify the object is made here
 				
 					var _xscale = ds_map_find_value(_map, "image_xscale");
@@ -106,30 +106,30 @@ function scr_loadlevel(argument0)
 						image_index = _image;
 				
 					// object specific variables
-			        switch _obj
-			        {
-			            case "background_trigger":
-			                index = ds_map_find_value(_map, "index");
-			                hsp = ds_map_find_value(_map, "hsp");
-			                vsp = ds_map_find_value(_map, "vsp");
-			                break;
+					switch _obj
+					{
+						case "background_trigger":
+							index = ds_map_find_value(_map, "index");
+							hsp = ds_map_find_value(_map, "hsp");
+							vsp = ds_map_find_value(_map, "vsp");
+							break;
 					
-			            case "sound_trigger":
-			                index = ds_map_find_value(_map, "index");
-			                continuous = ds_map_find_value(_map, "continuous");
-			                break;
+						case "sound_trigger":
+							index = ds_map_find_value(_map, "index");
+							continuous = ds_map_find_value(_map, "continuous");
+							break;
 					
-			            case "obj_escapetimer":
-			                minutes = ds_map_find_value(_map, "minutes");
-			                seconds = ds_map_find_value(_map, "seconds");
-			                disablemusic = ds_map_find_value(_map, "disablemusic");
-			                break;
+						case "obj_escapetimer":
+							minutes = ds_map_find_value(_map, "minutes");
+							seconds = ds_map_find_value(_map, "seconds");
+							disablemusic = ds_map_find_value(_map, "disablemusic");
+							break;
 					
-			            case "obj_baddiespawner_editor":
-			                xscale = ds_map_find_value(_map, "xscale");
-			                if is_undefined(xscale)
-			                    xscale = -1;
-			                break;
+						case "obj_baddiespawner_editor":
+							xscale = ds_map_find_value(_map, "xscale");
+							if is_undefined(xscale)
+								xscale = -1;
+							break;
 					
 						case "obj_door_editor":
 						case "obj_keydoor_editor":
@@ -159,8 +159,8 @@ function scr_loadlevel(argument0)
 						case "obj_surpriseenemyarea_editor":
 							trigger = ds_map_find_value(_map, "trigger");
 							break;
-			        }
-			    }
+					}
+				}
 			}
 			else if ds_list_find_index(_unsupported, string(_obj)) == -1
 				ds_list_add(_unsupported, string(_obj));

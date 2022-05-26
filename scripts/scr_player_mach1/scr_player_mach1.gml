@@ -17,8 +17,8 @@ function scr_player_mach1()
 	landAnim = false
 	if scr_solid(x + xscale, y) && (!place_meeting(x + xscale, y, obj_slope) or scr_solidwall(x, y - 1))
 	{
-	    mach2 = 0 
-	    state = states.normal
+		mach2 = 0 
+		state = states.normal
 		movespeed = 0
 	}
 	
@@ -63,8 +63,8 @@ function scr_player_mach1()
 	//Normal
 	if (!key_attack && character != "S") or (character == "S" && move == 0)
 	{
-	    state = states.normal
-	    image_index = 0
+		state = states.normal
+		image_index = 0
 	}
 
 
@@ -87,7 +87,7 @@ function scr_player_mach1()
 
 	image_speed = 0.5
 
-    
+	
 
 
 	//Effects

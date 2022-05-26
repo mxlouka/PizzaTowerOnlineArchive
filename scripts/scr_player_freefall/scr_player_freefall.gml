@@ -60,9 +60,9 @@ function scr_player_freefall()
 			dir = xscale;
 		
 			scr_soundeffect(sfx_suplexdashSP)
-		    movespeed = 10
-		    sprite_index = spr_mach2jump
-	    
+			movespeed = 10
+			sprite_index = spr_mach2jump
+		
 			with instance_create(x, y, obj_mach3effect)
 			{
 				hspeed = 0;
@@ -83,12 +83,12 @@ function scr_player_freefall()
 			}
 		
 			flash = true
-		    state = states.mach2
+			state = states.mach2
 			if global.gameplay != 0
 				vsp = -7;
 		}
 	}
-    
+	
 	freefallsmash ++
 	if freefallsmash > 10 &&  !instance_exists(superslameffectid) 
 		with instance_create(x,y,obj_superslameffect)
@@ -131,17 +131,17 @@ function scr_player_freefall()
 				}
 			}
 		}
-	    with obj_camera
+		with obj_camera
 		{
 			shake_mag = 10;
 			shake_mag_acc = 30 / room_speed;
 		}
 		
-	    combo = 0
-	    bounce = false
+		combo = 0
+		bounce = false
 		
-	    instance_create(x, y, obj_landcloud)
-	    freefallstart = 0
+		instance_create(x, y, obj_landcloud)
+		freefallstart = 0
 	}
 	image_speed = 0.35
 }

@@ -2,7 +2,7 @@ with other
 {
 	if state != states.Sjump
 	{
-	    scr_transfobump(false);
+		scr_transfobump(false);
 		if state == states.bombpep
 			instance_create(x,y,obj_bombexplosion)
 		

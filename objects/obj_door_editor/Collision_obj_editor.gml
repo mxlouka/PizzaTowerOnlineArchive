@@ -6,3 +6,4 @@ if obj_editor.type == 5 exit;
 			instance_destroy();
 		}
 	}
+

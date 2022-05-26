@@ -1,5 +1,5 @@
 if state == states.golf
-    exit;
+	exit;
 
 x = other.x;
 kicked = false;

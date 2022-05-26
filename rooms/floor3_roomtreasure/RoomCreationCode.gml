@@ -1,2 +1,2 @@
+global.roommessage = "JOHN'S OFFICE";
 
-global.roommessage = "JOHN OFFICE";

@@ -1,4 +1,3 @@
-/*
 if live_call() return live_result;
 
 if debug
@@ -10,7 +9,6 @@ if debug
 			menu = g;
 	}
 }
-*/
 
 function draw_textfield(x, y, w = 254, h = 30, maximum = 32)
 {
@@ -503,7 +501,7 @@ switch menu
 					{
 						response += "\n\"" + string(first) + "\": " + string_copy(string(map[?first]), 1, 200);
 			
-					    first = ds_map_find_next(map, first);
+						first = ds_map_find_next(map, first);
 						if first == undefined
 						{
 							response += "\n";
@@ -569,7 +567,7 @@ switch menu
 	#endregion
 	#region login / register
 	case menutypes.login:
-		var lg_name = "admin";
+		var lg_name = "testuser";
 		if check_online()
 			lg_name = string_copy(gms_self_name(), 1, 32);
 		
@@ -583,13 +581,14 @@ switch menu
 		#endregion
 		#region back
 		
+		show_debug_message(passwordstring);
 		if draw_editorbutton(32, 32, lang_string("editor.menu.back")) && viewpos == 0
 		{
 			if registering
 			{
 				selectedpassword = false;
 				registering = false;
-				passconfirm1 = "";
+				passwordstring = passconfirm1;
 			}
 			else
 			{
@@ -662,7 +661,7 @@ switch menu
 			
 			keyboard_string = string_copy(string_lettersdigits(keyboard_string), 1, 30);
 			passwordstring = keyboard_string;
-				
+			
 			if mouse_check_button_pressed(mb_left)
 			&& !(mouse_x >= 352 && mouse_y >= 240 && mouse_x < 608 && mouse_y < 272)
 				selectedpassword = false;
@@ -734,7 +733,6 @@ switch menu
 				{
 					selectedpassword = false;
 					scr_requestregister_alt(lg_name, md5_string_utf8(passconfirm1));
-					passconfirm1 = "";
 				}
 			}
 			

@@ -1,5 +1,5 @@
 if room == rank_room
-    visible = false;
+	visible = false;
 
 var hsp = 0, vsp = 0;
 if instance_exists(obj_player1)

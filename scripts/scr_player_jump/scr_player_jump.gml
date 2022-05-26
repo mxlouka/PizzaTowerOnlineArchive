@@ -106,31 +106,31 @@ function scr_player_jump()
 	
 	if global.mort && (sprite_index == spr_pmortjump or sprite_index == spr_pmortjumpstart)
 	{
-	    if vsp > 6
-	        vsp = 6;
-	    if !key_jump2
-	    {
-	        grav = basegrav;
-	        sprite_index = spr_fall;
-	    }
+		if vsp > 6
+			vsp = 6;
+		if !key_jump2
+		{
+			grav = basegrav;
+			sprite_index = spr_fall;
+		}
 	}
 	if key_jump
 	{
-	    if global.mort && sprite_index != spr_pmortjump && sprite_index != spr_suplexbump
-	    {
-	        repeat 6 with instance_create(x, y, obj_debris)
+		if global.mort && sprite_index != spr_pmortjump && sprite_index != spr_suplexbump
+		{
+			repeat 6 with instance_create(x, y, obj_debris)
 				sprite_index = spr_feather;
 			
-	        scr_soundeffect(sfx_woosh);
-	        sprite_index = spr_pmortjumpstart;
-	        image_index = 0;
+			scr_soundeffect(sfx_woosh);
+			sprite_index = spr_pmortjumpstart;
+			image_index = 0;
 			
 			jumpAnim = false;
-	        jumpstop = false;
-	        grav = 0.25;
-	        mort = 1;
+			jumpstop = false;
+			grav = 0.25;
+			mort = 1;
 			doublejump = false;
-	    }
+		}
 	}
 	if sprite_index != spr_pmortjump
 		grav = basegrav;
@@ -201,7 +201,7 @@ function scr_player_jump()
 		with instance_create(x, y + 25, obj_balloonpop)
 			sprite_index = spr_shotgunimpact
 	}
-    
+	
 	//Input buffer jumping
 	if key_jump
 		input_buffer_jump = 0
@@ -358,7 +358,7 @@ function scr_player_jump()
 	//Freefall
 	if grounded && (sprite_index == spr_facestomp or sprite_index == spr_freefall)
 	{
-	    with obj_baddie
+		with obj_baddie
 		{
 			if point_in_camera(x, y, view_camera[0])
 			{
@@ -366,7 +366,7 @@ function scr_player_jump()
 				hsp = 0
 			}
 		}
-	    with obj_camera
+		with obj_camera
 		{
 			shake_mag = 10;
 			shake_mag_acc = 30 / room_speed;
@@ -385,9 +385,9 @@ function scr_player_jump()
 
 
 
-	    //Suplex dash
-	//    if key_slap2 && suplexmove = false && !key_down
-	//    {
+		//Suplex dash
+	//	if key_slap2 && suplexmove = false && !key_down
+	//	{
 
 	//instance_create(x,y,obj_slaphitbox)
 	//suplexmove = true
@@ -399,7 +399,7 @@ function scr_player_jump()
 	//if character = "N"
 	//vsp = -5
 	//slapcharge = 0
-	//    }
+	//	}
 
 
 
@@ -468,10 +468,10 @@ function scr_player_jump()
 		{
 			scr_soundeffect(sfx_killingblow);
 			scr_soundeffect(sfx_enemyprojectile);
-		    with instance_create(x + xscale * 20, y, obj_shotgunbullet)
+			with instance_create(x + xscale * 20, y, obj_shotgunbullet)
 			{
-			    image_xscale = other.xscale;
-			    sprite_index = spr_mortprojectile;
+				image_xscale = other.xscale;
+				sprite_index = spr_mortprojectile;
 			}
 				
 			sprite_index = spr_pmortthrow
@@ -561,9 +561,9 @@ function scr_player_jump()
 				{
 					with instance_create(x, y, obj_playerbomb)
 					{
-			            kick = true
-			            movespeed = 15
-			            image_xscale = other.xscale
+						kick = true
+						movespeed = 15
+						image_xscale = other.xscale
 					}
 				}
 				else
@@ -572,10 +572,10 @@ function scr_player_jump()
 					{
 						while scr_solid(x, y)
 							y++;
-			            pistol = true
+						pistol = true
 						if other.character == "P"
 							sprite_index = spr_peppinobullet
-			            image_xscale = other.xscale
+						image_xscale = other.xscale
 					}
 				}
 			}
@@ -738,12 +738,12 @@ function scr_player_jump()
 	
 	if sprite_index == spr_shotgunshoot
 	{
-	    landAnim = false
-	    machslideAnim = false
-	    image_speed = 0.45
+		landAnim = false
+		machslideAnim = false
+		image_speed = 0.45
 		
-	    if image_index >= image_number - 1
-	        sprite_index = spr_shotgunfall
+		if image_index >= image_number - 1
+			sprite_index = spr_shotgunfall
 	}
 }
 

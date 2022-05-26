@@ -82,7 +82,7 @@
   "nineSlice": null,
   "parent": {
     "name": "mario",
-    "path": "folders/Sprites/pto extra/mario.yy",
+    "path": "folders/Sprites/PTO extra/mario.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_mario_walk",

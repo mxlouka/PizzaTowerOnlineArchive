@@ -3,9 +3,9 @@ if state == states.hang
 
 if place_meeting(x, y + 1, obj_boxofpizza) or place_meeting(x, y - 1, obj_boxofpizza)
 {
-    box = true;
-    hallway = false;
-    state = states.crouchjump;
+	box = true;
+	hallway = false;
+	state = states.crouchjump;
 	jumpstop = true;
 }
 

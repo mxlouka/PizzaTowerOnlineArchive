@@ -207,9 +207,9 @@ function gms_action_get_argument(argument0) {
 	XServer_verify();
 	if(XServer_action_get_argument_isreal(argument0))
 	{
-	    return gms_action_get_argument_real(argument0);
+		return gms_action_get_argument_real(argument0);
 	}else{
-	    return gms_action_get_argument_string(argument0);
+		return gms_action_get_argument_string(argument0);
 	}
 }
 
@@ -218,34 +218,34 @@ function gms_chat(argument0, argument1) {
 	XServer_verify();
 	if(!is_string(argument0) or !is_real(argument1))
 	{
-	    XServer_error("gms_chat: Expected the first argument to be a string, and the second one to be a real");
-	    exit;
+		XServer_error("gms_chat: Expected the first argument to be a string, and the second one to be a real");
+		exit;
 	}
 	var _can_send;
 	if(argument0 != "")
 	{
-	    if(global.__chat_verify_script != -1 && script_exists(global.__chat_verify_script))
-	    {
-	        _can_send = script_execute(global.__chat_verify_script, argument0);
-	        if(!is_real(_can_send))
-	        {
-	            XServer_error("The script set by gms_script_set_chat_verify returns a string instead of true or false.");
-	            exit;
-	        }
-	    }else{
-	        _can_send = 1;
-	    }
+		if(global.__chat_verify_script != -1 && script_exists(global.__chat_verify_script))
+		{
+			_can_send = script_execute(global.__chat_verify_script, argument0);
+			if(!is_real(_can_send))
+			{
+				XServer_error("The script set by gms_script_set_chat_verify returns a string instead of true or false.");
+				exit;
+			}
+		}else{
+			_can_send = 1;
+		}
 		
-	    if(_can_send)
-	    {
-	        XServer_chat_send_message(argument0, argument1, "");
-        
-	        ds_list_add(global.__chattime, current_time);
-	        ds_list_add(global.__chattext, string(argument0));
-	        ds_list_add(global.__chatcol , argument1);
-	        ds_list_add(global.__chatsender, gms_self_playerid());
-	        ds_list_add(global.__chatsendername, gms_self_name());
-	    }
+		if(_can_send)
+		{
+			XServer_chat_send_message(argument0, argument1, "");
+		
+			ds_list_add(global.__chattime, current_time);
+			ds_list_add(global.__chattext, string(argument0));
+			ds_list_add(global.__chatcol , argument1);
+			ds_list_add(global.__chatsender, gms_self_playerid());
+			ds_list_add(global.__chatsendername, gms_self_name());
+		}
 	}
 }
 
@@ -253,12 +253,12 @@ function gms_chat_ext(argument0, argument1, argument2) {
 	XServer_verify();
 	if(!is_string(argument0) or !is_real(argument1) or !is_string(argument2))
 	{
-	    XServer_error("gms_chat_ext: Expected the first argument to be a string, the second one to be a real, and the third argument to be string");
-	    exit;
+		XServer_error("gms_chat_ext: Expected the first argument to be a string, the second one to be a real, and the third argument to be string");
+		exit;
 	}
 	if argument0 != ""
 	{
-	    XServer_chat_send_message(argument0, argument1, argument2);
+		XServer_chat_send_message(argument0, argument1, argument2);
 	}
 }
 
@@ -267,8 +267,8 @@ function gms_chat_bind_pos(argument0, argument1, argument2, argument3) {
 	//gms_chat_bind_pos(x1, y1, x2, y2)
 	if(!is_real(argument0) or !is_real(argument1) or !is_real(argument2) or  !is_real(argument3))
 	{
-	    XServer_error("gms_chat_bind_pos: Expected all arguments to be reals, but found one or more strings.");
-	    exit;
+		XServer_error("gms_chat_bind_pos: Expected all arguments to be reals, but found one or more strings.");
+		exit;
 	}
 	global.__chat_bind = 0;
 	global.__chat_x1   = min(argument0, argument2);
@@ -281,10 +281,10 @@ function gms_chat_bind_room() {
 	XServer_verify();
 	if(!is_real(argument0) or !is_real(argument1))
 	{
-	    XServer_error("gms_chat_bind_room: Expected all arguments to be reals, but found one or more strings.");exit
+		XServer_error("gms_chat_bind_room: Expected all arguments to be reals, but found one or more strings.");exit
 	}
 	global.__chat_bind   = 1;
-	global.__chat_pos    = argument0;
+	global.__chat_pos	= argument0;
 	global.__chat_height = argument1;
 }
 
@@ -295,16 +295,16 @@ function gms_chat_bind_view(argument0, argument1, argument2) {
 XServer_verify();
 if(!is_real(argument0) or !is_real(argument1) or !is_real(argument2))
 {
-    XServer_error("gms_chat_bind_view: Expected all arguments to be reals, but found one or more strings.");
-    exit
+	XServer_error("gms_chat_bind_view: Expected all arguments to be reals, but found one or more strings.");
+	exit
 }
 if(argument0 > 7)
 {
-    XServer_error("gms_chat_bind_view: There are only 8 views (0-7), but got view " + string(argument0) + " as argument.");
-    exit
+	XServer_error("gms_chat_bind_view: There are only 8 views (0-7), but got view " + string(argument0) + " as argument.");
+	exit
 }
 global.__chat_bind   = argument0 + 2;
-global.__chat_pos    = argument1;
+global.__chat_pos	= argument1;
 global.__chat_height = argument2;
 }
 
@@ -313,7 +313,7 @@ XServer_verify();
 //server_chat_colors(textcol, bgcol, bgalpha);
 if(!is_real(argument0) or !is_real(argument1) or !is_real(argument2))
 {
-    XServer_error("gms_chat_colors: Expected all arguments to be reals, but found one or more strings.");exit
+	XServer_error("gms_chat_colors: Expected all arguments to be reals, but found one or more strings.");exit
 }
 global.__chat_textcol = argument0;
 global.__chat_bgcol   = argument1;
@@ -324,147 +324,147 @@ function gms_chat_draw() {
 XServer_verify();
 if(global.__chat)
 {
-    //Update position
-    if(global.__chat_bind == 1)
-    {
-        global.__chat_x1 = 0;
-        global.__chat_x2 = room_width;
-        if(global.__chat_pos == 0)
-        {
-            global.__chat_y1 = 0;
-            global.__chat_y2 = global.__chat_height;
-        }else{
-            global.__chat_y1 = room_height - global.__chat_height;
-            global.__chat_y2 = room_height;
-        }
-    }else if(global.__chat_bind >= 2 && global.__chat_bind <= 9)
-    {
-        global.__chat_x1 = __view_get( e__VW.XView, global.__chat_bind - 2 );
-        global.__chat_x2 = __view_get( e__VW.XView, global.__chat_bind - 2 ) + __view_get( e__VW.WView, global.__chat_bind - 2 );
-        if(global.__chat_pos == 0)
-        {
-            global.__chat_y1 = __view_get( e__VW.YView, global.__chat_bind - 2 );
-            global.__chat_y2 = __view_get( e__VW.YView, global.__chat_bind - 2 ) + global.__chat_height;
-        }else{
-            global.__chat_y1 = __view_get( e__VW.YView, global.__chat_bind - 2 ) + __view_get( e__VW.HView, global.__chat_bind - 2 ) - global.__chat_height;
-            global.__chat_y2 = __view_get( e__VW.YView, global.__chat_bind - 2 ) + __view_get( e__VW.HView, global.__chat_bind - 2 );
-        }
-    }else if(global.__chat_bind != 0)
-    {
-        XServer_error("Unknown way to draw chat set. Maybe the view index was outside the range [0, 7]?");
-        exit;
-    }
-    
-    draw_set_color(global.__chat_bgcol);
-    draw_set_alpha(global.__chat_bgalpha);
-    draw_set_font(global.__chat_font);
-    
-    if(keyboard_check_pressed(global.__chat_submitkey) && global.__chat_typing)
-    {
-        if(keyboard_string != "")
-        {
+	//Update position
+	if(global.__chat_bind == 1)
+	{
+		global.__chat_x1 = 0;
+		global.__chat_x2 = room_width;
+		if(global.__chat_pos == 0)
+		{
+			global.__chat_y1 = 0;
+			global.__chat_y2 = global.__chat_height;
+		}else{
+			global.__chat_y1 = room_height - global.__chat_height;
+			global.__chat_y2 = room_height;
+		}
+	}else if(global.__chat_bind >= 2 && global.__chat_bind <= 9)
+	{
+		global.__chat_x1 = __view_get( e__VW.XView, global.__chat_bind - 2 );
+		global.__chat_x2 = __view_get( e__VW.XView, global.__chat_bind - 2 ) + __view_get( e__VW.WView, global.__chat_bind - 2 );
+		if(global.__chat_pos == 0)
+		{
+			global.__chat_y1 = __view_get( e__VW.YView, global.__chat_bind - 2 );
+			global.__chat_y2 = __view_get( e__VW.YView, global.__chat_bind - 2 ) + global.__chat_height;
+		}else{
+			global.__chat_y1 = __view_get( e__VW.YView, global.__chat_bind - 2 ) + __view_get( e__VW.HView, global.__chat_bind - 2 ) - global.__chat_height;
+			global.__chat_y2 = __view_get( e__VW.YView, global.__chat_bind - 2 ) + __view_get( e__VW.HView, global.__chat_bind - 2 );
+		}
+	}else if(global.__chat_bind != 0)
+	{
+		XServer_error("Unknown way to draw chat set. Maybe the view index was outside the range [0, 7]?");
+		exit;
+	}
+	
+	draw_set_color(global.__chat_bgcol);
+	draw_set_alpha(global.__chat_bgalpha);
+	draw_set_font(global.__chat_font);
+	
+	if(keyboard_check_pressed(global.__chat_submitkey) && global.__chat_typing)
+	{
+		if(keyboard_string != "")
+		{
 			gms_chat(keyboard_string, global.__chat_textcol);
-            global.__chat_directclose = 1;
-            global.__chat_highl = 1;
+			global.__chat_directclose = 1;
+			global.__chat_highl = 1;
 			chat_lastmessage = keyboard_string;
-        }
-        keyboard_string = "";
-        global.__chat_typing = false;
-    }else
-    if(keyboard_check_pressed(global.__chat_togglekey))
-    {
-        keyboard_string = "";
-        global.__chat_typing = !global.__chat_typing;
-        global.__chat_directclose = 0;
-    }else
-    if(keyboard_check_pressed(global.__chat_teamkey) && global.__chat_typing)
-    {
-        gms_chat_team_only_set(!gms_chat_team_only_get());
-    }
-    
-    if(global.__chat_typing)
-    {
-        //Increase global.__chat_openani, with an amount of 2 / room_speed 
-        global.__chat_openani = min(1, global.__chat_openani + 5 / room_speed);
-    }else{
-        //Increase global.__chat_openani, with an amount of 2 / room_speed 
-        global.__chat_openani = max(0, global.__chat_openani - 5 / room_speed);
-    }
-    //Increase global.__chat_highl, with an amount of 3 / room_speed 
-    global.__chat_highl = max(0, global.__chat_highl - 3 / room_speed);
-    
-    var _y, _i, _t, __scl;
-    _y = global.__chat_y2;
-    
-    if(global.__chat_small)
-    {
-    
-    }else{
-        draw_rectangle(global.__chat_x1, global.__chat_y1, global.__chat_x2, global.__chat_y2, 0);
-        draw_rectangle(global.__chat_x1, global.__chat_y1, global.__chat_x2, global.__chat_y2, 1);
-        draw_set_alpha(1);
-        draw_set_color(global.__chat_textcol);
-        draw_set_halign(fa_left)
-        draw_set_valign(fa_top)
-        if(global.__chat_openani > 0 && !global.__chat_directclose)
-        {
-            _y -= string_height_ext(gms_self_name() + " " + string_repeat(global.__language_team, gms_chat_team_only_get()) + ": " + string_replace_all(keyboard_string, "#", "\\#"), -1, global.__chat_x2 - global.__chat_x1 - 10) * global.__chat_openani;
-            
-            if(script_exists(global.__chat_colorscript) && global.__chat_colorscript != -1)
-            {
-                //x, y, username, userid, message, width, yscale, color
-                script_execute(global.__chat_colorscript, global.__chat_x1 + 5, _y, gms_self_name(), gms_self_playerid(), keyboard_string + string_repeat("|", (current_time mod 1200) < 600), global.__chat_x2 - global.__chat_x1 - 10, global.__chat_openani, global.__chat_textcol, true) // CHANGED
-            }else{
-                draw_text_ext_transformed(global.__chat_x1 + 5, _y, gms_self_name() + ": " + string_replace_all(keyboard_string, "#", "\\#") + string_repeat("|", (current_time mod 1200) < 600), -1, global.__chat_x2 - global.__chat_x1 - 10, 1, global.__chat_openani, 0);
-            }
-            draw_set_alpha(global.__chat_bgalpha / (global.__chat_openani + 1));
-            draw_set_color(global.__chat_bgcol)//draw_set_color(c_white);
-            draw_rectangle(global.__chat_x1, global.__chat_y2, global.__chat_x2, _y, 0);
-        }else if(global.__chat_openani == 0){
-            global.__chat_directclose = 0;
-        }
-        draw_set_alpha(1 / (1 + global.__chat_openani));
-        for(_i = gms_chat_num() - 1; _i >= 0 && _y > global.__chat_y1; _i -= 1)
-        {
-            draw_set_color(gms_chat_get_color(_i))
-            
-            var _snder;
-            if(gms_chat_get_sendername(_i) != "")
-            {
-                _snder = gms_chat_get_sendername(_i) + ": ";
-            }
+		}
+		keyboard_string = "";
+		global.__chat_typing = false;
+	}else
+	if(keyboard_check_pressed(global.__chat_togglekey))
+	{
+		keyboard_string = "";
+		global.__chat_typing = !global.__chat_typing;
+		global.__chat_directclose = 0;
+	}else
+	if(keyboard_check_pressed(global.__chat_teamkey) && global.__chat_typing)
+	{
+		gms_chat_team_only_set(!gms_chat_team_only_get());
+	}
+	
+	if(global.__chat_typing)
+	{
+		//Increase global.__chat_openani, with an amount of 2 / room_speed 
+		global.__chat_openani = min(1, global.__chat_openani + 5 / room_speed);
+	}else{
+		//Increase global.__chat_openani, with an amount of 2 / room_speed 
+		global.__chat_openani = max(0, global.__chat_openani - 5 / room_speed);
+	}
+	//Increase global.__chat_highl, with an amount of 3 / room_speed 
+	global.__chat_highl = max(0, global.__chat_highl - 3 / room_speed);
+	
+	var _y, _i, _t, __scl;
+	_y = global.__chat_y2;
+	
+	if(global.__chat_small)
+	{
+	
+	}else{
+		draw_rectangle(global.__chat_x1, global.__chat_y1, global.__chat_x2, global.__chat_y2, 0);
+		draw_rectangle(global.__chat_x1, global.__chat_y1, global.__chat_x2, global.__chat_y2, 1);
+		draw_set_alpha(1);
+		draw_set_color(global.__chat_textcol);
+		draw_set_halign(fa_left)
+		draw_set_valign(fa_top)
+		if(global.__chat_openani > 0 && !global.__chat_directclose)
+		{
+			_y -= string_height_ext(gms_self_name() + " " + string_repeat(global.__language_team, gms_chat_team_only_get()) + ": " + string_replace_all(keyboard_string, "#", "\\#"), -1, global.__chat_x2 - global.__chat_x1 - 10) * global.__chat_openani;
+			
+			if(script_exists(global.__chat_colorscript) && global.__chat_colorscript != -1)
+			{
+				//x, y, username, userid, message, width, yscale, color
+				script_execute(global.__chat_colorscript, global.__chat_x1 + 5, _y, gms_self_name(), gms_self_playerid(), keyboard_string + string_repeat("|", (current_time mod 1200) < 600), global.__chat_x2 - global.__chat_x1 - 10, global.__chat_openani, global.__chat_textcol, true) // CHANGED
+			}else{
+				draw_text_ext_transformed(global.__chat_x1 + 5, _y, gms_self_name() + ": " + string_replace_all(keyboard_string, "#", "\\#") + string_repeat("|", (current_time mod 1200) < 600), -1, global.__chat_x2 - global.__chat_x1 - 10, 1, global.__chat_openani, 0);
+			}
+			draw_set_alpha(global.__chat_bgalpha / (global.__chat_openani + 1));
+			draw_set_color(global.__chat_bgcol)//draw_set_color(c_white);
+			draw_rectangle(global.__chat_x1, global.__chat_y2, global.__chat_x2, _y, 0);
+		}else if(global.__chat_openani == 0){
+			global.__chat_directclose = 0;
+		}
+		draw_set_alpha(1 / (1 + global.__chat_openani));
+		for(_i = gms_chat_num() - 1; _i >= 0 && _y > global.__chat_y1; _i -= 1)
+		{
+			draw_set_color(gms_chat_get_color(_i))
+			
+			var _snder;
+			if(gms_chat_get_sendername(_i) != "")
+			{
+				_snder = gms_chat_get_sendername(_i) + ": ";
+			}
 			else {
-                _snder = "";
-            }
-            
-            _t = string_replace_all(gms_chat_get_text(_i), "#", "\\#");
-            _y -= string_height_ext(_snder + _t, -1, global.__chat_x2 - global.__chat_x1);
-            
-            if(_y >= global.__chat_y1 + 5)
-            {
-                __scl = 1;
-            }else{
-                __scl = 1 - (global.__chat_y1 - _y) / string_height_ext(_t, -1, global.__chat_x2 - global.__chat_x1);
-                _y += string_height_ext(_t + "xXgYg", -1, global.__chat_x2 - global.__chat_x1) * (1 - __scl)
-            }
-            
-            if(script_exists(global.__chat_colorscript) && global.__chat_colorscript != -1)
-            {
-                //x, y, username, userid, message, width, yscale, color
-                script_execute(global.__chat_colorscript, global.__chat_x1 + 5, max(_y, global.__chat_y1), gms_chat_get_sendername(_i), gms_chat_get_sender(_i), _t, global.__chat_x2 - global.__chat_x1, __scl, gms_chat_get_color(_i))
-            }else{
-                draw_text_ext_transformed(global.__chat_x1 + 5, max(_y, global.__chat_y1),_snder + _t, -1, global.__chat_x2 - global.__chat_x1, 1, __scl, 0);
-            }
-            
-            if(_i == gms_chat_num() - 1 && global.__chat_highl > 0)
-            {
-                draw_set_alpha(global.__chat_bgalpha / 2 * (global.__chat_highl));
-                draw_set_color(c_white);
-                draw_rectangle(global.__chat_x1, global.__chat_y2, global.__chat_x2, _y, 0);
-                draw_set_alpha(global.__chat_bgalpha / (1 + global.__chat_openani));
-            }
-        }
-    }
+				_snder = "";
+			}
+			
+			_t = string_replace_all(gms_chat_get_text(_i), "#", "\\#");
+			_y -= string_height_ext(_snder + _t, -1, global.__chat_x2 - global.__chat_x1);
+			
+			if(_y >= global.__chat_y1 + 5)
+			{
+				__scl = 1;
+			}else{
+				__scl = 1 - (global.__chat_y1 - _y) / string_height_ext(_t, -1, global.__chat_x2 - global.__chat_x1);
+				_y += string_height_ext(_t + "xXgYg", -1, global.__chat_x2 - global.__chat_x1) * (1 - __scl)
+			}
+			
+			if(script_exists(global.__chat_colorscript) && global.__chat_colorscript != -1)
+			{
+				//x, y, username, userid, message, width, yscale, color
+				script_execute(global.__chat_colorscript, global.__chat_x1 + 5, max(_y, global.__chat_y1), gms_chat_get_sendername(_i), gms_chat_get_sender(_i), _t, global.__chat_x2 - global.__chat_x1, __scl, gms_chat_get_color(_i))
+			}else{
+				draw_text_ext_transformed(global.__chat_x1 + 5, max(_y, global.__chat_y1),_snder + _t, -1, global.__chat_x2 - global.__chat_x1, 1, __scl, 0);
+			}
+			
+			if(_i == gms_chat_num() - 1 && global.__chat_highl > 0)
+			{
+				draw_set_alpha(global.__chat_bgalpha / 2 * (global.__chat_highl));
+				draw_set_color(c_white);
+				draw_rectangle(global.__chat_x1, global.__chat_y2, global.__chat_x2, _y, 0);
+				draw_set_alpha(global.__chat_bgalpha / (1 + global.__chat_openani));
+			}
+		}
+	}
 }
 }
 
@@ -508,16 +508,16 @@ function gms_chat_local(argument0, argument1) {
 XServer_verify();
 if(!is_string(argument0) or !is_real(argument1))
 {
-    XServer_error("server_chat_local: One or more arguments are not of the right type (string, real)")exit
+	XServer_error("server_chat_local: One or more arguments are not of the right type (string, real)")exit
 }
 if(argument0 != "")
 {
-    ds_list_add(global.__chattime, current_time);
-    ds_list_add(global.__chattext, string(argument0));
-    ds_list_add(global.__chatcol , argument1);
-    ds_list_add(global.__chatsender, -77);
-    ds_list_add(global.__chatsendername, "");
-    global.__chat_highl = 1;
+	ds_list_add(global.__chattime, current_time);
+	ds_list_add(global.__chattext, string(argument0));
+	ds_list_add(global.__chatcol , argument1);
+	ds_list_add(global.__chatsender, -77);
+	ds_list_add(global.__chatsendername, "");
+	global.__chat_highl = 1;
 }
 }
 
@@ -551,26 +551,26 @@ function gms_draw() {
 // CHANGED
 if(global.__chat_bubbles)
 {
-    if(global.__obj_other_player >= 0)
-    {
-        with(global.__obj_other_player)
-        {
-            var _w, _alp;
-            if(current_time - last_chat_time < 500)
-            {
-                _alp = (current_time - last_chat_time) / 500;
-            }else if(current_time - last_chat_time < 8000)
-            {
-                _alp = 1;
-            }else if(current_time - last_chat_time < 9000)
-            {
-                _alp = 1 - ((current_time - last_chat_time) - 8000) / 1000;
-            }else{
-                _alp = 0;
-            }
-            if(_alp != 0)
-            {
-                draw_set_alpha(_alp);
+	if(global.__obj_other_player >= 0)
+	{
+		with(global.__obj_other_player)
+		{
+			var _w, _alp;
+			if(current_time - last_chat_time < 500)
+			{
+				_alp = (current_time - last_chat_time) / 500;
+			}else if(current_time - last_chat_time < 8000)
+			{
+				_alp = 1;
+			}else if(current_time - last_chat_time < 9000)
+			{
+				_alp = 1 - ((current_time - last_chat_time) - 8000) / 1000;
+			}else{
+				_alp = 0;
+			}
+			if(_alp != 0)
+			{
+				draw_set_alpha(_alp);
 				draw_set_halign(fa_center);
 				draw_set_valign(fa_top);
 				
@@ -579,29 +579,29 @@ if(global.__chat_bubbles)
 				if string_replace_all(message, " ", "") == ""
 					message = "( ... )";
 				
-	            _w = max(0.01, min(string_width(message), room_width / 4));
-	            _w = string_width_ext((message), -1, _w);
-	            _h = string_height_ext((message), -1, _w);
+				_w = max(0.01, min(string_width(message), room_width / 4));
+				_w = string_width_ext((message), -1, _w);
+				_h = string_height_ext((message), -1, _w);
 				
 				draw_set_colour(c_black);
 				draw_roundrect(x - _w / 2 - 10 - 1, y - _h + sprite_get_bbox_top(sprite_index) - 16 - 80 - 1, x + _w / 2 + 10 + 1, y + sprite_get_bbox_top(sprite_index) - 6 - 80 + 1, 0);
 				draw_roundrect(x - _w / 2 - 10 + 4, y - _h + sprite_get_bbox_top(sprite_index) - 16 - 80 + 4, x + _w / 2 + 10 + 4, y + sprite_get_bbox_top(sprite_index) - 6 - 80 + 4, 0);
-                draw_set_color(c_white);
-                draw_roundrect(x - _w / 2 - 10, y - _h + sprite_get_bbox_top(sprite_index) - 16 - 80, x + _w / 2 + 10, y + sprite_get_bbox_top(sprite_index) - 6 - 80, 0);
-                draw_set_color(c_white);
-                draw_text_ext(floor(x), floor(y - _h + sprite_get_bbox_top(sprite_index) - 8 - 80), string(message), -1, _w);
+				draw_set_color(c_white);
+				draw_roundrect(x - _w / 2 - 10, y - _h + sprite_get_bbox_top(sprite_index) - 16 - 80, x + _w / 2 + 10, y + sprite_get_bbox_top(sprite_index) - 6 - 80, 0);
+				draw_set_color(c_white);
+				draw_text_ext(floor(x), floor(y - _h + sprite_get_bbox_top(sprite_index) - 8 - 80), string(message), -1, _w);
 				
 				draw_set_halign(fa_left);
-            }
-        }
-    }
+			}
+		}
+	}
 }
 if(global.__draw_enabled)
 {
-    if((global.__chat_bind >= 2 && view_current == global.__chat_bind - 2) or global.__chat_bind < 2)
-    { 
-        gms_chat_draw()
-    }
+	if((global.__chat_bind >= 2 && view_current == global.__chat_bind - 2) or global.__chat_bind < 2)
+	{ 
+		gms_chat_draw()
+	}
 }
 global.__saved_font = global.__last_font;
 XWindow_totaldraw();
@@ -613,10 +613,10 @@ draw_set_color(c_black);
 function gms_logout() {
 if(global.__obj_other_player > 0 && instance_exists(global.__obj_other_player))
 {
-    with(global.__obj_other_player)
-    {
-        instance_destroy();
-    }
+	with(global.__obj_other_player)
+	{
+		instance_destroy();
+	}
 }
 XServer_logout();
 }
@@ -624,7 +624,7 @@ XServer_logout();
 function gms_friend_send_request() {
 if(!is_real(argument1) or !is_string(argument0))
 {
-    XServer_error("server_friend_send_request: Expected a string as the first arument and a real as the second argument. Keep in mind a callback script should be provided as a resource, not as a script. There shouldn't be quotes around the script name.")
+	XServer_error("server_friend_send_request: Expected a string as the first arument and a real as the second argument. Keep in mind a callback script should be provided as a resource, not as a script. There shouldn't be quotes around the script name.")
 }
 global.__friendrequest_callb = argument1;
 XServer_friend_send_request(argument0);
@@ -636,9 +636,9 @@ function gms_global_get(argument0) {
 	XServer_verify();
 	if(gms_global_isreal(argument0))
 	{
-	    return gms_global_get_real(argument0);
+		return gms_global_get_real(argument0);
 	}else{
-	    return gms_global_get_string(argument0);
+		return gms_global_get_string(argument0);
 	}
 }
 
@@ -649,9 +649,9 @@ function gms_global_set(argument0, argument1) {
 	XServer_verify();
 	if(is_real(argument1))
 	{
-	    gms_global_set_real(argument0, argument1);
+		gms_global_set_real(argument0, argument1);
 	}else{
-	    gms_global_set_string(argument0, argument1);
+		gms_global_set_string(argument0, argument1);
 	}
 }
 
@@ -661,8 +661,8 @@ function gms_ini_game_delete(argument0, argument1) {
 	XServer_verify();
 	if(!is_string(argument0) or !is_string(argument1))
 	{
-	    XServer_error("GameINI: section & key should be string, but found one or more reals.");
-	    exit;
+		XServer_error("GameINI: section & key should be string, but found one or more reals.");
+		exit;
 	}
 	if(!XServer_require_connection()) return 0;
 	XServer_ini_game_delete(argument0+">"+argument1);
@@ -680,17 +680,17 @@ function gms_ini_game_read(argument0, argument1) {
 	XServer_verify();
 	if(!is_string(argument0) or !is_string(argument1))
 	{
-	    XServer_error("GameINI: section & key should be string, but found one or more reals.");
-	    exit;
+		XServer_error("GameINI: section & key should be string, but found one or more reals.");
+		exit;
 	}
 	if(!XServer_require_connection()) return 0;
 	var __n;
 	__n = argument0+">"+argument1;
 	if(XServer_ini_game_isreal(__n))
 	{
-	    return XServer_ini_game_read_real(__n);
+		return XServer_ini_game_read_real(__n);
 	}else{
-	    return XServer_ini_game_read_string(__n);
+		return XServer_ini_game_read_string(__n);
 	}
 }
 
@@ -702,16 +702,16 @@ function gms_ini_game_write(argument0, argument1) {
 	if(!XServer_require_connection()) return 0;
 	if(!is_string(argument0) or !is_string(argument1))
 	{
-	    XServer_error("GameINI: section & key should be string, but found one or more reals.");
-	    exit;
+		XServer_error("GameINI: section & key should be string, but found one or more reals.");
+		exit;
 	}
 	var __n;
 	__n = argument0+">"+argument1;
 	if(is_real(argument2))
 	{
-	    return XServer_ini_game_write_real(__n, argument2);
+		return XServer_ini_game_write_real(__n, argument2);
 	}else{
-	    return XServer_ini_game_write_string(__n, argument2);
+		return XServer_ini_game_write_string(__n, argument2);
 	}
 }
 
@@ -721,8 +721,8 @@ function gms_ini_player_delete(argument0, argument1) {
 	XServer_verify();
 	if(!is_string(argument0) or !is_string(argument1))
 	{
-	    XServer_error("GameINI: section & key should be string, but found one or more reals.");
-	    exit;
+		XServer_error("GameINI: section & key should be string, but found one or more reals.");
+		exit;
 	}
 	XServer_ini_player_delete(argument0+">"+argument1);
 }
@@ -739,16 +739,16 @@ function gms_ini_player_read(argument0, argument1) {
 	XServer_verify();
 	if(!is_string(argument0) or !is_string(argument1))
 	{
-	    XServer_error("GameINI: section & key should be string, but found one or more reals.");
-	    exit;
+		XServer_error("GameINI: section & key should be string, but found one or more reals.");
+		exit;
 	}
 	var __n;
 	__n = argument0+">"+argument1;
 	if(XServer_ini_player_isreal(__n))
 	{
-	    return XServer_ini_player_read_real(__n);
+		return XServer_ini_player_read_real(__n);
 	}else{
-	    return XServer_ini_player_read_string(__n);
+		return XServer_ini_player_read_string(__n);
 	}
 }
 
@@ -759,25 +759,25 @@ function gms_ini_player_write(argument0, argument1, argument2) {
 	XServer_verify();
 	if(!is_string(argument0) or !is_string(argument1))
 	{
-	    XServer_error("GameINI: section & key should be string, but found one or more reals.");
-	    exit;
+		XServer_error("GameINI: section & key should be string, but found one or more reals.");
+		exit;
 	}
 	var __n;
 	__n = argument0+">"+argument1;
 	if(is_real(argument2))
 	{
-	    return XServer_ini_player_write_real(__n, argument2);
+		return XServer_ini_player_write_real(__n, argument2);
 	}else{
-	    return XServer_ini_player_write_string(__n, argument2);
+		return XServer_ini_player_write_string(__n, argument2);
 	}
 }
 
 function gms_instance_get(argument0, argument1) {
 if(gms_instance_isreal(argument0, argument1))
 {
-    return gms_instance_get_real(argument0, argument1);
+	return gms_instance_get_real(argument0, argument1);
 }else{
-    return gms_instance_get_string(argument0, argument1);
+	return gms_instance_get_string(argument0, argument1);
 }
 }
 
@@ -785,9 +785,9 @@ function gms_instance_set(argument0, argument1, argument2) {
 //server_instance_variable_set(id, name, value)
 if(is_real(argument2))
 {
-    return gms_instance_set_real(argument0, argument1, argument2);
+	return gms_instance_set_real(argument0, argument1, argument2);
 }else{
-    return gms_instance_set_string(argument0, argument1, argument2);
+	return gms_instance_set_string(argument0, argument1, argument2);
 }
 }
 
@@ -795,44 +795,44 @@ function gms_login_error_tostring(argument0) {
 XServer_verify();
 switch(argument0)
 {
-    case 0:
-        //Actually, this code is used when everything is OK too!
-        //But when you can't login, and get this error, the server isn't responding.
-        return "Server is not responding to login request. Please try again.";
-    case 1:
-        return "A password is required when logging in to an account!";
-    case 2:
-        return "You can't login with a password when the account doesn't exists. Please register first!";
-    case 3:
-        return "Wrong password!";
-    case 4:
-        return "Server full: there's too many people playing!";
-    case 5:
-        return "You can't login twice with the same name!";
-    case 6:
-        return "You're already logged in! (Please contact the developer)";
-    case 7:
-        return "You have been banned from this game! (contact admin/developer for more info)";
-    case 8:
-        return "You've been banned from GameMaker Server (For more info, see gamemakerserver.com)";
-    case 11:
-        return "Username contains invalid characters";
-    case 12:
-        return "The username has already been used in the highscores";
-    case 13:
-        return "Could not connect to server";
-    case 15:
-        return "Your game client is unauthenticated. Please check with the developer for an update.";
-    default:
-        return "Unknown errorcode "+string(argument0);
+	case 0:
+		//Actually, this code is used when everything is OK too!
+		//But when you can't login, and get this error, the server isn't responding.
+		return "Server is not responding to login request. Please try again.";
+	case 1:
+		return "A password is required when logging in to an account!";
+	case 2:
+		return "You can't login with a password when the account doesn't exists. Please register first!";
+	case 3:
+		return "Wrong password!";
+	case 4:
+		return "Server full: there's too many people playing!";
+	case 5:
+		return "You can't login twice with the same name!";
+	case 6:
+		return "You're already logged in! (Please contact the developer)";
+	case 7:
+		return "You have been banned from this game! (contact admin/developer for more info)";
+	case 8:
+		return "You've been banned from GameMaker Server (For more info, see gamemakerserver.com)";
+	case 11:
+		return "Username contains invalid characters";
+	case 12:
+		return "The username has already been used in the highscores";
+	case 13:
+		return "Could not connect to server";
+	case 15:
+		return "Your game client is unauthenticated. Please check with the developer for an update.";
+	default:
+		return "Unknown errorcode "+string(argument0);
 }
 }
 
 function gms_login_execute(argument0) {
 if(!is_real(argument0))
 {
-    XServer_error("server_login_execute: Expected the first argument to be a real, but found a string. Please note there should be no quotes around the scripts' name.");
-    exit;
+	XServer_error("server_login_execute: Expected the first argument to be a real, but found a string. Please note there should be no quotes around the scripts' name.");
+	exit;
 }
 global.__hide_login = room_speed * 2;
 global.__login_finish_script = argument0;
@@ -842,8 +842,8 @@ return XServer_login_execute();
 function gms_message_reporting(argument0) {
 if(!is_real(argument0))
 {
-    XServer_error("server_message_reporting: Expected the first argument to be a real, but found a string");
-    exit;
+	XServer_error("server_message_reporting: Expected the first argument to be a real, but found a string");
+	exit;
 }
 global.__message_reporting = argument0;
 }
@@ -854,8 +854,8 @@ function gms_optimize_variables(argument0, argument1) {
 /// @param  sync_imageindex
 if(!is_real(argument0) or !is_real(argument1))
 {
-    XServer_error("server_optimize_variables: Expected all arguments to be reals, but found one or more strings.");
-    exit;
+	XServer_error("server_optimize_variables: Expected all arguments to be reals, but found one or more strings.");
+	exit;
 }
 global.__sync_sprite = argument0;
 global.__sync_imageindex = argument1;
@@ -866,9 +866,9 @@ function gms_other_get(argument0, argument1) {
 XServer_verify();
 if(gms_other_isreal(argument0, argument1))
 {
-    return gms_other_get_real(argument0, argument1);
+	return gms_other_get_real(argument0, argument1);
 }else{
-    return gms_other_get_string(argument0, argument1);
+	return gms_other_get_string(argument0, argument1);
 }
 }
 
@@ -876,28 +876,28 @@ function gms_register_error_tostring(argument0) {
 XServer_verify();
 switch(argument0)
 {
-    case 1:
-        return "Registration succesful";
-    case 2:
-        return "The passwords aren't the same";
-    case 3:
-        return "E-Mail is not valid";
-    case 4:
-        return "Username has already been taken";
-    case 5:
-        return "E-Mail has already been taken";
-    case 6:
-        return "Username needs to be at least 4 characters";
-    case 7:
-        return "Password needs to be at least 6 characters";
-    case 8:
-        return "Username contains invalid characters";
-    case 9:
-        return "You cannot register more than 5 accounts on the same IP-address";
-    case 10:
-        return "The password you entered is a weak password. Please use a stronger password."
-    default:
-        return "Unknown errorcode "+string(argument0);
+	case 1:
+		return "Registration succesful";
+	case 2:
+		return "The passwords aren't the same";
+	case 3:
+		return "E-Mail is not valid";
+	case 4:
+		return "Username has already been taken";
+	case 5:
+		return "E-Mail has already been taken";
+	case 6:
+		return "Username needs to be at least 4 characters";
+	case 7:
+		return "Password needs to be at least 6 characters";
+	case 8:
+		return "Username contains invalid characters";
+	case 9:
+		return "You cannot register more than 5 accounts on the same IP-address";
+	case 10:
+		return "The password you entered is a weak password. Please use a stronger password."
+	default:
+		return "Unknown errorcode "+string(argument0);
 }
 }
 
@@ -1003,45 +1003,45 @@ function gms_self_set(argument0, argument1) {
 XServer_verify();
 if(is_real(argument1))
 {
-    return XServer_variable_player_set_real(argument0, argument1);
+	return XServer_variable_player_set_real(argument0, argument1);
 }else{
-    return XServer_variable_player_set_string(argument0, argument1);
+	return XServer_variable_player_set_string(argument0, argument1);
 }
 }
 
 function gms_settings(argument0, argument1, argument2, argument3) {
 //server_settings(simple_mode, version, player, other_player_obj);
 if(!gms_info_isconnected())
-    gms_connect();
-    
+	gms_connect();
+	
 if gms_version() < 1
 {
-    show_error("GameMaker Server was not loaded. Please ensure that the extension is installed correctly and that the Dll file has not been corrupted or moved.", true)
+	show_error("GameMaker Server was not loaded. Please ensure that the extension is installed correctly and that the Dll file has not been corrupted or moved.", true)
 }
 show_debug_message("Connected.");
-global.__simple_mode      = !(!real(string(argument0)));
-global.__version_num      = real(string(argument1));
+global.__simple_mode	  = !(!real(string(argument0)));
+global.__version_num	  = real(string(argument1));
 gms_setversion(global.__version_num);
 if(argument2 < 0 or argument3 < 0)
 {
-    global.__obj_player       = -100000;
-    global.__obj_other_player = -100000;
+	global.__obj_player	   = -100000;
+	global.__obj_other_player = -100000;
 }else{
-    global.__obj_player       = argument2;
-    global.__obj_other_player = argument3;
-    object_set_persistent(global.__obj_other_player, 1);
+	global.__obj_player	   = argument2;
+	global.__obj_other_player = argument3;
+	object_set_persistent(global.__obj_other_player, 1);
 }
-global.__set              = 1;
+global.__set			  = 1;
 if(!instance_exists(global.__obj))
 {
-    instance_create(0, 0, global.__obj);
+	instance_create(0, 0, global.__obj);
 }
 }
 
 function gms_show_achievements() {
 if(global.__xas_window == -1)
 {
-    gms_show_replace(wt_achievements, @"<constants>
+	gms_show_replace(wt_achievements, @"<constants>
 
 </constants>
 
@@ -1515,42 +1515,42 @@ var _as_container;
 _as_container = wle_find(global.__xas_window, "achievements.container");
 if(_as_container == -1)
 {
-    show_error("The achievement screen needs an 'achievements.container' element to function properly", false);
+	show_error("The achievement screen needs an 'achievements.container' element to function properly", false);
 }else{
-    var _i, _str, _type;
-    _str = ""
-    
-    for(_i = 0; _i < gms_achievement_count(); _i += 1)
-    {
-        if(gms_achievement_isreached(gms_achievement_find(_i)))
-        {
-            _type = "reached"
-        }else{
-            _type = "notreached"
-        }
-        
-        _str += "<multielement style[achievements.item]><label style[achievements.item.title, achievements.item.title." + _type + "]>"
-        _str += string(gms_achievement_description(gms_achievement_find(_i)))
-        _str += "</label><label style[achievements.item.reached, achievements.item.reached." + _type + "]>"
-        if(gms_achievement_isreached(gms_achievement_find(_i)))
-        {
-            _str += wle_parse_value("@txt_reached", global.__constant_map)
-        }else{
-            _str += wle_parse_value("@txt_not_reached", global.__constant_map)
-        }
-        _str += "</label></multielement>"
-    }
-    
-    wle_replace_children(global.__xas_window, _as_container, _str)
-    wle_show(global.__xas_window);
-    global.__xas_open = true
+	var _i, _str, _type;
+	_str = ""
+	
+	for(_i = 0; _i < gms_achievement_count(); _i += 1)
+	{
+		if(gms_achievement_isreached(gms_achievement_find(_i)))
+		{
+			_type = "reached"
+		}else{
+			_type = "notreached"
+		}
+		
+		_str += "<multielement style[achievements.item]><label style[achievements.item.title, achievements.item.title." + _type + "]>"
+		_str += string(gms_achievement_description(gms_achievement_find(_i)))
+		_str += "</label><label style[achievements.item.reached, achievements.item.reached." + _type + "]>"
+		if(gms_achievement_isreached(gms_achievement_find(_i)))
+		{
+			_str += wle_parse_value("@txt_reached", global.__constant_map)
+		}else{
+			_str += wle_parse_value("@txt_not_reached", global.__constant_map)
+		}
+		_str += "</label></multielement>"
+	}
+	
+	wle_replace_children(global.__xas_window, _as_container, _str)
+	wle_show(global.__xas_window);
+	global.__xas_open = true
 }
 }
 
 function gms_show_friends() {
 if(global.__xfs_window == -1)
 {
-    gms_show_replace(wt_friends, @"<constants>
+	gms_show_replace(wt_friends, @"<constants>
 
 
 </constants>
@@ -2258,42 +2258,42 @@ var _fs_container;
 _fs_container = wle_find(global.__xfs_window, "friends.container");
 if(_fs_container == -1)
 {
-    show_error("The friends screen needs an 'friends.container' element to function properly", false);
+	show_error("The friends screen needs an 'friends.container' element to function properly", false);
 }else{
-    var _i, _str, _type;
-    _str = ""
-    
-    for(_i = 0; _i < gms_friend_count(); _i += 1)
-    {
-        if(gms_friend_isonline(gms_friend_get(_i)))
-        {
-            _type = "online"
-        }else{
-            _type = "offline"
-        }
-        
-        _str += "<multielement style[friends.item]><label style[friends.item.name, friends.item.name." + _type + "]>"
-        _str += string(gms_friend_name(gms_friend_get(_i)))
-        _str += "</label><label style[friends.item.status, friends.item.status." + _type + "]>"
-        if(gms_friend_isonline(gms_friend_get(_i)))
-        {
-            _str += wle_parse_value("@txt_online", global.__constant_map)
-        }else{
-            _str += wle_parse_value("@txt_offline", global.__constant_map)
-        }
-        _str += "</label></multielement>"
-    }
-    
-    wle_replace_children(global.__xfs_window, _fs_container, _str)
-    wle_show(global.__xfs_window);
-    global.__xfs_open = true
+	var _i, _str, _type;
+	_str = ""
+	
+	for(_i = 0; _i < gms_friend_count(); _i += 1)
+	{
+		if(gms_friend_isonline(gms_friend_get(_i)))
+		{
+			_type = "online"
+		}else{
+			_type = "offline"
+		}
+		
+		_str += "<multielement style[friends.item]><label style[friends.item.name, friends.item.name." + _type + "]>"
+		_str += string(gms_friend_name(gms_friend_get(_i)))
+		_str += "</label><label style[friends.item.status, friends.item.status." + _type + "]>"
+		if(gms_friend_isonline(gms_friend_get(_i)))
+		{
+			_str += wle_parse_value("@txt_online", global.__constant_map)
+		}else{
+			_str += wle_parse_value("@txt_offline", global.__constant_map)
+		}
+		_str += "</label></multielement>"
+	}
+	
+	wle_replace_children(global.__xfs_window, _fs_container, _str)
+	wle_show(global.__xfs_window);
+	global.__xfs_open = true
 }
 }
 
 function gms_show_highscore() {
 if(global.__xhs_window == -1)
 {
-    gms_show_replace(wt_highscores, @"<constants>
+	gms_show_replace(wt_highscores, @"<constants>
 
 </constants>
 
@@ -2727,41 +2727,41 @@ highscores:
 }
 if(!gms_highscore_list_exists(argument0))
 {
-    show_error("gms_show_highscore: Highscore list does not exist", false);
+	show_error("gms_show_highscore: Highscore list does not exist", false);
 }else{
-    var _hs_container, _hs_title;
-    _hs_container = wle_find(global.__xhs_window, "highscores.container");
-    _hs_title = wle_find(global.__xhs_window, "highscores.title");
-    
-    if(_hs_container == -1 or _hs_title == -1)
-    {
-        show_error("The highscore screen needs a 'highscore-container' and a 'highscore-title' element to function properly", false);
-    }else{
-        wle_set(_hs_title, "text", gms_highscore_list_title(argument0))
-        
-        var _i, _str;
-        _str = ""
-        
-        for(_i = 0; _i < gms_highscore_count(argument0); _i += 1)
-        {
-            _str += "<multielement style[highscores.item]><label style[highscores.item.name]>"
-            _str += string(gms_highscore_name(argument0, _i))
-            _str += "</label><label style[highscores.item.score]>"
-            _str += string(gms_highscore_score(argument0, _i))
-            _str += "</label></multielement>"
-        }
-        
-        wle_replace_children(global.__xhs_window, _hs_container, _str)
-        wle_show(global.__xhs_window);
-        global.__xhs_open = true
-    }
+	var _hs_container, _hs_title;
+	_hs_container = wle_find(global.__xhs_window, "highscores.container");
+	_hs_title = wle_find(global.__xhs_window, "highscores.title");
+	
+	if(_hs_container == -1 or _hs_title == -1)
+	{
+		show_error("The highscore screen needs a 'highscore-container' and a 'highscore-title' element to function properly", false);
+	}else{
+		wle_set(_hs_title, "text", gms_highscore_list_title(argument0))
+		
+		var _i, _str;
+		_str = ""
+		
+		for(_i = 0; _i < gms_highscore_count(argument0); _i += 1)
+		{
+			_str += "<multielement style[highscores.item]><label style[highscores.item.name]>"
+			_str += string(gms_highscore_name(argument0, _i))
+			_str += "</label><label style[highscores.item.score]>"
+			_str += string(gms_highscore_score(argument0, _i))
+			_str += "</label></multielement>"
+		}
+		
+		wle_replace_children(global.__xhs_window, _hs_container, _str)
+		wle_show(global.__xhs_window);
+		global.__xhs_open = true
+	}
 }
 }
 
 function gms_show_login() {
 if(global.__xls_window == -1)
 {
-    gms_show_replace(wt_login, @"<constants>
+	gms_show_replace(wt_login, @"<constants>
 
 </constants>
 
@@ -3449,7 +3449,7 @@ function gms_show_message(argument0) {
 //text
 if(global.__xms_window == -1)
 {
-    gms_show_replace(wt_message, @"<constants>
+	gms_show_replace(wt_message, @"<constants>
 
 </constants>
 
@@ -3727,26 +3727,26 @@ border:
 }
 if ds_queue_size(global.__xmessage_queue) == 0 && (global.__xms_waittime <= 0 or !global.__xms_open)
 {
-    var _textfield;
-    _textfield = wle_find(global.__xms_window, "message.title");
-    if(_textfield == -1)
-    {
-        show_error("Message screen needs a 'message.title'-element to function properly", 1);
-    }else{
-        wle_set(_textfield, "text", string(argument0))
-        global.__xms_waittime = room_speed * 5;
-        wle_show(global.__xms_window);
-        global.__xms_open = true
-    }
+	var _textfield;
+	_textfield = wle_find(global.__xms_window, "message.title");
+	if(_textfield == -1)
+	{
+		show_error("Message screen needs a 'message.title'-element to function properly", 1);
+	}else{
+		wle_set(_textfield, "text", string(argument0))
+		global.__xms_waittime = room_speed * 5;
+		wle_show(global.__xms_window);
+		global.__xms_open = true
+	}
 }else{
-    ds_queue_enqueue(global.__xmessage_queue, argument0);
+	ds_queue_enqueue(global.__xmessage_queue, argument0);
 }
 }
 
 function gms_show_register() {
 if(global.__xrs_window == -1)
 {
-    gms_show_replace(wt_register, @"<constants>
+	gms_show_replace(wt_register, @"<constants>
 
 </constants>
 
@@ -4330,16 +4330,16 @@ global.__xrs_open = true
 function gms_show_set_allowguest(argument0) {
 if !is_real(argument0)
 {
-    XServer_error("gms_show_set_allowguest expects the first parameter to be a real")
+	XServer_error("gms_show_set_allowguest expects the first parameter to be a real")
 }else{
-    global.__ls_allow_guest   = !!argument0;
+	global.__ls_allow_guest   = !!argument0;
 }
 }
 
 function gms_show_statistics() {
 if(global.__xss_window == -1)
 {
-    gms_show_replace(wt_statistics, @"<constants>
+	gms_show_replace(wt_statistics, @"<constants>
 
 </constants>
 
@@ -4775,33 +4775,33 @@ var _ss_container;
 _ss_container = wle_find(global.__xss_window, "statistics.container");
 if(_ss_container == -1)
 {
-    show_error("The statistics screen needs an 'statistics.container' element to function properly", false);
+	show_error("The statistics screen needs an 'statistics.container' element to function properly", false);
 }else{
-    var _i, _str;
-    _str = ""
-    
-    for(_i = 0; _i < gms_statistic_count(); _i += 1)
-    {
-        _str += "<multielement style[statistics.item]><label style[statistics.item.title]>"
-        _str += string(gms_statistic_description(gms_statistic_find(_i)))
-        _str += "</label><label style[statistics.item.value]>"
-        _str += string(gms_statistic_get(gms_statistic_find(_i)))
-        _str += "</label></multielement>"
-    }
-    
-    wle_replace_children(global.__xss_window, _ss_container, _str)
-    
-    wle_show(global.__xss_window);
-    global.__xss_open = true
+	var _i, _str;
+	_str = ""
+	
+	for(_i = 0; _i < gms_statistic_count(); _i += 1)
+	{
+		_str += "<multielement style[statistics.item]><label style[statistics.item.title]>"
+		_str += string(gms_statistic_description(gms_statistic_find(_i)))
+		_str += "</label><label style[statistics.item.value]>"
+		_str += string(gms_statistic_get(gms_statistic_find(_i)))
+		_str += "</label></multielement>"
+	}
+	
+	wle_replace_children(global.__xss_window, _ss_container, _str)
+	
+	wle_show(global.__xss_window);
+	global.__xss_open = true
 }
 }
 
 function gms_show_update() {
 if(gms_update_check())
 {
-    if(global.__xus_window == -1)
-    {
-        gms_show_replace(wt_update, @"<constants>
+	if(global.__xus_window == -1)
+	{
+		gms_show_replace(wt_update, @"<constants>
 
 </constants>
 
@@ -5196,18 +5196,18 @@ progressbar:
 	</canvas>
 
 </layout>");
-    }
-    
-    gms_update_start();
-    wle_show(global.__xus_window);
-    global.__xus_open = true
+	}
+	
+	gms_update_start();
+	wle_show(global.__xus_window);
+	global.__xus_open = true
 }
 }
 
 function gms_show_keyboard() {
 if(global.__xkb_window == -1)
 {
-    gms_show_replace(wt_keyboard, @"<constants>
+	gms_show_replace(wt_keyboard, @"<constants>
 
 </constants>
 
@@ -5825,34 +5825,34 @@ function gms_show_replace(argument0, argument1) {
 show_debug_message("Replacing window " + string(argument0));
 switch(argument0)
 {
-    case wt_login: 
-        global.__xls_window = wle_load(argument1);
-        break;
-    case wt_highscores:
-        global.__xhs_window = wle_load(argument1);
-        break;
-    case wt_achievements:
-        global.__xas_window = wle_load(argument1);
-        break;
-    case wt_statistics:
-        global.__xss_window = wle_load(argument1);
-        break;
-    case wt_friends:
-        global.__xfs_window = wle_load(argument1);
-        break;
-    case wt_update:
-        global.__xus_window = wle_load(argument1);
-        break;
-    case wt_keyboard:
-        global.__xkb_window = wle_load(argument1);
-        break;
-    case wt_message:
-        global.__xms_window = wle_load(argument1);
-        break;
-    case wt_register:
-        global.__xrs_window = wle_load(argument1);
-        break;
-    default: show_error("Unknown window to replace: " + string(argument0) + "; Must be a wt_* constant.", true);
+	case wt_login: 
+		global.__xls_window = wle_load(argument1);
+		break;
+	case wt_highscores:
+		global.__xhs_window = wle_load(argument1);
+		break;
+	case wt_achievements:
+		global.__xas_window = wle_load(argument1);
+		break;
+	case wt_statistics:
+		global.__xss_window = wle_load(argument1);
+		break;
+	case wt_friends:
+		global.__xfs_window = wle_load(argument1);
+		break;
+	case wt_update:
+		global.__xus_window = wle_load(argument1);
+		break;
+	case wt_keyboard:
+		global.__xkb_window = wle_load(argument1);
+		break;
+	case wt_message:
+		global.__xms_window = wle_load(argument1);
+		break;
+	case wt_register:
+		global.__xrs_window = wle_load(argument1);
+		break;
+	default: show_error("Unknown window to replace: " + string(argument0) + "; Must be a wt_* constant.", true);
 }
 }
 
@@ -5870,16 +5870,16 @@ wle_set_constant(argument0, argument1)
 function gms_show_isopen(argument0) {
 switch(argument0)
 {
-    case wt_login: return global.__xls_open;
-    case wt_highscores: return global.__xhs_open;
-    case wt_achievements: return global.__xas_open;
-    case wt_statistics: return global.__xss_open;
-    case wt_friends: return global.__xfs_open;
-    case wt_update: return global.__xus_open;
-    case wt_keyboard: return global.__xkb_open;
-    case wt_message: return global.__xms_open;
-    case wt_register: return global.__xrs_open;
-    default: show_error("Unknown window: " + string(argument0) + "; Must be a wt_* constant.", true);
+	case wt_login: return global.__xls_open;
+	case wt_highscores: return global.__xhs_open;
+	case wt_achievements: return global.__xas_open;
+	case wt_statistics: return global.__xss_open;
+	case wt_friends: return global.__xfs_open;
+	case wt_update: return global.__xus_open;
+	case wt_keyboard: return global.__xkb_open;
+	case wt_message: return global.__xms_open;
+	case wt_register: return global.__xrs_open;
+	default: show_error("Unknown window: " + string(argument0) + "; Must be a wt_* constant.", true);
 }
 }
 
@@ -5902,52 +5902,52 @@ __m = current_time;
 var __current_room;
 if(global.__script_room != -1 && script_exists(global.__script_room))
 {
-    __current_room = script_execute(global.__script_room);
+	__current_room = script_execute(global.__script_room);
 }else{
-    __current_room = room;
+	__current_room = room;
 }
 //DLL actions
 if(global.__simple_mode)
 {
-    XServer_variable_player_set_real("room", __current_room);
-    if(global.__obj_player >= 0)
-    {
-        with(global.__obj_player)
-        {
-            player_id = gms_self_playerid();
-            XServer_variable_player_set_real("x", x);
-            XServer_variable_player_set_real("y", y);
-            
-            var _distance, _dir;
-            _distance = point_distance(global.__self_last_x, global.__self_last_y, x, y)
-            _dir = point_direction(global.__self_last_x, global.__self_last_y, x, y)
-            
-            global.__self_last_x        = x
-            global.__self_last_y        = y
-            
-            if speed == 0 and _distance > 0 and _distance < 100 and global.__enable_speed_polyfill
-            {
-                XServer_variable_player_set_real("direction", _dir)
-                XServer_variable_player_set_real("speed", _distance)
-            } else {
-                XServer_variable_player_set_real("direction", direction)
-                XServer_variable_player_set_real("speed", speed)
-            }
-            
-            if(global.__sync_sprite) 
-            {
-                if(global.__sync_imageindex) 
-                    XServer_variable_player_set_real("image_index", floor(image_index));
-                XServer_variable_player_set_real("sprite_index", sprite_index);
-                XServer_variable_player_set_real("image_speed", image_speed);
-                XServer_variable_player_set_real("image_xscale", image_xscale);
-                XServer_variable_player_set_real("image_yscale", image_yscale);
-                XServer_variable_player_set_real("image_alpha", image_alpha);
-                XServer_variable_player_set_real("image_angle", image_angle);
-                XServer_variable_player_set_real("image_blend", image_blend);
-            }
-        }
-    }
+	XServer_variable_player_set_real("room", __current_room);
+	if(global.__obj_player >= 0)
+	{
+		with(global.__obj_player)
+		{
+			player_id = gms_self_playerid();
+			XServer_variable_player_set_real("x", x);
+			XServer_variable_player_set_real("y", y);
+			
+			var _distance, _dir;
+			_distance = point_distance(global.__self_last_x, global.__self_last_y, x, y)
+			_dir = point_direction(global.__self_last_x, global.__self_last_y, x, y)
+			
+			global.__self_last_x		= x
+			global.__self_last_y		= y
+			
+			if speed == 0 and _distance > 0 and _distance < 100 and global.__enable_speed_polyfill
+			{
+				XServer_variable_player_set_real("direction", _dir)
+				XServer_variable_player_set_real("speed", _distance)
+			} else {
+				XServer_variable_player_set_real("direction", direction)
+				XServer_variable_player_set_real("speed", speed)
+			}
+			
+			if(global.__sync_sprite) 
+			{
+				if(global.__sync_imageindex) 
+					XServer_variable_player_set_real("image_index", floor(image_index));
+				XServer_variable_player_set_real("sprite_index", sprite_index);
+				XServer_variable_player_set_real("image_speed", image_speed);
+				XServer_variable_player_set_real("image_xscale", image_xscale);
+				XServer_variable_player_set_real("image_yscale", image_yscale);
+				XServer_variable_player_set_real("image_alpha", image_alpha);
+				XServer_variable_player_set_real("image_angle", image_angle);
+				XServer_variable_player_set_real("image_blend", image_blend);
+			}
+		}
+	}
 }
 __ret = XServer_step(__current_room);
 //show_debug_message("Beginning GML step");
@@ -5955,9 +5955,9 @@ global.__dll_time = __ret;
 if(global.__hide_login > 0) { global.__hide_login -= 1; }
 if(keyboard_check_direct(vk_tab))
 {
-    global.__tablast += 1;
+	global.__tablast += 1;
 }else{
-    global.__tablast = 0;
+	global.__tablast = 0;
 }
 global.__tabpressed = global.__tablast == 1;
 //Handle actions
@@ -5965,659 +5965,659 @@ var __max__count;
 __max__count = 0;
 if(!global.__in_action)
 {
-    global.__in_action = 0;
-    do
-    {
-        __max__count += 1;
-        //if(gms_action_get_id() != 0) show_message(string(gms_action_get_id()) + " from: "+string(gms_action_get_sender()));
-        switch(gms_action_get_id())
-        {
-            case 1://Player login
-                if(global.__obj_other_player >= 0)
-                {
-                    i = instance_create(0, 0, global.__obj_other_player);
-                    i.player_id = gms_action_get_sender();
-                    i.last_chat_message = "";
-                    i.last_chat_time = 0;
-                    i.last_chat_color = 0;
-                    i.name = gms_action_get_argument_string(0);
-                    if(global.__script_login != -1 && script_exists(global.__script_login))
-                    {
-                        script_execute(global.__script_login, i);
-                    }
-                }else{
-                    if(global.__script_login != -1 && script_exists(global.__script_login))
-                    {
-                        script_execute(global.__script_login, gms_action_get_sender());
-                    }
-                }
-                
-                if(global.__message_reporting & mt_player_login && !global.__hide_login)
-                {
+	global.__in_action = 0;
+	do
+	{
+		__max__count += 1;
+		//if(gms_action_get_id() != 0) show_message(string(gms_action_get_id()) + " from: "+string(gms_action_get_sender()));
+		switch(gms_action_get_id())
+		{
+			case 1://Player login
+				if(global.__obj_other_player >= 0)
+				{
+					i = instance_create(0, 0, global.__obj_other_player);
+					i.player_id = gms_action_get_sender();
+					i.last_chat_message = "";
+					i.last_chat_time = 0;
+					i.last_chat_color = 0;
+					i.name = gms_action_get_argument_string(0);
+					if(global.__script_login != -1 && script_exists(global.__script_login))
+					{
+						script_execute(global.__script_login, i);
+					}
+				}else{
+					if(global.__script_login != -1 && script_exists(global.__script_login))
+					{
+						script_execute(global.__script_login, gms_action_get_sender());
+					}
+				}
+				
+				if(global.__message_reporting & mt_player_login && !global.__hide_login)
+				{
 					// CHANGED
 					var nick = gms_action_get_argument_string(0);
 					if global.streamer
 						nick = "Player" + string(gms_other_find_by_name(nick));
 					
-                    gms_show_message(nick + " logged in");
-                }
+					gms_show_message(nick + " logged in");
+				}
 				
-                __max_count = 100000;
-                break;
-            case 2://Player logout
-                if(global.__obj_other_player >= 0)
-                {
-                    with(global.__obj_other_player)
-                    {
-                        if(player_id == gms_action_get_sender())
-                        {
-                            //gms_chat_local(name+" logged out!", c_red);
-                            if(global.__message_reporting & mt_player_logout && !global.__hide_login)
-                            {
+				__max_count = 100000;
+				break;
+			case 2://Player logout
+				if(global.__obj_other_player >= 0)
+				{
+					with(global.__obj_other_player)
+					{
+						if(player_id == gms_action_get_sender())
+						{
+							//gms_chat_local(name+" logged out!", c_red);
+							if(global.__message_reporting & mt_player_logout && !global.__hide_login)
+							{
 								// CHANGED
 								var nick = name;
 								if global.streamer
 									nick = "Player" + string(player_id);
 								
-                                gms_show_message(nick + " logged out");
-                            }
-                            if(global.__script_logout != -1 && script_exists(global.__script_logout))
-                            {
-                                script_execute(global.__script_logout, id);
-                            }
-                            instance_destroy();
-                        }
-                    }
-                }
-                break;
-            case 3://Chat
-                ds_list_add(global.__chattime, current_time);
-                __name = "";
-                if(gms_action_get_sender() == 65535)
-                {
-                    __name = "SERVER";
-                }else if(gms_action_get_sender() == 65534)
-                {
-                    __name = "";
-                }else
-                {
-                    __name = string(gms_other_get_string(gms_action_get_sender(), "name"));
-                }
-                
-                var __tag;
-                __tag = gms_action_get_argument_string(3)
-                
-                if __tag == "" 
-                {
-                    ds_list_add(global.__chattext, gms_action_get_argument_string(1));
-                    ds_list_add(global.__chatcol , gms_action_get_argument_real(0));
-                    ds_list_add(global.__chatsender, gms_action_get_sender());
-                    ds_list_add(global.__chatsendername, __name);
-                    if(global.__simple_mode)
-                    {
-                        if(global.__obj_other_player >= 0)
-                        {
-                            with(global.__obj_other_player)
-                            {
-                                if(player_id == gms_action_get_sender())
-                                {
-                                    last_chat_message = gms_action_get_argument_string(1);
-                                    last_chat_color   = gms_action_get_argument_real(0);
-                                    last_chat_time    = current_time;
-                                }
-                            }
-                        }
-                    }
-                    global.__chat_highl = 1;
-                }
-                
-                if(global.__script_chat_recv != -1 && script_exists(global.__script_chat_recv))
-                {
-                    script_execute(global.__script_chat_recv, gms_action_get_sender(), gms_action_get_argument_string(1), gms_action_get_argument_real(0), __tag);
-                }
-                break;
-            case 5://Error call
-                XServer_error(gms_action_get_argument_string(0));
-                break;
-            case 6:
-                //Resource request
-                switch(gms_action_get_sender())
-                {
-                    case 0://Sounds
-                        for(__i = 0; __i < 1000; __i += 1)
-                        {
-                            if(audio_exists(__i))
-                            {
-                                XServer_set_resource(0, __i, audio_get_name(__i));
-                            }
-                        }
-                        break;
-                    case 1://Objects
-                        for(__i = 0; __i < 1000; __i += 1)
-                        {
-                            if(object_exists(__i))
-                            {
-                                XServer_set_resource(1, __i, object_get_name(__i));
-                            }
-                        }
-                        break;
-                    case 2://Rooms
-                        for(__i = 0; __i < 1000; __i += 1)
-                        {
-                            if(room_exists(__i))
-                            {
-                                XServer_set_resource(2, __i, room_get_name(__i));
-                            }
-                        }
-                        break;
-                    case 3://Scripts
-                        for(__i = 0; __i < 1000; __i += 1)
-                        {
-                            if(script_exists(__i))
-                            {
-                                XServer_set_resource(3, __i, script_get_name(__i));
-                            }
-                        }
-                        break;
-                    case 4://Sprites
-                        for(__i = 0; __i < 1000; __i += 1)
-                        {
-                            if(sprite_exists(__i))
-                            {
-                                //show_message("Setting sprite"+sprite_get_name(__i))
-                                XServer_set_resource_spritename(sprite_get_name(__i));
-                                XServer_set_resource_sprite(__i, sprite_get_width(__i), sprite_get_height(__i), sprite_get_xoffset(__i), sprite_get_yoffset(__i), sprite_get_bbox_top(__i), sprite_get_bbox_left(__i), sprite_get_bbox_right(__i), sprite_get_bbox_bottom(__i));
-                            }
-                        }
-                        break;
-                }
-                break;
-            case 7://Sound_play call
-                if(audio_exists(gms_action_get_sender()))
-                {
-                    audio_play_sound(gms_action_get_sender(), 0, false);
-                }
-                break;
-            case 8://Sound_loop call
-                if(audio_exists(gms_action_get_sender()))
-                {
-                    audio_play_sound(gms_action_get_sender(), 0, true);
-                }
-                break;
-            case 9://Sound_stop call
-                if(audio_exists(gms_action_get_sender()))
-                {
-                    audio_stop_sound(gms_action_get_sender());
-                }
-                break;
-            case 10://P2p message
-                var __arg, __n;
-                if(global.__script_p2p == -1 or !script_exists(global.__script_p2p))
-                {
-                    XServer_error("Received a P2P message, but no script is set to handle P2P messages. gms_script_set_p2p(script) should be called before any P2P messages are received.");
-                }
-                
-                __n = gms_action_get_argument_real(1);
-                __arg = ds_list_create();
-                for(__i = 0; __i < __n; __i += 1)
-                {
-                    ds_list_add(__arg, gms_action_get_argument(__i + 2));
-                }
-                
-                if(global.__script_p2p != -1 && script_exists(global.__script_p2p))
-                {
-                    script_execute(global.__script_p2p, gms_action_get_argument_real(0), gms_action_get_sender(), __arg);
-                }
-                
-                ds_list_destroy(__arg);
-                break;
-            case 11://Server instance destroy
-                var __i;
-                __i = gms_action_get_argument_real(1)
-                if(__i != 0)
-                {
-                    if instance_exists(__i)
-                    {
-                        with(__i) { instance_destroy(); }
-                    }
-                }
-                break;
-            case 4://OneTime instance sync;
-                if(debug_mode) show_debug_message("Received instance to sync: is_onetime");
-                if(object_exists(gms_action_get_argument_real(1)))
-                {
-                    global.__can_sync = 0;
-                    __i = instance_create(gms_action_get_argument_real(2), gms_action_get_argument_real(3), gms_action_get_argument_real(1));
-                    if(instance_exists(__i))
-                    {
-                        __i.direction = gms_action_get_argument_real(4);
-                        __i.speed = gms_action_get_argument_real(5);
-                        
-                        var __map;
-                        __map = ds_map_create();
-                        __i.variable_map = __map;
-                        for(__j = 0; __j < gms_action_get_argument_real(6); __j += 1)
-                        {
-                            ds_map_add(__i.variable_map, gms_action_get_argument_name(__j + 7), gms_action_get_argument(__j + 7));
-                            with(__i)
-                            {
-                                XServer_variable_local_set(gms_action_get_argument_name(other.__j + 7), gms_action_get_argument(other.__j + 7));
-                            }
-                        }
-                        
-                        //__i.x = gms_action_get_argument_real(2);
-                        //__i.y = gms_action_get_argument_real(3);
-                        __i.owner = gms_action_get_sender();
-                        global.__can_sync = 1;
-                        with(__i)
-                        { 
-                            __iself_last_x        = x
-                            __iself_last_y        = y
-                            event_user(12) 
-                        }
-                        
-                        ds_map_destroy(__map);
-                    }
-                }
-                break;
-            case 14://Full instance sync
-                if(debug_mode) show_debug_message("Received instance to sync: is_full " + string(gms_action_get_argument_real(1)) + " / " + object_get_name(gms_action_get_argument_real(1)));
-                if(object_exists(gms_action_get_argument_real(1)))
-                {
-                    //show_message("IS");
-                    global.__can_sync = 0;
-                    __i = instance_create(gms_action_get_argument_real(2), gms_action_get_argument_real(3), gms_action_get_argument_real(1));
-                    if debug_mode show_debug_message("Created is_full instance " + string(__i) + ", " + string(instance_exists(__i)) + " / " + room_get_name(room))
-                    if(instance_exists(__i))
-                    {
-                        __i.direction = gms_action_get_argument_real(4);
-                        __i.speed = gms_action_get_argument_real(5);
-                        __i.syncID = gms_action_get_argument_real(0);
-                        __i.owner = gms_action_get_sender();
-                        var __map;
-                        __map = ds_map_create();
-                        __i.variable_map = __map;
-                        for(__j = 0; __j < gms_action_get_argument_real(6); __j += 1)
-                        {
-                            ds_map_add(__i.variable_map, gms_action_get_argument_name(__j + 7), gms_action_get_argument(__j + 7));
-                            with(__i)
-                            {
-                                XServer_variable_local_set(gms_action_get_argument_name(other.__j + 7), gms_action_get_argument(other.__j + 7));
-                            }
-                        }
-                        
-                        XServer_linksync(__i, __i.syncID);
-                        with(__i)
-                        { 
-                            __iself_last_x        = x
-                            __iself_last_y        = y
-                            event_user(12) 
-                        }
-                    
-                        ds_map_destroy(__map);
-                    }else{
-                        show_debug_message("failed to create is_full synced instance");
-                        gms_instance_sync_destroy(gms_action_get_argument_real(0));
-                    }
-                    global.__can_sync = 1;
-                }
-                break;
-            case 13://Instance sync extended
-                if(debug_mode) show_debug_message("Received instance to sync: is_extended");
-                if(object_exists(gms_action_get_argument_real(1)))
-                {
-                    global.__can_sync = 0;
-                    __i = instance_create(gms_action_get_argument_real(2), gms_action_get_argument_real(3), gms_action_get_argument_real(1));
-                    if(instance_exists(__i))
-                    {
-                        __i.direction = gms_action_get_argument_real(4);
-                        __i.speed = gms_action_get_argument_real(5);
-                        __i.syncID = gms_action_get_argument_real(0);
-                        __i.owner = gms_action_get_sender();
-                        
-                        var __map;
-                        __map = ds_map_create();
-                        __i.variable_map = __map;
-                        for(__j = 0; __j < gms_action_get_argument_real(6); __j += 1)
-                        {
-                            ds_map_add(__i.variable_map, gms_action_get_argument_name(__j + 7), gms_action_get_argument(__j + 7));
-                            with(__i)
-                            {
-                                XServer_variable_local_set(gms_action_get_argument_name(other.__j + 7), gms_action_get_argument(other.__j + 7));
-                            }
-                        }
-                        
-                        XServer_linksync(__i, __i.syncID);
-                        with(__i)
-                        { 
-                            __iself_last_x        = x
-                            __iself_last_y        = y
-                            event_user(12) 
-                        }
-                    
-                        ds_map_destroy(__map);
-                    }else{
-                        gms_instance_sync_destroy(gms_action_get_argument_real(0));
-                    }
-                    global.__can_sync = 1;
-                }
-                break;
-            case 15:
-                if(global.__message_reporting & mt_friend_login && !global.__hide_login)
-                {
-                    gms_show_message(gms_friend_name(gms_action_get_sender()) + " is online");
-                }
-                break;
-            case 16:
-                if(global.__message_reporting & mt_friend_logout && !global.__hide_login)
-                {
-                    gms_show_message(gms_friend_name(gms_action_get_sender()) + " is offline");
-                }
-                break;
-            case 17:
-                if(global.__message_reporting & mt_achievement_get)
-                {
-                    gms_show_message("Achievement unlocked: " + gms_action_get_argument_string(0))
-                }
-                break;
-            case 18:
-                if(global.__obj_player >= 0)
-                {
-                    with(global.__obj_player)
-                    {
-                        XServer_variable_local_set(gms_action_get_argument_name(0), gms_action_get_argument(0));
-                    }
-                }
-                break;
-            case 19:
-                if(global.__script_noconnection != -1 && script_exists(global.__script_noconnection))
-                {
-                    script_execute(global.__script_noconnection, "Disconnect");
-                }
-                break;
-            case 20:
-                if(global.__script_kick != -1 && script_exists(global.__script_kick))
-                {
-                    script_execute(global.__script_kick, gms_action_get_argument_string(0));
-                }
-                break;
-            case 21:
-                if(room_exists(gms_action_get_argument_real(0)))
-                {
-                    show_debug_message("Server command: " + string(gms_action_get_argument_real(0)))
-                    room_goto(gms_action_get_argument_real(0));
-                }
-                break;
-            case 22:
-                show_debug_message("Server command: room_goto_next()");
-                room_goto_next();
-                break;
-            case 23:
-                show_debug_message("Server command: room_goto_previous()");
-                room_goto_previous();
-                break;
-            case 24:
-                show_debug_message("Server command: room_restart()");
-                room_restart();
-                break;
-            case 25:
-                if(audio_exists(gms_action_get_argument_real(0)))
-                {
-                    audio_stop_sound(gms_action_get_argument_real(0));
-                }
-                break;
-            case 26:
-                audio_stop_all();
-                break;
-                //*/
-            case 27:
-                show_debug_message("Resource locked & loaded");
-                var ind;
-                ind = gms_action_get_argument_real(1);
-                show_debug_message("Index: "+string(ind));
-                //show_message(gms_action_get_argument_string(2))
-                switch(gms_action_get_argument_real(0))
-                {
-                    case rs_sprite:
+								gms_show_message(nick + " logged out");
+							}
+							if(global.__script_logout != -1 && script_exists(global.__script_logout))
+							{
+								script_execute(global.__script_logout, id);
+							}
+							instance_destroy();
+						}
+					}
+				}
+				break;
+			case 3://Chat
+				ds_list_add(global.__chattime, current_time);
+				__name = "";
+				if(gms_action_get_sender() == 65535)
+				{
+					__name = "SERVER";
+				}else if(gms_action_get_sender() == 65534)
+				{
+					__name = "";
+				}else
+				{
+					__name = string(gms_other_get_string(gms_action_get_sender(), "name"));
+				}
+				
+				var __tag;
+				__tag = gms_action_get_argument_string(3)
+				
+				if __tag == "" 
+				{
+					ds_list_add(global.__chattext, gms_action_get_argument_string(1));
+					ds_list_add(global.__chatcol , gms_action_get_argument_real(0));
+					ds_list_add(global.__chatsender, gms_action_get_sender());
+					ds_list_add(global.__chatsendername, __name);
+					if(global.__simple_mode)
+					{
+						if(global.__obj_other_player >= 0)
+						{
+							with(global.__obj_other_player)
+							{
+								if(player_id == gms_action_get_sender())
+								{
+									last_chat_message = gms_action_get_argument_string(1);
+									last_chat_color   = gms_action_get_argument_real(0);
+									last_chat_time	= current_time;
+								}
+							}
+						}
+					}
+					global.__chat_highl = 1;
+				}
+				
+				if(global.__script_chat_recv != -1 && script_exists(global.__script_chat_recv))
+				{
+					script_execute(global.__script_chat_recv, gms_action_get_sender(), gms_action_get_argument_string(1), gms_action_get_argument_real(0), __tag);
+				}
+				break;
+			case 5://Error call
+				XServer_error(gms_action_get_argument_string(0));
+				break;
+			case 6:
+				//Resource request
+				switch(gms_action_get_sender())
+				{
+					case 0://Sounds
+						for(__i = 0; __i < 1000; __i += 1)
+						{
+							if(audio_exists(__i))
+							{
+								XServer_set_resource(0, __i, audio_get_name(__i));
+							}
+						}
+						break;
+					case 1://Objects
+						for(__i = 0; __i < 1000; __i += 1)
+						{
+							if(object_exists(__i))
+							{
+								XServer_set_resource(1, __i, object_get_name(__i));
+							}
+						}
+						break;
+					case 2://Rooms
+						for(__i = 0; __i < 1000; __i += 1)
+						{
+							if(room_exists(__i))
+							{
+								XServer_set_resource(2, __i, room_get_name(__i));
+							}
+						}
+						break;
+					case 3://Scripts
+						for(__i = 0; __i < 1000; __i += 1)
+						{
+							if(script_exists(__i))
+							{
+								XServer_set_resource(3, __i, script_get_name(__i));
+							}
+						}
+						break;
+					case 4://Sprites
+						for(__i = 0; __i < 1000; __i += 1)
+						{
+							if(sprite_exists(__i))
+							{
+								//show_message("Setting sprite"+sprite_get_name(__i))
+								XServer_set_resource_spritename(sprite_get_name(__i));
+								XServer_set_resource_sprite(__i, sprite_get_width(__i), sprite_get_height(__i), sprite_get_xoffset(__i), sprite_get_yoffset(__i), sprite_get_bbox_top(__i), sprite_get_bbox_left(__i), sprite_get_bbox_right(__i), sprite_get_bbox_bottom(__i));
+							}
+						}
+						break;
+				}
+				break;
+			case 7://Sound_play call
+				if(audio_exists(gms_action_get_sender()))
+				{
+					audio_play_sound(gms_action_get_sender(), 0, false);
+				}
+				break;
+			case 8://Sound_loop call
+				if(audio_exists(gms_action_get_sender()))
+				{
+					audio_play_sound(gms_action_get_sender(), 0, true);
+				}
+				break;
+			case 9://Sound_stop call
+				if(audio_exists(gms_action_get_sender()))
+				{
+					audio_stop_sound(gms_action_get_sender());
+				}
+				break;
+			case 10://P2p message
+				var __arg, __n;
+				if(global.__script_p2p == -1 or !script_exists(global.__script_p2p))
+				{
+					XServer_error("Received a P2P message, but no script is set to handle P2P messages. gms_script_set_p2p(script) should be called before any P2P messages are received.");
+				}
+				
+				__n = gms_action_get_argument_real(1);
+				__arg = ds_list_create();
+				for(__i = 0; __i < __n; __i += 1)
+				{
+					ds_list_add(__arg, gms_action_get_argument(__i + 2));
+				}
+				
+				if(global.__script_p2p != -1 && script_exists(global.__script_p2p))
+				{
+					script_execute(global.__script_p2p, gms_action_get_argument_real(0), gms_action_get_sender(), __arg);
+				}
+				
+				ds_list_destroy(__arg);
+				break;
+			case 11://Server instance destroy
+				var __i;
+				__i = gms_action_get_argument_real(1)
+				if(__i != 0)
+				{
+					if instance_exists(__i)
+					{
+						with(__i) { instance_destroy(); }
+					}
+				}
+				break;
+			case 4://OneTime instance sync;
+				if(debug_mode) show_debug_message("Received instance to sync: is_onetime");
+				if(object_exists(gms_action_get_argument_real(1)))
+				{
+					global.__can_sync = 0;
+					__i = instance_create(gms_action_get_argument_real(2), gms_action_get_argument_real(3), gms_action_get_argument_real(1));
+					if(instance_exists(__i))
+					{
+						__i.direction = gms_action_get_argument_real(4);
+						__i.speed = gms_action_get_argument_real(5);
+						
+						var __map;
+						__map = ds_map_create();
+						__i.variable_map = __map;
+						for(__j = 0; __j < gms_action_get_argument_real(6); __j += 1)
+						{
+							ds_map_add(__i.variable_map, gms_action_get_argument_name(__j + 7), gms_action_get_argument(__j + 7));
+							with(__i)
+							{
+								XServer_variable_local_set(gms_action_get_argument_name(other.__j + 7), gms_action_get_argument(other.__j + 7));
+							}
+						}
+						
+						//__i.x = gms_action_get_argument_real(2);
+						//__i.y = gms_action_get_argument_real(3);
+						__i.owner = gms_action_get_sender();
+						global.__can_sync = 1;
+						with(__i)
+						{ 
+							__iself_last_x		= x
+							__iself_last_y		= y
+							event_user(12) 
+						}
+						
+						ds_map_destroy(__map);
+					}
+				}
+				break;
+			case 14://Full instance sync
+				if(debug_mode) show_debug_message("Received instance to sync: is_full " + string(gms_action_get_argument_real(1)) + " / " + object_get_name(gms_action_get_argument_real(1)));
+				if(object_exists(gms_action_get_argument_real(1)))
+				{
+					//show_message("IS");
+					global.__can_sync = 0;
+					__i = instance_create(gms_action_get_argument_real(2), gms_action_get_argument_real(3), gms_action_get_argument_real(1));
+					if debug_mode show_debug_message("Created is_full instance " + string(__i) + ", " + string(instance_exists(__i)) + " / " + room_get_name(room))
+					if(instance_exists(__i))
+					{
+						__i.direction = gms_action_get_argument_real(4);
+						__i.speed = gms_action_get_argument_real(5);
+						__i.syncID = gms_action_get_argument_real(0);
+						__i.owner = gms_action_get_sender();
+						var __map;
+						__map = ds_map_create();
+						__i.variable_map = __map;
+						for(__j = 0; __j < gms_action_get_argument_real(6); __j += 1)
+						{
+							ds_map_add(__i.variable_map, gms_action_get_argument_name(__j + 7), gms_action_get_argument(__j + 7));
+							with(__i)
+							{
+								XServer_variable_local_set(gms_action_get_argument_name(other.__j + 7), gms_action_get_argument(other.__j + 7));
+							}
+						}
+						
+						XServer_linksync(__i, __i.syncID);
+						with(__i)
+						{ 
+							__iself_last_x		= x
+							__iself_last_y		= y
+							event_user(12) 
+						}
+					
+						ds_map_destroy(__map);
+					}else{
+						show_debug_message("failed to create is_full synced instance");
+						gms_instance_sync_destroy(gms_action_get_argument_real(0));
+					}
+					global.__can_sync = 1;
+				}
+				break;
+			case 13://Instance sync extended
+				if(debug_mode) show_debug_message("Received instance to sync: is_extended");
+				if(object_exists(gms_action_get_argument_real(1)))
+				{
+					global.__can_sync = 0;
+					__i = instance_create(gms_action_get_argument_real(2), gms_action_get_argument_real(3), gms_action_get_argument_real(1));
+					if(instance_exists(__i))
+					{
+						__i.direction = gms_action_get_argument_real(4);
+						__i.speed = gms_action_get_argument_real(5);
+						__i.syncID = gms_action_get_argument_real(0);
+						__i.owner = gms_action_get_sender();
+						
+						var __map;
+						__map = ds_map_create();
+						__i.variable_map = __map;
+						for(__j = 0; __j < gms_action_get_argument_real(6); __j += 1)
+						{
+							ds_map_add(__i.variable_map, gms_action_get_argument_name(__j + 7), gms_action_get_argument(__j + 7));
+							with(__i)
+							{
+								XServer_variable_local_set(gms_action_get_argument_name(other.__j + 7), gms_action_get_argument(other.__j + 7));
+							}
+						}
+						
+						XServer_linksync(__i, __i.syncID);
+						with(__i)
+						{ 
+							__iself_last_x		= x
+							__iself_last_y		= y
+							event_user(12) 
+						}
+					
+						ds_map_destroy(__map);
+					}else{
+						gms_instance_sync_destroy(gms_action_get_argument_real(0));
+					}
+					global.__can_sync = 1;
+				}
+				break;
+			case 15:
+				if(global.__message_reporting & mt_friend_login && !global.__hide_login)
+				{
+					gms_show_message(gms_friend_name(gms_action_get_sender()) + " is online");
+				}
+				break;
+			case 16:
+				if(global.__message_reporting & mt_friend_logout && !global.__hide_login)
+				{
+					gms_show_message(gms_friend_name(gms_action_get_sender()) + " is offline");
+				}
+				break;
+			case 17:
+				if(global.__message_reporting & mt_achievement_get)
+				{
+					gms_show_message("Achievement unlocked: " + gms_action_get_argument_string(0))
+				}
+				break;
+			case 18:
+				if(global.__obj_player >= 0)
+				{
+					with(global.__obj_player)
+					{
+						XServer_variable_local_set(gms_action_get_argument_name(0), gms_action_get_argument(0));
+					}
+				}
+				break;
+			case 19:
+				if(global.__script_noconnection != -1 && script_exists(global.__script_noconnection))
+				{
+					script_execute(global.__script_noconnection, "Disconnect");
+				}
+				break;
+			case 20:
+				if(global.__script_kick != -1 && script_exists(global.__script_kick))
+				{
+					script_execute(global.__script_kick, gms_action_get_argument_string(0));
+				}
+				break;
+			case 21:
+				if(room_exists(gms_action_get_argument_real(0)))
+				{
+					show_debug_message("Server command: " + string(gms_action_get_argument_real(0)))
+					room_goto(gms_action_get_argument_real(0));
+				}
+				break;
+			case 22:
+				show_debug_message("Server command: room_goto_next()");
+				room_goto_next();
+				break;
+			case 23:
+				show_debug_message("Server command: room_goto_previous()");
+				room_goto_previous();
+				break;
+			case 24:
+				show_debug_message("Server command: room_restart()");
+				room_restart();
+				break;
+			case 25:
+				if(audio_exists(gms_action_get_argument_real(0)))
+				{
+					audio_stop_sound(gms_action_get_argument_real(0));
+				}
+				break;
+			case 26:
+				audio_stop_all();
+				break;
+				//*/
+			case 27:
+				show_debug_message("Resource locked & loaded");
+				var ind;
+				ind = gms_action_get_argument_real(1);
+				show_debug_message("Index: "+string(ind));
+				//show_message(gms_action_get_argument_string(2))
+				switch(gms_action_get_argument_real(0))
+				{
+					case rs_sprite:
 					case rs_background:
-                        show_debug_message("Sprite...");
-                        sprite_replace(ind, gms_action_get_argument_string(2), 0, 0, 0, sprite_get_xoffset(ind), sprite_get_yoffset(ind));
-                        break;
-                    case rs_sound:
-                        show_debug_message("Sound...");
-                        show_debug_message(string(XServer_sound_replace(ind, gms_action_get_argument_string(2), XServer_sound_get_kind(ind), XServer_sound_get_preload(ind))))
-                        break;
-                    
+						show_debug_message("Sprite...");
+						sprite_replace(ind, gms_action_get_argument_string(2), 0, 0, 0, sprite_get_xoffset(ind), sprite_get_yoffset(ind));
+						break;
+					case rs_sound:
+						show_debug_message("Sound...");
+						show_debug_message(string(XServer_sound_replace(ind, gms_action_get_argument_string(2), XServer_sound_get_kind(ind), XServer_sound_get_preload(ind))))
+						break;
+					
 					/*
 					case rs_background:
-                        show_debug_message("Background...");
-                        background_replace(ind, gms_action_get_argument_string(2), 0, 0);
-                        break;
+						show_debug_message("Background...");
+						background_replace(ind, gms_action_get_argument_string(2), 0, 0);
+						break;
 					*/
-                }
-                show_debug_message("Resource loaded.");
-                file_delete(gms_action_get_argument_string(2));
-                break;
-            case 28:
-                if(global.__script_session != -1 && script_exists(global.__script_session))
-                {
-                    script_execute(global.__script_session, gms_action_get_sender());
-                }
-                break;
-            case 29:
-                if(global.__script_session != -1 && script_exists(global.__script_vs_end))
-                {
-                    script_execute(global.__script_vs_end);
-                }
-                break;
-            case 30:
-                if(global.__script_session != -1 && script_exists(global.__script_vs_begin))
-                {
-                    script_execute(global.__script_vs_begin);
-                }
-                break;
-            case 31://'Silent' Player login
-                if(global.__obj_other_player >= 0)
-                {
-                    i = instance_create(0, 0, global.__obj_other_player);
-                    i.player_id = gms_action_get_sender();
-                    i.last_chat_message = "";
-                    i.last_chat_time = 0;
-                    i.last_chat_color = 0;
-                    i.name = gms_action_get_argument_string(0);
-                    if(global.__script_login != -1 && script_exists(global.__script_login))
-                    {
-                        script_execute(global.__script_login, i);
-                    }
-                }else{
-                    if(global.__script_login != -1 && script_exists(global.__script_login))
-                    {
-                        script_execute(global.__script_login, gms_action_get_sender());
-                    }
-                }
-                //gms_chat_local(string(i.name) + " just logged in!", c_green);
-                break;
-            case 32://'Silent' Player logout
-                if(global.__obj_other_player >= 0)
-                {
-                    with(global.__obj_other_player)
-                    {
-                        if(player_id == gms_action_get_sender())
-                        {
-                            //gms_chat_local(name+" logged out!", c_red);
-                            if(global.__script_logout != -1 && script_exists(global.__script_logout))
-                            {
-                                script_execute(global.__script_logout, id);
-                            }
-                            instance_destroy();
-                        }
-                    }
-                }
-                break;
-            case 34:
-                if(global.__login_finish_script == -5)
-                {
-                    XHandler_login_callback(gms_action_get_argument_real(1));
-                }else if(global.__login_finish_script != -1 && script_exists(global.__login_finish_script))
-                {
-                    script_execute(global.__login_finish_script, gms_action_get_argument_real(1), gms_action_get_argument_string(2));
-                }
-                break;
-            case 35:
-                if(global.__register_finish_script == -5)
-                {
-                    XHandler_register_callback(gms_register_errorcode());
-                }else if(global.__register_finish_script != -1 && script_exists(global.__register_finish_script))
-                {
-                    script_execute(global.__register_finish_script, gms_register_errorcode());
-                }
-                break;
-            case 36:
-                if(global.__friendrequest_callb != -1)
-                {
-                    script_execute(global.__friendrequest_callb, gms_action_get_argument_real(0));
-                }
-                break;
-            case 40:
-                if(script_exists(gms_action_get_argument_real(0)))
-                {
-                    script_execute(gms_action_get_argument_real(0), gms_action_get_sender());
-                }
-                break;
-            case 41:
-                if(script_exists(global.__callback_guest_highscore))
-                {
-                    script_execute(global.__callback_guest_highscore, gms_action_get_sender());
-                }
-                break;
-            case 50:
-                if script_exists(global.__script_data_update_result)
-                {
-                    script_execute(global.__script_data_update_result, gms_action_get_sender())
-                }
-                break;
-            case 51:
-                if script_exists(global.__script_auth_token)
-                {
-                    script_execute(global.__script_auth_token, gms_action_get_argument_string(0))
-                }
-                break;
-            case 52: // Trusted transaction result
-                var __arg, __n;
-                if(global.__script_trusted_transaction_result == -1 or !script_exists(global.__script_trusted_transaction_result))
-                {
-                    XServer_error("An invalid trusted transaction result script has been set.");
-                }
-                
-                script_execute(global.__script_trusted_transaction_result, gms_action_get_argument_real(0), gms_action_get_sender(), gms_action_get_argument(1));
-                break;
-            case 0:
-                break;
-            default:
-                XServer_error("Unknown action ID: " + string(gms_action_get_id()));
-                break;
-        }
-    }until(!gms_action_goto_next() && __max__count < 10000);//*/
-    global.__in_action = 0;
+				}
+				show_debug_message("Resource loaded.");
+				file_delete(gms_action_get_argument_string(2));
+				break;
+			case 28:
+				if(global.__script_session != -1 && script_exists(global.__script_session))
+				{
+					script_execute(global.__script_session, gms_action_get_sender());
+				}
+				break;
+			case 29:
+				if(global.__script_session != -1 && script_exists(global.__script_vs_end))
+				{
+					script_execute(global.__script_vs_end);
+				}
+				break;
+			case 30:
+				if(global.__script_session != -1 && script_exists(global.__script_vs_begin))
+				{
+					script_execute(global.__script_vs_begin);
+				}
+				break;
+			case 31://'Silent' Player login
+				if(global.__obj_other_player >= 0)
+				{
+					i = instance_create(0, 0, global.__obj_other_player);
+					i.player_id = gms_action_get_sender();
+					i.last_chat_message = "";
+					i.last_chat_time = 0;
+					i.last_chat_color = 0;
+					i.name = gms_action_get_argument_string(0);
+					if(global.__script_login != -1 && script_exists(global.__script_login))
+					{
+						script_execute(global.__script_login, i);
+					}
+				}else{
+					if(global.__script_login != -1 && script_exists(global.__script_login))
+					{
+						script_execute(global.__script_login, gms_action_get_sender());
+					}
+				}
+				//gms_chat_local(string(i.name) + " just logged in!", c_green);
+				break;
+			case 32://'Silent' Player logout
+				if(global.__obj_other_player >= 0)
+				{
+					with(global.__obj_other_player)
+					{
+						if(player_id == gms_action_get_sender())
+						{
+							//gms_chat_local(name+" logged out!", c_red);
+							if(global.__script_logout != -1 && script_exists(global.__script_logout))
+							{
+								script_execute(global.__script_logout, id);
+							}
+							instance_destroy();
+						}
+					}
+				}
+				break;
+			case 34:
+				if(global.__login_finish_script == -5)
+				{
+					XHandler_login_callback(gms_action_get_argument_real(1));
+				}else if(global.__login_finish_script != -1 && script_exists(global.__login_finish_script))
+				{
+					script_execute(global.__login_finish_script, gms_action_get_argument_real(1), gms_action_get_argument_string(2));
+				}
+				break;
+			case 35:
+				if(global.__register_finish_script == -5)
+				{
+					XHandler_register_callback(gms_register_errorcode());
+				}else if(global.__register_finish_script != -1 && script_exists(global.__register_finish_script))
+				{
+					script_execute(global.__register_finish_script, gms_register_errorcode());
+				}
+				break;
+			case 36:
+				if(global.__friendrequest_callb != -1)
+				{
+					script_execute(global.__friendrequest_callb, gms_action_get_argument_real(0));
+				}
+				break;
+			case 40:
+				if(script_exists(gms_action_get_argument_real(0)))
+				{
+					script_execute(gms_action_get_argument_real(0), gms_action_get_sender());
+				}
+				break;
+			case 41:
+				if(script_exists(global.__callback_guest_highscore))
+				{
+					script_execute(global.__callback_guest_highscore, gms_action_get_sender());
+				}
+				break;
+			case 50:
+				if script_exists(global.__script_data_update_result)
+				{
+					script_execute(global.__script_data_update_result, gms_action_get_sender())
+				}
+				break;
+			case 51:
+				if script_exists(global.__script_auth_token)
+				{
+					script_execute(global.__script_auth_token, gms_action_get_argument_string(0))
+				}
+				break;
+			case 52: // Trusted transaction result
+				var __arg, __n;
+				if(global.__script_trusted_transaction_result == -1 or !script_exists(global.__script_trusted_transaction_result))
+				{
+					XServer_error("An invalid trusted transaction result script has been set.");
+				}
+				
+				script_execute(global.__script_trusted_transaction_result, gms_action_get_argument_real(0), gms_action_get_sender(), gms_action_get_argument(1));
+				break;
+			case 0:
+				break;
+			default:
+				XServer_error("Unknown action ID: " + string(gms_action_get_id()));
+				break;
+		}
+	}until(!gms_action_goto_next() && __max__count < 10000);//*/
+	global.__in_action = 0;
 }
 if(__max__count == 10000)
 {
-    XServer_error("Aplication hung on retrieving DLL action-info.");
+	XServer_error("Aplication hung on retrieving DLL action-info.");
 }
 //Handle automatic variable syncing
 if(global.__simple_mode)
 {
-    for(__i = 0; __i < XServer_instanceN(); __i += 1)
-    {
-        var __id, __n;
-        __id = XServer_instanceID(__i);
-        if(__id != 0 && __id != -1)
-        {
-            if !instance_exists(__id)
-            {
-                if debug_mode show_debug_message("Instance " + string(__id) + " does not exist")
-                if gms_instance_get_real(__id, "room") != __current_room 
-                    && XServer_instance_isfull(__i)
-                {
-                    gms_instance_sync_destroy_silent(__id)
-                }else{
-                    gms_instance_sync_destroy(__id)
-                }
-                __i -= 1
-            }
-            else
-            {
-                if XServer_instance_isfull(__i)
-                {
-                    //Sync all variables
-                    if gms_instance_is_owner(__id)
-                    {    
-                        var _distance, _dir;
-                        with __id
-                        {
-                            _distance = point_distance(__iself_last_x, __iself_last_y, x, y)
-                            _dir = point_direction(__iself_last_x, __iself_last_y, x, y)
-                            
-                            __iself_last_x        = x
-                            __iself_last_y        = y
-                        }
-                        
-                        if speed == 0 and _distance > 0 and _distance < 100 and global.__enable_speed_polyfill
-                        {
-                            XServer_instance4d(__id.syncID, __id.x, __id.y, _distance, _dir)
-                        } else {
-                            XServer_instance4d(__id.syncID, __id.x, __id.y, __id.speed, __id.direction)
-                        }
-                    
-                    }else{
-                        __id.x          = gms_instance_get_real(__id, "x")
-                        __id.y          = gms_instance_get_real(__id, "y")
-                        __id.speed      = gms_instance_get_real(__id, "speed")
-                        __id.direction  = gms_instance_get_real(__id, "direction")
-                    }
-                }
-            }
-        }
-    }
-    
-    
-    if(global.__obj_other_player >= -1)
-    {
-        with(global.__obj_other_player)
-        {
+	for(__i = 0; __i < XServer_instanceN(); __i += 1)
+	{
+		var __id, __n;
+		__id = XServer_instanceID(__i);
+		if(__id != 0 && __id != -1)
+		{
+			if !instance_exists(__id)
+			{
+				if debug_mode show_debug_message("Instance " + string(__id) + " does not exist")
+				if gms_instance_get_real(__id, "room") != __current_room 
+					&& XServer_instance_isfull(__i)
+				{
+					gms_instance_sync_destroy_silent(__id)
+				}else{
+					gms_instance_sync_destroy(__id)
+				}
+				__i -= 1
+			}
+			else
+			{
+				if XServer_instance_isfull(__i)
+				{
+					//Sync all variables
+					if gms_instance_is_owner(__id)
+					{	
+						var _distance, _dir;
+						with __id
+						{
+							_distance = point_distance(__iself_last_x, __iself_last_y, x, y)
+							_dir = point_direction(__iself_last_x, __iself_last_y, x, y)
+							
+							__iself_last_x		= x
+							__iself_last_y		= y
+						}
+						
+						if speed == 0 and _distance > 0 and _distance < 100 and global.__enable_speed_polyfill
+						{
+							XServer_instance4d(__id.syncID, __id.x, __id.y, _distance, _dir)
+						} else {
+							XServer_instance4d(__id.syncID, __id.x, __id.y, __id.speed, __id.direction)
+						}
+					
+					}else{
+						__id.x		  = gms_instance_get_real(__id, "x")
+						__id.y		  = gms_instance_get_real(__id, "y")
+						__id.speed	  = gms_instance_get_real(__id, "speed")
+						__id.direction  = gms_instance_get_real(__id, "direction")
+					}
+				}
+			}
+		}
+	}
+	
+	
+	if(global.__obj_other_player >= -1)
+	{
+		with(global.__obj_other_player)
+		{
 			
-            room_id     = gms_other_get_real(player_id, "room");
-            if(room_id != __current_room)
-            {
-                x = -1000;
-                y = -1000;
-                visible = 0;
-            }else{
-                x           = gms_other_get_real(player_id, "x");
-                y           = gms_other_get_real(player_id, "y");
-                //direction   = gms_other_get_real(player_id, "direction");
-                //speed       = gms_other_get_real(player_id, "speed");
-                //visible     = gms_other_get_real(player_id, "visible");
-            
-                if(global.__sync_sprite) 
-                {
-                    sprite_index = gms_other_get_real(player_id, "sprite_index");
-                    image_speed = 0;
-                    image_xscale= gms_other_get_real(player_id, "image_xscale");
-                    image_yscale= gms_other_get_real(player_id, "image_yscale");
-                    if(image_xscale == 0)
-                        image_xscale = 0.0001;
-                    if(image_yscale == 0)
-                        image_yscale = 0.0001;
-                    image_alpha = gms_other_get_real(player_id, "image_alpha");
-                    image_angle = gms_other_get_real(player_id, "image_angle");
-                    image_blend = gms_other_get_real(player_id, "image_blend");
-                }
-                
-                name        = gms_other_get_string(player_id, "name");
-            }
-        }
-    }
+			room_id	 = gms_other_get_real(player_id, "room");
+			if(room_id != __current_room)
+			{
+				x = -1000;
+				y = -1000;
+				visible = 0;
+			}else{
+				x		   = gms_other_get_real(player_id, "x");
+				y		   = gms_other_get_real(player_id, "y");
+				//direction   = gms_other_get_real(player_id, "direction");
+				//speed	   = gms_other_get_real(player_id, "speed");
+				//visible	 = gms_other_get_real(player_id, "visible");
+			
+				if(global.__sync_sprite) 
+				{
+					sprite_index = gms_other_get_real(player_id, "sprite_index");
+					image_speed = 0;
+					image_xscale= gms_other_get_real(player_id, "image_xscale");
+					image_yscale= gms_other_get_real(player_id, "image_yscale");
+					if(image_xscale == 0)
+						image_xscale = 0.0001;
+					if(image_yscale == 0)
+						image_yscale = 0.0001;
+					image_alpha = gms_other_get_real(player_id, "image_alpha");
+					image_angle = gms_other_get_real(player_id, "image_angle");
+					image_blend = gms_other_get_real(player_id, "image_blend");
+				}
+				
+				name		= gms_other_get_string(player_id, "name");
+			}
+		}
+	}
 }
 __t = current_time-__m;
 global.__steptime += __t;
@@ -6638,18 +6638,18 @@ __tl=-1;
 __tc=-1;
 for(__i=1; __i<=global.__maxteam; __i+=1)
 {
-    __tw[__i] = gms_team_score_get(__i) / (gms_team_player_count(__i) + 1) + gms_team_player_count(__i) * 100;
-    if(__tw[__i] < __tl or __tl == -1)// or (__tw[__i] <= __tl + 100 && irandom(global.__maxteam) <= __i))
-    {
-        __tl = __tw[__i];
-        __tc = __i;
-    }
+	__tw[__i] = gms_team_score_get(__i) / (gms_team_player_count(__i) + 1) + gms_team_player_count(__i) * 100;
+	if(__tw[__i] < __tl or __tl == -1)// or (__tw[__i] <= __tl + 100 && irandom(global.__maxteam) <= __i))
+	{
+		__tl = __tw[__i];
+		__tc = __i;
+	}
 }
 if(__tc != -1)
 {
-    gms_team_join(__tc);
+	gms_team_join(__tc);
 }else{
-    gms_team_join(round(random_range(1,global.__maxteam)));
+	gms_team_join(round(random_range(1,global.__maxteam)));
 }
 }
 
@@ -6677,8 +6677,8 @@ function gms_team_score_add() {
 XServer_verify();
 if(!is_real(argument0) or !is_real(argument1))
 {
-    XServer_error("server_team_score_add: Got one or more string arguments, but expected two reals.");
-    exit;
+	XServer_error("server_team_score_add: Got one or more string arguments, but expected two reals.");
+	exit;
 }
 return gms_team_score_set(argument0, gms_team_score_get(argument0) + argument1);
 }
@@ -6691,10 +6691,10 @@ global.__maxteam = max(1, argument0);
 function gms_update_apply() {
 if(global.__update_canapply)
 {
-    global.__update_canapply = 0;
-    
-    XServer_update_finish();
-    game_end();
+	global.__update_canapply = 0;
+	
+	XServer_update_finish();
+	game_end();
 }
 }
 
@@ -6705,7 +6705,7 @@ return parameter_string(1) == "-update";
 function gms_register(argument0, argument1, argument2, argument3, argument4) {
 if(!is_real(argument4))
 {
-    XServer_error("server_register: Got a string as register script, but it should be a real.")exit
+	XServer_error("server_register: Got a string as register script, but it should be a real.")exit
 }
 global.__register_finish_script = argument4;
 XServer_register_execute(argument0, argument1, argument2, argument3);
@@ -6726,7 +6726,7 @@ global.__enable_speed_polyfill = argument0
 function XServer_error(argument0) {
 if(global.__show_errors)
 {
-    show_error(argument0, false);
+	show_error(argument0, false);
 }
 }
 
@@ -6734,13 +6734,13 @@ function XServer_require_connection() {
 XServer_verify();
 if(!gms_info_isconnected())
 {
-    if(global.__show_errors)
-    {
-        show_error("GameMaker Server - Update "+string(gms_version())+": The script called requires the game to be connected to the server. Please verify you haven't been kicked by the server, and you aren't executing any scripts that should not be executed!", 1);
-    }
-    return 0;
+	if(global.__show_errors)
+	{
+		show_error("GameMaker Server - Update "+string(gms_version())+": The script called requires the game to be connected to the server. Please verify you haven't been kicked by the server, and you aren't executing any scripts that should not be executed!", 1);
+	}
+	return 0;
 }else{
-    return 1;
+	return 1;
 }
 }
 
@@ -6748,13 +6748,13 @@ function XServer_require_login() {
 XServer_verify();
 if(!gms_info_isloggedin())
 {
-    if(global.__show_errors)
-    {
-        show_error("GameMaker Server - Update "+string(gms_version())+": The script called requires you to be logged in. Please verify you haven't been kicked by the server, and you aren't executing any scripts that should not be executed!", 1);
-    }
-    return 0;
+	if(global.__show_errors)
+	{
+		show_error("GameMaker Server - Update "+string(gms_version())+": The script called requires you to be logged in. Please verify you haven't been kicked by the server, and you aren't executing any scripts that should not be executed!", 1);
+	}
+	return 0;
 }else{
-    return 1;
+	return 1;
 }
 }
 
@@ -6766,11 +6766,11 @@ function XServer_validate_name() {
 var __i, __c;
 for(__i = 1; __i <= string_length(argument0); __i += 1)
 {
-    __c = ord(string_char_at(argument0, __i));
-    if!((__c >= ord("a") && __c <= ord("z"))||(__c >= ord("A") && __c <= ord("Z")) or (__c >= ord("0") && __c <= ord("9")) or (__c == ord("_")))
-    {
-        return false;
-    }
+	__c = ord(string_char_at(argument0, __i));
+	if!((__c >= ord("a") && __c <= ord("z"))||(__c >= ord("A") && __c <= ord("Z")) or (__c >= ord("0") && __c <= ord("9")) or (__c == ord("_")))
+	{
+		return false;
+	}
 }
 return true;
 }
@@ -6778,106 +6778,106 @@ return true;
 function XServer_verify() {
 if(!global.__set)
 {
-    show_error("gms_settings wasn't called before calling an other script!", 0);
+	show_error("gms_settings wasn't called before calling an other script!", 0);
 }
 }
 
 function XServer_init_gml() {
 wle_init();
 //Algemeen
-global.__draw_enabled     = true;
-global.__step               = 0;
-global.__set                = 0;
-global.__steptime           = 0;
-global.__laststeptime       = 0;
+global.__draw_enabled	 = true;
+global.__step			   = 0;
+global.__set				= 0;
+global.__steptime		   = 0;
+global.__laststeptime	   = 0;
 global.__message_reporting  = 255;
-global.__hide_login         = 0;
-global.__enable_spc         = 1;
-global.__sync_imageindex    = 0;
-global.__sync_sprite        = 1;
-global.__triggerobject      = -1;
-global.__last_font          = -1;
-global.__last_halign        = 0;
-global.__saved_font         = 0;
-global.__tablast            = 0;
-global.__tabpressed         = 0;
+global.__hide_login		 = 0;
+global.__enable_spc		 = 1;
+global.__sync_imageindex	= 0;
+global.__sync_sprite		= 1;
+global.__triggerobject	  = -1;
+global.__last_font		  = -1;
+global.__last_halign		= 0;
+global.__saved_font		 = 0;
+global.__tablast			= 0;
+global.__tabpressed		 = 0;
 global.__enable_speed_polyfill = true
-global.__self_last_x        = 0
-global.__self_last_y        = 0
-global.__variable_map       = ds_map_create()
-global.__in_action          = 0;
+global.__self_last_x		= 0
+global.__self_last_y		= 0
+global.__variable_map	   = ds_map_create()
+global.__in_action		  = 0;
 global.__friendrequest_callb= -1;
 //Updates
-global.__update_canapply    = 1;
+global.__update_canapply	= 1;
 //OTInstancesync
-global.__instanceList       = ds_list_create();
+global.__instanceList	   = ds_list_create();
 global.__instanceTrackList  = ds_list_create();
 //Instance sync
-global.__instanceVarC       = 0;
-global.__script_login       = -1;
-global.__script_logout      = -1;
-global.__script_p2p         = -1;
+global.__instanceVarC	   = 0;
+global.__script_login	   = -1;
+global.__script_logout	  = -1;
+global.__script_p2p		 = -1;
 global.__script_chat_recv   = -1;
 global.__script_noconnection= -1;
-global.__script_kick        = -1;
-global.__script_session     = -1;
-global.__script_vs_begin    = -1;
-global.__script_vs_end      = -1;
-global.__script_room        = -1;
+global.__script_kick		= -1;
+global.__script_session	 = -1;
+global.__script_vs_begin	= -1;
+global.__script_vs_end	  = -1;
+global.__script_room		= -1;
 global.__script_data_update_result = -1
 global.__script_auth_token  = -1
 global.__script_trusted_transaction_result = -1;
 global.__callback_guest_highscore = -1;
 //Chat
 global.__chat_verify_script = -1;
-global.__chattext           = ds_list_create();
-global.__chattime           = ds_list_create();
-global.__chatcol            = ds_list_create();
-global.__chatsender         = ds_list_create();
-global.__chatsendername     = ds_list_create();
+global.__chattext		   = ds_list_create();
+global.__chattime		   = ds_list_create();
+global.__chatcol			= ds_list_create();
+global.__chatsender		 = ds_list_create();
+global.__chatsendername	 = ds_list_create();
 global.__chat_colorscript   = -1;
-global.__chat_highl         = 0;
-global.__chat_bubbles       = 0;
-global.__can_sync           = 1;
+global.__chat_highl		 = 0;
+global.__chat_bubbles	   = 0;
+global.__can_sync		   = 1;
 //Errors
-global.__show_errors        = true;
+global.__show_errors		= true;
 global.__wait_for_reconnect = 0;
 //Teams
-global.__team               = 0;
-global.__maxteam            = 2;
+global.__team			   = 0;
+global.__maxteam			= 2;
 globalvar __ret;
 __ret = 0;
 global.__chat_directclose = 0;
 global.__chat_teamonly = 0;
 //Chat drawing
-global.__chat        = 0;
+global.__chat		= 0;
 global.__chat_small  = 0;
 global.__chat_typing = 0;
 global.__chat_font   = -1;
-    //Position
+	//Position
 global.__chat_bind   = 2;
-global.__chat_pos    = 1;
+global.__chat_pos	= 1;
 global.__chat_height = 200;
-    //Keys
+	//Keys
 global.__chat_togglekey = vk_enter;
 global.__chat_submitkey = vk_enter;
 global.__chat_teamkey   = vk_control;
-    
-    //Colors
+	
+	//Colors
 global.__chat_textcol = c_black;
 global.__chat_bgcol   = c_ltgray;
 global.__chat_bgalpha = 0.6;
-    //Effects
+	//Effects
 global.__chat_openani = 0;
 //Language Options
 global.__language_team = "[TEAM]";
 //General settings
-global.__simple_mode      = 1;
-global.__version_num      = 0;
-global.__obj_player       = -100000;
+global.__simple_mode	  = 1;
+global.__version_num	  = 0;
+global.__obj_player	   = -100000;
 global.__obj_other_player = -100000;
 global.__login_finish_script = -1;
-global.__obj              = -1;
+global.__obj			  = -1;
 global.__ls_allow_guest   = true;
 gms_show_set_position(0, 0, -1, -1);
 }
@@ -6898,190 +6898,190 @@ var __name;
 __name = global.__winel[argument0, 15];
 if(argument1 == "!tween")
 {
-    if(global.__winel[argument0, 52] == 46)
-    {
-        switch(argument0)
-        {
-            case global.__xls_window:
-                global.__xls_open = 0;
-                global.__xrs_from_ls = false;
-                if(instance_exists(global.__xls_from_object))
-                {
-                    with(global.__xls_from_object)
-                    {
-                        if(gms_info_isloggedin())
-                        {
-                            event_user(15);
-                        }else{
-                            event_user(14);
-                        }
-                    }
-                }
-                break;
-            case global.__xrs_window:
-                global.__xrs_open = 0;
-                break;
-            case global.__xhs_window:
-                global.__xhs_open = 0;
-                break;
-            case global.__xss_window:
-                global.__xss_open = 0;
-                break;
-            case global.__xas_window:
-                global.__xas_open = 0;
-                break;
-            case global.__xfs_window:
-                global.__xfs_open = 0;
-                break;
-            case global.__xms_window:
-                if(ds_queue_size(global.__xmessage_queue) > 0)
-                {
-                    var _textfield;
-                    _textfield = wle_find(global.__xms_window, "message.title");
-                    if(_textfield == -1)
-                    {
-                        show_error("Message screen needs a 'message.title'-element to function properly", 1);
-                    }else{
-                        wle_set(_textfield, "text", ds_queue_dequeue(global.__xmessage_queue))
-                        wle_set(_textfield, "content-changed", true)
-                        wle_show(global.__xms_window);
-                        global.__xms_waittime = room_speed * 5;
-                    }
-                }else{
-                    global.__xms_open = 0;
-                }
-                break;
-            case global.__xus_window:
-                global.__xus_open = 0;
-                break;
-            case global.__xkb_window:
-                global.__xkb_open = 0;
-                break;
-        }
-    }
+	if(global.__winel[argument0, 52] == 46)
+	{
+		switch(argument0)
+		{
+			case global.__xls_window:
+				global.__xls_open = 0;
+				global.__xrs_from_ls = false;
+				if(instance_exists(global.__xls_from_object))
+				{
+					with(global.__xls_from_object)
+					{
+						if(gms_info_isloggedin())
+						{
+							event_user(15);
+						}else{
+							event_user(14);
+						}
+					}
+				}
+				break;
+			case global.__xrs_window:
+				global.__xrs_open = 0;
+				break;
+			case global.__xhs_window:
+				global.__xhs_open = 0;
+				break;
+			case global.__xss_window:
+				global.__xss_open = 0;
+				break;
+			case global.__xas_window:
+				global.__xas_open = 0;
+				break;
+			case global.__xfs_window:
+				global.__xfs_open = 0;
+				break;
+			case global.__xms_window:
+				if(ds_queue_size(global.__xmessage_queue) > 0)
+				{
+					var _textfield;
+					_textfield = wle_find(global.__xms_window, "message.title");
+					if(_textfield == -1)
+					{
+						show_error("Message screen needs a 'message.title'-element to function properly", 1);
+					}else{
+						wle_set(_textfield, "text", ds_queue_dequeue(global.__xmessage_queue))
+						wle_set(_textfield, "content-changed", true)
+						wle_show(global.__xms_window);
+						global.__xms_waittime = room_speed * 5;
+					}
+				}else{
+					global.__xms_open = 0;
+				}
+				break;
+			case global.__xus_window:
+				global.__xus_open = 0;
+				break;
+			case global.__xkb_window:
+				global.__xkb_open = 0;
+				break;
+		}
+	}
 }else if(argument1 == "mouse-press")
 {
-    switch(__name)
-    {
-        //Login screen
-        case "login.login":
-            XHandler_login();
-            return true;
-        case "login.register":
-            wle_perform(global.__xls_window, 49, 1);
-            gms_show_register();
-            global.__xrs_from_ls = true;
-            global.__focus_item = -1;
-            return true;
-        case "login.close":
-            if(instance_exists(global.__xls_loginobject))
-            {
-                with(global.__xls_loginobject)
-                {
-                    event_perform(ev_other, ev_user14);
-                }
-            }
-            wle_close(global.__xls_window);
-            return true;
-        case "highscore.close":
-        case "highscores.close":
-            wle_close(global.__xhs_window);
-            return true;
-        case "achievements.close":
-            wle_close(global.__xas_window);
-            return true;
-        case "friends.close":
-            wle_close(global.__xfs_window);
-            return true;
-        case "statistics.close":
-            wle_close(global.__xss_window);
-            return true;
-        case "message.close":
-            wle_close(global.__xms_window);
-            return true;
-        case "register.close":
-            wle_close(global.__xrs_window);
-            if(global.__xrs_from_ls)
-            {
-                global.__xrs_from_ls = false;
-                wle_perform(global.__xls_window, 50, 1);
-            }
-            return true;
-        case "register.register":
-            XHandler_register();
-            break;
-        case "keyboard.key":
-            if(global.__xkb_shift)
-            {
-                global.__xkb_text += string_upper(global.__winel[argument0, 62]);
-                global.__xkb_shift = 0;
-                wle_perform(wle_find(global.__xkb_window, "keyboard.shiftkey"), 48, false);
-            }else{
-                global.__xkb_text += string_lower(global.__winel[argument0, 62]);
-            }
-            return true;
-        case "keyboard.shiftkey":
-            global.__xkb_shift = !global.__xkb_shift;
-            
-            if(global.__xkb_shift)
-            {
-                wle_perform(argument0, 47, false);
-            }else{
-                wle_perform(argument0, 48, false);
-            }
-            break;
-        case "keyboard.backspacekey":
-            global.__tb_simulate_back = 1;
-            return true;
-        case "keyboard.closekey":
-            wle_close(global.__xkb_window);
-            global.__focus_item = -1;
-            break;
-        case "keyboard.numkey":
-            wle_perform(global.__xkb_window, 49, true);
-            wle_perform(global.__xkb_window, 48, true);
-            return true;
-        case "keyboard.normalkey":
-            wle_perform(global.__xkb_window, 50, true);
-            return true;
-        case "keyboard.extrakey":
-            wle_perform(global.__xkb_window, 47, true);
-            return true;
-    }
+	switch(__name)
+	{
+		//Login screen
+		case "login.login":
+			XHandler_login();
+			return true;
+		case "login.register":
+			wle_perform(global.__xls_window, 49, 1);
+			gms_show_register();
+			global.__xrs_from_ls = true;
+			global.__focus_item = -1;
+			return true;
+		case "login.close":
+			if(instance_exists(global.__xls_loginobject))
+			{
+				with(global.__xls_loginobject)
+				{
+					event_perform(ev_other, ev_user14);
+				}
+			}
+			wle_close(global.__xls_window);
+			return true;
+		case "highscore.close":
+		case "highscores.close":
+			wle_close(global.__xhs_window);
+			return true;
+		case "achievements.close":
+			wle_close(global.__xas_window);
+			return true;
+		case "friends.close":
+			wle_close(global.__xfs_window);
+			return true;
+		case "statistics.close":
+			wle_close(global.__xss_window);
+			return true;
+		case "message.close":
+			wle_close(global.__xms_window);
+			return true;
+		case "register.close":
+			wle_close(global.__xrs_window);
+			if(global.__xrs_from_ls)
+			{
+				global.__xrs_from_ls = false;
+				wle_perform(global.__xls_window, 50, 1);
+			}
+			return true;
+		case "register.register":
+			XHandler_register();
+			break;
+		case "keyboard.key":
+			if(global.__xkb_shift)
+			{
+				global.__xkb_text += string_upper(global.__winel[argument0, 62]);
+				global.__xkb_shift = 0;
+				wle_perform(wle_find(global.__xkb_window, "keyboard.shiftkey"), 48, false);
+			}else{
+				global.__xkb_text += string_lower(global.__winel[argument0, 62]);
+			}
+			return true;
+		case "keyboard.shiftkey":
+			global.__xkb_shift = !global.__xkb_shift;
+			
+			if(global.__xkb_shift)
+			{
+				wle_perform(argument0, 47, false);
+			}else{
+				wle_perform(argument0, 48, false);
+			}
+			break;
+		case "keyboard.backspacekey":
+			global.__tb_simulate_back = 1;
+			return true;
+		case "keyboard.closekey":
+			wle_close(global.__xkb_window);
+			global.__focus_item = -1;
+			break;
+		case "keyboard.numkey":
+			wle_perform(global.__xkb_window, 49, true);
+			wle_perform(global.__xkb_window, 48, true);
+			return true;
+		case "keyboard.normalkey":
+			wle_perform(global.__xkb_window, 50, true);
+			return true;
+		case "keyboard.extrakey":
+			wle_perform(global.__xkb_window, 47, true);
+			return true;
+	}
 }else if(argument1 == "submit")
 {
-    //Login: submit via enter
-    switch(__name)
-    {
-        case "login.username":
-        case "login.password":
-            XHandler_login();
-            break;
-        case "register.mail":
-        case "register.password":
-        case "register.password-again":
-        case "register.username":
-            XHandler_register();
-            break;
-    }
+	//Login: submit via enter
+	switch(__name)
+	{
+		case "login.username":
+		case "login.password":
+			XHandler_login();
+			break;
+		case "register.mail":
+		case "register.password":
+		case "register.password-again":
+		case "register.username":
+			XHandler_register();
+			break;
+	}
 }else if(argument1 == "keypress")
 {
-    if(__name == "login.username")
-    {
-        var __un;
-        __un = global.__winel[argument0, 62];
-        global.__xls_username_get = __un;
-    }
-        
-    if global.__xls_open
-    {
-        wle_perform(global.__xls_window, wle_hashname("on-unerror"), true)
-    }
-    
-    if global.__xrs_open
-    {
-        wle_perform(global.__xrs_window, wle_hashname("on-unerror"), true)
-    }
+	if(__name == "login.username")
+	{
+		var __un;
+		__un = global.__winel[argument0, 62];
+		global.__xls_username_get = __un;
+	}
+		
+	if global.__xls_open
+	{
+		wle_perform(global.__xls_window, wle_hashname("on-unerror"), true)
+	}
+	
+	if global.__xrs_open
+	{
+		wle_perform(global.__xrs_window, wle_hashname("on-unerror"), true)
+	}
 }
 return false;
 }
@@ -7090,40 +7090,40 @@ function XHandler_login() {
 //XHandler_login();
 if(!global.__xls_isloggingin)
 {
-    global.__xls_isloggingin = true;
-    
-    var _username, _password, _fUsername, _fPassword, _hasAccount;
-    _fUsername = wle_find(global.__xls_window, "login.username");
-    _fPassword = wle_find(global.__xls_window, "login.password");
-    
-    var __xfErr;
-    __xfErr = wle_find(global.__xls_window, "login.error");
-    if(__xfErr != -1) global.__winel[__xfErr, 62] = "";
-    
-    if(_fUsername != -1 && _fPassword != -1)
-    {
-        _username = global.__winel[_fUsername, 62];
-        _password = global.__winel[_fPassword, 62];
-        _hasAccount = gms_login_player_has_account(_username);
-        
-        if _hasAccount != -1
-        {
-            gms_login_set_username(_username);
-            if _hasAccount
-            {
-                gms_login_set_password(_password);
-            }
-            
-            if _hasAccount or global.__ls_allow_guest
-            {
-                gms_login_execute(-5);
-            }else{
-                XGms_login_error("You must login with an account.", true);
-            }
-        } else if not gms_info_isconnected() {
-            XGms_login_error("Connection with the server was lost. Please restart and try again.", true);
-        }
-    }
+	global.__xls_isloggingin = true;
+	
+	var _username, _password, _fUsername, _fPassword, _hasAccount;
+	_fUsername = wle_find(global.__xls_window, "login.username");
+	_fPassword = wle_find(global.__xls_window, "login.password");
+	
+	var __xfErr;
+	__xfErr = wle_find(global.__xls_window, "login.error");
+	if(__xfErr != -1) global.__winel[__xfErr, 62] = "";
+	
+	if(_fUsername != -1 && _fPassword != -1)
+	{
+		_username = global.__winel[_fUsername, 62];
+		_password = global.__winel[_fPassword, 62];
+		_hasAccount = gms_login_player_has_account(_username);
+		
+		if _hasAccount != -1
+		{
+			gms_login_set_username(_username);
+			if _hasAccount
+			{
+				gms_login_set_password(_password);
+			}
+			
+			if _hasAccount or global.__ls_allow_guest
+			{
+				gms_login_execute(-5);
+			}else{
+				XGms_login_error("You must login with an account.", true);
+			}
+		} else if not gms_info_isconnected() {
+			XGms_login_error("Connection with the server was lost. Please restart and try again.", true);
+		}
+	}
 }
 }
 
@@ -7131,26 +7131,26 @@ function XHandler_register() {
 //XHandler_register();
 if(!global.__xrs_isregistering)
 {
-    global.__xrs_isregistering = true;
-    
-    var _username, _password1, _password2, _mail, _fUsername, _fPassword1, _fPassword2, _fMail;
-    _fUsername = wle_find(global.__xrs_window, "register.username");
-    _fPassword1 = wle_find(global.__xrs_window, "register.password");
-    _fPassword2 = wle_find(global.__xrs_window, "register.password-again");
-    _fMail = wle_find(global.__xrs_window, "register.mail");
-    
-    if(_fUsername != -1 && _fPassword1 != -1 && _fPassword2 != -1 && _fMail != -1)
-    {
-        _username = global.__winel[_fUsername, 62];
-        _password1 = global.__winel[_fPassword1, 62];
-        _password2 = global.__winel[_fPassword2, 62];
-        _mail = global.__winel[_fMail, 62];
-        
-        global.__xrs_username = _username;
-        global.__xrs_password = _password1;
-        
-        gms_register(_username, _password1, _password2, _mail, -5);
-    }
+	global.__xrs_isregistering = true;
+	
+	var _username, _password1, _password2, _mail, _fUsername, _fPassword1, _fPassword2, _fMail;
+	_fUsername = wle_find(global.__xrs_window, "register.username");
+	_fPassword1 = wle_find(global.__xrs_window, "register.password");
+	_fPassword2 = wle_find(global.__xrs_window, "register.password-again");
+	_fMail = wle_find(global.__xrs_window, "register.mail");
+	
+	if(_fUsername != -1 && _fPassword1 != -1 && _fPassword2 != -1 && _fMail != -1)
+	{
+		_username = global.__winel[_fUsername, 62];
+		_password1 = global.__winel[_fPassword1, 62];
+		_password2 = global.__winel[_fPassword2, 62];
+		_mail = global.__winel[_fMail, 62];
+		
+		global.__xrs_username = _username;
+		global.__xrs_password = _password1;
+		
+		gms_register(_username, _password1, _password2, _mail, -5);
+	}
 }
 }
 
@@ -7160,16 +7160,16 @@ __xr = argument0;
 global.__xls_isloggingin = false;
 if(__xr == 0)
 {
-    wle_close(global.__xls_window);
-    if(instance_exists(global.__xls_loginobject))
-    {
-        with(global.__xls_loginobject)
-        {
-            event_perform(ev_other, ev_user15);
-        }
-    }
+	wle_close(global.__xls_window);
+	if(instance_exists(global.__xls_loginobject))
+	{
+		with(global.__xls_loginobject)
+		{
+			event_perform(ev_other, ev_user15);
+		}
+	}
 }else{
-    XGms_login_error(gms_login_error_tostring(__xr), __xr == 1 or __xr == 3);
+	XGms_login_error(gms_login_error_tostring(__xr), __xr == 1 or __xr == 3);
 }
 }
 
@@ -7179,73 +7179,73 @@ __xr = argument0;
 global.__xrs_isregistering = false;
 if(__xr == 1)
 {
-    if(instance_exists(global.__xls_loginobject))
-    {
-        with(global.__xls_loginobject)
-        {
-            event_perform(ev_other, ev_user14);
-        }
-    }
-    
-    wle_close(global.__xrs_window);
-    if global.__xrs_from_ls
-    {
-        wle_perform(global.__xls_window, 50, 1)
-        
-        var _fUsername, _fPassword;
-        _fUsername = wle_find(global.__xls_window, "login.username")
-        _fPassword = wle_find(global.__xls_window, "login.password")
-        
-        if(_fUsername != -1) wle_set(_fUsername, "text", global.__xrs_username)
-        if(_fPassword != -1) wle_set(_fPassword, "text", global.__xrs_password)
-        
-        global.__xls_username_get = global.__xrs_username
-        
-        global.__xrs_username = "";
-        global.__xrs_password = "";
-        
-        XHandler_login()
-        
-        keyboard_string = "";
-        global.__xregister_screen = 0
-        global.__xlogin_screen = true
-    }else{
-        wle_close(global.__xrs_window)
-        gms_show_message(ds_map_find_value(global.__constant_map, "@txt_registration_complete"))
-    }
+	if(instance_exists(global.__xls_loginobject))
+	{
+		with(global.__xls_loginobject)
+		{
+			event_perform(ev_other, ev_user14);
+		}
+	}
+	
+	wle_close(global.__xrs_window);
+	if global.__xrs_from_ls
+	{
+		wle_perform(global.__xls_window, 50, 1)
+		
+		var _fUsername, _fPassword;
+		_fUsername = wle_find(global.__xls_window, "login.username")
+		_fPassword = wle_find(global.__xls_window, "login.password")
+		
+		if(_fUsername != -1) wle_set(_fUsername, "text", global.__xrs_username)
+		if(_fPassword != -1) wle_set(_fPassword, "text", global.__xrs_password)
+		
+		global.__xls_username_get = global.__xrs_username
+		
+		global.__xrs_username = "";
+		global.__xrs_password = "";
+		
+		XHandler_login()
+		
+		keyboard_string = "";
+		global.__xregister_screen = 0
+		global.__xlogin_screen = true
+	}else{
+		wle_close(global.__xrs_window)
+		gms_show_message(ds_map_find_value(global.__constant_map, "@txt_registration_complete"))
+	}
 }else{
-    var __xfErr;
-    __xfErr = wle_find(global.__xrs_window, "register.error");
-    if(__xfErr != -1)
-    {
-        wle_set(__xfErr, "text", gms_register_error_tostring(__xr));
-        wle_set(__xfErr, "content-changed", true);
-    }else{
-        show_error("register.error element not found", true)
-    }
-    
-    switch(__xr)
-    {
-        case 4:
-        case 6:
-            //Select user
-            wle_textbox_select_all(wle_find(global.__xrs_window, "register.username"));
-        case 7:
-            //Select pass1
-            wle_textbox_select_all(wle_find(global.__xrs_window, "register.password"));
-            break;
-        case 2:
-            //Select pass2
-            wle_textbox_select_all(wle_find(global.__xrs_window, "register.password-again"));
-            break;
-        case 5:
-        case 3:
-            //Select mail
-            wle_textbox_select_all(wle_find(global.__xrs_window, "register.mail"));
-            break;
-    }
-    
-    wle_perform(global.__xrs_window, wle_hashname("on-error"), 1);
+	var __xfErr;
+	__xfErr = wle_find(global.__xrs_window, "register.error");
+	if(__xfErr != -1)
+	{
+		wle_set(__xfErr, "text", gms_register_error_tostring(__xr));
+		wle_set(__xfErr, "content-changed", true);
+	}else{
+		show_error("register.error element not found", true)
+	}
+	
+	switch(__xr)
+	{
+		case 4:
+		case 6:
+			//Select user
+			wle_textbox_select_all(wle_find(global.__xrs_window, "register.username"));
+		case 7:
+			//Select pass1
+			wle_textbox_select_all(wle_find(global.__xrs_window, "register.password"));
+			break;
+		case 2:
+			//Select pass2
+			wle_textbox_select_all(wle_find(global.__xrs_window, "register.password-again"));
+			break;
+		case 5:
+		case 3:
+			//Select mail
+			wle_textbox_select_all(wle_find(global.__xrs_window, "register.mail"));
+			break;
+	}
+	
+	wle_perform(global.__xrs_window, wle_hashname("on-error"), 1);
 }
 }
 
@@ -7262,124 +7262,124 @@ if(global.__xkb_open) wle_draw(global.__xkb_window, 1, true)
 }
 
 function XWindow_totalstep() {
-global.__timer             += 1;
+global.__timer			 += 1;
 if(global.__timer mod room_speed == 0)
 {
-    if(global.__xus_open)
-    {
-        var _update_bar, _update_box;
-        _update_box = wle_find(global.__xus_window, "update.progressbox");
-        if(_update_box != -1)
-        {
-            _update_bar = wle_find(_update_box, "update.progress");
-            if _update_bar != -1 && !wle_get(_update_bar, "tween")
-            {
-                var _m, __w;
-                _m = wle_tween(_update_bar);
-                wle_set(_m, "tween-type", tt_ease);
-                wle_set(_m, "tween-speed", 0.8);
-                __w = (wle_get(_update_box, "x2") - wle_get(_update_box, "x1")) * gms_update_progress();
-                wle_set(_m, "width", __w)
-                
-                if gms_update_progress() >= 1 && wle_get(_update_bar, "width") >= __w - 5
-                {
-                    gms_update_apply();
-                }
-            }
-        }
-    }
+	if(global.__xus_open)
+	{
+		var _update_bar, _update_box;
+		_update_box = wle_find(global.__xus_window, "update.progressbox");
+		if(_update_box != -1)
+		{
+			_update_bar = wle_find(_update_box, "update.progress");
+			if _update_bar != -1 && !wle_get(_update_bar, "tween")
+			{
+				var _m, __w;
+				_m = wle_tween(_update_bar);
+				wle_set(_m, "tween-type", tt_ease);
+				wle_set(_m, "tween-speed", 0.8);
+				__w = (wle_get(_update_box, "x2") - wle_get(_update_box, "x1")) * gms_update_progress();
+				wle_set(_m, "width", __w)
+				
+				if gms_update_progress() >= 1 && wle_get(_update_bar, "width") >= __w - 5
+				{
+					gms_update_apply();
+				}
+			}
+		}
+	}
 }
 var _x1, _y1, _x2, _y2;
 _x1 = global.__xw_x1
 _y1 = global.__xw_y1
 if global.__xw_x2 == -1
 {
-    _x2 = room_width
+	_x2 = room_width
 }else{
-    _x2 = global.__xw_x2
+	_x2 = global.__xw_x2
 }
 if global.__xw_y2 == -1
 {
-    _y2 = room_height
+	_y2 = room_height
 }else{
-    _y2 = global.__xw_y2
+	_y2 = global.__xw_y2
 }
 global.__zoom_focus_pos *= .95;
 if(global.__zoom_focus_pos != global.__prev_zoom_focus_pos)
 {
-    global.__tween_ongoing  = 1;
-    global.__prev_zoom_focus_pos = global.__zoom_focus_pos;
+	global.__tween_ongoing  = 1;
+	global.__prev_zoom_focus_pos = global.__zoom_focus_pos;
 }
 if(global.__xkb_open)
-    wle_tick(global.__xkb_window, _x1, _y1, _x2, _y2)
+	wle_tick(global.__xkb_window, _x1, _y1, _x2, _y2)
 if(global.__xkb_open)
 {
-    var __el;
-    __el = wle_find(global.__xkb_window, "window");
-    if __el >= 0
-    {
-        _y2 = min(room_height, wle_get(__el, "y1"))
-    }
+	var __el;
+	__el = wle_find(global.__xkb_window, "window");
+	if __el >= 0
+	{
+		_y2 = min(room_height, wle_get(__el, "y1"))
+	}
 }
 if(global.__xms_open)
 {
-    wle_tick(global.__xms_window, _x1, _y1, _x2, _y2)
-    
-    if(global.__xms_waittime > 0)
-    {
-        global.__xms_waittime -= 1;
-        if(global.__xms_waittime == 0)
-        {
-            wle_close(global.__xms_window);
-        }
-    }
+	wle_tick(global.__xms_window, _x1, _y1, _x2, _y2)
+	
+	if(global.__xms_waittime > 0)
+	{
+		global.__xms_waittime -= 1;
+		if(global.__xms_waittime == 0)
+		{
+			wle_close(global.__xms_window);
+		}
+	}
 }
 _y1 -= global.__zoom_focus_pos * 2;
 if global.__xls_username_get != ""
 {
-    var _result, _f1, _f2;
-    _result = gms_login_player_has_account(global.__xls_username_get);
-    
-    if(_result != -1)
-    {
-        _f1 = wle_find(global.__xls_window, "login.guest");
-        _f2 = wle_find(global.__xls_window, "login.password");
-        if(_f1 != -1 && _f2 != -1)
-        {
-            if(!global.__winel[_f1, 36] && !global.__winel[_f2, 36])
-            {
-                if(_result or !global.__ls_allow_guest)
-                {
-                    wle_perform(global.__xls_window, 48, true)
-                }else{
-                    wle_perform(global.__xls_window, 47, true);
-                }
-        
-                global.__xls_username_get = "";
-                global.__xls_isloggingin = false;
-            }
-        }
-    }
+	var _result, _f1, _f2;
+	_result = gms_login_player_has_account(global.__xls_username_get);
+	
+	if(_result != -1)
+	{
+		_f1 = wle_find(global.__xls_window, "login.guest");
+		_f2 = wle_find(global.__xls_window, "login.password");
+		if(_f1 != -1 && _f2 != -1)
+		{
+			if(!global.__winel[_f1, 36] && !global.__winel[_f2, 36])
+			{
+				if(_result or !global.__ls_allow_guest)
+				{
+					wle_perform(global.__xls_window, 48, true)
+				}else{
+					wle_perform(global.__xls_window, 47, true);
+				}
+		
+				global.__xls_username_get = "";
+				global.__xls_isloggingin = false;
+			}
+		}
+	}
 }
 if(global.__xls_open)
-    wle_tick(global.__xls_window, _x1, _y1, _x2, _y2)
+	wle_tick(global.__xls_window, _x1, _y1, _x2, _y2)
 if(global.__xrs_open)
-    wle_tick(global.__xrs_window, _x1, _y1, _x2, _y2)
+	wle_tick(global.__xrs_window, _x1, _y1, _x2, _y2)
 if(global.__xfs_open)
-    wle_tick(global.__xfs_window, _x1, _y1, _x2, _y2)
+	wle_tick(global.__xfs_window, _x1, _y1, _x2, _y2)
 if(global.__xss_open)
-    wle_tick(global.__xss_window, _x1, _y1, _x2, _y2)
+	wle_tick(global.__xss_window, _x1, _y1, _x2, _y2)
 if(global.__xus_open)
-    wle_tick(global.__xus_window, _x1, _y1, _x2, _y2)
+	wle_tick(global.__xus_window, _x1, _y1, _x2, _y2)
 if(global.__xas_open)
-    wle_tick(global.__xas_window, _x1, _y1, _x2, _y2)
+	wle_tick(global.__xas_window, _x1, _y1, _x2, _y2)
 if(global.__xhs_open)
-    wle_tick(global.__xhs_window, _x1, _y1, _x2, _y2)
-    
+	wle_tick(global.__xhs_window, _x1, _y1, _x2, _y2)
+	
 while !wle_event_empty()
 {
-    XHandler(wle_event_element(), wle_event_name())
-    wle_event_dequeue()
+	XHandler(wle_event_element(), wle_event_name())
+	wle_event_dequeue()
 }
 }
 
@@ -7388,16 +7388,16 @@ var __xfErr;
 __xfErr = wle_find(global.__xls_window, "login.error");
 if(__xfErr != -1)
 {
-    global.__winel[__xfErr, 62] = argument0;
-    global.__winel[__xfErr, 100] = true;
+	global.__winel[__xfErr, 62] = argument0;
+	global.__winel[__xfErr, 100] = true;
 }else{
-    show_error("Could not find login.error element", false);
+	show_error("Could not find login.error element", false);
 }
 if argument1
 {
-    wle_textbox_select_all(wle_find(global.__xls_window, "login.password"));
+	wle_textbox_select_all(wle_find(global.__xls_window, "login.password"));
 }else{
-    wle_textbox_select_all(wle_find(global.__xls_window, "login.username"));
+	wle_textbox_select_all(wle_find(global.__xls_window, "login.username"));
 }
 wle_perform(global.__xls_window, 51, 1);
 }
@@ -7405,7 +7405,7 @@ wle_perform(global.__xls_window, 51, 1);
 function gms_bdb_open(argument0, argument1, argument2) {
 if(!script_exists(argument2))
 {
-    show_error("gms_bdb_open: third argument must be a valid script", true)
+	show_error("gms_bdb_open: third argument must be a valid script", true)
 }
 xGms_bdb_open(argument0, argument1, argument2);
 }
@@ -7413,26 +7413,26 @@ xGms_bdb_open(argument0, argument1, argument2);
 function gms_bdb_read(argument0, argument1) {
 if(argument1 == bdb_string)
 {
-    return gms_bdb_read_string(argument0)
+	return gms_bdb_read_string(argument0)
 }else{
-    return gms_bdb_read_real(argument0, argument1)
+	return gms_bdb_read_real(argument0, argument1)
 }
 }
 
 function gms_bdb_write(argument0, argument1, argument2) {
 if(argument1 == bdb_string)
 {
-    gms_bdb_write_string(argument0, argument2)
+	gms_bdb_write_string(argument0, argument2)
 }else{
-    gms_bdb_write_real(argument0, argument1, argument2)
+	gms_bdb_write_real(argument0, argument1, argument2)
 }
 }
 
 function gms_highscore_add_guest(argument0, argument1, argument2, argument3) {
 if(!is_real(argument3))
 {
-    XServer_error("gms_login_execute: Expected the first argument to be a real, but found a string. Please note there should be no quotes around the scripts' name.");
-    exit;
+	XServer_error("gms_login_execute: Expected the first argument to be a real, but found a string. Please note there should be no quotes around the scripts' name.");
+	exit;
 }
 global.__callback_guest_highscore = argument3
 XGms_highscore_add_guest(argument0, argument1, argument2)
@@ -7447,11 +7447,11 @@ m2 = global.__winel[m1, 37];
 m3 = global.__winel[m1, 38];
 if m2 != -1
 {
-    wle_destroy_internal(m2);
+	wle_destroy_internal(m2);
 }
 if m3 != -1
 {
-    wle_destroy_internal(m3);
+	wle_destroy_internal(m3);
 }
 m2 = wle_create(-1);
 m3 = wle_create(-1);
@@ -7474,88 +7474,88 @@ function wle_perform(argument0, argument1, argument2) {
 //wle_perform(element, event, recurse)
 if argument0 != -1
 {
-    var __map;
-    __map = global.__winel[argument0, argument1];
-    if(__map != -1)
-    {
-        
-        if(global.__winel[argument0, 52] != argument1)
-        {
-            if(__map >= 0)
-            {
-                var _tw, /*__ts, */__tt, /*__pos, __tap*/;
-                if(ds_map_exists(__map, 102))
-                {
-                    __tt = ds_map_find_value(__map, 102);
-                    if(__tt <= 0) __tt = tt_ease;
-                }else{
-                    __tt = tt_ease;
-                }
-                
-                if(__tt != tt_shake or !global.__winel[argument0, 36])
-                {
-                    _tw = wle_tween(argument0);
-                    
-                    var __key;
-                    __key = ds_map_find_first(__map);
-                    
-                    while !XGms_undef_ined(__key)
-                    {
-                        if __key == 9
-                            or __key == 10
-                            or __key == 5
-                            or __key == 6
-                            or __key == 7
-                            or __key == 8
-                            or __key == 13
-                            or __key == 14
-                            or __key == 19
-                            or __key == 18
-                            or __key == 25
-                            or __key == 32
-                            or __key == 55
-                            or __key == 56
-                            or __key == 57
-                            or __key == 58
-                            or __key == wle_hashname("padding-horizontal")
-                            or __key == wle_hashname("padding-vertical")
-                            or __key == 72
-                        {
-                            global.__winel[_tw, 35] = true
-                        }
-                        
-                        global.__winel[_tw, __key] = ds_map_find_value(__map, __key);
-                        
-                        __key = ds_map_find_next(__map, __key);
-                        
-                    }
-                    
-                    if(__tt != tt_shake)
-                    {
-                        global.__winel[_tw, 52] = argument1;
-                        global.__winel[argument0, 52] = argument1;
-                    }
-                }
-            }
-        }
-    }
-    
-    if(argument2)
-    {
-        var m, i;
-        m = global.__winel[argument0, 0];
-        for(i = 0; i < ds_list_size(m); i += 1)
-        {
-            wle_perform(ds_list_find_value(m, i), argument1, 1);
-        }
-    }
+	var __map;
+	__map = global.__winel[argument0, argument1];
+	if(__map != -1)
+	{
+		
+		if(global.__winel[argument0, 52] != argument1)
+		{
+			if(__map >= 0)
+			{
+				var _tw, /*__ts, */__tt, /*__pos, __tap*/;
+				if(ds_map_exists(__map, 102))
+				{
+					__tt = ds_map_find_value(__map, 102);
+					if(__tt <= 0) __tt = tt_ease;
+				}else{
+					__tt = tt_ease;
+				}
+				
+				if(__tt != tt_shake or !global.__winel[argument0, 36])
+				{
+					_tw = wle_tween(argument0);
+					
+					var __key;
+					__key = ds_map_find_first(__map);
+					
+					while !XGms_undef_ined(__key)
+					{
+						if __key == 9
+							or __key == 10
+							or __key == 5
+							or __key == 6
+							or __key == 7
+							or __key == 8
+							or __key == 13
+							or __key == 14
+							or __key == 19
+							or __key == 18
+							or __key == 25
+							or __key == 32
+							or __key == 55
+							or __key == 56
+							or __key == 57
+							or __key == 58
+							or __key == wle_hashname("padding-horizontal")
+							or __key == wle_hashname("padding-vertical")
+							or __key == 72
+						{
+							global.__winel[_tw, 35] = true
+						}
+						
+						global.__winel[_tw, __key] = ds_map_find_value(__map, __key);
+						
+						__key = ds_map_find_next(__map, __key);
+						
+					}
+					
+					if(__tt != tt_shake)
+					{
+						global.__winel[_tw, 52] = argument1;
+						global.__winel[argument0, 52] = argument1;
+					}
+				}
+			}
+		}
+	}
+	
+	if(argument2)
+	{
+		var m, i;
+		m = global.__winel[argument0, 0];
+		for(i = 0; i < ds_list_size(m); i += 1)
+		{
+			wle_perform(ds_list_find_value(m, i), argument1, 1);
+		}
+	}
 }
 }
 
 function wle_hashname(argument0) {
 if(ds_map_exists(global.__hashmap, argument0))
 {
-    return ds_map_find_value(global.__hashmap, argument0);
+	return ds_map_find_value(global.__hashmap, argument0);
 }
 return 0;
 }
@@ -7566,673 +7566,673 @@ var m, i, _currel, /*__element_queue, __element_queue_arg0, __queue_size, */__qu
 __cache = global.__winel[argument0, 107];
 if(__cache == -1)
 {
-    __cache = wle_build_cache(argument0)
+	__cache = wle_build_cache(argument0)
 }
 __need_position = global.__winel[argument0, 100]
 global.__winel[argument0, 100] = false
 __queue_pointer = 1;
 while(__queue_pointer < global.__wincache[__cache, 0])
 {
-    _currel = global.__wincache[__cache, __queue_pointer]
-    if global.__winel[_currel, 36]
-    {
-        if wle_get(global.__winel[_currel, 38], "tween-affects-position")
-        {
-            __need_position = true
-        }
-    }
-    
-    __queue_pointer += 1
+	_currel = global.__wincache[__cache, __queue_pointer]
+	if global.__winel[_currel, 36]
+	{
+		if wle_get(global.__winel[_currel, 38], "tween-affects-position")
+		{
+			__need_position = true
+		}
+	}
+	
+	__queue_pointer += 1
 }
 __queue_pointer = 1;
 while(__queue_pointer < global.__wincache[__cache, 0])
 {
-    _currel = global.__wincache[__cache, __queue_pointer]
-    
-    var alp;
-    alp = global.__winel[_currel, 31];
-    
-    if global.__winel[_currel, 36]
-    {
-        var m2, m3, _proc, _new_proc;
-        m2 = global.__winel[_currel, 37]
-        m3 = global.__winel[_currel, 38];
-        
-        _proc = global.__winel[_currel, 39]
-        
-        if _proc == 0
-        {
-            __need_position = true
-        }
-        
-        switch(global.__winel[m3, 102])
-        {
-            case tt_linear:
-                _new_proc = _proc
-                break;
-            case tt_sin:
-                _new_proc = sin(_proc * pi / 2);
-                break;
-            case tt_ease:
-                _new_proc = global.__bezier[_proc * 3000];
-                break;
-            case tt_shake:
-                _new_proc = sin(_proc * pi * 10) * (1 - _proc) * 5;
-                break;
-            default:
-                show_error("Unknown tween type " + string(global.__winel[m3, 102]), global.__xwindow_error_type);
-                break;
-        }
-        
-        global.__winel[_currel, 71] = global.__winel[m2, 71] * (1 - _new_proc) + global.__winel[m3, 71] * _new_proc;
-        global.__winel[_currel, 70] = global.__winel[m2, 70] * (1 - _new_proc) + global.__winel[m3, 70] * _new_proc;
-            
-        if global.__winel[m3, 35] or __need_position
-        {
-            //BAD HACK. NO. Should not be neccecary if I manage to fix the positioning function
-            global.__winel[m3, 35] = true
-            //global.__winel[_currel, 10] = global.__winel[m2, 10] * (1 - _new_proc) + global.__winel[m3, 10] * _new_proc;
-            //global.__winel[_currel, 9] = global.__winel[m2, 9] * (1 - _new_proc) + global.__winel[m3, 9] * _new_proc;
-            
-            global.__winel[_currel, 1] = global.__winel[m2, 1] * (1 - _new_proc) + global.__winel[m3, 1] * _new_proc;
-            global.__winel[_currel, 3] = global.__winel[m2, 3] * (1 - _new_proc) + global.__winel[m3, 3] * _new_proc;
-            global.__winel[_currel, 2] = global.__winel[m2, 2] * (1 - _new_proc) + global.__winel[m3, 2] * _new_proc;
-            global.__winel[_currel, 4] = global.__winel[m2, 4] * (1 - _new_proc) + global.__winel[m3, 4] * _new_proc;
-            
-            global.__winel[_currel, 11] = global.__winel[m2, 11] * (1 - _new_proc) + global.__winel[m3, 11] * _new_proc;
-            global.__winel[_currel, 12] = global.__winel[m2, 12] * (1 - _new_proc) + global.__winel[m3, 12] * _new_proc;
-            global.__winel[_currel, 40] = global.__winel[m2, 40] * (1 - _new_proc) + global.__winel[m3, 40] * _new_proc;
-            global.__winel[_currel, 41] = global.__winel[m2, 41] * (1 - _new_proc) + global.__winel[m3, 41] * _new_proc;
-            
-            global.__winel[_currel, 105] = global.__winel[m2, 105] * (1 - _new_proc) + global.__winel[m3, 105] * _new_proc;
-            global.__winel[_currel, 106] = global.__winel[m2, 106] * (1 - _new_proc) + global.__winel[m3, 106] * _new_proc;
-            global.__winel[_currel, 103] = global.__winel[m2, 103] * (1 - _new_proc) + global.__winel[m3, 103] * _new_proc;
-            global.__winel[_currel, 104] = global.__winel[m2, 104] * (1 - _new_proc) + global.__winel[m3, 104] * _new_proc;
-        }
-        
-        global.__winel[_currel, 31] = global.__winel[m2, 31] * (1 - _new_proc) + global.__winel[m3, 31] * _new_proc;
-        global.__winel[_currel, 24] = global.__winel[m2, 24] * (1 - _new_proc) + global.__winel[m3, 24] * _new_proc;
-        global.__winel[_currel, 25] = global.__winel[m2, 25] * (1 - _new_proc) + global.__winel[m3, 25] * _new_proc;
-        
-        global.__winel[_currel, 27] = global.__winel[m2, 27] * (1 - _new_proc) + global.__winel[m3, 27] * _new_proc;
-        global.__winel[_currel, 28] = global.__winel[m2, 28] * (1 - _new_proc) + global.__winel[m3, 28] * _new_proc;
-        global.__winel[_currel, 30] = global.__winel[m2, 30] * (1 - _new_proc) + global.__winel[m3, 30] * _new_proc;
-        
-        global.__winel[_currel, 20] = merge_color(global.__winel[m2, 20], global.__winel[m3, 20], _new_proc);
-        global.__winel[_currel, 21] = merge_color(global.__winel[m2, 21], global.__winel[m3, 21], _new_proc);
-        global.__winel[_currel, 22] = merge_color(global.__winel[m2, 22], global.__winel[m3, 22], _new_proc);
-        global.__winel[_currel, 23] = merge_color(global.__winel[m2, 23], global.__winel[m3, 23], _new_proc);
-        global.__winel[_currel, 33] = merge_color(global.__winel[m2, 33], global.__winel[m3, 33], _new_proc);
-        //global.__winel[_currel, 26] = merge_color(global.__winel[m2, 26], global.__winel[m3, 26], p);
-        //global.__winel[_currel, 29] = merge_color(global.__winel[m2, 29], global.__winel[m3, 29], p);
-        
-        global.__winel[_currel, 39] = _proc + 1 / (60 * max(global.__winel[m3, 42] / global.__tween_factor, 0.0001))
-                
-        if(global.__winel[_currel, 39] >= 1)
-        {        
-            var __text;
-            __text = global.__winel[_currel, 62]
-            
-            if(global.__winel[m3, 102] == tt_shake)
-            {
-                wle_copy(_currel, m2)
-            }else{
-                wle_copy(_currel, m3)
-            }
-            
-            global.__winel[_currel, 62] = __text
-            
-            wle_destroy_internal(m2)
-            wle_destroy_internal(m3)
-            
-            global.__winel[_currel, 37] = -1
-            global.__winel[_currel, 38] = -1
-            global.__winel[_currel, 36] = false
-            global.__winel[_currel, 39] = 0
-            
-            wle_register_event(_currel, "!tween")
-        }
-    }
-    
-    var x1, y1, x2, y2, i;
-    x1 = global.__winel[_currel, 1];
-    if(x1 >= room_width) { __queue_pointer = global.__winskip[__cache, __queue_pointer]; continue }
-    x2 = global.__winel[_currel, 3];
-    if(x2 <= 0) { __queue_pointer = global.__winskip[__cache, __queue_pointer]; continue }
-    //if(x2 <= x1) { __queue_pointer = global.__winskip[__cache, __queue_pointer]; continue }
-    
-    y1 = global.__winel[_currel, 2];    
-    if(y1 >= room_height) { __queue_pointer = global.__winskip[__cache, __queue_pointer]; continue }
-    y2 = global.__winel[_currel, 4];
-    if(y2 <= 0) { __queue_pointer = global.__winskip[__cache, __queue_pointer]; continue }
-    //if(y2 <= y1) { __queue_pointer = global.__winskip[__cache, __queue_pointer]; continue }
-    m = global.__winel[_currel, 0];
-    
-    var __mp, __mh, __mr, __mhold;
-    __mp = 0;
-    __mh = 0;
-    __mr = 0;
-    __mhold = 0;
-    
-    if argument1 >= x1 && argument1 <= x2 && argument2 >= y1 && argument2 <= y2
-    {
-        __mh = 1;
-        if(!global.__winel[_currel, 59])
-        {
-            wle_register_event(_currel, "mouse-hover");
-            global.__winel[_currel, 59] = true
-            wle_perform(_currel, 43, false);
-        }
-        
-        if(mouse_check_button_pressed(mb_left))
-        {
-            wle_register_event(_currel, "mouse-press")
-            __mp = 1;
-        }else if(mouse_check_button(mb_left))
-        {
-            __mhold = 1;
-        }else if(mouse_check_button_released(mb_left))
-        {
-            wle_register_event(_currel, "!mouse-press");
-            __mr = 1;
-        }
-    }else if(global.__winel[_currel, 59])
-    {
-        wle_register_event(_currel, "!mouse-hover");
-        global.__winel[_currel, 59] = false
-        wle_perform(_currel, 44, false);
-    }
-    
-    switch(global.__winel[_currel, 34])
-    {
-        case el_textbox:
-            if(global.__focus_item == _currel)
-            {
-                if(global.__xkb_open) 
-                {
-                    if(y1 < 0) global.__zoom_focus_pos += (y1 - 40) * .1;
-                }
-                
-                var _text, _select1, _select2, _len_limit, _rp_backspace, _rp_left, _rp_right, _rp_delete, 
-                    /*_rb_backspace_count, */_rp_left_count, _rp_right_count, _rp_delete_count, _rp_speed;
-                
-                var _font;
-                _font = global.__winel[_currel, 63];
-                if(_font == -2) draw_set_font(global.__f_title) else
-                if(_font == -3) draw_set_font(global.__f_text) else
-                if(_font == -4) draw_set_font(global.__f_small) else
-                draw_set_font(_font)
-                
-                _text = global.__winel[_currel, 62];
-                _select1 = global.__winel[_currel, 74];
-                _select2 = global.__winel[_currel, 75];
-                if(_select1 > string_length(_text) + 1) _select1 = string_length(_text) + 1;
-                if(_select2 > string_length(_text) + 1) _select2 = string_length(_text) + 1;
-                __ks = keyboard_string + global.__xkb_text
-                if(__ks != "")
-                {
-                    if(!global.__winel[_currel, 77] && !global.__winel[_currel, 78])
-                    {
-                        __ks = string_replace_all(__ks, " ", "");
-                    }
-                    if(!global.__winel[_currel, 78])
-                    {
-                        __ks = string_replace_all(__ks, "#", "");
-                    }
-                    if(__ks != "")
-                    {
-                        if(abs(_select1 - _select2) > 0)
-                        {
-                            _text = string_delete(_text, _select1, _select2 - _select1);
-                        }
-                        if(global.__winel[_currel, 78])
-                        {
-                            _text = string_insert(__ks, _text, _select1);
-                        }else{
-                            _text = string_replace_all(string_insert(__ks, _text, _select1),  " ", "");
-                        }
-                        _select1 += string_length(__ks);
-                        _select2 = _select1;
-                        global.__xkb_text = "";
-                        keyboard_string = "";
-                        _len_limit = global.__winel[_currel, 79];
-                        if(string_length(_text) > _len_limit)
-                        {
-                            _text = string_copy(_text, 1, _len_limit);
-                            _select1 = min(_select1, _len_limit+1);
-                            _select2 = _select1;
-                        }
-                        global.__winel[_currel, 100] = 1;
-                    }
-                }
-                
-                if(keyboard_check(vk_backspace) or global.__tb_simulate_back)
-                {
-                    global.__tb_simulate_back = 0;
-                    _rp_backspace = global.__winel[_currel, 82];
-                    _rp_backspace_count = global.__winel[_currel, 88];
-                            
-                    _rp_speed = global.__winel[_currel, 84];
-                    _rp_speed2 = global.__winel[_currel, 85];
-                    if(_rp_backspace == 0)
-                    {
-                        
-                        _text = string_delete(_text, min(_select1, _select2) - (_select1 == _select2), max(_select1, _select2) - min(_select1, _select2) + 1);
-                        _select1 -= (_select1 == _select2);
-                    }else
-                    if(_rp_backspace > _rp_speed)
-                    {
-                        _rp_backspace_count += 1;
-                        if(_rp_backspace_count >= _rp_speed2)
-                        {
-                            _rp_backspace_count = 0;
-                            _text = string_delete(_text, _select1 - 1, _select2 - _select1 + 1);
-                            _select1 -= 1;
-                        }
-                    }
-                    _rp_backspace += 1;
-                    _select1 = max(1, _select1);
-                    _select2 = _select1;
-                    global.__winel[_currel, 100] = 1;
-                    global.__winel[_currel, 82] = _rp_backspace;
-                }else{
-                    global.__winel[_currel, 82] = 0;
-                }
-                
-                if(keyboard_check(vk_delete))
-                {
-                    _rp_delete = global.__winel[_currel, 83];
-                    _rp_delete_count = global.__winel[_currel, 89];
-                            
-                    _rp_speed = global.__winel[_currel, 84];
-                    _rp_speed2 = global.__winel[_currel, 85];
-                    if(_rp_delete == 0)
-                    {
-                        _text = string_delete(_text, _select1, _select2 - _select1 + 1);
-                        _select1 -= 1;
-                    }else
-                    if(_rp_delete > _rp_speed)
-                    {
-                        _rp_delete_count += 1;
-                        if(_rp_delete_count >= _rp_speed2)
-                        {
-                            _rp_delete_count = 0;
-                            _text = string_delete(_text, _select1, _select2 - _select1 + 1);
-                            _select1 -= 1;
-                        }
-                    }
-                    _rp_delete += 1;
-                    _select1 = max(1, _select1);
-                    _select2 = _select1;
-                    global.__winel[_currel, 100] = 1;
-                    global.__winel[_currel, 83] = _rp_delete;
-                }else{
-                    global.__winel[_currel, 83] = 0;
-                }
-                
-                if(keyboard_check(vk_left))
-                {
-                    _rp_left = global.__winel[_currel, 80];
-                    _rp_left_count = global.__winel[_currel, 86];
-                            
-                    _rp_speed = global.__winel[_currel, 84];
-                    _rp_speed2 = global.__winel[_currel, 85];
-                    if(_rp_left == 0)
-                    {
-                        _select1 -= 1;
-                    }else if(_rp_left > _rp_speed)
-                    {
-                        _rp_left_count += 1;
-                        if(_rp_left_count >= _rp_speed2)
-                        {
-                            _rp_left_count = 0;
-                            _select1 -= 1;
-                        }
-                    }
-                    _select1 = max(1, _select1);
-                    if(!keyboard_check(vk_shift)) _select2 = _select1;
-                    _rp_left += 1;
-                    global.__winel[_currel, 80] = _rp_left;
-                }else{
-                    global.__winel[_currel, 80] = 0;
-                }
-                
-                if(keyboard_check(vk_right))
-                {
-                    _rp_right = global.__winel[_currel, 81];
-                    _rp_right_count = global.__winel[_currel, 87];
-                            
-                    _rp_speed = global.__winel[_currel, 84];
-                    _rp_speed2 = global.__winel[_currel, 85];
-                    if(_rp_right == 0)
-                    {
-                        _select2 += 1;
-                    }else if(_rp_right > _rp_speed)
-                    {
-                        _rp_right_count += 1;
-                        if(_rp_right_count >= _rp_speed2)
-                        {
-                            _rp_right_count = 0;
-                            _select2 += 1;
-                        }
-                    }
-                    _select2 = min(string_length(_text)+1, _select2);
-                    if(!keyboard_check(vk_shift)) _select1 = _select2;
-                    _rp_right += 1;
-                    global.__winel[_currel, 81] = _rp_right;
-                }else{
-                    global.__winel[_currel, 81] = 0;
-                }
-                
-                if keyboard_check_pressed(vk_enter) or (keyboard_check_direct(vk_tab) && !global.__tab_pressed)
-                {
-                    var _next_tab;
-                    _next_tab = _currel;
-                    repeat(100)
-                    {
-                        _next_tab = global.__winel[_next_tab, 93];
-                        if(_next_tab == -1) break;
-                        if(global.__winel[_next_tab, 31] > 0) break;
-                    }
-                    
-                    if(_next_tab == -1)
-                    {
-                        wle_register_event(_currel, "submit");
-                    }else{
-                        global.__focus_item = _next_tab;
-                    }
-                }
-                
-                if(keyboard_check_direct(vk_tab))
-                {
-                    if(!global.__tab_pressed)
-                    {
-                        var _next_tab;
-                        _next_tab = global.__winel[_currel, 92];
-                        if(_next_tab != -1)
-                        {
-                            global.__focus_item = _next_tab;
-                        }
-                    }
-                    
-                    global.__tab_pressed = true;
-                }else{
-                    global.__tab_pressed = false;
-                }
-                
-                if(mouse_check_button_pressed(mb_left))
-                {
-                    if(__mh)
-                    {
-                        var _d, _t, _p1, _p2, _aimwidth, _guess;
-                        if(global.__winel[_currel, 78])
-                        {
-                            _t = string_repeat("*", string_length(_text))
-                        }else{
-                            _t = _text;
-                        }
-                        
-                        _p1 = 0;
-                        _p2 = string_length(_t) + 1;
-                        _aimwidth = argument1 - ((x1 + x2) / 2 - string_width(string_hash_to_newline(_t)) / 2);
-                        repeat(32)
-                        {
-                            _guess = round((_p1 + _p2) / 2);
-                            _d = string_width(string_hash_to_newline(string_copy(_t + " ", 1, _guess)));
-                            
-                            if(abs(_d - _aimwidth) <= 5 or _p1 == _p2)
-                            {
-                                break;
-                            }else if(_d < _aimwidth)
-                            {
-                                _p1 = _guess;
-                            }else if(_d > _aimwidth)
-                            {
-                                _p2 = _guess;
-                            }
-                        }
-                        
-                        _select1 = max(1, _guess + 1);
-                        _select2 = max(1, _guess + 1);
-                    }
-                }else if(mouse_check_button(mb_left))
-                {
-                    if(__mh)
-                    {
-                        var _d, _t, _p1, _p2, _aimwidth, _guess;
-                        if(global.__winel[_currel, 78])
-                        {
-                            _t = string_repeat("*", string_length(_text))
-                        }else{
-                            _t = _text;
-                        }
-                        
-                        _p1 = 0;
-                        _p2 = string_length(_t) + 1;
-                        _aimwidth = argument1 - ((x1 + x2) / 2 - string_width(string_hash_to_newline(_t)) / 2);
-                        repeat(32)
-                        {
-                            _guess = round((_p1 + _p2) / 2);
-                            _d = string_width(string_hash_to_newline(string_copy(_t + " ", 1, _guess)));
-                            
-                            if(abs(_d - _aimwidth) <= 5 or _p1 == _p2)
-                            {
-                                break;
-                            }else if(_d < _aimwidth)
-                            {
-                                _p1 = _guess;
-                            }else if(_d > _aimwidth)
-                            {
-                                _p2 = _guess;
-                            }
-                        }
-                        
-                        _select2 = max(1, _guess + 1);
-                    }
-                }
-                
-                if(mouse_check_button_released(mb_left) or keyboard_check_released(vk_shift))
-                {
-                    if(_select2 < _select1)
-                    {
-                        var ss;
-                        
-                        ss = _select1;
-                        _select1 = _select2;
-                        _select2 = ss;
-                    }
-                        
-                }
-                
-                global.__winel[_currel, 74] = _select1;
-                global.__winel[_currel, 75] = _select2;
-                
-                if(_text != global.__winel[_currel, 62])
-                {
-                    global.__winel[_currel, 62] = _text;
-                    wle_register_event(_currel, "keypress");
-                }
-            }else{
-                if(__mp && __mh)
-                {
-                    wle_focus(_currel)
-                }
-            }
-            break;
-        case el_scrollbox:
-            var _surf, _ih, _scroll, _dscroll, _cscroll, __hh;
-            _surf = global.__winel[_currel, 94];
-            _ih = global.__winel[_currel, 12];
-            
-            if(surface_get_width(_surf) != abs(x2 - x1 - 10) or surface_get_height(_surf) != _ih)
-            {
-                surface_free(_surf);
-                _surf = -1;
-            }
-            
-            if((_surf == -1 or !surface_exists(_surf)) && _ih > 0)
-            {
-                
-                _surf = surface_create(abs(x2 - x1 - 10), _ih);
-                global.__winel[_currel, 94] = _surf;
-                global.__winel[_currel, 100] = 1;
-            }
-            
-            if(surface_exists(_surf))
-            {
-                __hh = abs(y2 - y1);
-                _scroll = 0;
-                
-                //if(_ih > __hh)
-                {
-                    _scroll = global.__winel[_currel, 95];
-                    _momentum = global.__winel[_currel, 96];
-                    _dscroll = global.__winel[_currel, 97];
-                    _cscroll = global.__winel[_currel, 98];
-                    
-                    var _scrollb_h;
-                    //hh 308
-                    //ih 400
-                    //scrollbh 308
-                    if _ih < __hh
-                    {
-                        _scrollb_h = __hh;
-                    }else{
-                        _scrollb_h = min(__hh, max(16, __hh / max(1, _ih) * __hh));
-                    }
-                    
-                    global.__winel[_currel, 101] = _scrollb_h
-                    //var __nostep;
-                    __step = false;
-                    
-                    if _ih >= __hh
-                    {
-                        if(_dscroll)
-                        {
-                            _scroll = _scroll * .5 + ((argument2 - y1 - _scrollb_h * .5) / (__hh - _scrollb_h) * (_ih - __hh)) * .5;
-                            if(!mouse_check_button(mb_any))
-                            {
-                                global.__winel[_currel, 97] = false
-                            }
-                        }else if(_cscroll)
-                        {
-                            var _move;
-                            _move = argument2 - global.__winel[_currel, 99];
-                            _scroll -= _move;
-                            global.__winel[_currel, 96] = _move;
-                            
-                            global.__winel[_currel, 99] = argument2;
-                            
-                        }else if(abs(_momentum) > 0.01)
-                        {
-                            _scroll -= _momentum;
-                            _momentum *= 0.9;
-                            if(_scroll < 0 or _scroll > _ih - __hh)
-                            {
-                                _momentum = 0;
-                            }
-                            global.__winel[_currel, 96] = _momentum;
-                        }else{
-                            __step = true;
-                        }
-                        
-                        if global.__winel[_currel, 59]
-                        {
-                            if mouse_wheel_up()
-                            {
-                                global.__winel[_currel, 96] = 24;
-                            }else if mouse_wheel_down()
-                            {
-                                global.__winel[_currel, 96] = -24;
-                            }
-                        }
-                        
-                        if(argument1 >= x2 - 10 && __mh)
-                        {
-                            if(mouse_check_button_pressed(mb_any))
-                            {
-                                global.__winel[_currel, 97] = true
-                            }
-                        }
-                        
-                        _scroll = max(0, min(_scroll, _ih - __hh));
-                        global.__winel[_currel, 95] = _scroll;
-                    
-                        if(__mp)
-                        {
-                            global.__winel[_currel, 99] = argument2;
-                        }else if(__mhold)
-                        {
-                            if(abs(argument2 - global.__winel[_currel, 99]) > 4)
-                            {
-                                global.__winel[_currel, 98] = 1;
-                            }
-                        }else
-                        {
-                            global.__winel[_currel, 98] = 0;
-                        }
-                    }else{
-                        global.__winel[_currel, 95] = 0
-                    }
-                }
-                
-                if((x2 - x1 - 10) * (__hh) > 0)
-                {
-                    surface_set_target(_surf);
-                    
-                    if(alp > 0.01)
-                    {
-                        draw_set_blend_mode(bm_subtract);
-                        draw_rectangle(0, 0, surface_get_width(_surf), surface_get_height(_surf), 0);
-                        draw_set_blend_mode(bm_normal);
-                        
-                        //draw_set_alpha(1);
-                        //draw_rectangle(0, 0, 100, 100, 0);
-                        
-                        var _bg_alp;
-                        _bg_alp = global.__winel[_currel, 24] * alp;
-                        if(_bg_alp > 0)
-                        {
-                            draw_set_alpha(_bg_alp)
-                            draw_rectangle_color(0, 0, surface_get_width(_surf), surface_get_height(_surf), 
-                            global.__winel[_currel, 20],
-                            global.__winel[_currel, 21],
-                            global.__winel[_currel, 22],
-                            global.__winel[_currel, 23], 0);
-                        }
-                        
-                        draw_set_alpha(alp);
-        
-                        if(global.__winel[_currel, 25] > 0)
-                        {
-                            draw_set_color(global.__winel[_currel, 26]);
-                            for(i = 0; i < global.__winel[_currel, 25]; i += 1)
-                            {
-                                draw_rectangle(i, i, surface_get_width(_surf) - i, _ih - i, 1);
-                            }
-                        }
-                    }
-                    
-                    for(i = 0; i < ds_list_size(m); i += 1)
-                    {
-                        var __it;
-                        __it = ds_list_find_value(m, i);
-                        
-                        if(global.__winel[__it, 4] < _scroll or global.__winel[__it, 2] > __hh + _scroll) continue;
-                        
-                        if(__step) wle_step(__it, argument1 - x1, argument2 - y1);
-                        wle_draw(__it, 1, false);
-                    }
-                    surface_reset_target();
-                }
-            }
-            break;
-        case el_loading:
-            global.__winel[_currel, 60] = global.__winel[_currel, 60] + 5;
-            break;
-    }
-    
-    __queue_pointer += 1;
+	_currel = global.__wincache[__cache, __queue_pointer]
+	
+	var alp;
+	alp = global.__winel[_currel, 31];
+	
+	if global.__winel[_currel, 36]
+	{
+		var m2, m3, _proc, _new_proc;
+		m2 = global.__winel[_currel, 37]
+		m3 = global.__winel[_currel, 38];
+		
+		_proc = global.__winel[_currel, 39]
+		
+		if _proc == 0
+		{
+			__need_position = true
+		}
+		
+		switch(global.__winel[m3, 102])
+		{
+			case tt_linear:
+				_new_proc = _proc
+				break;
+			case tt_sin:
+				_new_proc = sin(_proc * pi / 2);
+				break;
+			case tt_ease:
+				_new_proc = global.__bezier[_proc * 3000];
+				break;
+			case tt_shake:
+				_new_proc = sin(_proc * pi * 10) * (1 - _proc) * 5;
+				break;
+			default:
+				show_error("Unknown tween type " + string(global.__winel[m3, 102]), global.__xwindow_error_type);
+				break;
+		}
+		
+		global.__winel[_currel, 71] = global.__winel[m2, 71] * (1 - _new_proc) + global.__winel[m3, 71] * _new_proc;
+		global.__winel[_currel, 70] = global.__winel[m2, 70] * (1 - _new_proc) + global.__winel[m3, 70] * _new_proc;
+			
+		if global.__winel[m3, 35] or __need_position
+		{
+			//BAD HACK. NO. Should not be neccecary if I manage to fix the positioning function
+			global.__winel[m3, 35] = true
+			//global.__winel[_currel, 10] = global.__winel[m2, 10] * (1 - _new_proc) + global.__winel[m3, 10] * _new_proc;
+			//global.__winel[_currel, 9] = global.__winel[m2, 9] * (1 - _new_proc) + global.__winel[m3, 9] * _new_proc;
+			
+			global.__winel[_currel, 1] = global.__winel[m2, 1] * (1 - _new_proc) + global.__winel[m3, 1] * _new_proc;
+			global.__winel[_currel, 3] = global.__winel[m2, 3] * (1 - _new_proc) + global.__winel[m3, 3] * _new_proc;
+			global.__winel[_currel, 2] = global.__winel[m2, 2] * (1 - _new_proc) + global.__winel[m3, 2] * _new_proc;
+			global.__winel[_currel, 4] = global.__winel[m2, 4] * (1 - _new_proc) + global.__winel[m3, 4] * _new_proc;
+			
+			global.__winel[_currel, 11] = global.__winel[m2, 11] * (1 - _new_proc) + global.__winel[m3, 11] * _new_proc;
+			global.__winel[_currel, 12] = global.__winel[m2, 12] * (1 - _new_proc) + global.__winel[m3, 12] * _new_proc;
+			global.__winel[_currel, 40] = global.__winel[m2, 40] * (1 - _new_proc) + global.__winel[m3, 40] * _new_proc;
+			global.__winel[_currel, 41] = global.__winel[m2, 41] * (1 - _new_proc) + global.__winel[m3, 41] * _new_proc;
+			
+			global.__winel[_currel, 105] = global.__winel[m2, 105] * (1 - _new_proc) + global.__winel[m3, 105] * _new_proc;
+			global.__winel[_currel, 106] = global.__winel[m2, 106] * (1 - _new_proc) + global.__winel[m3, 106] * _new_proc;
+			global.__winel[_currel, 103] = global.__winel[m2, 103] * (1 - _new_proc) + global.__winel[m3, 103] * _new_proc;
+			global.__winel[_currel, 104] = global.__winel[m2, 104] * (1 - _new_proc) + global.__winel[m3, 104] * _new_proc;
+		}
+		
+		global.__winel[_currel, 31] = global.__winel[m2, 31] * (1 - _new_proc) + global.__winel[m3, 31] * _new_proc;
+		global.__winel[_currel, 24] = global.__winel[m2, 24] * (1 - _new_proc) + global.__winel[m3, 24] * _new_proc;
+		global.__winel[_currel, 25] = global.__winel[m2, 25] * (1 - _new_proc) + global.__winel[m3, 25] * _new_proc;
+		
+		global.__winel[_currel, 27] = global.__winel[m2, 27] * (1 - _new_proc) + global.__winel[m3, 27] * _new_proc;
+		global.__winel[_currel, 28] = global.__winel[m2, 28] * (1 - _new_proc) + global.__winel[m3, 28] * _new_proc;
+		global.__winel[_currel, 30] = global.__winel[m2, 30] * (1 - _new_proc) + global.__winel[m3, 30] * _new_proc;
+		
+		global.__winel[_currel, 20] = merge_color(global.__winel[m2, 20], global.__winel[m3, 20], _new_proc);
+		global.__winel[_currel, 21] = merge_color(global.__winel[m2, 21], global.__winel[m3, 21], _new_proc);
+		global.__winel[_currel, 22] = merge_color(global.__winel[m2, 22], global.__winel[m3, 22], _new_proc);
+		global.__winel[_currel, 23] = merge_color(global.__winel[m2, 23], global.__winel[m3, 23], _new_proc);
+		global.__winel[_currel, 33] = merge_color(global.__winel[m2, 33], global.__winel[m3, 33], _new_proc);
+		//global.__winel[_currel, 26] = merge_color(global.__winel[m2, 26], global.__winel[m3, 26], p);
+		//global.__winel[_currel, 29] = merge_color(global.__winel[m2, 29], global.__winel[m3, 29], p);
+		
+		global.__winel[_currel, 39] = _proc + 1 / (60 * max(global.__winel[m3, 42] / global.__tween_factor, 0.0001))
+				
+		if(global.__winel[_currel, 39] >= 1)
+		{		
+			var __text;
+			__text = global.__winel[_currel, 62]
+			
+			if(global.__winel[m3, 102] == tt_shake)
+			{
+				wle_copy(_currel, m2)
+			}else{
+				wle_copy(_currel, m3)
+			}
+			
+			global.__winel[_currel, 62] = __text
+			
+			wle_destroy_internal(m2)
+			wle_destroy_internal(m3)
+			
+			global.__winel[_currel, 37] = -1
+			global.__winel[_currel, 38] = -1
+			global.__winel[_currel, 36] = false
+			global.__winel[_currel, 39] = 0
+			
+			wle_register_event(_currel, "!tween")
+		}
+	}
+	
+	var x1, y1, x2, y2, i;
+	x1 = global.__winel[_currel, 1];
+	if(x1 >= room_width) { __queue_pointer = global.__winskip[__cache, __queue_pointer]; continue }
+	x2 = global.__winel[_currel, 3];
+	if(x2 <= 0) { __queue_pointer = global.__winskip[__cache, __queue_pointer]; continue }
+	//if(x2 <= x1) { __queue_pointer = global.__winskip[__cache, __queue_pointer]; continue }
+	
+	y1 = global.__winel[_currel, 2];	
+	if(y1 >= room_height) { __queue_pointer = global.__winskip[__cache, __queue_pointer]; continue }
+	y2 = global.__winel[_currel, 4];
+	if(y2 <= 0) { __queue_pointer = global.__winskip[__cache, __queue_pointer]; continue }
+	//if(y2 <= y1) { __queue_pointer = global.__winskip[__cache, __queue_pointer]; continue }
+	m = global.__winel[_currel, 0];
+	
+	var __mp, __mh, __mr, __mhold;
+	__mp = 0;
+	__mh = 0;
+	__mr = 0;
+	__mhold = 0;
+	
+	if argument1 >= x1 && argument1 <= x2 && argument2 >= y1 && argument2 <= y2
+	{
+		__mh = 1;
+		if(!global.__winel[_currel, 59])
+		{
+			wle_register_event(_currel, "mouse-hover");
+			global.__winel[_currel, 59] = true
+			wle_perform(_currel, 43, false);
+		}
+		
+		if(mouse_check_button_pressed(mb_left))
+		{
+			wle_register_event(_currel, "mouse-press")
+			__mp = 1;
+		}else if(mouse_check_button(mb_left))
+		{
+			__mhold = 1;
+		}else if(mouse_check_button_released(mb_left))
+		{
+			wle_register_event(_currel, "!mouse-press");
+			__mr = 1;
+		}
+	}else if(global.__winel[_currel, 59])
+	{
+		wle_register_event(_currel, "!mouse-hover");
+		global.__winel[_currel, 59] = false
+		wle_perform(_currel, 44, false);
+	}
+	
+	switch(global.__winel[_currel, 34])
+	{
+		case el_textbox:
+			if(global.__focus_item == _currel)
+			{
+				if(global.__xkb_open) 
+				{
+					if(y1 < 0) global.__zoom_focus_pos += (y1 - 40) * .1;
+				}
+				
+				var _text, _select1, _select2, _len_limit, _rp_backspace, _rp_left, _rp_right, _rp_delete, 
+					/*_rb_backspace_count, */_rp_left_count, _rp_right_count, _rp_delete_count, _rp_speed;
+				
+				var _font;
+				_font = global.__winel[_currel, 63];
+				if(_font == -2) draw_set_font(global.__f_title) else
+				if(_font == -3) draw_set_font(global.__f_text) else
+				if(_font == -4) draw_set_font(global.__f_small) else
+				draw_set_font(_font)
+				
+				_text = global.__winel[_currel, 62];
+				_select1 = global.__winel[_currel, 74];
+				_select2 = global.__winel[_currel, 75];
+				if(_select1 > string_length(_text) + 1) _select1 = string_length(_text) + 1;
+				if(_select2 > string_length(_text) + 1) _select2 = string_length(_text) + 1;
+				__ks = keyboard_string + global.__xkb_text
+				if(__ks != "")
+				{
+					if(!global.__winel[_currel, 77] && !global.__winel[_currel, 78])
+					{
+						__ks = string_replace_all(__ks, " ", "");
+					}
+					if(!global.__winel[_currel, 78])
+					{
+						__ks = string_replace_all(__ks, "#", "");
+					}
+					if(__ks != "")
+					{
+						if(abs(_select1 - _select2) > 0)
+						{
+							_text = string_delete(_text, _select1, _select2 - _select1);
+						}
+						if(global.__winel[_currel, 78])
+						{
+							_text = string_insert(__ks, _text, _select1);
+						}else{
+							_text = string_replace_all(string_insert(__ks, _text, _select1),  " ", "");
+						}
+						_select1 += string_length(__ks);
+						_select2 = _select1;
+						global.__xkb_text = "";
+						keyboard_string = "";
+						_len_limit = global.__winel[_currel, 79];
+						if(string_length(_text) > _len_limit)
+						{
+							_text = string_copy(_text, 1, _len_limit);
+							_select1 = min(_select1, _len_limit+1);
+							_select2 = _select1;
+						}
+						global.__winel[_currel, 100] = 1;
+					}
+				}
+				
+				if(keyboard_check(vk_backspace) or global.__tb_simulate_back)
+				{
+					global.__tb_simulate_back = 0;
+					_rp_backspace = global.__winel[_currel, 82];
+					_rp_backspace_count = global.__winel[_currel, 88];
+							
+					_rp_speed = global.__winel[_currel, 84];
+					_rp_speed2 = global.__winel[_currel, 85];
+					if(_rp_backspace == 0)
+					{
+						
+						_text = string_delete(_text, min(_select1, _select2) - (_select1 == _select2), max(_select1, _select2) - min(_select1, _select2) + 1);
+						_select1 -= (_select1 == _select2);
+					}else
+					if(_rp_backspace > _rp_speed)
+					{
+						_rp_backspace_count += 1;
+						if(_rp_backspace_count >= _rp_speed2)
+						{
+							_rp_backspace_count = 0;
+							_text = string_delete(_text, _select1 - 1, _select2 - _select1 + 1);
+							_select1 -= 1;
+						}
+					}
+					_rp_backspace += 1;
+					_select1 = max(1, _select1);
+					_select2 = _select1;
+					global.__winel[_currel, 100] = 1;
+					global.__winel[_currel, 82] = _rp_backspace;
+				}else{
+					global.__winel[_currel, 82] = 0;
+				}
+				
+				if(keyboard_check(vk_delete))
+				{
+					_rp_delete = global.__winel[_currel, 83];
+					_rp_delete_count = global.__winel[_currel, 89];
+							
+					_rp_speed = global.__winel[_currel, 84];
+					_rp_speed2 = global.__winel[_currel, 85];
+					if(_rp_delete == 0)
+					{
+						_text = string_delete(_text, _select1, _select2 - _select1 + 1);
+						_select1 -= 1;
+					}else
+					if(_rp_delete > _rp_speed)
+					{
+						_rp_delete_count += 1;
+						if(_rp_delete_count >= _rp_speed2)
+						{
+							_rp_delete_count = 0;
+							_text = string_delete(_text, _select1, _select2 - _select1 + 1);
+							_select1 -= 1;
+						}
+					}
+					_rp_delete += 1;
+					_select1 = max(1, _select1);
+					_select2 = _select1;
+					global.__winel[_currel, 100] = 1;
+					global.__winel[_currel, 83] = _rp_delete;
+				}else{
+					global.__winel[_currel, 83] = 0;
+				}
+				
+				if(keyboard_check(vk_left))
+				{
+					_rp_left = global.__winel[_currel, 80];
+					_rp_left_count = global.__winel[_currel, 86];
+							
+					_rp_speed = global.__winel[_currel, 84];
+					_rp_speed2 = global.__winel[_currel, 85];
+					if(_rp_left == 0)
+					{
+						_select1 -= 1;
+					}else if(_rp_left > _rp_speed)
+					{
+						_rp_left_count += 1;
+						if(_rp_left_count >= _rp_speed2)
+						{
+							_rp_left_count = 0;
+							_select1 -= 1;
+						}
+					}
+					_select1 = max(1, _select1);
+					if(!keyboard_check(vk_shift)) _select2 = _select1;
+					_rp_left += 1;
+					global.__winel[_currel, 80] = _rp_left;
+				}else{
+					global.__winel[_currel, 80] = 0;
+				}
+				
+				if(keyboard_check(vk_right))
+				{
+					_rp_right = global.__winel[_currel, 81];
+					_rp_right_count = global.__winel[_currel, 87];
+							
+					_rp_speed = global.__winel[_currel, 84];
+					_rp_speed2 = global.__winel[_currel, 85];
+					if(_rp_right == 0)
+					{
+						_select2 += 1;
+					}else if(_rp_right > _rp_speed)
+					{
+						_rp_right_count += 1;
+						if(_rp_right_count >= _rp_speed2)
+						{
+							_rp_right_count = 0;
+							_select2 += 1;
+						}
+					}
+					_select2 = min(string_length(_text)+1, _select2);
+					if(!keyboard_check(vk_shift)) _select1 = _select2;
+					_rp_right += 1;
+					global.__winel[_currel, 81] = _rp_right;
+				}else{
+					global.__winel[_currel, 81] = 0;
+				}
+				
+				if keyboard_check_pressed(vk_enter) or (keyboard_check_direct(vk_tab) && !global.__tab_pressed)
+				{
+					var _next_tab;
+					_next_tab = _currel;
+					repeat(100)
+					{
+						_next_tab = global.__winel[_next_tab, 93];
+						if(_next_tab == -1) break;
+						if(global.__winel[_next_tab, 31] > 0) break;
+					}
+					
+					if(_next_tab == -1)
+					{
+						wle_register_event(_currel, "submit");
+					}else{
+						global.__focus_item = _next_tab;
+					}
+				}
+				
+				if(keyboard_check_direct(vk_tab))
+				{
+					if(!global.__tab_pressed)
+					{
+						var _next_tab;
+						_next_tab = global.__winel[_currel, 92];
+						if(_next_tab != -1)
+						{
+							global.__focus_item = _next_tab;
+						}
+					}
+					
+					global.__tab_pressed = true;
+				}else{
+					global.__tab_pressed = false;
+				}
+				
+				if(mouse_check_button_pressed(mb_left))
+				{
+					if(__mh)
+					{
+						var _d, _t, _p1, _p2, _aimwidth, _guess;
+						if(global.__winel[_currel, 78])
+						{
+							_t = string_repeat("*", string_length(_text))
+						}else{
+							_t = _text;
+						}
+						
+						_p1 = 0;
+						_p2 = string_length(_t) + 1;
+						_aimwidth = argument1 - ((x1 + x2) / 2 - string_width(string_hash_to_newline(_t)) / 2);
+						repeat(32)
+						{
+							_guess = round((_p1 + _p2) / 2);
+							_d = string_width(string_hash_to_newline(string_copy(_t + " ", 1, _guess)));
+							
+							if(abs(_d - _aimwidth) <= 5 or _p1 == _p2)
+							{
+								break;
+							}else if(_d < _aimwidth)
+							{
+								_p1 = _guess;
+							}else if(_d > _aimwidth)
+							{
+								_p2 = _guess;
+							}
+						}
+						
+						_select1 = max(1, _guess + 1);
+						_select2 = max(1, _guess + 1);
+					}
+				}else if(mouse_check_button(mb_left))
+				{
+					if(__mh)
+					{
+						var _d, _t, _p1, _p2, _aimwidth, _guess;
+						if(global.__winel[_currel, 78])
+						{
+							_t = string_repeat("*", string_length(_text))
+						}else{
+							_t = _text;
+						}
+						
+						_p1 = 0;
+						_p2 = string_length(_t) + 1;
+						_aimwidth = argument1 - ((x1 + x2) / 2 - string_width(string_hash_to_newline(_t)) / 2);
+						repeat(32)
+						{
+							_guess = round((_p1 + _p2) / 2);
+							_d = string_width(string_hash_to_newline(string_copy(_t + " ", 1, _guess)));
+							
+							if(abs(_d - _aimwidth) <= 5 or _p1 == _p2)
+							{
+								break;
+							}else if(_d < _aimwidth)
+							{
+								_p1 = _guess;
+							}else if(_d > _aimwidth)
+							{
+								_p2 = _guess;
+							}
+						}
+						
+						_select2 = max(1, _guess + 1);
+					}
+				}
+				
+				if(mouse_check_button_released(mb_left) or keyboard_check_released(vk_shift))
+				{
+					if(_select2 < _select1)
+					{
+						var ss;
+						
+						ss = _select1;
+						_select1 = _select2;
+						_select2 = ss;
+					}
+						
+				}
+				
+				global.__winel[_currel, 74] = _select1;
+				global.__winel[_currel, 75] = _select2;
+				
+				if(_text != global.__winel[_currel, 62])
+				{
+					global.__winel[_currel, 62] = _text;
+					wle_register_event(_currel, "keypress");
+				}
+			}else{
+				if(__mp && __mh)
+				{
+					wle_focus(_currel)
+				}
+			}
+			break;
+		case el_scrollbox:
+			var _surf, _ih, _scroll, _dscroll, _cscroll, __hh;
+			_surf = global.__winel[_currel, 94];
+			_ih = global.__winel[_currel, 12];
+			
+			if(surface_get_width(_surf) != abs(x2 - x1 - 10) or surface_get_height(_surf) != _ih)
+			{
+				surface_free(_surf);
+				_surf = -1;
+			}
+			
+			if((_surf == -1 or !surface_exists(_surf)) && _ih > 0)
+			{
+				
+				_surf = surface_create(abs(x2 - x1 - 10), _ih);
+				global.__winel[_currel, 94] = _surf;
+				global.__winel[_currel, 100] = 1;
+			}
+			
+			if(surface_exists(_surf))
+			{
+				__hh = abs(y2 - y1);
+				_scroll = 0;
+				
+				//if(_ih > __hh)
+				{
+					_scroll = global.__winel[_currel, 95];
+					_momentum = global.__winel[_currel, 96];
+					_dscroll = global.__winel[_currel, 97];
+					_cscroll = global.__winel[_currel, 98];
+					
+					var _scrollb_h;
+					//hh 308
+					//ih 400
+					//scrollbh 308
+					if _ih < __hh
+					{
+						_scrollb_h = __hh;
+					}else{
+						_scrollb_h = min(__hh, max(16, __hh / max(1, _ih) * __hh));
+					}
+					
+					global.__winel[_currel, 101] = _scrollb_h
+					//var __nostep;
+					__step = false;
+					
+					if _ih >= __hh
+					{
+						if(_dscroll)
+						{
+							_scroll = _scroll * .5 + ((argument2 - y1 - _scrollb_h * .5) / (__hh - _scrollb_h) * (_ih - __hh)) * .5;
+							if(!mouse_check_button(mb_any))
+							{
+								global.__winel[_currel, 97] = false
+							}
+						}else if(_cscroll)
+						{
+							var _move;
+							_move = argument2 - global.__winel[_currel, 99];
+							_scroll -= _move;
+							global.__winel[_currel, 96] = _move;
+							
+							global.__winel[_currel, 99] = argument2;
+							
+						}else if(abs(_momentum) > 0.01)
+						{
+							_scroll -= _momentum;
+							_momentum *= 0.9;
+							if(_scroll < 0 or _scroll > _ih - __hh)
+							{
+								_momentum = 0;
+							}
+							global.__winel[_currel, 96] = _momentum;
+						}else{
+							__step = true;
+						}
+						
+						if global.__winel[_currel, 59]
+						{
+							if mouse_wheel_up()
+							{
+								global.__winel[_currel, 96] = 24;
+							}else if mouse_wheel_down()
+							{
+								global.__winel[_currel, 96] = -24;
+							}
+						}
+						
+						if(argument1 >= x2 - 10 && __mh)
+						{
+							if(mouse_check_button_pressed(mb_any))
+							{
+								global.__winel[_currel, 97] = true
+							}
+						}
+						
+						_scroll = max(0, min(_scroll, _ih - __hh));
+						global.__winel[_currel, 95] = _scroll;
+					
+						if(__mp)
+						{
+							global.__winel[_currel, 99] = argument2;
+						}else if(__mhold)
+						{
+							if(abs(argument2 - global.__winel[_currel, 99]) > 4)
+							{
+								global.__winel[_currel, 98] = 1;
+							}
+						}else
+						{
+							global.__winel[_currel, 98] = 0;
+						}
+					}else{
+						global.__winel[_currel, 95] = 0
+					}
+				}
+				
+				if((x2 - x1 - 10) * (__hh) > 0)
+				{
+					surface_set_target(_surf);
+					
+					if(alp > 0.01)
+					{
+						draw_set_blend_mode(bm_subtract);
+						draw_rectangle(0, 0, surface_get_width(_surf), surface_get_height(_surf), 0);
+						draw_set_blend_mode(bm_normal);
+						
+						//draw_set_alpha(1);
+						//draw_rectangle(0, 0, 100, 100, 0);
+						
+						var _bg_alp;
+						_bg_alp = global.__winel[_currel, 24] * alp;
+						if(_bg_alp > 0)
+						{
+							draw_set_alpha(_bg_alp)
+							draw_rectangle_color(0, 0, surface_get_width(_surf), surface_get_height(_surf), 
+							global.__winel[_currel, 20],
+							global.__winel[_currel, 21],
+							global.__winel[_currel, 22],
+							global.__winel[_currel, 23], 0);
+						}
+						
+						draw_set_alpha(alp);
+		
+						if(global.__winel[_currel, 25] > 0)
+						{
+							draw_set_color(global.__winel[_currel, 26]);
+							for(i = 0; i < global.__winel[_currel, 25]; i += 1)
+							{
+								draw_rectangle(i, i, surface_get_width(_surf) - i, _ih - i, 1);
+							}
+						}
+					}
+					
+					for(i = 0; i < ds_list_size(m); i += 1)
+					{
+						var __it;
+						__it = ds_list_find_value(m, i);
+						
+						if(global.__winel[__it, 4] < _scroll or global.__winel[__it, 2] > __hh + _scroll) continue;
+						
+						if(__step) wle_step(__it, argument1 - x1, argument2 - y1);
+						wle_draw(__it, 1, false);
+					}
+					surface_reset_target();
+				}
+			}
+			break;
+		case el_loading:
+			global.__winel[_currel, 60] = global.__winel[_currel, 60] + 5;
+			break;
+	}
+	
+	__queue_pointer += 1;
 }
 return __need_position;
 }
@@ -8244,318 +8244,318 @@ var _currel, /*_queuecount, __element_queue, __element_queue_arg0, __queue_size,
 __cache = global.__winel[argument0, 107];
 if(__cache == -1)
 {
-    __cache = wle_build_cache(argument0)
+	__cache = wle_build_cache(argument0)
 }
 __queue_pointer = 1;
 __alpha[0] = argument1;
 while(__queue_pointer < global.__wincache[__cache, 0])
 {
-    var x1, y1, x2, y2, i, alp, /*m, */_rs;
-    _currel = global.__wincache[__cache, __queue_pointer];
-    alp = 1;//__alpha[global.__windcache[__cache, __queue_pointer]];
-    
-    //if(alp <= 0) continue;
-    
-    //draw_set_alpha(1);
-    //draw_line_color(x1, y1, room_width / 2, room_height / 2, 0, 0);
-    
-    x1 = round(global.__winel[_currel, 1]);
-    y1 = round(global.__winel[_currel, 2]);
-    x2 = round(global.__winel[_currel, 3]);
-    y2 = round(global.__winel[_currel, 4]);
-    
-    if argument2
-    {
-        if x1 >= room_width
-            or y1 >= room_height
-            or x2 <= 0
-            or y2 <= 0
-            or x2 <= x1
-            or y2 <= y1
-        {
-            __queue_pointer = global.__winskip[__cache, __queue_pointer]; 
-            continue 
-        }
-    }
-    
-    //draw_rectangle(x1, y1, x1 + global.__winel[_currel, 103], y1 + global.__winel[_currel, 105], false)
-    
-    _rs = global.__winel[_currel, 34];
-    
-    if(_rs != el_container)
-    {
-        alp *= global.__winel[_currel, 31];
-        
-        if(alp > 0)
-        {
-            var d;
-            d = global.__winel[_currel, 27];
-            if(d)
-            {
-                var __spread;
-                __spread = global.__winel[_currel, 30]
-                draw_set_color(global.__winel[_currel, 29]);
-                draw_set_alpha(global.__winel[_currel, 28] * alp);
-                for(i = 0; i < __spread; i += 2)
-                {
-                    draw_roundrect(x1 + d - i, y1 + d - i, x2 + d + i, y2 + d + i, 0);
-                }
-            }
-        
-            var alp2, _bs;
-            alp2 = alp * global.__winel[_currel, 24];
-            _bs = global.__winel[_currel, 25];
-            if(alp2 > 0.01)
-            {
-                draw_set_alpha(alp2)
-                draw_rectangle_color(x1 - _bs, y1 - _bs, x2 + _bs, y2 + _bs, 
-                    global.__winel[_currel, 20],
-                    global.__winel[_currel, 21],
-                    global.__winel[_currel, 22],
-                    global.__winel[_currel, 23], 0);
-                
-                if(global.__winel[_currel, 108] != -1)
-                {
-                    
-                    
-                    var __w, __h, __x, __y, __sw, __sh, __s, __scale;
-                    __s = global.__winel[_currel, 108];
-                    __w = (x2 - x1 + 2 * _bs)
-                    __h = (y2 - y1 + 2 * _bs)
-                    __x = x1 - _bs
-                    __y = y1 - _bs
-                    __sw = sprite_get_width(__s)
-                    __sh = sprite_get_height(__s)
-                    
-                    switch(global.__winel[_currel, 109])
-                    {
-                        case 0://stretch
-                            draw_sprite_stretched_ext(__s, -1, __x, __y, __w, __h, c_white, alp2);
-                            break;
-                        case 1://crop-center
-                            draw_sprite_part_ext(__s, -1, max(0, __sw / 2 - __w / 2), max(0, __sh / 2 - __h / 2), min(__sw, __w), min(__sh, __h), __x, __y, __w / min(__sw, __w), __h / min(__sh, __h), c_white, alp2);
-                            break;
-                        case 2://crop
-                            draw_sprite_part_ext(__s, -1, 0, 0, min(__sw, __w), min(__sh, __h), __x, __y, __w / min(__sw, __w), __h / min(__sh, __h), c_white, alp2);
-                            break;
-                        case 3://scale
-                            __scale = max(__w / __sw, __h / __sh)
-                            __cropw = (__w / __scale)
-                            __croph = (__h / __scale)
-                            draw_sprite_part_ext(__s, -1, __sw / 2 - __cropw / 2, __sh / 2 - __croph / 2, __cropw, __croph, __x, __y, __scale, __scale, c_white, alp2);
-                            break;
-                    }
-                }
-            }
-            
-            if(_bs > 0)
-            {
-                draw_set_color(global.__winel[_currel, 26]);
-                for(i = 1; i <= _bs; i += 1)
-                {
-                    draw_rectangle(x1 - i, y1 - i, x2 + i, y2 + i, 1);
-                }
-            }
-        }
-    }
-    
-    /*if(_rs == el_multielement)
-    {
-        draw_rectangle(x1, y1, x2, y2, 1)
-        draw_text(x1, y1, string(wle_get(global.__wincache[__cache, __queue_pointer + 1], "tag-name")));
-    }
-    
-    var _col;
-    _col = 0;
-    if(_rs == el_multielement)
-    {
-        _col = 255;
-    }
-    
-    draw_rectangle_color(x1, y1, x2, y2, _col, _col, _col, _col, 1);
-    //draw_rectangle_color(x1, y1, x1 + global.__winel[_currel, 103], y2 + global.__winel[_currel, 105], 0, 0, 0, 0, 1);
-    //draw_rectangle_color(x1, y1, x1 + global.__winel[_currel, 104], y2 + global.__winel[_currel, 106], 0, 0, 0, 0, 1);
-    //draw_set_font(-1);
-    //draw_text_color(x1 - 32, y1 - 32, string(x1) + "," + string(y1) + ":", 0, 0, 0, 0, 1);/*/
-    
-    draw_set_alpha(alp);
-    draw_set_color(global.__winel[_currel, 33]);
-    switch(_rs)
-    {
-        case el_label:
-        case el_button:
-            x1 += global.__winel[_currel, 64]
-            y1 += global.__winel[_currel, 66]
-            x2 -= global.__winel[_currel, 65]
-            y2 -= global.__winel[_currel, 67]
-            
-            var _font;
-            _font = global.__winel[_currel, 63];
-            if(_font == -2) draw_set_font(global.__f_title) else
-            if(_font == -3) draw_set_font(global.__f_text) else
-            if(_font == -4) draw_set_font(global.__f_small) else
-            draw_set_font(_font);
-            
-            draw_set_alpha(alp);
-            draw_set_halign(fa_middle);
-            draw_set_valign(fa_middle);
-            var _t, _scale;
-            _t = global.__winel[_currel, 62];
-                        
-            if(global.__winel[_currel, 61])
-            {
-                _scale = min((y2 - y1) / max(1, string_height_ext(string_hash_to_newline(_t), -1, x2 - x1), 1));
-                if(!global.__winel[_currel, 36] && _scale >= 0.95)
-                {
-                    draw_text_ext(round((x1 + x2) / 2), round((y1 + y2) / 2), string_hash_to_newline(_t), -1, x2 - x1);
-                }else{
-                    draw_text_ext_transformed(round((x1 + x2) / 2), round((y1 + y2) / 2), string_hash_to_newline(_t), -1, x2 - x1, _scale, _scale, 0);
-                }
-            }else{
-                _scale = min((y2 - y1) / max(1, string_height(string_hash_to_newline(_t))), (x2 - x1) / max(string_width(string_hash_to_newline(_t)), 1), 1);
-                if(_scale >= 0.98)
-                {
-                    draw_text(round((x1 + x2) / 2), round((y1 + y2) / 2), string_hash_to_newline(_t));
-                }else{
-                    draw_text_transformed(round((x1 + x2) / 2), round((y1 + y2) / 2), string_hash_to_newline(_t), _scale, _scale, 0);
-                }
-            }
-            
-            draw_set_halign(fa_left);
-            draw_set_valign(fa_top);
-            break;
-        case el_arrow:
-            draw_set_alpha(alp);
-            var _alength/*, _asize*/;
-            _alength = global.__winel[_currel, 71];
-            draw_arrow((x1 + x2) / 2, (y1 + y2) / 2 - _alength / 2, (x1 + x2) / 2, (y1 + y2) / 2 + _alength / 2, global.__winel[_currel, 70]);
-            break;
-        case el_textbox:
-            var _font;
-            _font = global.__winel[_currel, 63];
-            if(_font == -2) draw_set_font(global.__f_title) else
-            if(_font == -3) draw_set_font(global.__f_text) else
-            if(_font == -4) draw_set_font(global.__f_small) else
-            draw_set_font(_font)
-            
-            var _text, _istip;
-            _text = global.__winel[_currel, 62];
-            
-            if(_text == "")
-            {
-                _text = global.__winel[_currel, 90];
-                draw_set_color(global.__winel[_currel, 91]);
-                _istip = true;
-            }else{
-                _istip = false;
-                if(global.__winel[_currel, 78])
-                {
-                    _text = string_repeat("*", string_length(_text));
-                }
-            }
-            
-            if(global.__focus_item == _currel)
-            {
-                var _select1, _select2, /*_len_limit, _rp_backspace, _rp_left, _rp_right, _rp_delete, 
-                    _rb_backspace_count, _rp_left_count, _rp_right_count, _rp_delete_count, _rp_speed*/;
-                
-                _select1 = global.__winel[_currel, 74];
-                _select2 = global.__winel[_currel, 75];
-                
-                draw_set_halign(fa_middle);
-                draw_set_valign(fa_middle);
-                
-                var _w, _h, _scale;
-                _w = string_width(string_hash_to_newline(_text))
-                _h = string_height(string_hash_to_newline(_text));
-                _scale = min((y2 - y1) / _h, (x2 - x1) / _w, 1);
-                
-                if(!global.__winel[_currel, 36] &&_scale >= 0.95) _scale = 1;
-                draw_text_transformed(floor((x1 + x2) / 2), floor((y1 + y2) / 2), string_hash_to_newline(_text), min(_scale, (x2 - x1 - 8) / string_width(string_hash_to_newline(_text))), _scale, 0);
-                
-                draw_set_color(global.__winel[_currel, 76])
-                var _ww1, /*_w1, _w2, */_wt;
-                if(_istip)
-                {
-                    _ww1 = (x1 + x2) / 2;
-                    _ww2 = (x1 + x2) / 2;
-                }else{
-                    _wt = string_width(string_hash_to_newline(_text));
-                    _ww1 = (x1 + x2) / 2 - _wt / 2 + string_width(string_hash_to_newline(string_copy(_text, 1, _select1 - 1)));
-                    _ww2 = (x1 + x2) / 2 - _wt / 2 + string_width(string_hash_to_newline(string_copy(_text, 1, _select2 - 1)));
-                }
-                
-                if(_select1 != _select2)
-                {
-                    draw_set_alpha(0.3 * alp);
-                    draw_rectangle(_ww1, y1 + 2, _ww2, y2 - 2, 0)
-                }else if(current_time mod 900 < 400)
-                {
-                    draw_set_alpha(alp);
-                    draw_set_color(c_black);
-                    draw_line(_ww1, y1 + 2, _ww1, y2 - 2);
-                }
-            }else{
-                draw_set_halign(fa_middle);
-                draw_set_valign(fa_middle);
-                
-                var _scale;
-                _scale = min((y2 - y1) / string_height(string_hash_to_newline(_text)), (x2 - x1) / string_width(string_hash_to_newline(_text)), 1);
-                
-                if(_scale >= 0.98)
-                {
-                    draw_text(floor((x1 + x2) / 2), floor((y1 + y2) / 2), string_hash_to_newline(_text));
-                }else{
-                    draw_text_transformed(floor((x1 + x2) / 2), floor((y1 + y2) / 2), string_hash_to_newline(_text), _scale, _scale, 0);
-                }
-            }
-            break;
-        case el_scrollbox:
-            var _surf, _scroll, _scrollb_y1, _scrollb_y2, _scrollb_h;
-            _surf = global.__winel[_currel, 94];
-            if(surface_exists(_surf))
-            {
-                _ch = global.__winel[_currel, 12];
-                _fh = abs(y2 - y1)
-                _scroll = global.__winel[_currel, 95];
-                _scrollb_h = global.__winel[_currel, 101]
-                
-                draw_surface_part(_surf, 0, _scroll, min(surface_get_width(_surf), x2 - x1 - 10), min(surface_get_height(_surf), y2 - y1), x1, y1);
-            
-                draw_set_color(c_black);
-                draw_set_alpha((0.1 + 0.1 * global.__winel[_currel, 97]) * alp);
-                draw_rectangle(x2 - 10, y1, x2, y2, 0);
-                
-                if(_ch > _fh)
-                {
-                    _scrollb_y1 = max(0, (_fh - _scrollb_h) * (_scroll / (_ch - _fh)));
-                    _scrollb_y2 = _scrollb_y1 + _scrollb_h;
-                    
-                    draw_rectangle(x2 - 10, y1 + _scrollb_y1, x2, y1 + _scrollb_y2, 0);
-                }
-            }else if(debug_mode)
-            {
-                draw_line(x1, y1, x2, y2)
-                draw_line(x2, y1, x1, y2)
-            }
-            __queue_pointer = global.__winskip[__cache, __queue_pointer]
-            continue;
-        case el_loading:
-            var _xm, _ym, _ani, i;
-            _xm = (x2 + x1) / 2;
-            _ym = (y2 + y1) / 2;
-            _ani = global.__winel[_currel, 60];
-            _scale = min(x2 - x1, y2 - y1) / 48;
-            
-            for(i = 0; i < 5; i += 1)
-            {
-                draw_circle(_xm + lengthdir_x(16, _ani - i * 36) * _scale, _ym + lengthdir_y(16, _ani - i * 36) * _scale, (6 - i) * _scale, 0);
-            }
-            break;
-    }
-    
-    //__alpha[global.__windcache[__cache, __queue_pointer] + 1] = alp;
-    __queue_pointer += 1;
+	var x1, y1, x2, y2, i, alp, /*m, */_rs;
+	_currel = global.__wincache[__cache, __queue_pointer];
+	alp = 1;//__alpha[global.__windcache[__cache, __queue_pointer]];
+	
+	//if(alp <= 0) continue;
+	
+	//draw_set_alpha(1);
+	//draw_line_color(x1, y1, room_width / 2, room_height / 2, 0, 0);
+	
+	x1 = round(global.__winel[_currel, 1]);
+	y1 = round(global.__winel[_currel, 2]);
+	x2 = round(global.__winel[_currel, 3]);
+	y2 = round(global.__winel[_currel, 4]);
+	
+	if argument2
+	{
+		if x1 >= room_width
+			or y1 >= room_height
+			or x2 <= 0
+			or y2 <= 0
+			or x2 <= x1
+			or y2 <= y1
+		{
+			__queue_pointer = global.__winskip[__cache, __queue_pointer]; 
+			continue 
+		}
+	}
+	
+	//draw_rectangle(x1, y1, x1 + global.__winel[_currel, 103], y1 + global.__winel[_currel, 105], false)
+	
+	_rs = global.__winel[_currel, 34];
+	
+	if(_rs != el_container)
+	{
+		alp *= global.__winel[_currel, 31];
+		
+		if(alp > 0)
+		{
+			var d;
+			d = global.__winel[_currel, 27];
+			if(d)
+			{
+				var __spread;
+				__spread = global.__winel[_currel, 30]
+				draw_set_color(global.__winel[_currel, 29]);
+				draw_set_alpha(global.__winel[_currel, 28] * alp);
+				for(i = 0; i < __spread; i += 2)
+				{
+					draw_roundrect(x1 + d - i, y1 + d - i, x2 + d + i, y2 + d + i, 0);
+				}
+			}
+		
+			var alp2, _bs;
+			alp2 = alp * global.__winel[_currel, 24];
+			_bs = global.__winel[_currel, 25];
+			if(alp2 > 0.01)
+			{
+				draw_set_alpha(alp2)
+				draw_rectangle_color(x1 - _bs, y1 - _bs, x2 + _bs, y2 + _bs, 
+					global.__winel[_currel, 20],
+					global.__winel[_currel, 21],
+					global.__winel[_currel, 22],
+					global.__winel[_currel, 23], 0);
+				
+				if(global.__winel[_currel, 108] != -1)
+				{
+					
+					
+					var __w, __h, __x, __y, __sw, __sh, __s, __scale;
+					__s = global.__winel[_currel, 108];
+					__w = (x2 - x1 + 2 * _bs)
+					__h = (y2 - y1 + 2 * _bs)
+					__x = x1 - _bs
+					__y = y1 - _bs
+					__sw = sprite_get_width(__s)
+					__sh = sprite_get_height(__s)
+					
+					switch(global.__winel[_currel, 109])
+					{
+						case 0://stretch
+							draw_sprite_stretched_ext(__s, -1, __x, __y, __w, __h, c_white, alp2);
+							break;
+						case 1://crop-center
+							draw_sprite_part_ext(__s, -1, max(0, __sw / 2 - __w / 2), max(0, __sh / 2 - __h / 2), min(__sw, __w), min(__sh, __h), __x, __y, __w / min(__sw, __w), __h / min(__sh, __h), c_white, alp2);
+							break;
+						case 2://crop
+							draw_sprite_part_ext(__s, -1, 0, 0, min(__sw, __w), min(__sh, __h), __x, __y, __w / min(__sw, __w), __h / min(__sh, __h), c_white, alp2);
+							break;
+						case 3://scale
+							__scale = max(__w / __sw, __h / __sh)
+							__cropw = (__w / __scale)
+							__croph = (__h / __scale)
+							draw_sprite_part_ext(__s, -1, __sw / 2 - __cropw / 2, __sh / 2 - __croph / 2, __cropw, __croph, __x, __y, __scale, __scale, c_white, alp2);
+							break;
+					}
+				}
+			}
+			
+			if(_bs > 0)
+			{
+				draw_set_color(global.__winel[_currel, 26]);
+				for(i = 1; i <= _bs; i += 1)
+				{
+					draw_rectangle(x1 - i, y1 - i, x2 + i, y2 + i, 1);
+				}
+			}
+		}
+	}
+	
+	/*if(_rs == el_multielement)
+	{
+		draw_rectangle(x1, y1, x2, y2, 1)
+		draw_text(x1, y1, string(wle_get(global.__wincache[__cache, __queue_pointer + 1], "tag-name")));
+	}
+	
+	var _col;
+	_col = 0;
+	if(_rs == el_multielement)
+	{
+		_col = 255;
+	}
+	
+	draw_rectangle_color(x1, y1, x2, y2, _col, _col, _col, _col, 1);
+	//draw_rectangle_color(x1, y1, x1 + global.__winel[_currel, 103], y2 + global.__winel[_currel, 105], 0, 0, 0, 0, 1);
+	//draw_rectangle_color(x1, y1, x1 + global.__winel[_currel, 104], y2 + global.__winel[_currel, 106], 0, 0, 0, 0, 1);
+	//draw_set_font(-1);
+	//draw_text_color(x1 - 32, y1 - 32, string(x1) + "," + string(y1) + ":", 0, 0, 0, 0, 1);/*/
+	
+	draw_set_alpha(alp);
+	draw_set_color(global.__winel[_currel, 33]);
+	switch(_rs)
+	{
+		case el_label:
+		case el_button:
+			x1 += global.__winel[_currel, 64]
+			y1 += global.__winel[_currel, 66]
+			x2 -= global.__winel[_currel, 65]
+			y2 -= global.__winel[_currel, 67]
+			
+			var _font;
+			_font = global.__winel[_currel, 63];
+			if(_font == -2) draw_set_font(global.__f_title) else
+			if(_font == -3) draw_set_font(global.__f_text) else
+			if(_font == -4) draw_set_font(global.__f_small) else
+			draw_set_font(_font);
+			
+			draw_set_alpha(alp);
+			draw_set_halign(fa_middle);
+			draw_set_valign(fa_middle);
+			var _t, _scale;
+			_t = global.__winel[_currel, 62];
+						
+			if(global.__winel[_currel, 61])
+			{
+				_scale = min((y2 - y1) / max(1, string_height_ext(string_hash_to_newline(_t), -1, x2 - x1), 1));
+				if(!global.__winel[_currel, 36] && _scale >= 0.95)
+				{
+					draw_text_ext(round((x1 + x2) / 2), round((y1 + y2) / 2), string_hash_to_newline(_t), -1, x2 - x1);
+				}else{
+					draw_text_ext_transformed(round((x1 + x2) / 2), round((y1 + y2) / 2), string_hash_to_newline(_t), -1, x2 - x1, _scale, _scale, 0);
+				}
+			}else{
+				_scale = min((y2 - y1) / max(1, string_height(string_hash_to_newline(_t))), (x2 - x1) / max(string_width(string_hash_to_newline(_t)), 1), 1);
+				if(_scale >= 0.98)
+				{
+					draw_text(round((x1 + x2) / 2), round((y1 + y2) / 2), string_hash_to_newline(_t));
+				}else{
+					draw_text_transformed(round((x1 + x2) / 2), round((y1 + y2) / 2), string_hash_to_newline(_t), _scale, _scale, 0);
+				}
+			}
+			
+			draw_set_halign(fa_left);
+			draw_set_valign(fa_top);
+			break;
+		case el_arrow:
+			draw_set_alpha(alp);
+			var _alength/*, _asize*/;
+			_alength = global.__winel[_currel, 71];
+			draw_arrow((x1 + x2) / 2, (y1 + y2) / 2 - _alength / 2, (x1 + x2) / 2, (y1 + y2) / 2 + _alength / 2, global.__winel[_currel, 70]);
+			break;
+		case el_textbox:
+			var _font;
+			_font = global.__winel[_currel, 63];
+			if(_font == -2) draw_set_font(global.__f_title) else
+			if(_font == -3) draw_set_font(global.__f_text) else
+			if(_font == -4) draw_set_font(global.__f_small) else
+			draw_set_font(_font)
+			
+			var _text, _istip;
+			_text = global.__winel[_currel, 62];
+			
+			if(_text == "")
+			{
+				_text = global.__winel[_currel, 90];
+				draw_set_color(global.__winel[_currel, 91]);
+				_istip = true;
+			}else{
+				_istip = false;
+				if(global.__winel[_currel, 78])
+				{
+					_text = string_repeat("*", string_length(_text));
+				}
+			}
+			
+			if(global.__focus_item == _currel)
+			{
+				var _select1, _select2, /*_len_limit, _rp_backspace, _rp_left, _rp_right, _rp_delete, 
+					_rb_backspace_count, _rp_left_count, _rp_right_count, _rp_delete_count, _rp_speed*/;
+				
+				_select1 = global.__winel[_currel, 74];
+				_select2 = global.__winel[_currel, 75];
+				
+				draw_set_halign(fa_middle);
+				draw_set_valign(fa_middle);
+				
+				var _w, _h, _scale;
+				_w = string_width(string_hash_to_newline(_text))
+				_h = string_height(string_hash_to_newline(_text));
+				_scale = min((y2 - y1) / _h, (x2 - x1) / _w, 1);
+				
+				if(!global.__winel[_currel, 36] &&_scale >= 0.95) _scale = 1;
+				draw_text_transformed(floor((x1 + x2) / 2), floor((y1 + y2) / 2), string_hash_to_newline(_text), min(_scale, (x2 - x1 - 8) / string_width(string_hash_to_newline(_text))), _scale, 0);
+				
+				draw_set_color(global.__winel[_currel, 76])
+				var _ww1, /*_w1, _w2, */_wt;
+				if(_istip)
+				{
+					_ww1 = (x1 + x2) / 2;
+					_ww2 = (x1 + x2) / 2;
+				}else{
+					_wt = string_width(string_hash_to_newline(_text));
+					_ww1 = (x1 + x2) / 2 - _wt / 2 + string_width(string_hash_to_newline(string_copy(_text, 1, _select1 - 1)));
+					_ww2 = (x1 + x2) / 2 - _wt / 2 + string_width(string_hash_to_newline(string_copy(_text, 1, _select2 - 1)));
+				}
+				
+				if(_select1 != _select2)
+				{
+					draw_set_alpha(0.3 * alp);
+					draw_rectangle(_ww1, y1 + 2, _ww2, y2 - 2, 0)
+				}else if(current_time mod 900 < 400)
+				{
+					draw_set_alpha(alp);
+					draw_set_color(c_black);
+					draw_line(_ww1, y1 + 2, _ww1, y2 - 2);
+				}
+			}else{
+				draw_set_halign(fa_middle);
+				draw_set_valign(fa_middle);
+				
+				var _scale;
+				_scale = min((y2 - y1) / string_height(string_hash_to_newline(_text)), (x2 - x1) / string_width(string_hash_to_newline(_text)), 1);
+				
+				if(_scale >= 0.98)
+				{
+					draw_text(floor((x1 + x2) / 2), floor((y1 + y2) / 2), string_hash_to_newline(_text));
+				}else{
+					draw_text_transformed(floor((x1 + x2) / 2), floor((y1 + y2) / 2), string_hash_to_newline(_text), _scale, _scale, 0);
+				}
+			}
+			break;
+		case el_scrollbox:
+			var _surf, _scroll, _scrollb_y1, _scrollb_y2, _scrollb_h;
+			_surf = global.__winel[_currel, 94];
+			if(surface_exists(_surf))
+			{
+				_ch = global.__winel[_currel, 12];
+				_fh = abs(y2 - y1)
+				_scroll = global.__winel[_currel, 95];
+				_scrollb_h = global.__winel[_currel, 101]
+				
+				draw_surface_part(_surf, 0, _scroll, min(surface_get_width(_surf), x2 - x1 - 10), min(surface_get_height(_surf), y2 - y1), x1, y1);
+			
+				draw_set_color(c_black);
+				draw_set_alpha((0.1 + 0.1 * global.__winel[_currel, 97]) * alp);
+				draw_rectangle(x2 - 10, y1, x2, y2, 0);
+				
+				if(_ch > _fh)
+				{
+					_scrollb_y1 = max(0, (_fh - _scrollb_h) * (_scroll / (_ch - _fh)));
+					_scrollb_y2 = _scrollb_y1 + _scrollb_h;
+					
+					draw_rectangle(x2 - 10, y1 + _scrollb_y1, x2, y1 + _scrollb_y2, 0);
+				}
+			}else if(debug_mode)
+			{
+				draw_line(x1, y1, x2, y2)
+				draw_line(x2, y1, x1, y2)
+			}
+			__queue_pointer = global.__winskip[__cache, __queue_pointer]
+			continue;
+		case el_loading:
+			var _xm, _ym, _ani, i;
+			_xm = (x2 + x1) / 2;
+			_ym = (y2 + y1) / 2;
+			_ani = global.__winel[_currel, 60];
+			_scale = min(x2 - x1, y2 - y1) / 48;
+			
+			for(i = 0; i < 5; i += 1)
+			{
+				draw_circle(_xm + lengthdir_x(16, _ani - i * 36) * _scale, _ym + lengthdir_y(16, _ani - i * 36) * _scale, (6 - i) * _scale, 0);
+			}
+			break;
+	}
+	
+	//__alpha[global.__windcache[__cache, __queue_pointer] + 1] = alp;
+	__queue_pointer += 1;
 }
 }
 
@@ -8563,15 +8563,15 @@ function wle_tick(argument0, argument1, argument2, argument3, argument4) {
 //wle_step now returns whether the position needs to be updated
 if global.__xwindow_error_type
 {
-    global.__tween_factor      = 60 / room_speed
+	global.__tween_factor	  = 60 / room_speed
 }
 if wle_step(argument0, mouse_x, mouse_y) 
-    or global.__winel[argument0, 1] != argument1
-    or global.__winel[argument0, 2] != argument2
-    or global.__winel[argument0, 3] != argument3
-    or global.__winel[argument0, 4] != argument4
+	or global.__winel[argument0, 1] != argument1
+	or global.__winel[argument0, 2] != argument2
+	or global.__winel[argument0, 3] != argument3
+	or global.__winel[argument0, 4] != argument4
 {
-    wle_position(argument0, argument1, argument2, argument3, argument4)
+	wle_position(argument0, argument1, argument2, argument3, argument4)
 }
 }
 
@@ -8582,7 +8582,7 @@ var _m, _i, _currel, /*__element_stack1, __element_stack2, __stackp1, __stackp2,
 __cache = global.__winel[argument0, 107];
 if(__cache == -1)
 {
-    __cache = wle_build_cache(argument0)
+	__cache = wle_build_cache(argument0)
 }
 //temporary stack, contains all unprocessed child nodes
 __queue_pointer = 1
@@ -8591,176 +8591,176 @@ __pointer = 0
 //note: not needed, does the same thing as the child cache
 while(__queue_pointer < global.__wincache[__cache, 0])
 {
-    _currel = global.__wincache[__cache, __queue_pointer];
-    
-    if(global.__winel[_currel, 36])
-    {
-        __element_stack[__pointer] = global.__winel[_currel, 38]
-        __pointer += 1
-        
-        __element_stack[__pointer] = global.__winel[_currel, 37]
-        __pointer += 1
-    }else{
-        __element_stack[__pointer] = _currel
-        __pointer += 1
-    }
-    
-    __queue_pointer += 1
+	_currel = global.__wincache[__cache, __queue_pointer];
+	
+	if(global.__winel[_currel, 36])
+	{
+		__element_stack[__pointer] = global.__winel[_currel, 38]
+		__pointer += 1
+		
+		__element_stack[__pointer] = global.__winel[_currel, 37]
+		__pointer += 1
+	}else{
+		__element_stack[__pointer] = _currel
+		__pointer += 1
+	}
+	
+	__queue_pointer += 1
 }
 __queue_pointer = __pointer;
 //Pass 2: Set min/max width & min/max height of every element. 
-//        Parents can use their children's size to determine their own width
+//		Parents can use their children's size to determine their own width
 /*while(__stackp2 > 0)
 {
-    __stackp2 -= 1;
-    _currel = __element_stack2[__stackp2];//*/
+	__stackp2 -= 1;
+	_currel = __element_stack2[__stackp2];//*/
 while(__queue_pointer > 0)
 {
-    __queue_pointer -= 1
-    _currel = __element_stack[__queue_pointer]//*/
-    
-    //TODO: We'll want to apply this function twice. Once for the tween_to value and once for the tween_from value.
-    //That's probably not going to change a damn thing because the actual positioning script below still only sets one of the two values, but it should do both.
-    //Actually, we could just run this function 3x; Once for all tween_from and once for all tween_to, and a third time for the final values.
-    //we would only have to run Pass 3 three times, as that updates the actual positions. For pass 2 we could use pass 1 to create a better array that contains
-    //all child nodes as well as the multiple tween_from and tween_tos.
-    
-    //Another note: the _currels for tweening elements should not be updates at all, as this would mess with the tweening script.
-    //lol this could actually be doable.    
-    var _rs;
-    _rs = global.__winel[_currel, 34];
-    
-    var _hor_margin, _ver_margin, _hor_padding, _ver_padding;    
-    if(_rs == el_button or _rs == el_label or _rs == el_textbox)
-    {
-        if(global.__winel[_currel, 100])
-        {
-            global.__winel[_currel, 100] = 0;
-            var _font;
-            _font = global.__winel[_currel, 63];
-            if(_font == -2) _font = global.__f_title;
-            if(_font == -3) _font = global.__f_text;
-            if(_font == -4) _font = global.__f_small;
-            draw_set_font(max(-1, _font));
-            
-            if(global.__winel[_currel, 61])
-            {
-                global.__winel[_currel, 11] = string_width_ext(string_hash_to_newline(global.__winel[_currel, 62]), -1, 1);
-                global.__winel[_currel, 12] = string_height_ext(string_hash_to_newline(global.__winel[_currel, 62]), -1, global.__winel[_currel, 3] -  global.__winel[_currel, 1]);
-            }else{
-                global.__winel[_currel, 11] = string_width(string_hash_to_newline(global.__winel[_currel, 62]));
-                global.__winel[_currel, 12] = string_height(string_hash_to_newline(global.__winel[_currel, 62]));
-            }
-        }
-    }
-    
-    var _sw, _sh;
-    _sw = global.__winel[_currel, 13];
-    _sh = global.__winel[_currel, 14];
-    switch(_rs)
-    {
-        //Elements without children (at least, they shouldn't have any)
-        case el_button:
-        case el_label:
-        case el_textbox:
-        case el_arrow:
-            wle_set_renderwh(_currel, _sw, _sh, global.__winel[_currel, 11], global.__winel[_currel, 12])
-            
-            global.__winel[_currel, 40] = global.__winel[_currel, 11];
-            global.__winel[_currel, 41] = global.__winel[_currel, 12];
-            break;
-        
-        //Horizontal containers
-        case el_multielement:
-            var _sxmin, _sxmax, _symin, _symax, _el;
-            _sxmin = 0;
-            _symin = 0;
-            _sxmax = 0;
-            _symax = 0;
-            _m = global.__winel[_currel, 0];
-            for(_i = 0; _i < ds_list_size(_m); _i += 1)
-            {
-                _el = ds_list_find_value(_m, _i);
-                //if global.__winel[_el, 36] _el = global.__winel[_el, 38];
-                
-                _hor_margin = global.__winel[_el, 5] + global.__winel[_el, 6]
-                _ver_margin = global.__winel[_el, 7] + global.__winel[_el, 8]
-                
-                _symin = max(global.__winel[_el, 105] + _ver_margin, _symin);
-                _symax = max(global.__winel[_el, 106] + _ver_margin, _symax);
-                _sxmin += global.__winel[_el, 103] + _hor_margin
-                _sxmax += global.__winel[_el, 104] + _hor_margin
-            }
-            
-            wle_set_renderwh(_currel, _sw, _sh, _sxmin, _symin)
-            
-            global.__winel[_currel, 11] = _sxmax
-            global.__winel[_currel, 12] = _symax
-            
-            global.__winel[_currel, 40] = _sxmin
-            global.__winel[_currel, 41] = _symin
-            break;
-            
-        //Vertical containers
-        case el_container:
-        case el_canvas:
-        case el_scrollbox:
-            var _sxmin, _sxmax, _symin, _symax, _el;
-            _sxmin = 0;
-            _symin = 0;
-            _sxmax = 0;
-            _symax = 0;
-            _m = global.__winel[_currel, 0];
-            
-            if(global.__winel[_currel, 32])
-            {
-                for(_i = 0; _i < ds_list_size(_m); _i += 1)
-                {
-                    _el = ds_list_find_value(_m, _i);
-                    //if global.__winel[_el, 36] _el = global.__winel[_el, 38];
-                    
-                    _hor_margin = global.__winel[_el, 5] + global.__winel[_el, 6]
-                    _ver_margin = global.__winel[_el, 7] + global.__winel[_el, 8]
-                
-                    _sxmin = max(global.__winel[_el, 103] + _hor_margin, _sxmin);
-                    _sxmax = max(global.__winel[_el, 104] + _hor_margin, _sxmax);
-                    _symin = max(global.__winel[_el, 105] + _ver_margin, _symin);
-                    _symax = max(global.__winel[_el, 106] + _ver_margin, _symax);
-                }
-            }else{
-                for(_i = 0; _i < ds_list_size(_m); _i += 1)
-                {
-                    _el = ds_list_find_value(_m, _i);
-                    //if global.__winel[_el, 36] _el = global.__winel[_el, 38];
-                    
-                    _hor_margin = global.__winel[_el, 5] + global.__winel[_el, 6]
-                    _ver_margin = global.__winel[_el, 7] + global.__winel[_el, 8]
-                    
-                    _sxmin = max(global.__winel[_el, 103] + _hor_margin, _sxmin);
-                    _sxmax = max(global.__winel[_el, 104] + _hor_margin, _sxmax);
-                    _symin += global.__winel[_el, 105] + _ver_margin
-                    _symax += global.__winel[_el, 106] + _ver_margin
-                }
-            }
-            
-            global.__winel[_currel, 11] = _sxmax
-            global.__winel[_currel, 12] = _symax
-            
-            global.__winel[_currel, 40] = _sxmin
-            global.__winel[_currel, 41] = _symin
-            
-            if _rs == el_scrollbox
-            {
-                wle_set_renderwh(_currel, _sw, _sh, global.__winel[_currel, 11], 64)
-            }else{
-                wle_set_renderwh(_currel, _sw, _sh, _sxmin, _symin)   
-            }
-            break;
-    }
+	__queue_pointer -= 1
+	_currel = __element_stack[__queue_pointer]//*/
+	
+	//TODO: We'll want to apply this function twice. Once for the tween_to value and once for the tween_from value.
+	//That's probably not going to change a damn thing because the actual positioning script below still only sets one of the two values, but it should do both.
+	//Actually, we could just run this function 3x; Once for all tween_from and once for all tween_to, and a third time for the final values.
+	//we would only have to run Pass 3 three times, as that updates the actual positions. For pass 2 we could use pass 1 to create a better array that contains
+	//all child nodes as well as the multiple tween_from and tween_tos.
+	
+	//Another note: the _currels for tweening elements should not be updates at all, as this would mess with the tweening script.
+	//lol this could actually be doable.	
+	var _rs;
+	_rs = global.__winel[_currel, 34];
+	
+	var _hor_margin, _ver_margin, _hor_padding, _ver_padding;	
+	if(_rs == el_button or _rs == el_label or _rs == el_textbox)
+	{
+		if(global.__winel[_currel, 100])
+		{
+			global.__winel[_currel, 100] = 0;
+			var _font;
+			_font = global.__winel[_currel, 63];
+			if(_font == -2) _font = global.__f_title;
+			if(_font == -3) _font = global.__f_text;
+			if(_font == -4) _font = global.__f_small;
+			draw_set_font(max(-1, _font));
+			
+			if(global.__winel[_currel, 61])
+			{
+				global.__winel[_currel, 11] = string_width_ext(string_hash_to_newline(global.__winel[_currel, 62]), -1, 1);
+				global.__winel[_currel, 12] = string_height_ext(string_hash_to_newline(global.__winel[_currel, 62]), -1, global.__winel[_currel, 3] -  global.__winel[_currel, 1]);
+			}else{
+				global.__winel[_currel, 11] = string_width(string_hash_to_newline(global.__winel[_currel, 62]));
+				global.__winel[_currel, 12] = string_height(string_hash_to_newline(global.__winel[_currel, 62]));
+			}
+		}
+	}
+	
+	var _sw, _sh;
+	_sw = global.__winel[_currel, 13];
+	_sh = global.__winel[_currel, 14];
+	switch(_rs)
+	{
+		//Elements without children (at least, they shouldn't have any)
+		case el_button:
+		case el_label:
+		case el_textbox:
+		case el_arrow:
+			wle_set_renderwh(_currel, _sw, _sh, global.__winel[_currel, 11], global.__winel[_currel, 12])
+			
+			global.__winel[_currel, 40] = global.__winel[_currel, 11];
+			global.__winel[_currel, 41] = global.__winel[_currel, 12];
+			break;
+		
+		//Horizontal containers
+		case el_multielement:
+			var _sxmin, _sxmax, _symin, _symax, _el;
+			_sxmin = 0;
+			_symin = 0;
+			_sxmax = 0;
+			_symax = 0;
+			_m = global.__winel[_currel, 0];
+			for(_i = 0; _i < ds_list_size(_m); _i += 1)
+			{
+				_el = ds_list_find_value(_m, _i);
+				//if global.__winel[_el, 36] _el = global.__winel[_el, 38];
+				
+				_hor_margin = global.__winel[_el, 5] + global.__winel[_el, 6]
+				_ver_margin = global.__winel[_el, 7] + global.__winel[_el, 8]
+				
+				_symin = max(global.__winel[_el, 105] + _ver_margin, _symin);
+				_symax = max(global.__winel[_el, 106] + _ver_margin, _symax);
+				_sxmin += global.__winel[_el, 103] + _hor_margin
+				_sxmax += global.__winel[_el, 104] + _hor_margin
+			}
+			
+			wle_set_renderwh(_currel, _sw, _sh, _sxmin, _symin)
+			
+			global.__winel[_currel, 11] = _sxmax
+			global.__winel[_currel, 12] = _symax
+			
+			global.__winel[_currel, 40] = _sxmin
+			global.__winel[_currel, 41] = _symin
+			break;
+			
+		//Vertical containers
+		case el_container:
+		case el_canvas:
+		case el_scrollbox:
+			var _sxmin, _sxmax, _symin, _symax, _el;
+			_sxmin = 0;
+			_symin = 0;
+			_sxmax = 0;
+			_symax = 0;
+			_m = global.__winel[_currel, 0];
+			
+			if(global.__winel[_currel, 32])
+			{
+				for(_i = 0; _i < ds_list_size(_m); _i += 1)
+				{
+					_el = ds_list_find_value(_m, _i);
+					//if global.__winel[_el, 36] _el = global.__winel[_el, 38];
+					
+					_hor_margin = global.__winel[_el, 5] + global.__winel[_el, 6]
+					_ver_margin = global.__winel[_el, 7] + global.__winel[_el, 8]
+				
+					_sxmin = max(global.__winel[_el, 103] + _hor_margin, _sxmin);
+					_sxmax = max(global.__winel[_el, 104] + _hor_margin, _sxmax);
+					_symin = max(global.__winel[_el, 105] + _ver_margin, _symin);
+					_symax = max(global.__winel[_el, 106] + _ver_margin, _symax);
+				}
+			}else{
+				for(_i = 0; _i < ds_list_size(_m); _i += 1)
+				{
+					_el = ds_list_find_value(_m, _i);
+					//if global.__winel[_el, 36] _el = global.__winel[_el, 38];
+					
+					_hor_margin = global.__winel[_el, 5] + global.__winel[_el, 6]
+					_ver_margin = global.__winel[_el, 7] + global.__winel[_el, 8]
+					
+					_sxmin = max(global.__winel[_el, 103] + _hor_margin, _sxmin);
+					_sxmax = max(global.__winel[_el, 104] + _hor_margin, _sxmax);
+					_symin += global.__winel[_el, 105] + _ver_margin
+					_symax += global.__winel[_el, 106] + _ver_margin
+				}
+			}
+			
+			global.__winel[_currel, 11] = _sxmax
+			global.__winel[_currel, 12] = _symax
+			
+			global.__winel[_currel, 40] = _sxmin
+			global.__winel[_currel, 41] = _symin
+			
+			if _rs == el_scrollbox
+			{
+				wle_set_renderwh(_currel, _sw, _sh, global.__winel[_currel, 11], 64)
+			}else{
+				wle_set_renderwh(_currel, _sw, _sh, _sxmin, _symin)   
+			}
+			break;
+	}
 }
 //Pass 3: Set positions in the order parent -> child, once again rebuilding the parse tree
-//        This pass will also take margins in account. Values are grabbed from the parameters themselves
-//        So that no arguments need to be used.
+//		This pass will also take margins in account. Values are grabbed from the parameters themselves
+//		So that no arguments need to be used.
 //Parameters to take into account:
 //overlapping, horizontal-float, vertical-float, x-offset, y-offset, center
 //Process outer element that has no parent
@@ -8771,185 +8771,185 @@ global.__winel[argument0, 4] = argument4
 __queue_pointer = 1
 while(__queue_pointer < global.__wincache[__cache, 0])
 {
-    _currel = global.__wincache[__cache, __queue_pointer];
-    var _rs, _el, x1, y1, x2, y2, _max_percentage, _extra_load, __type;
-    _rs = global.__winel[_currel, 34];
-    
-    //if wle_position is called, it's most likely because a tween is going on.
-    //it's not worth checking whether any of the child elements are tweening before running this AFAIC
-    if _rs >= 10
-    {
-        for(__type = 2; __type >= 0; __type -= 1)
-        {
-            //TODO:
-            //type A: To set data for tween_from
-            //type B: To set data for tween_to
-            //type C: To set data for all other children, using the tweened element values
-            switch(_rs)
-            {
-                //Horizontal containers
-                case el_multielement:
-                    //Calculate percentage of extra width that can be used
-                    var _el, x1, y1, x2, y2, _children, _l, _minwidth, _maxwidth;
-                    _children = global.__winel[_currel, 0];
-                    _l = ds_list_size(_children);
-                    _minwidth = global.__winel[_currel, 40];
-                    _maxwidth = global.__winel[_currel, 11];
-                    
-                    x1 = global.__winel[_currel, 1] + global.__winel[_currel, 64]
-                    y1 = global.__winel[_currel, 2] + global.__winel[_currel, 66]
-                    x2 = global.__winel[_currel, 3] - global.__winel[_currel, 65]
-                    y2 = global.__winel[_currel, 4] - global.__winel[_currel, 67]
-                    
-                    if _maxwidth <= 0
-                    {
-                        _max_percentage = 0
-                    }else{
-                        _max_percentage = (x2 - x1 - _minwidth) / _maxwidth
-                    }
-                    
-                    var _children, _l;
-                    _children = global.__winel[_currel, 0];
-                    _l = ds_list_size(_children);
-                    
-                    for (_i = 0; _i < _l; _i += 1)
-                    {
-                        _el = ds_list_find_value(_children, _i); if wle_get(_el, "tween") if __type == 1 { _el = wle_get(_el, "tween_from") } else if __type == 2 { _el = wle_get(_el, "tween_to") }
-                        
-                        var _ml, _mr, _mt, _mb;
-                        _ml = global.__winel[_el, 5]
-                        _mr = global.__winel[_el, 6]
-                        _mt = global.__winel[_el, 7]
-                        _mb = global.__winel[_el, 8]
-                        
-                        var _sw, _sh;
-                        _sw = min(global.__winel[_el, 104], global.__winel[_el, 103] + (global.__winel[_el, 104] - global.__winel[_el, 103]) * _max_percentage)
-                        _sh = min(global.__winel[_el, 106], y2 - y1 - _mt - _mb)//
-                        
-                        if wle_element_position(_el, x1 + _ml, y1 + _mt, x2 - _mr, y2 - _mb, _sw, _sh, __type) & 1
-                        {
-                            x1 += _sw + _ml + _mr
-                        }
-                    }
-                    break;
-                
-                //Vertical containers
-                case el_container:
-                case el_canvas:
-                    x1 = global.__winel[_currel, 1] + global.__winel[_currel, 64]
-                    y1 = global.__winel[_currel, 2] + global.__winel[_currel, 66]
-                    x2 = global.__winel[_currel, 3] - global.__winel[_currel, 65]
-                    y2 = global.__winel[_currel, 4] - global.__winel[_currel, 67]
-                    
-                    if(global.__winel[_currel, 32])
-                    {
-                        var _children, _l;
-                        _children = global.__winel[_currel, 0];
-                        _l = ds_list_size(_children);
-                        
-                        for(_i = 0; _i < _l; _i += 1)
-                        {
-                            _el = ds_list_find_value(_children, _i); if wle_get(_el, "tween") if __type == 1 { _el = wle_get(_el, "tween_from") } else if __type == 2 { _el = wle_get(_el, "tween_to") }
-                                                        
-                            var _xoff, _yoff;
-                            _xoff = global.__winel[_el, 9] * room_width
-                            _yoff = global.__winel[_el, 10] * room_height
-                            
-                            if __type or !global.__winel[_el, 36]
-                            {
-                                global.__winel[_el, 1] = x1 + _xoff + global.__winel[_el, 5];
-                                global.__winel[_el, 2] = y1 + _yoff + global.__winel[_el, 7];
-                                global.__winel[_el, 3] = x1 + _xoff - global.__winel[_el, 6] + min(global.__winel[_el, 104], max(global.__winel[_el, 103], (x2 - x1)));
-                                global.__winel[_el, 4] = y1 + _yoff - global.__winel[_el, 8] + min(global.__winel[_el, 106], max(global.__winel[_el, 105], (y2 - y1)));
-                            }
-                        }
-                    }else{
-                        var _children, _l, _minheight, _maxheight;
-                        _children = global.__winel[_currel, 0];
-                        _l = ds_list_size(_children);
-                        _minheight = global.__winel[_currel, 41]
-                        _maxheight = global.__winel[_currel, 12]
-                        
-                        //Calculate percentage of extra height that can be used
-                        if _maxheight <= 0
-                        {
-                            _max_percentage = 0
-                        }else{
-                            _max_percentage = (y2 - y1 - _minheight) / _maxheight
-                        }
-        
-                        for(_i = 0; _i < _l; _i += 1)
-                        {
-                            _el = ds_list_find_value(_children, _i); if wle_get(_el, "tween") if __type == 1 { _el = wle_get(_el, "tween_from") } else if __type == 2 { _el = wle_get(_el, "tween_to") }
-                            
-                            var _ml, _mr, _mt, _mb;
-                            _ml = global.__winel[_el, 5]
-                            _mr = global.__winel[_el, 6]
-                            _mt = global.__winel[_el, 7]
-                            _mb = global.__winel[_el, 8]
-                                                
-                            var _sw, _sh, _xoff, _yoff;
-                            _sw = min(global.__winel[_el, 104], x2 - x1 - _ml - _mr);
-                            _sh = min(global.__winel[_el, 106], global.__winel[_el, 105] + (global.__winel[_el, 106] - global.__winel[_el, 105]) * _max_percentage)
-                            
-                            if wle_element_position(_el, x1 + _ml, y1 + _mt, x2 - _mr, y2 - _mb, _sw, _sh, __type) & 2
-                            {
-                                y1 += _sh + _mt + _mb
-                            }
-                        }
-                    }
-                    break;
-                
-                //Map items in scrollbox to a surface with size (x2 - x1) x (65535);
-                //Set content-h, which is used when drawing & stepping
-                case el_scrollbox:
-                    var _sh, x1, y1, x2, y2;
-                    x1 = 0;
-                    y1 = 0;
-                    x2 = global.__winel[_currel, 3] - global.__winel[_currel, 1] - global.__winel[_currel, 64] - global.__winel[_currel, 65] - 10
-                    y2 = 65535
-                    _tsh = 0;
-                    
-                    var _children, _l;
-                    _children = global.__winel[_currel, 0]
-                    _l = ds_list_size(_children)
-                    
-                    for(_i = 0; _i < _l; _i += 1)
-                    {
-                        _el = ds_list_find_value(_children, _i); if wle_get(_el, "tween") if __type == 1 { _el = wle_get(_el, "tween_from") } else if __type == 2 { _el = wle_get(_el, "tween_to") }
-                                            
-                        var _sw, _sh;
-                        _sw = min(global.__winel[_el, 104], max(global.__winel[_el, 103], (x2 - x1)));
-                        _sh = min(global.__winel[_el, 106])
-                        
-                        var _ml, _mr, _mt, _mb;
-                        _ml = global.__winel[_el, 5]
-                        _mr = global.__winel[_el, 6]
-                        _mt = global.__winel[_el, 7]
-                        _mb = global.__winel[_el, 8]
-                        
-                        if wle_element_position(_el, x1 + _ml, y1 + _mt, x2 - _mr, y2 - _mb, _sw, _sh, __type) & 2
-                        {
-                            y1 += _sh + _mt + _mb
-                            _tsh += _sh + _mt + _mb
-                        }
-                    }
-                    
-                    global.__winel[_currel, 12] = _tsh;
-                    break;
-            }
-        }
-    }
-    __queue_pointer += 1;
+	_currel = global.__wincache[__cache, __queue_pointer];
+	var _rs, _el, x1, y1, x2, y2, _max_percentage, _extra_load, __type;
+	_rs = global.__winel[_currel, 34];
+	
+	//if wle_position is called, it's most likely because a tween is going on.
+	//it's not worth checking whether any of the child elements are tweening before running this AFAIC
+	if _rs >= 10
+	{
+		for(__type = 2; __type >= 0; __type -= 1)
+		{
+			//TODO:
+			//type A: To set data for tween_from
+			//type B: To set data for tween_to
+			//type C: To set data for all other children, using the tweened element values
+			switch(_rs)
+			{
+				//Horizontal containers
+				case el_multielement:
+					//Calculate percentage of extra width that can be used
+					var _el, x1, y1, x2, y2, _children, _l, _minwidth, _maxwidth;
+					_children = global.__winel[_currel, 0];
+					_l = ds_list_size(_children);
+					_minwidth = global.__winel[_currel, 40];
+					_maxwidth = global.__winel[_currel, 11];
+					
+					x1 = global.__winel[_currel, 1] + global.__winel[_currel, 64]
+					y1 = global.__winel[_currel, 2] + global.__winel[_currel, 66]
+					x2 = global.__winel[_currel, 3] - global.__winel[_currel, 65]
+					y2 = global.__winel[_currel, 4] - global.__winel[_currel, 67]
+					
+					if _maxwidth <= 0
+					{
+						_max_percentage = 0
+					}else{
+						_max_percentage = (x2 - x1 - _minwidth) / _maxwidth
+					}
+					
+					var _children, _l;
+					_children = global.__winel[_currel, 0];
+					_l = ds_list_size(_children);
+					
+					for (_i = 0; _i < _l; _i += 1)
+					{
+						_el = ds_list_find_value(_children, _i); if wle_get(_el, "tween") if __type == 1 { _el = wle_get(_el, "tween_from") } else if __type == 2 { _el = wle_get(_el, "tween_to") }
+						
+						var _ml, _mr, _mt, _mb;
+						_ml = global.__winel[_el, 5]
+						_mr = global.__winel[_el, 6]
+						_mt = global.__winel[_el, 7]
+						_mb = global.__winel[_el, 8]
+						
+						var _sw, _sh;
+						_sw = min(global.__winel[_el, 104], global.__winel[_el, 103] + (global.__winel[_el, 104] - global.__winel[_el, 103]) * _max_percentage)
+						_sh = min(global.__winel[_el, 106], y2 - y1 - _mt - _mb)//
+						
+						if wle_element_position(_el, x1 + _ml, y1 + _mt, x2 - _mr, y2 - _mb, _sw, _sh, __type) & 1
+						{
+							x1 += _sw + _ml + _mr
+						}
+					}
+					break;
+				
+				//Vertical containers
+				case el_container:
+				case el_canvas:
+					x1 = global.__winel[_currel, 1] + global.__winel[_currel, 64]
+					y1 = global.__winel[_currel, 2] + global.__winel[_currel, 66]
+					x2 = global.__winel[_currel, 3] - global.__winel[_currel, 65]
+					y2 = global.__winel[_currel, 4] - global.__winel[_currel, 67]
+					
+					if(global.__winel[_currel, 32])
+					{
+						var _children, _l;
+						_children = global.__winel[_currel, 0];
+						_l = ds_list_size(_children);
+						
+						for(_i = 0; _i < _l; _i += 1)
+						{
+							_el = ds_list_find_value(_children, _i); if wle_get(_el, "tween") if __type == 1 { _el = wle_get(_el, "tween_from") } else if __type == 2 { _el = wle_get(_el, "tween_to") }
+														
+							var _xoff, _yoff;
+							_xoff = global.__winel[_el, 9] * room_width
+							_yoff = global.__winel[_el, 10] * room_height
+							
+							if __type or !global.__winel[_el, 36]
+							{
+								global.__winel[_el, 1] = x1 + _xoff + global.__winel[_el, 5];
+								global.__winel[_el, 2] = y1 + _yoff + global.__winel[_el, 7];
+								global.__winel[_el, 3] = x1 + _xoff - global.__winel[_el, 6] + min(global.__winel[_el, 104], max(global.__winel[_el, 103], (x2 - x1)));
+								global.__winel[_el, 4] = y1 + _yoff - global.__winel[_el, 8] + min(global.__winel[_el, 106], max(global.__winel[_el, 105], (y2 - y1)));
+							}
+						}
+					}else{
+						var _children, _l, _minheight, _maxheight;
+						_children = global.__winel[_currel, 0];
+						_l = ds_list_size(_children);
+						_minheight = global.__winel[_currel, 41]
+						_maxheight = global.__winel[_currel, 12]
+						
+						//Calculate percentage of extra height that can be used
+						if _maxheight <= 0
+						{
+							_max_percentage = 0
+						}else{
+							_max_percentage = (y2 - y1 - _minheight) / _maxheight
+						}
+		
+						for(_i = 0; _i < _l; _i += 1)
+						{
+							_el = ds_list_find_value(_children, _i); if wle_get(_el, "tween") if __type == 1 { _el = wle_get(_el, "tween_from") } else if __type == 2 { _el = wle_get(_el, "tween_to") }
+							
+							var _ml, _mr, _mt, _mb;
+							_ml = global.__winel[_el, 5]
+							_mr = global.__winel[_el, 6]
+							_mt = global.__winel[_el, 7]
+							_mb = global.__winel[_el, 8]
+												
+							var _sw, _sh, _xoff, _yoff;
+							_sw = min(global.__winel[_el, 104], x2 - x1 - _ml - _mr);
+							_sh = min(global.__winel[_el, 106], global.__winel[_el, 105] + (global.__winel[_el, 106] - global.__winel[_el, 105]) * _max_percentage)
+							
+							if wle_element_position(_el, x1 + _ml, y1 + _mt, x2 - _mr, y2 - _mb, _sw, _sh, __type) & 2
+							{
+								y1 += _sh + _mt + _mb
+							}
+						}
+					}
+					break;
+				
+				//Map items in scrollbox to a surface with size (x2 - x1) x (65535);
+				//Set content-h, which is used when drawing & stepping
+				case el_scrollbox:
+					var _sh, x1, y1, x2, y2;
+					x1 = 0;
+					y1 = 0;
+					x2 = global.__winel[_currel, 3] - global.__winel[_currel, 1] - global.__winel[_currel, 64] - global.__winel[_currel, 65] - 10
+					y2 = 65535
+					_tsh = 0;
+					
+					var _children, _l;
+					_children = global.__winel[_currel, 0]
+					_l = ds_list_size(_children)
+					
+					for(_i = 0; _i < _l; _i += 1)
+					{
+						_el = ds_list_find_value(_children, _i); if wle_get(_el, "tween") if __type == 1 { _el = wle_get(_el, "tween_from") } else if __type == 2 { _el = wle_get(_el, "tween_to") }
+											
+						var _sw, _sh;
+						_sw = min(global.__winel[_el, 104], max(global.__winel[_el, 103], (x2 - x1)));
+						_sh = min(global.__winel[_el, 106])
+						
+						var _ml, _mr, _mt, _mb;
+						_ml = global.__winel[_el, 5]
+						_mr = global.__winel[_el, 6]
+						_mt = global.__winel[_el, 7]
+						_mb = global.__winel[_el, 8]
+						
+						if wle_element_position(_el, x1 + _ml, y1 + _mt, x2 - _mr, y2 - _mb, _sw, _sh, __type) & 2
+						{
+							y1 += _sh + _mt + _mb
+							_tsh += _sh + _mt + _mb
+						}
+					}
+					
+					global.__winel[_currel, 12] = _tsh;
+					break;
+			}
+		}
+	}
+	__queue_pointer += 1;
 }
 }
 
 function wle_build_cache(argument0) {
 //Caches are the array representation of the tree, like DFS:
 //
-//      a
-//     / \
-//    b   c
+//	  a
+//	 / \
+//	b   c
 //   / \ / \
 //  d  e f  g
 //
@@ -8973,9 +8973,9 @@ var m, i, __basepos;
 m = global.__winel[argument1, 0];//children
 for(i = 0; i < ds_list_size(m); i += 1)
 {
-    __basepos = global.__wincache[argument0, 0];
-    wle_build_cache_recursive(argument0, ds_list_find_value(m, i), argument2 + 1);
-    global.__winskip[argument0, __basepos] = global.__wincache[argument0, 0];
+	__basepos = global.__wincache[argument0, 0];
+	wle_build_cache_recursive(argument0, ds_list_find_value(m, i), argument2 + 1);
+	global.__winskip[argument0, __basepos] = global.__wincache[argument0, 0];
 }
 }
 
@@ -8989,90 +8989,90 @@ txt = argument0;
 _first = string_char_at(txt, 1);
 if(_first == "$")
 {
-    //Hexadecimal
-    var hex, dec, pow, pos;
-    hex = string_lower(string_copy(argument0, 2, string_length(argument0) - 1))
-    dec = 0
-    pow = 0
-    for (i = string_length(hex); i >= 1; i -= 1) 
-    { 
-        pos[i] = string_char_at(hex,i) 
-        if (pos[i] == "a") {pos[i] = "10"} 
-        if (pos[i] == "b") {pos[i] = "11"} 
-        if (pos[i] == "c") {pos[i] = "12"} 
-        if (pos[i] == "d") {pos[i] = "13"} 
-        if (pos[i] == "e") {pos[i] = "14"} 
-        if (pos[i] == "f") {pos[i] = "15"} 
-        dec += real(pos[i]) * (power(16, pow))
-        pow += 1
-    }
-    return dec;
+	//Hexadecimal
+	var hex, dec, pow, pos;
+	hex = string_lower(string_copy(argument0, 2, string_length(argument0) - 1))
+	dec = 0
+	pow = 0
+	for (i = string_length(hex); i >= 1; i -= 1) 
+	{ 
+		pos[i] = string_char_at(hex,i) 
+		if (pos[i] == "a") {pos[i] = "10"} 
+		if (pos[i] == "b") {pos[i] = "11"} 
+		if (pos[i] == "c") {pos[i] = "12"} 
+		if (pos[i] == "d") {pos[i] = "13"} 
+		if (pos[i] == "e") {pos[i] = "14"} 
+		if (pos[i] == "f") {pos[i] = "15"} 
+		dec += real(pos[i]) * (power(16, pow))
+		pow += 1
+	}
+	return dec;
 }else if(_first == "'" or _first == "\"")
 {
-    //string
-    return string_copy(txt, 2, string_length(txt) - 2);
+	//string
+	return string_copy(txt, 2, string_length(txt) - 2);
 }else if(_first == "@")
 {
-    //string
-    if(argument1 == -1)
-    {
-        show_error("Cannot use constants here: " + txt, global.__xwindow_error_type);
-    }else{
-        if(ds_map_exists(argument1, txt))
-        {
-            return ds_map_find_value(argument1, txt);
-        }else{
-            show_error("Constant does not exist: " + txt, global.__xwindow_error_type);
-        }
-    }
+	//string
+	if(argument1 == -1)
+	{
+		show_error("Cannot use constants here: " + txt, global.__xwindow_error_type);
+	}else{
+		if(ds_map_exists(argument1, txt))
+		{
+			return ds_map_find_value(argument1, txt);
+		}else{
+			show_error("Constant does not exist: " + txt, global.__xwindow_error_type);
+		}
+	}
 }else if(txt == "true")
 {
-    return true;
+	return true;
 }else if(txt == "false")
 {
-    return false;
+	return false;
 }else if(txt == "max")
 {
-    return sz_max;
+	return sz_max;
 }else if(txt == "min")
 {
-    return sz_min;
+	return sz_min;
 }else if(txt == "preferred")
 {
-    return sz_preferred;
+	return sz_preferred;
 }else if(txt == "top")
 {
-    return 0;
+	return 0;
 }else if(txt == "bottom")
 {
-    return 1;
+	return 1;
 }else if(txt == "stretch")
 {
-    return 0;
+	return 0;
 }else if(txt == "crop-center")
 {
-    return 1;
+	return 1;
 }else if(txt == "crop")
 {
-    return 2;
+	return 2;
 }else if(txt == "scale")
 {
-    return 3;
+	return 3;
 }else if(txt == "sin")
 {
-    return tt_sin;
+	return tt_sin;
 }else if(txt == "ease")
 {
-    return tt_ease;
+	return tt_ease;
 }else if(txt == "shake")
 {
-    return tt_shake;
+	return tt_shake;
 }else
 {
-    //real
-    return real(txt);
+	//real
+	return real(txt);
 }/*else{
-    show_error("GMWML: Unknown type of value " + txt, global.__xwindow_error_type);
+	show_error("GMWML: Unknown type of value " + txt, global.__xwindow_error_type);
 }*/
 }
 
@@ -9089,61 +9089,61 @@ c_value = "";
 c_endstring = "";
 for(i = 1; i <= len; i += 1)
 {
-    var char;
-    char = string_char_at(txt, i);
-    if location == cloc_instring
-    if char != c_endstring
-    {
-        c_value += char
-        continue;
-    }
-    if(char == chr(10) or char == chr(13) or char == chr(9))
-    {
-        continue;
-    }
-    switch(char)
-    {
-        case ":":
-            if(location == cloc_name)
-            {
-                location = cloc_value;
-            }else{
-                show_error("GMWML: Unexpected token ':' near " + string_copy(txt, i, 100), global.__xwindow_error_type)
-            }
-            break;
-        case ";":
-            //finish constant
-            ds_map_add(map, c_name, wle_parse_value(c_value, argument1));
-            c_name = "";
-            c_value = "";
-            location = cloc_name;
-            break;
-        case "\"":
-        case "'":
-            if(location == cloc_value)
-            {
-                c_endstring = char
-                c_value += char;
-                location = cloc_instring;
-            }else if(location == cloc_instring)
-            {
-                c_value += char;
-                location = cloc_value;
-            }else{
-                show_error("GMWML: Unexpected token '" + char + "' near " + string_copy(txt, i, 100), global.__xwindow_error_type)
-            }
-            break;
-        default:
-            switch(location)
-            {
-                case cloc_name:
-                    c_name += char;
-                    break;
-                case cloc_value:
-                    c_value += char;
-                    break;
-            }
-    }
+	var char;
+	char = string_char_at(txt, i);
+	if location == cloc_instring
+	if char != c_endstring
+	{
+		c_value += char
+		continue;
+	}
+	if(char == chr(10) or char == chr(13) or char == chr(9))
+	{
+		continue;
+	}
+	switch(char)
+	{
+		case ":":
+			if(location == cloc_name)
+			{
+				location = cloc_value;
+			}else{
+				show_error("GMWML: Unexpected token ':' near " + string_copy(txt, i, 100), global.__xwindow_error_type)
+			}
+			break;
+		case ";":
+			//finish constant
+			ds_map_add(map, c_name, wle_parse_value(c_value, argument1));
+			c_name = "";
+			c_value = "";
+			location = cloc_name;
+			break;
+		case "\"":
+		case "'":
+			if(location == cloc_value)
+			{
+				c_endstring = char
+				c_value += char;
+				location = cloc_instring;
+			}else if(location == cloc_instring)
+			{
+				c_value += char;
+				location = cloc_value;
+			}else{
+				show_error("GMWML: Unexpected token '" + char + "' near " + string_copy(txt, i, 100), global.__xwindow_error_type)
+			}
+			break;
+		default:
+			switch(location)
+			{
+				case cloc_name:
+					c_name += char;
+					break;
+				case cloc_value:
+					c_value += char;
+					break;
+			}
+	}
 }
 return map;
 }
@@ -9160,7 +9160,7 @@ tagdepth = 0;
 location = tloc_master;
 if argument1 == -1
 {
-    show_error("Style data is -1 (not found). Please check your parameters to wle_parse_layout", global.__xwindow_error_type);
+	show_error("Style data is -1 (not found). Please check your parameters to wle_parse_layout", global.__xwindow_error_type);
 }
 //0: Opening tag
 //1: Normal end (</tag>)
@@ -9184,384 +9184,384 @@ var w;
 w = wle_create(el_container);
 for(i = 1; i <= len; i += 1)
 {
-    var char;
-    char = string_char_at(txt, i);
-    
-    if(char == chr(9))
-    {
-        char = "\\t";
-    }else if(char == chr(10) or char == chr(13))
-    {
-        _line_num += 1;
-        char = " "
-    }
-    switch(char)
-    {
-        case "<":
-            location = tloc_tagname;
-            _jo = 1;
-            _jc = 0;
-            break;
-        case ">":
-            if(_jo && location == tloc_tagname)
-            {
-                switch(t_name)
-                {
-                    case "label":
-                    case "button":
-                        w = wle_create(el_label);
-                        break;
-                    case "canvas":
-                        w = wle_create(el_canvas);
-                        break;
-                    case "container":
-                        w = wle_create(el_container);
-                        break;
-                    case "textbox":
-                        w = wle_create(el_textbox);
-                        if(_txt_first == -1)
-                        {
-                            _txt_first = w;
-                        }
-                        
-                        if(_txt_prev != -1)
-                        {
-                            global.__winel[_txt_prev, 92] = w;
-                            global.__winel[_txt_prev, 93] = w;
-                        }
-                        _txt_prev = w;
-                        break;
-                    case "multielement":
-                        w = wle_create(el_multielement);
-                        break;
-                    case "scrollbox":
-                        w = wle_create(el_scrollbox);
-                        break;
-                    case "arrow":
-                        w = wle_create(el_arrow);
-                        break;
-                    default:
-                        show_error("Unknown tag name: '" + t_name + "' at line " + string(_line_num) + ": " + string_copy(txt, i - 3, 150) + " (" + string(location) + ")", global.__xwindow_error_type);
-                        break;
-                }
-                
-                location = tloc_paramname;
-                t_paramname = "";
-                t_paramvalue = "";
-                global.__winel[w, 53] = t_name;
-            }
-            
-            if(_jc)
-            {
-                end_flag = 2;
-            }
-            
-            switch(location)
-            {
-                case tloc_paramname:
-                    if(t_paramname != "")
-                    {
-                        show_error("GMWLS: Unfinished tagname " + t_name + " at position " + string(i) + " near parameter name " + t_paramname, global.__xwindow_error_type);
-                    }else{
-                        do_finish = true;
-                    }
-                    break;
-                case tloc_paramval:
-                    //finish last parameter
-                    show_error("GMWLS: Unfinished parameter " + t_name + " at position " + string(i) + " near parameter name " + t_paramname, global.__xwindow_error_type);
-                    break;
-                case tloc_tagname:
-                    do_finish = true;
-                    break;
-            }
-            
-            if(end_flag == 1)
-            {
-                tagdepth -= 1;
-                var _name, _element;
-                _element = ds_stack_pop(l_stack);
-                _name = global.__winel[_element, 53];
-                
-                if tagdepth == 0 && argument3 != -1
-                {
-                    wle_add(argument3, _element)
-                }
-                
-                if(_name != t_name)
-                {
-                    show_error("GMWLS: Wrong closing tag for '" + _name + "': " + t_name + "' at line " + string(_line_num) + ": " + string_copy(txt, i - 3, 150) + " (" + string(location) + ")", global.__xwindow_error_type);
-                }
-                
-                while string_char_at(t_text, 1) == " "
-                {
-                    t_text = string_copy(t_text, 2, string_length(t_text) - 1)
-                }
-                
-                if string_char_at(t_text, 1) == "@"
-                {
-                    if(ds_map_exists(argument2, t_text))
-                    {
-                        t_text = ds_map_find_value(argument2, t_text);
-                    }else{
-                        show_error("Constant does not exist: " + t_text, global.__xwindow_error_type);
-                    }
-                }else if string_length(t_text) >= 2 && string_char_at(t_text, 1) == "\\" && string_char_at(t_text, 2) == "@"
-                {
-                    t_text = string_copy(t_text, 2, string_length(t_text) - 1)
-                }
-                
-                global.__winel[_element, 62] = t_text
-            }else if(end_flag == 0){
-                tagdepth += 1;
-                if(ds_stack_size(l_stack) > 0)
-                {
-                    wle_add(ds_stack_top(l_stack), w)
-                }else{
-                    _fos = w;
-                }
-                
-                ds_stack_push(l_stack, w)
-            }else if(end_flag == 2)
-            {
-                wle_add(ds_stack_top(l_stack), w);
-            }
-            
-            t_text = "";
-            t_name = "";
-            location = tloc_tagcontent;
-            
-            end_flag = 0;
-            break;
-        case "\\":
-            var _next;
-            _next = string_char_at(txt, i + 1);
-            if(_next == "<" or _next == ">" or _next == "/" or _next == "\\" or _next == "[" or _next == "]" or _next == ",")
-            {
-                switch(location)
-                {
-                    case tloc_tagname:
-                        t_name += _next;
-                        break;
-                    case tloc_paramname:
-                        t_paramname += _next;
-                        break;
-                    case tloc_paramval:
-                        t_paramvalue += _next;
-                        break;
-                    case tloc_tagcontent:
-                        t_text += _next;
-                        break;
-                }
-                i += 1;
-            }else{
-                switch(location)
-                {
-                    case tloc_tagname:
-                        t_name += char;
-                        break;
-                    case tloc_paramname:
-                        t_paramname += char;
-                        break;
-                    case tloc_paramval:
-                        t_paramvalue += char;
-                        break;
-                    case tloc_tagcontent:
-                        t_text += char;
-                        break;
-                }
-            }
-            break;
-        case " ":
-        case "\\t":
-            _jo = 0;
-            switch(location)
-            {
-                case tloc_tagname:
-                    switch(t_name)
-                    {
-                        case "label":
-                        case "button":
-                            w = wle_create(el_label);
-                            break;
-                        case "canvas":
-                            w = wle_create(el_canvas);
-                            break;
-                        case "container":
-                            w = wle_create(el_container);
-                            break;
-                        case "textbox":
-                            w = wle_create(el_textbox);
-                            if(_txt_first == -1)
-                            {
-                                _txt_first = w;
-                            }
-                            
-                            if(_txt_prev != -1)
-                            {
-                                global.__winel[_txt_prev, 92] = w;
-                                global.__winel[_txt_prev, 93] = w;
-                            }
-                            _txt_prev = w;
-                            break;
-                        case "multielement":
-                            w = wle_create(el_multielement);
-                            break;
-                        case "scrollbox":
-                            w = wle_create(el_scrollbox);
-                            break;
-                        case "arrow":
-                            w = wle_create(el_arrow);
-                            break;
-                        default:
-                            show_error("Unknown tag name: '" + t_name + "' at line " + string(_line_num) + ": " + string_copy(txt, i - 3, 100) + " (" + string(location) + ")", global.__xwindow_error_type);
-                            break;
-                    }
-                    
-                    location = tloc_paramname;
-                    t_paramname = "";
-                    t_paramvalue = "";
-                    global.__winel[w, 53] = t_name;
-                    break;
-                case tloc_tagcontent:
-                    t_text += char;
-                    break;
-            }
-            break;
-        case "/":
-            if(_jo)
-            {
-                end_flag = 1;
-            }else
-            {
-                _jc = 1;
-            }
-            break;
-        case "[":
-            if(location == tloc_paramname)
-            {
-                location = tloc_paramval;
-            }else{
-                show_error("Unexpected token '['", global.__xwindow_error_type);
-            }
-            break;
-        case ",":
-        case "]":
-            if(location == tloc_paramval)
-            {
-                if(t_paramname == "style")
-                {
-                    var __key, __map;
-                    __map = wle_find_style(argument1, t_paramvalue)
-                    __key = ds_map_find_first(__map);
-                    while(!XGms_undef_ined(__key))
-                    {
-                        global.__winel[w, __key] = ds_map_find_value(__map, __key);
-                        __key = ds_map_find_next(__map, __key);
-                    }
-                    
-                    t_paramvalue = "";
-                }else if(t_paramname == "name")
-                {
-                    global.__winel[w, 15] = t_paramvalue
-                    t_paramvalue = ""
-                }else if(t_paramname == "property")
-                {
-                    var _pos;
-                    _pos = string_pos("=", t_paramvalue)
-                    
-                    wle_set(w, string_copy(t_paramvalue, 1, _pos - 1), 
-                        wle_parse_value(string_copy(t_paramvalue, _pos + 1, string_length(t_paramvalue) - _pos), argument2))
-                    t_paramvalue = ""
-                }else{
-                    var _copyto, _source;
-                    _source = wle_find_style(argument1, t_paramvalue)
-                    _copyto = ds_map_create()
-                    ds_map_copy(_copyto, _source)
-                    
-                    switch(t_paramname)
-                    {
-                        case "hover":
-                            global.__winel[w, 43] = _copyto
-                            break;
-                        case "unhover":
-                            global.__winel[w, 44] = _copyto
-                            break;
-                        case "onopen":
-                        case "open":
-                            global.__winel[w, 45] = _copyto
-                            break;
-                        case "onclose":
-                        case "close":
-                            global.__winel[w, 46] = _copyto
-                            break;
-                        case "onspecial":
-                        case "special":
-                            global.__winel[w, 47] = _copyto
-                            break;
-                        case "onunspecial":
-                        case "unspecial":
-                            global.__winel[w, 48] = _copyto
-                            break;
-                        case "extrawindow":
-                        case "onextrawindow":
-                            global.__winel[w, 49] = _copyto
-                            break;
-                        case "unextrawindow":
-                        case "onunextrawindow":
-                            global.__winel[w, 50] = _copyto
-                            break;
-                        case "onerror":
-                        case "error":
-                            global.__winel[w, 51] = _copyto
-                            break;
-                        case "onunerror":
-                        case "unerror":
-                            global.__winel[w, 69] = _copyto
-                            break;
-                        default:
-                            show_error("Unknown parameter name '" + t_paramname + "'", global.__xwindow_error_type);
-                            break;
-                    }
-                }
-            }else{
-                show_error("Unexpected token ','", global.__xwindow_error_type);
-            }
-            
-            if(char == "]")
-            {
-                location = tloc_paramname;
-                t_paramname = "";
-                t_paramvalue = "";
-            }
-            break;
-        default:
-            switch(location)
-            {
-                case tloc_tagname:
-                    t_name += char;
-                    break;
-                case tloc_paramname:
-                    t_paramname += char;
-                    break;
-                case tloc_paramval:
-                    t_paramvalue += char;
-                    break;
-                case tloc_tagcontent:
-                    t_text += char;
-                    break;
-            }
-            break;
-    }
+	var char;
+	char = string_char_at(txt, i);
+	
+	if(char == chr(9))
+	{
+		char = "\\t";
+	}else if(char == chr(10) or char == chr(13))
+	{
+		_line_num += 1;
+		char = " "
+	}
+	switch(char)
+	{
+		case "<":
+			location = tloc_tagname;
+			_jo = 1;
+			_jc = 0;
+			break;
+		case ">":
+			if(_jo && location == tloc_tagname)
+			{
+				switch(t_name)
+				{
+					case "label":
+					case "button":
+						w = wle_create(el_label);
+						break;
+					case "canvas":
+						w = wle_create(el_canvas);
+						break;
+					case "container":
+						w = wle_create(el_container);
+						break;
+					case "textbox":
+						w = wle_create(el_textbox);
+						if(_txt_first == -1)
+						{
+							_txt_first = w;
+						}
+						
+						if(_txt_prev != -1)
+						{
+							global.__winel[_txt_prev, 92] = w;
+							global.__winel[_txt_prev, 93] = w;
+						}
+						_txt_prev = w;
+						break;
+					case "multielement":
+						w = wle_create(el_multielement);
+						break;
+					case "scrollbox":
+						w = wle_create(el_scrollbox);
+						break;
+					case "arrow":
+						w = wle_create(el_arrow);
+						break;
+					default:
+						show_error("Unknown tag name: '" + t_name + "' at line " + string(_line_num) + ": " + string_copy(txt, i - 3, 150) + " (" + string(location) + ")", global.__xwindow_error_type);
+						break;
+				}
+				
+				location = tloc_paramname;
+				t_paramname = "";
+				t_paramvalue = "";
+				global.__winel[w, 53] = t_name;
+			}
+			
+			if(_jc)
+			{
+				end_flag = 2;
+			}
+			
+			switch(location)
+			{
+				case tloc_paramname:
+					if(t_paramname != "")
+					{
+						show_error("GMWLS: Unfinished tagname " + t_name + " at position " + string(i) + " near parameter name " + t_paramname, global.__xwindow_error_type);
+					}else{
+						do_finish = true;
+					}
+					break;
+				case tloc_paramval:
+					//finish last parameter
+					show_error("GMWLS: Unfinished parameter " + t_name + " at position " + string(i) + " near parameter name " + t_paramname, global.__xwindow_error_type);
+					break;
+				case tloc_tagname:
+					do_finish = true;
+					break;
+			}
+			
+			if(end_flag == 1)
+			{
+				tagdepth -= 1;
+				var _name, _element;
+				_element = ds_stack_pop(l_stack);
+				_name = global.__winel[_element, 53];
+				
+				if tagdepth == 0 && argument3 != -1
+				{
+					wle_add(argument3, _element)
+				}
+				
+				if(_name != t_name)
+				{
+					show_error("GMWLS: Wrong closing tag for '" + _name + "': " + t_name + "' at line " + string(_line_num) + ": " + string_copy(txt, i - 3, 150) + " (" + string(location) + ")", global.__xwindow_error_type);
+				}
+				
+				while string_char_at(t_text, 1) == " "
+				{
+					t_text = string_copy(t_text, 2, string_length(t_text) - 1)
+				}
+				
+				if string_char_at(t_text, 1) == "@"
+				{
+					if(ds_map_exists(argument2, t_text))
+					{
+						t_text = ds_map_find_value(argument2, t_text);
+					}else{
+						show_error("Constant does not exist: " + t_text, global.__xwindow_error_type);
+					}
+				}else if string_length(t_text) >= 2 && string_char_at(t_text, 1) == "\\" && string_char_at(t_text, 2) == "@"
+				{
+					t_text = string_copy(t_text, 2, string_length(t_text) - 1)
+				}
+				
+				global.__winel[_element, 62] = t_text
+			}else if(end_flag == 0){
+				tagdepth += 1;
+				if(ds_stack_size(l_stack) > 0)
+				{
+					wle_add(ds_stack_top(l_stack), w)
+				}else{
+					_fos = w;
+				}
+				
+				ds_stack_push(l_stack, w)
+			}else if(end_flag == 2)
+			{
+				wle_add(ds_stack_top(l_stack), w);
+			}
+			
+			t_text = "";
+			t_name = "";
+			location = tloc_tagcontent;
+			
+			end_flag = 0;
+			break;
+		case "\\":
+			var _next;
+			_next = string_char_at(txt, i + 1);
+			if(_next == "<" or _next == ">" or _next == "/" or _next == "\\" or _next == "[" or _next == "]" or _next == ",")
+			{
+				switch(location)
+				{
+					case tloc_tagname:
+						t_name += _next;
+						break;
+					case tloc_paramname:
+						t_paramname += _next;
+						break;
+					case tloc_paramval:
+						t_paramvalue += _next;
+						break;
+					case tloc_tagcontent:
+						t_text += _next;
+						break;
+				}
+				i += 1;
+			}else{
+				switch(location)
+				{
+					case tloc_tagname:
+						t_name += char;
+						break;
+					case tloc_paramname:
+						t_paramname += char;
+						break;
+					case tloc_paramval:
+						t_paramvalue += char;
+						break;
+					case tloc_tagcontent:
+						t_text += char;
+						break;
+				}
+			}
+			break;
+		case " ":
+		case "\\t":
+			_jo = 0;
+			switch(location)
+			{
+				case tloc_tagname:
+					switch(t_name)
+					{
+						case "label":
+						case "button":
+							w = wle_create(el_label);
+							break;
+						case "canvas":
+							w = wle_create(el_canvas);
+							break;
+						case "container":
+							w = wle_create(el_container);
+							break;
+						case "textbox":
+							w = wle_create(el_textbox);
+							if(_txt_first == -1)
+							{
+								_txt_first = w;
+							}
+							
+							if(_txt_prev != -1)
+							{
+								global.__winel[_txt_prev, 92] = w;
+								global.__winel[_txt_prev, 93] = w;
+							}
+							_txt_prev = w;
+							break;
+						case "multielement":
+							w = wle_create(el_multielement);
+							break;
+						case "scrollbox":
+							w = wle_create(el_scrollbox);
+							break;
+						case "arrow":
+							w = wle_create(el_arrow);
+							break;
+						default:
+							show_error("Unknown tag name: '" + t_name + "' at line " + string(_line_num) + ": " + string_copy(txt, i - 3, 100) + " (" + string(location) + ")", global.__xwindow_error_type);
+							break;
+					}
+					
+					location = tloc_paramname;
+					t_paramname = "";
+					t_paramvalue = "";
+					global.__winel[w, 53] = t_name;
+					break;
+				case tloc_tagcontent:
+					t_text += char;
+					break;
+			}
+			break;
+		case "/":
+			if(_jo)
+			{
+				end_flag = 1;
+			}else
+			{
+				_jc = 1;
+			}
+			break;
+		case "[":
+			if(location == tloc_paramname)
+			{
+				location = tloc_paramval;
+			}else{
+				show_error("Unexpected token '['", global.__xwindow_error_type);
+			}
+			break;
+		case ",":
+		case "]":
+			if(location == tloc_paramval)
+			{
+				if(t_paramname == "style")
+				{
+					var __key, __map;
+					__map = wle_find_style(argument1, t_paramvalue)
+					__key = ds_map_find_first(__map);
+					while(!XGms_undef_ined(__key))
+					{
+						global.__winel[w, __key] = ds_map_find_value(__map, __key);
+						__key = ds_map_find_next(__map, __key);
+					}
+					
+					t_paramvalue = "";
+				}else if(t_paramname == "name")
+				{
+					global.__winel[w, 15] = t_paramvalue
+					t_paramvalue = ""
+				}else if(t_paramname == "property")
+				{
+					var _pos;
+					_pos = string_pos("=", t_paramvalue)
+					
+					wle_set(w, string_copy(t_paramvalue, 1, _pos - 1), 
+						wle_parse_value(string_copy(t_paramvalue, _pos + 1, string_length(t_paramvalue) - _pos), argument2))
+					t_paramvalue = ""
+				}else{
+					var _copyto, _source;
+					_source = wle_find_style(argument1, t_paramvalue)
+					_copyto = ds_map_create()
+					ds_map_copy(_copyto, _source)
+					
+					switch(t_paramname)
+					{
+						case "hover":
+							global.__winel[w, 43] = _copyto
+							break;
+						case "unhover":
+							global.__winel[w, 44] = _copyto
+							break;
+						case "onopen":
+						case "open":
+							global.__winel[w, 45] = _copyto
+							break;
+						case "onclose":
+						case "close":
+							global.__winel[w, 46] = _copyto
+							break;
+						case "onspecial":
+						case "special":
+							global.__winel[w, 47] = _copyto
+							break;
+						case "onunspecial":
+						case "unspecial":
+							global.__winel[w, 48] = _copyto
+							break;
+						case "extrawindow":
+						case "onextrawindow":
+							global.__winel[w, 49] = _copyto
+							break;
+						case "unextrawindow":
+						case "onunextrawindow":
+							global.__winel[w, 50] = _copyto
+							break;
+						case "onerror":
+						case "error":
+							global.__winel[w, 51] = _copyto
+							break;
+						case "onunerror":
+						case "unerror":
+							global.__winel[w, 69] = _copyto
+							break;
+						default:
+							show_error("Unknown parameter name '" + t_paramname + "'", global.__xwindow_error_type);
+							break;
+					}
+				}
+			}else{
+				show_error("Unexpected token ','", global.__xwindow_error_type);
+			}
+			
+			if(char == "]")
+			{
+				location = tloc_paramname;
+				t_paramname = "";
+				t_paramvalue = "";
+			}
+			break;
+		default:
+			switch(location)
+			{
+				case tloc_tagname:
+					t_name += char;
+					break;
+				case tloc_paramname:
+					t_paramname += char;
+					break;
+				case tloc_paramval:
+					t_paramvalue += char;
+					break;
+				case tloc_tagcontent:
+					t_text += char;
+					break;
+			}
+			break;
+	}
 }
 if(_txt_prev != -1 && _txt_first != -1)
 {
-    global.__winel[_txt_prev, 92] = _txt_first;
-    global.__winel[_txt_prev, 93] = -1;
+	global.__winel[_txt_prev, 92] = _txt_first;
+	global.__winel[_txt_prev, 93] = -1;
 }
 if(ds_stack_size(l_stack) == 0)
 {
-    ds_stack_destroy(l_stack);
-    return _fos;
+	ds_stack_destroy(l_stack);
+	return _fos;
 }
 var val;
 val = ds_stack_pop(l_stack)
@@ -9591,8 +9591,8 @@ l_pos1 = string_pos("<layout>", txt) + 8;
 l_pos2 = string_pos("</layout>", txt);
 var str_constants, str_preset, str_layout;
 str_constants   = string_copy(txt, c_pos1, c_pos2 - c_pos1);
-str_styles      = string_copy(txt, p_pos1, p_pos2 - p_pos1);
-str_layout      = string_copy(txt, l_pos1, l_pos2 - l_pos1);
+str_styles	  = string_copy(txt, p_pos1, p_pos2 - p_pos1);
+str_layout	  = string_copy(txt, l_pos1, l_pos2 - l_pos1);
 var data_c, data_p;
 data_c = wle_parse_valuelist(str_constants, global.__constant_map);
 //merge local & global constants
@@ -9601,8 +9601,8 @@ __map = global.__constant_map;
 __key = ds_map_find_first(__map);
 while(is_string(__key))
 {
-    ds_map_add(data_c, __key, ds_map_find_value(__map, __key));
-    __key = ds_map_find_next(__map, __key);
+	ds_map_add(data_c, __key, ds_map_find_value(__map, __key));
+	__key = ds_map_find_next(__map, __key);
 }
 data_p = ds_map_create();
 wle_parse_styles(str_styles, data_p, data_c);
@@ -9613,37 +9613,37 @@ ds_map_add(global.__stylemap, _ret, data_p)
 ds_map_add(global.__constantmap, _ret, data_c)
 if(global.__f_load && global.__f_title == -1)
 {
-    global.__f_title = fnt_gms_title;
-    draw_set_font(global.__f_title);
-    if(string_height(string_hash_to_newline("GameMaker Server")) <= 0)
-    {
-        global.__f_title = -1;
-        global.__f_load = false;
-    }
+	global.__f_title = fnt_gms_title;
+	draw_set_font(global.__f_title);
+	if(string_height(string_hash_to_newline("GameMaker Server")) <= 0)
+	{
+		global.__f_title = -1;
+		global.__f_load = false;
+	}
 }
 if(global.__f_load && global.__f_text == -1)
 {
-    global.__f_text = fnt_gms_text;
-    draw_set_font(global.__f_text);
-    if(string_height(string_hash_to_newline("GameMaker Server")) <= 0)
-    {
-        global.__f_text = -1;
-        global.__f_load = false;
-    }
+	global.__f_text = fnt_gms_text;
+	draw_set_font(global.__f_text);
+	if(string_height(string_hash_to_newline("GameMaker Server")) <= 0)
+	{
+		global.__f_text = -1;
+		global.__f_load = false;
+	}
 }
 if(global.__f_load && global.__f_small == -1)
 {
-    global.__f_small = fnt_gms_small;
-    draw_set_font(global.__f_small);
-    if(string_height(string_hash_to_newline("GameMaker Server")) <= 0)
-    {
-        global.__f_small = -1;
-        global.__f_load = false;
-    }
+	global.__f_small = fnt_gms_small;
+	draw_set_font(global.__f_small);
+	if(string_height(string_hash_to_newline("GameMaker Server")) <= 0)
+	{
+		global.__f_small = -1;
+		global.__f_load = false;
+	}
 }
 repeat(10)
 {
-    wle_position(_ret, 0, 0, room_width, room_height);
+	wle_position(_ret, 0, 0, room_width, room_height);
 }
 return _ret;
 }
@@ -9651,9 +9651,9 @@ return _ret;
 function wle_find_style(argument0, argument1) {
 if(ds_map_exists(argument0, argument1))
 {
-    return ds_map_find_value(argument0, argument1);
+	return ds_map_find_value(argument0, argument1);
 }else{
-    show_error("Undefined style name '" + argument1 + "'", global.__xwindow_error_type);
+	show_error("Undefined style name '" + argument1 + "'", global.__xwindow_error_type);
 }
 }
 
@@ -9663,25 +9663,25 @@ function wle_parse_styles(argument0, argument1, argument2) {
 Everything is parsed into a flat map:
 name1
 {
-    name2
-    {
-        
-    }
-    
-    parameter: Value;
+	name2
+	{
+		
+	}
+	
+	parameter: Value;
 }
 Results in:
 Map: <basemap>
 {
-    "name1" => WL element
-    {
-        "parameter" => Value
-    }
-    
-    "name1.name2" => WL element
-    {
-    
-    }
+	"name1" => WL element
+	{
+		"parameter" => Value
+	}
+	
+	"name1.name2" => WL element
+	{
+	
+	}
 }
 */
 var _pos, _strlen, _curname, _constants, _basename, _current_map, _map_stack, _str;
@@ -9695,97 +9695,97 @@ _name_stack = ds_stack_create();
 _current_map = -1;
 while _pos <= _strlen
 {
-    var _endpos, _substr, _endpos2;
-    _substr = string_copy(_str, _pos, _strlen - _pos);
-    _endpos = string_pos(":", _substr);
-    
-    _curname = string_copy(_substr, 1, _endpos - 1);
-    
-    if(string_char_at(_str, _pos + _endpos) == "{")
-    {
-        _pos += _endpos + 1;
-        
-        ds_stack_push(_map_stack, _current_map);
-        ds_stack_push(_name_stack, _basename);
-        if(_basename == "")
-        {
-            _basename += _curname;
-        }else{
-            _basename += "." + _curname;
-        }
-        
-        _current_map = ds_map_create();
-        ds_map_add(argument1, _basename, _current_map);
-    }else{
-        _endpos2 = string_pos(";", _substr);
-        _curval = string_copy(_substr, _endpos + 1, _endpos2 - _endpos - 1);
-        if(_current_map == -1)
-        {
-            show_error("Error while parsing styles: property '" + _curname + "' out of bounds: '" + string(argument0) + "'", global.__xwindow_error_type);
-        }
-        
-        if(_curname == "background" or _curname == "background-1" or _curname == "background-2" or _curname == "background-3" or _curname == "background-4")
-        {
-            if(!ds_map_exists(_current_map, "background-alpha"))
-            {
-                ds_map_add(_current_map, 24, 1.0);
-            }
-        }
-        
-        if(_curname == "background")
-        {
-            var _val;
-            _val = wle_parse_value(_curval, _constants);
-            ds_map_add(_current_map, 20, _val);
-            ds_map_add(_current_map, 21, _val);
-            ds_map_add(_current_map, 22, _val);
-            ds_map_add(_current_map, 23, _val);
-        }else if(_curname == "margin")
-        {
-            var _val;
-            _val = wle_parse_value(_curval, _constants);
-            ds_map_add(_current_map, 5, _val);
-            ds_map_add(_current_map, 6, _val);
-            ds_map_add(_current_map, 7, _val);
-            ds_map_add(_current_map, 8, _val);
-        }else if(_curname == "padding")
-        {
-            var _val;
-            _val = wle_parse_value(_curval, _constants);
-            ds_map_add(_current_map, 64, _val);
-            ds_map_add(_current_map, 65, _val);
-            ds_map_add(_current_map, 66, _val);
-            ds_map_add(_current_map, 67, _val);
-        }else{
-            var _hn;
-            _hn = ds_map_find_value(global.__hashmap, _curname);
-            if(_hn == 0)
-            {
-                show_error("Unknown parameter: " + string(_curname), global.__xwindow_error_type);
-            }else{
-                if ds_map_exists(_current_map, _hn)
-                {
-                    ds_map_replace(_current_map, _hn, wle_parse_value(_curval, _constants));
-                }else{
-                    ds_map_add(_current_map, _hn, wle_parse_value(_curval, _constants));
-                }
-            }
-        }
-        
-        _pos += _endpos2;
-    }
-    
-    while string_char_at(_str, _pos) == "}" && _pos <= _strlen
-    {
-        if(ds_stack_size(_name_stack) > 0 && ds_stack_size(_map_stack) > 0)
-        {
-            _current_map = ds_stack_pop(_map_stack);
-            _basename = ds_stack_pop(_name_stack);
-            _pos += 1;
-        }else{
-            show_error("Error while parsing styles: too many } at pos " + string(_pos) + " in code " + _str, global.__xwindow_error_type)
-        }
-    }
+	var _endpos, _substr, _endpos2;
+	_substr = string_copy(_str, _pos, _strlen - _pos);
+	_endpos = string_pos(":", _substr);
+	
+	_curname = string_copy(_substr, 1, _endpos - 1);
+	
+	if(string_char_at(_str, _pos + _endpos) == "{")
+	{
+		_pos += _endpos + 1;
+		
+		ds_stack_push(_map_stack, _current_map);
+		ds_stack_push(_name_stack, _basename);
+		if(_basename == "")
+		{
+			_basename += _curname;
+		}else{
+			_basename += "." + _curname;
+		}
+		
+		_current_map = ds_map_create();
+		ds_map_add(argument1, _basename, _current_map);
+	}else{
+		_endpos2 = string_pos(";", _substr);
+		_curval = string_copy(_substr, _endpos + 1, _endpos2 - _endpos - 1);
+		if(_current_map == -1)
+		{
+			show_error("Error while parsing styles: property '" + _curname + "' out of bounds: '" + string(argument0) + "'", global.__xwindow_error_type);
+		}
+		
+		if(_curname == "background" or _curname == "background-1" or _curname == "background-2" or _curname == "background-3" or _curname == "background-4")
+		{
+			if(!ds_map_exists(_current_map, "background-alpha"))
+			{
+				ds_map_add(_current_map, 24, 1.0);
+			}
+		}
+		
+		if(_curname == "background")
+		{
+			var _val;
+			_val = wle_parse_value(_curval, _constants);
+			ds_map_add(_current_map, 20, _val);
+			ds_map_add(_current_map, 21, _val);
+			ds_map_add(_current_map, 22, _val);
+			ds_map_add(_current_map, 23, _val);
+		}else if(_curname == "margin")
+		{
+			var _val;
+			_val = wle_parse_value(_curval, _constants);
+			ds_map_add(_current_map, 5, _val);
+			ds_map_add(_current_map, 6, _val);
+			ds_map_add(_current_map, 7, _val);
+			ds_map_add(_current_map, 8, _val);
+		}else if(_curname == "padding")
+		{
+			var _val;
+			_val = wle_parse_value(_curval, _constants);
+			ds_map_add(_current_map, 64, _val);
+			ds_map_add(_current_map, 65, _val);
+			ds_map_add(_current_map, 66, _val);
+			ds_map_add(_current_map, 67, _val);
+		}else{
+			var _hn;
+			_hn = ds_map_find_value(global.__hashmap, _curname);
+			if(_hn == 0)
+			{
+				show_error("Unknown parameter: " + string(_curname), global.__xwindow_error_type);
+			}else{
+				if ds_map_exists(_current_map, _hn)
+				{
+					ds_map_replace(_current_map, _hn, wle_parse_value(_curval, _constants));
+				}else{
+					ds_map_add(_current_map, _hn, wle_parse_value(_curval, _constants));
+				}
+			}
+		}
+		
+		_pos += _endpos2;
+	}
+	
+	while string_char_at(_str, _pos) == "}" && _pos <= _strlen
+	{
+		if(ds_stack_size(_name_stack) > 0 && ds_stack_size(_map_stack) > 0)
+		{
+			_current_map = ds_stack_pop(_map_stack);
+			_basename = ds_stack_pop(_name_stack);
+			_pos += 1;
+		}else{
+			show_error("Error while parsing styles: too many } at pos " + string(_pos) + " in code " + _str, global.__xwindow_error_type)
+		}
+	}
 }
 ds_stack_destroy(_map_stack);
 ds_stack_destroy(_name_stack);
@@ -9801,55 +9801,55 @@ var _m, _i;
 _m = global.__winel[argument0, 0];
 if _m != -1
 {
-    for(_i = 0; _i < ds_list_size(_m); _i += 1)
-    {
-        wle_destroy(ds_list_find_value(_m, _i), false);
-    }
-    if(argument1)
-    {
-        ds_list_clear(_m)
-    }else{
-        ds_list_destroy(_m)
-    }
+	for(_i = 0; _i < ds_list_size(_m); _i += 1)
+	{
+		wle_destroy(ds_list_find_value(_m, _i), false);
+	}
+	if(argument1)
+	{
+		ds_list_clear(_m)
+	}else{
+		ds_list_destroy(_m)
+	}
 }
 if !argument1
 {
-    if(global.__winel[argument0, 37] != -1) wle_destroy_internal(global.__winel[argument0, 37]);
-    if(global.__winel[argument0, 38] != -1) wle_destroy_internal(global.__winel[argument0, 38]);
-    if(global.__winel[argument0, 43] != -1) ds_map_destroy(global.__winel[argument0, 43]);
-    if(global.__winel[argument0, 44] != -1) ds_map_destroy(global.__winel[argument0, 44]);
-    if(global.__winel[argument0, 45] != -1) ds_map_destroy(global.__winel[argument0, 45]);
-    if(global.__winel[argument0, 46] != -1) ds_map_destroy(global.__winel[argument0, 46]);
-    if(global.__winel[argument0, 47] != -1) ds_map_destroy(global.__winel[argument0, 47]);
-    if(global.__winel[argument0, 48] != -1) ds_map_destroy(global.__winel[argument0, 48]);
-    if(global.__winel[argument0, 49] != -1) ds_map_destroy(global.__winel[argument0, 49]);
-    if(global.__winel[argument0, 50] != -1) ds_map_destroy(global.__winel[argument0, 50]);
-    if(global.__winel[argument0, 51] != -1) ds_map_destroy(global.__winel[argument0, 51]);
-    if(global.__winel[argument0, 69] != -1) ds_map_destroy(global.__winel[argument0, 69]);
-    
-    wle_destroy_internal(argument0)
-    
-    var __el, _m;
-    if ds_map_exists(global.__constantmap, argument0)
-    {
-        _m = ds_map_find_value(global.__constantmap, argument0)
-        ds_map_delete(global.__constantmap, argument0)
-        ds_map_destroy(_m)
-    }
-    
-    if ds_map_exists(global.__stylemap, argument0)
-    {
-        _m = ds_map_find_value(global.__stylemap, argument0)
-        __el = ds_map_find_first(_m)
-        while !XGms_undef_ined(__el)
-        {
-            ds_map_destroy(ds_map_find_value(_m, __el))
-            __el = ds_map_find_next(_m, __el)
-        }
-        
-        ds_map_destroy(_m)
-        ds_map_delete(global.__stylemap, argument0)
-    }
+	if(global.__winel[argument0, 37] != -1) wle_destroy_internal(global.__winel[argument0, 37]);
+	if(global.__winel[argument0, 38] != -1) wle_destroy_internal(global.__winel[argument0, 38]);
+	if(global.__winel[argument0, 43] != -1) ds_map_destroy(global.__winel[argument0, 43]);
+	if(global.__winel[argument0, 44] != -1) ds_map_destroy(global.__winel[argument0, 44]);
+	if(global.__winel[argument0, 45] != -1) ds_map_destroy(global.__winel[argument0, 45]);
+	if(global.__winel[argument0, 46] != -1) ds_map_destroy(global.__winel[argument0, 46]);
+	if(global.__winel[argument0, 47] != -1) ds_map_destroy(global.__winel[argument0, 47]);
+	if(global.__winel[argument0, 48] != -1) ds_map_destroy(global.__winel[argument0, 48]);
+	if(global.__winel[argument0, 49] != -1) ds_map_destroy(global.__winel[argument0, 49]);
+	if(global.__winel[argument0, 50] != -1) ds_map_destroy(global.__winel[argument0, 50]);
+	if(global.__winel[argument0, 51] != -1) ds_map_destroy(global.__winel[argument0, 51]);
+	if(global.__winel[argument0, 69] != -1) ds_map_destroy(global.__winel[argument0, 69]);
+	
+	wle_destroy_internal(argument0)
+	
+	var __el, _m;
+	if ds_map_exists(global.__constantmap, argument0)
+	{
+		_m = ds_map_find_value(global.__constantmap, argument0)
+		ds_map_delete(global.__constantmap, argument0)
+		ds_map_destroy(_m)
+	}
+	
+	if ds_map_exists(global.__stylemap, argument0)
+	{
+		_m = ds_map_find_value(global.__stylemap, argument0)
+		__el = ds_map_find_first(_m)
+		while !XGms_undef_ined(__el)
+		{
+			ds_map_destroy(ds_map_find_value(_m, __el))
+			__el = ds_map_find_next(_m, __el)
+		}
+		
+		ds_map_destroy(_m)
+		ds_map_delete(global.__stylemap, argument0)
+	}
 }
 }
 
@@ -9861,18 +9861,18 @@ function wle_focus(argument0) {
 global.__focus_item = argument0;
 if(global.__kb_when_tb)
 {
-    gms_show_keyboard();
+	gms_show_keyboard();
 }
 }
 
 function wle_textbox_select_all(argument0) {
 if(argument0 != -1)
 {
-    var __txt;
-    wle_focus(argument0);
-    __txt  = global.__winel[argument0, 62];
-    global.__winel[argument0, 74] = 1;
-    global.__winel[argument0, 75] = string_length(__txt) + 1;
+	var __txt;
+	wle_focus(argument0);
+	__txt  = global.__winel[argument0, 62];
+	global.__winel[argument0, 74] = 1;
+	global.__winel[argument0, 75] = string_length(__txt) + 1;
 }
 }
 
@@ -9882,12 +9882,12 @@ function wle_find(argument0, argument1)
 	// CHANGED
 	if(argument0 >= 0)
 	{
-	    if(global.__winel[argument0, 15] == argument1)
-	        return argument0;
+		if(global.__winel[argument0, 15] == argument1)
+			return argument0;
 		else
 		{
-	        var m, i;
-	        m = global.__winel[argument0, 0];
+			var m, i;
+			m = global.__winel[argument0, 0];
 			
 			// failsafe
 			if !ds_exists(m, ds_type_list)
@@ -9896,16 +9896,16 @@ function wle_find(argument0, argument1)
 				return argument0;
 			}
 			
-	        for(i = 0; i < ds_list_size(m); i += 1)
-	        {
-	            var result;
-	            result = wle_find(ds_list_find_value(m, i), argument1);
-	            if(result != -1)
-	            {
-	                return result;
-	            }
-	        }
-	    }
+			for(i = 0; i < ds_list_size(m); i += 1)
+			{
+				var result;
+				result = wle_find(ds_list_find_value(m, i), argument1);
+				if(result != -1)
+				{
+					return result;
+				}
+			}
+		}
 	}
 	return -1;
 }
@@ -9921,18 +9921,18 @@ wle_perform(argument0, 45, true);
 function wle_get(argument0, argument1) {
 if(ds_map_exists(global.__hashmap, argument1))
 {
-    return global.__winel[argument0, ds_map_find_value(global.__hashmap, argument1)];
+	return global.__winel[argument0, ds_map_find_value(global.__hashmap, argument1)];
 }else{
-    show_error("Trying to access element " + argument1, true)
+	show_error("Trying to access element " + argument1, true)
 }
 }
 
 function wle_set(argument0, argument1, argument2) {
 if(ds_map_exists(global.__hashmap, argument1))
 {
-    global.__winel[argument0, ds_map_find_value(global.__hashmap, argument1)] = argument2;
+	global.__winel[argument0, ds_map_find_value(global.__hashmap, argument1)] = argument2;
 }else{
-    show_error("Trying to access element " + argument1, true)
+	show_error("Trying to access element " + argument1, true)
 }
 }
 
@@ -9948,7 +9948,7 @@ global.__event_queue_ev = ds_queue_create()
 global.__xwindow_error_type = true;
 global.__xmessage_queue = ds_queue_create();
 global.__handler_remap = -1;
-global.__constant_map      = ds_map_create();
+global.__constant_map	  = ds_map_create();
 ds_map_add(global.__constant_map, "@c_fault_color", c_red);
 ds_map_add(global.__constant_map, "@c_good_color", c_green);
 ds_map_add(global.__constant_map, "@c_hover_color", $999999);
@@ -9993,10 +9993,10 @@ ds_map_add(global.__constant_map, "@txt_friends", "Friends");
 ds_map_add(global.__constant_map, "@txt_online", "online");
 ds_map_add(global.__constant_map, "@txt_offline", "offline");
 ds_map_add(global.__constant_map, "@txt_achievement_get", "Achievement get");
-global.__tab_pressed       = 0;
-global.__kb_when_tb        = 0;
-global.__tween_factor      = 1;//Normal: 1
-global.__el_list           = ds_list_create();
+global.__tab_pressed	   = 0;
+global.__kb_when_tb		= 0;
+global.__tween_factor	  = 1;//Normal: 1
+global.__el_list		   = ds_list_create();
 global.__wincache_counter  = 0;
 global.__poscache_counter  = 0;
 //Login
@@ -10274,13 +10274,13 @@ function wle_copy(argument0, argument1) {
 var _i;
 for(_i = 1; _i <= 109; _i += 1)
 {
-    if(_i == wle_hashname("animate")) continue;
-    if(_i >= 74 && _i <= 93) continue;
-    if(_i == 59) continue;
-    //if(_i == wle_hashname("animate")) continue;
-    //if(_i == wle_hashname("animate")) continue;
-    //if(_i == wle_hashname("animate")) continue;
-    global.__winel[argument0, _i] = global.__winel[argument1, _i];
+	if(_i == wle_hashname("animate")) continue;
+	if(_i >= 74 && _i <= 93) continue;
+	if(_i == 59) continue;
+	//if(_i == wle_hashname("animate")) continue;
+	//if(_i == wle_hashname("animate")) continue;
+	//if(_i == wle_hashname("animate")) continue;
+	global.__winel[argument0, _i] = global.__winel[argument1, _i];
 }
 }
 
@@ -10288,16 +10288,16 @@ function wle_create(argument0) {
 var _el;
 if(ds_stack_size(global.__winstack) > 0)
 {
-    _el = ds_stack_pop(global.__winstack);
+	_el = ds_stack_pop(global.__winstack);
 }else{
-    _el = global.__wincounter;
-    global.__wincounter += 1;
+	_el = global.__wincounter;
+	global.__wincounter += 1;
 }
 if(argument0 != -1)
 {
-    global.__winel[_el, 0] = ds_list_create();//Element name: "children"
+	global.__winel[_el, 0] = ds_list_create();//Element name: "children"
 }else{
-    global.__winel[_el, 0] = -1;//Element name: "children"
+	global.__winel[_el, 0] = -1;//Element name: "children"
 }
 global.__winel[_el, 106] = 65535;//Element name: "render-max-height"
 global.__winel[_el, 1] = 0;//Element name: "x1"
@@ -10314,11 +10314,11 @@ global.__winel[_el, 11] = 0;//Element name: "content-w"
 global.__winel[_el, 12] = 0;//Element name: "content-h"
 if argument0 == el_canvas or argument0 == el_container or argument0 == el_multielement
 {
-    global.__winel[_el, 13] = sz_max;//Element name: "width"
-    global.__winel[_el, 14] = sz_max;//Element name: "height"
+	global.__winel[_el, 13] = sz_max;//Element name: "width"
+	global.__winel[_el, 14] = sz_max;//Element name: "height"
 }else{
-    global.__winel[_el, 13] = sz_min;//Element name: "width"
-    global.__winel[_el, 14] = sz_min;//Element name: "height"
+	global.__winel[_el, 13] = sz_min;//Element name: "width"
+	global.__winel[_el, 14] = sz_min;//Element name: "height"
 }
 global.__winel[_el, 15] = "";//Element name: "name"
 global.__winel[_el, 16] = 0;//UNUSED
@@ -10422,20 +10422,20 @@ function wle_register_event(argument0, argument1) {
  
 if(global.__winel[argument0, 73]) 
 {
-    
+	
 }else{
-    if global.__handler_remap != -1 && script_exists(global.__handler_remap)
-    {
-        //script can return false to block the event queue from being used
-        if script_execute(global.__handler_remap, argument0, argument1)
-        {
-            ds_queue_enqueue(global.__event_queue_el, argument0)
-            ds_queue_enqueue(global.__event_queue_ev, argument1)
-        }
-    }else{
-        ds_queue_enqueue(global.__event_queue_el, argument0)
-        ds_queue_enqueue(global.__event_queue_ev, argument1)
-    }
+	if global.__handler_remap != -1 && script_exists(global.__handler_remap)
+	{
+		//script can return false to block the event queue from being used
+		if script_execute(global.__handler_remap, argument0, argument1)
+		{
+			ds_queue_enqueue(global.__event_queue_el, argument0)
+			ds_queue_enqueue(global.__event_queue_ev, argument1)
+		}
+	}else{
+		ds_queue_enqueue(global.__event_queue_el, argument0)
+		ds_queue_enqueue(global.__event_queue_ev, argument1)
+	}
 }
 }
 
@@ -10446,9 +10446,9 @@ global.__handler_remap = argument0;
 function wle_set_constant(argument0, argument1) {
 if ds_map_exists(global.__constant_map, "@" + string(argument0))
 {
-    ds_map_replace(global.__constant_map, "@" + string(argument0), argument1);
+	ds_map_replace(global.__constant_map, "@" + string(argument0), argument1);
 }else{
-    ds_map_add(global.__constant_map, "@" + string(argument0), argument1);
+	ds_map_add(global.__constant_map, "@" + string(argument0), argument1);
 }
 }
 
@@ -10472,7 +10472,7 @@ ds_queue_dequeue(global.__event_queue_ev)
 function wle_get_styledata(argument0) {
 if ds_map_exists(global.__stylemap, argument0)
 {
-    return ds_map_find_value(global.__stylemap, argument0)
+	return ds_map_find_value(global.__stylemap, argument0)
 }
 return -1;
 }
@@ -10480,7 +10480,7 @@ return -1;
 function wle_get_constantdata(argument0) {
 if ds_map_exists(global.__constantmap, argument0)
 {
-    return ds_map_find_value(global.__constantmap, argument0)
+	return ds_map_find_value(global.__constantmap, argument0)
 }
 return -1;
 }
@@ -10497,41 +10497,41 @@ _hor_padding = global.__winel[argument0, 64] + global.__winel[argument0, 65]
 _ver_padding = global.__winel[argument0, 66] + global.__winel[argument0, 67]
 switch(round(argument1))
 {
-    case sz_min:
-        global.__winel[argument0, 103] = argument3 + _hor_padding;
-        global.__winel[argument0, 104] = argument3 + _hor_padding;
-        break;
-    case sz_max:
-        global.__winel[argument0, 103] = argument3 + _hor_padding;
-        global.__winel[argument0, 104] = 65535;
-        break;
-    case sz_preferred:
-        global.__winel[argument0, 103] = global.__winel[argument0, 57] + _hor_padding;
-        global.__winel[argument0, 104] = global.__winel[argument0, 55] + _hor_padding;
-        break;
-    default:
-        global.__winel[argument0, 103] = argument1 + _hor_padding;
-        global.__winel[argument0, 104] = argument1 + _hor_padding;
-        break;
+	case sz_min:
+		global.__winel[argument0, 103] = argument3 + _hor_padding;
+		global.__winel[argument0, 104] = argument3 + _hor_padding;
+		break;
+	case sz_max:
+		global.__winel[argument0, 103] = argument3 + _hor_padding;
+		global.__winel[argument0, 104] = 65535;
+		break;
+	case sz_preferred:
+		global.__winel[argument0, 103] = global.__winel[argument0, 57] + _hor_padding;
+		global.__winel[argument0, 104] = global.__winel[argument0, 55] + _hor_padding;
+		break;
+	default:
+		global.__winel[argument0, 103] = argument1 + _hor_padding;
+		global.__winel[argument0, 104] = argument1 + _hor_padding;
+		break;
 }
 switch(round(argument2))
 {
-    case sz_min:
-        global.__winel[argument0, 105] = argument4 + _ver_padding;
-        global.__winel[argument0, 106] = argument4 + _ver_padding;
-        break;
-    case sz_max:
-        global.__winel[argument0, 105] = argument4 + _ver_padding;
-        global.__winel[argument0, 106] = 65535;
-        break;
-    case sz_preferred:
-        global.__winel[argument0, 105] = global.__winel[argument0, 58] + _ver_padding;
-        global.__winel[argument0, 106] = global.__winel[argument0, 56] + _ver_padding;
-        break;
-    default:
-        global.__winel[argument0, 105] = argument2 + _ver_padding;
-        global.__winel[argument0, 106] = argument2 + _ver_padding;
-        break;
+	case sz_min:
+		global.__winel[argument0, 105] = argument4 + _ver_padding;
+		global.__winel[argument0, 106] = argument4 + _ver_padding;
+		break;
+	case sz_max:
+		global.__winel[argument0, 105] = argument4 + _ver_padding;
+		global.__winel[argument0, 106] = 65535;
+		break;
+	case sz_preferred:
+		global.__winel[argument0, 105] = global.__winel[argument0, 58] + _ver_padding;
+		global.__winel[argument0, 106] = global.__winel[argument0, 56] + _ver_padding;
+		break;
+	default:
+		global.__winel[argument0, 105] = argument2 + _ver_padding;
+		global.__winel[argument0, 106] = argument2 + _ver_padding;
+		break;
 }
 }
 
@@ -10544,46 +10544,46 @@ function wle_element_position(argument0, argument1, argument2, argument3, argume
 //
 if argument7 or !global.__winel[argument0, 36]
 {
-    var _xoff, _yoff, _result;
-    _xoff = global.__winel[argument0, 9] * room_width;
-    _yoff = global.__winel[argument0, 10] * room_height;
-    _result = 0;
-    
-    if(global.__winel[argument0, 72])
-    {
-        var _mx, _my;
-        _mx = (argument1 + argument3) / 2;
-        _my = (argument2 + argument4) / 2;
-        
-        global.__winel[argument0, 2] = _my + _yoff - argument6 / 2;
-        global.__winel[argument0, 4] = _my + _yoff + argument6 / 2;
-        global.__winel[argument0, 1] = _mx + _xoff - argument5 / 2;
-        global.__winel[argument0, 3] = _mx + _xoff + argument5 / 2;
-    }else{
-        if(global.__winel[argument0, 19])
-        {
-            global.__winel[argument0, 1] = argument3 + _xoff - argument5;
-            global.__winel[argument0, 3] = argument3 + _xoff;
-        }else{
-            global.__winel[argument0, 1] = argument1 + _xoff;
-            global.__winel[argument0, 3] = argument1 + _xoff + argument5;
-            _result |= 1
-        }
-        
-        if(global.__winel[argument0, 18])
-        {
-            global.__winel[argument0, 2] = argument4 + _yoff - argument6;
-            global.__winel[argument0, 4] = argument4 + _yoff;
-        }else{
-            global.__winel[argument0, 2] = argument2 + _yoff;
-            global.__winel[argument0, 4] = argument2 + _yoff + argument6;
-            _result |= 2
-        }
-    }
-    
-    return _result
+	var _xoff, _yoff, _result;
+	_xoff = global.__winel[argument0, 9] * room_width;
+	_yoff = global.__winel[argument0, 10] * room_height;
+	_result = 0;
+	
+	if(global.__winel[argument0, 72])
+	{
+		var _mx, _my;
+		_mx = (argument1 + argument3) / 2;
+		_my = (argument2 + argument4) / 2;
+		
+		global.__winel[argument0, 2] = _my + _yoff - argument6 / 2;
+		global.__winel[argument0, 4] = _my + _yoff + argument6 / 2;
+		global.__winel[argument0, 1] = _mx + _xoff - argument5 / 2;
+		global.__winel[argument0, 3] = _mx + _xoff + argument5 / 2;
+	}else{
+		if(global.__winel[argument0, 19])
+		{
+			global.__winel[argument0, 1] = argument3 + _xoff - argument5;
+			global.__winel[argument0, 3] = argument3 + _xoff;
+		}else{
+			global.__winel[argument0, 1] = argument1 + _xoff;
+			global.__winel[argument0, 3] = argument1 + _xoff + argument5;
+			_result |= 1
+		}
+		
+		if(global.__winel[argument0, 18])
+		{
+			global.__winel[argument0, 2] = argument4 + _yoff - argument6;
+			global.__winel[argument0, 4] = argument4 + _yoff;
+		}else{
+			global.__winel[argument0, 2] = argument2 + _yoff;
+			global.__winel[argument0, 4] = argument2 + _yoff + argument6;
+			_result |= 2
+		}
+	}
+	
+	return _result
 }else{
-    return (!global.__winel[argument0, 19]) | ((!global.__winel[argument0, 18]) << 1);
+	return (!global.__winel[argument0, 19]) | ((!global.__winel[argument0, 18]) << 1);
 }
 }
 
@@ -10597,15 +10597,15 @@ var _el;
 _el = ds_list_find_value(argument0, argument1)
 if global.__winel[_el, 36] 
 { 
-    switch argument2
-    { 
-        case 1:
-            return global.__winel[_el, 37]
-        case 2:
-            return global.__winel[_el, 38]
-        default:
-            return _el
-    } 
+	switch argument2
+	{ 
+		case 1:
+			return global.__winel[_el, 37]
+		case 2:
+			return global.__winel[_el, 38]
+		default:
+			return _el
+	} 
 }
 return _el
 }
@@ -10657,30 +10657,30 @@ var _;for(var i=750;i>351;i--){_[i]=$0000}_[0]=$428a;_[1]=$2f98;_[2]=$d728;_[3]=
 function gms_instance_sync_var_add() {
 if(!is_string(argument[0]))
 {
-    XServer_error("gms_instance_sync_var_add: Expected argument 1 to be a string. Please note variable names should be written with quotes.");
-    exit
+	XServer_error("gms_instance_sync_var_add: Expected argument 1 to be a string. Please note variable names should be written with quotes.");
+	exit
 }
 if(global.__instanceVarC > 13)
 {
-    XServer_error("You cannot sync more than 13 variables!");
-    exit;
+	XServer_error("You cannot sync more than 13 variables!");
+	exit;
 }else{
-    var __prec;
-    if(argument_count == 3)
-    {
-        __prec = argument[2];
-    }else{
-        __prec = 0.01;
-    }
-    
-    ds_map_add(global.__variable_map, string(argument[0]), argument[1])
-    
-    if(is_real(argument[1]))
-    {
-        XServer_instance_sync_set_variable_real(global.__instanceVarC, string(argument[0]), argument[1], __prec);
-    }else{
-        XServer_instance_sync_set_variable_string(global.__instanceVarC, string(argument[0]), argument[1], __prec);
-    }
+	var __prec;
+	if(argument_count == 3)
+	{
+		__prec = argument[2];
+	}else{
+		__prec = 0.01;
+	}
+	
+	ds_map_add(global.__variable_map, string(argument[0]), argument[1])
+	
+	if(is_real(argument[1]))
+	{
+		XServer_instance_sync_set_variable_real(global.__instanceVarC, string(argument[0]), argument[1], __prec);
+	}else{
+		XServer_instance_sync_set_variable_string(global.__instanceVarC, string(argument[0]), argument[1], __prec);
+	}
 }
 global.__instanceVarC += 1;
 }
@@ -10691,73 +10691,73 @@ XServer_verify();
 var __current_room;
 if(global.__script_room != -1 && script_exists(global.__script_room))
 {
-    __current_room = script_execute(global.__script_room);
+	__current_room = script_execute(global.__script_room);
 }else{
-    __current_room = room;
+	__current_room = room;
 }
 if(!is_real(argument[0]))
 {
-    XServer_error("gms_instance_sync: Got a string as instance (argument 0), but it should be a real.")
-    exit
+	XServer_error("gms_instance_sync: Got a string as instance (argument 0), but it should be a real.")
+	exit
 }
 if(!is_real(argument[1]))
 {
-    XServer_error("gms_instance_sync: Expected the second argument to be a real, but got a string.")
-    exit
+	XServer_error("gms_instance_sync: Expected the second argument to be a real, but got a string.")
+	exit
 }
 if(instance_exists(argument[0]) && global.__can_sync)
 {
-    for(__i = 2; __i < argument_count; __i += 1)
-    {
-        var __var_value;
-        with(argument[0])
-        {
-            __var_value = XServer_variable_local_get(argument[other.__i]);
-        }
-        
-        gms_instance_sync_var_add(argument[__i], __var_value, 0.01);
-    }
-    
-    if(argument[1] & 4 && argument[1] & 2 && argument[1] & 1)
-    {
-        //Full instance sync
-        sID = XServer_instance_sync_full(argument[1] & 8, argument[0], argument[0].object_index, argument[0].x, argument[0].y, argument[0].direction, argument[0].speed, __current_room);
-        //Add to tracking list
-        ds_list_add(global.__instanceTrackList, argument[0]);
-    }else if(argument[1] & 2 && argument[1] & 1)
-    {
-        //Extended OneTime instance sync
-        sID = XServer_instance_sync_ext(argument[1] & 8, argument[0], argument[0].object_index, argument[0].x, argument[0].y, argument[0].direction, argument[0].speed, __current_room);
-    }else
-    if(argument[1] & 1)
-    {
-        //OneTime instance sync
-        XServer_instance_sync_once(argument[1] & 8, argument[0], argument[0].object_index, argument[0].x, argument[0].y, argument[0].direction, argument[0].speed);
-        sID = -1;
-    }else{
-        XServer_error("gms_instance_sync: Invalid second argument. The argument should be is_onetime, is_extended, or is_full");
-        exit;
-    }
-    if(argument[1] & 2)
-    {
-        //Add to instance list (Destroy list)
-        ds_list_add(global.__instanceList, argument[0]);
-    }
-    if(sID != -1)
-    {
-        argument[0].syncID = sID;
-    }
-    
-    argument[0].variable_map = global.__variable_map
-    with(argument[0])
-    {
-        __iself_last_x        = x
-        __iself_last_y        = y
-        owner = gms_self_playerid();
-        event_user(12);
-    }
-    
-    ds_map_clear(global.__variable_map)
+	for(__i = 2; __i < argument_count; __i += 1)
+	{
+		var __var_value;
+		with(argument[0])
+		{
+			__var_value = XServer_variable_local_get(argument[other.__i]);
+		}
+		
+		gms_instance_sync_var_add(argument[__i], __var_value, 0.01);
+	}
+	
+	if(argument[1] & 4 && argument[1] & 2 && argument[1] & 1)
+	{
+		//Full instance sync
+		sID = XServer_instance_sync_full(argument[1] & 8, argument[0], argument[0].object_index, argument[0].x, argument[0].y, argument[0].direction, argument[0].speed, __current_room);
+		//Add to tracking list
+		ds_list_add(global.__instanceTrackList, argument[0]);
+	}else if(argument[1] & 2 && argument[1] & 1)
+	{
+		//Extended OneTime instance sync
+		sID = XServer_instance_sync_ext(argument[1] & 8, argument[0], argument[0].object_index, argument[0].x, argument[0].y, argument[0].direction, argument[0].speed, __current_room);
+	}else
+	if(argument[1] & 1)
+	{
+		//OneTime instance sync
+		XServer_instance_sync_once(argument[1] & 8, argument[0], argument[0].object_index, argument[0].x, argument[0].y, argument[0].direction, argument[0].speed);
+		sID = -1;
+	}else{
+		XServer_error("gms_instance_sync: Invalid second argument. The argument should be is_onetime, is_extended, or is_full");
+		exit;
+	}
+	if(argument[1] & 2)
+	{
+		//Add to instance list (Destroy list)
+		ds_list_add(global.__instanceList, argument[0]);
+	}
+	if(sID != -1)
+	{
+		argument[0].syncID = sID;
+	}
+	
+	argument[0].variable_map = global.__variable_map
+	with(argument[0])
+	{
+		__iself_last_x		= x
+		__iself_last_y		= y
+		owner = gms_self_playerid();
+		event_user(12);
+	}
+	
+	ds_map_clear(global.__variable_map)
 }
 global.__instanceVarC = 0
 }
@@ -10771,12 +10771,12 @@ function gms_p2p_send() {
 XServer_verify();
 for(i = 2; i < argument_count; i += 1)
 {
-    if(is_real(argument[i]))
-    {
-        XServer_p2p_set_real(i-2, argument[i]);
-    }else{
-        XServer_p2p_set_string(i-2, argument[i]);
-    }
+	if(is_real(argument[i]))
+	{
+		XServer_p2p_set_real(i-2, argument[i]);
+	}else{
+		XServer_p2p_set_string(i-2, argument[i]);
+	}
 }
 XServer_p2p_send(argument[0], argument[1]);
 }
@@ -10785,12 +10785,12 @@ function gms_trusted_transaction() {
 XServer_verify();
 for(i = 1; i < argument_count; i += 1)
 {
-    if(is_real(argument[i]))
-    {
-        XGms_trusted_transaction_set_real(i-1, argument[i]);
-    }else{
-        XGms_trusted_transaction_set_string(i-1, argument[i]);
-    }
+	if(is_real(argument[i]))
+	{
+		XGms_trusted_transaction_set_real(i-1, argument[i]);
+	}else{
+		XGms_trusted_transaction_set_string(i-1, argument[i]);
+	}
 }
 XGms_trusted_transaction_send(argument[0]);
 }
@@ -10806,43 +10806,43 @@ XServer_init();
 global.__obj = argument0;
 if(!object_get_persistent(argument0))
 {
-    show_error("gms_init(): The GameMaker Server-object should be persistent.", true);
+	show_error("gms_init(): The GameMaker Server-object should be persistent.", true);
 }
 }
 
 function XServer_send(argument0) {
 var pos = buffer_tell(_b) + 1;
-    //show_debug_message("Bytes to send: " + string(pos) + " @ position " + string(buffer_tell(global.__send_buffer)))
+	//show_debug_message("Bytes to send: " + string(pos) + " @ position " + string(buffer_tell(global.__send_buffer)))
 if(pos >= 128)
 {
-    if(pos >= 16384)
-    {
-        if(pos >= 2097152)
-        {
-            buffer_write(global.__send_buffer, buffer_u8, (pos << 1) | 1);
-            buffer_write(global.__send_buffer, buffer_u8, (pos >> 6) | 1);
-            buffer_write(global.__send_buffer, buffer_u8, (pos >> 13) | 1);
-            buffer_write(global.__send_buffer, buffer_u8, (pos >> 20) & $FE);
-        }else{
-            buffer_write(global.__send_buffer, buffer_u8, (pos << 1) | 1);
-            buffer_write(global.__send_buffer, buffer_u8, (pos >> 6) | 1);
-            buffer_write(global.__send_buffer, buffer_u8, (pos >> 13) & $FE);
-        }
-    }else{
-        buffer_write(global.__send_buffer, buffer_u8, (pos << 1) | 1);
-        buffer_write(global.__send_buffer, buffer_u8, (pos >> 6) & $FE);
-    }
+	if(pos >= 16384)
+	{
+		if(pos >= 2097152)
+		{
+			buffer_write(global.__send_buffer, buffer_u8, (pos << 1) | 1);
+			buffer_write(global.__send_buffer, buffer_u8, (pos >> 6) | 1);
+			buffer_write(global.__send_buffer, buffer_u8, (pos >> 13) | 1);
+			buffer_write(global.__send_buffer, buffer_u8, (pos >> 20) & $FE);
+		}else{
+			buffer_write(global.__send_buffer, buffer_u8, (pos << 1) | 1);
+			buffer_write(global.__send_buffer, buffer_u8, (pos >> 6) | 1);
+			buffer_write(global.__send_buffer, buffer_u8, (pos >> 13) & $FE);
+		}
+	}else{
+		buffer_write(global.__send_buffer, buffer_u8, (pos << 1) | 1);
+		buffer_write(global.__send_buffer, buffer_u8, (pos >> 6) & $FE);
+	}
 }else{
-    buffer_write(global.__send_buffer, buffer_u8, pos << 1);
+	buffer_write(global.__send_buffer, buffer_u8, pos << 1);
 }
 buffer_write(global.__send_buffer, buffer_u8, argument0);
 while(buffer_tell(global.__send_buffer) + buffer_tell(_b) >= buffer_get_size(global.__send_buffer) - 1)
 {
-    buffer_resize(global.__send_buffer, buffer_get_size(global.__send_buffer) * 2);
+	buffer_resize(global.__send_buffer, buffer_get_size(global.__send_buffer) * 2);
 }
 if pos - 1 > 0
 {
-    buffer_copy(_b, 0, pos - 1, global.__send_buffer, buffer_tell(global.__send_buffer));
+	buffer_copy(_b, 0, pos - 1, global.__send_buffer, buffer_tell(global.__send_buffer));
 }
 buffer_seek(global.__send_buffer, buffer_seek_relative, pos - 1);
 //show_debug_message("Bytes sent: " + string(pos) + " @ position " + string(buffer_tell(global.__send_buffer)))
@@ -10851,52 +10851,52 @@ buffer_seek(global.__send_buffer, buffer_seek_relative, pos - 1);
 function gms_connect() {
 if(!global.__socket_connecting && !gms_info_isconnected())
 {
-    var ip = network_resolve("gamemakerserver.com");
-    if(ip == "" or ip == "0.0.0.0") ip = network_resolve("http://gamemakerserver.com");
-    if(ip == "" or ip == "0.0.0.0") ip = network_resolve("www.gamemakerserver.com");
-    if(ip == "" or ip == "0.0.0.0") ip = network_resolve("http://www.gamemakerserver.com");
-    
-    if(ip == "" or ip == "0.0.0.0")
-    {
-        global.__socket_connecting = false;
-        global.__socket_connected = false;
-    }else{
-        network_set_config(network_config_connect_timeout, 2500)
-        if(network_connect_raw(global.__socket, ip, 25500) < 0)
-        {
-            network_destroy(global.__socket)
-            global.__socket = XServer_network_init()
-            
-            if(network_connect_raw(global.__socket, ip, 110) < 0)
-            {
-                global.__socket_connecting = false;
-                global.__socket_connected = false;
-                show_debug_message("Socket failed to connect to server!");
-                exit;
-            }
-        }
-        global.__socket_connecting = true;
-        show_debug_message("Sending connection request")
-        
-        XServer_preparesend();
-                
-        buffer_write(_b, buffer_f64, global.__gms_version);
-        
-        buffer_write(_b, buffer_u8, 1);
-        
-        buffer_write(_b, buffer_f64, game_id);
-        buffer_write(_b, buffer_f64, 1038746284749);
-        buffer_write(_b, buffer_f64, 9847837487487);
-        buffer_write(_b, buffer_f64, 3183648256511);
-        buffer_write(_b, buffer_f64, 6178346799275);
-        buffer_write(_b, buffer_u32, 0);
-        XServer_writestring(_b, XGms__get_entropy_1())
-        XServer_writestring(_b, XGms__get_entropy_2())
-        XServer_writestring(_b, XGms__get_entropy_3())
-        XServer_writestring(_b, XGms__get_entropy_4())
-        
-        XServer_sendspecial(mid_hello);
-    }
+	var ip = network_resolve("gamemakerserver.com");
+	if(ip == "" or ip == "0.0.0.0") ip = network_resolve("http://gamemakerserver.com");
+	if(ip == "" or ip == "0.0.0.0") ip = network_resolve("www.gamemakerserver.com");
+	if(ip == "" or ip == "0.0.0.0") ip = network_resolve("http://www.gamemakerserver.com");
+	
+	if(ip == "" or ip == "0.0.0.0")
+	{
+		global.__socket_connecting = false;
+		global.__socket_connected = false;
+	}else{
+		network_set_config(network_config_connect_timeout, 2500)
+		if(network_connect_raw(global.__socket, ip, 25500) < 0)
+		{
+			network_destroy(global.__socket)
+			global.__socket = XServer_network_init()
+			
+			if(network_connect_raw(global.__socket, ip, 110) < 0)
+			{
+				global.__socket_connecting = false;
+				global.__socket_connected = false;
+				show_debug_message("Socket failed to connect to server!");
+				exit;
+			}
+		}
+		global.__socket_connecting = true;
+		show_debug_message("Sending connection request")
+		
+		XServer_preparesend();
+				
+		buffer_write(_b, buffer_f64, global.__gms_version);
+		
+		buffer_write(_b, buffer_u8, 1);
+		
+		buffer_write(_b, buffer_f64, game_id);
+		buffer_write(_b, buffer_f64, 1038746284749);
+		buffer_write(_b, buffer_f64, 9847837487487);
+		buffer_write(_b, buffer_f64, 3183648256511);
+		buffer_write(_b, buffer_f64, 6178346799275);
+		buffer_write(_b, buffer_u32, 0);
+		XServer_writestring(_b, XGms__get_entropy_1())
+		XServer_writestring(_b, XGms__get_entropy_2())
+		XServer_writestring(_b, XGms__get_entropy_3())
+		XServer_writestring(_b, XGms__get_entropy_4())
+		
+		XServer_sendspecial(mid_hello);
+	}
 }
 }
 
@@ -10912,72 +10912,72 @@ function XServer_connectdebug() {
 if(global.__debugging) show_debug_message("Connecting.")
 if(!global.__socket_connecting && !gms_info_isconnected())
 {
-    if(global.__debugging)show_debug_message("Connecting..")
-    if(network_connect_raw(global.__socket, "127.0.0.1", 25500) < 0)
-    {
-        global.__socket_connecting = false;
-        global.__socket_connected = false;
-        show_debug_message("Socket failed to connect to debug server!");
-        exit;
-    }
-    global.__socket_connecting = true;
-    if(global.__debugging) show_debug_message("Sending connection request")
-    
-    show_debug_message("Sending connection request")
-    
-    XServer_preparesend();
-            
-    buffer_write(_b, buffer_f64, global.__gms_version);
-    
-    buffer_write(_b, buffer_u8, 1);
-    
-    buffer_write(_b, buffer_f64, game_id);
-    buffer_write(_b, buffer_f64, 1038746284749);
-    buffer_write(_b, buffer_f64, 9847837487487);
-    buffer_write(_b, buffer_f64, 3183648256511);
-    buffer_write(_b, buffer_f64, 6178346799275);
-    buffer_write(_b, buffer_u32, 0);
-    XServer_writestring(_b, XGms__get_entropy_1())
-    XServer_writestring(_b, XGms__get_entropy_2())
-    XServer_writestring(_b, XGms__get_entropy_3())
-    XServer_writestring(_b, XGms__get_entropy_4())
-    
-    XServer_sendspecial(mid_hello);
+	if(global.__debugging)show_debug_message("Connecting..")
+	if(network_connect_raw(global.__socket, "127.0.0.1", 25500) < 0)
+	{
+		global.__socket_connecting = false;
+		global.__socket_connected = false;
+		show_debug_message("Socket failed to connect to debug server!");
+		exit;
+	}
+	global.__socket_connecting = true;
+	if(global.__debugging) show_debug_message("Sending connection request")
+	
+	show_debug_message("Sending connection request")
+	
+	XServer_preparesend();
+			
+	buffer_write(_b, buffer_f64, global.__gms_version);
+	
+	buffer_write(_b, buffer_u8, 1);
+	
+	buffer_write(_b, buffer_f64, game_id);
+	buffer_write(_b, buffer_f64, 1038746284749);
+	buffer_write(_b, buffer_f64, 9847837487487);
+	buffer_write(_b, buffer_f64, 3183648256511);
+	buffer_write(_b, buffer_f64, 6178346799275);
+	buffer_write(_b, buffer_u32, 0);
+	XServer_writestring(_b, XGms__get_entropy_1())
+	XServer_writestring(_b, XGms__get_entropy_2())
+	XServer_writestring(_b, XGms__get_entropy_3())
+	XServer_writestring(_b, XGms__get_entropy_4())
+	
+	XServer_sendspecial(mid_hello);
 }
 }
 
 function XServer_flush() {
 if(buffer_tell(global.__send_buffer) > 0)
 {
-    /*if(debug_mode)
-    {
-        show_debug_message("Sending " + string(buffer_tell(global.__send_buffer)) + "bytes");
-    }*/
-    
-    var __size = buffer_tell(global.__send_buffer);
-    var __pos = 0;
-    
-    while(__pos < __size)
-    {
-        var __sent = network_send_raw(global.__socket, global.__send_buffer, __size - __pos);
-        if(__sent < 0)
-        {
-            global.__socket_connected = false;
-            XServer_disconnected();
-            return 0;
-        }
-        
-        __pos += __sent;
-        
-        if(__pos < __size)
-        {
-            show_debug_message(string(__size - __pos) + " bytes left"); 
-            buffer_copy(global.__send_buffer, __pos, __size - __pos, _b, 0);
-            buffer_copy(_b, 0, __size - __pos, global.__send_buffer, 0);
-        }
-    }
-    
-    buffer_seek(global.__send_buffer, buffer_seek_start, 0);
+	/*if(debug_mode)
+	{
+		show_debug_message("Sending " + string(buffer_tell(global.__send_buffer)) + "bytes");
+	}*/
+	
+	var __size = buffer_tell(global.__send_buffer);
+	var __pos = 0;
+	
+	while(__pos < __size)
+	{
+		var __sent = network_send_raw(global.__socket, global.__send_buffer, __size - __pos);
+		if(__sent < 0)
+		{
+			global.__socket_connected = false;
+			XServer_disconnected();
+			return 0;
+		}
+		
+		__pos += __sent;
+		
+		if(__pos < __size)
+		{
+			show_debug_message(string(__size - __pos) + " bytes left"); 
+			buffer_copy(global.__send_buffer, __pos, __size - __pos, _b, 0);
+			buffer_copy(_b, 0, __size - __pos, global.__send_buffer, 0);
+		}
+	}
+	
+	buffer_seek(global.__send_buffer, buffer_seek_start, 0);
 }
 }
 
@@ -10996,9 +10996,9 @@ return ds_map_size(global.__achievement)
 function gms_achievement_description(argument0) {
 if(ds_map_exists(global.__achievement, argument0))
 {
-    return ds_map_find_value(ds_map_find_value(global.__achievement, argument0), "text");
+	return ds_map_find_value(ds_map_find_value(global.__achievement, argument0), "text");
 }else{
-    return "";
+	return "";
 }
 }
 
@@ -11009,21 +11009,21 @@ return ds_list_find_value(global.__achievement_idmap, argument0);
 function gms_achievement_isreached(argument0) {
 if(ds_map_exists(global.__achievement, argument0))
 {
-    return ds_map_find_value(ds_map_find_value(global.__achievement, argument0), "value");
+	return ds_map_find_value(ds_map_find_value(global.__achievement, argument0), "value");
 }else{
-    return 0;
+	return 0;
 }
 }
 
 function gms_achievement_reach(argument0) {
 if(ds_map_exists(global.__achievement, argument0))
 {
-    XServer_preparesend();
-    buffer_write(_b, buffer_u32, ds_map_find_value(ds_map_find_value(global.__achievement, argument0), "id"));
-    ds_map_replace(ds_map_find_value(global.__achievement, argument0), "value", true);
-    XServer_send(mid_achievement);
-    
-    XAction1(17, 0, argument0)
+	XServer_preparesend();
+	buffer_write(_b, buffer_u32, ds_map_find_value(ds_map_find_value(global.__achievement, argument0), "id"));
+	ds_map_replace(ds_map_find_value(global.__achievement, argument0), "value", true);
+	XServer_send(mid_achievement);
+	
+	XAction1(17, 0, argument0)
 }
 }
 
@@ -11042,10 +11042,10 @@ return string(ds_map_find_value(ds_queue_head(global.__actions), argument0));
 function gms_action_get_id() {
 if ds_queue_size(global.__actions)
 {
-    if ds_map_exists(ds_queue_head(global.__actions), "type")
-    {
-        return ds_map_find_value(ds_queue_head(global.__actions), "type")
-    }
+	if ds_map_exists(ds_queue_head(global.__actions), "type")
+	{
+		return ds_map_find_value(ds_queue_head(global.__actions), "type")
+	}
 }
 return 0
 }
@@ -11085,18 +11085,18 @@ return ds_list_find_value(global.__friend_idmap, argument0);
 function gms_friend_isonline(argument0) {
 if(ds_map_exists(global.__friend, argument0))
 {
-    return ds_map_find_value(ds_map_find_value(global.__friend, argument0), "online");
+	return ds_map_find_value(ds_map_find_value(global.__friend, argument0), "online");
 }else{
-    return 0;
+	return 0;
 }
 }
 
 function gms_friend_name(argument0) {
 if(ds_map_exists(global.__friend, argument0))
 {
-    return ds_map_find_value(ds_map_find_value(global.__friend, argument0), "name");
+	return ds_map_find_value(ds_map_find_value(global.__friend, argument0), "name");
 }else{
-    return "";
+	return "";
 }
 }
 
@@ -11115,11 +11115,11 @@ return ds_map_exists(global.__global, argument0);
 function gms_global_get_real(argument0) {
 if ds_map_exists(global.__global, argument0)
 {
-    var val = ds_map_find_value(global.__global, argument0);
-    if(XServer_is_real(val))
-    {
-        return val;
-    }
+	var val = ds_map_find_value(global.__global, argument0);
+	if(XServer_is_real(val))
+	{
+		return val;
+	}
 }
 return 0;
 }
@@ -11127,11 +11127,11 @@ return 0;
 function gms_global_get_string(argument0) {
 if ds_map_exists(global.__global, argument0)
 {
-    var val = ds_map_find_value(global.__global, argument0);
-    if(is_string(val))
-    {
-        return val;
-    }
+	var val = ds_map_find_value(global.__global, argument0);
+	if(is_string(val))
+	{
+		return val;
+	}
 }
 return "";
 }
@@ -11139,7 +11139,7 @@ return "";
 function gms_global_isreal(argument0) {
 if ds_map_exists(global.__global, argument0)
 {
-    return XServer_is_real(ds_map_find_value(global.__global, argument0))
+	return XServer_is_real(ds_map_find_value(global.__global, argument0))
 }
 return 1
 }
@@ -11147,64 +11147,64 @@ return 1
 function gms_highscore_add(argument0, argument1) {
 if(gms_highscore_list_exists(argument0))
 {
-    XServer_preparesend();
-    
-    buffer_write(_b, buffer_s32, argument0);
-    buffer_write(_b, buffer_f64, argument1);
-    buffer_write(_b, buffer_u8, 0);
-    
-    XServer_send(mid_highscore);
+	XServer_preparesend();
+	
+	buffer_write(_b, buffer_s32, argument0);
+	buffer_write(_b, buffer_f64, argument1);
+	buffer_write(_b, buffer_u8, 0);
+	
+	XServer_send(mid_highscore);
 }else{
-    show_error("Highscore list does not exist.", false);
+	show_error("Highscore list does not exist.", false);
 }
 }
 
 function gms_highscore_replace() {
 if(gms_highscore_list_exists(argument0))
 {
-    XServer_preparesend();
-    
-    buffer_write(_b, buffer_s32, argument0);
-    buffer_write(_b, buffer_f64, argument1);
-    buffer_write(_b, buffer_u8, 1);
-    
-    XServer_send(mid_highscore);
+	XServer_preparesend();
+	
+	buffer_write(_b, buffer_s32, argument0);
+	buffer_write(_b, buffer_f64, argument1);
+	buffer_write(_b, buffer_u8, 1);
+	
+	XServer_send(mid_highscore);
 }else{
-    show_error("Highscore list does not exist.", false);
+	show_error("Highscore list does not exist.", false);
 }
 }
 
 function XGms_highscore_add_guest(argument0, argument1, argument2) {
 if(gms_highscore_list_exists(argument0))
 {
-    XServer_preparesend();
-    
-    buffer_write(_b, buffer_s32, argument0);
-    XServer_writestring(_b, argument1);
-    buffer_write(_b, buffer_f64, argument2);
-    buffer_write(_b, buffer_u8, 0) // do_replace?
-    
-    XServer_send(mid_guest_highscore);
+	XServer_preparesend();
+	
+	buffer_write(_b, buffer_s32, argument0);
+	XServer_writestring(_b, argument1);
+	buffer_write(_b, buffer_f64, argument2);
+	buffer_write(_b, buffer_u8, 0) // do_replace?
+	
+	XServer_send(mid_guest_highscore);
 }else{
-    show_error("Highscore list does not exist.", false);
+	show_error("Highscore list does not exist.", false);
 }
 }
 
 function gms_highscore_count(argument0) {
 if(gms_highscore_list_exists(argument0))
 {
-    return ds_list_size(ds_map_find_value(ds_map_find_value(global.__highscore, argument0), "names"));
+	return ds_list_size(ds_map_find_value(ds_map_find_value(global.__highscore, argument0), "names"));
 }else{
-    return 0;
+	return 0;
 }
 }
 
 function gms_highscore_find_pos(argument0, argument1) {
 if(gms_highscore_list_exists(argument0))
 {
-    return ds_list_find_index(ds_map_find_value(ds_map_find_value(global.__highscore, argument0), "names"), argument1);
+	return ds_list_find_index(ds_map_find_value(ds_map_find_value(global.__highscore, argument0), "names"), argument1);
 }else{
-    return 0;
+	return 0;
 }
 }
 
@@ -11223,43 +11223,43 @@ return ds_list_find_value(global.__highscore_ids, argument0);
 function gms_highscore_list_title(argument0) {
 if(gms_highscore_list_exists(argument0))
 {
-    return ds_map_find_value(ds_map_find_value(global.__highscore, argument0), "list_title");
+	return ds_map_find_value(ds_map_find_value(global.__highscore, argument0), "list_title");
 }else{
-    return "";
+	return "";
 }
 }
 
 function gms_highscore_name(argument0, argument1) {
 if(gms_highscore_list_exists(argument0))
 {
-    return ds_list_find_value(ds_map_find_value(ds_map_find_value(global.__highscore, argument0), "names"), argument1);
+	return ds_list_find_value(ds_map_find_value(ds_map_find_value(global.__highscore, argument0), "names"), argument1);
 }else{
-    return "";
+	return "";
 }
 }
 
 function gms_highscore_score(argument0, argument1) {
 if(gms_highscore_list_exists(argument0))
 {
-    return ds_list_find_value(ds_map_find_value(ds_map_find_value(global.__highscore, argument0), "scores"), argument1);
+	return ds_list_find_value(ds_map_find_value(ds_map_find_value(global.__highscore, argument0), "scores"), argument1);
 }else{
-    return "";
+	return "";
 }
 }
 
 function gms_highscore_self_score(argument0) {
 if(gms_highscore_list_exists(argument0))
 {
-    var _map = ds_map_find_value(global.__highscore, argument0),
-        _names = ds_map_find_value(_map, "names"),
-        _scores = ds_map_find_value(_map, "scores");
-    for(var i = 0; i < ds_list_size(_names); i++)
-    {
-        if(string_lower(ds_list_find_value(_names, i)) == gms_self_name())
-        {
-            return ds_list_find_value(_scores, i);
-        }
-    }
+	var _map = ds_map_find_value(global.__highscore, argument0),
+		_names = ds_map_find_value(_map, "names"),
+		_scores = ds_map_find_value(_map, "scores");
+	for(var i = 0; i < ds_list_size(_names); i++)
+	{
+		if(string_lower(ds_list_find_value(_names, i)) == gms_self_name())
+		{
+			return ds_list_find_value(_scores, i);
+		}
+	}
 }
 return 0;
 }
@@ -11286,18 +11286,18 @@ return global.__socket_ping;
 
 function gms_ini_game_size() {
 var __i = ds_map_find_first(global.__ini_game),
-    __s = ds_map_size(global.__ini_game),
-    __t = 0;
+	__s = ds_map_size(global.__ini_game),
+	__t = 0;
 repeat(__s - 1)
 {
-    if(is_real(__i))
-    {
-        __t += 8;
-    }else{
-        __t += string_length(__i);
-    }
-    
-    __i = ds_map_find_next(global.__ini_game, __i);
+	if(is_real(__i))
+	{
+		__t += 8;
+	}else{
+		__t += string_length(__i);
+	}
+	
+	__i = ds_map_find_next(global.__ini_game, __i);
 }
 return __t;
 }
@@ -11308,18 +11308,18 @@ return global.__ini_game_limit;
 
 function gms_ini_player_size() {
 var __i = ds_map_find_first(global.__ini_player),
-    __s = ds_map_size(global.__ini_player),
-    __t = 0;
+	__s = ds_map_size(global.__ini_player),
+	__t = 0;
 repeat(__s - 1)
 {
-    if(is_real(__i))
-    {
-        __t += 8;
-    }else{
-        __t += string_length(__i);
-    }
-    
-    __i = ds_map_find_next(global.__ini_player, __i);
+	if(is_real(__i))
+	{
+		__t += 8;
+	}else{
+		__t += string_length(__i);
+	}
+	
+	__i = ds_map_find_next(global.__ini_player, __i);
 }
 return __t;
 }
@@ -11332,9 +11332,9 @@ function gms_instance_get_owner(argument0) {
 var _m = XServer_instance_find(argument0);
 if(_m != -1)
 {
-    return ds_map_find_value(_m, "owner");
+	return ds_map_find_value(_m, "owner");
 }else{
-    return 0;
+	return 0;
 }
 }
 
@@ -11342,20 +11342,20 @@ function gms_instance_get_real(argument0, argument1) {
 var _m = XServer_instance_find(argument0);
 if(_m != -1)
 {
-    if(ds_map_exists(_m, "*" + argument1))
-    {
-        var _val = ds_map_find_value(_m, "*" + argument1);
-        if(XServer_is_real(_val))
-        {
-            return _val;
-        }else{
-            return 0;
-        }
-    }else{
-        return 0;
-    }
+	if(ds_map_exists(_m, "*" + argument1))
+	{
+		var _val = ds_map_find_value(_m, "*" + argument1);
+		if(XServer_is_real(_val))
+		{
+			return _val;
+		}else{
+			return 0;
+		}
+	}else{
+		return 0;
+	}
 }else{
-    return 0;
+	return 0;
 }
 }
 
@@ -11363,20 +11363,20 @@ function gms_instance_get_string(argument0, argument1) {
 var _m = XServer_instance_find(argument0);
 if(_m != -1)
 {
-    if(ds_map_exists(_m, "*" + argument1))
-    {
-        var _val = ds_map_find_value(_m, "*" + argument1);
-        if(is_string(_val))
-        {
-            return _val;
-        }else{
-            return "";
-        }
-    }else{
-        return "";
-    }
+	if(ds_map_exists(_m, "*" + argument1))
+	{
+		var _val = ds_map_find_value(_m, "*" + argument1);
+		if(is_string(_val))
+		{
+			return _val;
+		}else{
+			return "";
+		}
+	}else{
+		return "";
+	}
 }else{
-    return "";
+	return "";
 }
 }
 
@@ -11390,7 +11390,7 @@ XServer_send(mid_instance_takeover);
 function gms_instance_handover_all() {
 for(var _i = 0; _i < XServer_instanceN(); _i++)
 {
-    gms_instance_handover(XServer_instanceID(_i));
+	gms_instance_handover(XServer_instanceID(_i));
 }
 }
 
@@ -11398,16 +11398,16 @@ function gms_instance_isreal(argument0, argument1) {
 var _m = XServer_instance_find(argument0);
 if(_m != -1)
 {
-    //Does not check for variablke existance: if a ds_map key does not exist, the function will return a real.
-    var _val = ds_map_find_value(_m, "*" + argument1);
-    if(XServer_is_real(_val))
-    {
-        return true;
-    }else{
-        return false;
-    }
+	//Does not check for variablke existance: if a ds_map key does not exist, the function will return a real.
+	var _val = ds_map_find_value(_m, "*" + argument1);
+	if(XServer_is_real(_val))
+	{
+		return true;
+	}else{
+		return false;
+	}
 }else{
-    return true;
+	return true;
 }
 }
 
@@ -11415,9 +11415,9 @@ function gms_instance_is_owner(argument0) {
 var _m = XServer_instance_find(argument0);
 if(_m != -1)
 {
-    return ds_map_find_value(_m, "owner") == gms_self_playerid();
+	return ds_map_find_value(_m, "owner") == gms_self_playerid();
 }else{
-    return true;
+	return true;
 }
 }
 
@@ -11425,53 +11425,53 @@ function gms_instance_set_real(argument0, argument1, argument2) {
 var __i = XServer_instance_find(argument0);
 if(__i != -1)
 {
-    if(argument1 == "x")
-    {
-        if(ds_map_find_value(__i, "x") != argument2)
-        {
-            ds_map_replace(__i, "has_moved", true);
-            ds_map_replace(__i, "x", argument2);
-        }
-    }else if(argument1 == "y")
-    {
-        if(ds_map_find_value(__i, "y") != argument2)
-        {
-            ds_map_replace(__i, "has_moved", true);
-            ds_map_replace(__i, "y", argument2);
-        }
-    }else if(argument1 == "speed")
-    {
-        if(ds_map_find_value(__i, "speed") != argument2)
-        {
-            ds_map_replace(__i, "has_moved", true);
-            ds_map_replace(__i, "speed", argument2);
-        }
-    }else if(argument1 == "direction")
-    {
-        if(ds_map_find_value(__i, "direction") != argument2)
-        {
-            ds_map_replace(__i, "has_moved", true);
-            ds_map_replace(__i, "direction", argument2);
-        }
-    }else{
-        var _m1 = ds_map_find_value(__i, "variable_names"),
-            _m3 = ds_map_find_value(__i, "variable_changed");
-        if(ds_map_exists(__i, "*" + argument1))
-        {
-            if(ds_map_find_value(__i, "*" + argument1) != argument2) ds_list_add(_m3, argument1);
-            ds_map_replace(__i, "*" + argument1, argument2);
-        }else{
-            ds_list_add(_m1, argument1);
-            ds_list_add(_m3, argument1);
-            ds_map_add(__i, ">" + argument1, global.__default_prec);
-            ds_map_add(__i, "*" + argument1, argument2);
-        }
-    }
-    
-    return true;
+	if(argument1 == "x")
+	{
+		if(ds_map_find_value(__i, "x") != argument2)
+		{
+			ds_map_replace(__i, "has_moved", true);
+			ds_map_replace(__i, "x", argument2);
+		}
+	}else if(argument1 == "y")
+	{
+		if(ds_map_find_value(__i, "y") != argument2)
+		{
+			ds_map_replace(__i, "has_moved", true);
+			ds_map_replace(__i, "y", argument2);
+		}
+	}else if(argument1 == "speed")
+	{
+		if(ds_map_find_value(__i, "speed") != argument2)
+		{
+			ds_map_replace(__i, "has_moved", true);
+			ds_map_replace(__i, "speed", argument2);
+		}
+	}else if(argument1 == "direction")
+	{
+		if(ds_map_find_value(__i, "direction") != argument2)
+		{
+			ds_map_replace(__i, "has_moved", true);
+			ds_map_replace(__i, "direction", argument2);
+		}
+	}else{
+		var _m1 = ds_map_find_value(__i, "variable_names"),
+			_m3 = ds_map_find_value(__i, "variable_changed");
+		if(ds_map_exists(__i, "*" + argument1))
+		{
+			if(ds_map_find_value(__i, "*" + argument1) != argument2) ds_list_add(_m3, argument1);
+			ds_map_replace(__i, "*" + argument1, argument2);
+		}else{
+			ds_list_add(_m1, argument1);
+			ds_list_add(_m3, argument1);
+			ds_map_add(__i, ">" + argument1, global.__default_prec);
+			ds_map_add(__i, "*" + argument1, argument2);
+		}
+	}
+	
+	return true;
 }else{
-    show_debug_message("gms_instance_set_*: Unknown instance " + string(argument0));
-    return false;
+	show_debug_message("gms_instance_set_*: Unknown instance " + string(argument0));
+	return false;
 }
 }
 
@@ -11479,53 +11479,53 @@ function gms_instance_set_string(argument0, argument1, argument2) {
 var __i = XServer_instance_find(argument0);
 if(__i != -1)
 {
-    if(argument1 == "x")
-    {
-        if(ds_map_find_value(__i, "x") != argument2)
-        {
-            ds_map_replace(__i, "has_moved", true);
-            ds_map_replace(__i, "x", argument2);
-        }
-    }else if(argument1 == "y")
-    {
-        if(ds_map_find_value(__i, "y") != argument2)
-        {
-            ds_map_replace(__i, "has_moved", true);
-            ds_map_replace(__i, "y", argument2);
-        }
-    }else if(argument1 == "speed")
-    {
-        if(ds_map_find_value(__i, "speed") != argument2)
-        {
-            ds_map_replace(__i, "has_moved", true);
-            ds_map_replace(__i, "speed", argument2);
-        }
-    }else if(argument1 == "direction")
-    {
-        if(ds_map_find_value(__i, "direction") != argument2)
-        {
-            ds_map_replace(__i, "has_moved", true);
-            ds_map_replace(__i, "direction", argument2);
-        }
-    }else{
-        var _m1 = ds_map_find_value(__i, "variable_names"),
-            _m3 = ds_map_find_value(__i, "variable_changed");
-        if(ds_map_exists(__i, "*" + argument1))
-        {
-            if(ds_map_find_value(__i, "*" + argument1) != argument2) ds_list_add(_m3, argument1);
-            ds_map_replace(__i, "*" + argument1, argument2);
-        }else{
-            ds_list_add(_m1, argument1);
-            ds_list_add(_m3, argument1);
-            ds_map_add(__i, ">" + argument1, global.__default_prec);
-            ds_map_add(__i, "*" + argument1, argument2);
-        }
-    }
-    
-    return true;
+	if(argument1 == "x")
+	{
+		if(ds_map_find_value(__i, "x") != argument2)
+		{
+			ds_map_replace(__i, "has_moved", true);
+			ds_map_replace(__i, "x", argument2);
+		}
+	}else if(argument1 == "y")
+	{
+		if(ds_map_find_value(__i, "y") != argument2)
+		{
+			ds_map_replace(__i, "has_moved", true);
+			ds_map_replace(__i, "y", argument2);
+		}
+	}else if(argument1 == "speed")
+	{
+		if(ds_map_find_value(__i, "speed") != argument2)
+		{
+			ds_map_replace(__i, "has_moved", true);
+			ds_map_replace(__i, "speed", argument2);
+		}
+	}else if(argument1 == "direction")
+	{
+		if(ds_map_find_value(__i, "direction") != argument2)
+		{
+			ds_map_replace(__i, "has_moved", true);
+			ds_map_replace(__i, "direction", argument2);
+		}
+	}else{
+		var _m1 = ds_map_find_value(__i, "variable_names"),
+			_m3 = ds_map_find_value(__i, "variable_changed");
+		if(ds_map_exists(__i, "*" + argument1))
+		{
+			if(ds_map_find_value(__i, "*" + argument1) != argument2) ds_list_add(_m3, argument1);
+			ds_map_replace(__i, "*" + argument1, argument2);
+		}else{
+			ds_list_add(_m1, argument1);
+			ds_list_add(_m3, argument1);
+			ds_map_add(__i, ">" + argument1, global.__default_prec);
+			ds_map_add(__i, "*" + argument1, argument2);
+		}
+	}
+	
+	return true;
 }else{
-    show_debug_message("gms_instance_set_*: Unknown instance " + string(argument0));
-    return false;
+	show_debug_message("gms_instance_set_*: Unknown instance " + string(argument0));
+	return false;
 }
 }
 
@@ -11555,9 +11555,9 @@ else
 function gms_login_errorcode() {
 if(gms_info_isconnected())
 {
-    return global.__login_error;
+	return global.__login_error;
 }else{
-    return 24;
+	return 24;
 }
 }
 
@@ -11596,9 +11596,9 @@ XServer_clear_instances(global.__instance);
 ds_list_clear(global.__player_idmap);
 for(var i = 0; i < 10; i++)
 {
-    global.__team_score[i] = 0;
+	global.__team_score[i] = 0;
 }
-global.__p2p_argument_count     = 0;
+global.__p2p_argument_count	 = 0;
 for(var i = 0; i < 16; i++) global.__p2p_argument[i] = 0;
 global.__sync_pos = 0;
 global.__sync_pos_max = 0;
@@ -11614,21 +11614,21 @@ return global.__master_player;
 function gms_optimize_set_sendspeed(argument0) {
 switch(argument0)
 {
-    case 0://Fullfps
-        global.__timer_threshold = 1000000 / 30;
-        break;
-    case 1://Half
-        global.__timer_threshold = 1000000 / 15;
-        break;
-    case 2://Twenty
-        global.__timer_threshold = 1000000 / 20;
-        break;
-    case 3://Supersave
-        global.__timer_threshold = 1000000 / 5;
-        break;
-    case 4://Second
-        global.__timer_threshold = 1000000;
-        break;
+	case 0://Fullfps
+		global.__timer_threshold = 1000000 / 30;
+		break;
+	case 1://Half
+		global.__timer_threshold = 1000000 / 15;
+		break;
+	case 2://Twenty
+		global.__timer_threshold = 1000000 / 20;
+		break;
+	case 3://Supersave
+		global.__timer_threshold = 1000000 / 5;
+		break;
+	case 4://Second
+		global.__timer_threshold = 1000000;
+		break;
 }
 }
 
@@ -11639,11 +11639,11 @@ global.__spc = argument0;
 function gms_other_admin_rights(argument0) {
 if(ds_map_exists(global.__player, argument0))
 {
-    var _m = ds_map_find_value(global.__player, argument0);
-    if ds_map_exists(_m, "admininfo")
-    {
-        return ds_map_find_value(_m, "admininfo");
-    }
+	var _m = ds_map_find_value(global.__player, argument0);
+	if ds_map_exists(_m, "admininfo")
+	{
+		return ds_map_find_value(_m, "admininfo");
+	}
 }
 return 0;
 }
@@ -11655,34 +11655,34 @@ return ds_list_size(global.__player_idmap);
 function gms_other_exists(argument0, argument1) {
 if(ds_map_exists(global.__player, argument0))
 {
-    var _m = ds_map_find_value(global.__player, argument0);
-    if(ds_map_exists(_m, "*" + argument1))
-    {
-        return true;
-    }else{
-        return false;
-    }
+	var _m = ds_map_find_value(global.__player, argument0);
+	if(ds_map_exists(_m, "*" + argument1))
+	{
+		return true;
+	}else{
+		return false;
+	}
 }else{
-    return false;
+	return false;
 }
 }
 
 function gms_other_find(argument0) {
 if argument0 >= 0 && argument0 < ds_list_size(global.__player_idmap)
 {
-    return ds_list_find_value(global.__player_idmap, argument0);
+	return ds_list_find_value(global.__player_idmap, argument0);
 }else{
-    return 0;
+	return 0;
 }
 }
 
 function gms_other_find_by_name(argument0) {
 for(var i = 0; i < gms_other_count(); i++)
 {
-    if(string_lower(gms_other_get_string(gms_other_find(i), "name")) == string_lower(argument0))
-    {
-        return gms_other_find(i);
-    }
+	if(string_lower(gms_other_get_string(gms_other_find(i), "name")) == string_lower(argument0))
+	{
+		return gms_other_find(i);
+	}
 }
 return -1;
 }
@@ -11690,72 +11690,72 @@ return -1;
 function gms_other_get_real(argument0, argument1) {
 if(ds_map_exists(global.__player, argument0))
 {
-    var _m = ds_map_find_value(global.__player, argument0);
-    if(ds_map_exists(_m, "*" + argument1))
-    {
-        var _val = ds_map_find_value(_m, "*" + argument1);
-        if(XServer_is_real(_val))
-        {
-            return _val;
-        }else{
-            return 0;
-        }
-    }else{
-        return 0;
-    }
+	var _m = ds_map_find_value(global.__player, argument0);
+	if(ds_map_exists(_m, "*" + argument1))
+	{
+		var _val = ds_map_find_value(_m, "*" + argument1);
+		if(XServer_is_real(_val))
+		{
+			return _val;
+		}else{
+			return 0;
+		}
+	}else{
+		return 0;
+	}
 }else{
-    return 0;
+	return 0;
 }
 }
 
 function gms_other_get_string(argument0, argument1) {
 if(ds_map_exists(global.__player, argument0))
 {
-    var _m = ds_map_find_value(global.__player, argument0);
-    if(ds_map_exists(_m, "*" + argument1))
-    {
-        var _val = ds_map_find_value(_m, "*" + argument1);
-        if(is_string(_val))
-        {
-            return _val;
-        }else{
-            return "";
-        }
-    }else{
-        return "";
-    }
+	var _m = ds_map_find_value(global.__player, argument0);
+	if(ds_map_exists(_m, "*" + argument1))
+	{
+		var _val = ds_map_find_value(_m, "*" + argument1);
+		if(is_string(_val))
+		{
+			return _val;
+		}else{
+			return "";
+		}
+	}else{
+		return "";
+	}
 }else{
-    return "";
+	return "";
 }
 }
 
 function gms_other_has_changed(argument0) {
 if(ds_map_exists(global.__player, argument0))
 {
-    var _m = ds_map_find_value(global.__player, argument0);
-    if ds_map_exists(_m, "has_changed")
-    {
-        return ds_map_find_value(_m, "has_changed");
-    }
+	var _m = ds_map_find_value(global.__player, argument0);
+	if ds_map_exists(_m, "has_changed")
+	{
+		return ds_map_find_value(_m, "has_changed");
+	}
 }else{
-    return 0;
+	return 0;
 }
 }
 
 function gms_other_isreal(argument0, argument1) {
 if(ds_map_exists(global.__player, argument0))
 {
-    var _m = ds_map_find_value(global.__player, argument0);
-    if ds_map_exists(_m, "*" + argument1)
-    {
-        var _val = ds_map_find_value(_m, "*" + argument1);
-        if(XServer_is_real(_val))
-        {
-            return true;
-        }else{
-            return false;
-        }
-    }
+	var _m = ds_map_find_value(global.__player, argument0);
+	if ds_map_exists(_m, "*" + argument1)
+	{
+		var _val = ds_map_find_value(_m, "*" + argument1);
+		if(XServer_is_real(_val))
+		{
+			return true;
+		}else{
+			return false;
+		}
+	}
 }
 return true;
 }
@@ -11819,7 +11819,7 @@ return global.__session_id;
 function gms_session_id(argument0) {
 if argument0 >= 0 && argument0 < ds_list_size(global.__sessionList)
 {
-    return ds_list_find_value(global.__sessionList, argument0)
+	return ds_list_find_value(global.__sessionList, argument0)
 }
 return -1
 }
@@ -11834,7 +11834,7 @@ function gms_session_player_count(argument0) {
 var s = xGms_session_find(argument0)
 if !is_undefined(s)
 {
-    return ds_map_find_value(s, "players")
+	return ds_map_find_value(s, "players")
 }
 return -1;
 }
@@ -11843,7 +11843,7 @@ function gms_session_type(argument0) {
 var s = xGms_session_find(argument0)
 if !is_undefined(s)
 {
-    return ds_map_find_value(s, "type")
+	return ds_map_find_value(s, "type")
 }
 return -1;
 }
@@ -11852,7 +11852,7 @@ function gms_session_tag(argument0) {
 var s = xGms_session_find(argument0)
 if !is_undefined(s)
 {
-    return ds_map_find_value(s, "tag")
+	return ds_map_find_value(s, "tag")
 }
 return ""
 }
@@ -11860,12 +11860,12 @@ return ""
 function xGms_session_find(argument0) {
 if ds_map_exists(global.__session, argument0)
 {
-    return ds_map_find_value(global.__session, argument0)
+	return ds_map_find_value(global.__session, argument0)
 }else if argument0 >= 0 && argument0 < ds_list_size(global.__sessionList)
 {
-    return ds_map_find_value(global.__session, ds_list_find_value(global.__sessionList, argument0))
+	return ds_map_find_value(global.__session, ds_list_find_value(global.__sessionList, argument0))
 }else{
-    return undefined;
+	return undefined;
 }
 }
 
@@ -11883,9 +11883,9 @@ return ds_map_size(global.__stat);
 function gms_statistic_description(argument0) {
 if(ds_map_exists(global.__stat, argument0))
 {
-    return ds_map_find_value(ds_map_find_value(global.__stat, argument0), "text");
+	return ds_map_find_value(ds_map_find_value(global.__stat, argument0), "text");
 }else{
-    return "";
+	return "";
 }
 }
 
@@ -11896,23 +11896,23 @@ return ds_list_find_value(global.__stat_idmap, argument0);
 function gms_statistic_get(argument0) {
 if(ds_map_exists(global.__stat, argument0))
 {
-    return ds_map_find_value(ds_map_find_value(global.__stat, argument0), "value");
+	return ds_map_find_value(ds_map_find_value(global.__stat, argument0), "value");
 }else{
-    return 0;
+	return 0;
 }
 }
 
 function gms_statistic_set(argument0, argument1) {
 if(ds_map_exists(global.__stat, argument0) && is_real(argument1))
 {
-    XServer_preparesend();
-    
-    ds_map_replace(ds_map_find_value(global.__stat, argument0), "value", argument1);
-    buffer_write(_b, buffer_u32, ds_map_find_value(ds_map_find_value(global.__stat, argument0), "id"));
-    buffer_write(_b, buffer_f64, argument1);
-    XServer_send(mid_statistic);
+	XServer_preparesend();
+	
+	ds_map_replace(ds_map_find_value(global.__stat, argument0), "value", argument1);
+	buffer_write(_b, buffer_u32, ds_map_find_value(ds_map_find_value(global.__stat, argument0), "id"));
+	buffer_write(_b, buffer_f64, argument1);
+	XServer_send(mid_statistic);
 } else {
-    show_error("Unable to set statistic: either the ID is invalid or the value is not a number.", false)
+	show_error("Unable to set statistic: either the ID is invalid or the value is not a number.", false)
 }
 }
 
@@ -11924,10 +11924,10 @@ function gms_team_player_count(argument0) {
 var _count = 0;
 for(var i = 0; i < gms_other_count(); i++)
 {
-    if(gms_other_get_real(gms_other_find(i), "team") == argument0)
-    {
-        _count++;
-    }
+	if(gms_other_get_real(gms_other_find(i), "team") == argument0)
+	{
+		_count++;
+	}
 }
 return _count;
 }
@@ -11936,14 +11936,14 @@ function gms_team_player_get(argument0, argument1) {
 var _count = 0;
 for(var i = 0; i < gms_other_count(); i++)
 {
-    if(gms_other_get_real(gms_other_find(i), "team") == argument0)
-    {
-        if(_count == argument1)
-        {
-            return gms_other_find(i);
-        }
-        _count++;
-    }
+	if(gms_other_get_real(gms_other_find(i), "team") == argument0)
+	{
+		if(_count == argument1)
+		{
+			return gms_other_find(i);
+		}
+		_count++;
+	}
 }
 return _count;
 }
@@ -12023,149 +12023,149 @@ XServer_send(mid_chatmode);
 function XServer_init() {
 //This script initializes studio-specific features
 gms_protect_init()
-global.__bdb_cache              = ds_map_create();
-global.__gms_version            = 2.5
-global.__player_isguest         = false;
-global.__achievement            = ds_map_create();
-global.__achievement_idmap      = ds_list_create();
-global.__achievement_idmap2     = ds_map_create();
-global.__stat                   = ds_map_create();
-global.__stat_idmap             = ds_list_create();
-global.__actions                = ds_queue_create();
-global.__friend_idmap           = ds_list_create();
-global.__friend                 = ds_map_create();
-global.__highscore              = ds_map_create();
-global.__highscore_ids          = ds_list_create();
-global.__ini_game               = ds_map_create();
-global.__ini_player             = ds_map_create();
-global.__ini_game_limit         = 0;
-global.__ini_player_limit       = 0;
-global.__vs_ready               = false;
-global.__vs_time                = 0;
+global.__bdb_cache			  = ds_map_create();
+global.__gms_version			= 2.5
+global.__player_isguest		 = false;
+global.__achievement			= ds_map_create();
+global.__achievement_idmap	  = ds_list_create();
+global.__achievement_idmap2	 = ds_map_create();
+global.__stat				   = ds_map_create();
+global.__stat_idmap			 = ds_list_create();
+global.__actions				= ds_queue_create();
+global.__friend_idmap		   = ds_list_create();
+global.__friend				 = ds_map_create();
+global.__highscore			  = ds_map_create();
+global.__highscore_ids		  = ds_list_create();
+global.__ini_game			   = ds_map_create();
+global.__ini_player			 = ds_map_create();
+global.__ini_game_limit		 = 0;
+global.__ini_player_limit	   = 0;
+global.__vs_ready			   = false;
+global.__vs_time				= 0;
 //Logins
-global.__num_logins             = 0;
-global.__debugging              = debug_mode;
+global.__num_logins			 = 0;
+global.__debugging			  = debug_mode;
 //Logging in
-global.__login_username         = "";
-global.__login_password         = "";
-global.__login_token            = "";
-global.__login_status           = 0;
-global.__login_error            = 0;
-global.__login_save_code        = "";
-global.__login_accounts         = ds_map_create();
-global.__register_status        = -2;
-global.__loggedin               = false;
+global.__login_username		 = "";
+global.__login_password		 = "";
+global.__login_token			= "";
+global.__login_status		   = 0;
+global.__login_error			= 0;
+global.__login_save_code		= "";
+global.__login_accounts		 = ds_map_create();
+global.__register_status		= -2;
+global.__loggedin			   = false;
 //Sockets
-global.__socket                 = XServer_network_init();
-global.__socket_connecting      = false;
-global.__socket_connected       = false;
-global.__socket_script_queue    = ds_queue_create();
-global.__socket_ping            = 0;
-global.__last_send              = 0;
-global.__timer_threshold        = 1000000 / room_speed;
-global.__sprite_resource        = 0;
+global.__socket				 = XServer_network_init();
+global.__socket_connecting	  = false;
+global.__socket_connected	   = false;
+global.__socket_script_queue	= ds_queue_create();
+global.__socket_ping			= 0;
+global.__last_send			  = 0;
+global.__timer_threshold		= 1000000 / room_speed;
+global.__sprite_resource		= 0;
 globalvar _b, _rb, rr;
-_b                              = buffer_create(512, buffer_grow, 1);
-_rb                             = buffer_create(512, buffer_grow, 1);
-_rr                             = buffer_create(512, buffer_grow, 1);
-_sb                             = buffer_create(512, buffer_grow, 1);
-global.__send_buffer            = buffer_create(16384, buffer_grow, 1);
+_b							  = buffer_create(512, buffer_grow, 1);
+_rb							 = buffer_create(512, buffer_grow, 1);
+_rr							 = buffer_create(512, buffer_grow, 1);
+_sb							 = buffer_create(512, buffer_grow, 1);
+global.__send_buffer			= buffer_create(16384, buffer_grow, 1);
 //Server time
-global.__subtract_time          = 0;
+global.__subtract_time		  = 0;
 //Variable syncing
-global.__global                 = ds_map_create();
-global.__global_prec            = ds_map_create();
-global.__global_changed         = ds_list_create();
-global.__self                   = ds_map_create();
-global.__self_prec              = ds_map_create();
-global.__self_changed           = ds_list_create();
-global.__self_admininfo         = 0;
-global.__self_x                 = 0;
-global.__self_y                 = 0;
-global.__self_speed             = 0;
-global.__self_direction         = 0;
-global.__self_prev_x            = 0;
-global.__self_prev_y            = 0;
-global.__self_prev_speed        = 0;
-global.__self_prev_direction    = 0;
-global.__max_skip               = 1;
-global.__current_skip           = 0;
+global.__global				 = ds_map_create();
+global.__global_prec			= ds_map_create();
+global.__global_changed		 = ds_list_create();
+global.__self				   = ds_map_create();
+global.__self_prec			  = ds_map_create();
+global.__self_changed		   = ds_list_create();
+global.__self_admininfo		 = 0;
+global.__self_x				 = 0;
+global.__self_y				 = 0;
+global.__self_speed			 = 0;
+global.__self_direction		 = 0;
+global.__self_prev_x			= 0;
+global.__self_prev_y			= 0;
+global.__self_prev_speed		= 0;
+global.__self_prev_direction	= 0;
+global.__max_skip			   = 1;
+global.__current_skip		   = 0;
 global.__self_position_changed  = 15;
 //Players
-global.__player                 = ds_map_create();
-global.__player_idmap           = ds_list_create();
-global.__master_player          = -1;
-global.__name                   = "";
-global.__player_id              = 0;
-global.__default_prec           = 0.01;
-global.__last_send              = get_timer();
+global.__player				 = ds_map_create();
+global.__player_idmap		   = ds_list_create();
+global.__master_player		  = -1;
+global.__name				   = "";
+global.__player_id			  = 0;
+global.__default_prec		   = 0.01;
+global.__last_send			  = get_timer();
 //Team score
 for(var i = 0; i < 10; i++)
 {
-    global.__team_score[i] = 0;
+	global.__team_score[i] = 0;
 }
 //P2P messages
-global.__p2p_argument_count     = 0;
-global.__tt_argument_count     = 0;
+global.__p2p_argument_count	 = 0;
+global.__tt_argument_count	 = 0;
 for(var i = 0; i < 16; i++) 
 {
-    global.__p2p_argument[i] = 0;
-    global.__tt_argument[i] = 0;
+	global.__p2p_argument[i] = 0;
+	global.__tt_argument[i] = 0;
 }
 //Instance syncing
 global.__sync_pos = 0;
 global.__sync_pos_max = 0;
 global.__sync_pos_start = 0;
-global.__instance               = ds_map_create();
-global.__instance_map           = ds_map_create();
-global.__instance_idmap         = ds_list_create();
+global.__instance			   = ds_map_create();
+global.__instance_map		   = ds_map_create();
+global.__instance_idmap		 = ds_list_create();
 for(var __i = 0; i < 14; i++)
 {
-    global.__instance_var[i]  = "null";
-    global.__instance_val[i]  = 0.0;
-    global.__instance_prec[i] = 0.01;
+	global.__instance_var[i]  = "null";
+	global.__instance_val[i]  = 0.0;
+	global.__instance_prec[i] = 0.01;
 }
 global.__instance_varcount = 0;
 //Sessions
-global.__session            = ds_map_create();
-global.__sessionList            = ds_list_create();
-global.__session_id         = 0;
-global.__statuscode         = 1;
+global.__session			= ds_map_create();
+global.__sessionList			= ds_list_create();
+global.__session_id		 = 0;
+global.__statuscode		 = 1;
 global.__connection_accepted = false;
-global.__spc                = 9;
+global.__spc				= 9;
 global.__last_4d = 0;
-global.__step_timer         = 0;
-global.__update_avaiable    = false;
-global.__received_update    = false;
-global.__loc_isonum         = 0;
-global.__loc_countrycode    = "";
-global.__loc_countryname    = "";
-global.__loc_languages      = "";
+global.__step_timer		 = 0;
+global.__update_avaiable	= false;
+global.__received_update	= false;
+global.__loc_isonum		 = 0;
+global.__loc_countrycode	= "";
+global.__loc_countryname	= "";
+global.__loc_languages	  = "";
 //Caches
 global.__player_send_cache  = ds_map_create();
 global.__player_isend_cache  = ds_map_create();
 global.__player_send_llist = ds_list_create();
 for(var j = 2; j < 256; j++)
 {
-    global.__player_receive_cache[j] = 0;
-    ds_list_add(global.__player_send_llist, i)
+	global.__player_receive_cache[j] = 0;
+	ds_list_add(global.__player_send_llist, i)
 }
 for(var i = 0; i < 6; i++)
 {
-    global.__variable_send_cache[i] = ds_map_create();
-    global.__variable_isend_cache[i] = ds_map_create();
-    global.__variable_send_llist[i] = ds_list_create();
-    global.__variable_send_queue[i] = ds_map_create();
-    
-    for(var j = 2; j < 256; j++)
-    {
-        global.__variable_receive_cache_name[i, j] = "";
-        global.__variable_receive_cache_type[i, j] = 0;
-        ds_list_add(global.__variable_send_llist[i], j);
-    }
-    
-    global.__variable_receive_cache_type[i, 0] = ($f << 3) | 5;
-    global.__variable_receive_cache_type[i, 1] = ($f << 3) | 7;
+	global.__variable_send_cache[i] = ds_map_create();
+	global.__variable_isend_cache[i] = ds_map_create();
+	global.__variable_send_llist[i] = ds_list_create();
+	global.__variable_send_queue[i] = ds_map_create();
+	
+	for(var j = 2; j < 256; j++)
+	{
+		global.__variable_receive_cache_name[i, j] = "";
+		global.__variable_receive_cache_type[i, j] = 0;
+		ds_list_add(global.__variable_send_llist[i], j);
+	}
+	
+	global.__variable_receive_cache_type[i, 0] = ($f << 3) | 5;
+	global.__variable_receive_cache_type[i, 1] = ($f << 3) | 7;
 }
 global.__trusted_transaction_log = ""
 global.__game_secret = ""
@@ -12186,7 +12186,7 @@ return ds_map_exists(global.__ini_game, argument0);
 function XServer_ini_game_isreal(argument0) {
 if ds_map_exists(global.__ini_game, argument0)
 {
-    return XServer_is_real(ds_map_find_value(global.__ini_game, argument0));
+	return XServer_is_real(ds_map_find_value(global.__ini_game, argument0));
 }
 return false;
 }
@@ -12194,11 +12194,11 @@ return false;
 function XServer_ini_game_read_real(argument0) {
 if ds_map_exists(global.__ini_game, argument0)
 {
-    var val = ds_map_find_value(global.__ini_game, argument0);
-    if(XServer_is_real(val))
-    {
-        return val;
-    }
+	var val = ds_map_find_value(global.__ini_game, argument0);
+	if(XServer_is_real(val))
+	{
+		return val;
+	}
 }
 return 0;
 }
@@ -12206,11 +12206,11 @@ return 0;
 function XServer_ini_game_read_string(argument0) {
 if ds_map_exists(global.__ini_game, argument0)
 {
-    var val = ds_map_find_value(global.__ini_game, argument0);
-    if(is_string(val))
-    {
-        return val;
-    }
+	var val = ds_map_find_value(global.__ini_game, argument0);
+	if(is_string(val))
+	{
+		return val;
+	}
 }
 return "";
 }
@@ -12218,18 +12218,18 @@ return "";
 function XServer_ini_game_write_real(argument0, argument1) {
 if XGms_ini_write(global.__ini_game, argument0, argument1)
 {
-    XServer_preparesend();
-    XServer_writevariable(_b, 3, argument0, argument1, 0.01);
-    XServer_send(mid_gameini_string)
+	XServer_preparesend();
+	XServer_writevariable(_b, 3, argument0, argument1, 0.01);
+	XServer_send(mid_gameini_string)
 }
 }
 
 function XServer_ini_game_write_string(argument0, argument1) {
 if XGms_ini_write(global.__ini_game, argument0, argument1)
 {
-    XServer_preparesend();
-    XServer_writevariable(_b, 3, argument0, argument1, 0.01);
-    XServer_send(mid_gameini_string)
+	XServer_preparesend();
+	XServer_writevariable(_b, 3, argument0, argument1, 0.01);
+	XServer_send(mid_gameini_string)
 }
 }
 
@@ -12247,7 +12247,7 @@ return ds_map_exists(global.__ini_player, argument0);
 function XServer_ini_player_isreal(argument0) {
 if ds_map_exists(global.__ini_player, argument0)
 {
-    return XServer_is_real(ds_map_find_value(global.__ini_player, argument0));
+	return XServer_is_real(ds_map_find_value(global.__ini_player, argument0));
 }
 return false;
 }
@@ -12255,11 +12255,11 @@ return false;
 function XServer_ini_player_read_real(argument0) {
 if ds_map_exists(global.__ini_player, argument0)
 {
-    var val = ds_map_find_value(global.__ini_player, argument0);
-    if(XServer_is_real(val))
-    {
-        return val;
-    }
+	var val = ds_map_find_value(global.__ini_player, argument0);
+	if(XServer_is_real(val))
+	{
+		return val;
+	}
 }
 return 0;
 }
@@ -12267,11 +12267,11 @@ return 0;
 function XServer_ini_player_read_string(argument0) {
 if ds_map_exists(global.__ini_player, argument0)
 {
-    var val = ds_map_find_value(global.__ini_player, argument0);
-    if(is_string(val))
-    {
-        return val;
-    }
+	var val = ds_map_find_value(global.__ini_player, argument0);
+	if(is_string(val))
+	{
+		return val;
+	}
 }
 return "";
 }
@@ -12279,18 +12279,18 @@ return "";
 function XServer_ini_player_write_real(argument0, argument1) {
 if XGms_ini_write(global.__ini_player, argument0, argument1)
 {
-    XServer_preparesend();
-    XServer_writevariable(_b, 2, argument0, argument1, 0.01);
-    XServer_send(mid_playerini_string)
+	XServer_preparesend();
+	XServer_writevariable(_b, 2, argument0, argument1, 0.01);
+	XServer_send(mid_playerini_string)
 }
 }
 
 function XServer_ini_player_write_string(argument0, argument1) {
 if XGms_ini_write(global.__ini_player, argument0, argument1)
 {
-    XServer_preparesend();
-    XServer_writevariable(_b, 2, argument0, argument1, 0.01);
-    XServer_send(mid_playerini_string)
+	XServer_preparesend();
+	XServer_writevariable(_b, 2, argument0, argument1, 0.01);
+	XServer_send(mid_playerini_string)
 }
 }
 
@@ -12323,7 +12323,7 @@ XServer_send(mid_instance_4d);
 function XServer_instanceID(argument0) {
 if argument0 < 0 or argument0 >= ds_list_size(global.__instance_idmap)
 {
-    return noone
+	return noone
 }
 return ds_map_find_value(ds_map_find_value(global.__instance, ds_list_find_value(global.__instance_idmap, argument0)), "instance_id");
 }
@@ -12335,9 +12335,9 @@ return ds_list_size(global.__instance_idmap);
 function XServer_instance_get_varname(argument0, argument1) {
 if(ds_map_exists(global.__instance, argument0))
 {
-    return ds_list_find_value(ds_map_find_value(ds_map_find_value(global.__instance, argument0), "variable_names"), argument1)
+	return ds_list_find_value(ds_map_find_value(ds_map_find_value(global.__instance, argument0), "variable_names"), argument1)
 }else{
-    return "";
+	return "";
 }
 }
 
@@ -12345,9 +12345,9 @@ function XServer_instance_isfull(argument0) {
 return ds_map_find_value(ds_map_find_value(global.__instance, ds_list_find_value(global.__instance_idmap, argument0)), "full_sync");
 /*if(ds_map_exists(global.__instance, argument0))
 {
-    return ds_map_find_value(ds_map_find_value(global.__instance, argument0), "full_sync");
+	return ds_map_find_value(ds_map_find_value(global.__instance, argument0), "full_sync");
 }else{
-    return false;
+	return false;
 }
 */
 }
@@ -12373,10 +12373,10 @@ XServer_instance_sendsync(2, argument0, argument2, __syncID, argument3, argument
 var __i = XServer_new_instance(__syncID, argument1, argument3, argument4, argument5, argument6, true, gms_self_playerid(), argument7);
 for(var __j = 0; __j < global.__instance_varcount; __j++)
 {
-    ds_map_add(__i, "*" + global.__instance_var[__j], global.__instance_val[__j]);
-    ds_map_add(__i, ">" + global.__instance_var[__j], global.__instance_prec[__j]);
-    ds_list_add(ds_map_find_value(__i, "variable_changed"), global.__instance_var[__j]);
-    ds_list_add(ds_map_find_value(__i, "variable_names"), global.__instance_var[__j]);
+	ds_map_add(__i, "*" + global.__instance_var[__j], global.__instance_val[__j]);
+	ds_map_add(__i, ">" + global.__instance_var[__j], global.__instance_prec[__j]);
+	ds_list_add(ds_map_find_value(__i, "variable_changed"), global.__instance_var[__j]);
+	ds_list_add(ds_map_find_value(__i, "variable_names"), global.__instance_var[__j]);
 }
 ds_map_add(global.__instance, __syncID, __i);
 ds_map_add(global.__instance_map, argument1, __syncID);
@@ -12390,9 +12390,9 @@ function XServer_instance_sync_once(argument0, argument1, argument2, argument3, 
 var __current_room;
 if(global.__script_room != -1 && script_exists(global.__script_room))
 {
-    __current_room = script_execute(global.__script_room);
+	__current_room = script_execute(global.__script_room);
 }else{
-    __current_room = room;
+	__current_room = room;
 }
 XServer_instance_sendsync(0, argument0, argument2, argument1, argument3, argument4, argument5, argument6, __current_room);
 global.__instance_varcount = 0;
@@ -12428,9 +12428,9 @@ return 0;
 function XServer_instance_varN(argument0) {
 if(ds_map_exists(global.__instance, argument0))
 {
-    return ds_list_size(ds_map_find_value(ds_map_find_value(global.__instance, argument0), "variable_names"))
+	return ds_list_size(ds_map_find_value(ds_map_find_value(global.__instance, argument0), "variable_names"))
 }else{
-    return 0;
+	return 0;
 }
 }
 
@@ -12438,46 +12438,46 @@ function XServer_linksync(argument0, argument1) {
 if(global.__debugging) show_debug_message("LinkSync: " + string(argument1) + " ==> " + string(argument0))
 if(ds_map_exists(global.__instance, argument1))
 {
-    ds_map_replace(ds_map_find_value(global.__instance, argument1), "instance_id", argument0)
-    ds_map_add(global.__instance_map, argument0, argument1);
-    return argument0;
+	ds_map_replace(ds_map_find_value(global.__instance, argument1), "instance_id", argument0)
+	ds_map_add(global.__instance_map, argument0, argument1);
+	return argument0;
 }else{
-    return 0;
+	return 0;
 }
 }
 
 function XServer_login_execute() {
-global.__player_isguest         = false;
+global.__player_isguest		 = false;
 if(!gms_info_isconnected())
 {
-    gms_connect();
-    XServer_script_push(-3);
+	gms_connect();
+	XServer_script_push(-3);
 }else{
-    XServer_preparesend();
-    
-    if global.__login_token != ""
-    {
-        buffer_write(_b, buffer_u8, 2);
-        XServer_writestring(_b, global.__login_username);
-        XServer_writestring(_b, global.__login_token);
-    } else if global.__login_password != ""
-    {
-        buffer_write(_b, buffer_u8, 1);
-        XServer_writestring(_b, global.__login_username);
-        XServer_writestring(_b, gms_sha512(global.__login_password + base64_decode("MFNTRkUsIGJ1dCBJVCBjaGFuZ2VzIChpdCBvbmx5IGJlY29tZXMgbG9uZ2VyKTogJzQwMDQ1ODNlYjhmYjdmODkhJw==")));
-        buffer_write(_b, buffer_u8, string_length(global.__login_password));
-        XServer_writestring(_b, gms_sha512(global.__login_password + global.__login_username + ("Y8d0cdofKW9J0ZxmfqE06VaelEQN8+CGaJ6sSJZEKmDVbQHJlAETkeQZtp6QjlWHJWrqu+CHkj4z14Sfh1FN2hKz1O0kUsdoNTrgMsPZHqCQ1kJFaxuowlPbjTuYzL8p6SIvhU/2Piy6RUrsjDnwgefmbQraodqi/")));
-    } else {
-        buffer_write(_b, buffer_u8, 0);
-        XServer_writestring(_b, global.__login_username)
-    }
-    
-    global.__name = global.__login_username
-    global.__login_username = ""
-    global.__login_password = ""
-    global.__login_token = ""
-    
-    XServer_send(mid_login);
+	XServer_preparesend();
+	
+	if global.__login_token != ""
+	{
+		buffer_write(_b, buffer_u8, 2);
+		XServer_writestring(_b, global.__login_username);
+		XServer_writestring(_b, global.__login_token);
+	} else if global.__login_password != ""
+	{
+		buffer_write(_b, buffer_u8, 1);
+		XServer_writestring(_b, global.__login_username);
+		XServer_writestring(_b, gms_sha512(global.__login_password + base64_decode("MFNTRkUsIGJ1dCBJVCBjaGFuZ2VzIChpdCBvbmx5IGJlY29tZXMgbG9uZ2VyKTogJzQwMDQ1ODNlYjhmYjdmODkhJw==")));
+		buffer_write(_b, buffer_u8, string_length(global.__login_password));
+		XServer_writestring(_b, gms_sha512(global.__login_password + global.__login_username + ("Y8d0cdofKW9J0ZxmfqE06VaelEQN8+CGaJ6sSJZEKmDVbQHJlAETkeQZtp6QjlWHJWrqu+CHkj4z14Sfh1FN2hKz1O0kUsdoNTrgMsPZHqCQ1kJFaxuowlPbjTuYzL8p6SIvhU/2Piy6RUrsjDnwgefmbQraodqi/")));
+	} else {
+		buffer_write(_b, buffer_u8, 0);
+		XServer_writestring(_b, global.__login_username)
+	}
+	
+	global.__name = global.__login_username
+	global.__login_username = ""
+	global.__login_password = ""
+	global.__login_token = ""
+	
+	XServer_send(mid_login);
 }
 }
 
@@ -12485,31 +12485,31 @@ function XServer_login_player_has_account(argument0) {
 if(argument0 == "") return false;
 if(!ds_map_exists(global.__login_accounts, argument0))
 {
-    XServer_preparesend();           
-    XServer_writestring(_b, argument0);
-    XServer_send(mid_playerinfo);
-    
-    ds_map_add(global.__login_accounts, argument0, -1);
-    return -1;
+	XServer_preparesend();		   
+	XServer_writestring(_b, argument0);
+	XServer_send(mid_playerinfo);
+	
+	ds_map_add(global.__login_accounts, argument0, -1);
+	return -1;
 }else{
-    return ds_map_find_value(global.__login_accounts, argument0);
+	return ds_map_find_value(global.__login_accounts, argument0);
 }
 }
 
 function XServer_other_index_changed(argument0) {
 if(ds_map_exists(global.__player, argument0))
 {
-    var _m = ds_map_find_value(global.__player, argument0);
-    if(ds_map_exists(_m, "%image_index"))
-    {
-        var _val = ds_map_find_value(_m, "%image_index");
-        ds_map_replace(_m, "%image_index", 0);
-        return _val;
-    }else{
-        return 0;
-    }
+	var _m = ds_map_find_value(global.__player, argument0);
+	if(ds_map_exists(_m, "%image_index"))
+	{
+		var _val = ds_map_find_value(_m, "%image_index");
+		ds_map_replace(_m, "%image_index", 0);
+		return _val;
+	}else{
+		return 0;
+	}
 }else{
-    return 0;
+	return 0;
 }
 }
 
@@ -12520,7 +12520,7 @@ buffer_write(_b, buffer_u8, argument0);
 buffer_write(_b, buffer_u8, global.__p2p_argument_count);
 for(var i = 0; i < global.__p2p_argument_count; i++)
 {
-    XGms_ve_writeValue(_b, global.__p2p_argument[i], DEFAULT_PRECISION, -1)
+	XGms_ve_writeValue(_b, global.__p2p_argument[i], DEFAULT_PRECISION, -1)
 }
 global.__p2p_argument_count = 0;
 XServer_send(mid_p2p);
@@ -12573,1067 +12573,1067 @@ function XServer_step(argument0) {
 global.__step_timer++;
 if global.__step_timer % 10 == 0
 {
-    XServer_preparesend()
-    XServer_send(mid_steptick)
+	XServer_preparesend()
+	XServer_send(mid_steptick)
 }
 XServer_network_update();
 var pos = 0;
 var buffersize = buffer_tell(_rr);
 while(true)
 {
-    if(pos >= buffersize) break;
-    
-    buffer_seek(_rr, buffer_seek_start, pos);
-    
-    var tmp1, tmp2, tmp3, tmp4, size, prefixSize;
-    tmp1 = buffer_read(_rr, buffer_u8);
-    if (tmp1 % 2 == 1)
-    {
-        if(buffersize < 2) break;
-        tmp2 = buffer_read(_rr, buffer_u8);
-        
-        if (tmp2 % 2 == 1)
-        {
-            if(buffersize < 3) break;
-            tmp3 = buffer_read(_rr, buffer_u8);
-            if (tmp3 % 2 == 1)
-            {
-                if(buffersize < 4) break;
-                tmp4 = buffer_read(_rr, buffer_u8);
-                size = (tmp1 >> 1) | ((tmp2 >> 1) << 7) | ((tmp3 >> 1) << 14) | (tmp4 << 21);
-                prefixSize = 4;
-            }
-            else
-            {
-                size = (tmp1 >> 1) | ((tmp2 >> 1) << 7) | ((tmp3 >> 1) << 14);
-                prefixSize = 3;
-            }
-        }
-        else
-        {
-            size = (tmp1 >> 1) | ((tmp2 >> 1) << 7);
-            prefixSize = 2;
-        }
-    }
-    else
-    {
-        size = tmp1 >> 1;
-        prefixSize = 1;
-    }
-    
-    //show_debug_message("Size: " + string(size) + ", buffersize: " + string(buffersize) + ", pos: " + string(pos) + ", prefixSize: " + string(prefixSize))
-    
-    if(size + pos + prefixSize <= buffersize)
-    {
-        var mid = buffer_read(_rr, buffer_u8);
-        if(mid >= 190 && mid <= 253)
-        {
-            //Handle q4D message
-            var _id = XGms_cache_player_read(_rr), mid_id = mid - 190;
-            if(ds_map_exists(global.__player, _id))
-            {
-                var _m = ds_map_find_value(global.__player, _id);
-                var _x = ds_map_find_value(_m, "#x"), 
-                    _y = ds_map_find_value(_m, "#y"), 
-                    _spd = ds_map_find_value(_m, "#speed"), 
-                    _dir = ds_map_find_value(_m, "#direction"), _tmp, combi = false;
-                //Update variables
-                //Xb
-                switch((mid_id >> 4) & 3)
-                {
-                    case 0:
-                        //No X
-                        break;
-                    case 1:
-                        _x = buffer_read(_rr, buffer_u16);
-                        break;
-                    case 2:
-                        _x = buffer_read(_rr, buffer_s32);
-                        break;
-                    case 3:
-                        //COMBI
-                        combi = true;
-                        break;
-                }
-                
-                if(combi)
-                {
-                    switch ((mid_id >> 2) & 3)
-                    {
-                        case 0:
-                            var b1 = buffer_read(_rr, buffer_u8),
-                                b2 = buffer_read(_rr, buffer_u8),
-                                b3 = buffer_read(_rr, buffer_u8);
-                            
-                            _x = ((b1 << 16) + (b2 << 8) + b3) % 4096
-                            _y = (((b1 << 16) + (b2 << 8) + b3) >> 12) % 4096
-                            break;
-                        case 1:
-                            _x = buffer_read(_rr, buffer_u8);
-                            _y = buffer_read(_rr, buffer_u8);
-                            break;
-                        case 2:
-                            _x = buffer_read(_rr, buffer_u8) * 2;
-                            _y = buffer_read(_rr, buffer_u8) * 2;
-                            break;
-                        case 3:
-                            _x = 0;
-                            _y = 0;
-                            break;
-                    }
-                }else{
-                    //Y
-                    switch ((mid_id >> 2) & 3)
-                    {
-                        case 0:
-                            //No X
-                            break;
-                        case 1:
-                            _y = buffer_read(_rr, buffer_u16);
-                            break;
-                        case 2:
-                            _y = buffer_read(_rr, buffer_s32);
-                            break;
-                        case 3:
-                            //COMBI
-                            _y = buffer_read(_rr, buffer_u8) * 2;
-                            break;
-                    }
-                }
-                
-                if (buffer_tell(_rr) < size + pos + prefixSize)
-                {
-                    if ((mid_id & 2) > 0)
-                    {
-                        switch (mid_id & 1)
-                        {
-                            case 0:
-                                var b = buffer_read(_rr, buffer_u8);
-                                _dir = (((b >> 4) & $F)) * 22.5;
-                                _spd = (((b & $F))) - 8.0;
-                                break;
-                            case 1:
-                                var b1 = buffer_read(_rr, buffer_u8),
-                                    b2 = buffer_read(_rr, buffer_u8),
-                                    b3 = buffer_read(_rr, buffer_u8);
-                                
-                                var us1 = ((b1 << 16) | (b2 << 8) | b3) & 4095,
-                                    us2 = (((b1 << 16) | (b2 << 8) | b3) >> 12) & 4095;
-                                _dir = us1 / 11.0;
-                                _spd = us2 / 80.0 - 25.6;
-                                break;
-                        }
-                    }
-                    else
-                    {
-                        switch (mid_id & 1)
-                        {
-                            case 0:
-                                _dir = (buffer_read(_rr, buffer_u8)) / 240.0 * 360.0;
-                                break;
-                            case 1:
-                                _spd = (buffer_read(_rr, buffer_u8) - 128) / 8;
-                                break;
-                        }
-                    }
-                }
-                
-                var _delay = ds_map_find_value(_m, "#delay");
-                if (_delay == 0)
-                {
-                    ds_map_replace(_m, "#speedCorrection", 0);
-                }else{
-                    ds_map_replace(_m, "#speedCorrection", (point_distance(ds_map_find_value(_m, "*x"), ds_map_find_value(_m, "*y"), _x, _y)) / _delay)
-                }
-                
-                ds_map_replace(_m, "#last-xto", ds_map_find_value(_m, "#x"))
-                ds_map_replace(_m, "#last-yto", ds_map_find_value(_m, "#y"))
-                ds_map_replace(_m, "#x", _x)
-                ds_map_replace(_m, "#y", _y)
-                ds_map_replace(_m, "#speed", _spd)
-                ds_map_replace(_m, "#direction", _dir)
-                                
-                //if(debug_mode) show_debug_message(string(_id) + ": 4d time: " + string((get_timer() - global.__last_4d) / 1000));
-                global.__last_4d = get_timer();
-                
-                XServer_updatecoords(_m);
-            }else{
-                if(debug_mode) show_error("Server is sending corrupt player info (4D): Player does not exist (id = "+ string(_id) + ")", false);
-            }
-        }else{
-            switch(mid)
-            {
-                case mid_hello:
-                    if(debug_mode) show_debug_message("Connected!");
-                    global.__connection_accepted = true;
-                    break;
-                case mid_time://56
-                    global.__subtract_time = get_timer() / 1000000 - buffer_read(_rr, buffer_s32);
-                    break;
-                case mid_login:
-                    var status = buffer_read(_rr, buffer_u8);
-                    var _a = ds_map_create()
-                    ds_map_add(_a, "type", 34)
-                    ds_map_add(_a, "from", 0)
-                    ds_map_add(_a, 0, status)
-                    switch(status)
-                    {
-                        case 0:
-                            global.__login_error = buffer_read(_rr, buffer_u8);
-                            ds_map_add(_a, 2, XServer_readstring(_rr))
-                            break;
-                        case 2:
-                            global.__login_save_code = buffer_read(_rr, buffer_string);
-                            global.__login_error = 0
-                            ds_map_add(_a, 2, "")
-                            break;
-                        case 1:
-                            global.__loggedin = true
-                            global.__login_error = 0
-                            ds_map_add(_a, 2, "")
-                            break;
-                    }
-                    
-                    ds_map_add(_a, 1, global.__login_error)
-                    ds_queue_enqueue(global.__actions, _a)
-                    break;
-                case 3://Player variable
-                    var _id = XGms_cache_player_read(_rr)
-                    if(ds_map_exists(global.__player, _id))
-                    {
-                        var _m = ds_map_find_value(global.__player, _id),
-                            _type = buffer_read(_rr, buffer_u8),
-                            _name = "*" + XServer_readvariablename(_rr, 0, _type);
-                        
-                        if(_name == "*image_index")
-                        {
-                            ds_map_replace(_m, "%image_index", 1);
-                        }
-                        
-                        if(ds_map_exists(_m, _name))
-                        {
-                            ds_map_replace(_m, _name, XGms_ve_readValue(_rr, global.__variable_receive_cache_type[0, _type]))
-                        }else{
-                            ds_map_add(_m, _name, XGms_ve_readValue(_rr, global.__variable_receive_cache_type[0, _type]))
-                        }
-                        if(debug_mode) show_debug_message(ds_map_find_value(_m, "*name") + " -> " + string(_name) + " = " + string(ds_map_find_value(_m, _name)));
-                    }else{
-                        if(debug_mode) show_error("Server is sending corrupt player info (variables): Player does not exist (id = "+ string(_id) + ")", false);
-                    }
-                    break;
-                
-                case 4://4D
-                    var _id = XGms_cache_player_read(_rr)
-                    if(ds_map_exists(global.__player, _id))
-                    {
-                        var _m = ds_map_find_value(global.__player, _id);
-                        var _x, _y, _spd, _dir, _tmp;
-                        _x = buffer_read(_rr, buffer_s32);
-                        _y = buffer_read(_rr, buffer_s32);
-                        _spd = buffer_read(_rr, buffer_u8) << 4;
-                        _tmp = buffer_read(_rr, buffer_u8);
-                        _spd |= (_tmp >> 4) & 15;
-                        _dir = (buffer_read(_rr, buffer_u8) | ((_tmp & 15) << 8)) / 11;
-                        _spd /= 80;
-                        _spd -= 25.6;
-                        
-                        ds_map_replace(_m, "#last-xto", ds_map_find_value(_m, "#x"))
-                        ds_map_replace(_m, "#last-yto", ds_map_find_value(_m, "#y"))
-                        ds_map_replace(_m, "#x", _x)
-                        ds_map_replace(_m, "#y", _y)
-                        ds_map_replace(_m, "#speed", _spd)
-                        ds_map_replace(_m, "#direction", _dir)
-                        
-                        //if(debug_mode) show_debug_message(string(_id) + ": 4d time: " + string((get_timer() - global.__last_4d) / 1000));
-                        global.__last_4d = get_timer();
-                        
-                        XServer_updatecoords(_m);
-                    }
-                    break;
-                    
-                case mid_global:
-                    var _type = buffer_read(_rr, buffer_u8),
-                        name = XServer_readvariablename(_rr, 1, _type);
-                    if(debug_mode) show_debug_message("Global var " + name + ", " + string(_type))
-                    
-                    if(gms_global_exists(name))
-                    {
-                        ds_map_replace(global.__global, name, XGms_ve_readValue(_rr, global.__variable_receive_cache_type[1, _type]))
-                    }else{
-                        ds_map_add(global.__global, name, XGms_ve_readValue(_rr, global.__variable_receive_cache_type[1, _type]))
-                    }
-                    break;
-                
-                case mid_gameini_string:
-                    var _type = buffer_read(_rr, buffer_u8),
-                        name = XServer_readvariablename(_rr, 3, _type);
-                    if(XServer_ini_game_exists(name))
-                    {
-                        ds_map_replace(global.__ini_game, name, XGms_ve_readValue(_rr, global.__variable_receive_cache_type[3, _type]))
-                    }else{
-                        ds_map_add(global.__ini_game, name, XGms_ve_readValue(_rr, global.__variable_receive_cache_type[3, _type]))
-                    }
-                    break;
-                case mid_gameini_delete:
-                    var name;
-                    name = XServer_readstring(_rr);
-                    ds_map_delete(global.__ini_game, name);
-                    break;
-                    
-                case mid_playerini_string:
-                    var _type = buffer_read(_rr, buffer_u8),
-                        name = XServer_readvariablename(_rr, 2, _type),
-                        __value = XGms_ve_readValue(_rr, global.__variable_receive_cache_type[2, _type]);
-                    if(XServer_ini_player_exists(name))
-                    {
-                        ds_map_replace(global.__ini_player, name, __value)
-                    }else{
-                        ds_map_add(global.__ini_player, name, __value)
-                    }
-                    break;
-                case mid_playerini_delete:
-                    var name;
-                    name = XServer_readstring(_rr);
-                    ds_map_delete(global.__ini_player, name);
-                    break;
-                
-                case 5:
-                    var _type = buffer_read(_rr, buffer_u8),
-                        _id   = XGms_cache_player_read(_rr);
-                    
-                    if(_type == 0 or _type == 2)
-                    {
-                        //SetPosition(16);
-                        if(!ds_map_exists(global.__player, _id))
-                        {
-                            var _name = XServer_readstring(_rr);
-                            
-                            var _p = ds_map_create();
-                            ds_map_add(_p, "id", _id);
-                            ds_map_add(_p, "name", _name);
-                            ds_map_add(_p, "has_changed", false);
-                            ds_map_add(_p, "admininfo", 0);
-                            
-                            ds_map_add(_p, "#delay", 0);
-                            ds_map_add(_p, "#x", 0);
-                            ds_map_add(_p, "#y", 0);
-                            ds_map_add(_p, "#last-x", 0);
-                            ds_map_add(_p, "#last-y", 0);
-                            ds_map_add(_p, "#last-xto", 0);
-                            ds_map_add(_p, "#last-yto", 0);
-                            ds_map_add(_p, "#last-speed", 0);
-                            ds_map_add(_p, "#speedUp", 0);
-                            ds_map_add(_p, "#last-direction", 0);
-                            ds_map_add(_p, "#sharpTurn", 0);
-                            ds_map_add(_p, "#smoothSpeed", 0);
-                            ds_map_add(_p, "#tickstart", 0);
-                            ds_map_add(_p, "#tickend", 0);
-                            ds_map_add(_p, "#speed", 0);
-                            ds_map_add(_p, "#direction", 0);
-                            ds_map_add(_p, "#delay", 0);
-                            ds_map_add(_p, "#speedCorrection", 0);
-                            
-                            
-                            ds_map_add(_p, "%image_index", 0);
-                            
-                            ds_map_add(_p, "*x", 0);
-                            ds_map_add(_p, "*y", 0);
-                            ds_map_add(_p, "*speed", 0);
-                            ds_map_add(_p, "*direction", 0);
-                            
-                            ds_map_add(_p, "*name", _name);//* = variable
-                            
-                            ds_list_add(global.__player_idmap, _id);
-                            ds_map_add(global.__player, _id, _p);
-                            
-                            XAction1((_type == 0) * 1 + (_type == 2) * 31, _id, _name);
-                        }else{
-                            //SetPosition(24);
-                            if(debug_mode) show_error("The server is sending corrupt data: The player that was supposed to login, is already logged in.", false);
-                        }
-                    }else if(_type == 1 or _type == 3){
-                        if(ds_map_exists(global.__player, _id))
-                        {
-                            ds_map_delete(global.__player, _id);
-                            ds_list_delete(global.__player_idmap, ds_list_find_index(global.__player_idmap, _id));
-                            //ShowError("Ereasing!");
-                        }else{
-                            if(debug_mode) show_error("Player possibly logged out without calling gms_logout, and is now stuck in the server.", false);
-                        }
-                        
-                        XAction((_type == 1) * 2 + (_type == 3) * 32, _id);
-                    }
-                    break;
-                    
-                    
-                case 7:
-                    var _id = buffer_read(_rr, buffer_u8);
-                    global.__team_score[_id] = buffer_read(_rr, buffer_f32);
-                    break;
-                    
-                case 10:
-                    var __sender = XGms_cache_player_read(_rr),
-                        __color = buffer_read(_rr, buffer_s32), 
-                        __text = XServer_readstring(_rr),
-                        __tag = XServer_readstring(_rr);
-                    
-                    var _a = ds_map_create();
-                    ds_map_add(_a, "type", 3);
-                    ds_map_add(_a, "from", __sender);
-                    ds_map_add(_a, 0, __color);
-                    ds_map_add(_a, 1, __text);
-                    ds_map_add(_a, 2, string_length(__text));
-                    ds_map_add(_a, 3, __tag);
-                    ds_queue_enqueue(global.__actions, _a);
-                    
-                    break;
-                    
-                case 16:
-                    if(global.__show_errors)
-                    {
-                        show_error("SERVER ERROR: " + XServer_readstring(_rr), false);
-                    }
-                    break;
-                
-                case 19:
-                    global.__vs_ready = true;
-                    XAction(30, 0);
-                    break;
-                case 20:
-                    XAction(6, buffer_read(_rr, buffer_u8));
-                    break;
-                    
-                case 21:
-                    var __id = buffer_read(_rr, buffer_s32),
-                        __type = buffer_read(_rr, buffer_u8);
-                    XAction(7 + __type, __id);
-                    break;
-                    
-                case 22:
-                    var _sender = XGms_cache_player_read(_rr);
-                    var _id = buffer_read(_rr, buffer_u8);
-                    var _count = buffer_read(_rr, buffer_u8);
-                    var _a = ds_map_create();
-                    ds_map_add(_a, "type", 10);
-                    ds_map_add(_a, "from", _sender);
-                    
-                    if(debug_mode) show_debug_message("P2p from " + string(_sender) + ", " + string(_count) + "arguments");
-                    
-                    ds_map_add(_a, 0, _id);
-                    ds_map_add(_a, 1, _count);
-                    for(var i = 0; i < _count; i++)
-                    {
-                        var _type = buffer_read(_rr, buffer_u8),
-                            _val = XGms_ve_readValue(_rr, _type)
-                        if(debug_mode) show_debug_message("Type " + string(_type) + " => " + string(_val))
-                        ds_map_add(_a, i + 2, _val)
-                    }
-                    ds_queue_enqueue(global.__actions, _a);
-                    break;
-                    
-                case 24:
-                    global.__player_id = buffer_read(_rr, buffer_u32);
-                    global.__player_id |= buffer_read(_rr, buffer_u32) << 32;
-                    break;
-                    
-                case 25:
-                    global.__sync_pos_start = buffer_read(_rr, buffer_u16);
-                    global.__sync_pos_max   = buffer_read(_rr, buffer_u16);
-                    global.__sync_pos = global.__sync_pos_start;
-                    break;
-                    
-                case 35:
-                    global.__ini_game_limit = buffer_read(_rr, buffer_s32);
-                    global.__ini_player_limit = buffer_read(_rr, buffer_s32);
-                    global.__num_logins = buffer_read(_rr, buffer_u32);
-                    break;
-                    
-                case 40://Achievement
-                    var _a_id = buffer_read(_rr, buffer_u32),
-                        _text = XServer_readstring(_rr),
-                        _short_name = XServer_readstring(_rr);
-                    
-                    var _m = ds_map_create();
-                    ds_map_add(_m, "id", _a_id);
-                    ds_map_add(_m, "text", _text);
-                    ds_map_add(_m, "short_name", _short_name);
-                    ds_map_add(_m, "value", false);
-                    
-                    ds_map_add(global.__achievement, _short_name, _m);
-                    ds_list_add(global.__achievement_idmap, _short_name);
-                    ds_map_add(global.__achievement_idmap2, _a_id, _short_name);
-                    if(global.__show_errors) show_debug_message("Achievement: " + _short_name + " => " + _text);
-                    break;
-                case 41://Achievement reached
-                    var _a_id = buffer_read(_rr, buffer_u32),
-                        _a_sn = ds_map_find_value(global.__achievement_idmap2, _a_id);
-                    if(ds_map_exists(global.__achievement, _a_sn))
-                    {
-                        if(global.__show_errors) show_debug_message("Achievement " + string(_a_sn) + " has been reached");
-                        ds_map_replace(ds_map_find_value(global.__achievement, _a_sn), "value", true);
-                    }
-                    break;
-                    
-                case 42://list (create)
-                    var _h_id = buffer_read(_rr, buffer_u32),
-                        _name = XServer_readstring(_rr);
-                    
-                    if(debug_mode) show_debug_message("Creating highscorelist " + string(_h_id));
-                    if(!gms_highscore_list_exists(_h_id))
-                    {
-                        if(global.__show_errors) show_debug_message("Success.");
-                        var _h = ds_map_create();
-                        ds_map_add(_h, "names", ds_list_create());
-                        ds_map_add(_h, "scores", ds_list_create());
-                        ds_map_add(_h, "list_title", _name);
-                        
-                        ds_map_add(global.__highscore, _h_id, _h);
-                        ds_list_add(global.__highscore_ids, _h_id);
-                    }
-                    break;
-                case 43://Add highscore to highscorelist
-                    var _h_id = buffer_read(_rr, buffer_u32),
-                        _name = XServer_readstring(_rr),
-                        _score = buffer_read(_rr, buffer_f64);
-                    if(debug_mode) show_debug_message("Highscorelist " + string(_h_id) + ": " + _name + " => " + string(_score));
-                    if(gms_highscore_list_exists(_h_id))
-                    {
-                        if(debug_mode) show_debug_message("Success.");
-                        ds_list_add(ds_map_find_value(ds_map_find_value(global.__highscore, _h_id), "names"), _name);
-                        ds_list_add(ds_map_find_value(ds_map_find_value(global.__highscore, _h_id), "scores"), _score);
-                    }
-                    break;
-                case 44://Clear highscore list
-                    var _h_id = buffer_read(_rr, buffer_u32);
-                    if(debug_mode) show_debug_message("Clearing highscorelist " + string(_h_id));
-                    if(gms_highscore_list_exists(_h_id))
-                    {
-                        if(debug_mode) show_debug_message("Success.");
-                        ds_list_clear(ds_map_find_value(ds_map_find_value(global.__highscore, _h_id), "names"));
-                        ds_list_clear(ds_map_find_value(ds_map_find_value(global.__highscore, _h_id), "scores"));
-                    }
-                    break;
-                case 45:
-                    var __guest_highscore_result = buffer_read(_rr, buffer_u8);
-                    XAction(41, __guest_highscore_result)
-                    break;
-                    
-                case 46:
-                    var _user_id = buffer_read(_rr, buffer_u32),
-                        _name = XServer_readstring(_rr);
-                    
-                    if(!ds_map_exists(global.__friend, _user_id))
-                    {
-                        var _map = ds_map_create();
-                        if(debug_mode) show_debug_message("Friend " + _name);
-                        ds_map_add(_map, "name", _name);
-                        ds_map_add(_map, "user_id", _user_id);
-                        ds_map_add(_map, "online", false);
-                        
-                        ds_map_add(global.__friend, _user_id, _map);
-                        ds_list_add(global.__friend_idmap, _user_id);
-                    }
-                    break;
-                case 47:
-                    var _user_id = buffer_read(_rr, buffer_u32),
-                        _name = XServer_readstring(_rr);
-                    
-                    if(ds_map_exists(global.__friend, _user_id))
-                    {
-                        var _map = ds_map_find_value(global.__friend, _user_id);
-                        ds_map_replace(_map, "online", true);
-                        
-                        XAction(15, _user_id);
-                    }
-                    break;
-                case 48:
-                    var _user_id = buffer_read(_rr, buffer_u32),
-                        _name = XServer_readstring(_rr);
-                    
-                    if(ds_map_exists(global.__friend, _user_id))
-                    {
-                        var _map = ds_map_find_value(global.__friend, _user_id);
-                        ds_map_replace(_map, "online", false);
-                        
-                        XAction(16, _user_id);
-                    }
-                    break;
-                    
-                case 49:
-                    global.__self_admininfo = buffer_read(_rr, buffer_u8);
-                    break;
-                    
-                case 50://Guest info
-                    global.__player_isguest = true;
-                    break;
-                case 51:
-                    var _user_id = XGms_cache_player_read(_rr),
-                        _rights = buffer_read(_rr, buffer_u8);
-                    
-                    if(ds_map_exists(global.__player, _user_id))
-                    {
-                        ds_map_replace(ds_map_find_value(global.__player, _user_id), "admininfo", _rights);
-                    }else{
-                        if(debug_mode) show_error("Server is sending corrupt admin info", false);
-                    }
-                    break;
-                //52 aan het einde
-                    
-                case 53:
-                    global.__master_player = XGms_cache_player_read(_rr);
-                    break;
-                    
-                case 54://Statistic
-                    var _s_id = buffer_read(_rr, buffer_u32),
-                        _text = XServer_readstring(_rr),
-                        _short_name = XServer_readstring(_rr);
-                        
-                    var _m = ds_map_create();
-                    ds_map_add(_m, "id", _s_id);
-                    ds_map_add(_m, "text", _text);
-                    ds_map_add(_m, "short_name", _short_name);
-                    ds_map_add(_m, "value", 0);
-                    
-                    ds_map_add(global.__stat, _short_name, _m);
-                    ds_list_add(global.__stat_idmap, _short_name);
-                    break;
-                case 55://Statistic value
-                    var _s_id = buffer_read(_rr, buffer_u32),
-                        _val = buffer_read(_rr, buffer_f64);
-                    if(ds_map_exists(global.__stat, _s_id))
-                    {
-                        ds_map_replace(ds_map_find_value(global.__stat, _s_id), "value", _val);
-                    }else{
-                        show_debug_message("Unknown statistic received");
-                    }
-                    break;
-                //mid_time    
-                case 58:
-                    global._friend_request_result = buffer_read(_rr, buffer_u8);
-                    XAction1(36, global._friend_request_result, global._friend_request_result);
-                    break;
-                    
-                case 60://Force setvar; Not working, studio can't set variabeles
-                    break;
-                    
-                
-                case 65://Update not working, can't download/replace files with GM:Studio
-                    global.__update_avaiable    = true;
-                    global.__received_update    = true;
-                    break;
-                case 66:
-                    global.__update_avaiable    = false;
-                    global.__received_update    = true;
-                    break;
-                    
-                case 80:
-                    var __room = buffer_read(_rr, buffer_s32);
-                    XAction1(21, 0, __room);
-                    break;
-                case 81:
-                    XAction(22, 0);
-                    break;
-                case 82:
-                    XAction(23, 0);
-                    break;
-                case 83:
-                    XAction(24, 0);
-                    break;
-                case 84:
-                    XAction1(25, 0, buffer_read(_rr, buffer_s32));
-                    break;
-                
-                case 85:
-                    XAction(26, 0);
-                    break;
-                    
-                case 144:
-                    XAction(50, buffer_read(_rr, buffer_s32));
-                    break;
-                    
-                case 90:
-                    global.__vs_time = buffer_read(_rr, buffer_s32);
-                    if(global.__show_errors) show_debug_message("Time left: " + string(global.__vs_time))
-                    break;
-                    
-                case 91:
-                    XAction(29, 0);
-                    
-                    global.__vs_ready = false;
-                    
-                    XServer_clear_map_map(global.__player);
-                    XServer_clear_instances(global.__instance);
-                    break;
-                
-                    
-                case 92:
-                    global.__session_id = buffer_read(_rr, buffer_u16);
-                    XAction(28, global.__session_id);
-                    break;
-                    
-                case 94:
-                    while(ds_list_size(global.__sessionList) > 0)
-                    {
-                        var __sessID = ds_list_find_value(global.__sessionList, 0);
-                        ds_map_destroy(ds_map_find_value(global.__session, __sessID));
-                        ds_list_delete(global.__sessionList, 0);
-                    }
-                    
-                    ds_map_clear(global.__session)
-                    
-                    var num = buffer_read(_rr, buffer_u8);
-                    for(var i = 0; i < num; i++)
-                    {
-                        var _m = ds_map_create();
-                        var __id = buffer_read(_rr, buffer_u32);
-                        ds_map_add(_m, "id", __id);
-                        ds_map_add(_m, "type", buffer_read(_rr, buffer_u8));
-                        ds_map_add(_m, "players", buffer_read(_rr, buffer_u8));
-                        ds_map_add(_m, "tag", XServer_readstring(_rr));
-                        ds_map_add(global.__session, __id, _m);
-                        ds_list_add(global.__sessionList, __id);
-                    }
-                    break;
-                    
-                case 97:
-                    var udp_unique = buffer_read(_rr, buffer_u32),
-                        udp_port = buffer_read(_rr, buffer_u32);
-                    break;
-                case 98://UDP not supproted right now...
-                    break;
-                    
-                case mid_instance_destroy:
-                    var __syncID = buffer_read(_rr, buffer_u16) + 1000000;
-                    var _a = ds_map_create();
-                    
-                    if(debug_mode) show_debug_message("Destroy " + string(__syncID));
-                    ds_map_add(_a, "type", 11);
-                    ds_map_add(_a, "from", 0);
-                    ds_map_add(_a, 0, __syncID);
-                    
-                    if(ds_map_exists(global.__instance, __syncID))
-                    {
-                        if(debug_mode) show_debug_message("IID: " + string(ds_map_find_value(ds_map_find_value(global.__instance, __syncID), "instance_id")))
-                        ds_map_add(_a, 1, ds_map_find_value(ds_map_find_value(global.__instance, __syncID), "instance_id"));
-                        
-                        gms_instance_sync_destroy_silent(__syncID);
-                    } else {
-                        ds_map_add(_a, 1, noone);
-                    }
-                    
-                    ds_queue_enqueue(global.__actions, _a);
-                    break;
-                case 61:
-                    var __syncID = buffer_read(_rr, buffer_u16) + 1000000;
-                    if(ds_map_exists(global.__instance, __syncID))
-                    {
-                        var _s = ds_map_find_value(global.__instance, __syncID),
-                            _type = buffer_read(_rr, buffer_u8),
-                            _name = XServer_readvariablename(_rr, 5, _type),
-                            _val  = XGms_ve_readValue(_rr, global.__variable_receive_cache_type[5, _type]);
-                        
-                        if(ds_map_exists(_s, "*" + _name))
-                        {
-                            ds_map_replace(_s, "*" + _name, _val);
-                        }else{
-                            ds_map_add(_s, "*" + _name, _val);
-                            ds_map_add(_s, ">" + _name, 0.01);
-                        }
-                    }else{
-                        if(debug_mode) show_debug_message("Server sent unknown syncID")
-                    }
-                    break;
-                
-                case 62:
-                    var __syncID = buffer_read(_rr, buffer_u16) + 1000000;
-                    if(ds_map_exists(global.__instance, __syncID))
-                    {
-                        var _m = ds_map_find_value(global.__instance, __syncID);
-                        var _x, _y, _spd, _dir, _tmp;
-                        _x = buffer_read(_rr, buffer_s32);
-                        _y = buffer_read(_rr, buffer_s32);
-                        _spd = buffer_read(_rr, buffer_u8) << 4;
-                        _tmp = buffer_read(_rr, buffer_u8);
-                        _spd |= (_tmp >> 4) & 15;
-                        _dir = (buffer_read(_rr, buffer_u8) | ((_tmp & 15) << 8)) / 11;
-                        _spd /= 80;
-                        _spd -= 25.6;
-                        
-                        ds_map_replace(_m, "#last-xto", ds_map_find_value(_m, "#x"))
-                        ds_map_replace(_m, "#last-yto", ds_map_find_value(_m, "#y"))
-                        ds_map_replace(_m, "#x", _x)
-                        ds_map_replace(_m, "#y", _y)
-                        ds_map_replace(_m, "#speed", _spd)
-                        ds_map_replace(_m, "#direction", _dir)
-                        
-                        XServer_updatecoords(_m);
-                    }else{
-                        if(debug_mode) show_debug_message("Server sent unknown syncID")
-                    }
-                    break;
-                case 63:
-                    var __syncID = buffer_read(_rr, buffer_u16) + 1000000,
-                        __newOwner = XGms_cache_player_read(_rr);
-                    var _m = XServer_instance_find(__syncID);
-                    if(_m != -1)
-                    {
-                        ds_map_replace(_m, "owner", __newOwner);
-                    }else{
-                        if(debug_mode) show_debug_message("Received takeover-request for instance that does not exist.")
-                    }
-                    break;
-                    
-                case mid_bdb_open:
-                    var __bdbid = buffer_read(_rr, buffer_s32);
-                    var __map = global.__bdb_cache[? __bdbid];
-                    __map[? "opened"] = true;
-                    var __datalen = buffer_read(_rr, buffer_s32);
-                    if(__datalen >= 0)
-                    {
-                        //Copy new buffer
-                        buffer_resize(__map[? "buffer"], __datalen + 1);
-                        buffer_copy(_rr, buffer_tell(_rr), __datalen, __map[? "buffer"], 0);
-                        buffer_seek(__map[? "buffer"], buffer_seek_start, 0);
-                    }
-                    
-                    show_debug_message("Received BDB " + string(__bdbid))
-                    
-                    XAction1(40, __bdbid, __map[? "callback_open"]);
-                    break;
-                case mid_bdb_lock:
-                    var __data = buffer_read(_rr, buffer_s32);
-                    var __unique = buffer_read(_rr, buffer_u8)
-                    var __map = global.__bdb_cache[? __data];
-                    __map[? "locked"] = __unique;
-                    
-                    show_debug_message("Received Lock for BDB " + string(__data))
-                    break;
-                
-                case 26:
-                case 27:
-                case 8:
-                case 28:
-                case 29:
-                case 30:
-                    show_debug_message("Syncing instance...")
-                    XServer_readinstance(mid, _rr, argument0);
-                    break;
-                case 52:
-                    global.__register_status = buffer_read(_rr, buffer_u8);
-                    XAction(35, 0);
-                    if(debug_mode) show_debug_message("Register status: " + string(global.__register_status));
-                    break;
-                    
-                case 100://ping
-                case 101:
-                    global.__socket_ping = buffer_read(_rr, buffer_u8) * 3 + 768 * (mid == 101);
-                    XServer_preparesend();
-                    XServer_send(100);
-                    //if(debug_mode) show_debug_message("Ping: " + string(global.__socket_ping));
-                    break;
-                case 131:
-                    global.__name = XServer_readstring(_rr);
-                    break;
-                case 132:
-                    global.__loc_isonum = buffer_read(_rr, buffer_u32);
-                    global.__loc_countrycode = XServer_readstring(_rr);
-                    global.__loc_countryname = XServer_readstring(_rr);
-                    global.__loc_languages = XServer_readstring(_rr);
-                    break;
-                case 133:
-                case 134:
-                case 135:
-                case 136:
-                case 137:
-                case 138:
-                    var _index = buffer_read(_rr, buffer_u8);
-                    global.__variable_receive_cache_name[mid - 133, _index] = XServer_readstring(_rr);
-                    global.__variable_receive_cache_type[mid - 133, _index] = buffer_read(_rr, buffer_u8);
-                    break;
-                case 140:
-                    var _cacheID = buffer_read(_rr, buffer_u8);
-                    global.__player_receive_cache[_cacheID] = (buffer_read(_rr, buffer_u32)) | (buffer_read(_rr, buffer_u32) << 32);
-                    break;
-                case mid_playerinfo:
-                    var name = XServer_readstring(_rr), value = buffer_read(_rr, buffer_s32);
-                    ds_map_replace(global.__login_accounts, name, value);
-                    break;
-                case 145:
-                    var authentication_token = XServer_readstring(_rr);
-                    XAction1(51, 0, authentication_token)
-                    break;
-                case 153: // Trusted transaction
-                    var __id = buffer_read(_rr, buffer_u8);
-                    var __success = buffer_read(_rr, buffer_u8) == 1;
-                    var __st = buffer_read(_rr, buffer_u8);
-                    var __val;
-                    if __success {
-                        __val = XGms_ve_readValue(_rr, __st);
-                    } else {
-                        __val = 0;
-                    }
-                    
-                    var _a = ds_map_create();
-                    ds_map_add(_a, "type", 52);
-                    ds_map_add(_a, "from", __success);
-                    
-                    ds_map_add(_a, 0, __id);
-                    ds_map_add(_a, 1, __val);
-                    ds_queue_enqueue(global.__actions, _a);
-                    break;
-                case 154: // Trusted transaction log
-                    global.__trusted_transaction_log += XServer_readstring(_rr)
-                    break;
-                case 155: // challenge-response
-                    var __otp = XServer_readstring(_rr);
-                    XServer_preparesend()
-                    XServer_writestring(_b, gms_sha512(__otp + global.__game_secret))
-                    XServer_send(155)
-                    break;
-                case 254:
-                    show_error(XServer_readstring(_rr), true);
-                    game_end();
-                    break;
-                    
-                case 255:
-                    global.__statuscode = buffer_read(_rr, buffer_u8);
-                    XAction1(20, 0, XServer_readstring(_rr));
-                    gms_logout();
-                    break;
-                default:
-                    if(global.__show_errors) show_debug_message("Unknown mid: " + string(mid) + "; Size: " + string(size));
-                    break;
-            }
-        }
-        
-        pos += size + prefixSize;
-    }else{
-        break;
-    }
+	if(pos >= buffersize) break;
+	
+	buffer_seek(_rr, buffer_seek_start, pos);
+	
+	var tmp1, tmp2, tmp3, tmp4, size, prefixSize;
+	tmp1 = buffer_read(_rr, buffer_u8);
+	if (tmp1 % 2 == 1)
+	{
+		if(buffersize < 2) break;
+		tmp2 = buffer_read(_rr, buffer_u8);
+		
+		if (tmp2 % 2 == 1)
+		{
+			if(buffersize < 3) break;
+			tmp3 = buffer_read(_rr, buffer_u8);
+			if (tmp3 % 2 == 1)
+			{
+				if(buffersize < 4) break;
+				tmp4 = buffer_read(_rr, buffer_u8);
+				size = (tmp1 >> 1) | ((tmp2 >> 1) << 7) | ((tmp3 >> 1) << 14) | (tmp4 << 21);
+				prefixSize = 4;
+			}
+			else
+			{
+				size = (tmp1 >> 1) | ((tmp2 >> 1) << 7) | ((tmp3 >> 1) << 14);
+				prefixSize = 3;
+			}
+		}
+		else
+		{
+			size = (tmp1 >> 1) | ((tmp2 >> 1) << 7);
+			prefixSize = 2;
+		}
+	}
+	else
+	{
+		size = tmp1 >> 1;
+		prefixSize = 1;
+	}
+	
+	//show_debug_message("Size: " + string(size) + ", buffersize: " + string(buffersize) + ", pos: " + string(pos) + ", prefixSize: " + string(prefixSize))
+	
+	if(size + pos + prefixSize <= buffersize)
+	{
+		var mid = buffer_read(_rr, buffer_u8);
+		if(mid >= 190 && mid <= 253)
+		{
+			//Handle q4D message
+			var _id = XGms_cache_player_read(_rr), mid_id = mid - 190;
+			if(ds_map_exists(global.__player, _id))
+			{
+				var _m = ds_map_find_value(global.__player, _id);
+				var _x = ds_map_find_value(_m, "#x"), 
+					_y = ds_map_find_value(_m, "#y"), 
+					_spd = ds_map_find_value(_m, "#speed"), 
+					_dir = ds_map_find_value(_m, "#direction"), _tmp, combi = false;
+				//Update variables
+				//Xb
+				switch((mid_id >> 4) & 3)
+				{
+					case 0:
+						//No X
+						break;
+					case 1:
+						_x = buffer_read(_rr, buffer_u16);
+						break;
+					case 2:
+						_x = buffer_read(_rr, buffer_s32);
+						break;
+					case 3:
+						//COMBI
+						combi = true;
+						break;
+				}
+				
+				if(combi)
+				{
+					switch ((mid_id >> 2) & 3)
+					{
+						case 0:
+							var b1 = buffer_read(_rr, buffer_u8),
+								b2 = buffer_read(_rr, buffer_u8),
+								b3 = buffer_read(_rr, buffer_u8);
+							
+							_x = ((b1 << 16) + (b2 << 8) + b3) % 4096
+							_y = (((b1 << 16) + (b2 << 8) + b3) >> 12) % 4096
+							break;
+						case 1:
+							_x = buffer_read(_rr, buffer_u8);
+							_y = buffer_read(_rr, buffer_u8);
+							break;
+						case 2:
+							_x = buffer_read(_rr, buffer_u8) * 2;
+							_y = buffer_read(_rr, buffer_u8) * 2;
+							break;
+						case 3:
+							_x = 0;
+							_y = 0;
+							break;
+					}
+				}else{
+					//Y
+					switch ((mid_id >> 2) & 3)
+					{
+						case 0:
+							//No X
+							break;
+						case 1:
+							_y = buffer_read(_rr, buffer_u16);
+							break;
+						case 2:
+							_y = buffer_read(_rr, buffer_s32);
+							break;
+						case 3:
+							//COMBI
+							_y = buffer_read(_rr, buffer_u8) * 2;
+							break;
+					}
+				}
+				
+				if (buffer_tell(_rr) < size + pos + prefixSize)
+				{
+					if ((mid_id & 2) > 0)
+					{
+						switch (mid_id & 1)
+						{
+							case 0:
+								var b = buffer_read(_rr, buffer_u8);
+								_dir = (((b >> 4) & $F)) * 22.5;
+								_spd = (((b & $F))) - 8.0;
+								break;
+							case 1:
+								var b1 = buffer_read(_rr, buffer_u8),
+									b2 = buffer_read(_rr, buffer_u8),
+									b3 = buffer_read(_rr, buffer_u8);
+								
+								var us1 = ((b1 << 16) | (b2 << 8) | b3) & 4095,
+									us2 = (((b1 << 16) | (b2 << 8) | b3) >> 12) & 4095;
+								_dir = us1 / 11.0;
+								_spd = us2 / 80.0 - 25.6;
+								break;
+						}
+					}
+					else
+					{
+						switch (mid_id & 1)
+						{
+							case 0:
+								_dir = (buffer_read(_rr, buffer_u8)) / 240.0 * 360.0;
+								break;
+							case 1:
+								_spd = (buffer_read(_rr, buffer_u8) - 128) / 8;
+								break;
+						}
+					}
+				}
+				
+				var _delay = ds_map_find_value(_m, "#delay");
+				if (_delay == 0)
+				{
+					ds_map_replace(_m, "#speedCorrection", 0);
+				}else{
+					ds_map_replace(_m, "#speedCorrection", (point_distance(ds_map_find_value(_m, "*x"), ds_map_find_value(_m, "*y"), _x, _y)) / _delay)
+				}
+				
+				ds_map_replace(_m, "#last-xto", ds_map_find_value(_m, "#x"))
+				ds_map_replace(_m, "#last-yto", ds_map_find_value(_m, "#y"))
+				ds_map_replace(_m, "#x", _x)
+				ds_map_replace(_m, "#y", _y)
+				ds_map_replace(_m, "#speed", _spd)
+				ds_map_replace(_m, "#direction", _dir)
+								
+				//if(debug_mode) show_debug_message(string(_id) + ": 4d time: " + string((get_timer() - global.__last_4d) / 1000));
+				global.__last_4d = get_timer();
+				
+				XServer_updatecoords(_m);
+			}else{
+				if(debug_mode) show_error("Server is sending corrupt player info (4D): Player does not exist (id = "+ string(_id) + ")", false);
+			}
+		}else{
+			switch(mid)
+			{
+				case mid_hello:
+					if(debug_mode) show_debug_message("Connected!");
+					global.__connection_accepted = true;
+					break;
+				case mid_time://56
+					global.__subtract_time = get_timer() / 1000000 - buffer_read(_rr, buffer_s32);
+					break;
+				case mid_login:
+					var status = buffer_read(_rr, buffer_u8);
+					var _a = ds_map_create()
+					ds_map_add(_a, "type", 34)
+					ds_map_add(_a, "from", 0)
+					ds_map_add(_a, 0, status)
+					switch(status)
+					{
+						case 0:
+							global.__login_error = buffer_read(_rr, buffer_u8);
+							ds_map_add(_a, 2, XServer_readstring(_rr))
+							break;
+						case 2:
+							global.__login_save_code = buffer_read(_rr, buffer_string);
+							global.__login_error = 0
+							ds_map_add(_a, 2, "")
+							break;
+						case 1:
+							global.__loggedin = true
+							global.__login_error = 0
+							ds_map_add(_a, 2, "")
+							break;
+					}
+					
+					ds_map_add(_a, 1, global.__login_error)
+					ds_queue_enqueue(global.__actions, _a)
+					break;
+				case 3://Player variable
+					var _id = XGms_cache_player_read(_rr)
+					if(ds_map_exists(global.__player, _id))
+					{
+						var _m = ds_map_find_value(global.__player, _id),
+							_type = buffer_read(_rr, buffer_u8),
+							_name = "*" + XServer_readvariablename(_rr, 0, _type);
+						
+						if(_name == "*image_index")
+						{
+							ds_map_replace(_m, "%image_index", 1);
+						}
+						
+						if(ds_map_exists(_m, _name))
+						{
+							ds_map_replace(_m, _name, XGms_ve_readValue(_rr, global.__variable_receive_cache_type[0, _type]))
+						}else{
+							ds_map_add(_m, _name, XGms_ve_readValue(_rr, global.__variable_receive_cache_type[0, _type]))
+						}
+						if(debug_mode) show_debug_message(ds_map_find_value(_m, "*name") + " -> " + string(_name) + " = " + string(ds_map_find_value(_m, _name)));
+					}else{
+						if(debug_mode) show_error("Server is sending corrupt player info (variables): Player does not exist (id = "+ string(_id) + ")", false);
+					}
+					break;
+				
+				case 4://4D
+					var _id = XGms_cache_player_read(_rr)
+					if(ds_map_exists(global.__player, _id))
+					{
+						var _m = ds_map_find_value(global.__player, _id);
+						var _x, _y, _spd, _dir, _tmp;
+						_x = buffer_read(_rr, buffer_s32);
+						_y = buffer_read(_rr, buffer_s32);
+						_spd = buffer_read(_rr, buffer_u8) << 4;
+						_tmp = buffer_read(_rr, buffer_u8);
+						_spd |= (_tmp >> 4) & 15;
+						_dir = (buffer_read(_rr, buffer_u8) | ((_tmp & 15) << 8)) / 11;
+						_spd /= 80;
+						_spd -= 25.6;
+						
+						ds_map_replace(_m, "#last-xto", ds_map_find_value(_m, "#x"))
+						ds_map_replace(_m, "#last-yto", ds_map_find_value(_m, "#y"))
+						ds_map_replace(_m, "#x", _x)
+						ds_map_replace(_m, "#y", _y)
+						ds_map_replace(_m, "#speed", _spd)
+						ds_map_replace(_m, "#direction", _dir)
+						
+						//if(debug_mode) show_debug_message(string(_id) + ": 4d time: " + string((get_timer() - global.__last_4d) / 1000));
+						global.__last_4d = get_timer();
+						
+						XServer_updatecoords(_m);
+					}
+					break;
+					
+				case mid_global:
+					var _type = buffer_read(_rr, buffer_u8),
+						name = XServer_readvariablename(_rr, 1, _type);
+					if(debug_mode) show_debug_message("Global var " + name + ", " + string(_type))
+					
+					if(gms_global_exists(name))
+					{
+						ds_map_replace(global.__global, name, XGms_ve_readValue(_rr, global.__variable_receive_cache_type[1, _type]))
+					}else{
+						ds_map_add(global.__global, name, XGms_ve_readValue(_rr, global.__variable_receive_cache_type[1, _type]))
+					}
+					break;
+				
+				case mid_gameini_string:
+					var _type = buffer_read(_rr, buffer_u8),
+						name = XServer_readvariablename(_rr, 3, _type);
+					if(XServer_ini_game_exists(name))
+					{
+						ds_map_replace(global.__ini_game, name, XGms_ve_readValue(_rr, global.__variable_receive_cache_type[3, _type]))
+					}else{
+						ds_map_add(global.__ini_game, name, XGms_ve_readValue(_rr, global.__variable_receive_cache_type[3, _type]))
+					}
+					break;
+				case mid_gameini_delete:
+					var name;
+					name = XServer_readstring(_rr);
+					ds_map_delete(global.__ini_game, name);
+					break;
+					
+				case mid_playerini_string:
+					var _type = buffer_read(_rr, buffer_u8),
+						name = XServer_readvariablename(_rr, 2, _type),
+						__value = XGms_ve_readValue(_rr, global.__variable_receive_cache_type[2, _type]);
+					if(XServer_ini_player_exists(name))
+					{
+						ds_map_replace(global.__ini_player, name, __value)
+					}else{
+						ds_map_add(global.__ini_player, name, __value)
+					}
+					break;
+				case mid_playerini_delete:
+					var name;
+					name = XServer_readstring(_rr);
+					ds_map_delete(global.__ini_player, name);
+					break;
+				
+				case 5:
+					var _type = buffer_read(_rr, buffer_u8),
+						_id   = XGms_cache_player_read(_rr);
+					
+					if(_type == 0 or _type == 2)
+					{
+						//SetPosition(16);
+						if(!ds_map_exists(global.__player, _id))
+						{
+							var _name = XServer_readstring(_rr);
+							
+							var _p = ds_map_create();
+							ds_map_add(_p, "id", _id);
+							ds_map_add(_p, "name", _name);
+							ds_map_add(_p, "has_changed", false);
+							ds_map_add(_p, "admininfo", 0);
+							
+							ds_map_add(_p, "#delay", 0);
+							ds_map_add(_p, "#x", 0);
+							ds_map_add(_p, "#y", 0);
+							ds_map_add(_p, "#last-x", 0);
+							ds_map_add(_p, "#last-y", 0);
+							ds_map_add(_p, "#last-xto", 0);
+							ds_map_add(_p, "#last-yto", 0);
+							ds_map_add(_p, "#last-speed", 0);
+							ds_map_add(_p, "#speedUp", 0);
+							ds_map_add(_p, "#last-direction", 0);
+							ds_map_add(_p, "#sharpTurn", 0);
+							ds_map_add(_p, "#smoothSpeed", 0);
+							ds_map_add(_p, "#tickstart", 0);
+							ds_map_add(_p, "#tickend", 0);
+							ds_map_add(_p, "#speed", 0);
+							ds_map_add(_p, "#direction", 0);
+							ds_map_add(_p, "#delay", 0);
+							ds_map_add(_p, "#speedCorrection", 0);
+							
+							
+							ds_map_add(_p, "%image_index", 0);
+							
+							ds_map_add(_p, "*x", 0);
+							ds_map_add(_p, "*y", 0);
+							ds_map_add(_p, "*speed", 0);
+							ds_map_add(_p, "*direction", 0);
+							
+							ds_map_add(_p, "*name", _name);//* = variable
+							
+							ds_list_add(global.__player_idmap, _id);
+							ds_map_add(global.__player, _id, _p);
+							
+							XAction1((_type == 0) * 1 + (_type == 2) * 31, _id, _name);
+						}else{
+							//SetPosition(24);
+							if(debug_mode) show_error("The server is sending corrupt data: The player that was supposed to login, is already logged in.", false);
+						}
+					}else if(_type == 1 or _type == 3){
+						if(ds_map_exists(global.__player, _id))
+						{
+							ds_map_delete(global.__player, _id);
+							ds_list_delete(global.__player_idmap, ds_list_find_index(global.__player_idmap, _id));
+							//ShowError("Ereasing!");
+						}else{
+							if(debug_mode) show_error("Player possibly logged out without calling gms_logout, and is now stuck in the server.", false);
+						}
+						
+						XAction((_type == 1) * 2 + (_type == 3) * 32, _id);
+					}
+					break;
+					
+					
+				case 7:
+					var _id = buffer_read(_rr, buffer_u8);
+					global.__team_score[_id] = buffer_read(_rr, buffer_f32);
+					break;
+					
+				case 10:
+					var __sender = XGms_cache_player_read(_rr),
+						__color = buffer_read(_rr, buffer_s32), 
+						__text = XServer_readstring(_rr),
+						__tag = XServer_readstring(_rr);
+					
+					var _a = ds_map_create();
+					ds_map_add(_a, "type", 3);
+					ds_map_add(_a, "from", __sender);
+					ds_map_add(_a, 0, __color);
+					ds_map_add(_a, 1, __text);
+					ds_map_add(_a, 2, string_length(__text));
+					ds_map_add(_a, 3, __tag);
+					ds_queue_enqueue(global.__actions, _a);
+					
+					break;
+					
+				case 16:
+					if(global.__show_errors)
+					{
+						show_error("SERVER ERROR: " + XServer_readstring(_rr), false);
+					}
+					break;
+				
+				case 19:
+					global.__vs_ready = true;
+					XAction(30, 0);
+					break;
+				case 20:
+					XAction(6, buffer_read(_rr, buffer_u8));
+					break;
+					
+				case 21:
+					var __id = buffer_read(_rr, buffer_s32),
+						__type = buffer_read(_rr, buffer_u8);
+					XAction(7 + __type, __id);
+					break;
+					
+				case 22:
+					var _sender = XGms_cache_player_read(_rr);
+					var _id = buffer_read(_rr, buffer_u8);
+					var _count = buffer_read(_rr, buffer_u8);
+					var _a = ds_map_create();
+					ds_map_add(_a, "type", 10);
+					ds_map_add(_a, "from", _sender);
+					
+					if(debug_mode) show_debug_message("P2p from " + string(_sender) + ", " + string(_count) + "arguments");
+					
+					ds_map_add(_a, 0, _id);
+					ds_map_add(_a, 1, _count);
+					for(var i = 0; i < _count; i++)
+					{
+						var _type = buffer_read(_rr, buffer_u8),
+							_val = XGms_ve_readValue(_rr, _type)
+						if(debug_mode) show_debug_message("Type " + string(_type) + " => " + string(_val))
+						ds_map_add(_a, i + 2, _val)
+					}
+					ds_queue_enqueue(global.__actions, _a);
+					break;
+					
+				case 24:
+					global.__player_id = buffer_read(_rr, buffer_u32);
+					global.__player_id |= buffer_read(_rr, buffer_u32) << 32;
+					break;
+					
+				case 25:
+					global.__sync_pos_start = buffer_read(_rr, buffer_u16);
+					global.__sync_pos_max   = buffer_read(_rr, buffer_u16);
+					global.__sync_pos = global.__sync_pos_start;
+					break;
+					
+				case 35:
+					global.__ini_game_limit = buffer_read(_rr, buffer_s32);
+					global.__ini_player_limit = buffer_read(_rr, buffer_s32);
+					global.__num_logins = buffer_read(_rr, buffer_u32);
+					break;
+					
+				case 40://Achievement
+					var _a_id = buffer_read(_rr, buffer_u32),
+						_text = XServer_readstring(_rr),
+						_short_name = XServer_readstring(_rr);
+					
+					var _m = ds_map_create();
+					ds_map_add(_m, "id", _a_id);
+					ds_map_add(_m, "text", _text);
+					ds_map_add(_m, "short_name", _short_name);
+					ds_map_add(_m, "value", false);
+					
+					ds_map_add(global.__achievement, _short_name, _m);
+					ds_list_add(global.__achievement_idmap, _short_name);
+					ds_map_add(global.__achievement_idmap2, _a_id, _short_name);
+					if(global.__show_errors) show_debug_message("Achievement: " + _short_name + " => " + _text);
+					break;
+				case 41://Achievement reached
+					var _a_id = buffer_read(_rr, buffer_u32),
+						_a_sn = ds_map_find_value(global.__achievement_idmap2, _a_id);
+					if(ds_map_exists(global.__achievement, _a_sn))
+					{
+						if(global.__show_errors) show_debug_message("Achievement " + string(_a_sn) + " has been reached");
+						ds_map_replace(ds_map_find_value(global.__achievement, _a_sn), "value", true);
+					}
+					break;
+					
+				case 42://list (create)
+					var _h_id = buffer_read(_rr, buffer_u32),
+						_name = XServer_readstring(_rr);
+					
+					if(debug_mode) show_debug_message("Creating highscorelist " + string(_h_id));
+					if(!gms_highscore_list_exists(_h_id))
+					{
+						if(global.__show_errors) show_debug_message("Success.");
+						var _h = ds_map_create();
+						ds_map_add(_h, "names", ds_list_create());
+						ds_map_add(_h, "scores", ds_list_create());
+						ds_map_add(_h, "list_title", _name);
+						
+						ds_map_add(global.__highscore, _h_id, _h);
+						ds_list_add(global.__highscore_ids, _h_id);
+					}
+					break;
+				case 43://Add highscore to highscorelist
+					var _h_id = buffer_read(_rr, buffer_u32),
+						_name = XServer_readstring(_rr),
+						_score = buffer_read(_rr, buffer_f64);
+					if(debug_mode) show_debug_message("Highscorelist " + string(_h_id) + ": " + _name + " => " + string(_score));
+					if(gms_highscore_list_exists(_h_id))
+					{
+						if(debug_mode) show_debug_message("Success.");
+						ds_list_add(ds_map_find_value(ds_map_find_value(global.__highscore, _h_id), "names"), _name);
+						ds_list_add(ds_map_find_value(ds_map_find_value(global.__highscore, _h_id), "scores"), _score);
+					}
+					break;
+				case 44://Clear highscore list
+					var _h_id = buffer_read(_rr, buffer_u32);
+					if(debug_mode) show_debug_message("Clearing highscorelist " + string(_h_id));
+					if(gms_highscore_list_exists(_h_id))
+					{
+						if(debug_mode) show_debug_message("Success.");
+						ds_list_clear(ds_map_find_value(ds_map_find_value(global.__highscore, _h_id), "names"));
+						ds_list_clear(ds_map_find_value(ds_map_find_value(global.__highscore, _h_id), "scores"));
+					}
+					break;
+				case 45:
+					var __guest_highscore_result = buffer_read(_rr, buffer_u8);
+					XAction(41, __guest_highscore_result)
+					break;
+					
+				case 46:
+					var _user_id = buffer_read(_rr, buffer_u32),
+						_name = XServer_readstring(_rr);
+					
+					if(!ds_map_exists(global.__friend, _user_id))
+					{
+						var _map = ds_map_create();
+						if(debug_mode) show_debug_message("Friend " + _name);
+						ds_map_add(_map, "name", _name);
+						ds_map_add(_map, "user_id", _user_id);
+						ds_map_add(_map, "online", false);
+						
+						ds_map_add(global.__friend, _user_id, _map);
+						ds_list_add(global.__friend_idmap, _user_id);
+					}
+					break;
+				case 47:
+					var _user_id = buffer_read(_rr, buffer_u32),
+						_name = XServer_readstring(_rr);
+					
+					if(ds_map_exists(global.__friend, _user_id))
+					{
+						var _map = ds_map_find_value(global.__friend, _user_id);
+						ds_map_replace(_map, "online", true);
+						
+						XAction(15, _user_id);
+					}
+					break;
+				case 48:
+					var _user_id = buffer_read(_rr, buffer_u32),
+						_name = XServer_readstring(_rr);
+					
+					if(ds_map_exists(global.__friend, _user_id))
+					{
+						var _map = ds_map_find_value(global.__friend, _user_id);
+						ds_map_replace(_map, "online", false);
+						
+						XAction(16, _user_id);
+					}
+					break;
+					
+				case 49:
+					global.__self_admininfo = buffer_read(_rr, buffer_u8);
+					break;
+					
+				case 50://Guest info
+					global.__player_isguest = true;
+					break;
+				case 51:
+					var _user_id = XGms_cache_player_read(_rr),
+						_rights = buffer_read(_rr, buffer_u8);
+					
+					if(ds_map_exists(global.__player, _user_id))
+					{
+						ds_map_replace(ds_map_find_value(global.__player, _user_id), "admininfo", _rights);
+					}else{
+						if(debug_mode) show_error("Server is sending corrupt admin info", false);
+					}
+					break;
+				//52 aan het einde
+					
+				case 53:
+					global.__master_player = XGms_cache_player_read(_rr);
+					break;
+					
+				case 54://Statistic
+					var _s_id = buffer_read(_rr, buffer_u32),
+						_text = XServer_readstring(_rr),
+						_short_name = XServer_readstring(_rr);
+						
+					var _m = ds_map_create();
+					ds_map_add(_m, "id", _s_id);
+					ds_map_add(_m, "text", _text);
+					ds_map_add(_m, "short_name", _short_name);
+					ds_map_add(_m, "value", 0);
+					
+					ds_map_add(global.__stat, _short_name, _m);
+					ds_list_add(global.__stat_idmap, _short_name);
+					break;
+				case 55://Statistic value
+					var _s_id = buffer_read(_rr, buffer_u32),
+						_val = buffer_read(_rr, buffer_f64);
+					if(ds_map_exists(global.__stat, _s_id))
+					{
+						ds_map_replace(ds_map_find_value(global.__stat, _s_id), "value", _val);
+					}else{
+						show_debug_message("Unknown statistic received");
+					}
+					break;
+				//mid_time	
+				case 58:
+					global._friend_request_result = buffer_read(_rr, buffer_u8);
+					XAction1(36, global._friend_request_result, global._friend_request_result);
+					break;
+					
+				case 60://Force setvar; Not working, studio can't set variabeles
+					break;
+					
+				
+				case 65://Update not working, can't download/replace files with GM:Studio
+					global.__update_avaiable	= true;
+					global.__received_update	= true;
+					break;
+				case 66:
+					global.__update_avaiable	= false;
+					global.__received_update	= true;
+					break;
+					
+				case 80:
+					var __room = buffer_read(_rr, buffer_s32);
+					XAction1(21, 0, __room);
+					break;
+				case 81:
+					XAction(22, 0);
+					break;
+				case 82:
+					XAction(23, 0);
+					break;
+				case 83:
+					XAction(24, 0);
+					break;
+				case 84:
+					XAction1(25, 0, buffer_read(_rr, buffer_s32));
+					break;
+				
+				case 85:
+					XAction(26, 0);
+					break;
+					
+				case 144:
+					XAction(50, buffer_read(_rr, buffer_s32));
+					break;
+					
+				case 90:
+					global.__vs_time = buffer_read(_rr, buffer_s32);
+					if(global.__show_errors) show_debug_message("Time left: " + string(global.__vs_time))
+					break;
+					
+				case 91:
+					XAction(29, 0);
+					
+					global.__vs_ready = false;
+					
+					XServer_clear_map_map(global.__player);
+					XServer_clear_instances(global.__instance);
+					break;
+				
+					
+				case 92:
+					global.__session_id = buffer_read(_rr, buffer_u16);
+					XAction(28, global.__session_id);
+					break;
+					
+				case 94:
+					while(ds_list_size(global.__sessionList) > 0)
+					{
+						var __sessID = ds_list_find_value(global.__sessionList, 0);
+						ds_map_destroy(ds_map_find_value(global.__session, __sessID));
+						ds_list_delete(global.__sessionList, 0);
+					}
+					
+					ds_map_clear(global.__session)
+					
+					var num = buffer_read(_rr, buffer_u8);
+					for(var i = 0; i < num; i++)
+					{
+						var _m = ds_map_create();
+						var __id = buffer_read(_rr, buffer_u32);
+						ds_map_add(_m, "id", __id);
+						ds_map_add(_m, "type", buffer_read(_rr, buffer_u8));
+						ds_map_add(_m, "players", buffer_read(_rr, buffer_u8));
+						ds_map_add(_m, "tag", XServer_readstring(_rr));
+						ds_map_add(global.__session, __id, _m);
+						ds_list_add(global.__sessionList, __id);
+					}
+					break;
+					
+				case 97:
+					var udp_unique = buffer_read(_rr, buffer_u32),
+						udp_port = buffer_read(_rr, buffer_u32);
+					break;
+				case 98://UDP not supproted right now...
+					break;
+					
+				case mid_instance_destroy:
+					var __syncID = buffer_read(_rr, buffer_u16) + 1000000;
+					var _a = ds_map_create();
+					
+					if(debug_mode) show_debug_message("Destroy " + string(__syncID));
+					ds_map_add(_a, "type", 11);
+					ds_map_add(_a, "from", 0);
+					ds_map_add(_a, 0, __syncID);
+					
+					if(ds_map_exists(global.__instance, __syncID))
+					{
+						if(debug_mode) show_debug_message("IID: " + string(ds_map_find_value(ds_map_find_value(global.__instance, __syncID), "instance_id")))
+						ds_map_add(_a, 1, ds_map_find_value(ds_map_find_value(global.__instance, __syncID), "instance_id"));
+						
+						gms_instance_sync_destroy_silent(__syncID);
+					} else {
+						ds_map_add(_a, 1, noone);
+					}
+					
+					ds_queue_enqueue(global.__actions, _a);
+					break;
+				case 61:
+					var __syncID = buffer_read(_rr, buffer_u16) + 1000000;
+					if(ds_map_exists(global.__instance, __syncID))
+					{
+						var _s = ds_map_find_value(global.__instance, __syncID),
+							_type = buffer_read(_rr, buffer_u8),
+							_name = XServer_readvariablename(_rr, 5, _type),
+							_val  = XGms_ve_readValue(_rr, global.__variable_receive_cache_type[5, _type]);
+						
+						if(ds_map_exists(_s, "*" + _name))
+						{
+							ds_map_replace(_s, "*" + _name, _val);
+						}else{
+							ds_map_add(_s, "*" + _name, _val);
+							ds_map_add(_s, ">" + _name, 0.01);
+						}
+					}else{
+						if(debug_mode) show_debug_message("Server sent unknown syncID")
+					}
+					break;
+				
+				case 62:
+					var __syncID = buffer_read(_rr, buffer_u16) + 1000000;
+					if(ds_map_exists(global.__instance, __syncID))
+					{
+						var _m = ds_map_find_value(global.__instance, __syncID);
+						var _x, _y, _spd, _dir, _tmp;
+						_x = buffer_read(_rr, buffer_s32);
+						_y = buffer_read(_rr, buffer_s32);
+						_spd = buffer_read(_rr, buffer_u8) << 4;
+						_tmp = buffer_read(_rr, buffer_u8);
+						_spd |= (_tmp >> 4) & 15;
+						_dir = (buffer_read(_rr, buffer_u8) | ((_tmp & 15) << 8)) / 11;
+						_spd /= 80;
+						_spd -= 25.6;
+						
+						ds_map_replace(_m, "#last-xto", ds_map_find_value(_m, "#x"))
+						ds_map_replace(_m, "#last-yto", ds_map_find_value(_m, "#y"))
+						ds_map_replace(_m, "#x", _x)
+						ds_map_replace(_m, "#y", _y)
+						ds_map_replace(_m, "#speed", _spd)
+						ds_map_replace(_m, "#direction", _dir)
+						
+						XServer_updatecoords(_m);
+					}else{
+						if(debug_mode) show_debug_message("Server sent unknown syncID")
+					}
+					break;
+				case 63:
+					var __syncID = buffer_read(_rr, buffer_u16) + 1000000,
+						__newOwner = XGms_cache_player_read(_rr);
+					var _m = XServer_instance_find(__syncID);
+					if(_m != -1)
+					{
+						ds_map_replace(_m, "owner", __newOwner);
+					}else{
+						if(debug_mode) show_debug_message("Received takeover-request for instance that does not exist.")
+					}
+					break;
+					
+				case mid_bdb_open:
+					var __bdbid = buffer_read(_rr, buffer_s32);
+					var __map = global.__bdb_cache[? __bdbid];
+					__map[? "opened"] = true;
+					var __datalen = buffer_read(_rr, buffer_s32);
+					if(__datalen >= 0)
+					{
+						//Copy new buffer
+						buffer_resize(__map[? "buffer"], __datalen + 1);
+						buffer_copy(_rr, buffer_tell(_rr), __datalen, __map[? "buffer"], 0);
+						buffer_seek(__map[? "buffer"], buffer_seek_start, 0);
+					}
+					
+					show_debug_message("Received BDB " + string(__bdbid))
+					
+					XAction1(40, __bdbid, __map[? "callback_open"]);
+					break;
+				case mid_bdb_lock:
+					var __data = buffer_read(_rr, buffer_s32);
+					var __unique = buffer_read(_rr, buffer_u8)
+					var __map = global.__bdb_cache[? __data];
+					__map[? "locked"] = __unique;
+					
+					show_debug_message("Received Lock for BDB " + string(__data))
+					break;
+				
+				case 26:
+				case 27:
+				case 8:
+				case 28:
+				case 29:
+				case 30:
+					show_debug_message("Syncing instance...")
+					XServer_readinstance(mid, _rr, argument0);
+					break;
+				case 52:
+					global.__register_status = buffer_read(_rr, buffer_u8);
+					XAction(35, 0);
+					if(debug_mode) show_debug_message("Register status: " + string(global.__register_status));
+					break;
+					
+				case 100://ping
+				case 101:
+					global.__socket_ping = buffer_read(_rr, buffer_u8) * 3 + 768 * (mid == 101);
+					XServer_preparesend();
+					XServer_send(100);
+					//if(debug_mode) show_debug_message("Ping: " + string(global.__socket_ping));
+					break;
+				case 131:
+					global.__name = XServer_readstring(_rr);
+					break;
+				case 132:
+					global.__loc_isonum = buffer_read(_rr, buffer_u32);
+					global.__loc_countrycode = XServer_readstring(_rr);
+					global.__loc_countryname = XServer_readstring(_rr);
+					global.__loc_languages = XServer_readstring(_rr);
+					break;
+				case 133:
+				case 134:
+				case 135:
+				case 136:
+				case 137:
+				case 138:
+					var _index = buffer_read(_rr, buffer_u8);
+					global.__variable_receive_cache_name[mid - 133, _index] = XServer_readstring(_rr);
+					global.__variable_receive_cache_type[mid - 133, _index] = buffer_read(_rr, buffer_u8);
+					break;
+				case 140:
+					var _cacheID = buffer_read(_rr, buffer_u8);
+					global.__player_receive_cache[_cacheID] = (buffer_read(_rr, buffer_u32)) | (buffer_read(_rr, buffer_u32) << 32);
+					break;
+				case mid_playerinfo:
+					var name = XServer_readstring(_rr), value = buffer_read(_rr, buffer_s32);
+					ds_map_replace(global.__login_accounts, name, value);
+					break;
+				case 145:
+					var authentication_token = XServer_readstring(_rr);
+					XAction1(51, 0, authentication_token)
+					break;
+				case 153: // Trusted transaction
+					var __id = buffer_read(_rr, buffer_u8);
+					var __success = buffer_read(_rr, buffer_u8) == 1;
+					var __st = buffer_read(_rr, buffer_u8);
+					var __val;
+					if __success {
+						__val = XGms_ve_readValue(_rr, __st);
+					} else {
+						__val = 0;
+					}
+					
+					var _a = ds_map_create();
+					ds_map_add(_a, "type", 52);
+					ds_map_add(_a, "from", __success);
+					
+					ds_map_add(_a, 0, __id);
+					ds_map_add(_a, 1, __val);
+					ds_queue_enqueue(global.__actions, _a);
+					break;
+				case 154: // Trusted transaction log
+					global.__trusted_transaction_log += XServer_readstring(_rr)
+					break;
+				case 155: // challenge-response
+					var __otp = XServer_readstring(_rr);
+					XServer_preparesend()
+					XServer_writestring(_b, gms_sha512(__otp + global.__game_secret))
+					XServer_send(155)
+					break;
+				case 254:
+					show_error(XServer_readstring(_rr), true);
+					game_end();
+					break;
+					
+				case 255:
+					global.__statuscode = buffer_read(_rr, buffer_u8);
+					XAction1(20, 0, XServer_readstring(_rr));
+					gms_logout();
+					break;
+				default:
+					if(global.__show_errors) show_debug_message("Unknown mid: " + string(mid) + "; Size: " + string(size));
+					break;
+			}
+		}
+		
+		pos += size + prefixSize;
+	}else{
+		break;
+	}
 }
 if(buffersize - pos > 0)
 {
-    buffer_copy(_rr, pos, buffersize - pos, _rb, 0);
-    show_debug_message("Bytes left: " + string(buffersize - pos));
-    var swap = _rb;
-    _rb = _rr;
-    _rr = swap;
-    buffer_seek(_rr, buffer_seek_start, buffersize - pos);
+	buffer_copy(_rr, pos, buffersize - pos, _rb, 0);
+	show_debug_message("Bytes left: " + string(buffersize - pos));
+	var swap = _rb;
+	_rb = _rr;
+	_rr = swap;
+	buffer_seek(_rr, buffer_seek_start, buffersize - pos);
 }else{
-    buffer_seek(_rr, buffer_seek_start, 0);
+	buffer_seek(_rr, buffer_seek_start, 0);
 }
 if(global.__loggedin)// && (get_timer() - global.__last_send > global.__timer_threshold))
 {
-    //global.__last_send = get_timer();
-    for(var i = 0; i < ds_list_size(global.__global_changed); i++)
-    {
-        var name = ds_list_find_value(global.__global_changed, i);
-        XServer_preparesend();
-    
-        XServer_writevariable(_b, 1, name, ds_map_find_value(global.__global, name), ds_map_find_value(global.__global_prec, name));
-        
-        XServer_send(mid_global)
-    }
-    ds_list_clear(global.__global_changed);
-    
-    for(var i = 0; i < ds_list_size(global.__self_changed); i++)
-    {
-        var name = ds_list_find_value(global.__self_changed, i);
-        XServer_preparesend();
-    
-        if(debug_mode) show_debug_message("Sending variable " + name + " = " + string(ds_map_find_value(global.__self, name)));
-        
-        XServer_writevariable(_b, 0, name, ds_map_find_value(global.__self, name), ds_map_find_value(global.__self_prec, name));
-        
-        XServer_send(mid_variable)
-    }
-    ds_list_clear(global.__self_changed);
-    
-    for(var i = 0; i < ds_list_size(global.__instance_idmap); i++)
-    {
-        var __syncID = ds_list_find_value(global.__instance_idmap, i),
-            _s = ds_map_find_value(global.__instance, __syncID),
-            _l = ds_map_find_value(_s, "variable_changed");
-            
-        if(ds_map_find_value(_s, "owner") != gms_self_playerid() && ds_map_find_value(_s, "full_sync"))
-        {
-            XServer_updateposition(_s);
-        }
-        
-        for(var _j = 0; _j < ds_list_size(_l); _j++)
-        {
-            XServer_preparesend();
-            
-            buffer_write(_b, buffer_u16, __syncID - 1000000);
-            var _name = ds_list_find_value(_l, _j);
-            XServer_writevariable(_b, 5, _name, ds_map_find_value(_s, "*" + _name), ds_map_find_value(_s, ">" + _name));
-            
-            XServer_send(mid_instancevar);
-        }
-        
-        ds_list_clear(_l);
-        
-        if(ds_map_find_value(_s, "has_moved"))
-        {
-            ds_map_replace(_s, "has_moved", 0);
-            XServer_send_instance4d(__syncID - 1000000, ds_map_find_value(_s, "x"), ds_map_find_value(_s, "y"), ds_map_find_value(_s, "speed"), ds_map_find_value(_s, "direction"));
-        }
-    }
-    
-    if(global.__self_position_changed)
-    {
-        var __len = global.__current_skip - global.__max_skip + 1;
-        if round(global.__self_prev_x + lengthdir_x(global.__self_prev_speed * __len, global.__self_prev_direction)) == round(global.__self_x) &&   
-            round(global.__self_prev_y + lengthdir_y(global.__self_prev_speed * __len, global.__self_prev_direction)) == round(global.__self_y) &&
-            global.__current_skip > 0 &&
-            global.__self_speed != 0
-        {
-            global.__current_skip -= 1;
-        }else{
-            XServer_preparesend();
-            
-            var _mid = XServer_write4d(global.__self_position_changed, global.__self_x, global.__self_y, global.__self_speed, global.__self_direction);
-            
-            XServer_send(190 + _mid);
-            if global.__self_position_changed & MOD_X
-            {
-                global.__self_prev_x = global.__self_x;
-            }
-            if global.__self_position_changed & MOD_Y
-            {
-                global.__self_prev_y = global.__self_y;
-            }
-            if global.__self_position_changed & MOD_DIR
-            {
-                global.__self_prev_direction = global.__self_direction;
-            }
-            if global.__self_position_changed & MOD_Y
-            {
-                global.__self_prev_speed = global.__self_speed;
-            }
-            global.__self_position_changed = 0;
-            global.__current_skip = global.__max_skip;
-        }
-    }
-    
-    var count = ds_queue_size(global.__socket_script_queue);
-    for(var  i = 0; i < count; i++)
-    {
-        if(ds_queue_head(global.__socket_script_queue) == -3)
-        {
-            ds_queue_dequeue(global.__socket_script_queue)
-            XServer_login_execute();
-        }else{
-            script_execute(ds_queue_dequeue(global.__socket_script_queue));
-        }
-    }
+	//global.__last_send = get_timer();
+	for(var i = 0; i < ds_list_size(global.__global_changed); i++)
+	{
+		var name = ds_list_find_value(global.__global_changed, i);
+		XServer_preparesend();
+	
+		XServer_writevariable(_b, 1, name, ds_map_find_value(global.__global, name), ds_map_find_value(global.__global_prec, name));
+		
+		XServer_send(mid_global)
+	}
+	ds_list_clear(global.__global_changed);
+	
+	for(var i = 0; i < ds_list_size(global.__self_changed); i++)
+	{
+		var name = ds_list_find_value(global.__self_changed, i);
+		XServer_preparesend();
+	
+		if(debug_mode) show_debug_message("Sending variable " + name + " = " + string(ds_map_find_value(global.__self, name)));
+		
+		XServer_writevariable(_b, 0, name, ds_map_find_value(global.__self, name), ds_map_find_value(global.__self_prec, name));
+		
+		XServer_send(mid_variable)
+	}
+	ds_list_clear(global.__self_changed);
+	
+	for(var i = 0; i < ds_list_size(global.__instance_idmap); i++)
+	{
+		var __syncID = ds_list_find_value(global.__instance_idmap, i),
+			_s = ds_map_find_value(global.__instance, __syncID),
+			_l = ds_map_find_value(_s, "variable_changed");
+			
+		if(ds_map_find_value(_s, "owner") != gms_self_playerid() && ds_map_find_value(_s, "full_sync"))
+		{
+			XServer_updateposition(_s);
+		}
+		
+		for(var _j = 0; _j < ds_list_size(_l); _j++)
+		{
+			XServer_preparesend();
+			
+			buffer_write(_b, buffer_u16, __syncID - 1000000);
+			var _name = ds_list_find_value(_l, _j);
+			XServer_writevariable(_b, 5, _name, ds_map_find_value(_s, "*" + _name), ds_map_find_value(_s, ">" + _name));
+			
+			XServer_send(mid_instancevar);
+		}
+		
+		ds_list_clear(_l);
+		
+		if(ds_map_find_value(_s, "has_moved"))
+		{
+			ds_map_replace(_s, "has_moved", 0);
+			XServer_send_instance4d(__syncID - 1000000, ds_map_find_value(_s, "x"), ds_map_find_value(_s, "y"), ds_map_find_value(_s, "speed"), ds_map_find_value(_s, "direction"));
+		}
+	}
+	
+	if(global.__self_position_changed)
+	{
+		var __len = global.__current_skip - global.__max_skip + 1;
+		if round(global.__self_prev_x + lengthdir_x(global.__self_prev_speed * __len, global.__self_prev_direction)) == round(global.__self_x) &&   
+			round(global.__self_prev_y + lengthdir_y(global.__self_prev_speed * __len, global.__self_prev_direction)) == round(global.__self_y) &&
+			global.__current_skip > 0 &&
+			global.__self_speed != 0
+		{
+			global.__current_skip -= 1;
+		}else{
+			XServer_preparesend();
+			
+			var _mid = XServer_write4d(global.__self_position_changed, global.__self_x, global.__self_y, global.__self_speed, global.__self_direction);
+			
+			XServer_send(190 + _mid);
+			if global.__self_position_changed & MOD_X
+			{
+				global.__self_prev_x = global.__self_x;
+			}
+			if global.__self_position_changed & MOD_Y
+			{
+				global.__self_prev_y = global.__self_y;
+			}
+			if global.__self_position_changed & MOD_DIR
+			{
+				global.__self_prev_direction = global.__self_direction;
+			}
+			if global.__self_position_changed & MOD_Y
+			{
+				global.__self_prev_speed = global.__self_speed;
+			}
+			global.__self_position_changed = 0;
+			global.__current_skip = global.__max_skip;
+		}
+	}
+	
+	var count = ds_queue_size(global.__socket_script_queue);
+	for(var  i = 0; i < count; i++)
+	{
+		if(ds_queue_head(global.__socket_script_queue) == -3)
+		{
+			ds_queue_dequeue(global.__socket_script_queue)
+			XServer_login_execute();
+		}else{
+			script_execute(ds_queue_dequeue(global.__socket_script_queue));
+		}
+	}
 }
 for(var i = 0; i < ds_list_size(global.__player_idmap); i++)
 {
-    var _id = ds_list_find_value(global.__player_idmap, i);
-    var _player = ds_map_find_value(global.__player, _id);
-    
-    XServer_updateposition(_player);
+	var _id = ds_list_find_value(global.__player_idmap, i);
+	var _player = ds_map_find_value(global.__player, _id);
+	
+	XServer_updateposition(_player);
 }
 XServer_flush();
 }
@@ -13642,11 +13642,11 @@ function XServer_clear_instances(argument0) {
 var __s = 0;
 while(ds_map_size(argument0) > 0)
 {
-    __s = ds_map_find_value(argument0, ds_map_find_first(argument0));
-    ds_list_destroy(ds_map_find_value(__s, "variable_names"));
-    ds_list_destroy(ds_map_find_value(__s, "variable_changed"));
-    ds_map_destroy(__s);
-    ds_map_delete(argument0, ds_map_find_first(argument0));
+	__s = ds_map_find_value(argument0, ds_map_find_first(argument0));
+	ds_list_destroy(ds_map_find_value(__s, "variable_names"));
+	ds_list_destroy(ds_map_find_value(__s, "variable_changed"));
+	ds_map_destroy(__s);
+	ds_map_delete(argument0, ds_map_find_first(argument0));
 }
 ds_map_clear(argument0);
 }
@@ -13654,23 +13654,23 @@ ds_map_clear(argument0);
 function gms_network() {
 if(ds_map_find_value(async_load, "id") == global.__socket)
 {
-    switch(ds_map_find_value(async_load, "type"))
-    {
-        case network_type_data:
-            global.__socket_connected = true;
-            global.__socket_connecting = false;
-            var buffersize = max(0, ds_map_find_value(async_load, "size")) + max(0, buffer_tell(_rr));
-            
-            if(buffer_get_size(_rr) <= buffersize)
-            {
-                var newsize = ceil((buffersize + 1) / 2048) * 2048
-                buffer_resize(_rr, newsize);
-            }
-            
-            buffer_copy(ds_map_find_value(async_load, "buffer"), 0, ds_map_find_value(async_load, "size"), _rr, buffer_tell(_rr));
-            buffer_seek(_rr, buffer_seek_start, buffersize);
-            break;
-    }
+	switch(ds_map_find_value(async_load, "type"))
+	{
+		case network_type_data:
+			global.__socket_connected = true;
+			global.__socket_connecting = false;
+			var buffersize = max(0, ds_map_find_value(async_load, "size")) + max(0, buffer_tell(_rr));
+			
+			if(buffer_get_size(_rr) <= buffersize)
+			{
+				var newsize = ceil((buffersize + 1) / 2048) * 2048
+				buffer_resize(_rr, newsize);
+			}
+			
+			buffer_copy(ds_map_find_value(async_load, "buffer"), 0, ds_map_find_value(async_load, "size"), _rr, buffer_tell(_rr));
+			buffer_seek(_rr, buffer_seek_start, buffersize);
+			break;
+	}
 }
 }
 
@@ -13722,16 +13722,16 @@ function XServer_writevariable(argument0, argument1, argument2, argument3, argum
 var _type = XGms_ve_getBestWayToSend(argument3, argument4);
 if(XGms_cache_variable_write(argument0, argument1, argument2, _type))
 {
-    XGms_ve_writeValue(argument0, argument3, argument4, _type);
+	XGms_ve_writeValue(argument0, argument3, argument4, _type);
 }else{
-    buffer_write(argument0, buffer_u8, XServer_is_real(argument3));//String = 0, double = 1
-    XServer_writestring(argument0, argument2)
-    if is_string(argument3)
-    {
-        XServer_writestring(argument0, argument3)
-    }else{
-        buffer_write(argument0, buffer_f64, argument3)
-    }
+	buffer_write(argument0, buffer_u8, XServer_is_real(argument3));//String = 0, double = 1
+	XServer_writestring(argument0, argument2)
+	if is_string(argument3)
+	{
+		XServer_writestring(argument0, argument3)
+	}else{
+		buffer_write(argument0, buffer_f64, argument3)
+	}
 }
 }
 
@@ -13753,128 +13753,128 @@ buffer_write(_b, buffer_u8, _dir & $FF);*/
 var _id = 0, _flags = argument0;
 if (argument1 == 0 && argument2 == 0)
 {
-    //2x 0: 1111xx
-    _id |= 60;
+	//2x 0: 1111xx
+	_id |= 60;
 }else{
-    if (_flags & MOD_X)
-    {
-        if (_flags & MOD_Y)
-        {
-            //Combies: 11xxxx
-            if (argument1 >= 0 && argument1 <= 255 && argument2 >= 0 && argument2 <= 255)
-            {
-                //Byte combo: 1101xx
-                _id |= 52;
-                buffer_write(_b, buffer_u8, argument1);
-                buffer_write(_b, buffer_u8, argument2);
-            }else if (argument1 >= 0 && argument1 <= 510 && argument2 >= 0 && argument2 <= 510 && !(argument1 & 1) && !(argument2 & 1)){
-                //Byte * 2 combo: 1110xx
-                _id |= 56;
-                buffer_write(_b, buffer_u8, (argument1 / 2));
-                buffer_write(_b, buffer_u8, (argument2 / 2));
-            }else if (argument1 >= 0 && argument1 <= 4095 && argument2 >= 0 && argument2 <= 4095){
-                //24bit combi: 1100xx
-                _id |= 48;
-                var __comb = round(argument1) + round((argument2) << 12);
-                buffer_write(_b, buffer_u8, __comb >> 16);
-                buffer_write(_b, buffer_u8, (__comb >> 8) % 256);
-                buffer_write(_b, buffer_u8, __comb % 256);
-            }else if(argument1 >= 0 && argument1 <= 65535 &&  argument2 >= 0 && argument2 <= 65535) {
-                //2x ushort: 0101xx
-                _id |= 20;
-                buffer_write(_b, buffer_u16, argument1);
-                buffer_write(_b, buffer_u16, argument2);
-            }else{
-                //2x int: 1010xx
-                _id |= 40;
-                buffer_write(_b, buffer_s32, argument1);
-                buffer_write(_b, buffer_s32, argument2);
-            }
-        }else{
-            if (argument1 >= 0 && argument1 <= 65535)
-            {
-                //X ushort, no Y: 0100xx
-                _id |= 16;
-                buffer_write(_b, buffer_u16, argument1);
-            }else{
-                //X int, no Y: 1000xx
-                _id |= 32;
-                buffer_write(_b, buffer_s32, argument1);
-            }
-        }
-    }
-    else if (_flags & MOD_Y)
-    {
-        if (!((argument2) & 1) && argument2 < 510 && argument2 >= 0)
-        {
-            //Y byte * 2, no X: 0011xx
-            _id |= 12;
-            buffer_write(_b, buffer_u8, (argument2 / 2));
-        }else if (argument2 >= 0 && argument2 <= 65535){
-            //Y ushort, no X: 0001xx
-            _id |= 4;
-            buffer_write(_b, buffer_u16, argument2);
-        }else{
-            //Y int, no X: 
-            _id |= 8;
-            buffer_write(_b, buffer_s32, argument2);
-        }
-    }else{
-        //No X or Y
-        _id |= 0;
-    }
+	if (_flags & MOD_X)
+	{
+		if (_flags & MOD_Y)
+		{
+			//Combies: 11xxxx
+			if (argument1 >= 0 && argument1 <= 255 && argument2 >= 0 && argument2 <= 255)
+			{
+				//Byte combo: 1101xx
+				_id |= 52;
+				buffer_write(_b, buffer_u8, argument1);
+				buffer_write(_b, buffer_u8, argument2);
+			}else if (argument1 >= 0 && argument1 <= 510 && argument2 >= 0 && argument2 <= 510 && !(argument1 & 1) && !(argument2 & 1)){
+				//Byte * 2 combo: 1110xx
+				_id |= 56;
+				buffer_write(_b, buffer_u8, (argument1 / 2));
+				buffer_write(_b, buffer_u8, (argument2 / 2));
+			}else if (argument1 >= 0 && argument1 <= 4095 && argument2 >= 0 && argument2 <= 4095){
+				//24bit combi: 1100xx
+				_id |= 48;
+				var __comb = round(argument1) + round((argument2) << 12);
+				buffer_write(_b, buffer_u8, __comb >> 16);
+				buffer_write(_b, buffer_u8, (__comb >> 8) % 256);
+				buffer_write(_b, buffer_u8, __comb % 256);
+			}else if(argument1 >= 0 && argument1 <= 65535 &&  argument2 >= 0 && argument2 <= 65535) {
+				//2x ushort: 0101xx
+				_id |= 20;
+				buffer_write(_b, buffer_u16, argument1);
+				buffer_write(_b, buffer_u16, argument2);
+			}else{
+				//2x int: 1010xx
+				_id |= 40;
+				buffer_write(_b, buffer_s32, argument1);
+				buffer_write(_b, buffer_s32, argument2);
+			}
+		}else{
+			if (argument1 >= 0 && argument1 <= 65535)
+			{
+				//X ushort, no Y: 0100xx
+				_id |= 16;
+				buffer_write(_b, buffer_u16, argument1);
+			}else{
+				//X int, no Y: 1000xx
+				_id |= 32;
+				buffer_write(_b, buffer_s32, argument1);
+			}
+		}
+	}
+	else if (_flags & MOD_Y)
+	{
+		if (!((argument2) & 1) && argument2 < 510 && argument2 >= 0)
+		{
+			//Y byte * 2, no X: 0011xx
+			_id |= 12;
+			buffer_write(_b, buffer_u8, (argument2 / 2));
+		}else if (argument2 >= 0 && argument2 <= 65535){
+			//Y ushort, no X: 0001xx
+			_id |= 4;
+			buffer_write(_b, buffer_u16, argument2);
+		}else{
+			//Y int, no X: 
+			_id |= 8;
+			buffer_write(_b, buffer_s32, argument2);
+		}
+	}else{
+		//No X or Y
+		_id |= 0;
+	}
 }
 //Now let's do the argument4 & argument3
 if (_flags & MOD_DIR)
 {
-    if (_flags & MOD_SPEED)
-    {
-        //Combo
-        if (((argument4 * 2)) % 45 == 0 && argument3 >= -8 && argument3 <= 7)
-        {
-            //8bit combo
-            _id |= 2;
-            buffer_write(_b, buffer_u8, ((round(argument3 + 8) & $F) | ((round(argument4 / 22.5) & $F) << 4)));
-        }else{
-            //24bit combo
-            _id |= 3;
-            var __comb = round(argument4 * 11) + ((round((argument3 + 25.6) * 80) << 12));
-            buffer_write(_b, buffer_u8, __comb >> 16);
-            buffer_write(_b, buffer_u8, (__comb >> 8) % 256);
-            buffer_write(_b, buffer_u8, __comb % 256);
-        }
-    }else{
-        if (((argument4 * 2)) % 45 == 0 && argument3 >= -8 && argument3 <= 7)
-        {
-            //Combo is preciezer: Het kan exact worden uitgedrukt
-            _id |= 2;
-            buffer_write(_b, buffer_u8, ((round(argument3 + 8) & $F) | ((round(argument4 / 22.5) & $F) << 4)));
-        }else{
-            //Alleen dir als 8bit value
-            _id |= 0;
-            buffer_write(_b, buffer_u8, round(argument4 / 360.0 * 240.0));
-        }
-    }
+	if (_flags & MOD_SPEED)
+	{
+		//Combo
+		if (((argument4 * 2)) % 45 == 0 && argument3 >= -8 && argument3 <= 7)
+		{
+			//8bit combo
+			_id |= 2;
+			buffer_write(_b, buffer_u8, ((round(argument3 + 8) & $F) | ((round(argument4 / 22.5) & $F) << 4)));
+		}else{
+			//24bit combo
+			_id |= 3;
+			var __comb = round(argument4 * 11) + ((round((argument3 + 25.6) * 80) << 12));
+			buffer_write(_b, buffer_u8, __comb >> 16);
+			buffer_write(_b, buffer_u8, (__comb >> 8) % 256);
+			buffer_write(_b, buffer_u8, __comb % 256);
+		}
+	}else{
+		if (((argument4 * 2)) % 45 == 0 && argument3 >= -8 && argument3 <= 7)
+		{
+			//Combo is preciezer: Het kan exact worden uitgedrukt
+			_id |= 2;
+			buffer_write(_b, buffer_u8, ((round(argument3 + 8) & $F) | ((round(argument4 / 22.5) & $F) << 4)));
+		}else{
+			//Alleen dir als 8bit value
+			_id |= 0;
+			buffer_write(_b, buffer_u8, round(argument4 / 360.0 * 240.0));
+		}
+	}
 }else{
-    if (_flags & MOD_SPEED)
-    {
-        if (argument3 >= -16 && argument3 <= 16)
-        {
-            //Alleen argument3
-            _id |= 1;
-            buffer_write(_b, buffer_u8, round((argument3 + 16) * 8));
-        }else{
-            //24bit combo
-            _id |= 3;
-            var __comb = round(argument4 * 11) + ((round((argument3 + 25.6) * 80) << 12));
-            buffer_write(_b, buffer_u8, __comb >> 16);
-            buffer_write(_b, buffer_u8, (__comb >> 8) % 256);
-            buffer_write(_b, buffer_u8, __comb % 256);
-        }
-    }else{
-        //Helemaal niets
-        _id |= 0;
-    }
+	if (_flags & MOD_SPEED)
+	{
+		if (argument3 >= -16 && argument3 <= 16)
+		{
+			//Alleen argument3
+			_id |= 1;
+			buffer_write(_b, buffer_u8, round((argument3 + 16) * 8));
+		}else{
+			//24bit combo
+			_id |= 3;
+			var __comb = round(argument4 * 11) + ((round((argument3 + 25.6) * 80) << 12));
+			buffer_write(_b, buffer_u8, __comb >> 16);
+			buffer_write(_b, buffer_u8, (__comb >> 8) % 256);
+			buffer_write(_b, buffer_u8, __comb % 256);
+		}
+	}else{
+		//Helemaal niets
+		_id |= 0;
+	}
 }
 return _id;
 }
@@ -13882,77 +13882,77 @@ return _id;
 function XServer_variable_player_set_real(argument0, argument1) {
 switch(argument0)
 {
-    case "x":
-        if(global.__self_x != argument1) global.__self_position_changed |= MOD_X;
-        global.__self_x = argument1;
-        break;
-    case "y":
-        if(global.__self_y != argument1) global.__self_position_changed |= MOD_Y;
-        global.__self_y = argument1;
-        break;
-    case "speed":
-        if(global.__self_speed != argument1) global.__self_position_changed |= MOD_SPEED;
-        global.__self_speed = argument1;
-        break;
-    case "direction":
-        if(global.__self_direction != argument1) global.__self_position_changed |= MOD_DIR;
-        global.__self_direction = argument1;
-        break;
-    default:
-        if(ds_map_exists(global.__self, argument0))
-        {
-            if(argument1 != real(ds_map_find_value(global.__self, argument0))) ds_list_add(global.__self_changed, argument0);
-            ds_map_replace(global.__self, argument0, argument1)
-        }else{
-            ds_map_add(global.__self, argument0, argument1)
-            ds_map_add(global.__self_prec, argument0, global.__default_prec);
-            ds_list_add(global.__self_changed, argument0);
-        }
-        break;
+	case "x":
+		if(global.__self_x != argument1) global.__self_position_changed |= MOD_X;
+		global.__self_x = argument1;
+		break;
+	case "y":
+		if(global.__self_y != argument1) global.__self_position_changed |= MOD_Y;
+		global.__self_y = argument1;
+		break;
+	case "speed":
+		if(global.__self_speed != argument1) global.__self_position_changed |= MOD_SPEED;
+		global.__self_speed = argument1;
+		break;
+	case "direction":
+		if(global.__self_direction != argument1) global.__self_position_changed |= MOD_DIR;
+		global.__self_direction = argument1;
+		break;
+	default:
+		if(ds_map_exists(global.__self, argument0))
+		{
+			if(argument1 != real(ds_map_find_value(global.__self, argument0))) ds_list_add(global.__self_changed, argument0);
+			ds_map_replace(global.__self, argument0, argument1)
+		}else{
+			ds_map_add(global.__self, argument0, argument1)
+			ds_map_add(global.__self_prec, argument0, global.__default_prec);
+			ds_list_add(global.__self_changed, argument0);
+		}
+		break;
 }
 }
 
 function XServer_variable_player_set_string(argument0, argument1) {
 if(ds_map_exists(global.__self, argument0))
 {
-    if(string(argument1) != string(ds_map_find_value(global.__self, argument0))) ds_list_add(global.__self_changed, argument0);
-    ds_map_replace(global.__self, argument0, argument1)
+	if(string(argument1) != string(ds_map_find_value(global.__self, argument0))) ds_list_add(global.__self_changed, argument0);
+	ds_map_replace(global.__self, argument0, argument1)
 }else{
-    ds_map_add(global.__self, argument0, argument1)
-    ds_map_add(global.__self_prec, argument0, global.__default_prec);
-    ds_list_add(global.__self_changed, argument0);
+	ds_map_add(global.__self, argument0, argument1)
+	ds_map_add(global.__self_prec, argument0, global.__default_prec);
+	ds_list_add(global.__self_changed, argument0);
 }
 }
 
 function gms_global_set_real(argument0, argument1) {
 if(gms_global_exists(argument0))
 {
-    if(string(argument1) != string(ds_map_find_value(global.__global, argument0))) ds_list_add(global.__global_changed, argument0);
-    ds_map_replace(global.__global, argument0, argument1)
+	if(string(argument1) != string(ds_map_find_value(global.__global, argument0))) ds_list_add(global.__global_changed, argument0);
+	ds_map_replace(global.__global, argument0, argument1)
 }else{
-    ds_map_add(global.__global, argument0, argument1)
-    ds_map_add(global.__global_prec, argument0, global.__default_prec);
-    ds_list_add(global.__global_changed, argument0);
+	ds_map_add(global.__global, argument0, argument1)
+	ds_map_add(global.__global_prec, argument0, global.__default_prec);
+	ds_list_add(global.__global_changed, argument0);
 }
 }
 
 function gms_global_set_string(argument0, argument1) {
 if(gms_global_exists(argument0))
 {
-    if(string(argument1) != string(ds_map_find_value(global.__global, argument0))) ds_list_add(global.__global_changed, argument0);
-    ds_map_replace(global.__global, argument0, argument1)
+	if(string(argument1) != string(ds_map_find_value(global.__global, argument0))) ds_list_add(global.__global_changed, argument0);
+	ds_map_replace(global.__global, argument0, argument1)
 }else{
-    ds_map_add(global.__global, argument0, argument1)
-    ds_map_add(global.__global_prec, argument0, global.__default_prec);
-    ds_list_add(global.__global_changed, argument0);
+	ds_map_add(global.__global, argument0, argument1)
+	ds_map_add(global.__global_prec, argument0, global.__default_prec);
+	ds_list_add(global.__global_changed, argument0);
 }
 }
 
 function XServer_clear_map_map(argument0) {
 while(ds_map_size(argument0) > 0)
 {
-    ds_map_destroy(ds_map_find_value(argument0, ds_map_find_first(argument0)));
-    ds_map_delete(argument0, ds_map_find_first(argument0));
+	ds_map_destroy(ds_map_find_value(argument0, ds_map_find_first(argument0)));
+	ds_map_delete(argument0, ds_map_find_first(argument0));
 }
 ds_map_clear(argument0);
 }
@@ -13960,172 +13960,172 @@ ds_map_clear(argument0);
 function XServer_updateposition(argument0) {
 var _p = argument0;
 var _xto = ds_map_find_value(_p, "#x"), 
-    _yto = ds_map_find_value(_p, "#y"), 
-    _xlast = ds_map_find_value(_p, "#last-x"), 
-    _ylast = ds_map_find_value(_p, "#last-y"), 
-    _speedlast = ds_map_find_value(_p, "#last-speed"), 
-    _xtolast = ds_map_find_value(_p, "#last-xto"), 
-    _ytolast = ds_map_find_value(_p, "#last-yto"), 
-    _speedUp = ds_map_find_value(_p, "#speedUp"), 
-    _dirlast = ds_map_find_value(_p, "#last-direction"), 
-    _smoothSpeed = ds_map_find_value(_p, "#smoothSpeed"), 
-    _longRange = _smoothSpeed > 0.15,  
-    _sharpTurn = ds_map_find_value(_p, "#sharpTurn"),
-    _speedto = ds_map_find_value(_p, "#speed"), 
-    _dirto = ds_map_find_value(_p, "#direction"),
-    _delay = ds_map_find_value(_p, "#delay"),
-    _tickstart = ds_map_find_value(_p, "#tickstart"),
-    _tickend = ds_map_find_value(_p, "#tickend");
+	_yto = ds_map_find_value(_p, "#y"), 
+	_xlast = ds_map_find_value(_p, "#last-x"), 
+	_ylast = ds_map_find_value(_p, "#last-y"), 
+	_speedlast = ds_map_find_value(_p, "#last-speed"), 
+	_xtolast = ds_map_find_value(_p, "#last-xto"), 
+	_ytolast = ds_map_find_value(_p, "#last-yto"), 
+	_speedUp = ds_map_find_value(_p, "#speedUp"), 
+	_dirlast = ds_map_find_value(_p, "#last-direction"), 
+	_smoothSpeed = ds_map_find_value(_p, "#smoothSpeed"), 
+	_longRange = _smoothSpeed > 0.15,  
+	_sharpTurn = ds_map_find_value(_p, "#sharpTurn"),
+	_speedto = ds_map_find_value(_p, "#speed"), 
+	_dirto = ds_map_find_value(_p, "#direction"),
+	_delay = ds_map_find_value(_p, "#delay"),
+	_tickstart = ds_map_find_value(_p, "#tickstart"),
+	_tickend = ds_map_find_value(_p, "#tickend");
 var _xnow = XGMs_remove_undef_ined(ds_map_find_value(_p, "*x")), 
-    _ynow = XGMs_remove_undef_ined(ds_map_find_value(_p, "*y")), 
-    _speednow = 0 * _speedto;
-    
+	_ynow = XGMs_remove_undef_ined(ds_map_find_value(_p, "*y")), 
+	_speednow = 0 * _speedto;
+	
 var tmp, tX, tY;
 switch(global.__spc)
 {
-    case 0:
-        if(_tickend - _tickstart > 0){tmp=((get_timer() / 1000) - _tickstart) / (_tickend - _tickstart)} else {tmp=2}
-        if(tmp <= 1)
-        {
-            _xnow = _xlast * (1.0 - tmp) + _xto * tmp;
-            _ynow = _ylast * (1.0 - tmp) + _yto * tmp;
-        }else{
-            _xnow = _xto;
-            _ynow = _yto;
-            _speednow = 0;
-        }
-        break;
-    case 1:
-        if(point_distance(_xnow, _ynow, _xto, _yto) < 64 && point_distance(_xnow, _ynow, _xto, _yto) > 2)
-        {
-            _xnow = (_xto * .35 + _xnow * .65);
-            _ynow = (_yto * .35 + _ynow * .65);
-        }else{
-            _xnow = _xto;
-            _ynow = _yto;
-            _speednow = 0;
-        }
-        break;
-    case 2:
-        _xnow = _xto;
-        _ynow = _yto;
-        break;
-    case 3:
-        if(_tickend - _tickstart > 0){tmp=min(1,((get_timer() / 1000) - _tickstart) / (_tickend - _tickstart))} else {tmp=1}
-        _xnow = (_xto * .35 + (_xlast * (1 - tmp) + _xnow * tmp) * .65);
-        _ynow = (_yto * .35 + (_ylast * (1 - tmp) + _ynow * tmp) * .65);
-        break;
-    case 4:
-        if(_tickend - _tickstart > 0 && (get_timer() / 1000) - _tickend < 0)
-        {
-            tmp = min(1, (get_timer() / 1000 - _tickstart) / (_tickend - _tickstart));
-        }else{
-            tmp = 1;
-        }
-        break;
-    case 5:
-        if(_tickend - _tickstart > 0){tmp=((get_timer() / 1000) - _tickstart) / (_tickend - _tickstart)} else {tmp=1}
-        
-        if(tmp > 1.0 && tmp < 1.5)
-        {
-        }else{
-            if(_sharpTurn)
-            {
-                _xnow = _xnow * .35 + (_xlast * (1.0 - tmp) + _xto * tmp) * .65;
-                _ynow = _ynow * .35 + (_ylast * (1.0 - tmp) + _yto * tmp) * .65;
-            }else{
-                if(_longRange)
-                {
-                    _xnow = (_xto * .35 + _xnow * .65);
-                    _ynow = (_yto * .35 + _ynow * .65);
-                }else{
-                    _xnow = _xnow * .5 + (_xlast * (1.0 - tmp) + _xto * tmp) * .5;
-                    _ynow = _ynow * .5 + (_ylast * (1.0 - tmp) + _yto * tmp) * .5;
-                }
-            }
-        }     
-        break;
-    case 6:
-        if(_tickend - _tickstart > 0){tmp=((get_timer() / 1000) - _tickstart) / (_tickend - _tickstart)} else {tmp=2}
-        if(tmp <= 1.0)
-        {
-            tmp = (get_timer() / 1000 - _tickstart) / (_tickend - _tickstart);
-            _xnow = _xnow * .2 + (_xlast * (1.0 - tmp) + _xto * tmp) * .8;
-            _ynow = _ynow * .2 + (_ylast * (1.0 - tmp) + _yto * tmp) * .8;
-        }else{
-            tmp = 2.0;
-            _xnow = _xnow * .2 + (_xto + lengthdir_x(_smoothSpeed * (tmp - 1.0) * global.__timer_threshold, _dirto)) * .8;
-            _ynow = _ynow * .2 + (_yto + lengthdir_y(_smoothSpeed * (tmp - 1.0) * global.__timer_threshold, _dirto)) * .8;
-        }
-        break;
-    case 7:
-        if(_tickend - _tickstart > 0){tmp=((get_timer() / 1000) - _tickstart) / (_tickend - _tickstart)} else {tmp=2}
-        if(tmp < 1.1)
-        {
-            tmp = (get_timer() / 1000 - _tickstart) / (_tickend - _tickstart);
-            tX = _xnow * .35 + ((_xlast + lengthdir_x(_smoothSpeed * tmp * global.__timer_threshold, _dirto)) * (.3 - tmp * .3 + .7) + _xto * tmp * .3) * .65;
-            tY = _ynow * .35 + ((_ylast + lengthdir_x(_smoothSpeed * tmp * global.__timer_threshold, _dirto)) * (.3 - tmp * .3 + .7) + _yto * tmp * .3) * .65;
-        }else{
-            tX = _xto;
-            tY = _yto;
-        }
-        _xnow = tX * .6 + _xnow * .4;
-        _ynow = tY * .6 + _ynow * .4;
-        break;
-    case 8:
-        if(_tickend - _tickstart > 0){tmp=min(1, ((get_timer() / 1000) - _tickstart) / (_tickend - _tickstart))} else {tmp=1}
-        _xnow = _xnow * .5 + (_xlast * (1 - tmp) + _xto * tmp) * .5;
-        _ynow = _ynow * .5 + (_ylast * (1 - tmp) + _yto * tmp) * .5;
-        break;
-    case 9:
-        var _speedCorrection = XGMs_remove_undef_ined(ds_map_find_value(_p, "#speedCorrection"));
-        if(abs(_speedto) > 0.1)
-        {
-            _xnow = _xnow * 0.6 + (_xto + lengthdir_x(_speedto + _speedCorrection, _dirto) * _delay) * 0.4;
-            _ynow = _ynow * 0.6 + (_yto + lengthdir_y(_speedto + _speedCorrection, _dirto) * _delay) * 0.4;
-        }else{
-            _xnow = _xnow * 0.6 + _xto * 0.4;
-            _ynow = _ynow * 0.6 + _yto * 0.4;
-        }
-        break;
-    case 10:
-        if (abs(_speedto) <= 0.1 or _delay > 15)
-        {
-            if (point_distance(_xnow, _ynow, _xto, _yto) > _speedlast && _speedlast >= 0.01)
-            {
-                var adjustedDirection = point_direction(_xlast, _ylast, _xto, _yto);
-                _xnow += lengthdir_x(_speedlast, adjustedDirection);
-                _ynow += lengthdir_y(_speedlast, adjustedDirection);
-            } else {
-                _xnow = _xto;
-                _ynow = _yto;
-            }
-        } else {
-            var adjustedDirection = point_direction(_xlast, _ylast, _xto, _yto);
-            var directAngle = point_direction(_xnow, _ynow, _xto, _yto);
-            if (point_distance(_xlast, _ylast, _xto, _yto) < 10)
-            {
-                adjustedDirection = _dirto;
-            }
-            if (abs(angle_difference(adjustedDirection, directAngle)) > 30)
-            {
-                _speedUp *= .9;
-                adjustedDirection = _dirto;
-            }
-            _xnow += lengthdir_x(_speedto + _speedUp, adjustedDirection);
-            _ynow += lengthdir_y(_speedto + _speedUp, adjustedDirection);
-            _xnow = _xnow * .99 + _xto * .01;
-            _ynow = _ynow * .99 + _yto * .01;
-        }
-        break;
+	case 0:
+		if(_tickend - _tickstart > 0){tmp=((get_timer() / 1000) - _tickstart) / (_tickend - _tickstart)} else {tmp=2}
+		if(tmp <= 1)
+		{
+			_xnow = _xlast * (1.0 - tmp) + _xto * tmp;
+			_ynow = _ylast * (1.0 - tmp) + _yto * tmp;
+		}else{
+			_xnow = _xto;
+			_ynow = _yto;
+			_speednow = 0;
+		}
+		break;
+	case 1:
+		if(point_distance(_xnow, _ynow, _xto, _yto) < 64 && point_distance(_xnow, _ynow, _xto, _yto) > 2)
+		{
+			_xnow = (_xto * .35 + _xnow * .65);
+			_ynow = (_yto * .35 + _ynow * .65);
+		}else{
+			_xnow = _xto;
+			_ynow = _yto;
+			_speednow = 0;
+		}
+		break;
+	case 2:
+		_xnow = _xto;
+		_ynow = _yto;
+		break;
+	case 3:
+		if(_tickend - _tickstart > 0){tmp=min(1,((get_timer() / 1000) - _tickstart) / (_tickend - _tickstart))} else {tmp=1}
+		_xnow = (_xto * .35 + (_xlast * (1 - tmp) + _xnow * tmp) * .65);
+		_ynow = (_yto * .35 + (_ylast * (1 - tmp) + _ynow * tmp) * .65);
+		break;
+	case 4:
+		if(_tickend - _tickstart > 0 && (get_timer() / 1000) - _tickend < 0)
+		{
+			tmp = min(1, (get_timer() / 1000 - _tickstart) / (_tickend - _tickstart));
+		}else{
+			tmp = 1;
+		}
+		break;
+	case 5:
+		if(_tickend - _tickstart > 0){tmp=((get_timer() / 1000) - _tickstart) / (_tickend - _tickstart)} else {tmp=1}
+		
+		if(tmp > 1.0 && tmp < 1.5)
+		{
+		}else{
+			if(_sharpTurn)
+			{
+				_xnow = _xnow * .35 + (_xlast * (1.0 - tmp) + _xto * tmp) * .65;
+				_ynow = _ynow * .35 + (_ylast * (1.0 - tmp) + _yto * tmp) * .65;
+			}else{
+				if(_longRange)
+				{
+					_xnow = (_xto * .35 + _xnow * .65);
+					_ynow = (_yto * .35 + _ynow * .65);
+				}else{
+					_xnow = _xnow * .5 + (_xlast * (1.0 - tmp) + _xto * tmp) * .5;
+					_ynow = _ynow * .5 + (_ylast * (1.0 - tmp) + _yto * tmp) * .5;
+				}
+			}
+		}	 
+		break;
+	case 6:
+		if(_tickend - _tickstart > 0){tmp=((get_timer() / 1000) - _tickstart) / (_tickend - _tickstart)} else {tmp=2}
+		if(tmp <= 1.0)
+		{
+			tmp = (get_timer() / 1000 - _tickstart) / (_tickend - _tickstart);
+			_xnow = _xnow * .2 + (_xlast * (1.0 - tmp) + _xto * tmp) * .8;
+			_ynow = _ynow * .2 + (_ylast * (1.0 - tmp) + _yto * tmp) * .8;
+		}else{
+			tmp = 2.0;
+			_xnow = _xnow * .2 + (_xto + lengthdir_x(_smoothSpeed * (tmp - 1.0) * global.__timer_threshold, _dirto)) * .8;
+			_ynow = _ynow * .2 + (_yto + lengthdir_y(_smoothSpeed * (tmp - 1.0) * global.__timer_threshold, _dirto)) * .8;
+		}
+		break;
+	case 7:
+		if(_tickend - _tickstart > 0){tmp=((get_timer() / 1000) - _tickstart) / (_tickend - _tickstart)} else {tmp=2}
+		if(tmp < 1.1)
+		{
+			tmp = (get_timer() / 1000 - _tickstart) / (_tickend - _tickstart);
+			tX = _xnow * .35 + ((_xlast + lengthdir_x(_smoothSpeed * tmp * global.__timer_threshold, _dirto)) * (.3 - tmp * .3 + .7) + _xto * tmp * .3) * .65;
+			tY = _ynow * .35 + ((_ylast + lengthdir_x(_smoothSpeed * tmp * global.__timer_threshold, _dirto)) * (.3 - tmp * .3 + .7) + _yto * tmp * .3) * .65;
+		}else{
+			tX = _xto;
+			tY = _yto;
+		}
+		_xnow = tX * .6 + _xnow * .4;
+		_ynow = tY * .6 + _ynow * .4;
+		break;
+	case 8:
+		if(_tickend - _tickstart > 0){tmp=min(1, ((get_timer() / 1000) - _tickstart) / (_tickend - _tickstart))} else {tmp=1}
+		_xnow = _xnow * .5 + (_xlast * (1 - tmp) + _xto * tmp) * .5;
+		_ynow = _ynow * .5 + (_ylast * (1 - tmp) + _yto * tmp) * .5;
+		break;
+	case 9:
+		var _speedCorrection = XGMs_remove_undef_ined(ds_map_find_value(_p, "#speedCorrection"));
+		if(abs(_speedto) > 0.1)
+		{
+			_xnow = _xnow * 0.6 + (_xto + lengthdir_x(_speedto + _speedCorrection, _dirto) * _delay) * 0.4;
+			_ynow = _ynow * 0.6 + (_yto + lengthdir_y(_speedto + _speedCorrection, _dirto) * _delay) * 0.4;
+		}else{
+			_xnow = _xnow * 0.6 + _xto * 0.4;
+			_ynow = _ynow * 0.6 + _yto * 0.4;
+		}
+		break;
+	case 10:
+		if (abs(_speedto) <= 0.1 or _delay > 15)
+		{
+			if (point_distance(_xnow, _ynow, _xto, _yto) > _speedlast && _speedlast >= 0.01)
+			{
+				var adjustedDirection = point_direction(_xlast, _ylast, _xto, _yto);
+				_xnow += lengthdir_x(_speedlast, adjustedDirection);
+				_ynow += lengthdir_y(_speedlast, adjustedDirection);
+			} else {
+				_xnow = _xto;
+				_ynow = _yto;
+			}
+		} else {
+			var adjustedDirection = point_direction(_xlast, _ylast, _xto, _yto);
+			var directAngle = point_direction(_xnow, _ynow, _xto, _yto);
+			if (point_distance(_xlast, _ylast, _xto, _yto) < 10)
+			{
+				adjustedDirection = _dirto;
+			}
+			if (abs(angle_difference(adjustedDirection, directAngle)) > 30)
+			{
+				_speedUp *= .9;
+				adjustedDirection = _dirto;
+			}
+			_xnow += lengthdir_x(_speedto + _speedUp, adjustedDirection);
+			_ynow += lengthdir_y(_speedto + _speedUp, adjustedDirection);
+			_xnow = _xnow * .99 + _xto * .01;
+			_ynow = _ynow * .99 + _yto * .01;
+		}
+		break;
 }
 if is_undefined(_xnow)
 {
-    _xnow = _xto
+	_xnow = _xto
 }
 if is_undefined(_ynow)
 {
-    _ynow = _yto
+	_ynow = _yto
 }
 ds_map_replace(_p, "#delay", _delay + 1);
 ds_map_replace(_p, "*x", _xnow);
@@ -14137,68 +14137,68 @@ ds_map_replace(_p, "*direction", _dirto);
 function XServer_updatecoords(argument0) {
 var _p = argument0;
 var _xto = ds_map_find_value(_p, "#x"), 
-    _yto = ds_map_find_value(_p, "#y"), 
-    _delay = ds_map_find_value(_p, "#delay"), 
-    _xlast = ds_map_find_value(_p, "#last-x"), 
-    _ylast = ds_map_find_value(_p, "#last-y"), 
-    _speedlast = ds_map_find_value(_p, "#last-speed"), 
-    _xtolast = ds_map_find_value(_p, "#last-xto"), 
-    _ytolast = ds_map_find_value(_p, "#last-yto"), 
-    _dirlast = ds_map_find_value(_p, "#last-direction"), 
-//    _smoothSpeed = ds_map_find_value(_p, "#smoothSpeed"), 
-//    _longRange = _smoothSpeed > 0.15,  
-//    _sharpTurn = ds_map_find_value(_p, "#sharpTurn"),
-    _speedto = ds_map_find_value(_p, "#speed"), 
-    _speedcorrection = ds_map_find_value(_p, "#speedCorrection"), 
-    _dirto = ds_map_find_value(_p, "#direction");
-//    _tickstart = ds_map_find_value(_p, "#tickstart"),
-//    _tickend = ds_map_find_value(_p, "#tickend");
+	_yto = ds_map_find_value(_p, "#y"), 
+	_delay = ds_map_find_value(_p, "#delay"), 
+	_xlast = ds_map_find_value(_p, "#last-x"), 
+	_ylast = ds_map_find_value(_p, "#last-y"), 
+	_speedlast = ds_map_find_value(_p, "#last-speed"), 
+	_xtolast = ds_map_find_value(_p, "#last-xto"), 
+	_ytolast = ds_map_find_value(_p, "#last-yto"), 
+	_dirlast = ds_map_find_value(_p, "#last-direction"), 
+//	_smoothSpeed = ds_map_find_value(_p, "#smoothSpeed"), 
+//	_longRange = _smoothSpeed > 0.15,  
+//	_sharpTurn = ds_map_find_value(_p, "#sharpTurn"),
+	_speedto = ds_map_find_value(_p, "#speed"), 
+	_speedcorrection = ds_map_find_value(_p, "#speedCorrection"), 
+	_dirto = ds_map_find_value(_p, "#direction");
+//	_tickstart = ds_map_find_value(_p, "#tickstart"),
+//	_tickend = ds_map_find_value(_p, "#tickend");
 var _xnow = ds_map_find_value(_p, "*x"), 
-    _ynow = ds_map_find_value(_p, "*y");
-//    _speednow = ds_map_find_value(_p, "*speed"), 
-//    _dirnow = ds_map_find_value(_p, "*direction");
-    
+	_ynow = ds_map_find_value(_p, "*y");
+//	_speednow = ds_map_find_value(_p, "*speed"), 
+//	_dirnow = ds_map_find_value(_p, "*direction");
+	
 var _dist = (_xto - _xnow) * (_xto - _xnow) + (_yto - _ynow) * (_yto - _ynow);
 //var _update = false;
 if(_dist > 10000)
 {
-    ds_map_replace(_p, "*x", _xto);
-    ds_map_replace(_p, "*y", _yto);
-    ds_map_replace(_p, "*speed", _speedto);
-    ds_map_replace(_p, "*direction", _dirto);
+	ds_map_replace(_p, "*x", _xto);
+	ds_map_replace(_p, "*y", _yto);
+	ds_map_replace(_p, "*speed", _speedto);
+	ds_map_replace(_p, "*direction", _dirto);
 }
 _speedUp = 0
 if (_delay > 0)
 {
-    var lastSpeed = point_distance(_xtolast, _ytolast, _xto, _yto) / _delay;
-    var currentDistance = point_distance(_xnow, _ynow, _xto, _yto);
-    var actualDistance = point_distance(_xtolast, _ytolast, _xto, _yto);
-    var progress;
-    
-    if (abs(currentDistance - actualDistance) > 1 && abs(actualDistance) > 1) 
-    {
-        progress = 1 - (currentDistance / actualDistance)
-    } else {
-        progress = 1
-    }
-    if progress > 0
-    {
-        _speedUp = 0
-    } else if abs(_speedto) <= 0.1 or currentDistance / _speedto > 30 {
-        _speedUp = _speedcorrection
-    } else {
-        _speedUp = _speedto * -progress
-    }
-    if (abs(_speedUp) >= 2 * abs(_speedto))
-    {
-        _speedUp = 0;
-        _xnow = _xto;
-        _ynow = _yto;
-    }
+	var lastSpeed = point_distance(_xtolast, _ytolast, _xto, _yto) / _delay;
+	var currentDistance = point_distance(_xnow, _ynow, _xto, _yto);
+	var actualDistance = point_distance(_xtolast, _ytolast, _xto, _yto);
+	var progress;
+	
+	if (abs(currentDistance - actualDistance) > 1 && abs(actualDistance) > 1) 
+	{
+		progress = 1 - (currentDistance / actualDistance)
+	} else {
+		progress = 1
+	}
+	if progress > 0
+	{
+		_speedUp = 0
+	} else if abs(_speedto) <= 0.1 or currentDistance / _speedto > 30 {
+		_speedUp = _speedcorrection
+	} else {
+		_speedUp = _speedto * -progress
+	}
+	if (abs(_speedUp) >= 2 * abs(_speedto))
+	{
+		_speedUp = 0;
+		_xnow = _xto;
+		_ynow = _yto;
+	}
 }
 if abs(_speedto) > 0.01
 {
-    _speedlast = _speedto
+	_speedlast = _speedto
 }
 ds_map_replace(_p, "#tickstart", get_timer() / 1000);
 ds_map_replace(_p, "#tickend", (get_timer() + global.__timer_threshold) / 1000);
@@ -14211,9 +14211,9 @@ _smoothSpeed = point_distance(_xnow, _ynow, _xto, _yto) / (global.__timer_thresh
 ds_map_replace(_p, "#smoothSpeed", _smoothSpeed);
 if(abs(_dirlast - _dirto) > 90)
 {
-    ds_map_replace(_p, "#sharpTurn", true);
+	ds_map_replace(_p, "#sharpTurn", true);
 }else{
-    ds_map_replace(_p, "#sharpTurn", false);
+	ds_map_replace(_p, "#sharpTurn", false);
 } 
 ds_map_replace(_p, "#last-direction", _dirto);
 }
@@ -14222,9 +14222,9 @@ function XServer_readvariablename(argument0, argument1, argument2) {
 //XServer_writevariable(buffer, cacheID, type)
 if(argument2 == 0 or argument2 == 1)
 {
-    return XServer_readstring(argument0);
+	return XServer_readstring(argument0);
 }else{
-    return global.__variable_receive_cache_name[argument1, argument2];
+	return global.__variable_receive_cache_name[argument1, argument2];
 }
 }
 
@@ -14239,18 +14239,18 @@ senderID = XGms_cache_player_read(argument1);
 if(message_id != 26 && message_id != 27) syncID = buffer_read(argument1, buffer_u16) + 1000000;
 if(message_id == 26 or message_id == 27)//OneTime
 {
-    ds_map_replace(_a, "type", 4);
-    ds_map_replace(_a, "from", senderID);
+	ds_map_replace(_a, "type", 4);
+	ds_map_replace(_a, "from", senderID);
 }else if(message_id == 8 or message_id == 28)
 {
-    ds_map_replace(_a, "type", 13);
-    ds_map_replace(_a, "from", senderID);
+	ds_map_replace(_a, "type", 13);
+	ds_map_replace(_a, "from", senderID);
 }else if(message_id == 29 or message_id == 30)
 {
-    ds_map_replace(_a, "type", 14);
-    ds_map_replace(_a, "from", senderID);
+	ds_map_replace(_a, "type", 14);
+	ds_map_replace(_a, "from", senderID);
 }else{
-    if(debug_mode) show_error("Unknown SyncID " + string(message_id), false);
+	if(debug_mode) show_error("Unknown SyncID " + string(message_id), false);
 }
 var flags = buffer_read(argument1, buffer_u8);
 //////////////////////////////////////////////////
@@ -14258,108 +14258,108 @@ var flags = buffer_read(argument1, buffer_u8);
 //////////////////////////////////////////////////
 if ((flags & 8) > 0)
 {
-    obj_index = buffer_read(argument1, buffer_u32);
+	obj_index = buffer_read(argument1, buffer_u32);
 }
 else
 {
-    obj_index = buffer_read(argument1, buffer_u8);
+	obj_index = buffer_read(argument1, buffer_u8);
 }
 if !ds_map_exists(global.__syncable_objects, obj_index) 
 {
-    ds_map_destroy(_a)
-    var __name = "<unknown:" + string(obj_index) + ">";
-    if object_exists(obj_index) 
-    {
-        __name = object_get_name(obj_index)
-    }
-    
-    show_debug_message("Received an unsyncable object from the server: " + __name)
-    return 0;
+	ds_map_destroy(_a)
+	var __name = "<unknown:" + string(obj_index) + ">";
+	if object_exists(obj_index) 
+	{
+		__name = object_get_name(obj_index)
+	}
+	
+	show_debug_message("Received an unsyncable object from the server: " + __name)
+	return 0;
 }
 var combi = false;
 switch((flags >> 6) & 3)
 {
-    case 0:
-        xPos = buffer_read(argument1, buffer_u8);
-        break;
-    case 1:
-        xPos = buffer_read(argument1, buffer_u8) * 2;
-        break;
-    case 2:
-        xPos = buffer_read(argument1, buffer_u16);
-        break;
-    case 3:
-        combi = true;
-        break;
+	case 0:
+		xPos = buffer_read(argument1, buffer_u8);
+		break;
+	case 1:
+		xPos = buffer_read(argument1, buffer_u8) * 2;
+		break;
+	case 2:
+		xPos = buffer_read(argument1, buffer_u16);
+		break;
+	case 3:
+		combi = true;
+		break;
 }
 if(!combi)
 {
-    switch((flags >> 4) & 3)
-    {
-        case 0:
-            yPos = buffer_read(argument1, buffer_u8);
-            break;
-        case 1:
-            yPos = buffer_read(argument1, buffer_u8) * 2;
-            break;
-        case 2:
-            yPos = buffer_read(argument1, buffer_u16);
-            break;
-        case 3:
-            yPos = buffer_read(argument1, buffer_s32);
-            break;
-    }
+	switch((flags >> 4) & 3)
+	{
+		case 0:
+			yPos = buffer_read(argument1, buffer_u8);
+			break;
+		case 1:
+			yPos = buffer_read(argument1, buffer_u8) * 2;
+			break;
+		case 2:
+			yPos = buffer_read(argument1, buffer_u16);
+			break;
+		case 3:
+			yPos = buffer_read(argument1, buffer_s32);
+			break;
+	}
 }else{
-    switch ((flags >> 4) & 3)
-    {
-        case 0:
-            xPos = 0;
-            yPos = 0;
-            break;
-        case 1:
-            xPos = buffer_read(argument1, buffer_u16);
-            yPos = x;
-            break;
-        case 2:
-            var b1 = buffer_read(argument1, buffer_u8),
-                b2 = buffer_read(argument1, buffer_u8),
-                b3 = buffer_read(argument1, buffer_u8);
-            
-            var us1 = ((b1 << 16) + (b2 << 8) + b3) % 4096,
-                us2 = (((b1 << 16) + (b2 << 8) + b3) >> 12) % 4096;
-            xPos = us1;
-            yPos = us2;
-            break;
-        case 3:
-            xPos = buffer_read(argument1, buffer_s32);
-            yPos = buffer_read(argument1, buffer_s32);
-            break;
-    }
+	switch ((flags >> 4) & 3)
+	{
+		case 0:
+			xPos = 0;
+			yPos = 0;
+			break;
+		case 1:
+			xPos = buffer_read(argument1, buffer_u16);
+			yPos = x;
+			break;
+		case 2:
+			var b1 = buffer_read(argument1, buffer_u8),
+				b2 = buffer_read(argument1, buffer_u8),
+				b3 = buffer_read(argument1, buffer_u8);
+			
+			var us1 = ((b1 << 16) + (b2 << 8) + b3) % 4096,
+				us2 = (((b1 << 16) + (b2 << 8) + b3) >> 12) % 4096;
+			xPos = us1;
+			yPos = us2;
+			break;
+		case 3:
+			xPos = buffer_read(argument1, buffer_s32);
+			yPos = buffer_read(argument1, buffer_s32);
+			break;
+	}
 }
 if ((flags & 4) == 0)
 {
-    var b = buffer_read(argument1, buffer_u8);
-    dir = (((b >> 4) & $F)) * 22.5;
-    sp = (((b & $F))) - 8.0;
+	var b = buffer_read(argument1, buffer_u8);
+	dir = (((b >> 4) & $F)) * 22.5;
+	sp = (((b & $F))) - 8.0;
 }
 else
 {
-    var b1 = buffer_read(argument1, buffer_u8),
-        b2 = buffer_read(argument1, buffer_u8),
-        b3 = buffer_read(argument1, buffer_u8);
-    
-    var us1 = ((b1 << 16) + (b2 << 8) + b3) % 4096,
-        us2 = (((b1 << 16) + (b2 << 8) + b3) >> 12) % 4096;
-    
-    dir = us1 / 11.0;
-    sp = us2 / 80.0 - 25.6;
+	var b1 = buffer_read(argument1, buffer_u8),
+		b2 = buffer_read(argument1, buffer_u8),
+		b3 = buffer_read(argument1, buffer_u8);
+	
+	var us1 = ((b1 << 16) + (b2 << 8) + b3) % 4096,
+		us2 = (((b1 << 16) + (b2 << 8) + b3) >> 12) % 4096;
+	
+	dir = us1 / 11.0;
+	sp = us2 / 80.0 - 25.6;
 }
 var var_count;
 if((flags & 3) == 3)
 {
-    var_count = buffer_read(argument1, buffer_u8);
+	var_count = buffer_read(argument1, buffer_u8);
 }else{
-    var_count = flags & 3;
+	var_count = flags & 3;
 }
 ////////////////////////////////////////////////////////
 ds_map_add(_a, 0, syncID);
@@ -14376,32 +14376,32 @@ ds_map_add(_a, 5, sp);
 ds_map_add(_a, 21, "speed");
 if(message_id == 29 or message_id == 30)//Full
 {
-    var _s = XServer_new_instance(syncID, 0, xPos, yPos, sp, dir, true, senderID, argument2);
-    ds_map_add(global.__instance, syncID, _s);
-    ds_list_add(global.__instance_idmap, syncID);
+	var _s = XServer_new_instance(syncID, 0, xPos, yPos, sp, dir, true, senderID, argument2);
+	ds_map_add(global.__instance, syncID, _s);
+	ds_list_add(global.__instance_idmap, syncID);
 }else if(message_id == 8 or message_id == 28)//Create-destroy
 {
-    var _s = XServer_new_instance(syncID, 0, xPos, yPos, sp, dir, false, senderID, argument2);
-    ds_map_add(global.__instance, syncID, _s);
-    ds_list_add(global.__instance_idmap, syncID);
+	var _s = XServer_new_instance(syncID, 0, xPos, yPos, sp, dir, false, senderID, argument2);
+	ds_map_add(global.__instance, syncID, _s);
+	ds_list_add(global.__instance_idmap, syncID);
 }
 ds_map_add(_a, 6, var_count)
 ds_map_add(_a, 22, "variable_count")
 for(var i = 0; i < var_count; i++)
 {
-    var _type = buffer_read(argument1, buffer_u8),
-        _name = XServer_readvariablename(_rr, 4,  _type),
-        _val = XGms_ve_readValue(_rr, global.__variable_receive_cache_type[4, _type]);
-    
-    ds_map_add(_a, 23 + i, _name);
-    if(message_id == 29 or message_id == 30)
-    {
-        ds_map_add(_s, "*" + string(_name), _val);
-        ds_map_add(_s, ">" + string(_name), 0.01);//Precision
-        ds_list_add(ds_map_find_value(_s, "variable_names"), string(_name));
-    }
-    
-    ds_map_add(_a, 7 + i, _val);
+	var _type = buffer_read(argument1, buffer_u8),
+		_name = XServer_readvariablename(_rr, 4,  _type),
+		_val = XGms_ve_readValue(_rr, global.__variable_receive_cache_type[4, _type]);
+	
+	ds_map_add(_a, 23 + i, _name);
+	if(message_id == 29 or message_id == 30)
+	{
+		ds_map_add(_s, "*" + string(_name), _val);
+		ds_map_add(_s, ">" + string(_name), 0.01);//Precision
+		ds_list_add(ds_map_find_value(_s, "variable_names"), string(_name));
+	}
+	
+	ds_map_add(_a, 7 + i, _val);
 }
 ds_queue_enqueue(global.__actions, _a);
 }
@@ -14449,26 +14449,26 @@ XAction(19, 0)
 
 function XServer_instance_sendsync(argument0, argument1, argument2, argument3, argument4, argument5, argument6, argument7, argument8) {
 //Leeg de buffer
-//      0               1           2               3          4      5         6            7      8     
+//	  0			   1		   2			   3		  4	  5		 6			7	  8	 
 //(int argument0, double local, int object_index, int syncID, int x, int y, double dir, double sp, int count)
 var __send_room = false;
 if ds_map_exists(global.__self, "room")
 {
-    __send_room = ds_map_find_value(global.__self, "room") != argument8
+	__send_room = ds_map_find_value(global.__self, "room") != argument8
 }else{
-    __send_room = true
+	__send_room = true
 }
 if __send_room
 {
-    XServer_preparesend();
-    XServer_writevariable(_b, 0, "room", argument8, 0.01);
-    XServer_send(mid_variable)
+	XServer_preparesend();
+	XServer_writevariable(_b, 0, "room", argument8, 0.01);
+	XServer_send(mid_variable)
 }
 XServer_preparesend();
 //Message-ID
 if(argument0 != 0)
 {
-    buffer_write(_b, buffer_u16, argument3 - 1000000);//syncID
+	buffer_write(_b, buffer_u16, argument3 - 1000000);//syncID
 }
 ///////////////////////////////////////////////////////////////
 /*buffer_write(_b, buffer_s32, argument2);//opbjIndex
@@ -14485,69 +14485,69 @@ var flags = 0;
 //Firstly, X & Y
 if(argument4 == 0 && argument5 == 0)
 {
-    flags |= 128 | 64 | 0 | 0;
+	flags |= 128 | 64 | 0 | 0;
 }else if(round(argument4) == round(argument5) && argument4 >= 0 && argument4 <= 65535)
 {
-    flags |= 128 | 64 | 0 | 16;
+	flags |= 128 | 64 | 0 | 16;
 }
 else if (argument4 >= 255 && argument4 <= 4096 && argument5 >= 255 && argument5 <= 4096 && ((argument4 & 1) != 0 or argument4 > 510) && ((argument5 & 1) != 0 or argument5 > 510))
 {
-    //XY: 12bit combi
-    flags |= 128 | 64 | 32 | 0;
+	//XY: 12bit combi
+	flags |= 128 | 64 | 32 | 0;
 }else if(argument4 > 65535 or argument4 < 0)
 {
-    //XY: int, int combi
-    flags |= 128 | 64 | 32 | 16;
+	//XY: int, int combi
+	flags |= 128 | 64 | 32 | 16;
 }else{
-    //Individual X & Y
-    if(argument4 >= 0 && argument4 <= 255)
-    {
-        //X: bargument4te
-        flags |= 0 | 0;
-    }else if(argument4 >= 0 && argument4 <= 510 && (argument4 & 1) == 0)
-    {
-        //X: bargument4te * 2
-        flags |= 0 | 64;
-    }else{
-        //X: ushort
-        flags |= 128 | 0;
-    }
-    
-    if(argument5 >= 0 && argument5 <= 255)
-    {
-        //Y: bargument4te
-        flags |= 0 | 0;
-    }else if(argument5 >= 0 && argument5 <= 510 && (argument5 & 1) == 0)
-    {
-        //Y: bargument4te * 2
-        flags |= 0 | 16;
-    }else if(argument5 >= 0 && argument5 <= 65535){
-        //Y: ushort
-        flags |= 32 | 0;
-    }else{
-        //Y: int
-        flags |= 32 | 16;
-    }
+	//Individual X & Y
+	if(argument4 >= 0 && argument4 <= 255)
+	{
+		//X: bargument4te
+		flags |= 0 | 0;
+	}else if(argument4 >= 0 && argument4 <= 510 && (argument4 & 1) == 0)
+	{
+		//X: bargument4te * 2
+		flags |= 0 | 64;
+	}else{
+		//X: ushort
+		flags |= 128 | 0;
+	}
+	
+	if(argument5 >= 0 && argument5 <= 255)
+	{
+		//Y: bargument4te
+		flags |= 0 | 0;
+	}else if(argument5 >= 0 && argument5 <= 510 && (argument5 & 1) == 0)
+	{
+		//Y: bargument4te * 2
+		flags |= 0 | 16;
+	}else if(argument5 >= 0 && argument5 <= 65535){
+		//Y: ushort
+		flags |= 32 | 0;
+	}else{
+		//Y: int
+		flags |= 32 | 16;
+	}
 }
 if(argument2 > 255)
 {
-    flags |= 8;
+	flags |= 8;
 }
 if ((round(argument6 * 2)) % 45 == 0 && argument7 >= -8 && argument7 <= 7)
 {
-    //8bit combo
-    flags |= 0;
+	//8bit combo
+	flags |= 0;
 }else{
-    //24bit combo
-    flags |= 4;
+	//24bit combo
+	flags |= 4;
 }
 if(global.__instance_varcount < 3)
 {
-    flags |= global.__instance_varcount;
+	flags |= global.__instance_varcount;
 }
 else
 {
-    flags |= 3;
+	flags |= 3;
 }
 /////////////////////////////////
 //Write values
@@ -14555,109 +14555,109 @@ else
 buffer_write(_b, buffer_u8, flags);
 if ((flags & 8) > 0)
 {
-    buffer_write(_b, buffer_s32, argument2);
+	buffer_write(_b, buffer_s32, argument2);
 }
 else
 {
-    buffer_write(_b, buffer_u8, argument2);
+	buffer_write(_b, buffer_u8, argument2);
 }
 var combi = false;
 switch ((flags >> 6) & 3)
 {
-    case 0:
-        buffer_write(_b, buffer_u8, argument4);
-        break;
-    case 1:
-        buffer_write(_b, buffer_u8, (argument4 / 2));
-        break;
-    case 2:
-        buffer_write(_b, buffer_u16, argument4);
-        break;
-    case 3:
-        combi = true;
-        break;
+	case 0:
+		buffer_write(_b, buffer_u8, argument4);
+		break;
+	case 1:
+		buffer_write(_b, buffer_u8, (argument4 / 2));
+		break;
+	case 2:
+		buffer_write(_b, buffer_u16, argument4);
+		break;
+	case 3:
+		combi = true;
+		break;
 }
 if(!combi)
 {
-    switch ((flags >> 4) & 3)
-    {
-        case 0:
-            buffer_write(_b, buffer_u8, argument5);
-            break;
-        case 1:
-            buffer_write(_b, buffer_u8, (argument5 / 2));
-            break;
-        case 2:
-            buffer_write(_b, buffer_u16, argument5);
-            break;
-        case 3:
-            buffer_write(_b, buffer_s32, argument5);
-            break;
-    }
+	switch ((flags >> 4) & 3)
+	{
+		case 0:
+			buffer_write(_b, buffer_u8, argument5);
+			break;
+		case 1:
+			buffer_write(_b, buffer_u8, (argument5 / 2));
+			break;
+		case 2:
+			buffer_write(_b, buffer_u16, argument5);
+			break;
+		case 3:
+			buffer_write(_b, buffer_s32, argument5);
+			break;
+	}
 }else{
-    switch ((flags >> 4) & 3)
-    {
-        case 0://x = 0, y = 0
-            break;
-        case 1:
-            buffer_write(_b, buffer_u16, argument4);
-            break;
-        case 2:
-            var __comb = round(argument4) + round((argument5) << 12);
-            buffer_write(_b, buffer_u8, __comb >> 16);
-            buffer_write(_b, buffer_u8, (__comb >> 8) % 256);
-            buffer_write(_b, buffer_u8, __comb % 256);
-            break;
-        case 3:
-            buffer_write(_b, buffer_s32, argument4);
-            buffer_write(_b, buffer_s32, argument5);
-            break;
-    }
+	switch ((flags >> 4) & 3)
+	{
+		case 0://x = 0, y = 0
+			break;
+		case 1:
+			buffer_write(_b, buffer_u16, argument4);
+			break;
+		case 2:
+			var __comb = round(argument4) + round((argument5) << 12);
+			buffer_write(_b, buffer_u8, __comb >> 16);
+			buffer_write(_b, buffer_u8, (__comb >> 8) % 256);
+			buffer_write(_b, buffer_u8, __comb % 256);
+			break;
+		case 3:
+			buffer_write(_b, buffer_s32, argument4);
+			buffer_write(_b, buffer_s32, argument5);
+			break;
+	}
 }
 if ((flags & 4) == 0)
 {
-    buffer_write(_b, buffer_u8, ((round(argument7 + 8) & $F) | ((round(argument6 / 22.5) & $F) << 4)));
+	buffer_write(_b, buffer_u8, ((round(argument7 + 8) & $F) | ((round(argument6 / 22.5) & $F) << 4)));
 }
 else
 {
-    var __comb = round(argument6 * 11) + ((round((argument7 + 25.6) * 80) << 12));
-    buffer_write(_b, buffer_u8, __comb >> 16);
-    buffer_write(_b, buffer_u8, (__comb >> 8) % 256);
-    buffer_write(_b, buffer_u8, __comb % 256);
+	var __comb = round(argument6 * 11) + ((round((argument7 + 25.6) * 80) << 12));
+	buffer_write(_b, buffer_u8, __comb >> 16);
+	buffer_write(_b, buffer_u8, (__comb >> 8) % 256);
+	buffer_write(_b, buffer_u8, __comb % 256);
 }
 if ((flags & 3) == 3)
 {
-    buffer_write(_b, buffer_u8, global.__instance_varcount);
+	buffer_write(_b, buffer_u8, global.__instance_varcount);
 }
 ///////////////////////////////////////////////////////////////////
 for(var __i = 0; __i < global.__instance_varcount; __i++)
 {
-    XServer_writevariable(_b, 4, global.__instance_var[__i], global.__instance_val[__i], global.__instance_prec[__i]);
+	XServer_writevariable(_b, 4, global.__instance_var[__i], global.__instance_val[__i], global.__instance_prec[__i]);
 }
 if(argument0 == 0)
 {
-    if(argument1)
-    {
-        XServer_send(mid_instance_once_local);
-    }else{
-        XServer_send(mid_instance_once);
-    }
+	if(argument1)
+	{
+		XServer_send(mid_instance_once_local);
+	}else{
+		XServer_send(mid_instance_once);
+	}
 }else if(argument0 == 1)
 {
-    if(argument1)
-    {
-        XServer_send(mid_instance_ext_local);
-    }else{
-        XServer_send(mid_instance_ext);
-    }
+	if(argument1)
+	{
+		XServer_send(mid_instance_ext_local);
+	}else{
+		XServer_send(mid_instance_ext);
+	}
 }else if(argument0 == 2)
 {
-    if(argument1)
-    {
-        XServer_send(mid_instance_full_local);
-    }else{
-        XServer_send(mid_instance_full);
-    }
+	if(argument1)
+	{
+		XServer_send(mid_instance_full_local);
+	}else{
+		XServer_send(mid_instance_full);
+	}
 }
 }
 
@@ -14665,17 +14665,17 @@ function XServer_gainSyncID() {
 global.__sync_pos++;
 if(global.__sync_pos % 1000 == 0)
 {
-    global.__sync_pos = 0;
+	global.__sync_pos = 0;
 }
 var __i = 0;
 while(ds_map_exists(global.__instance, global.__sync_pos + global.__sync_pos_start + 1000000) && __i++ < 10000)
 {
-    global.__sync_pos++;
-    if(global.__sync_pos % 1000 == 0)
-    {
-        if(debug_mode) show_error("This client is syncing more than 1000 instances at the same time. There's a limit on the number of instances a client can sync. If you need more, you should destroy others.", 0);
-        break;
-    }
+	global.__sync_pos++;
+	if(global.__sync_pos % 1000 == 0)
+	{
+		if(debug_mode) show_error("This client is syncing more than 1000 instances at the same time. There's a limit on the number of instances a client can sync. If you need more, you should destroy others.", 0);
+		break;
+	}
 }
 return real(global.__sync_pos + global.__sync_pos_start);
 }
@@ -14683,13 +14683,13 @@ return real(global.__sync_pos + global.__sync_pos_start);
 function XServer_instance_find(argument0) {
 if(ds_map_exists(global.__instance, argument0))
 {
-    return ds_map_find_value(global.__instance, argument0);
+	return ds_map_find_value(global.__instance, argument0);
 }else{
-    if(ds_map_exists(global.__instance_map, argument0))
-    {
-        return XServer_instance_find(ds_map_find_value(global.__instance_map, argument0));
-        //return XServer_instance_find(ds_list_find_value(global.__instance_idmap, argument0));
-    }
+	if(ds_map_exists(global.__instance_map, argument0))
+	{
+		return XServer_instance_find(ds_map_find_value(global.__instance_map, argument0));
+		//return XServer_instance_find(ds_list_find_value(global.__instance_idmap, argument0));
+	}
 }
 return -1;
 }
@@ -14697,20 +14697,20 @@ return -1;
 function gms_instance_sync_destroy_silent() {
 if(argument_count > 0 && ds_map_exists(global.__instance, argument[0]))
 {
-    var _m = ds_map_find_value(global.__instance, argument[0]);
-    ds_map_delete(global.__instance_map, ds_map_find_value(_m, "instance_id"));
-    
-    var _m2 = ds_map_find_value(_m, "variable_names"),
-        _m3 = ds_map_find_value(_m, "variable_changed");
-    
-    ds_list_destroy(_m2);
-    ds_list_destroy(_m3);
-    
-    ds_list_delete(global.__instance_idmap, ds_list_find_index(global.__instance_idmap, argument[0]));
-    ds_map_delete(global.__instance, argument[0]);
-    return true;
+	var _m = ds_map_find_value(global.__instance, argument[0]);
+	ds_map_delete(global.__instance_map, ds_map_find_value(_m, "instance_id"));
+	
+	var _m2 = ds_map_find_value(_m, "variable_names"),
+		_m3 = ds_map_find_value(_m, "variable_changed");
+	
+	ds_list_destroy(_m2);
+	ds_list_destroy(_m3);
+	
+	ds_list_delete(global.__instance_idmap, ds_list_find_index(global.__instance_idmap, argument[0]));
+	ds_map_delete(global.__instance, argument[0]);
+	return true;
 }else{
-    return false;
+	return false;
 }
 }
 
@@ -14743,10 +14743,10 @@ XServer_send(mid_unban);
 function gms_session_exists(argument0) {
 for(var i = 0; i < gms_session_count(); i += 1)
 {
-    if(gms_session_id(i) == argument0)
-    {
-        return true;
-    }
+	if(gms_session_id(i) == argument0)
+	{
+		return true;
+	}
 }
 return false;
 }
@@ -14765,46 +14765,46 @@ var _index, _str;
 _str = argument2 + string(argument3);
 if(!ds_map_exists(global.__variable_send_cache[argument1], _str))
 {
-    if(ds_map_exists(global.__variable_send_queue[argument1], _str))
-    {
-        //AddElement(_str)
-        _index = ds_list_find_value(global.__variable_send_llist[argument1], 0);
-        ds_list_delete(global.__variable_send_llist[argument1], 0);
-        ds_list_add(global.__variable_send_llist[argument1], _index);
-        
-        //Update map to reflect new values
-        var _oldValue = ds_map_find_value(global.__variable_isend_cache[argument1], _index);
-        ds_map_delete(global.__variable_isend_cache[argument1], _index);
-        ds_map_delete(global.__variable_send_cache[argument1], _oldValue);
-        
-        ds_map_add(global.__variable_isend_cache[argument1], _index, _str);
-        ds_map_add(global.__variable_send_cache[argument1], _str, _index);
-        
-        //Send change
-        buffer_write(global.__send_buffer, buffer_u8, (5 + string_length(argument2)) << 1);
-        buffer_write(global.__send_buffer, buffer_u8, 133 + argument1);
-        buffer_write(global.__send_buffer, buffer_u8, _index);
-        
-        //Damn you, GM:Studio! No 64bit-integer support? (TODO: Add in later when I finish class compiler)
-        XServer_writestring(global.__send_buffer, argument2);
-        buffer_write(global.__send_buffer, buffer_u8, argument3);
-        
-        //Write variable
-        buffer_write(argument0, buffer_u8, _index);
-        return true;
-    }else{
-        ds_map_add(global.__variable_send_queue[argument1], _str, 1);
-        return false;
-    }
+	if(ds_map_exists(global.__variable_send_queue[argument1], _str))
+	{
+		//AddElement(_str)
+		_index = ds_list_find_value(global.__variable_send_llist[argument1], 0);
+		ds_list_delete(global.__variable_send_llist[argument1], 0);
+		ds_list_add(global.__variable_send_llist[argument1], _index);
+		
+		//Update map to reflect new values
+		var _oldValue = ds_map_find_value(global.__variable_isend_cache[argument1], _index);
+		ds_map_delete(global.__variable_isend_cache[argument1], _index);
+		ds_map_delete(global.__variable_send_cache[argument1], _oldValue);
+		
+		ds_map_add(global.__variable_isend_cache[argument1], _index, _str);
+		ds_map_add(global.__variable_send_cache[argument1], _str, _index);
+		
+		//Send change
+		buffer_write(global.__send_buffer, buffer_u8, (5 + string_length(argument2)) << 1);
+		buffer_write(global.__send_buffer, buffer_u8, 133 + argument1);
+		buffer_write(global.__send_buffer, buffer_u8, _index);
+		
+		//Damn you, GM:Studio! No 64bit-integer support? (TODO: Add in later when I finish class compiler)
+		XServer_writestring(global.__send_buffer, argument2);
+		buffer_write(global.__send_buffer, buffer_u8, argument3);
+		
+		//Write variable
+		buffer_write(argument0, buffer_u8, _index);
+		return true;
+	}else{
+		ds_map_add(global.__variable_send_queue[argument1], _str, 1);
+		return false;
+	}
 }else{
-    //MarkUsed(_str)
-    _index = ds_map_find_value(global.__variable_send_cache[argument1], _str);
-    ds_list_delete(global.__variable_send_llist[argument1], ds_list_find_index(global.__variable_send_llist[argument1], _index));
-    ds_list_add(global.__variable_send_llist[argument1], _index);
-    
-    //Write variable
-    buffer_write(argument0, buffer_u8, _index);
-    return true;
+	//MarkUsed(_str)
+	_index = ds_map_find_value(global.__variable_send_cache[argument1], _str);
+	ds_list_delete(global.__variable_send_llist[argument1], ds_list_find_index(global.__variable_send_llist[argument1], _index));
+	ds_list_add(global.__variable_send_llist[argument1], _index);
+	
+	//Write variable
+	buffer_write(argument0, buffer_u8, _index);
+	return true;
 }
 }
 
@@ -14821,34 +14821,34 @@ function XGms_cache_player_write(argument0, argument1) {
 var _index;
 if(!ds_map_exists(global.__player_send_cache, argument1))
 {
-    //AddElement(argument1)
-    _index = ds_list_find_value(global.__player_send_llist, 0);
-    ds_list_delete(global.__player_send_llist, 0);
-    ds_list_add(global.__player_send_llist, _index);
-    
-    //Update map to reflect new values
-    var _oldValue = ds_map_find_value(global.__player_isend_cache, _index);
-    ds_map_delete(global.__player_isend_cache, _index);
-    ds_map_delete(global.__player_send_cache, _oldValue);
-    
-    ds_map_add(global.__player_isend_cache, _index, argument1);
-    ds_map_add(global.__player_send_cache, argument1, _index);
-    
-    //Send change
-    buffer_write(global.__send_buffer, buffer_u8, 10 << 1);
-    buffer_write(global.__send_buffer, buffer_u8, 140);
-    buffer_write(global.__send_buffer, buffer_u8, _index);
-    
-    //Damn you, GM:Studio! No 64bit-integer support? (TODO: Add in later when I finish class compiler)
+	//AddElement(argument1)
+	_index = ds_list_find_value(global.__player_send_llist, 0);
+	ds_list_delete(global.__player_send_llist, 0);
+	ds_list_add(global.__player_send_llist, _index);
+	
+	//Update map to reflect new values
+	var _oldValue = ds_map_find_value(global.__player_isend_cache, _index);
+	ds_map_delete(global.__player_isend_cache, _index);
+	ds_map_delete(global.__player_send_cache, _oldValue);
+	
+	ds_map_add(global.__player_isend_cache, _index, argument1);
+	ds_map_add(global.__player_send_cache, argument1, _index);
+	
+	//Send change
+	buffer_write(global.__send_buffer, buffer_u8, 10 << 1);
+	buffer_write(global.__send_buffer, buffer_u8, 140);
+	buffer_write(global.__send_buffer, buffer_u8, _index);
+	
+	//Damn you, GM:Studio! No 64bit-integer support? (TODO: Add in later when I finish class compiler)
 	buffer_write(global.__send_buffer, buffer_u32, argument1 & $ffffffff);
 	buffer_write(global.__send_buffer, buffer_u32, (argument1 >> 32) & $ffffffff);
 }else{
-    //MarkUsed(argument1)
-    _index = ds_map_find_value(global.__player_send_cache, argument1);
-    
-    var listind = ds_list_find_index(global.__player_send_llist, _index);
-    ds_list_delete(global.__player_send_llist, listind);
-    ds_list_add(global.__player_send_llist, _index);
+	//MarkUsed(argument1)
+	_index = ds_map_find_value(global.__player_send_cache, argument1);
+	
+	var listind = ds_list_find_index(global.__player_send_llist, _index);
+	ds_list_delete(global.__player_send_llist, listind);
+	ds_list_add(global.__player_send_llist, _index);
 }
 buffer_write(argument0, buffer_u8, _index);
 }
@@ -14860,33 +14860,33 @@ function xGms_bdb_open(argument0, argument1, argument2) {
 /// @param  callback
 if(!ds_map_exists(global.__bdb_cache, argument0))
 {
-    var __bdb = ds_map_create();
-    __bdb[? "callback_open"] = argument2;
-    __bdb[? "buffer"] = buffer_create(32, buffer_grow, 1);
-    __bdb[? "open"] = 0;
-    __bdb[? "locked"] = 0;
-    
-    global.__bdb_cache[? argument0] = __bdb;
+	var __bdb = ds_map_create();
+	__bdb[? "callback_open"] = argument2;
+	__bdb[? "buffer"] = buffer_create(32, buffer_grow, 1);
+	__bdb[? "open"] = 0;
+	__bdb[? "locked"] = 0;
+	
+	global.__bdb_cache[? argument0] = __bdb;
 }else{
-    var __bdb = global.__bdb_cache[? argument0];
-    if(__bdb[? "open"])
-    {
-        show_error("gms_bdb_open: Binary Data Block already opened", true)
-    }
-    
-    __bdb[? "callback_open"] = argument2;
+	var __bdb = global.__bdb_cache[? argument0];
+	if(__bdb[? "open"])
+	{
+		show_error("gms_bdb_open: Binary Data Block already opened", true)
+	}
+	
+	__bdb[? "callback_open"] = argument2;
 }
 __bdb[? "change_min"] = 1024 * 1024 * 1024;
 __bdb[? "change_max"] = -1;
 if(argument1)
 {
-    XServer_preparesend();
-    buffer_write(_b, buffer_s32, argument0);
-    XServer_send(mid_bdb_lock)
+	XServer_preparesend();
+	buffer_write(_b, buffer_s32, argument0);
+	XServer_send(mid_bdb_lock)
 }else{
-    XServer_preparesend();
-    buffer_write(_b, buffer_s32, argument0);
-    XServer_send(mid_bdb_open)
+	XServer_preparesend();
+	buffer_write(_b, buffer_s32, argument0);
+	XServer_send(mid_bdb_open)
 }
 }
 
@@ -14894,7 +14894,7 @@ function xGms_bdb_get(argument0) {
 var __map = global.__bdb_cache[? argument0 ];
 if(!__map[? "opened"])
 {
-    show_error("Binary Data Block: Trying to access a closed block.", false);
+	show_error("Binary Data Block: Trying to access a closed block.", false);
 }
 return __map;
 }
@@ -14904,28 +14904,28 @@ var __bdb = xGms_bdb_get(argument0);
 var _cmin = __bdb[? "change_min"], _cmax = __bdb[? "change_max"];
 if(_cmin < _cmax)
 {
-    var __newdata = _cmax - _cmin;
-    XServer_preparesend();
-    buffer_write(_b, buffer_s32, argument0);
-    buffer_write(_b, buffer_s32, _cmin);
-    buffer_write(_b, buffer_s32, __newdata);
-    if(buffer_get_size(_b) <= buffer_tell(_b) + __newdata)
-    {
-        show_debug_message("Resizing send buffer to fit " + string(__newdata) + " more bytes");
-        buffer_resize(_b, buffer_tell(_b) + __newdata + 10);
-    }
-    
-    buffer_copy(__bdb[? "buffer"], _cmin, __newdata, _b, buffer_tell(_b));
-    buffer_seek(_b, buffer_seek_relative, __newdata);
-    show_debug_message("Sending bytes: " + string(buffer_tell(_b)))
-    XServer_send(mid_bdb_saveandclose)
+	var __newdata = _cmax - _cmin;
+	XServer_preparesend();
+	buffer_write(_b, buffer_s32, argument0);
+	buffer_write(_b, buffer_s32, _cmin);
+	buffer_write(_b, buffer_s32, __newdata);
+	if(buffer_get_size(_b) <= buffer_tell(_b) + __newdata)
+	{
+		show_debug_message("Resizing send buffer to fit " + string(__newdata) + " more bytes");
+		buffer_resize(_b, buffer_tell(_b) + __newdata + 10);
+	}
+	
+	buffer_copy(__bdb[? "buffer"], _cmin, __newdata, _b, buffer_tell(_b));
+	buffer_seek(_b, buffer_seek_relative, __newdata);
+	show_debug_message("Sending bytes: " + string(buffer_tell(_b)))
+	XServer_send(mid_bdb_saveandclose)
 }else if(__bdb[? "locked"])
 {
-    //Nothing changed, send an empty change request if the BDB is locked
-    XServer_preparesend();
-    buffer_write(_b, buffer_s32, argument0);
-    buffer_write(_b, buffer_s32, -1);
-    XServer_send(mid_bdb_saveandclose)
+	//Nothing changed, send an empty change request if the BDB is locked
+	XServer_preparesend();
+	buffer_write(_b, buffer_s32, argument0);
+	buffer_write(_b, buffer_s32, -1);
+	XServer_send(mid_bdb_saveandclose)
 }
 __bdb[? "opened"] = false;
 show_debug_message("Closing BDB " + string(argument0))
@@ -14952,7 +14952,7 @@ var __bdb_buff = __bdb[? "buffer"];
 var __type = XGms_bdb_translate_type(argument1)
 if buffer_tell(__bdb_buff) + buffer_sizeof(__type) >= buffer_get_size(__bdb_buff)
 {
-    return 0
+	return 0
 }
 return buffer_read(__bdb_buff, __type);
 }
@@ -14970,7 +14970,7 @@ var __type = XGms_bdb_translate_type(argument1)
 var __c = true;
 if buffer_tell(__bdb_buff) + buffer_sizeof(__type) <= buffer_get_size(__bdb_buff)
 {
-    if buffer_peek(__bdb_buff, buffer_tell(__bdb_buff), __type) == argument2 { __c = false }
+	if buffer_peek(__bdb_buff, buffer_tell(__bdb_buff), __type) == argument2 { __c = false }
 }
 if __c { __bdb[? "change_min"] = min(__bdb[? "change_min"], buffer_tell(__bdb_buff)); }
 buffer_write(__bdb_buff, __type, argument2)
@@ -14984,18 +14984,18 @@ var __old_pos = buffer_tell(__bdb_buff)
 var __c = true;
 if buffer_tell(__bdb_buff) + 2 <= buffer_get_size(__bdb_buff)
 {
-    var __len = buffer_read(__bdb_buff, buffer_u16)
-    if __len == string_byte_length(argument1) 
-        && buffer_tell(__bdb_buff) + __len <= buffer_get_size(__bdb_buff)
-    {
-        buffer_seek(__bdb_buff, buffer_seek_start, __old_pos)
-        if XServer_readstring(__bdb_buff) == argument1
-        {
-            __c = false;
-        }
-    }
-        
-    buffer_seek(__bdb_buff, buffer_seek_start, __old_pos)
+	var __len = buffer_read(__bdb_buff, buffer_u16)
+	if __len == string_byte_length(argument1) 
+		&& buffer_tell(__bdb_buff) + __len <= buffer_get_size(__bdb_buff)
+	{
+		buffer_seek(__bdb_buff, buffer_seek_start, __old_pos)
+		if XServer_readstring(__bdb_buff) == argument1
+		{
+			__c = false;
+		}
+	}
+		
+	buffer_seek(__bdb_buff, buffer_seek_start, __old_pos)
 }
 if __c { __bdb[? "change_min"] = min(__bdb[? "change_min"], buffer_tell(__bdb_buff)); }
 XServer_writestring(__bdb_buff, argument1);
@@ -15006,9 +15006,9 @@ function gms_bdb_read_hex(argument0, argument1) {
 var __str = "";
 for(var __i = 0; __i < argument1; __i += 1)
 {
-    var _byte = gms_bdb_read_real(argument0, bdb_u8);
-    __str += string_char_at("0123456789ABCDEF", (_byte >> 4) + 1);
-    __str += string_char_at("0123456789ABCDEF", (_byte & $7) + 1);
+	var _byte = gms_bdb_read_real(argument0, bdb_u8);
+	__str += string_char_at("0123456789ABCDEF", (_byte >> 4) + 1);
+	__str += string_char_at("0123456789ABCDEF", (_byte & $7) + 1);
 }
 return __str;
 }
@@ -15017,38 +15017,38 @@ function gms_bdb_write_hex(argument0, argument1) {
 var __str = string_upper(argument1);
 for(var __i = 1; __i <= string_length(__str); __i += 2)
 {
-    gms_bdb_write_real(argument0, bdb_u8, ((string_pos(string_char_at(__str, __i), "0123456789ABCDEF") - 1) << 4) | max((string_pos(string_char_at(__str, __i), "0123456789ABCDEF") - 1), 0));
+	gms_bdb_write_real(argument0, bdb_u8, ((string_pos(string_char_at(__str, __i), "0123456789ABCDEF") - 1) << 4) | max((string_pos(string_char_at(__str, __i), "0123456789ABCDEF") - 1), 0));
 }
 }
 
 function XGMs_remove_undef_ined(argument0) {
 if is_undefined(argument0)
 {
-    return 0;
+	return 0;
 }else{
-    return argument0;
+	return argument0;
 }
 }
 
 function XGms_ini_write(argument0, argument1, argument2) {
 if ds_map_exists(argument0, argument1)
 {
-    var value = ds_map_find_value(argument0, argument1)
-    
-    ds_map_replace(argument0, argument1, argument2)
-    
-    if XServer_is_real(value) != XServer_is_real(argument2)
-    {
-        return true
-    }else if value != argument2
-    {
-        return true
-    }else{
-        return false
-    }
+	var value = ds_map_find_value(argument0, argument1)
+	
+	ds_map_replace(argument0, argument1, argument2)
+	
+	if XServer_is_real(value) != XServer_is_real(argument2)
+	{
+		return true
+	}else if value != argument2
+	{
+		return true
+	}else{
+		return false
+	}
 }else{
-    ds_map_add(argument0, argument1, argument2)
-    return true
+	ds_map_add(argument0, argument1, argument2)
+	return true
 }
 }
 
@@ -15058,100 +15058,100 @@ function XGms_ve_getBestWayToSend(argument0, argument1) {
 /// @param  minPrecision
 if (XServer_is_real(argument0))
 {
-    if (argument0 >= -64 && argument0 <= 63 && argument0 - floor(argument0) < argument1)
-    {
-        return (1 << 7) | (floor(argument0) + 64);
-    }
-    else
-    {
-        var needsDouble;
-        var bestVariableType, bestNumBytes;
-        var bestPrecision;
-        var maxByteValues;
-        
-        
-        //todo: check if literal argument0 is possible
-        
-        //sign bit will only be set when a float cannot represent the value precise enough, or the value does not fit in a float.
-        needsDouble = argument0 < -FLT_MAX
-            or argument0 > FLT_MAX
-            or argument1 < DEFAULT_PRECISION//(getPrecision(value, (double)(float)value) > minPrecision);
-        
-        //variable type is floating point by default
-        bestVariableType = $f;
-        
-        //number of bytes depends on whether the value is a double (sign = 1) or a single (sign = 0)
-        bestNumBytes = needsDouble * 4 + 4;
-        
-        //pretend the best precision we've found up until now is the minimum.
-        //otherwise a float/double would always be the most precise.
-        bestPrecision = argument1;
-        
-        var normalizedValue = abs(argument0);
-        for (var numBytes = 1; numBytes <= 4; numBytes++)
-        {
-            //check if it's at all possible to fit the number in {numBytes} bytes.
-            if (normalizedValue <= power(2, numBytes * 8))
-            {
-                for (var variableType = 0; variableType < $F; variableType++)
-                {
-                    var factor = XGms_ve_getDivideFactor(variableType);
-                    var maxValue = power(2, numBytes * 8) / factor;
-                    
-                    if (normalizedValue <= maxValue)
-                    {
-                        var representation = XGms_ve_getRepresentation(factor, numBytes, normalizedValue);
-                        var precision = abs(normalizedValue - XGms_ve_getOriginalValue(factor, numBytes, representation));
-                        
-                        //RULES:
-                        // - the number of bytes may never grow
-                        // - the variable type only changes when it gives a better result, or the result is
-                        //the same but the numBytes is lower (better precision at a lower cost).
-                        if ((precision + DEFAULT_PRECISION < bestPrecision && numBytes <= bestNumBytes)
-                            or (precision <= bestPrecision && numBytes < bestNumBytes))
-                        {
-                            //update best solution
-                            bestVariableType = variableType;
-                            bestNumBytes = numBytes;
-                            bestPrecision = precision;
-                        }
-                    }
-                }
-            
-                if (bestPrecision <= DEFAULT_PRECISION) break;
-            }
-        }
-    
-        // Special types 6 & 7 are for doubles. special types <= 5 are for strings
-        if (bestVariableType == VT_SPECIAL)
-        {
-            return (0 << 7) | (bestVariableType << 3) | (needsDouble + 6);
-        }
-        else
-        {
-            return (0 << 7) | (bestVariableType << 3) | ((bestNumBytes - 1) << 1) | (argument0 < 0);
-        }
-    }
+	if (argument0 >= -64 && argument0 <= 63 && argument0 - floor(argument0) < argument1)
+	{
+		return (1 << 7) | (floor(argument0) + 64);
+	}
+	else
+	{
+		var needsDouble;
+		var bestVariableType, bestNumBytes;
+		var bestPrecision;
+		var maxByteValues;
+		
+		
+		//todo: check if literal argument0 is possible
+		
+		//sign bit will only be set when a float cannot represent the value precise enough, or the value does not fit in a float.
+		needsDouble = argument0 < -FLT_MAX
+			or argument0 > FLT_MAX
+			or argument1 < DEFAULT_PRECISION//(getPrecision(value, (double)(float)value) > minPrecision);
+		
+		//variable type is floating point by default
+		bestVariableType = $f;
+		
+		//number of bytes depends on whether the value is a double (sign = 1) or a single (sign = 0)
+		bestNumBytes = needsDouble * 4 + 4;
+		
+		//pretend the best precision we've found up until now is the minimum.
+		//otherwise a float/double would always be the most precise.
+		bestPrecision = argument1;
+		
+		var normalizedValue = abs(argument0);
+		for (var numBytes = 1; numBytes <= 4; numBytes++)
+		{
+			//check if it's at all possible to fit the number in {numBytes} bytes.
+			if (normalizedValue <= power(2, numBytes * 8))
+			{
+				for (var variableType = 0; variableType < $F; variableType++)
+				{
+					var factor = XGms_ve_getDivideFactor(variableType);
+					var maxValue = power(2, numBytes * 8) / factor;
+					
+					if (normalizedValue <= maxValue)
+					{
+						var representation = XGms_ve_getRepresentation(factor, numBytes, normalizedValue);
+						var precision = abs(normalizedValue - XGms_ve_getOriginalValue(factor, numBytes, representation));
+						
+						//RULES:
+						// - the number of bytes may never grow
+						// - the variable type only changes when it gives a better result, or the result is
+						//the same but the numBytes is lower (better precision at a lower cost).
+						if ((precision + DEFAULT_PRECISION < bestPrecision && numBytes <= bestNumBytes)
+							or (precision <= bestPrecision && numBytes < bestNumBytes))
+						{
+							//update best solution
+							bestVariableType = variableType;
+							bestNumBytes = numBytes;
+							bestPrecision = precision;
+						}
+					}
+				}
+			
+				if (bestPrecision <= DEFAULT_PRECISION) break;
+			}
+		}
+	
+		// Special types 6 & 7 are for doubles. special types <= 5 are for strings
+		if (bestVariableType == VT_SPECIAL)
+		{
+			return (0 << 7) | (bestVariableType << 3) | (needsDouble + 6);
+		}
+		else
+		{
+			return (0 << 7) | (bestVariableType << 3) | ((bestNumBytes - 1) << 1) | (argument0 < 0);
+		}
+	}
 }
 else
 {
-    var length = string_byte_length(argument0);
-    var num;
-    if (length > 255)
-    {
-        num = 5;
-    }
-    else if (length > 3)
-    {
-        num = 4;
-    }
-    else
-    {
-        //length <= 3 so we can use the short form without string size enumerator in front
-        num = length;
-    }
-    
-    return (0 << 7) | (VT_SPECIAL << 3) | num;
+	var length = string_byte_length(argument0);
+	var num;
+	if (length > 255)
+	{
+		num = 5;
+	}
+	else if (length > 3)
+	{
+		num = 4;
+	}
+	else
+	{
+		//length <= 3 so we can use the short form without string size enumerator in front
+		num = length;
+	}
+	
+	return (0 << 7) | (VT_SPECIAL << 3) | num;
 }
 }
 
@@ -15162,60 +15162,60 @@ function XGms_ve_readValue(argument0, argument1) {
 var sendType = argument1;
 if sendType == -1
 {
-    sendType = buffer_read(argument0, buffer_u8)
+	sendType = buffer_read(argument0, buffer_u8)
 }
 if (sendType & 128)
 {
-    //literal value
-    return (sendType & $7f) - 64;
+	//literal value
+	return (sendType & $7f) - 64;
 }
 else
 {
-    var variableType = (sendType & (64 | 32 | 16 | 8)) >> 3;
-    if (variableType == $f)
-    {
-        var specialType = sendType & 7;
-        if (specialType == 7)
-        {
-            return buffer_read(argument0, buffer_f64);
-        }
-        else if (specialType == 6)
-        {
-            return buffer_read(argument0, buffer_f32);
-        }
-        else
-        {
-            var length
-            if (specialType == 5)
-            {
-                length = buffer_read(argument0, buffer_u16);
-            }
-            else if (specialType == 4)
-            {
-                length = buffer_read(argument0, buffer_u8);
-            }
-            else
-            {
-                //0-3 use length from the sendType
-                length = specialType;
-            }
-            
-            return XGms_buffer_readchars(argument0, length)
-        }
-    }
-    else
-    {
-        var byteCount = ((sendType & (4 | 2)) >> 1) + 1;
-        var negative = sendType & 1;
-        var representation = 0;
-        
-        for (var byteNum = 0; byteNum < byteCount; byteNum++)
-        {
-            representation |= buffer_read(argument0, buffer_u8) << (byteNum * 8);
-        }
-        
-        return XGms_ve_getOriginalValue(XGms_ve_getDivideFactor(variableType), byteCount, representation) * -(negative * 2 - 1)
-    }
+	var variableType = (sendType & (64 | 32 | 16 | 8)) >> 3;
+	if (variableType == $f)
+	{
+		var specialType = sendType & 7;
+		if (specialType == 7)
+		{
+			return buffer_read(argument0, buffer_f64);
+		}
+		else if (specialType == 6)
+		{
+			return buffer_read(argument0, buffer_f32);
+		}
+		else
+		{
+			var length
+			if (specialType == 5)
+			{
+				length = buffer_read(argument0, buffer_u16);
+			}
+			else if (specialType == 4)
+			{
+				length = buffer_read(argument0, buffer_u8);
+			}
+			else
+			{
+				//0-3 use length from the sendType
+				length = specialType;
+			}
+			
+			return XGms_buffer_readchars(argument0, length)
+		}
+	}
+	else
+	{
+		var byteCount = ((sendType & (4 | 2)) >> 1) + 1;
+		var negative = sendType & 1;
+		var representation = 0;
+		
+		for (var byteNum = 0; byteNum < byteCount; byteNum++)
+		{
+			representation |= buffer_read(argument0, buffer_u8) << (byteNum * 8);
+		}
+		
+		return XGms_ve_getOriginalValue(XGms_ve_getDivideFactor(variableType), byteCount, representation) * -(negative * 2 - 1)
+	}
 }
 }
 
@@ -15228,51 +15228,51 @@ function XGms_ve_writeValue(argument0, argument1, argument2, argument3) {
 var sendType = argument3
 if (sendType == -1)
 {
-    sendType = XGms_ve_getBestWayToSend(argument1, argument2)
-    buffer_write(argument0, buffer_u8, sendType)
+	sendType = XGms_ve_getBestWayToSend(argument1, argument2)
+	buffer_write(argument0, buffer_u8, sendType)
 }
 if ((sendType & 128) == 0)
 {
-    var variableType = (sendType & (64 | 32 | 16 | 8)) >> 3;
-    if (variableType == $f)
-    {
-        var specialType = sendType & 7;
-        if (specialType == 7)
-        {
-            buffer_write(argument0, buffer_f64, argument1);
-        }
-        else if (specialType == 6)
-        {
-            buffer_write(argument0, buffer_f32, argument1);
-        }
-        else
-        {
-            var str = argument1;
-            if (specialType == 5)
-            {
-                buffer_write(argument0, buffer_u16, string_byte_length(str));
-            }
-            else if (specialType == 4)
-            {
-                buffer_write(argument0, buffer_u8, string_byte_length(str));
-            }
-            //0-3 do not need a length
-            
-            XGms_buffer_writechars(argument0, str)
-        }
-    }
-    else
-    {
-        var byteCount = ((sendType & (4 | 2)) >> 1) + 1;
-        var representation = XGms_ve_getRepresentation(XGms_ve_getDivideFactor(variableType), byteCount, abs(argument1));
-    
-        while (byteCount > 0)
-        {
-            buffer_write(argument0, buffer_u8, representation & $ff);
-            representation = representation >> 8;
-            byteCount--
-        }
-    }
+	var variableType = (sendType & (64 | 32 | 16 | 8)) >> 3;
+	if (variableType == $f)
+	{
+		var specialType = sendType & 7;
+		if (specialType == 7)
+		{
+			buffer_write(argument0, buffer_f64, argument1);
+		}
+		else if (specialType == 6)
+		{
+			buffer_write(argument0, buffer_f32, argument1);
+		}
+		else
+		{
+			var str = argument1;
+			if (specialType == 5)
+			{
+				buffer_write(argument0, buffer_u16, string_byte_length(str));
+			}
+			else if (specialType == 4)
+			{
+				buffer_write(argument0, buffer_u8, string_byte_length(str));
+			}
+			//0-3 do not need a length
+			
+			XGms_buffer_writechars(argument0, str)
+		}
+	}
+	else
+	{
+		var byteCount = ((sendType & (4 | 2)) >> 1) + 1;
+		var representation = XGms_ve_getRepresentation(XGms_ve_getDivideFactor(variableType), byteCount, abs(argument1));
+	
+		while (byteCount > 0)
+		{
+			buffer_write(argument0, buffer_u8, representation & $ff);
+			representation = representation >> 8;
+			byteCount--
+		}
+	}
 }
 }
 
@@ -15309,19 +15309,19 @@ function XGms_buffer_readchars(argument0, argument1) {
 var _len = argument1;
 if(_len > 0)
 {
-    if buffer_sizeof(_sb) <= _len
-    {
-        buffer_resize(_sb, _len + 100)
-    }
-    
-    buffer_seek(_sb, buffer_seek_start, _len);
-    buffer_copy(argument0, buffer_tell(argument0), _len, _sb, 0)
-    buffer_write(_sb, buffer_u16, 0);
-    buffer_seek(argument0, buffer_seek_relative, _len);
-    buffer_seek(_sb, buffer_seek_start, 0);
-    return buffer_read(_sb, buffer_string);
+	if buffer_sizeof(_sb) <= _len
+	{
+		buffer_resize(_sb, _len + 100)
+	}
+	
+	buffer_seek(_sb, buffer_seek_start, _len);
+	buffer_copy(argument0, buffer_tell(argument0), _len, _sb, 0)
+	buffer_write(_sb, buffer_u16, 0);
+	buffer_seek(argument0, buffer_seek_relative, _len);
+	buffer_seek(_sb, buffer_seek_start, 0);
+	return buffer_read(_sb, buffer_string);
 }else{
-    return "";
+	return "";
 }
 }
 
@@ -15333,18 +15333,18 @@ buffer_seek(argument0, buffer_seek_relative, -1);
 function XGms_bdb_translate_type(argument0) {
 switch(argument0)
 {
-    case bdb_u8: return buffer_u8
-    case bdb_u16: return buffer_u16
-    case bdb_u32: return buffer_u32
-    case bdb_s8: return buffer_s8
-    case bdb_s16: return buffer_s16
-    case bdb_s32: return buffer_s32
-    case bdb_f32: return buffer_f32
-    case bdb_f64: return buffer_f64
-    case bdb_string: return buffer_string
-    default:
-        show_error("gms_bdb_*: Unknown value type. The value type must be one of the bdb_* constants", true);
-        break;
+	case bdb_u8: return buffer_u8
+	case bdb_u16: return buffer_u16
+	case bdb_u32: return buffer_u32
+	case bdb_s8: return buffer_s8
+	case bdb_s16: return buffer_s16
+	case bdb_s32: return buffer_s32
+	case bdb_f32: return buffer_f32
+	case bdb_f64: return buffer_f64
+	case bdb_string: return buffer_string
+	default:
+		show_error("gms_bdb_*: Unknown value type. The value type must be one of the bdb_* constants", true);
+		break;
 }
 }
 
@@ -15381,8 +15381,8 @@ return global._gms_protect_a[argument0] ^ global._gms_protect_b[argument0]
 function gms_protect_init() {
 for(var i = 31999; i >= 0; i--)
 {
-    global._gms_protect_a[i] = random_range(0, $7fffffffffffffff)
-    global._gms_protect_b[i] = random_range(0, $7fffffffffffffff)
+	global._gms_protect_a[i] = random_range(0, $7fffffffffffffff)
+	global._gms_protect_b[i] = random_range(0, $7fffffffffffffff)
 }
 }
 
@@ -15392,7 +15392,7 @@ buffer_write(_b, buffer_u8, argument0);
 buffer_write(_b, buffer_u8, global.__tt_argument_count);
 for(var i = 0; i < global.__tt_argument_count; i++)
 {
-    XGms_ve_writeValue(_b, global.__tt_argument[i], DEFAULT_PRECISION, -1)
+	XGms_ve_writeValue(_b, global.__tt_argument[i], DEFAULT_PRECISION, -1)
 }
 global.__tt_argument_count = 0;
 XServer_send(mid_trusted_transaction);
@@ -15427,26 +15427,26 @@ function XGms__get_entropy_1() {
 var __f, __r, __x, __s;
 if not file_exists("_data.e5y")
 {
-    __s = random_get_seed()
-    randomize()
-    __r = ""
-    for (__f = 0; __f < 128; __f++) __r += string(irandom_range(0, $FFFFFFFFEB04))
-    __r = gms_sha512(__r)
-    
-    __f = file_text_open_write("_data.e5y")
-    file_text_write_string(__f, __r)
-    file_text_writeln(__f)
-    
-    for (__x = 0; __x < 4; __x++) 
-    {
-        file_text_write_string(__f, gms_sha512(string(irandom_range(0, $FFFFFFFFEB04))))
-        file_text_writeln(__f)
-    }
-    
-    random_set_seed(__s)
+	__s = random_get_seed()
+	randomize()
+	__r = ""
+	for (__f = 0; __f < 128; __f++) __r += string(irandom_range(0, $FFFFFFFFEB04))
+	__r = gms_sha512(__r)
+	
+	__f = file_text_open_write("_data.e5y")
+	file_text_write_string(__f, __r)
+	file_text_writeln(__f)
+	
+	for (__x = 0; __x < 4; __x++) 
+	{
+		file_text_write_string(__f, gms_sha512(string(irandom_range(0, $FFFFFFFFEB04))))
+		file_text_writeln(__f)
+	}
+	
+	random_set_seed(__s)
 } else {
-    __f = file_text_open_read("_data.e5y")
-    __r = file_text_read_string(__f)
+	__f = file_text_open_read("_data.e5y")
+	__r = file_text_read_string(__f)
 }
 file_text_close(__f)
 return __r
@@ -15462,14 +15462,14 @@ surface_reset_target()
 var __data = 0, __xpos = 0, __ypos = 0;
 repeat 32
 {
-    repeat 32
-    {
-        __data ^= surface_getpixel(__s, __xpos, __ypos)
-        __xpos ++
-    }
-    
-    __xpos = 0
-    __ypos++
+	repeat 32
+	{
+		__data ^= surface_getpixel(__s, __xpos, __ypos)
+		__xpos ++
+	}
+	
+	__xpos = 0
+	__ypos++
 }
 surface_free(__s)
 __r += sha1_string_utf8(string(__data))
@@ -15503,15 +15503,15 @@ function XGms__get_entropy_4() {
 	var __r = "";
 	for(var __i = 0; __i < (1 << 14); __i++)
 	{
-	    if sprite_exists(__i) __r += "s:" + string(__i) + sprite_get_name((is_string(__r) ? asset_get_index(__r) : __r))
-	    if audio_exists(__i) __r += "u:" + string(__i) + audio_get_name((is_string(__r) ? asset_get_index(__r) : __r))
-	    //if background_exists(__i) __r += "b:" + string(__i) + background_get_name(__r)
-	    if path_exists(__i) __r += "p:" + string(__i) + path_get_name((is_string(__r) ? asset_get_index(__r) : __r))
-	    if script_exists(__i) __r += "c:" + string(__i) + script_get_name((is_string(__r) ? asset_get_index(__r) : __r))
-	    if font_exists(__i) __r += "f:" + string(__i) + font_get_name((is_string(__r) ? asset_get_index(__r) : __r))
-	    if timeline_exists(__i) __r += "t:" + string(__i) + timeline_get_name((is_string(__r) ? asset_get_index(__r) : __r))
-	    if object_exists(__i) __r += "o:" + string(__i) + object_get_name((is_string(__r) ? asset_get_index(__r) : __r))
-	    if room_exists(__i) __r += "r:" + string(__i) + room_get_name((is_string(__r) ? asset_get_index(__r) : __r))
+		if sprite_exists(__i) __r += "s:" + string(__i) + sprite_get_name((is_string(__r) ? asset_get_index(__r) : __r))
+		if audio_exists(__i) __r += "u:" + string(__i) + audio_get_name((is_string(__r) ? asset_get_index(__r) : __r))
+		//if background_exists(__i) __r += "b:" + string(__i) + background_get_name(__r)
+		if path_exists(__i) __r += "p:" + string(__i) + path_get_name((is_string(__r) ? asset_get_index(__r) : __r))
+		if script_exists(__i) __r += "c:" + string(__i) + script_get_name((is_string(__r) ? asset_get_index(__r) : __r))
+		if font_exists(__i) __r += "f:" + string(__i) + font_get_name((is_string(__r) ? asset_get_index(__r) : __r))
+		if timeline_exists(__i) __r += "t:" + string(__i) + timeline_get_name((is_string(__r) ? asset_get_index(__r) : __r))
+		if object_exists(__i) __r += "o:" + string(__i) + object_get_name((is_string(__r) ? asset_get_index(__r) : __r))
+		if room_exists(__i) __r += "r:" + string(__i) + room_get_name((is_string(__r) ? asset_get_index(__r) : __r))
 	}
 	return gms_sha512(sha1_string_utf8(__r));
 }

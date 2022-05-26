@@ -34,7 +34,7 @@ function scr_player_machslide()
 			machslideAnim = true
 		movespeed  = 0
 	}
-    
+	
 	if scr_solidwall(x+xscale,y) && (sprite_index = spr_machslide or sprite_index = spr_machslidestart)
 	{
 		hsp = -xscale * 2.5
@@ -74,20 +74,20 @@ function scr_player_machslide()
 	{
 		if !place_meeting(x, y + 1, obj_water)
 		{
-		    with instance_create(x, y, obj_dashcloud2)
-		    {
-		        image_xscale = other.xscale
-		        other.dashcloudid = id
-		    }
+			with instance_create(x, y, obj_dashcloud2)
+			{
+				image_xscale = other.xscale
+				other.dashcloudid = id
+			}
 		}
 		else
 		{
 			with instance_create(x, y, obj_dashcloud2)
-		    {
-		        sprite_index = spr_watereffect
-		        image_xscale = other.xscale
-		        other.dashcloudid = id
-		    }
+			{
+				sprite_index = spr_watereffect
+				image_xscale = other.xscale
+				other.dashcloudid = id
+			}
 		}
 	}
 }

@@ -25,8 +25,8 @@ if ds_list_find_index(global.baddieroom, id) == -1 && !important
 
 	with (obj_camera)
 	{
-	    shake_mag = 5;
-	    shake_mag_acc = 20 / room_speed;
+		shake_mag = 5;
+		shake_mag_acc = 20 / room_speed;
 	}
 }
 event_perform(ev_alarm, 4);

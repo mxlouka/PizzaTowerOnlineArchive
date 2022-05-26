@@ -37,7 +37,7 @@ if WC_debuginfo
 	{
 		if WC_debugselected != global
 		{
-		    var str = "\n\n\nSelected " + object_get_name(WC_debugselected.object_index) + 
+			var str = "\n\n\nSelected " + object_get_name(WC_debugselected.object_index) + 
 			"\nid: " + string(WC_debugselected.id) + 
 			"\nx: " + string(WC_debugselected.x) + 
 			"\ny: " + string(WC_debugselected.y) + 
@@ -49,64 +49,64 @@ if WC_debuginfo
 			"\nimage_number: " + string(WC_debugselected.image_number) + 
 			"\nimage_xscale: " + string(WC_debugselected.image_xscale) +
 			"\nimage_yscale: " + string(WC_debugselected.image_yscale);
-            
+			
 			for (var c = 0; c <= 11; c++)
-		    {
-		        if WC_debugselected.alarm[c] > -1
-		            str += "\nalarm " + string(c) + ": " + string(WC_debugselected.alarm[c]);
-		    }
-            
+			{
+				if WC_debugselected.alarm[c] > -1
+					str += "\nalarm " + string(c) + ": " + string(WC_debugselected.alarm[c]);
+			}
+			
 			draw_text_outline(4, 24 + i, str);
 		}
 		else
-		    draw_text_outline(4, 24 + i, "\n\n\nShowing global variables");
+			draw_text_outline(4, 24 + i, "\n\n\nShowing global variables");
 		
 		draw_set_halign(fa_right);
 		var objvars = variable_instance_get_names(WC_debugselected);
 		
 		if array_length(objvars) <= 0
-		    draw_text_outline(display_get_gui_width(), 4 + i, "No variables");
+			draw_text_outline(display_get_gui_width(), 4 + i, "No variables");
 		else
 		{
-		    WC_debugvarstart = clamp(WC_debugvarstart, 0, max(array_length(objvars) - 32, 0));
-		    for (var b = WC_debugvarstart; b < min(WC_debugvarstart + 33, array_length(objvars)); b++)
-		    {
+			WC_debugvarstart = clamp(WC_debugvarstart, 0, max(array_length(objvars) - 32, 0));
+			for (var b = WC_debugvarstart; b < min(WC_debugvarstart + 33, array_length(objvars)); b++)
+			{
 				var getvar;
-		        if WC_debugselected == global
-		            getvar = variable_global_get(objvars[b]);
-		        else
-		            getvar = variable_instance_get(WC_debugselected, objvars[b]);
+				if WC_debugselected == global
+					getvar = variable_global_get(objvars[b]);
+				else
+					getvar = variable_instance_get(WC_debugselected, objvars[b]);
 				
 				var todraw;
-		        if is_array(getvar)
-		        {
+				if is_array(getvar)
+				{
 					draw_set_colour(merge_colour(c_white, c_yellow, 0.5));
-		            todraw = "ARRAY";
-		        }
-		        else
-		        {
+					todraw = "ARRAY";
+				}
+				else
+				{
 					draw_set_colour(c_white);
 					if string_char_at(string(getvar), 1) == "-"
 						draw_set_colour(merge_colour(c_white, c_red, 0.5));
-		            todraw = string(getvar);
-		        }
+					todraw = string(getvar);
+				}
 				
-		        todraw = string_replace_all(todraw, "\n", "#");
-		        if b <= 32 + WC_debugvarstart
-		            draw_text_outline(956, (((b - WC_debugvarstart) * 16) + 4) + i, objvars[b] + ": " + todraw);
-		    }
+				todraw = string_replace_all(todraw, "\n", "#");
+				if b <= 32 + WC_debugvarstart
+					draw_text_outline(956, (((b - WC_debugvarstart) * 16) + 4) + i, objvars[b] + ": " + todraw);
+			}
 				
 			if keyboard_check_pressed(vk_pageup)
 			{
-			    WC_debugvarstart -= 32;
-			    if WC_debugvarstart < 0
-			        WC_debugvarstart = 0;
+				WC_debugvarstart -= 32;
+				if WC_debugvarstart < 0
+					WC_debugvarstart = 0;
 			}
 			if keyboard_check_pressed(vk_pagedown)
 			{
-			    WC_debugvarstart += 32;
-			    if WC_debugvarstart > array_length(objvars) - 32
-			        WC_debugvarstart = array_length(objvars) - 32;
+				WC_debugvarstart += 32;
+				if WC_debugvarstart > array_length(objvars) - 32
+					WC_debugvarstart = array_length(objvars) - 32;
 			}
 		}
 	}
@@ -123,10 +123,10 @@ if WC_varobj != undefined && (instance_exists(WC_varobj) or WC_varobj == global)
 	draw_set_font(-1);
 	
 	if WC_varobj == global
-	    draw_text_ext(display_get_gui_width() / 2, display_get_gui_height() - 4, "global." + WC_varmonitor + ": " + string(variable_global_get(WC_varmonitor)), 20, display_get_gui_width() - 4);
+		draw_text_ext(display_get_gui_width() / 2, display_get_gui_height() - 4, "global." + WC_varmonitor + ": " + string(variable_global_get(WC_varmonitor)), 20, display_get_gui_width() - 4);
 	else
-	    draw_text_ext(display_get_gui_width() / 2, display_get_gui_height() - 4, object_get_name(WC_varobj.object_index) + "." + WC_varmonitor + ": " + string(variable_instance_get(WC_varobj, WC_varmonitor)), 20, display_get_gui_width() - 4);
-    
+		draw_text_ext(display_get_gui_width() / 2, display_get_gui_height() - 4, object_get_name(WC_varobj.object_index) + "." + WC_varmonitor + ": " + string(variable_instance_get(WC_varobj, WC_varmonitor)), 20, display_get_gui_width() - 4);
+	
 	draw_set_valign(fa_top);
 }
 else if WC_varobj != undefined
@@ -181,7 +181,7 @@ if WC_consoleopen
 			context = string_replace(context, "%...", "...");
 		}
 		
-	    draw_text_ext(4, cony, context, g, 960 - 4); // draw the logs
+		draw_text_ext(4, cony, context, g, 960 - 4); // draw the logs
 	}
 	
 	// write text

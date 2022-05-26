@@ -1,5 +1,6 @@
 /// @description 
-switch(image_index) {
+switch image_index
+{
 	case 0:
 		content = obj_pizzakinshroom;
 		break;
@@ -15,15 +16,14 @@ switch(image_index) {
 	case 4:
 		content = obj_pizzakinpineapple;
 		break;
-	case 5:
+	
+	default: // incredible
 		content = obj_pizzakinshroom;
 		image_index = 0;
 		break;
 }
 
-if room != rm_editor {
-	with instance_create(x, y, obj_pizzaboxunopen) {
-		content = other.content;
-	}
-	instance_destroy();
-}
+with instance_create(x, y, obj_pizzaboxunopen)
+	content = other.content;
+instance_destroy();
+

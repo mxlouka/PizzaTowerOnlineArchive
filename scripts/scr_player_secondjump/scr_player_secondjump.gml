@@ -61,36 +61,36 @@ function scr_player_secondjump() {
 	//if !place_meeting(x,y,obj_water2)
 	instance_create(x,y,obj_landcloud)
 	freefallstart = 0
-	    audio_sound_gain(sfx_jump, 0.7, 0);
+		audio_sound_gain(sfx_jump, 0.7, 0);
 	if !(audio_is_playing(sfx_jump))
 	audio_play_sound(sfx_jump, 1, false)
 	}
 
 
 	///Back to other states
-	    //Normal
-	    if grounded && vsp > 0
-	    {
-	    if key_attack
-	    {
-	    landAnim = false
-	    }
-	    input_buffer_highjump = 0
-	    state = states.normal
-	    jumpAnim = true
-	    jumpstop = false
-	    image_index = 0
-	//    if !place_meeting(x,y,obj_water2)
-	    instance_create(x,y,obj_landcloud)
-	    freefallstart = 0
-	//    audio_sound_gain(sfx_land, 0.7, 0);
+		//Normal
+		if grounded && vsp > 0
+		{
+		if key_attack
+		{
+		landAnim = false
+		}
+		input_buffer_highjump = 0
+		state = states.normal
+		jumpAnim = true
+		jumpstop = false
+		image_index = 0
+	//	if !place_meeting(x,y,obj_water2)
+		instance_create(x,y,obj_landcloud)
+		freefallstart = 0
+	//	audio_sound_gain(sfx_land, 0.7, 0);
 	//if !(audio_is_playing(sfx_land))
 	//audio_play_sound(sfx_land, 1, false)
-	    }
+		}
 
-    
+	
 
-    
+	
 
 
 	//Input buffer jumping

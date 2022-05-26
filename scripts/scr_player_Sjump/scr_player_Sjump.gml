@@ -72,7 +72,7 @@ function scr_player_Sjump()
 		
 			if sprite_index = spr_player_supersidejump
 				sprite_index = spr_player_supersidejumpland
-        
+		
 			if sprite_index == spr_superjump or sprite_index == spr_playerV_superjump2 or sprite_index == spr_superspringplayer
 			{
 				/*
@@ -82,7 +82,7 @@ function scr_player_Sjump()
 				*/
 					sprite_index = spr_superjumpland;
 			}
-        
+		
 			with obj_camera
 			{
 				shake_mag = 10;
@@ -112,6 +112,7 @@ function scr_player_Sjump()
 		{
 			if key_attack2 && (!(character == "N" && noisetype == 0) && character != "V" && (character != "SP" or global.gameplay != 0))
 			{
+				jumpstop = key_jump2;
 				springsjump = false;
 				if move != 0
 					xscale = move
@@ -138,9 +139,9 @@ function scr_player_Sjump()
 				dir = xscale;
 		
 				scr_soundeffect(sfx_suplexdashSP)
-			    movespeed = 10
-			    sprite_index = spr_mach2jump
-	    
+				movespeed = 10
+				sprite_index = spr_mach2jump
+		
 				with instance_create(x, y, obj_mach3effect)
 				{
 					vspeed = 4;
@@ -163,7 +164,7 @@ function scr_player_Sjump()
 				}
 		
 				flash = true
-			    state = states.mach2
+				state = states.mach2
 				vsp = -10
 				exit;
 			}

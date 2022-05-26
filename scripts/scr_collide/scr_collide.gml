@@ -7,33 +7,33 @@ function scr_collide()
 	// Vertical
 	repeat(abs(vsp))
 	{
-	    if !scr_solid(x, y + sign(vsp))
-	        y += sign(vsp); 
-	    else
+		if !scr_solid(x, y + sign(vsp))
+			y += sign(vsp); 
+		else
 		{
-	        vsp = 0;
-	        break;
-	    }
+			vsp = 0;
+			break;
+		}
 	}
 
 	// Horizontal
 	repeat(abs(hsp)) 
 	{
-	    // Move up slope
-	    if scr_solid(x + sign(hsp), y) && !scr_solid(x + sign(hsp), y - 1)
+		// Move up slope
+		if scr_solid(x + sign(hsp), y) && !scr_solid(x + sign(hsp), y - 1)
 			y--
-    
-	    // Move down slope
-	    if !scr_solid(x + sign(hsp), y) && !scr_solid(x + sign(hsp), y + 1) && scr_solid(x + sign(hsp), y + 2)
-	        y++;
+	
+		// Move down slope
+		if !scr_solid(x + sign(hsp), y) && !scr_solid(x + sign(hsp), y + 1) && scr_solid(x + sign(hsp), y + 2)
+			y++;
 
-	    if !scr_solid(x + sign(hsp), y)
-	        x += sign(hsp); 
-	    else
+		if !scr_solid(x + sign(hsp), y)
+			x += sign(hsp); 
+		else
 		{
-	        hsp = 0;
-	        break;
-	    }
+			hsp = 0;
+			break;
+		}
 	}
 
 	// Check if a wall is below me

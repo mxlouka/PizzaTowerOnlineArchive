@@ -457,9 +457,9 @@ function scr_player_mach3()
 	{
 		sprite_index = spr_superjumpprep
 		scr_soundeffect(sfx_superjumpprep);
-	    state = states.Sjumpprep
-	    hsp = 0
-	    image_index = 0
+		state = states.Sjumpprep
+		hsp = 0
+		image_index = 0
 	}
 	
 	//Taunt

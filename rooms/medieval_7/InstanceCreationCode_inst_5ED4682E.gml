@@ -2,8 +2,8 @@ prompt_condition = function()
 {
 	if global.panic
 	{
-	    //tv_reset()
-	    return true;
+		//tv_reset()
+		return true;
 	}
 	return false;
 }

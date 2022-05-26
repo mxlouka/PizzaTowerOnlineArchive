@@ -74,7 +74,7 @@
   "nineSlice": null,
   "parent": {
     "name": "npc",
-    "path": "folders/Sprites/pto extra/npc.yy",
+    "path": "folders/Sprites/PTO extra/npc.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_diagcontinue",

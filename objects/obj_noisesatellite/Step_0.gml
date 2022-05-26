@@ -1,12 +1,12 @@
 switch (state)
 {
-    case states.idle: scr_enemy_idle (); break;
-    case states.turn: scr_enemy_turn (); break;
-    case states.walk: scr_enemy_walk (); break;
-    case states.land: scr_enemy_land (); break;
-    case states.hit: scr_enemy_hit (); break;
-    case states.stun: scr_enemy_stun (); break;
-    // grabbed state here
+	case states.idle: scr_enemy_idle (); break;
+	case states.turn: scr_enemy_turn (); break;
+	case states.walk: scr_enemy_walk (); break;
+	case states.land: scr_enemy_land (); break;
+	case states.hit: scr_enemy_hit (); break;
+	case states.stun: scr_enemy_stun (); break;
+	// grabbed state here
 }
 if !instance_exists(obj_slaphitbox)
 slapped = false

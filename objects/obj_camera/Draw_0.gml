@@ -15,9 +15,9 @@ if !(instance_exists(obj_wc) && obj_wc.WC_oobcam)
 var _x, _y, _an;
 while !ds_queue_empty(edge_indicator)
 {
-    _x = ds_queue_dequeue(edge_indicator);
-    _y = ds_queue_dequeue(edge_indicator);
-    _an = ds_queue_dequeue(edge_indicator);
+	_x = ds_queue_dequeue(edge_indicator);
+	_y = ds_queue_dequeue(edge_indicator);
+	_an = ds_queue_dequeue(edge_indicator);
 	
 	if instance_exists(player) && room != rm_darkreveal
 	{

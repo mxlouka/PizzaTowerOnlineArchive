@@ -16,6 +16,6 @@ if other.state != states.taxi
 	hsp = 10;
 
 	if !pickedup
-	    instance_create(x, y, obj_genericpoofeffect)
+		instance_create(x, y, obj_genericpoofeffect)
 	pickedup = true;
 }

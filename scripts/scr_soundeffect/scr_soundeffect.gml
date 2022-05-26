@@ -39,6 +39,11 @@ function scr_soundeffect_ext(snd, loops = false)
 	// stop collect sound
 	if snd == sfx_collecttopping or snd == sfx_toppingSP
 		audio_stop_sound(snd);
+	if snd == sfx_breakblock1 or snd == sfx_breakblock2
+	{
+		audio_stop_sound(sfx_breakblock1);
+		audio_stop_sound(sfx_breakblock2);
+	}
 	
 	var sndplay = audio_play_sound(snd, 0, loops);
 	if room != rm_disclaimer

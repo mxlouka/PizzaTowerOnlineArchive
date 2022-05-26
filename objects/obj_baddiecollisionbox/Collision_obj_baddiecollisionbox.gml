@@ -6,7 +6,7 @@ if instance_exists(baddieID) && instance_exists(other.baddieID)
 	{
 		if baddieID != other.baddieID && id != other.id && other.baddieID.killbyenemy
 		{
-		    if baddieID.state == states.stun && baddieID.thrown
+			if baddieID.state == states.stun && baddieID.thrown
 			{
 				increase_combo();
 				

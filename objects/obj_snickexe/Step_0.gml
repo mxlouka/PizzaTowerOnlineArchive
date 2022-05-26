@@ -7,22 +7,22 @@ if !global.snickchallenge
 if deactivate
 {
 	if hitboxcreate
-    {
-        with obj_forkhitbox
-        {
-            if ID == other.id
-                instance_destroy();
-        }
+	{
+		with obj_forkhitbox
+		{
+			if ID == other.id
+				instance_destroy();
+		}
 		
-        repeat 6 with instance_create(x + random_range(-100, 100), y + random_range(-100, 100), obj_balloonpop)
+		repeat 6 with instance_create(x + random_range(-100, 100), y + random_range(-100, 100), obj_balloonpop)
 			sprite_index = spr_shotgunimpact;
-    }
+	}
 	
-    x = room_width / 2;
-    y = -100;
+	x = room_width / 2;
+	y = -100;
 	
-    hitboxcreate = false;
-    visible = false;
+	hitboxcreate = false;
+	visible = false;
 	
 	exit;
 }

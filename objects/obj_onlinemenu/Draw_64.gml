@@ -1,12 +1,12 @@
 if showtext
 {
 	if yi < 30
-	    yi += 5;
+		yi += 5;
 }
 else
 {
 	if yi > -50
-	    yi -= 1;
+		yi -= 1;
 }
 
 draw_set_font(global.smallfont);

@@ -13,8 +13,7 @@ lastbesthurt = 99
 lastbesttimeseconds = 99
 image_index = 1
 
-if room != rm_editor
-	depth = 50
+depth = 50
 endgate = false
 
 roomname = room_get_name(room)

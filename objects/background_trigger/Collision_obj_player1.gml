@@ -1,16 +1,9 @@
-if (room == rm_editor)
-    return;
+if room == rm_editor
+    spr_exitgate_ss;
 
-if cam != noone
-{
-    if other.cam == cam
-    {
-        scr_set_background_trigger(index)
-        scr_set_bgspd_trigger()
-    }
-}
-else
+if cam == noone or other.cam == cam
 {
     scr_set_background_trigger(index)
     scr_set_bgspd_trigger()
 }
+

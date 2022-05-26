@@ -94,7 +94,7 @@
   "nineSlice": null,
   "parent": {
     "name": "hats",
-    "path": "folders/Sprites/pto extra/hats.yy",
+    "path": "folders/Sprites/PTO extra/hats.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_hat_snickcrown",

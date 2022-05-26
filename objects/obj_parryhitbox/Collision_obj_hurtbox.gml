@@ -1,32 +1,32 @@
 if other.object_index == obj_spitcheesespike or other.object_index == obj_banditochicken_projectile or other.object_index == obj_robotknife
 {
-    with other.id
-    {
-        var current_hspd = abs(hsp) * 1.5;
-        var _dir = sign(hsp);
-        if x != other.x
-            _dir = sign(x - other.x);
-        hsp = _dir * current_hspd;
+	with other.id
+	{
+		var current_hspd = abs(hsp) * 1.5;
+		var _dir = sign(hsp);
+		if x != other.x
+			_dir = sign(x - other.x);
+		hsp = _dir * current_hspd;
 		
 		if object_index == obj_robotknife
 		{
 			image_xscale *= -1;
 			parry = true;
 		}
-    }
+	}
 }
 else if other.object_index == obj_noisegoblin_arrow
 {
-    with other.id
-    {
-        current_hspd = abs(speed);
-        _dir = sign(speed);
+	with other.id
+	{
+		current_hspd = abs(speed);
+		_dir = sign(speed);
 		
-        if (direction < 90 or direction > 270) && x < other.x
+		if (direction < 90 or direction > 270) && x < other.x
 		or (direction > 90 or direction < 270) && x > other.x
-            _dir = -1;
+			_dir = -1;
 		
-        speed = _dir * speed;
+		speed = _dir * speed;
 		if scr_stylecheck(2)
 		{
 			speed *= 1.5;
@@ -34,15 +34,15 @@ else if other.object_index == obj_noisegoblin_arrow
 		}
 		
 		image_angle += 180;
-    }
+	}
 }
 else if other.object_index == obj_coneprojectile
 {
-    with other.id
-    {
-        speed *= -1.25;
+	with other.id
+	{
+		speed *= -1.25;
 		image_angle += 180;
-    }
+	}
 }
 else if other.object_index == obj_pizzacutter2 && scr_stylecheck(2)
 {
@@ -76,5 +76,5 @@ else if other.object_index == obj_forkhitbox
 }
 
 if !collisioned
-    event_user(0);
+	event_user(0);
 

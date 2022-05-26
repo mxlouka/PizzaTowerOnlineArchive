@@ -64,8 +64,8 @@ switch index
 
 with instance_create_depth(x, y, depth, obj_supriseenemy)
 {
-    image_xscale = other.image_xscale * other.xscale
-    image_yscale = other.image_yscale
+	image_xscale = other.image_xscale * other.xscale
+	image_yscale = other.image_yscale
 	
 	content = other.content;
 	trigger = other.trigger;

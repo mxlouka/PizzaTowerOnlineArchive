@@ -61,9 +61,10 @@ function layer_get_parallax(layer_id)
 	return [0, 0];
 }
 
-for(var i = 0; i < array_length(global.roombgs); i++)
+var siz = ds_list_size(global.roombgs); // faster this way
+for(var i = 0; i < siz; i++)
 {
-	var l = global.roombgs[i];
+	var l = global.roombgs[|i];
 	l.x += l.hsp;
 	l.y += l.vsp;
 	

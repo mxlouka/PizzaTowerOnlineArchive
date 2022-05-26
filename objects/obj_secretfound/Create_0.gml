@@ -26,7 +26,7 @@ if ds_list_find_index(global.saveroom, id) == -1 && !global.snickchallenge
 		}
 	}
 	
-	scr_soundeffect(sfx_secretfound)
+	scr_soundeffect(sg ? sfx_secretfound_ss : sfx_secretfound)
 	ds_list_add(global.saveroom, id) 
 }
 instance_destroy();

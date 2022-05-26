@@ -2,16 +2,16 @@ if room == rm_editor exit;
 
 switch (state)
 {
-    case states.idle: scr_enemy_idle (); break;
-    case states.charge: scr_enemy_charge (); break;
-    case states.turn: scr_enemy_turn (); break;
-    case states.walk: scr_enemy_walk (); break;
-    case states.land: scr_enemy_land (); break;
-    case states.hit: scr_enemy_hit (); break;
-    case states.stun: scr_enemy_stun (); break;
-    case states.pizzagoblinthrow: scr_pizzagoblin_throw (); break;
-    case states.rage: scr_enemy_rage (); break;
-    // grabbed state here
+	case states.idle: scr_enemy_idle (); break;
+	case states.charge: scr_enemy_charge (); break;
+	case states.turn: scr_enemy_turn (); break;
+	case states.walk: scr_enemy_walk (); break;
+	case states.land: scr_enemy_land (); break;
+	case states.hit: scr_enemy_hit (); break;
+	case states.stun: scr_enemy_stun (); break;
+	case states.pizzagoblinthrow: scr_pizzagoblin_throw (); break;
+	case states.rage: scr_enemy_rage (); break;
+	// grabbed state here
 }
 if state == states.stun && stunned > 100 && !birdcreated
 {
@@ -29,7 +29,7 @@ scr_scareenemy()
 //Identify the player
 var targetplayer = instance_nearest(x, y, obj_player);
 if ragebuffer > 0
-    ragebuffer--
+	ragebuffer--
 
 //Charge
 if instance_exists(targetplayer) && !rematchscare
@@ -37,22 +37,22 @@ if instance_exists(targetplayer) && !rematchscare
 	if (targetplayer.x > x - 400 && targetplayer.x < x + 400) && (y <= targetplayer.y + 20 && y >= targetplayer.y - 20)
 	{
 		if state != states.rage && ragebuffer <= 0 && global.stylethreshold >= 3 && (state == states.walk or state == states.charge)
-	    {
-	        state = states.rage
-	        sprite_index = spr_fencer_rage
+		{
+			state = states.rage
+			sprite_index = spr_fencer_rage
 			if global.snickrematch
 				sprite_index = spr_fencer_rage_re
 			
-	        if x != targetplayer.x
-	            image_xscale = -sign(x - targetplayer.x)
+			if x != targetplayer.x
+				image_xscale = -sign(x - targetplayer.x)
 			
-	        ragebuffer = 100
-	        image_index = 0
-	        image_speed = 0.5
-	        flash = 1
-	        alarm[4] = 5
-	        create_heatattack_afterimage(x, y, sprite_index, image_index, image_xscale)
-	    }
+			ragebuffer = 100
+			image_index = 0
+			image_speed = 0.5
+			flash = 1
+			alarm[4] = 5
+			create_heatattack_afterimage(x, y, sprite_index, image_index, image_xscale)
+		}
 		else if x != targetplayer.x && grounded && state == states.walk && !charging
 		{
 			charging = true

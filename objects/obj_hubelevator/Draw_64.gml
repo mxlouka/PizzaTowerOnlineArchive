@@ -47,9 +47,9 @@ if state == 1
 	for(var i = 0; i < array_length(hub_array); i++)
 	{
 		var c = sel == i ? c_white : c_gray;
-        var txt = hub_array[i][0];
+		var txt = hub_array[i][0];
 		
 		draw_set_colour(c);
-        draw_text_auto(480, yy + (sepy * i), txt);
+		draw_text_auto(480, yy + (sepy * i), txt);
 	}
 }

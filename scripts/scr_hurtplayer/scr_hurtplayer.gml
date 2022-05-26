@@ -34,34 +34,34 @@ function scr_hurtplayer(argument0 = obj_player, loseamount = 50)
 		}
 	
 		//Ghost
-	    
+		
 		else if state == states.ghost
 		{
-    
+	
    
 		}
 		//Bomb!!
 		else if state == states.bombpep && !hurted
 		{
-    
+	
    
 		}
-    
+	
 		//Weenie ride
 		else if state == states.rideweenie
 		{
-    
+	
    
 		}
 		
 		//Boxxed
 		else if state == states.boxxedpep
 			scr_transfobump();
-	    
+		
 		//Tumble
 		else if state == states.tumble
 		{
-    
+	
 		}
 	
 		// cheeseball
@@ -86,10 +86,10 @@ function scr_hurtplayer(argument0 = obj_player, loseamount = 50)
 		}
 	
 		//Cheesed
-    
+	
 		else if (state == states.cheesepep or state == states.cheesepepstick) 
 		{
-    
+	
 		
 		}
 
@@ -121,13 +121,13 @@ function scr_hurtplayer(argument0 = obj_player, loseamount = 50)
 			}
 			
 			if hurt_buffer == -1 && global.gameplay != 0
-		        hurt_buffer = hurt_max;
+				hurt_buffer = hurt_max;
 			
 			//Pizza delivery HP
 			if /*(hurt_buffer == -1 or global.gameplay == 0) && */global.pizzadelivery
 			{
 				with instance_create(x, y, obj_debris)
-			        sprite_index = spr_healthpickupeaten;
+					sprite_index = spr_healthpickupeaten;
 				
 				global.hp -= 1;
 				if global.hp > 0
@@ -138,17 +138,17 @@ function scr_hurtplayer(argument0 = obj_player, loseamount = 50)
 				else
 				{
 					with obj_music
-			            arena = false;
+						arena = false;
 		
-			        vsp = -20;
-			        global.hp = 0;
-			        global.pizzadelivery = false;
-			        cutscene = true;
+					vsp = -20;
+					global.hp = 0;
+					global.pizzadelivery = false;
+					cutscene = true;
 		
-			        with instance_create(0, 0, obj_cutscene_handler)
-			        {
-			            var player = other.id
-			            scene_info = 
+					with instance_create(0, 0, obj_cutscene_handler)
+					{
+						var player = other.id
+						scene_info = 
 						[
 							[cutscene_taxi_start, player], 
 							[cutscene_waitfor_sprite, player], 
@@ -159,7 +159,7 @@ function scr_hurtplayer(argument0 = obj_player, loseamount = 50)
 							[cutscene_set_sprite, player, spr_player_outofpizza4, 0.35, player.xscale], 
 							[cutscene_taxi_end, player, forest_4]
 						]
-			        }
+					}
 				}
 			}
 			
@@ -206,11 +206,11 @@ function scr_hurtplayer(argument0 = obj_player, loseamount = 50)
 				movespeed = 8
 				
 				if character == "S"
-		        {
+				{
 					if global.collect == 0
 					{
-			            state = states.gameover
-			            sprite_index = spr_deathstart
+						state = states.gameover
+						sprite_index = spr_deathstart
 						exit
 					}
 					else
@@ -219,7 +219,7 @@ function scr_hurtplayer(argument0 = obj_player, loseamount = 50)
 							instance_create(x, y, obj_pizzaloss_recollect);
 						global.collect = 0;
 					}
-		        }
+				}
 			}
 			
 			instance_create(x, y, obj_spikehurteffect)
@@ -251,10 +251,10 @@ function scr_hurtplayer(argument0 = obj_player, loseamount = 50)
 						global.collect = max(global.collect - loseamount, 0);
 						
 						with instance_create(x, y, obj_smallnumber)
-					    {
-					        negative = 1
-					        number = string(-loseamount)
-					    }
+						{
+							negative = 1
+							number = string(-loseamount)
+						}
 					}
 				}
 				else

@@ -19,7 +19,7 @@ attackcycle = choose(0,2)
 
 if attackcycle = 0 && attacked = false && floor(image_index) = 13 && sprite_index = spr_cheesedragon_stomp
 {
-	    with (obj_baddie)
+		with (obj_baddie)
 {
 if grounded 
 {
@@ -28,10 +28,10 @@ hsp = 0
 }
 }
 scr_soundeffect(sfx_groundpound)
-            with (obj_camera) {
+			with (obj_camera) {
 
-    shake_mag=20;
-    shake_mag_acc=60/room_speed;
+	shake_mag=20;
+	shake_mag_acc=60/room_speed;
 }
 
 //Spawn bowling bowls
@@ -48,7 +48,7 @@ attacked = true
 
 //if attackcycle = 1 && attacked = false && floor(image_index) = 13 && sprite_index = spr_cheesedragon_stomp
 //{
-//		    with (obj_baddie)
+//			with (obj_baddie)
 //{
 //if grounded 
 //{
@@ -56,10 +56,10 @@ attacked = true
 //hsp = 0
 //}
 //}
-//            with (obj_camera) {
+//			with (obj_camera) {
 
-//    shake_mag=10;
-//    shake_mag_acc=30/room_speed;
+//	shake_mag=10;
+//	shake_mag_acc=30/room_speed;
 //}
 	//Spawn enemies
 //	if instance_number(obj_baddie) < 20

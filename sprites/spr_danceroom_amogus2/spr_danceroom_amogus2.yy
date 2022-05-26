@@ -981,7 +981,7 @@
   "nineSlice": null,
   "parent": {
     "name": "dance room",
-    "path": "folders/Sprites/pto extra/dance room.yy",
+    "path": "folders/Sprites/PTO extra/dance room.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_danceroom_amogus2",

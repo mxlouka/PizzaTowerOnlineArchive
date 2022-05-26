@@ -122,7 +122,7 @@
   "nineSlice": null,
   "parent": {
     "name": "pets",
-    "path": "folders/Sprites/pto extra/pets.yy",
+    "path": "folders/Sprites/PTO extra/pets.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_petgerald_move",

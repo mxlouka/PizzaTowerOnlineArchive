@@ -1,5 +1,5 @@
 if state == states.golf
-    exit;
+	exit;
 
 hsp = 14 * other.image_xscale;
 image_xscale = other.image_xscale;

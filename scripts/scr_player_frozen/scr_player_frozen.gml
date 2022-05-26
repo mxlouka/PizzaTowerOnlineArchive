@@ -17,10 +17,10 @@ function scr_player_frozen()
 		repeat 10
 			scr_soundeffect(sfx_scream1, sfx_scream2, sfx_scream3, sfx_scream4, sfx_scream5, sfx_scream6, sfx_scream7, sfx_scream8, sfx_scream9, sfx_scream10);
 		with obj_tv
-	    {
-	        jumpscare = room_speed / 2
-	        jumpscaretext = irandom(sprite_get_number(spr_scares_txt) - 1);
-	    }
+		{
+			jumpscare = room_speed / 2
+			jumpscaretext = irandom(sprite_get_number(spr_scares_txt) - 1);
+		}
 		
 		image_blend = c_white;
 		audio_sound_pitch(global.music, 1);
@@ -38,10 +38,10 @@ function scr_player_frozen()
 			scr_soundeffect(sfx_punch);
 			scr_soundeffect(sfx_breakblock2);
 		
-		    movespeed = tauntstoredmovespeed;
-		    sprite_index = tauntstoredsprite;
+			movespeed = tauntstoredmovespeed;
+			sprite_index = tauntstoredsprite;
 			
-		    state = states.jump;
+			state = states.jump;
 			jumpstop = true;
 			vsp = -12;
 			sprite_index = spr_machfreefall;

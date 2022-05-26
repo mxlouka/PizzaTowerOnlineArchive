@@ -22,14 +22,14 @@ other.image_xscale = image_xscale
 slapped = true
 flash = true
 instance_create(x,y,obj_bumpeffect)
-    stunned = 200
-                if other.x != x
-        {
-        image_xscale = -sign(x - other.x)
-        }
-    vsp = -5
-    hsp = -image_xscale * 3
-    state = states.stun
+	stunned = 200
+				if other.x != x
+		{
+		image_xscale = -sign(x - other.x)
+		}
+	vsp = -5
+	hsp = -image_xscale * 3
+	state = states.stun
 }
 else if state != states.grabbed && slapped = false//Ministun
 {
@@ -43,13 +43,13 @@ with instance_create(x,y,obj_spikehurteffect)
 other.image_xscale = image_xscale
 }
 slapped = true
-    state = states.stun
+	state = states.stun
 stunned = 40
-                if other.x != x
-        {
-        image_xscale = -sign(x - other.x)
-        }
-    vsp = -3
-    hsp = -image_xscale * 2
+				if other.x != x
+		{
+		image_xscale = -sign(x - other.x)
+		}
+	vsp = -3
+	hsp = -image_xscale * 2
 }
 

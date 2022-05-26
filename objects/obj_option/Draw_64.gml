@@ -509,7 +509,7 @@ if menu == 2
 					tspr = spr_tile_medieval1;
 				
 				if !surface_exists(surf)
-				    surf = surface_create(sprite_get_width(spr), sprite_get_height(spr));
+					surf = surface_create(sprite_get_width(spr), sprite_get_height(spr));
 				surface_set_target(surf);
 				
 				draw_clear_alpha(c_black, 0);
@@ -605,17 +605,17 @@ if menu == 2
 				
 				var message = lang_string("options.other.chatbubbles.example");
 				
-		        _w = max(0.01, min(string_width(message), room_width / 4));
-		        _w = string_width_ext((message), -1, _w);
-		        _h = string_height_ext((message), -1, _w);
+				_w = max(0.01, min(string_width(message), room_width / 4));
+				_w = string_width_ext((message), -1, _w);
+				_h = string_height_ext((message), -1, _w);
 			
 				draw_set_colour(c_black);
 				draw_roundrect(640 - _w / 2 - 10 - 1, 320 - _h + sprite_get_bbox_top(sprite_index) - 32 - 40 * (global.shownames + 1) - 1, 640 + _w / 2 + 10 + 1, 320 + sprite_get_bbox_top(sprite_index) - 22 - 40 * (global.shownames + 1) + 1, 0);
 				draw_roundrect(640 - _w / 2 - 10 + 4, 320 - _h + sprite_get_bbox_top(sprite_index) - 32 - 40 * (global.shownames + 1) + 4, 640 + _w / 2 + 10 + 4, 320 + sprite_get_bbox_top(sprite_index) - 22 - 40 * (global.shownames + 1) + 4, 0);
-	            draw_set_color(c_white);
-	            draw_roundrect(640 - _w / 2 - 10, 320 - _h + sprite_get_bbox_top(sprite_index) - 32 - 40 * (global.shownames + 1), 640 + _w / 2 + 10, 320 + sprite_get_bbox_top(sprite_index) - 22 - 40 * (global.shownames + 1), 0);
-	            draw_set_color(c_white);
-	            draw_text_ext(floor(640), floor(320 - _h + sprite_get_bbox_top(sprite_index) - 24 - 40 * (global.shownames + 1)), string(message), -1, _w);
+				draw_set_color(c_white);
+				draw_roundrect(640 - _w / 2 - 10, 320 - _h + sprite_get_bbox_top(sprite_index) - 32 - 40 * (global.shownames + 1), 640 + _w / 2 + 10, 320 + sprite_get_bbox_top(sprite_index) - 22 - 40 * (global.shownames + 1), 0);
+				draw_set_color(c_white);
+				draw_text_ext(floor(640), floor(320 - _h + sprite_get_bbox_top(sprite_index) - 24 - 40 * (global.shownames + 1)), string(message), -1, _w);
 				
 				draw_set_halign(fa_left);
 			}

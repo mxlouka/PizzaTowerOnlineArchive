@@ -16,7 +16,7 @@ if scr_solidwall(x + hsp, y) or place_meeting(x + hsp, y, obj_hallway)
 
 //Flash
 if flash && alarm[2] <= 0
-    alarm[2] = 0.05 * room_speed;
+	alarm[2] = 0.05 * room_speed;
 
 //Create hitbox
 if hitboxcreate = false

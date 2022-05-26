@@ -88,25 +88,25 @@ function scr_player_pistolOLD()
 
 	with (obj_camera)
 	{
-	    shake_mag=8;
-	    shake_mag_acc=30/room_speed;
+		shake_mag=8;
+		shake_mag_acc=30/room_speed;
 	}
 
 	with instance_create(x+ xscale * 10,y-5,obj_pistoleffect)
 	image_xscale = other.xscale
 
-	    var box, ID;
-	    if xscale == 1
-	    {
-	    box = bbox_right
-	    }
-	    else
-	    box = bbox_left
-    
-	    ID = instance_create(box +(xscale * 10),y, obj_pistolbullet)
-	    ID.hspeed = xscale * 15;
-    
-    
+		var box, ID;
+		if xscale == 1
+		{
+		box = bbox_right
+		}
+		else
+		box = bbox_left
+	
+		ID = instance_create(box +(xscale * 10),y, obj_pistolbullet)
+		ID.hspeed = xscale * 15;
+	
+	
 
 	shoot = false 
 	}
@@ -116,25 +116,25 @@ function scr_player_pistolOLD()
 
 	with (obj_camera)
 	{
-	    shake_mag=8;
-	    shake_mag_acc=30/room_speed;
+		shake_mag=8;
+		shake_mag_acc=30/room_speed;
 	}
 
 	with instance_create(x+ xscale * 10,y+16,obj_pistoleffect)
 	image_xscale = other.xscale
 
-	    var box, ID;
-	    if xscale == 1
-	    {
-	    box = bbox_right
-	    }
-	    else
-	    box = bbox_left
-    
-	    ID = instance_create(box +(xscale * 10),y+20, obj_pistolbullet)
-	    ID.hspeed = xscale * 15;
-    
-    
+		var box, ID;
+		if xscale == 1
+		{
+		box = bbox_right
+		}
+		else
+		box = bbox_left
+	
+		ID = instance_create(box +(xscale * 10),y+20, obj_pistolbullet)
+		ID.hspeed = xscale * 15;
+	
+	
 
 	shoot = false 
 	}
@@ -144,8 +144,8 @@ function scr_player_pistolOLD()
 
 	with (obj_camera)
 	{
-	    shake_mag=8;
-	    shake_mag_acc=30/room_speed;
+		shake_mag=8;
+		shake_mag_acc=30/room_speed;
 	}
 
 	with instance_create(x+ -xscale * 10,y-10,obj_pistoleffect)
@@ -154,13 +154,13 @@ function scr_player_pistolOLD()
 	image_xscale = other.xscale
 	}
 
-	    var box, ID;
+		var box, ID;
 
-	    box = bbox_top
-	    ID = instance_create(x+ -xscale *16,box, obj_pistolbullet)
-	    ID.vspeed = -15;
-    
-    
+		box = bbox_top
+		ID = instance_create(x+ -xscale *16,box, obj_pistolbullet)
+		ID.vspeed = -15;
+	
+	
 
 	shoot = false 
 	}
@@ -170,8 +170,8 @@ function scr_player_pistolOLD()
 
 	with (obj_camera)
 	{
-	    shake_mag=8;
-	    shake_mag_acc=30/room_speed;
+		shake_mag=8;
+		shake_mag_acc=30/room_speed;
 	}
 
 	with instance_create(x,y-10,obj_pistoleffect)
@@ -184,14 +184,14 @@ function scr_player_pistolOLD()
 	image_xscale = other.xscale
 	}
 
-	    var box, ID;
+		var box, ID;
 
-	    box = bbox_top
-	    ID = instance_create(x+ -xscale *5,box+12, obj_pistolbullet)
-	    ID.vspeed = -15;
-	    ID.hspeed = xscale * 15
-    
-    
+		box = bbox_top
+		ID = instance_create(x+ -xscale *5,box+12, obj_pistolbullet)
+		ID.vspeed = -15;
+		ID.hspeed = xscale * 15
+	
+	
 
 	shoot = false 
 	}

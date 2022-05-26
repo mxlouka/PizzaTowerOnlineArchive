@@ -70,8 +70,8 @@ function scr_enemy_bounce() {
 	image_index = 0
 	with (obj_camera) {
 
-	    shake_mag=4;
-	    shake_mag_acc=4/room_speed;
+		shake_mag=4;
+		shake_mag_acc=4/room_speed;
 	}
 	sprite_index = landspr
 	}

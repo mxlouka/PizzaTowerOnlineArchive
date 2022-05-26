@@ -33,7 +33,7 @@ if image_speed > 0 && sprite_index == spr_weaponmachine_score && needtops > 0
 if instance_exists(obj_depositcollect) && image_index >= 8
 	image_index -= 8;
 if collect_shake > 0
-    collect_shake = min(collect_shake * 0.5, 20);
+	collect_shake = min(collect_shake * 0.5, 20);
 
 with obj_shotgun
 {

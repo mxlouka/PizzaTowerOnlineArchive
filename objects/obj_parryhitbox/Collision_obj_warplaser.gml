@@ -5,5 +5,5 @@ with other.id
 	vsp *= -1.5;
 }
 if !collisioned
-    event_user(0)
+	event_user(0)
 

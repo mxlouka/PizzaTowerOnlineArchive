@@ -13,7 +13,7 @@ if abs(image_yscale) > 1
 		if i >= abs(image_yscale) - 1 && !place_meeting(x, y + 1, obj_solid)
 			img = 1;
 		
-	    draw_sprite(sprite_index, img, x, yy);
+		draw_sprite(sprite_index, img, x, yy);
 	}
 }
 else

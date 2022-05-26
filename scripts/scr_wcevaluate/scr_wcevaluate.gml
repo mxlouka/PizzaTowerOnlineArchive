@@ -21,7 +21,7 @@ function scr_wcevaluate(argument0)
 		else
 		{
 			if substr != ""
-			    ds_list_add(arg, substr);
+				ds_list_add(arg, substr);
 			substr = "";
 		}
 	
@@ -90,7 +90,7 @@ function scr_wcevaluate(argument0)
 			if is_undefined(arg1)
 			{
 				WC_consoleopen = true;
-			    console_log("Usage: consolesize SIZE");
+				console_log("Usage: consolesize SIZE");
 			}
 			else if string_digits(arg1) == arg1 // index
 			{
@@ -154,9 +154,9 @@ function scr_wcevaluate(argument0)
 					showtext = true;
 					alarm[0] = 100;
 					if other.WC_prioritizebaddies
-					    message = "PRIORITIZE BADDIES ON";
+						message = "PRIORITIZE BADDIES ON";
 					else
-					    message = "PRIORITIZE BADDIES OFF";
+						message = "PRIORITIZE BADDIES OFF";
 				}
 			}
 			break;
@@ -181,9 +181,9 @@ function scr_wcevaluate(argument0)
 					showtext = true;
 					alarm[0] = 100;
 					if other.WC_candrag
-					    message = "DRAGGING ON";
+						message = "DRAGGING ON";
 					else
-					    message = "DRAGGING OFF";
+						message = "DRAGGING OFF";
 				}
 			}
 			break;
@@ -396,7 +396,7 @@ function scr_wcevaluate(argument0)
 			if is_undefined(arg1)
 			{
 				if WC_consoleopen
-				    console_log("Usage: sleep MILISECONDS");
+					console_log("Usage: sleep MILISECONDS");
 				else
 				{
 					__tempsomething = get_integer("Input miliseconds to sleep", 0);
@@ -405,10 +405,10 @@ function scr_wcevaluate(argument0)
 				}
 			}
 			else if string_length(string_digits(arg1)) + string_count("-", arg1) + string_count(".", arg1) == string_length(arg1)
-			    scr_sleep(real(arg1));
+				scr_sleep(real(arg1));
 			else
 			{
-			    console_log("Parameter must be a number");
+				console_log("Parameter must be a number");
 				WC_consoleopen = true;
 			}
 			break;
@@ -449,18 +449,18 @@ function scr_wcevaluate(argument0)
 				
 			if is_undefined(arg1)
 			{
-			    console_log("Usage: playsound SOUND LOOP"); // pt exclusive
+				console_log("Usage: playsound SOUND LOOP"); // pt exclusive
 				WC_consoleopen = true;
 			}
 			else if string_length(string_digits(arg1)) + string_count("-", arg1) + string_count(".", arg1) == string_length(arg1) // index
 			{
-			    tempsound = real(arg1);
-			    if audio_exists(tempsound)
-			    {
+				tempsound = real(arg1);
+				if audio_exists(tempsound)
+				{
 					if arg2 != "1" && arg2 != "loop"
 					{
-				        audio_play_sound(tempsound, 0, false);
-				        console_log("Playing " + audio_get_name(tempsound) + " with index " + string(tempsound));
+						audio_play_sound(tempsound, 0, false);
+						console_log("Playing " + audio_get_name(tempsound) + " with index " + string(tempsound));
 					}
 					else // pt exclusive
 					{
@@ -470,28 +470,28 @@ function scr_wcevaluate(argument0)
 						console_log("Looping " + audio_get_name(tempsound) + " with index " + string(tempsound));
 					}
 				}
-			    else
+				else
 				{
-			        console_log("Sound index out of range");
+					console_log("Sound index out of range");
 					WC_consoleopen = true;
 				}
 			}
 			else // asset
 			{
-			    tempsound = asset_get_index(arg1);
-			    if tempsound != -1
-			    {
+				tempsound = asset_get_index(arg1);
+				if tempsound != -1
+				{
 					if asset_get_type(arg1) != asset_sound
 					{
 						console_log("The asset " + arg1 + " isn't a sound");
 						WC_consoleopen = true;
 					}
-			        else if audio_exists(tempsound)
-			        {
+					else if audio_exists(tempsound)
+					{
 						if arg2 != "1" && arg2 != "loop"
 						{
-				            audio_play_sound(tempsound, 0, false);
-				            console_log("Playing " + arg1 + " with index " + string(tempsound));
+							audio_play_sound(tempsound, 0, false);
+							console_log("Playing " + arg1 + " with index " + string(tempsound));
 						}
 						else // pt exclusive
 						{
@@ -501,15 +501,15 @@ function scr_wcevaluate(argument0)
 							console_log("Looping " + arg1 + " with index " + string(tempsound));
 						}
 					}
-			        else
+					else
 					{
-			            console_log("Sound " + arg1 + " doesn't exist. Check for typos");
+						console_log("Sound " + arg1 + " doesn't exist. Check for typos");
 						WC_consoleopen = true;
 					}
-			    }
-			    else
+				}
+				else
 				{
-			        console_log("Asset " + arg1 + " doesn't exist. Check for typos");
+					console_log("Asset " + arg1 + " doesn't exist. Check for typos");
 					WC_consoleopen = true;
 				}
 			}
@@ -521,25 +521,25 @@ function scr_wcevaluate(argument0)
 				
 			if is_undefined(arg1)
 			{
-			    console_log("Usage: stopsound SOUND");
+				console_log("Usage: stopsound SOUND");
 				WC_consoleopen = true;
 			}
 			else if string_length(string_digits(arg1)) + string_count("-", arg1) + string_count(".", arg1) == string_length(arg1) // index
 			{
-			    tempsound = real(arg1);
-			    if audio_exists(tempsound)
-			    {
+				tempsound = real(arg1);
+				if audio_exists(tempsound)
+				{
 					if audio_is_playing(tempsound)
 					{
-				        audio_stop_sound(tempsound);
-				        console_log("Stopped " + audio_get_name(tempsound));
+						audio_stop_sound(tempsound);
+						console_log("Stopped " + audio_get_name(tempsound));
 					}
 					else
 						console_log("Sound " + audio_get_name(tempsound) + " isn't playing");
-			    }
-			    else
+				}
+				else
 				{
-			        console_log("Sound index out of range");
+					console_log("Sound index out of range");
 					WC_consoleopen = true;
 				}
 			}
@@ -551,37 +551,37 @@ function scr_wcevaluate(argument0)
 			}
 			else // asset
 			{
-			    tempsound = asset_get_index(arg1);
-			    if tempsound != -1
-			    {
+				tempsound = asset_get_index(arg1);
+				if tempsound != -1
+				{
 					if asset_get_type(arg1) != asset_sound
 					{
 						console_log("The asset " + arg1 + " isn't a sound");
 						WC_consoleopen = true;
 					}
-			        else if audio_exists(tempsound)
-			        {
+					else if audio_exists(tempsound)
+					{
 						if audio_is_playing(tempsound)
 						{
-				            audio_stop_sound(tempsound);
-				            console_log("Stopped " + arg1);
+							audio_stop_sound(tempsound);
+							console_log("Stopped " + arg1);
 						}
 						else
 						{
 							console_log("Sound " + arg1 + " isn't playing");
 							WC_consoleopen = true;
 						}
-			        }
-			        else
+					}
+					else
 					{
 						WC_consoleopen = true;
-			            console_log("Sound " + arg1 + " doesn't exist. Check for typos");
+						console_log("Sound " + arg1 + " doesn't exist. Check for typos");
 					}
-			    }
-			    else
+				}
+				else
 				{
 					WC_consoleopen = true;
-			        console_log("Asset " + arg1 + " doesn't exist. Check for typos");
+					console_log("Asset " + arg1 + " doesn't exist. Check for typos");
 				}
 			}
 			break;
@@ -596,54 +596,54 @@ function scr_wcevaluate(argument0)
 			if is_undefined(arg1)
 			{
 				if !WC_consoleopen
-				    WC_modkp = vk_tab;
+					WC_modkp = vk_tab;
 				else
 					console_log("Current room: " + string(room) + " " + room_get_name(room));
 			}
 			else if string_length(string_digits(arg1)) + string_count("-", arg1) + string_count(".", arg1) == string_length(arg1)
 			{
-			    if room_exists(real(arg1))
-			    {
-			        console_log("Successfully traveled to " + room_get_name(real(arg1)) + " with index: " + arg1);
-			        room_goto(real(arg1));
+				if room_exists(real(arg1))
+				{
+					console_log("Successfully traveled to " + room_get_name(real(arg1)) + " with index: " + arg1);
+					room_goto(real(arg1));
 					
 					// pt exclusive
 					if is_undefined(arg2) with obj_player
-				        targetDoor = "none";
+						targetDoor = "none";
 					else with obj_player
 						targetDoor = arg2;
-			    }
-			    else
+				}
+				else
 				{
 					WC_consoleopen = true;
-			        console_log("Room index out of range");
+					console_log("Room index out of range");
 				}
 			}
 			else
 			{
-			    temproom = asset_get_index(arg1);
+				temproom = asset_get_index(arg1);
 			
-			    if temproom == -1
+				if temproom == -1
 				{
 					WC_consoleopen = true;
-			        console_log("The room " + arg1 + " doesn't exist. Check for typos");
+					console_log("The room " + arg1 + " doesn't exist. Check for typos");
 				}
-			    else if asset_get_type(arg1) != asset_room
+				else if asset_get_type(arg1) != asset_room
 				{
 					WC_consoleopen = true;
-			        console_log("The asset " + arg1 + " isn't a room");
+					console_log("The asset " + arg1 + " isn't a room");
 				}
-			    else
-			    {
-			        console_log("Successfully traveled to " + arg1 + " with index: " + string(temproom));
-			        room_goto(temproom);
+				else
+				{
+					console_log("Successfully traveled to " + arg1 + " with index: " + string(temproom));
+					room_goto(temproom);
 						
-			        // pt exclusive
+					// pt exclusive
 					if is_undefined(arg2) with obj_player
-				        targetDoor = "none";
+						targetDoor = "none";
 					else with obj_player
 						targetDoor = arg2;
-			    }
+				}
 			}
 			break;
 			
@@ -731,48 +731,48 @@ function scr_wcevaluate(argument0)
 				else
 					WC_tempobj = asset_get_index(arg1);
 				
-			    if WC_tempobj == -1 or !object_exists(WC_tempobj)
-			    {
-			        console_log("Asset " + arg1 + " doesn't exist. Check for typos");
+				if WC_tempobj == -1 or !object_exists(WC_tempobj)
+				{
+					console_log("Asset " + arg1 + " doesn't exist. Check for typos");
 					WC_consoleopen = true;
-			    }
+				}
 				else if asset_get_type(arg1) != asset_object && !__isindex
-			    {
-			        console_log("The asset " + arg1 + " isn't an object");
+				{
+					console_log("The asset " + arg1 + " isn't an object");
 					WC_consoleopen = true;
-			    }
+				}
 				else
 				{
-				    arg2 = ds_list_find_value(arg, 2);
-				    arg3 = ds_list_find_value(arg, 3);
+					arg2 = ds_list_find_value(arg, 2);
+					arg3 = ds_list_find_value(arg, 3);
 					
-				    if is_undefined(arg2)
-				    {
-				        WC_consoleopen = false;
-				        WC_creatingobj = true;
-				    }
-				    else if is_undefined(arg3)
+					if is_undefined(arg2)
+					{
+						WC_consoleopen = false;
+						WC_creatingobj = true;
+					}
+					else if is_undefined(arg3)
 					{
 						WC_consoleopen = true;
-				        console_log("Usage: object OBJECT X Y");
+						console_log("Usage: object OBJECT X Y");
 					}
-				    else if string_length(string_digits(arg2)) + string_count("-", arg2) + string_count(".", arg2) == string_length(arg2)
-				    {
-				        if string_length(string_digits(arg3)) + string_count("-", arg3) + string_count(".", arg3) == string_length(arg3)
-				        {
-				            var __objname = object_get_name(instance_create(real(arg2), real(arg3), WC_tempobj).object_index);
-				            console_log("Successfully created object " + __objname + " at x" + arg2 + " y" + arg3);
-				        }
-				        else
+					else if string_length(string_digits(arg2)) + string_count("-", arg2) + string_count(".", arg2) == string_length(arg2)
+					{
+						if string_length(string_digits(arg3)) + string_count("-", arg3) + string_count(".", arg3) == string_length(arg3)
+						{
+							var __objname = object_get_name(instance_create(real(arg2), real(arg3), WC_tempobj).object_index);
+							console_log("Successfully created object " + __objname + " at x" + arg2 + " y" + arg3);
+						}
+						else
 						{
 							WC_consoleopen = true;
-				            console_log("Y parameter must be a number");
+							console_log("Y parameter must be a number");
 						}
-				    }
-				    else
+					}
+					else
 					{
 						WC_consoleopen = true;
-				        console_log("X parameter must be a number");
+						console_log("X parameter must be a number");
 					}
 				}
 			}
@@ -796,9 +796,9 @@ function scr_wcevaluate(argument0)
 		case "setstate": // pt exclusive
 			if instance_exists(obj_player1)
 			{
-			    arg1 = ds_list_find_value(arg, 1);
-			    if is_undefined(arg1)
-			    {
+				arg1 = ds_list_find_value(arg, 1);
+				if is_undefined(arg1)
+				{
 					if !WC_consoleopen
 					{
 						__tempsomething = get_integer("Input player state", obj_player1.state);
@@ -810,12 +810,12 @@ function scr_wcevaluate(argument0)
 					}
 					else
 						console_log("Usage: state NUMBER");
-			    }
-			    else if string_length(string_digits(arg1)) + string_count("-", arg1) + string_count(".", arg1) == string_length(arg1)
-			    {
-			        obj_player1.state = real(arg1);
-			        console_log("Set player 1 state to " + arg1);
-			    }
+				}
+				else if string_length(string_digits(arg1)) + string_count("-", arg1) + string_count(".", arg1) == string_length(arg1)
+				{
+					obj_player1.state = real(arg1);
+					console_log("Set player 1 state to " + arg1);
+				}
 				else if string_startswith(arg1, "states.") && variable_global_exists("states") && is_struct(states)
 				// pt online exclusive
 				{
@@ -823,7 +823,7 @@ function scr_wcevaluate(argument0)
 					if variable_instance_exists(states, stat)
 					{
 						obj_player1.state = variable_instance_get(states, stat);
-				        console_log("Set player 1 state to " + arg1 + " (state " + string(obj_player1.state) + ")");
+						console_log("Set player 1 state to " + arg1 + " (state " + string(obj_player1.state) + ")");
 					}
 					else
 					{
@@ -831,16 +831,16 @@ function scr_wcevaluate(argument0)
 						console_log(arg1 + " doesn't exist. Check for typos");
 					}
 				}
-			    else
+				else
 				{
 					WC_consoleopen = true;
-			        console_log("State parameter must be a number");
+					console_log("State parameter must be a number");
 				}
 			}
 			else
 			{
 				WC_consoleopen = true;
-			    console_log("Player object doesn't exist");
+				console_log("Player object doesn't exist");
 			}
 			break;
 		
@@ -854,17 +854,17 @@ function scr_wcevaluate(argument0)
 					showtext = true;
 					alarm[0] = 100;
 					if other.WC_oobcam
-					    message = "LIMITLESS CAMERA ON";
+						message = "LIMITLESS CAMERA ON";
 					else
-					    message = "LIMITLESS CAMERA OFF";
+						message = "LIMITLESS CAMERA OFF";
 				}
 			}
 			else
 			{
 				if WC_oobcam
-				    console_log("Limitless camera ON");
+					console_log("Limitless camera ON");
 				else
-				    console_log("Limitless camera OFF");
+					console_log("Limitless camera OFF");
 			}
 			break;
 			
@@ -885,16 +885,16 @@ function scr_wcevaluate(argument0)
 			}
 			else
 			{
-			    if is_undefined(tempvar) or is_undefined(tempval)
-			    {
-			        console_log("Usage: variable global VARIABLE VALUE or variable OBJECT FIND VARIABLE VALUE");
+				if is_undefined(tempvar) or is_undefined(tempval)
+				{
+					console_log("Usage: variable global VARIABLE VALUE or variable OBJECT FIND VARIABLE VALUE");
 					WC_consoleopen = true;
-			    }
-			    else if tempobj == "global" // global
-			    {
-			        tempvar = string_replace(tempvar, "global.", "");
-			        tempval = string_replace(commandargs, tempobj + " ", "");
-			        tempval = string_replace(tempval, tempvar + " ", "");
+				}
+				else if tempobj == "global" // global
+				{
+					tempvar = string_replace(tempvar, "global.", "");
+					tempval = string_replace(commandargs, tempobj + " ", "");
+					tempval = string_replace(tempval, tempvar + " ", "");
 				
 					if variable_global_exists(tempvar)
 					&& is_array(variable_global_get(tempvar))
@@ -904,43 +904,43 @@ function scr_wcevaluate(argument0)
 					}
 					else
 					{
-				        if !variable_global_exists(tempvar)
-				            setmsg = "Created ";
+						if !variable_global_exists(tempvar)
+							setmsg = "Created ";
 				
-				        if asset_get_index(tempval) != -1 // asset
-				        {
-				            variable_global_set(tempvar, asset_get_index(tempval));
-				            console_log(setmsg + "global variable global." + string(tempvar) + " to asset " + tempval);
-				        }
-				        else if string_length(string_digits(tempval)) + string_count("-", tempval) + string_count(".", tempval) == string_length(tempval)
+						if asset_get_index(tempval) != -1 // asset
+						{
+							variable_global_set(tempvar, asset_get_index(tempval));
+							console_log(setmsg + "global variable global." + string(tempvar) + " to asset " + tempval);
+						}
+						else if string_length(string_digits(tempval)) + string_count("-", tempval) + string_count(".", tempval) == string_length(tempval)
 						// number
-				        {
-				            variable_global_set(tempvar, real(tempval));
-				            console_log(setmsg + "global variable global." + string(tempvar) + " to number " + tempval);
-				        }
+						{
+							variable_global_set(tempvar, real(tempval));
+							console_log(setmsg + "global variable global." + string(tempvar) + " to number " + tempval);
+						}
 						else if tempval == "undefined" // undefined
 						{
-					        variable_global_set(tempvar, undefined);
-					        console_log(setmsg + "global variable global." + string(tempvar) + " to undefined");
+							variable_global_set(tempvar, undefined);
+							console_log(setmsg + "global variable global." + string(tempvar) + " to undefined");
 						}
-				        else // string
-				        {
+						else // string
+						{
 							tempval = string_replace(tempval, "\\", "");
-				            variable_global_set(tempvar, tempval);
-				            console_log(setmsg + "global variable global." + string(tempvar) + " to string " + tempval);
-				        }
+							variable_global_set(tempvar, tempval);
+							console_log(setmsg + "global variable global." + string(tempvar) + " to string " + tempval);
+						}
 				
 						// set variable if frozen
-				        for (i = 0; i < array_length(WC_frozenobj); i++)
-				        {
-				            if "__WC_GLOBAL__" + tempvar == WC_frozenvar[i]
-				                WC_frozenval[i] = variable_global_get(tempvar);
-				        }
+						for (i = 0; i < array_length(WC_frozenobj); i++)
+						{
+							if "__WC_GLOBAL__" + tempvar == WC_frozenvar[i]
+								WC_frozenval[i] = variable_global_get(tempvar);
+						}
 					}
-			    }
-			    else
-			    {
-			        temp_objfind = ds_list_find_value(arg, 2);
+				}
+				else
+				{
+					temp_objfind = ds_list_find_value(arg, 2);
 						
 					if string_length(string_digits(temp_objfind)) + string_count("-", temp_objfind) + string_count(".", temp_objfind) != string_length(temp_objfind)
 					&& string_lower(temp_objfind) != "all"
@@ -948,15 +948,15 @@ function scr_wcevaluate(argument0)
 						console_log("FIND parameter must be a number");
 						WC_consoleopen = true;
 					}
-			        else if is_undefined(temp_objfind)
-			        {
-			            console_log("Usage: variable OBJECT FIND VARIABLE VALUE");
+					else if is_undefined(temp_objfind)
+					{
+						console_log("Usage: variable OBJECT FIND VARIABLE VALUE");
 						WC_consoleopen = true;
-			        }
+					}
 					else
 					{
-				        tempvar = ds_list_find_value(arg, 3);
-				        tempval = ds_list_find_value(arg, 4);
+						tempvar = ds_list_find_value(arg, 3);
+						tempval = ds_list_find_value(arg, 4);
 					
 						if is_undefined(tempval)
 						{
@@ -965,34 +965,34 @@ function scr_wcevaluate(argument0)
 						}
 						else
 						{
-					        tempval = string_replace(commandargs, tempobj + " ", "");
-					        tempval = string_replace(tempval, temp_objfind + " ", "");
-					        tempval = string_replace(tempval, tempvar + " ", "");
+							tempval = string_replace(commandargs, tempobj + " ", "");
+							tempval = string_replace(tempval, temp_objfind + " ", "");
+							tempval = string_replace(tempval, tempvar + " ", "");
 						
 							if string_lower(temp_objfind) == "all"
 								temp_objfind = all;
 						
-					        __tempsomething = asset_get_index(tempobj);
-					        if __tempsomething == -1
-					        {
-					            console_log("Asset " + tempobj + " doesn't exist. Check for typos");
+							__tempsomething = asset_get_index(tempobj);
+							if __tempsomething == -1
+							{
+								console_log("Asset " + tempobj + " doesn't exist. Check for typos");
 								WC_consoleopen = true;
-					        }
-					        else if asset_get_type(tempobj) != asset_object
-					        {
-					            console_log("The asset " + tempobj + " isn't an object");
+							}
+							else if asset_get_type(tempobj) != asset_object
+							{
+								console_log("The asset " + tempobj + " isn't an object");
 								WC_consoleopen = true;
-					        }
+							}
 							else
 							{
 								if temp_objfind != all
 									__tempsomething = instance_find(__tempsomething, real(temp_objfind));
 							
-						        if !instance_exists(__tempsomething)
-						        {
-						            console_log("Instance " + tempobj + " doesn't exist in room");
+								if !instance_exists(__tempsomething)
+								{
+									console_log("Instance " + tempobj + " doesn't exist in room");
 									WC_consoleopen = true;
-						        }
+								}
 								else if variable_instance_exists(__tempsomething, tempvar) && is_array(variable_instance_get(__tempsomething, tempvar))
 								&& temp_objfind != all
 								{
@@ -1005,80 +1005,80 @@ function scr_wcevaluate(argument0)
 									{
 										with __tempsomething
 										{
-									        if !variable_instance_exists(self, tempvar)
-									            setmsg = "Created ";
+											if !variable_instance_exists(self, tempvar)
+												setmsg = "Created ";
 										
-									        if asset_get_index(tempval) != -1 // asset
-									        {
-									            variable_instance_set(self, tempvar, asset_get_index(tempval))
-									            ds_list_insert(other.WC_consolelist, 0, setmsg + "variable " + string(tempvar) + " to asset " + tempval + " in " + tempobj);
-									        }
-									        else if string_length(string_digits(tempval)) + string_count("-", tempval) + string_count(".", tempval) == string_length(tempval)
-									        // number
+											if asset_get_index(tempval) != -1 // asset
 											{
-									            variable_instance_set(self, tempvar, real(tempval));	
-									            ds_list_insert(other.WC_consolelist, 0, setmsg + "variable " + string(tempvar) + " to number " + tempval + " in " + tempobj);
-									        }
+												variable_instance_set(self, tempvar, asset_get_index(tempval))
+												ds_list_insert(other.WC_consolelist, 0, setmsg + "variable " + string(tempvar) + " to asset " + tempval + " in " + tempobj);
+											}
+											else if string_length(string_digits(tempval)) + string_count("-", tempval) + string_count(".", tempval) == string_length(tempval)
+											// number
+											{
+												variable_instance_set(self, tempvar, real(tempval));	
+												ds_list_insert(other.WC_consolelist, 0, setmsg + "variable " + string(tempvar) + " to number " + tempval + " in " + tempobj);
+											}
 											else if tempval == "undefined" // undefined
 											{
-										        variable_instance_set(self, tempvar, undefined);
-										        ds_list_insert(other.WC_consolelist, 0, setmsg + "variable " + string(tempvar) + " to undefined");
+												variable_instance_set(self, tempvar, undefined);
+												ds_list_insert(other.WC_consolelist, 0, setmsg + "variable " + string(tempvar) + " to undefined");
 											}
-									        else // string
-									        {
+											else // string
+											{
 												tempval = string_replace(tempval, "\\", "");
-									            variable_instance_set(self, tempvar, tempval);
-									            ds_list_insert(other.WC_consolelist, 0, setmsg + "variable " + string(tempvar) + " to string " + tempval + " in " + tempobj);
-									        }
+												variable_instance_set(self, tempvar, tempval);
+												ds_list_insert(other.WC_consolelist, 0, setmsg + "variable " + string(tempvar) + " to string " + tempval + " in " + tempobj);
+											}
 							
 											// set variable if frozen
-									        for (i = 0; i < array_length(other.WC_frozenobj); i++)
-									        {
-									            if self == other.WC_frozenobj[i] && tempvar == other.WC_frozenvar[i]
-									                other.WC_frozenval[i] = variable_instance_get(self, tempvar);
-									        }
+											for (i = 0; i < array_length(other.WC_frozenobj); i++)
+											{
+												if self == other.WC_frozenobj[i] && tempvar == other.WC_frozenvar[i]
+													other.WC_frozenval[i] = variable_instance_get(self, tempvar);
+											}
 										}
 									}
 									else
 									{
-								        if !variable_instance_exists(__tempsomething, tempvar)
-								            setmsg = "Created ";
+										if !variable_instance_exists(__tempsomething, tempvar)
+											setmsg = "Created ";
 								
-								        if asset_get_index(tempval) != -1 // asset
-								        {
-								            variable_instance_set(__tempsomething, tempvar, asset_get_index(tempval))
-								            console_log(setmsg + "variable " + string(tempvar) + " to asset " + tempval + " in " + tempobj);
-								        }
-								        else if string_length(string_digits(tempval)) + string_count("-", tempval) + string_count(".", tempval) == string_length(tempval)
-								        // number
+										if asset_get_index(tempval) != -1 // asset
 										{
-								            variable_instance_set(__tempsomething, tempvar, real(tempval));	
-								            console_log(setmsg + "variable " + string(tempvar) + " to number " + tempval + " in " + tempobj);
-								        }
+											variable_instance_set(__tempsomething, tempvar, asset_get_index(tempval))
+											console_log(setmsg + "variable " + string(tempvar) + " to asset " + tempval + " in " + tempobj);
+										}
+										else if string_length(string_digits(tempval)) + string_count("-", tempval) + string_count(".", tempval) == string_length(tempval)
+										// number
+										{
+											variable_instance_set(__tempsomething, tempvar, real(tempval));	
+											console_log(setmsg + "variable " + string(tempvar) + " to number " + tempval + " in " + tempobj);
+										}
 										else if tempval == "undefined" // undefined
 										{
-									        variable_instance_set(__tempsomething, tempvar, undefined);
-									        console_log(setmsg + "variable " + string(tempvar) + " to undefined");
+											variable_instance_set(__tempsomething, tempvar, undefined);
+											console_log(setmsg + "variable " + string(tempvar) + " to undefined");
 										}
-								        else // string
-								        {
+										else // string
+										{
 											tempval = string_replace(tempval, "\\", "");
-								            variable_instance_set(__tempsomething, tempvar, tempval);
-								            console_log(setmsg + "variable " + string(tempvar) + " to string " + tempval + " in " + tempobj);
-								        }
+											variable_instance_set(__tempsomething, tempvar, tempval);
+											console_log(setmsg + "variable " + string(tempvar) + " to string " + tempval + " in " + tempobj);
+										}
 							
 										// set variable if frozen
-								        for (i = 0; i < array_length(WC_frozenobj); i++)
-								        {
-								            if __tempsomething == WC_frozenobj[i] && tempvar == WC_frozenvar[i]
-								                WC_frozenval[i] = variable_instance_get(__tempsomething, tempvar);
-								        }
+										for (i = 0; i < array_length(WC_frozenobj); i++)
+										{
+											if __tempsomething == WC_frozenobj[i] && tempvar == WC_frozenvar[i]
+												WC_frozenval[i] = variable_instance_get(__tempsomething, tempvar);
+										}
 									}
 								}
 							}
 						}
 					}
-			    }
+				}
 			}
 			break;
 	
@@ -1099,13 +1099,13 @@ function scr_wcevaluate(argument0)
 			}
 			else
 			{
-			    if is_undefined(tempvar) or is_undefined(tempval) or is_undefined(tempind)
-			    {
-			        console_log("Usage: array global VARIABLE INDEX VALUE or variable OBJECT FIND VARIABLE INDEX VALUE");
+				if is_undefined(tempvar) or is_undefined(tempval) or is_undefined(tempind)
+				{
+					console_log("Usage: array global VARIABLE INDEX VALUE or variable OBJECT FIND VARIABLE INDEX VALUE");
 					WC_consoleopen = true;
-			    }
-			    else if tempobj == "global" // global
-			    {
+				}
+				else if tempobj == "global" // global
+				{
 					if string_digits(tempind) != tempind
 					{
 						console_log("Index parameter must be a number");
@@ -1113,9 +1113,9 @@ function scr_wcevaluate(argument0)
 					}
 					else
 					{
-				        tempvar = string_replace(tempvar, "global.", "");
-				        tempval = string_replace(commandargs, tempobj + " ", "");
-				        tempval = string_replace(tempval, tempvar + " ", "");
+						tempvar = string_replace(tempvar, "global.", "");
+						tempval = string_replace(commandargs, tempobj + " ", "");
+						tempval = string_replace(tempval, tempvar + " ", "");
 						tempval = string_replace(tempval, tempind + " ", "");
 						tempind = real(tempind);
 						
@@ -1127,53 +1127,53 @@ function scr_wcevaluate(argument0)
 						}
 						else
 						{
-					        if !variable_global_exists(tempvar)
-					            setmsg = "Created ";
+							if !variable_global_exists(tempvar)
+								setmsg = "Created ";
 							else
 								temparray = variable_global_get(tempvar);
 						
-					        if asset_get_index(tempval) != -1 // asset
-					        {
+							if asset_get_index(tempval) != -1 // asset
+							{
 								temparray[tempind] = asset_get_index(tempval);
 							
-					            variable_global_set(tempvar, temparray);
-					            console_log(setmsg + "global array global." + string(tempvar) + "[" + string(tempind) + "] to asset " + tempval);
-					        }
-					        else if string_length(string_digits(tempval)) + string_count("-", tempval) + string_count(".", tempval) == string_length(tempval)
+								variable_global_set(tempvar, temparray);
+								console_log(setmsg + "global array global." + string(tempvar) + "[" + string(tempind) + "] to asset " + tempval);
+							}
+							else if string_length(string_digits(tempval)) + string_count("-", tempval) + string_count(".", tempval) == string_length(tempval)
 							// number
-					        {
+							{
 								temparray[tempind] = real(tempval);
 							
-					            variable_global_set(tempvar, temparray);
-					            console_log(setmsg + "global array global." + string(tempvar) + "[" + string(tempind) + "] to number " + tempval);
-					        }
+								variable_global_set(tempvar, temparray);
+								console_log(setmsg + "global array global." + string(tempvar) + "[" + string(tempind) + "] to number " + tempval);
+							}
 							else if tempval == "undefined" // undefined
 							{
 								temparray[tempind] = undefined;
 							
-						        variable_global_set(tempvar, temparray);
-						        console_log(setmsg + "global array global." + string(tempvar) + "[" + string(tempind) + "] to undefined");
+								variable_global_set(tempvar, temparray);
+								console_log(setmsg + "global array global." + string(tempvar) + "[" + string(tempind) + "] to undefined");
 							}
-					        else // string
-					        {
+							else // string
+							{
 								temparray[tempind] = string_replace(tempval, "\\", "");
 							
-					            variable_global_set(tempvar, temparray);
-					            console_log(setmsg + "global array global." + string(tempvar) + "[" + string(tempind) + "] to string " + temparray[tempind]);
-					        }
+								variable_global_set(tempvar, temparray);
+								console_log(setmsg + "global array global." + string(tempvar) + "[" + string(tempind) + "] to string " + temparray[tempind]);
+							}
 				
 							// set variable if frozen
-					        for (i = 0; i < array_length(WC_frozenobj); i++)
-					        {
-					            if "__WC_GLOBAL__" + tempvar == WC_frozenvar[i]
-					                WC_frozenval[i] = variable_global_get(tempvar);
-					        }
+							for (i = 0; i < array_length(WC_frozenobj); i++)
+							{
+								if "__WC_GLOBAL__" + tempvar == WC_frozenvar[i]
+									WC_frozenval[i] = variable_global_get(tempvar);
+							}
 						}
 					}
-			    }
-			    else
-			    {
-			        temp_objfind = ds_list_find_value(arg, 2);
+				}
+				else
+				{
+					temp_objfind = ds_list_find_value(arg, 2);
 						
 					if string_length(string_digits(temp_objfind)) + string_count("-", temp_objfind) + string_count(".", temp_objfind) != string_length(temp_objfind)
 					&& string_lower(temp_objfind) != "all"
@@ -1181,16 +1181,16 @@ function scr_wcevaluate(argument0)
 						console_log("FIND parameter must be a number");
 						WC_consoleopen = true;
 					}
-			        else if is_undefined(temp_objfind)
-			        {
-			            console_log("Usage: array OBJECT FIND VARIABLE INDEX VALUE");
+					else if is_undefined(temp_objfind)
+					{
+						console_log("Usage: array OBJECT FIND VARIABLE INDEX VALUE");
 						WC_consoleopen = true;
-			        }
+					}
 					else
 					{
-				        tempvar = ds_list_find_value(arg, 3);
-				        tempind = ds_list_find_value(arg, 4);
-				        tempval = ds_list_find_value(arg, 5);
+						tempvar = ds_list_find_value(arg, 3);
+						tempind = ds_list_find_value(arg, 4);
+						tempval = ds_list_find_value(arg, 5);
 						
 						if is_undefined(tempval)
 						{
@@ -1204,36 +1204,36 @@ function scr_wcevaluate(argument0)
 						}
 						else
 						{
-					        tempval = string_replace(commandargs, tempobj + " ", "");
-					        tempval = string_replace(tempval, temp_objfind + " ", "");
-					        tempval = string_replace(tempval, tempvar + " ", "");
-					        tempval = string_replace(tempval, tempind + " ", "");
+							tempval = string_replace(commandargs, tempobj + " ", "");
+							tempval = string_replace(tempval, temp_objfind + " ", "");
+							tempval = string_replace(tempval, tempvar + " ", "");
+							tempval = string_replace(tempval, tempind + " ", "");
 							tempind = real(tempind);
 						
 							if string_lower(temp_objfind) == "all"
 								temp_objfind = all;
 						
-					        __tempsomething = asset_get_index(tempobj);
-					        if __tempsomething == -1
-					        {
-					            console_log("Asset " + tempobj + " doesn't exist. Check for typos");
+							__tempsomething = asset_get_index(tempobj);
+							if __tempsomething == -1
+							{
+								console_log("Asset " + tempobj + " doesn't exist. Check for typos");
 								WC_consoleopen = true;
-					        }
-					        else if asset_get_type(tempobj) != asset_object
-					        {
-					            console_log("The asset " + tempobj + " isn't an object");
+							}
+							else if asset_get_type(tempobj) != asset_object
+							{
+								console_log("The asset " + tempobj + " isn't an object");
 								WC_consoleopen = true;
-					        }
+							}
 							else
 							{
 								if temp_objfind != all
 									__tempsomething = instance_find(__tempsomething, real(temp_objfind));
 							
-						        if !instance_exists(__tempsomething)
-						        {
-						            console_log("Instance " + tempobj + " doesn't exist in room");
+								if !instance_exists(__tempsomething)
+								{
+									console_log("Instance " + tempobj + " doesn't exist in room");
 									WC_consoleopen = true;
-						        }
+								}
 								else if variable_instance_exists(__tempsomething, tempvar) && !is_array(variable_instance_get(__tempsomething, tempvar))
 								&& temp_objfind != all
 								{
@@ -1246,98 +1246,98 @@ function scr_wcevaluate(argument0)
 									{
 										with __tempsomething
 										{
-									        if !variable_instance_exists(self, tempvar)
-									            setmsg = "Created ";
+											if !variable_instance_exists(self, tempvar)
+												setmsg = "Created ";
 											else
 												temparray = variable_instance_get(self, tempvar);
 											
-									        if asset_get_index(tempval) != -1 // asset
-									        {
+											if asset_get_index(tempval) != -1 // asset
+											{
 												temparray[tempind] = asset_get_index(tempval);
 												
-									            variable_instance_set(self, tempvar, temparray);
-									            ds_list_insert(other.WC_consolelist, 0, setmsg + "array " + string(tempvar) + " to asset " + tempval + " in " + tempobj);
-									        }
-									        else if string_length(string_digits(tempval)) + string_count("-", tempval) + string_count(".", tempval) == string_length(tempval)
-									        // number
+												variable_instance_set(self, tempvar, temparray);
+												ds_list_insert(other.WC_consolelist, 0, setmsg + "array " + string(tempvar) + " to asset " + tempval + " in " + tempobj);
+											}
+											else if string_length(string_digits(tempval)) + string_count("-", tempval) + string_count(".", tempval) == string_length(tempval)
+											// number
 											{
 												temparray[tempind] = real(tempval);
 												
-									            variable_instance_set(self, tempvar, temparray);	
-									            ds_list_insert(other.WC_consolelist, 0, setmsg + "array " + string(tempvar) + " to number " + tempval + " in " + tempobj);
-									        }
+												variable_instance_set(self, tempvar, temparray);	
+												ds_list_insert(other.WC_consolelist, 0, setmsg + "array " + string(tempvar) + " to number " + tempval + " in " + tempobj);
+											}
 											else if tempval == "undefined" // undefined
 											{
 												temparray[tempind] = undefined;
 												
-										        variable_instance_set(self, tempvar, temparray);
-										        ds_list_insert(other.WC_consolelist, 0, setmsg + "array " + string(tempvar) + " to undefined");
+												variable_instance_set(self, tempvar, temparray);
+												ds_list_insert(other.WC_consolelist, 0, setmsg + "array " + string(tempvar) + " to undefined");
 											}
-									        else // string
-									        {
+											else // string
+											{
 												temparray[tempind] = string_replace(tempval, "\\", "");
 												
-									            variable_instance_set(self, tempvar, temparray);
-									            ds_list_insert(other.WC_consolelist, 0, setmsg + "array " + string(tempvar) + " to string " + temparray[tempind] + " in " + tempobj);
-									        }
+												variable_instance_set(self, tempvar, temparray);
+												ds_list_insert(other.WC_consolelist, 0, setmsg + "array " + string(tempvar) + " to string " + temparray[tempind] + " in " + tempobj);
+											}
 							
 											// set variable if frozen
-									        for (i = 0; i < array_length(other.WC_frozenobj); i++)
-									        {
-									            if self == other.WC_frozenobj[i] && tempvar == other.WC_frozenvar[i]
-									                other.WC_frozenval[i] = variable_instance_get(self, tempvar);
-									        }
+											for (i = 0; i < array_length(other.WC_frozenobj); i++)
+											{
+												if self == other.WC_frozenobj[i] && tempvar == other.WC_frozenvar[i]
+													other.WC_frozenval[i] = variable_instance_get(self, tempvar);
+											}
 										}
 									}
 									else
 									{
-								        if !variable_instance_exists(__tempsomething, tempvar)
-									        setmsg = "Created ";
+										if !variable_instance_exists(__tempsomething, tempvar)
+											setmsg = "Created ";
 										else
 											temparray = variable_instance_get(__tempsomething, tempvar);
 											
-									    if asset_get_index(tempval) != -1 // asset
-									    {
+										if asset_get_index(tempval) != -1 // asset
+										{
 											temparray[tempind] = asset_get_index(tempval);
 												
-									        variable_instance_set(__tempsomething, tempvar, temparray);
-									        ds_list_insert(other.WC_consolelist, 0, setmsg + "array " + string(tempvar) + " to asset " + tempval + " in " + tempobj);
-									    }
-									    else if string_length(string_digits(tempval)) + string_count("-", tempval) + string_count(".", tempval) == string_length(tempval)
-									    // number
+											variable_instance_set(__tempsomething, tempvar, temparray);
+											ds_list_insert(other.WC_consolelist, 0, setmsg + "array " + string(tempvar) + " to asset " + tempval + " in " + tempobj);
+										}
+										else if string_length(string_digits(tempval)) + string_count("-", tempval) + string_count(".", tempval) == string_length(tempval)
+										// number
 										{
 											temparray[tempind] = real(tempval);
 												
-									        variable_instance_set(__tempsomething, tempvar, temparray);	
-									        ds_list_insert(other.WC_consolelist, 0, setmsg + "array " + string(tempvar) + " to number " + tempval + " in " + tempobj);
-									    }
+											variable_instance_set(__tempsomething, tempvar, temparray);	
+											ds_list_insert(other.WC_consolelist, 0, setmsg + "array " + string(tempvar) + " to number " + tempval + " in " + tempobj);
+										}
 										else if tempval == "undefined" // undefined
 										{
 											temparray[tempind] = undefined;
 												
-										    variable_instance_set(__tempsomething, tempvar, temparray);
-										    ds_list_insert(other.WC_consolelist, 0, setmsg + "array " + string(tempvar) + " to undefined");
+											variable_instance_set(__tempsomething, tempvar, temparray);
+											ds_list_insert(other.WC_consolelist, 0, setmsg + "array " + string(tempvar) + " to undefined");
 										}
-									    else // string
-									    {
+										else // string
+										{
 											temparray[tempind] = string_replace(tempval, "\\", "");
 												
-									        variable_instance_set(__tempsomething, tempvar, temparray);
-									        ds_list_insert(other.WC_consolelist, 0, setmsg + "array " + string(tempvar) + " to string " + temparray[tempind] + " in " + tempobj);
-									    }
+											variable_instance_set(__tempsomething, tempvar, temparray);
+											ds_list_insert(other.WC_consolelist, 0, setmsg + "array " + string(tempvar) + " to string " + temparray[tempind] + " in " + tempobj);
+										}
 							
 										// set variable if frozen
-									    for (i = 0; i < array_length(other.WC_frozenobj); i++)
-									    {
-									        if __tempsomething == other.WC_frozenobj[i] && tempvar == other.WC_frozenvar[i]
-									            other.WC_frozenval[i] = variable_instance_get(__tempsomething, tempvar);
-									    }
+										for (i = 0; i < array_length(other.WC_frozenobj); i++)
+										{
+											if __tempsomething == other.WC_frozenobj[i] && tempvar == other.WC_frozenvar[i]
+												other.WC_frozenval[i] = variable_instance_get(__tempsomething, tempvar);
+										}
 									}
 								}
 							}
 						}
 					}
-			    }
+				}
 			}
 			break;
 		
@@ -1350,12 +1350,7 @@ function scr_wcevaluate(argument0)
 				with obj_camera
 					alarm[1] = -1;
 				instance_destroy(obj_itspizzatime);
-				audio_resume_all();
-				audio_stop_sound(global.music);
 				global.panic = false;
-						
-				with obj_music
-					event_perform(ev_other, ev_room_start);
 			}
 			else
 			{
@@ -1371,45 +1366,45 @@ function scr_wcevaluate(argument0)
 			arg1 = ds_list_find_value(arg, 1);
 			if is_undefined(arg1)
 			{
-			    if WC_consoleopen
-			    {
-			        if global.panic
+				if WC_consoleopen
+				{
+					if global.panic
 						console_log("Toggled Pizza Time ON with default timer");
-			        else
-			            console_log("Toggled Pizza Time OFF");
-			    }
+					else
+						console_log("Toggled Pizza Time OFF");
+				}
 			}
 			else
 			{
-			    arg2 = ds_list_find_value(arg, 2);
-			    if is_undefined(arg2)
-			        arg2 = "0";
+				arg2 = ds_list_find_value(arg, 2);
+				if is_undefined(arg2)
+					arg2 = "0";
 					
-			    if string_length(string_digits(arg1)) + string_count("-", arg1) + string_count(".", arg1) == string_length(arg1)
-			    {
-			        if string_length(string_digits(arg2)) + string_count("-", arg2) + string_count(".", arg2) == string_length(arg2)
-			        {
-			            global.minutes = real(arg1);
-			            global.seconds = real(arg2);
+				if string_length(string_digits(arg1)) + string_count("-", arg1) + string_count(".", arg1) == string_length(arg1)
+				{
+					if string_length(string_digits(arg2)) + string_count("-", arg2) + string_count(".", arg2) == string_length(arg2)
+					{
+						global.minutes = real(arg1);
+						global.seconds = real(arg2);
 					
-			            if WC_consoleopen
-			            {
-			                if global.panic
+						if WC_consoleopen
+						{
+							if global.panic
 								console_log("Toggled Pizza Time ON with timer " + arg1 + ":" + arg2);
-			                else
-			                    console_log("Toggled Pizza Time OFF");
-			            }
-			        }
-			        else
+							else
+								console_log("Toggled Pizza Time OFF");
+						}
+					}
+					else
 					{
 						WC_consoleopen = true;
-			            console_log("Seconds parameter must be a number");
+						console_log("Seconds parameter must be a number");
 					}
-			    }
-			    else
+				}
+				else
 				{
 					WC_consoleopen = true;
-			        console_log("Minutes parameter must be a number");
+					console_log("Minutes parameter must be a number");
 				}
 			}
 			global.maxwave = (global.minutes * 60 + global.seconds) * 60;
@@ -1419,65 +1414,62 @@ function scr_wcevaluate(argument0)
 		case "snickschallenge": // pt exclusive
 			if global.snickchallenge
 			{
-			    obj_camera.alarm[1] = -1;
-				audio_resume_all();
-			    audio_stop_sound(global.music);
-			    global.snickchallenge = false;
-			    with obj_music
-			        event_perform(ev_other, ev_room_start);
-			    console_log("Toggled Snick Challenge OFF");
+				with obj_camera
+					alarm[1] = -1;
+				global.snickchallenge = false;
+				console_log("Toggled Snick Challenge OFF");
 			}
 			else
 			{
-			    global.wave = 0;
-			    global.maxwave = ((global.minutes * 60) + global.seconds) * 60;
+				global.wave = 0;
+				global.maxwave = ((global.minutes * 60) + global.seconds) * 60;
 					
-			    if global.panicbg
-			        scr_panicbg_init();
+				if global.panicbg
+					scr_panicbg_init();
 					
-			    global.snickchallenge = true;
-			    global.collect = 10000;
+				global.snickchallenge = true;
+				global.collect = 10000;
 					
-			    with obj_camera
-			    {
-			        alarm[1] = 60;
-			        global.seconds = 59;
-			        global.minutes = 9;
-			    }
+				with obj_camera
+				{
+					alarm[1] = 60;
+					global.seconds = 59;
+					global.minutes = 9;
+				}
 					
-			    if !instance_exists(obj_snickexe)
-			        instance_create(room_width / 2, -10, obj_snickexe);
+				if !instance_exists(obj_snickexe)
+					instance_create(room_width / 2, -10, obj_snickexe);
 					
-			    arg1 = ds_list_find_value(arg, 1)
+				arg1 = ds_list_find_value(arg, 1)
 				
-			    if is_undefined(arg1)
-			        console_log("Toggled Snick Challenge ON");
-			    else
-			    {
-			        arg2 = ds_list_find_value(arg, 2);
-			        if is_undefined(arg2)
-			            arg2 = "0";
+				if is_undefined(arg1)
+					console_log("Toggled Snick Challenge ON");
+				else
+				{
+					arg2 = ds_list_find_value(arg, 2);
+					if is_undefined(arg2)
+						arg2 = "0";
 						
-			        if string_length(string_digits(arg1)) + string_count("-", arg1) + string_count(".", arg1) == string_length(arg1)
-			        {
-			            if string_length(string_digits(arg2)) + string_count("-", arg2) + string_count(".", arg2) == string_length(arg2)
-			            {
-			                global.minutes = real(arg1);
-			                global.seconds = real(arg2);
-			                console_log("Toggled Snick Challenge ON with timer " + arg1 + ":" + arg2);
-			            }
-			            else
+					if string_length(string_digits(arg1)) + string_count("-", arg1) + string_count(".", arg1) == string_length(arg1)
+					{
+						if string_length(string_digits(arg2)) + string_count("-", arg2) + string_count(".", arg2) == string_length(arg2)
+						{
+							global.minutes = real(arg1);
+							global.seconds = real(arg2);
+							console_log("Toggled Snick Challenge ON with timer " + arg1 + ":" + arg2);
+						}
+						else
 						{
 							WC_consoleopen = true;
-			                console_log("Seconds parameter must be a number");
+							console_log("Seconds parameter must be a number");
 						}
-			        }
-			        else
+					}
+					else
 					{
 						WC_consoleopen = true;
-			            console_log("Minutes parameter must be a number");
+						console_log("Minutes parameter must be a number");
 					}
-			    }
+				}
 			}
 			global.maxwave = (global.minutes * 60 + global.seconds) * 60;
 			break
@@ -1497,38 +1489,38 @@ function scr_wcevaluate(argument0)
 			else
 			{
 				// variable parameter left out
-			    if is_undefined(tempvar)
-			    {
-			        console_log("Usage: freeze global VARIABLE or freeze OBJECT FIND VARIABLE");
+				if is_undefined(tempvar)
+				{
+					console_log("Usage: freeze global VARIABLE or freeze OBJECT FIND VARIABLE");
 					WC_consoleopen = true;
-			    }
+				}
 			
 				// global
 				else if tempobj == "global"
-			    {
-			        tempvar = string_replace(tempvar, "global.", "");
-			        if variable_global_exists(tempvar)
-			        {
+				{
+					tempvar = string_replace(tempvar, "global.", "");
+					if variable_global_exists(tempvar)
+					{
 						__tempsomething = false;
-			            frz = array_length_1d(WC_frozenobj);
-			            for (i = 0; i < frz; i++)
-			            {
+						frz = array_length_1d(WC_frozenobj);
+						for (i = 0; i < frz; i++)
+						{
 							// unfreeze variable
-			                if "__WC_GLOBAL__" + tempvar == WC_frozenvar[i]
-			                {
-			                    WC_frozenobj[i] = noone;
-			                    WC_frozenvar[i] = undefined;
-			                    WC_frozenval[i] = undefined;
-			                    WC_consoleenter = "";
+							if "__WC_GLOBAL__" + tempvar == WC_frozenvar[i]
+							{
+								WC_frozenobj[i] = noone;
+								WC_frozenvar[i] = undefined;
+								WC_frozenval[i] = undefined;
+								WC_consoleenter = "";
 								
-			                    console_log("UNFROZEN global." + tempvar);
-			                    __tempsomething = true;
-			                }
-			            }
+								console_log("UNFROZEN global." + tempvar);
+								__tempsomething = true;
+							}
+						}
 						if !__tempsomething
 						{
 							for (i = 0; i < frz; i++)
-				            {
+							{
 								// find undefined slot to replace
 								if WC_frozenvar[i] == undefined
 								{
@@ -1537,25 +1529,25 @@ function scr_wcevaluate(argument0)
 								}
 							}
 						
-				            WC_frozenobj[frz] = noone;
-				            WC_frozenvar[frz] = "__WC_GLOBAL__" + tempvar;
-				            WC_frozenval[frz] = variable_global_get(tempvar);
-				            console_log("Frozen global." + tempvar + " to value of " + string(WC_frozenval[frz]));
+							WC_frozenobj[frz] = noone;
+							WC_frozenvar[frz] = "__WC_GLOBAL__" + tempvar;
+							WC_frozenval[frz] = variable_global_get(tempvar);
+							console_log("Frozen global." + tempvar + " to value of " + string(WC_frozenval[frz]));
 						}
 					}
 				
 					// variable doesn't exist
-			        else
+					else
 					{
 						WC_consoleopen = true;
-			            console_log("Global variable global." + tempvar + " doesn't exist. Check for typos");
+						console_log("Global variable global." + tempvar + " doesn't exist. Check for typos");
 					}
 				}
 				
 				// object
-			    else
-			    {
-			        temp_objfind = ds_list_find_value(arg, 2);
+				else
+				{
+					temp_objfind = ds_list_find_value(arg, 2);
 						
 					if string_length(string_digits(temp_objfind)) + string_count("-", temp_objfind) + string_count(".", temp_objfind) != string_length(temp_objfind)
 					&& string_lower(temp_objfind) != "all"
@@ -1563,67 +1555,67 @@ function scr_wcevaluate(argument0)
 						console_log("FIND parameter must be a number");
 						WC_consoleopen = true;
 					}
-			        else if is_undefined(temp_objfind)
-			        {
-			            console_log("Usage: freeze OBJECT FIND VARIABLE");
+					else if is_undefined(temp_objfind)
+					{
+						console_log("Usage: freeze OBJECT FIND VARIABLE");
 						WC_consoleopen = true;
-			        }
+					}
 					else
 					{
-				        tempvar = ds_list_find_value(arg, 3);
-				        tempvar = string_replace(tempvar, "global.", "");
-				        WC_tempobj = asset_get_index(tempobj);
+						tempvar = ds_list_find_value(arg, 3);
+						tempvar = string_replace(tempvar, "global.", "");
+						WC_tempobj = asset_get_index(tempobj);
 					
 						if string_lower(temp_objfind) == "all"
 							temp_objfind = all;
 					
-				        if is_undefined(tempvar)
-				        {
-				            console_log("Usage: freeze OBJECT FIND VARIABLE");
+						if is_undefined(tempvar)
+						{
+							console_log("Usage: freeze OBJECT FIND VARIABLE");
 							WC_consoleopen = true;
-				        }
-				        else if WC_tempobj == -1
-				        {
-				            console_log("Asset " + tempobj + " doesn't exist. Check for typos");
+						}
+						else if WC_tempobj == -1
+						{
+							console_log("Asset " + tempobj + " doesn't exist. Check for typos");
 							WC_consoleopen = true;
-				        }
-				        else if asset_get_type(tempobj) != asset_object
-				        {
-				            console_log("The asset " + tempobj + " isn't an object");
+						}
+						else if asset_get_type(tempobj) != asset_object
+						{
+							console_log("The asset " + tempobj + " isn't an object");
 							WC_consoleopen = true;
-				        }
+						}
 						else
 						{
 							if temp_objfind != all
 								WC_tempobj = instance_find(WC_tempobj, real(temp_objfind));
 						
-					        if !instance_exists(WC_tempobj)
-					        {
-					            console_log("Instance " + tempobj + " doesn't exist in room");
+							if !instance_exists(WC_tempobj)
+							{
+								console_log("Instance " + tempobj + " doesn't exist in room");
 								WC_consoleopen = true;
-					        }
-					        else
+							}
+							else
 							{
 								if temp_objfind == all
 								{
 									with WC_tempobj
 									{
 										if variable_instance_exists(self, tempvar)
-								        {
-								            frz = array_length_1d(other.WC_frozenobj);
+										{
+											frz = array_length_1d(other.WC_frozenobj);
 											__tempsomething = false;
-								            for (i = 0; i < frz; i++)
-								            {
+											for (i = 0; i < frz; i++)
+											{
 												// unfreeze variable
-								                if self == other.WC_frozenobj[i] && tempvar == other.WC_frozenvar[i]
-								                {
-								                    other.WC_frozenobj[i] = noone;
-								                    other.WC_frozenvar[i] = undefined;
-								                    other.WC_frozenval[i] = undefined;
-								                    ds_list_insert(other.WC_consolelist, 0, "UNFROZEN variable " + tempvar + " in object " + object_get_name(object_index));
-								                    __tempsomething = true;
-								                }
-								            }
+												if self == other.WC_frozenobj[i] && tempvar == other.WC_frozenvar[i]
+												{
+													other.WC_frozenobj[i] = noone;
+													other.WC_frozenvar[i] = undefined;
+													other.WC_frozenval[i] = undefined;
+													ds_list_insert(other.WC_consolelist, 0, "UNFROZEN variable " + tempvar + " in object " + object_get_name(object_index));
+													__tempsomething = true;
+												}
+											}
 											if !__tempsomething
 											{
 												for (i = 0; i < frz; i++)
@@ -1633,35 +1625,35 @@ function scr_wcevaluate(argument0)
 														frz = i;
 												}
 							
-									            other.WC_frozenobj[frz] = self;
-									            other.WC_frozenvar[frz] = tempvar;
-									            other.WC_frozenval[frz] = variable_instance_get(self, tempvar);
-									            ds_list_insert(other.WC_consolelist, 0, "Frozen variable " + tempvar + " in object " + object_get_name(object_index) + " to value of " + string(other.WC_frozenval[frz]));
+												other.WC_frozenobj[frz] = self;
+												other.WC_frozenvar[frz] = tempvar;
+												other.WC_frozenval[frz] = variable_instance_get(self, tempvar);
+												ds_list_insert(other.WC_consolelist, 0, "Frozen variable " + tempvar + " in object " + object_get_name(object_index) + " to value of " + string(other.WC_frozenval[frz]));
 											}
 										}
-								        else
+										else
 										{
 											WC_consoleopen = true;
-								            console_log("Variable " + tempvar + " doesn't exist. Check for typos");
+											console_log("Variable " + tempvar + " doesn't exist. Check for typos");
 										}
 									}
 								}
 								else if variable_instance_exists(WC_tempobj, tempvar)
-						        {
-						            frz = array_length_1d(WC_frozenobj);
+								{
+									frz = array_length_1d(WC_frozenobj);
 									__tempsomething = false;
-						            for (i = 0; i < frz; i++)
-						            {
+									for (i = 0; i < frz; i++)
+									{
 										// unfreeze variable
-						                if WC_tempobj == WC_frozenobj[i] && tempvar == WC_frozenvar[i]
-						                {
-						                    WC_frozenobj[i] = noone;
-						                    WC_frozenvar[i] = undefined;
-						                    WC_frozenval[i] = undefined;
-						                    console_log("UNFROZEN variable " + tempvar + " in object " + object_get_name(WC_tempobj.object_index));
-						                    __tempsomething = true;
-						                }
-						            }
+										if WC_tempobj == WC_frozenobj[i] && tempvar == WC_frozenvar[i]
+										{
+											WC_frozenobj[i] = noone;
+											WC_frozenvar[i] = undefined;
+											WC_frozenval[i] = undefined;
+											console_log("UNFROZEN variable " + tempvar + " in object " + object_get_name(WC_tempobj.object_index));
+											__tempsomething = true;
+										}
+									}
 									if !__tempsomething
 									{
 										for (i = 0; i < frz; i++)
@@ -1671,16 +1663,16 @@ function scr_wcevaluate(argument0)
 												frz = i;
 										}
 							
-							            WC_frozenobj[frz] = WC_tempobj;
-							            WC_frozenvar[frz] = tempvar;
-							            WC_frozenval[frz] = variable_instance_get(WC_tempobj, tempvar);
-							            console_log("Frozen variable " + tempvar + " in object " + object_get_name(WC_tempobj.object_index) + " to value of " + string(WC_frozenval[frz]));
+										WC_frozenobj[frz] = WC_tempobj;
+										WC_frozenvar[frz] = tempvar;
+										WC_frozenval[frz] = variable_instance_get(WC_tempobj, tempvar);
+										console_log("Frozen variable " + tempvar + " in object " + object_get_name(WC_tempobj.object_index) + " to value of " + string(WC_frozenval[frz]));
 									}
 								}
-						        else
+								else
 								{
 									WC_consoleopen = true;
-						            console_log("Variable " + tempvar + " doesn't exist. Check for typos");
+									console_log("Variable " + tempvar + " doesn't exist. Check for typos");
 								}
 							}
 						}
@@ -1692,9 +1684,9 @@ function scr_wcevaluate(argument0)
 		case "unfreezeall":
 			for (i = 0; i < array_length_1d(WC_frozenvar); i++)
 			{
-			    WC_frozenobj[i] = noone;
-			    WC_frozenvar[i] = undefined;
-			    WC_frozenval[i] = undefined;
+				WC_frozenobj[i] = noone;
+				WC_frozenvar[i] = undefined;
+				WC_frozenval[i] = undefined;
 			}
 			WC_frozenvar[0] = "";
 			WC_frozenval[0] = "";
@@ -1703,7 +1695,7 @@ function scr_wcevaluate(argument0)
 		
 		/*
 		case "freezeall":
-		    with all
+			with all
 			{
 				if id != other.id
 				{
@@ -1727,8 +1719,8 @@ function scr_wcevaluate(argument0)
 				other.WC_frozenval[ind] = variable_global_get(__tempsomething[i]);
 			}
 			
-		    console_log("Frozen all variables");
-		    break;
+			console_log("Frozen all variables");
+			break;
 		*/
 			
 		case "showhidden":
@@ -1736,7 +1728,7 @@ function scr_wcevaluate(argument0)
 		case "showinvisible":
 			WC_showinvisible = !WC_showinvisible;
 			if WC_showinvisible && WC_consoleopen
-			    console_log("Now showing invisible objects");
+				console_log("Now showing invisible objects");
 			break
 			
 		case "script":
@@ -1747,18 +1739,18 @@ function scr_wcevaluate(argument0)
 				
 			if is_undefined(tempobj)
 			{
-			    if WC_consoleopen
-			        console_log("Usage: script OBJECT FIND SCRIPT ARGUMENTS")
-			    else
-			        WC_modkp = ord("8");
+				if WC_consoleopen
+					console_log("Usage: script OBJECT FIND SCRIPT ARGUMENTS")
+				else
+					WC_modkp = ord("8");
 			}
 			else
 			{
-			    if is_undefined(temp_objfind) or is_undefined(tempscript)
-			    {
-			        console_log("Usage: script OBJECT FIND SCRIPT ARGUMENTS");
+				if is_undefined(temp_objfind) or is_undefined(tempscript)
+				{
+					console_log("Usage: script OBJECT FIND SCRIPT ARGUMENTS");
 					WC_consoleopen = true;
-			    }
+				}
 				else if string_length(string_digits(temp_objfind)) + string_count("-", temp_objfind) + string_count(".", temp_objfind) != string_length(temp_objfind)
 				{
 					console_log("FIND parameter must be a number");
@@ -1766,68 +1758,68 @@ function scr_wcevaluate(argument0)
 				}
 				else
 				{
-				    __tempsomething = asset_get_index(tempobj);
-				    if __tempsomething == -1
-				    {
-				        console_log("Asset " + tempobj + " doesn't exist. Check for typos");
+					__tempsomething = asset_get_index(tempobj);
+					if __tempsomething == -1
+					{
+						console_log("Asset " + tempobj + " doesn't exist. Check for typos");
 						WC_consoleopen = true;
-				    }
-				    else if asset_get_type(tempobj) != asset_object
-				    {
-				        console_log("The asset " + tempobj + " isn't an object");
+					}
+					else if asset_get_type(tempobj) != asset_object
+					{
+						console_log("The asset " + tempobj + " isn't an object");
 						WC_consoleopen = true;
-				    }
+					}
 					else
 					{
-					    __tempsomething = instance_find(__tempsomething, real(temp_objfind));
-					    if !instance_exists(__tempsomething)
-					    {
-					        console_log("Instance " + tempobj + " doesn't exist in room");
+						__tempsomething = instance_find(__tempsomething, real(temp_objfind));
+						if !instance_exists(__tempsomething)
+						{
+							console_log("Instance " + tempobj + " doesn't exist in room");
 							WC_consoleopen = true;
-					    }
+						}
 						else
 						{
-						    var get_script = asset_get_index(tempscript);
-						    if get_script == -1
-						    {
-						        console_log("Asset " + tempscript + " doesn't exist. Check for typos");
+							var get_script = asset_get_index(tempscript);
+							if get_script == -1
+							{
+								console_log("Asset " + tempscript + " doesn't exist. Check for typos");
 								WC_consoleopen = true;
-						    }
-						    else if asset_get_type(tempscript) != asset_script
-						    {
-						        console_log("The asset " + tempscript + " isn't a script");
+							}
+							else if asset_get_type(tempscript) != asset_script
+							{
+								console_log("The asset " + tempscript + " isn't a script");
 								WC_consoleopen = true;
-						    }
+							}
 							else
 							{
-							    scrarg[0] = ds_list_find_value(arg, 4);
-							    scrarg[1] = ds_list_find_value(arg, 5);
-							    scrarg[2] = ds_list_find_value(arg, 6);
-							    scrarg[3] = ds_list_find_value(arg, 7);
-							    scrarg[4] = ds_list_find_value(arg, 8);
-							    scrarg[5] = ds_list_find_value(arg, 9);
-							    scrarg[6] = ds_list_find_value(arg, 10);
-							    scrarg[7] = ds_list_find_value(arg, 11);
-							    scrarg[8] = ds_list_find_value(arg, 12);
-							    scrarg[9] = ds_list_find_value(arg, 13);
+								scrarg[0] = ds_list_find_value(arg, 4);
+								scrarg[1] = ds_list_find_value(arg, 5);
+								scrarg[2] = ds_list_find_value(arg, 6);
+								scrarg[3] = ds_list_find_value(arg, 7);
+								scrarg[4] = ds_list_find_value(arg, 8);
+								scrarg[5] = ds_list_find_value(arg, 9);
+								scrarg[6] = ds_list_find_value(arg, 10);
+								scrarg[7] = ds_list_find_value(arg, 11);
+								scrarg[8] = ds_list_find_value(arg, 12);
+								scrarg[9] = ds_list_find_value(arg, 13);
 								
-							    for (i = 0; i <= 9; i++)
-							    {
-							        if !is_undefined(scrarg[i])
-							        {
-							            if asset_get_index(scrarg[i]) != -1 // asset
-							                scrarg[i] = asset_get_index(scrarg[i]);
-							            else if string_length(string_digits(scrarg[i])) + string_count("-", scrarg[i]) + string_count(".", scrarg[i]) == string_length(scrarg[i])
-							            // number
+								for (i = 0; i <= 9; i++)
+								{
+									if !is_undefined(scrarg[i])
+									{
+										if asset_get_index(scrarg[i]) != -1 // asset
+											scrarg[i] = asset_get_index(scrarg[i]);
+										else if string_length(string_digits(scrarg[i])) + string_count("-", scrarg[i]) + string_count(".", scrarg[i]) == string_length(scrarg[i])
+										// number
 											scrarg[i] = real(scrarg[i]);
 										else if scrarg[i] == "undefined" // undefined
 											scrarg[i] = undefined;
-							        }
-							    }
+									}
+								}
 							
-							    with __tempsomething
-							        script_execute(get_script, scrarg[0], scrarg[1], scrarg[2], scrarg[3], scrarg[4], scrarg[5], scrarg[6], scrarg[7], scrarg[8], scrarg[9]);
-							    console_log("Executed script " + tempscript + " on " + tempobj);
+								with __tempsomething
+									script_execute(get_script, scrarg[0], scrarg[1], scrarg[2], scrarg[3], scrarg[4], scrarg[5], scrarg[6], scrarg[7], scrarg[8], scrarg[9]);
+								console_log("Executed script " + tempscript + " on " + tempobj);
 							}
 						}
 					}
@@ -1841,48 +1833,48 @@ function scr_wcevaluate(argument0)
 			arg1 = ds_list_find_value(arg, 1);	
 			if is_undefined(arg1)
 			{
-			    if keyboard_check(vk_shift) or keyboard_check(vk_control) && !WC_consoleopen
-			        WC_modkp = ord("9");
-			    else
-			    {
-			        WC_debuginfo = !WC_debuginfo;
+				if keyboard_check(vk_shift) or keyboard_check(vk_control) && !WC_consoleopen
+					WC_modkp = ord("9");
+				else
+				{
+					WC_debuginfo = !WC_debuginfo;
 					if WC_consoleopen
 					{
-				        if WC_debuginfo
-				            console_log("Debug view ON");
-				        else
-				            console_log("Debug view OFF");
+						if WC_debuginfo
+							console_log("Debug view ON");
+						else
+							console_log("Debug view OFF");
 					}
 						
-			        if !WC_debuginfo
-			            WC_debugselected = noone;
-			        show_debug_overlay(WC_debuginfo);
-			    }
+					if !WC_debuginfo
+						WC_debugselected = noone;
+					show_debug_overlay(WC_debuginfo);
+				}
 			}
 			else
 			{
-			    WC_debuginfo = true;
+				WC_debuginfo = true;
 					
-			    if arg1 == "global"
-			    {
-			        if WC_debugselected == global
-			            WC_debugselected = noone;
-			        else
-			            WC_debugselected = global
+				if arg1 == "global"
+				{
+					if WC_debugselected == global
+						WC_debugselected = noone;
+					else
+						WC_debugselected = global
 						
-			        WC_debugvarstart = 0;
-			        console_log("Now showing global variables with debug view");
-			    }
-			    else
-			    {
-			        tempobj = ds_list_find_value(arg, 1);
-			        temp_objfind = ds_list_find_value(arg, 2);
+					WC_debugvarstart = 0;
+					console_log("Now showing global variables with debug view");
+				}
+				else
+				{
+					tempobj = ds_list_find_value(arg, 1);
+					temp_objfind = ds_list_find_value(arg, 2);
 						
-			        if is_undefined(tempobj) or is_undefined(temp_objfind)
-			        {
-			            console_log("Usage: debugview OBJECT FIND");
+					if is_undefined(tempobj) or is_undefined(temp_objfind)
+					{
+						console_log("Usage: debugview OBJECT FIND");
 						WC_consoleopen = true;
-			        }	
+					}	
 					else if string_length(string_digits(temp_objfind)) + string_count("-", temp_objfind) + string_count(".", temp_objfind) != string_length(temp_objfind)
 					{
 						console_log("FIND parameter must be a number");
@@ -1890,38 +1882,38 @@ function scr_wcevaluate(argument0)
 					}
 					else
 					{
-				        __tempsomething = asset_get_index(tempobj)
-				        if __tempsomething == -1
-				        {
-				            console_log("Asset " + tempobj + " doesn't exist. Check for typos");
+						__tempsomething = asset_get_index(tempobj)
+						if __tempsomething == -1
+						{
+							console_log("Asset " + tempobj + " doesn't exist. Check for typos");
 							WC_consoleopen = true;
-				        }
-				        else if asset_get_type(tempobj) != asset_object
-				        {
-				            console_log("The asset " + tempobj + " isn't an object");
+						}
+						else if asset_get_type(tempobj) != asset_object
+						{
+							console_log("The asset " + tempobj + " isn't an object");
 							WC_consoleopen = true;
-				        }
+						}
 						else
 						{
-					        __tempsomething = instance_find(__tempsomething, real(temp_objfind))
-					        if !instance_exists(__tempsomething)
-					        {
-					            console_log("Instance " + tempobj + " doesn't exist in room");
+							__tempsomething = instance_find(__tempsomething, real(temp_objfind))
+							if !instance_exists(__tempsomething)
+							{
+								console_log("Instance " + tempobj + " doesn't exist in room");
 								WC_consoleopen = true;
-					        }
+							}
 							else
 							{
-						        if WC_debugselected == __tempsomething
-						            WC_debugselected = noone;
-						        else
-						            WC_debugselected = __tempsomething;
+								if WC_debugselected == __tempsomething
+									WC_debugselected = noone;
+								else
+									WC_debugselected = __tempsomething;
 						
-						        WC_debugvarstart = 0;
-						        console_log("Now debugging " + tempobj);
+								WC_debugvarstart = 0;
+								console_log("Now debugging " + tempobj);
 							}
 						}
 					}
-			    }
+				}
 			}
 			break;
 			
@@ -1960,34 +1952,34 @@ function scr_wcevaluate(argument0)
 			arg1 = ds_list_find_value(arg, 1);
 			if is_undefined(arg1)
 			{
-			    if WC_consoleopen
-			        console_log("Usage: delete OBJECT");
-			    else
-				    WC_modkp = vk_numpad4;
+				if WC_consoleopen
+					console_log("Usage: delete OBJECT");
+				else
+					WC_modkp = vk_numpad4;
 			}
 			else
 			{
-			    __tempsomething = asset_get_index(arg1);
-			    arg2 = ds_list_find_value(arg, 2);
-			    if is_undefined(arg2)
-			    {
-			        if __tempsomething == -1
-			        {
-			            console_log("Asset " + arg1 + " doesn't exist. Check for typos");
-						WC_consoleopen = true;
-			        }
-			        else if asset_get_type(arg1) != asset_object
-			        {
-			            console_log("The asset " + arg1 + " isn't an object");
-						WC_consoleopen = true;
-			        }
-			        else if instance_number(__tempsomething) == 0
+				__tempsomething = asset_get_index(arg1);
+				arg2 = ds_list_find_value(arg, 2);
+				if is_undefined(arg2)
+				{
+					if __tempsomething == -1
 					{
-			            console_log("The object " + arg1 + " isn't in the room");
+						console_log("Asset " + arg1 + " doesn't exist. Check for typos");
 						WC_consoleopen = true;
 					}
-			        else if instance_number(__tempsomething) >= 1
-			        {
+					else if asset_get_type(arg1) != asset_object
+					{
+						console_log("The asset " + arg1 + " isn't an object");
+						WC_consoleopen = true;
+					}
+					else if instance_number(__tempsomething) == 0
+					{
+						console_log("The object " + arg1 + " isn't in the room");
+						WC_consoleopen = true;
+					}
+					else if instance_number(__tempsomething) >= 1
+					{
 						if __tempsomething == object_index
 						{
 							console_log("You shouldnt do that");
@@ -1995,23 +1987,23 @@ function scr_wcevaluate(argument0)
 						}
 						else
 						{
-				            console_log("Deleted " + string(instance_number(__tempsomething)) + " objects with name or parent " + arg1);
-				            instance_destroy(__tempsomething);
+							console_log("Deleted " + string(instance_number(__tempsomething)) + " objects with name or parent " + arg1);
+							instance_destroy(__tempsomething);
 						}
-			        }
-			    }
-			    else if string_digits(arg2) == arg2
-			    {
-			        temp_objfind = real(arg2);
-			        __tempsomething = instance_find(__tempsomething, temp_objfind);
+					}
+				}
+				else if string_digits(arg2) == arg2
+				{
+					temp_objfind = real(arg2);
+					__tempsomething = instance_find(__tempsomething, temp_objfind);
 				
-			        if __tempsomething == noone
+					if __tempsomething == noone
 					{
-			            console_log("The object " + arg1 + " isn't in the room");
+						console_log("The object " + arg1 + " isn't in the room");
 						WC_consoleopen = true;
 					}
-			        else
-			        {
+					else
+					{
 						if __tempsomething == self
 						{
 							console_log("You shouldnt do that");
@@ -2019,14 +2011,14 @@ function scr_wcevaluate(argument0)
 						}
 						else
 						{
-				            console_log("Deleted object " + object_get_name(__tempsomething.object_index));
-				            instance_destroy(__tempsomething);
+							console_log("Deleted object " + object_get_name(__tempsomething.object_index));
+							instance_destroy(__tempsomething);
 						}
-			        }
-			    }
-			    else
+					}
+				}
+				else
 				{
-			        console_log("FIND parameter must be a whole number");
+					console_log("FIND parameter must be a whole number");
 					WC_consoleopen = true;
 				}
 			}
@@ -2040,80 +2032,80 @@ function scr_wcevaluate(argument0)
 				
 				if is_undefined(arg1)
 				{
-				    console_log("Usage: character STRING");
+					console_log("Usage: character STRING");
 					WC_consoleopen = true;
 				}
 				else
 				{
 					arg1 = string_upper(arg1);
-				    arg2 = ds_list_find_value(arg, 2);
-				    var __tempsomething = "";
+					arg2 = ds_list_find_value(arg, 2);
+					var __tempsomething = "";
 					
-				    if !is_undefined(arg2)
-				    {
+					if !is_undefined(arg2)
+					{
 						arg2 = string_upper(arg2);
-				        if arg2 == "P"
-				            __tempsomething = " with Peppino sprites";
-				        else if arg2 == "N"
-				            __tempsomething = " with Noise sprites";
-				        else if arg2 == "V"
-				            __tempsomething = " with Vigilante sprites";
-				        else if arg2 == "S"
-				            __tempsomething = " with Snick sprites";
-				        else if arg2 == "M"
-				            __tempsomething = " with Pepperman sprites";
-				        else if arg2 == "SP" // pt online exclusive
-				            __tempsomething = " with Pizzelle sprites";
-				        else if arg2 == "SN" // pt online exclusive
-				            __tempsomething = " with Pizzano sprites";
-				        else if arg2 == "PP" // pt online exclusive
-				            __tempsomething = " with Pissino sprites";
-				        else
+						if arg2 == "P"
+							__tempsomething = " with Peppino sprites";
+						else if arg2 == "N"
+							__tempsomething = " with Noise sprites";
+						else if arg2 == "V"
+							__tempsomething = " with Vigilante sprites";
+						else if arg2 == "S"
+							__tempsomething = " with Snick sprites";
+						else if arg2 == "M"
+							__tempsomething = " with Pepperman sprites";
+						else if arg2 == "SP" // pt online exclusive
+							__tempsomething = " with Pizzelle sprites";
+						else if arg2 == "SN" // pt online exclusive
+							__tempsomething = " with Pizzano sprites";
+						else if arg2 == "PP" // pt online exclusive
+							__tempsomething = " with Pissino sprites";
+						else
 						{
-				            __tempsomething = " with unchanged sprites";
+							__tempsomething = " with unchanged sprites";
 							arg2 = ds_list_find_value(arg, 2);
 						}
 					
 						obj_player1.character = arg2;
-				    }
-				    else
-				        obj_player1.character = arg1;
+					}
+					else
+						obj_player1.character = arg1;
 				
-				    with obj_player1
-				        scr_characterspr();
+					with obj_player1
+						scr_characterspr();
 					
-				    obj_player1.character = arg1;
+					obj_player1.character = arg1;
 				
-				    if arg1 == "P"
-				        arg1 = "Peppino";
-				    else if arg1 == "N"
-				        arg1 = "Noise";
-				    else if arg1 == "V"
-				        arg1 = "Vigilante";
-				    else if arg1 == "S"
-				        arg1 = "Snick";
-				    else if arg1 == "M"
-				        arg1 = "Pepperman";
-				    else if arg1 == "SP" // pt online exclusive
-				        arg1 = "Pizzelle";
-				    else if arg1 == "SN" // pt online exclusive
-				        arg1 = "Pizzano";
-				    else if arg1 == "PP" // pt online exclusive
-				        arg1 = "Pissino";
-				    else if arg1 == "CT" // pt online exclusive
-				        arg1 = "Cheemstoon";
-				    else
+					if arg1 == "P"
+						arg1 = "Peppino";
+					else if arg1 == "N"
+						arg1 = "Noise";
+					else if arg1 == "V"
+						arg1 = "Vigilante";
+					else if arg1 == "S"
+						arg1 = "Snick";
+					else if arg1 == "M"
+						arg1 = "Pepperman";
+					else if arg1 == "SP" // pt online exclusive
+						arg1 = "Pizzelle";
+					else if arg1 == "SN" // pt online exclusive
+						arg1 = "Pizzano";
+					else if arg1 == "PP" // pt online exclusive
+						arg1 = "Pissino";
+					else if arg1 == "CT" // pt online exclusive
+						arg1 = "Cheemstoon";
+					else
 					{
-				        arg1 = ds_list_find_value(arg, 1);
+						arg1 = ds_list_find_value(arg, 1);
 						obj_player1.character = arg1;
 					}
 				
-				    console_log("Set player 1 character to " + arg1 + __tempsomething);
+					console_log("Set player 1 character to " + arg1 + __tempsomething);
 				}
 			}
 			else
 			{
-			    console_log("Player 1 object doesn't exist");
+				console_log("Player 1 object doesn't exist");
 				WC_consoleopen = true;
 			}
 			break;
@@ -2127,66 +2119,66 @@ function scr_wcevaluate(argument0)
 				
 				if is_undefined(arg1)
 				{
-				    console_log("Usage: character2 STRING");
+					console_log("Usage: character2 STRING");
 					WC_consoleopen = true;
 				}
 				else
 				{
 					arg1 = string_upper(arg1);
-				    arg2 = ds_list_find_value(arg, 2);
-				    var __tempsomething = "";
+					arg2 = ds_list_find_value(arg, 2);
+					var __tempsomething = "";
 					
-				    if !is_undefined(arg2)
-				    {
+					if !is_undefined(arg2)
+					{
 						arg2 = string_upper(arg2);
-				        if arg2 == "P"
-				            __tempsomething = " with Peppino sprites";
-				        else if arg2 == "N"
-				            __tempsomething = " with Noise sprites";
-				        else if arg2 == "V"
-				            __tempsomething = " with Vigilante sprites";
-				        else if arg2 == "S"
-				            __tempsomething = " with Snick sprites";
+						if arg2 == "P"
+							__tempsomething = " with Peppino sprites";
+						else if arg2 == "N"
+							__tempsomething = " with Noise sprites";
+						else if arg2 == "V"
+							__tempsomething = " with Vigilante sprites";
+						else if arg2 == "S"
+							__tempsomething = " with Snick sprites";
 						else if arg2 == "M"
-				            __tempsomething = " with Pepperman sprites";
-				        else
+							__tempsomething = " with Pepperman sprites";
+						else
 						{
-				            __tempsomething = " with unchanged sprites";
+							__tempsomething = " with unchanged sprites";
 							arg2 = ds_list_find_value(arg, 2);
 						}
 					
 						obj_player2.character = arg2;
-				    }
-				    else
-				        obj_player2.character = arg1;
+					}
+					else
+						obj_player2.character = arg1;
 				
-				    with obj_player2
-				        scr_characterspr();
+					with obj_player2
+						scr_characterspr();
 					
-				    obj_player2.character = arg1;
+					obj_player2.character = arg1;
 				
-				    if arg1 == "P"
-				        arg1 = "Peppino";
-				    else if arg1 == "N"
-				        arg1 = "Noise";
-				    else if arg1 == "V"
-				        arg1 = "Vigilante";
-				    else if arg1 == "S"
-				        arg1 = "Snick";
-				    else if arg1 == "M"
-				        arg1 = "Pepperman";
-				    else
+					if arg1 == "P"
+						arg1 = "Peppino";
+					else if arg1 == "N"
+						arg1 = "Noise";
+					else if arg1 == "V"
+						arg1 = "Vigilante";
+					else if arg1 == "S"
+						arg1 = "Snick";
+					else if arg1 == "M"
+						arg1 = "Pepperman";
+					else
 					{
-				        arg1 = ds_list_find_value(arg, 1);
+						arg1 = ds_list_find_value(arg, 1);
 						obj_player2.character = arg1;
 					}
 				
-				    console_log("Set player 2 character to " + arg1 + __tempsomething);
+					console_log("Set player 2 character to " + arg1 + __tempsomething);
 				}
 			}
 			else
 			{
-			    console_log("Player 2 object doesn't exist");
+				console_log("Player 2 object doesn't exist");
 				WC_consoleopen = true;
 			}
 			break;
@@ -2194,11 +2186,11 @@ function scr_wcevaluate(argument0)
 			
 		case "resetwindow": // pt exclusive
 			if global.option_resolution == 0
-			    window_set_size(480, 270);
+				window_set_size(480, 270);
 			if global.option_resolution == 1
-			    window_set_size(960, 540);
+				window_set_size(960, 540);
 			if global.option_resolution == 2
-			    window_set_size(1920, 1080);
+				window_set_size(1920, 1080);
 			
 			if !WC_consoleopen
 			{
@@ -2222,27 +2214,27 @@ function scr_wcevaluate(argument0)
 		case "collisionview":
 		case "showcollision":
 		case "showcol": // pt exclusive
-		    WC_showcollision = !WC_showcollision;
+			WC_showcollision = !WC_showcollision;
 			
 			if !WC_consoleopen
 			{
 				with obj_tv
 				{
 					showtext = true;
-				    alarm[0] = 100;
+					alarm[0] = 100;
 				
 					if other.WC_showcollision
-		                message = "COLLISION VIEW ON";
-		            else
-		                message = "COLLISION VIEW OFF";
+						message = "COLLISION VIEW ON";
+					else
+						message = "COLLISION VIEW OFF";
 				}
 			}
 			else
 			{
-		      if WC_showcollision
-		          console_log("Collision view ON");
-		      else
-		          console_log("Collision view OFF");
+			  if WC_showcollision
+				  console_log("Collision view ON");
+			  else
+				  console_log("Collision view OFF");
 			}
 			break
 		*/
@@ -2253,14 +2245,14 @@ function scr_wcevaluate(argument0)
 				
 			if is_undefined(tempvar) or is_undefined(tempobj)
 			{
-			    console_log("Usage: checkvar global VARIABLE or checkvar OBJECT FIND VARIABLE");
+				console_log("Usage: checkvar global VARIABLE or checkvar OBJECT FIND VARIABLE");
 				WC_consoleopen = true;
 			}
 			else if tempobj == "global"
 			{
-			    tempvar = string_replace(tempvar, "global.", "");
+				tempvar = string_replace(tempvar, "global.", "");
 					
-			    if variable_global_exists(tempvar)
+				if variable_global_exists(tempvar)
 				{
 					if WC_consoleopen
 						console_log("Global variable global." + tempvar + " is " + string(variable_global_get(tempvar)));
@@ -2276,53 +2268,53 @@ function scr_wcevaluate(argument0)
 				}
 				else
 				{
-			        console_log("Global variable global." + tempvar + " doesn't exist. Check for typos");
+					console_log("Global variable global." + tempvar + " doesn't exist. Check for typos");
 					WC_consoleopen = true;
 				}
 			}
 			else
 			{
-			    temp_objfind = ds_list_find_value(arg, 2);
+				temp_objfind = ds_list_find_value(arg, 2);
 					
 				if string_length(string_digits(temp_objfind)) + string_count("-", temp_objfind) + string_count(".", temp_objfind) != string_length(temp_objfind)
 				{
 					console_log("FIND parameter must be a number");
 					WC_consoleopen = true;
 				}	
-			    else if is_undefined(temp_objfind)
-			    {
-			        console_log("Usage: checkvar OBJECT FIND VARIABLE");
+				else if is_undefined(temp_objfind)
+				{
+					console_log("Usage: checkvar OBJECT FIND VARIABLE");
 					WC_consoleopen = true;
-			    }
+				}
 				else
 				{
-				    tempvar = ds_list_find_value(arg, 3);
-				    __tempsomething = asset_get_index(tempobj);
+					tempvar = ds_list_find_value(arg, 3);
+					__tempsomething = asset_get_index(tempobj);
 				
-				    if is_undefined(tempvar)
-				    {
-				        console_log("Usage: checkvar OBJECT FIND VARIABLE");
+					if is_undefined(tempvar)
+					{
+						console_log("Usage: checkvar OBJECT FIND VARIABLE");
 						WC_consoleopen = true;
-				    }
-				    else if __tempsomething == -1
-				    {
-				        console_log("Asset " + tempobj + " doesn't exist. Check for typos");
+					}
+					else if __tempsomething == -1
+					{
+						console_log("Asset " + tempobj + " doesn't exist. Check for typos");
 						WC_consoleopen = true;
-				    }
-				    else if asset_get_type(tempobj) != asset_object
-				    {
-				        console_log("The asset " + tempobj + " isn't an object");
+					}
+					else if asset_get_type(tempobj) != asset_object
+					{
+						console_log("The asset " + tempobj + " isn't an object");
 						WC_consoleopen = true;
-				    }
+					}
 					else
 					{
-					    __tempsomething = instance_find(__tempsomething, real(temp_objfind));
-					    if !instance_exists(__tempsomething)
-					    {
-					        console_log("Instance " + tempobj + " doesn't exist in room");
+						__tempsomething = instance_find(__tempsomething, real(temp_objfind));
+						if !instance_exists(__tempsomething)
+						{
+							console_log("Instance " + tempobj + " doesn't exist in room");
 							WC_consoleopen = true;
-					    }
-					    else if variable_instance_exists(__tempsomething, tempvar)
+						}
+						else if variable_instance_exists(__tempsomething, tempvar)
 						{
 							if WC_consoleopen
 								console_log(object_get_name(__tempsomething.object_index) + "." + tempvar + " is " + string(variable_instance_get(__tempsomething, tempvar)));
@@ -2339,7 +2331,7 @@ function scr_wcevaluate(argument0)
 						else
 						{
 							WC_consoleopen = true;
-					        console_log("Variable " + tempvar + " doesn't exist. Check for typos");
+							console_log("Variable " + tempvar + " doesn't exist. Check for typos");
 						}
 					}
 				}
@@ -2352,55 +2344,55 @@ function scr_wcevaluate(argument0)
 			tempobj = ds_list_find_value(arg, 1);
 			if is_undefined(tempobj)
 			{
-			    if WC_varmonitor != undefined
-			    {
-			        console_log("Stopped monitoring variables");
-			        WC_varmonitor = undefined;
-			        WC_varobj = undefined;
-			    }
-			    else
-			    {
+				if WC_varmonitor != undefined
+				{
+					console_log("Stopped monitoring variables");
+					WC_varmonitor = undefined;
+					WC_varobj = undefined;
+				}
+				else
+				{
 					if !WC_consoleopen
 					{
-				        WC_modkp = vk_numpad6;
-				        WC_consoleopen = false;
+						WC_modkp = vk_numpad6;
+						WC_consoleopen = false;
 					}
 					else
 						console_log("Usage: monitorvar global VARIABLE or monitorvar OBJECT FIND VARIABLE");
-			    }
+				}
 			}
 			else
 			{
-			    tempvar = ds_list_find_value(arg, 2);
-			    if is_undefined(tempvar)
-			    {
-			        console_log("Usage: monitorvar global VARIABLE or monitorvar OBJECT FIND VARIABLE");
+				tempvar = ds_list_find_value(arg, 2);
+				if is_undefined(tempvar)
+				{
+					console_log("Usage: monitorvar global VARIABLE or monitorvar OBJECT FIND VARIABLE");
 					WC_consoleopen = true;
-			    }
+				}
 				else if tempobj == "global"
-			    {
-			        tempvar = string_replace(tempvar, "global.", "");
-			        if variable_global_exists(tempvar)
-			        {
-			            WC_varmonitor = tempvar;
-			            WC_varobj = global;
-			            console_log("Now monitoring global." + tempvar);
-			        }
-			        else
+				{
+					tempvar = string_replace(tempvar, "global.", "");
+					if variable_global_exists(tempvar)
+					{
+						WC_varmonitor = tempvar;
+						WC_varobj = global;
+						console_log("Now monitoring global." + tempvar);
+					}
+					else
 					{
 						WC_consoleopen = true;
-			            console_log("Global variable global." + tempvar + " doesn't exist. Check for typos");
+						console_log("Global variable global." + tempvar + " doesn't exist. Check for typos");
 					}
-			    }
-			    else
-			    {
-			        temp_objfind = ds_list_find_value(arg, 2);
+				}
+				else
+				{
+					temp_objfind = ds_list_find_value(arg, 2);
 				
 					if is_undefined(temp_objfind)
-			        {
-			            console_log("Usage: monitorvar global VARIABLE or monitorvar OBJECT FIND VARIABLE");
+					{
+						console_log("Usage: monitorvar global VARIABLE or monitorvar OBJECT FIND VARIABLE");
 						WC_consoleopen = true;
-			        }
+					}
 					else if string_length(string_digits(temp_objfind)) + string_count("-", temp_objfind) + string_count(".", temp_objfind) != string_length(temp_objfind)
 					{
 						console_log("FIND parameter must be a number");
@@ -2408,42 +2400,42 @@ function scr_wcevaluate(argument0)
 					}	
 					else
 					{
-				        tempvar = ds_list_find_value(arg, 3);
-				        __tempsomething = asset_get_index(tempobj);
+						tempvar = ds_list_find_value(arg, 3);
+						__tempsomething = asset_get_index(tempobj);
 						
-				        if is_undefined(tempvar)
-				        {
-				            console_log("Usage: monitorvar global VARIABLE or monitorvar OBJECT FIND VARIABLE");
+						if is_undefined(tempvar)
+						{
+							console_log("Usage: monitorvar global VARIABLE or monitorvar OBJECT FIND VARIABLE");
 							WC_consoleopen = true;
-				        }
-				        else if __tempsomething == -1
-				        {
-				            console_log("Asset " + tempobj + " doesn't exist. Check for typos");
+						}
+						else if __tempsomething == -1
+						{
+							console_log("Asset " + tempobj + " doesn't exist. Check for typos");
 							WC_consoleopen = true;
-				        }
-				        else if asset_get_type(tempobj) != asset_object
-				        {
-				            console_log("The asset " + tempobj + " isn't an object");
+						}
+						else if asset_get_type(tempobj) != asset_object
+						{
+							console_log("The asset " + tempobj + " isn't an object");
 							WC_consoleopen = true;
-				        }
+						}
 						else
 						{
-					        __tempsomething = instance_find(__tempsomething, real(temp_objfind));	
-					        if !instance_exists(__tempsomething)
-					        {
-					            console_log("Instance " + tempobj + " doesn't exist in room");
+							__tempsomething = instance_find(__tempsomething, real(temp_objfind));	
+							if !instance_exists(__tempsomething)
+							{
+								console_log("Instance " + tempobj + " doesn't exist in room");
 								WC_consoleopen = true;
-					        }
-					        else if variable_instance_exists(__tempsomething, tempvar)
-					        {
-					            WC_varmonitor = tempvar;
-					            WC_varobj = __tempsomething;
-					            console_log("Now monitoring " + object_get_name(__tempsomething.object_index) + "." + tempvar);
-					        }
-					        else
+							}
+							else if variable_instance_exists(__tempsomething, tempvar)
+							{
+								WC_varmonitor = tempvar;
+								WC_varobj = __tempsomething;
+								console_log("Now monitoring " + object_get_name(__tempsomething.object_index) + "." + tempvar);
+							}
+							else
 							{
 								WC_consoleopen = true;
-					            console_log("Variable " + tempvar + " doesn't exist. Check for typos");
+								console_log("Variable " + tempvar + " doesn't exist. Check for typos");
 							}
 						}
 					}
@@ -2519,7 +2511,7 @@ function scr_wcevaluate(argument0)
 		
 			if is_undefined(arg1) or is_undefined(arg2)
 			{
-			    console_log("Usage: bind KEY COMMAND");
+				console_log("Usage: bind KEY COMMAND");
 				WC_consoleopen = true;
 			}
 			else
@@ -2538,8 +2530,8 @@ function scr_wcevaluate(argument0)
 					}
 					else
 					{
-					    ds_list_add(WC_bindkey, finalkey);
-					    ds_list_add(WC_bindmap, command);
+						ds_list_add(WC_bindkey, finalkey);
+						ds_list_add(WC_bindmap, command);
 						console_log("Bound " + (keycode ? "keycode " : "") + string_upper(arg1) + " to execute " + command);
 					}
 				}

@@ -30,10 +30,10 @@ or lemusic == -1
 	audio_stop_all()
 	scr_sound(musfinal)
 	if continuous
-    {
-        audio_sound_set_track_position(global.music, fadeoff)
-        continuous = false
-    }
+	{
+		audio_sound_set_track_position(global.music, fadeoff)
+		continuous = false
+	}
 	pausedmusic = musfinal
 	lemusic = mus
 }

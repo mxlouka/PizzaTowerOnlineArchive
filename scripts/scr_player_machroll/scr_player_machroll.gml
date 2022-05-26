@@ -14,23 +14,23 @@ function scr_player_machroll()
 		default:
 		if character != "N" or (character == "N" && noisetype == 1)
 		{ 
-		    //Bump
-		    if scr_solidwall(x + xscale,y) && !place_meeting(x + sign(hsp), y, obj_slope) && !place_meeting(x + sign(hsp), y, obj_destructibles)
-		    {
+			//Bump
+			if scr_solidwall(x + xscale,y) && !place_meeting(x + sign(hsp), y, obj_slope) && !place_meeting(x + sign(hsp), y, obj_destructibles)
+			{
 				scr_soundeffect(sfx_bumpwall)
 				
 				hsp = 0
 				image_speed = 0.35
 				
-			    flash = false
-			    combo = 0
-			    state = states.bump
-			    hsp = 2.5 * -xscale
-			    vsp = -3
-			    mach2 = 0
-			    image_index = 0
-			    instance_create(x + 10 * xscale, y + 10, obj_bumpeffect)
-		    }
+				flash = false
+				combo = 0
+				state = states.bump
+				hsp = 2.5 * -xscale
+				vsp = -3
+				mach2 = 0
+				image_index = 0
+				instance_create(x + 10 * xscale, y + 10, obj_bumpeffect)
+			}
 
 			if !instance_exists(dashcloudid) && grounded
 			with instance_create(x, y + 43, obj_cloudeffect)
@@ -74,37 +74,37 @@ function scr_player_machroll()
 			
 			// Breakdance
 			if key_shoot2 && character == "P" && !scr_checkskin(checkskin.p_anton) && global.gameplay != 1
-		    {
-		        sprite_index = spr_player_breakdancesuper
-		        movespeed = 14
-		        state = states.punch
-		    }
+			{
+				sprite_index = spr_player_breakdancesuper
+				movespeed = 14
+				state = states.punch
+			}
 		}
 		else
 		{
 			//Bump
-		    if scr_solid(x + xscale,y, false) && !place_meeting(x + sign(hsp), y, obj_slope) && !place_meeting(x + sign(hsp), y, obj_destructibles)
-		    {
+			if scr_solid(x + xscale,y, false) && !place_meeting(x + sign(hsp), y, obj_slope) && !place_meeting(x + sign(hsp), y, obj_destructibles)
+			{
 				scr_soundeffect(sfx_bumpwall)
 				
 				hsp = 0
 				image_speed = 0.35
 				
-			    flash = false
-			    combo = 0
-			    state = states.bump
-			    hsp = 2.5 * -xscale
-			    vsp = -3
-			    mach2 = 0
-			    image_index = 0
-			    instance_create(x + 10 * xscale, y + 10, obj_bumpeffect)
+				flash = false
+				combo = 0
+				state = states.bump
+				hsp = 2.5 * -xscale
+				vsp = -3
+				mach2 = 0
+				image_index = 0
+				instance_create(x + 10 * xscale, y + 10, obj_bumpeffect)
 			}
 			
 			if (!key_down or !grounded) && state != states.bump
 			{
 				image_index = 0
 				scr_soundeffect(sfx_rollgetup)
-			    state = states.mach3
+				state = states.mach3
 				sprite_index = spr_playerN_jetpackboost
 			}
 			
@@ -123,23 +123,23 @@ function scr_player_machroll()
 			if sprite_index == spr_playerV_divekickstart && floor(image_index) >= image_number - 1
 				sprite_index = spr_playerV_divekick
 			
-		    //Bump
-		    if scr_solid(x + xscale, y, false) && !place_meeting(x + sign(hsp), y, obj_slope)
-		    {
+			//Bump
+			if scr_solid(x + xscale, y, false) && !place_meeting(x + sign(hsp), y, obj_slope)
+			{
 				scr_soundeffect(sfx_bumpwall)
 				
 				hsp = 0
 				image_speed = 0.35
 				
-			    flash = false
-			    combo = 0
-			    state = states.bump
-			    hsp = 2.5 * -xscale
-			    vsp = -3
-			    mach2 = 0
-			    image_index = 0
-			    instance_create(x + 10 * xscale, y + 10, obj_bumpeffect)
-		    }
+				flash = false
+				combo = 0
+				state = states.bump
+				hsp = 2.5 * -xscale
+				vsp = -3
+				mach2 = 0
+				image_index = 0
+				instance_create(x + 10 * xscale, y + 10, obj_bumpeffect)
+			}
 			
 			if !instance_exists(dashcloudid) && grounded
 			with instance_create(x, y + 43, obj_cloudeffect)

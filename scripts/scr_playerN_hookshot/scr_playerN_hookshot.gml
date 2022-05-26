@@ -33,25 +33,25 @@ function scr_playerN_hookshot() {
 	//Small impact
 	if grounded
 	{
-	            with (obj_camera) {
+				with (obj_camera) {
 
-	    shake_mag=5;  
-	    shake_mag_acc=10/room_speed;
+		shake_mag=5;  
+		shake_mag_acc=10/room_speed;
 	}
 
-    
-     
-    
+	
+	 
+	
    
-	    vsp = -5
-	            with instance_create(x,y+35,obj_bangeffect)
-	        image_xscale = obj_player.image_xscale
-	    instance_create(x,y,obj_landcloud)
-    
+		vsp = -5
+				with instance_create(x,y+35,obj_bangeffect)
+			image_xscale = obj_player.image_xscale
+		instance_create(x,y,obj_landcloud)
+	
 
 
-	    with (obj_baddie)
-	    if grounded && point_in_camera(x, y, view_camera[0]) {
+		with (obj_baddie)
+		if grounded && point_in_camera(x, y, view_camera[0]) {
 
 	image_index = 0
 	vsp = -7

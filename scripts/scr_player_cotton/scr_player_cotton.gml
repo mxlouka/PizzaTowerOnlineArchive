@@ -3,18 +3,18 @@ function scr_player_cotton()
 	image_speed = 0.35;
 	
 	// move
-    if sprite_index != spr_cotton_slam
-        move = key_left + key_right;
+	if sprite_index != spr_cotton_slam
+		move = key_left + key_right;
 	
 	var drilling = sprite_index == spr_cotton_drill;
 	if move != 0
 	{
 		if dir != xscale
-	    {
-	        dir = xscale;
-	        movespeed = 0;
-	    }
-        xscale = move;
+		{
+			dir = xscale;
+			movespeed = 0;
+		}
+		xscale = move;
 	}
 	
 	if drilling
@@ -36,34 +36,34 @@ function scr_player_cotton()
 	else
 		movespeed = 0;
 	
-    if vsp > 5 && !drilling
-        vsp = 5;
+	if vsp > 5 && !drilling
+		vsp = 5;
 	
 	// jump
-    if key_jump && grounded && !drilling
-    {
-        vsp = -14;
-	    image_index = 0
-	    sprite_index = spr_cotton_jump
-        instance_create(x, y, obj_highjumpcloud2)
-        scr_soundeffect(sfx_cottonjump)
-    }
+	if key_jump && grounded && !drilling
+	{
+		vsp = -14;
+		image_index = 0
+		sprite_index = spr_cotton_jump
+		instance_create(x, y, obj_highjumpcloud2)
+		scr_soundeffect(sfx_cottonjump)
+	}
 	
 	// attack
-    if key_slap2 && sprite_index != spr_cotton_attack && !suplexmove
-    {
+	if key_slap2 && sprite_index != spr_cotton_attack && !suplexmove
+	{
 		suplexmove = true
 		jumpstop = true
-        flash = true
-        image_index = 0
-        sprite_index = spr_cotton_attack
+		flash = true
+		image_index = 0
+		sprite_index = spr_cotton_attack
 		if global.gameplay == 0 or !grounded
 		{
 			vsp = -4
 			grounded = false
 		}
-        scr_soundeffect(sfx_cottonattack)
-    }
+		scr_soundeffect(sfx_cottonattack)
+	}
 	
 	//Jump Stop
 	if !key_jump2 && !jumpstop && vsp < 0.5
@@ -75,18 +75,18 @@ function scr_player_cotton()
 		jumpstop = false;
 	
 	// attack
-    if sprite_index == spr_cotton_attack
-    {
-        movespeed = 8
+	if sprite_index == spr_cotton_attack
+	{
+		movespeed = 8
 		hsp = movespeed * xscale
-        move = xscale
+		move = xscale
 		
 		if grounded && global.gameplay == 0
-	    {
+		{
 			scr_soundeffect(sfx_step);
 			instance_create(x, y, obj_landcloud);
 			
-	        image_index = 0
+			image_index = 0
 			if move == 0
 				sprite_index = spr_cotton_land;
 			else
@@ -94,41 +94,41 @@ function scr_player_cotton()
 		}
 		if image_index >= image_number - 1 && global.gameplay != 0
 			sprite_index = spr_cotton_idle;
-    }
+	}
 	
 	// animation
-    if sprite_index == spr_cotton_idle && move != 0
-    {
-        image_index = 0
-        sprite_index = spr_cotton_walk
-    }
-    if sprite_index == spr_cotton_walk
-    {
+	if sprite_index == spr_cotton_idle && move != 0
+	{
+		image_index = 0
+		sprite_index = spr_cotton_walk
+	}
+	if sprite_index == spr_cotton_walk
+	{
 		image_speed = 0.35 * movespeed / 4;
 		if move == 0
 		{
-	        image_index = 0
-	        sprite_index = spr_cotton_idle
+			image_index = 0
+			sprite_index = spr_cotton_idle
 		}
-    }
+	}
 	
 	if floor(image_index) >= image_number - 1
 	{
 		if sprite_index == spr_cotton_jump
-	    {
-	        image_index = 0;
-	        sprite_index = spr_cotton_fall;
-	    }
-	    if sprite_index == spr_cotton_doublejump
-	    {
-	        image_index = 0;
-	        sprite_index = spr_cotton_doublefall;
-	    }
-	    if sprite_index == spr_cotton_slam
-	    {
-	        image_index = 0;
-	        sprite_index = spr_cotton_idle;
-	    }
+		{
+			image_index = 0;
+			sprite_index = spr_cotton_fall;
+		}
+		if sprite_index == spr_cotton_doublejump
+		{
+			image_index = 0;
+			sprite_index = spr_cotton_doublefall;
+		}
+		if sprite_index == spr_cotton_slam
+		{
+			image_index = 0;
+			sprite_index = spr_cotton_idle;
+		}
 		if sprite_index == spr_cotton_land
 		{
 			image_index = 0;
@@ -137,34 +137,34 @@ function scr_player_cotton()
 	}
 	
 	// land
-    if (sprite_index == spr_cotton_fall or sprite_index == spr_cotton_doublefall or sprite_index == spr_cotton_jump or sprite_index == spr_cotton_doublejump) && (grounded && vsp >= 0)
-    {
-        image_index = 0
-        sprite_index = spr_cotton_land
-        instance_create(x, y, obj_landcloud)
-        scr_soundeffect(sfx_step)
-    }
+	if (sprite_index == spr_cotton_fall or sprite_index == spr_cotton_doublefall or sprite_index == spr_cotton_jump or sprite_index == spr_cotton_doublejump) && (grounded && vsp >= 0)
+	{
+		image_index = 0
+		sprite_index = spr_cotton_land
+		instance_create(x, y, obj_landcloud)
+		scr_soundeffect(sfx_step)
+	}
 	
 	// double jump
-    if !grounded && (sprite_index == spr_cotton_fall or sprite_index == spr_cotton_jump) && key_jump && vsp > 0
-    {
+	if !grounded && (sprite_index == spr_cotton_fall or sprite_index == spr_cotton_jump) && key_jump && vsp > 0
+	{
 		jumpstop = false
-        vsp = -10
-        image_index = 0
-        sprite_index = spr_cotton_doublejump
-        with instance_create(x, y, obj_highjumpcloud2)
+		vsp = -10
+		image_index = 0
+		sprite_index = spr_cotton_doublejump
+		with instance_create(x, y, obj_highjumpcloud2)
 			sprite_index = spr_cottonpoof;
-        scr_soundeffect(sfx_cottondoublejump)
-    }
+		scr_soundeffect(sfx_cottondoublejump)
+	}
 	
 	// drill move
-    if key_down2 && !grounded && !drilling && sprite_index != spr_cotton_slam
-    {
-        vsp = 9
-        sprite_index = spr_cotton_drill
-        image_index = 0
-        scr_soundeffect(sfx_suplexdashSP)
-        flash = true
+	if key_down2 && !grounded && !drilling && sprite_index != spr_cotton_slam
+	{
+		vsp = 9
+		sprite_index = spr_cotton_drill
+		image_index = 0
+		scr_soundeffect(sfx_suplexdashSP)
+		flash = true
 		
 		with instance_create(x, y, obj_mach3effect)
 		{
@@ -197,19 +197,19 @@ function scr_player_cotton()
 				keep = true;
 			}
 		}
-    }
+	}
 	
 	// fall off
-    if !grounded && sprite_index != spr_cotton_jump && sprite_index != spr_cotton_attack && sprite_index != spr_cotton_doublejump && sprite_index != spr_cotton_doublefall && sprite_index != spr_cotton_drill && sprite_index != spr_cotton_slam
-        sprite_index = spr_cotton_fall
+	if !grounded && sprite_index != spr_cotton_jump && sprite_index != spr_cotton_attack && sprite_index != spr_cotton_doublejump && sprite_index != spr_cotton_doublefall && sprite_index != spr_cotton_drill && sprite_index != spr_cotton_slam
+		sprite_index = spr_cotton_fall
 	
-    if sprite_index == spr_cotton_slam
-    {
-        movespeed = 0
-        hsp = 0
-        move = 0
-        dir = 0
-    }
+	if sprite_index == spr_cotton_slam
+	{
+		movespeed = 0
+		hsp = 0
+		move = 0
+		dir = 0
+	}
 	
 	// land while drilling
 	if drilling && grounded && !place_meeting(x, y + 1, obj_cottonblock) && !place_meeting(x, y + 1, obj_destructibles)
@@ -217,10 +217,10 @@ function scr_player_cotton()
 		instance_create(x, y, obj_landcloud)
 		scr_soundeffect(sfx_step)
 		
-	    sprite_index = spr_cotton_land
-	    vsp = 0
-	    movespeed = 0
-	    image_index = 0
+		sprite_index = spr_cotton_land
+		vsp = 0
+		movespeed = 0
+		image_index = 0
 	}
 	
 	// walking cloud

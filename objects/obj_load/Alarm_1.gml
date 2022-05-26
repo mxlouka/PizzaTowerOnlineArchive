@@ -8,5 +8,3 @@ if global.crashed[0] == true
 else
 	room_goto(r);
 
-//room_goto(rm_editor);
-

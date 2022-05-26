@@ -7,20 +7,20 @@ function scr_enemy_hit()
 	
 	if hitLag <= 0
 	{
-	    x = hitX;
-	    y = hitY;
-	    state = states.stun;
-	    vsp = hitvsp;
-	    hsp = hithsp;
+		x = hitX;
+		y = hitY;
+		state = states.stun;
+		vsp = hitvsp;
+		hsp = hithsp;
 		
-	    global.combotime = 60;
-	    global.heattime = 60;
-	    alarm[1] = 5;
-	    stunned = 200;
-	    thrown = true;
+		global.combotime = 60;
+		global.heattime = 60;
+		alarm[1] = 5;
+		stunned = 200;
+		thrown = true;
 		
-	    if hp < -6 && object_index != obj_pizzaballOLD/* && object_get_parent(object_index) != par_boss*/
-	        instance_destroy();
+		if hp < -6 && object_index != obj_pizzaballOLD/* && object_get_parent(object_index) != par_boss*/
+			instance_destroy();
 	}
 }
 

@@ -40,22 +40,22 @@ if instance_exists(ID)
 			}
 			
 			if object_index == obj_robot
-	        {
-	            if state != states.mach2 && state != states.slap && state != states.tackle
-	            {
-	                hitboxcreate = false
-	                instance_destroy(other)
-	            }
-	            else if state == state != states.slap
-	                other.x = x + image_xscale * 32
-	        }
+			{
+				if state != states.mach2 && state != states.slap && state != states.tackle
+				{
+					hitboxcreate = false
+					instance_destroy(other)
+				}
+				else if state == state != states.slap
+					other.x = x + image_xscale * 32
+			}
 			
 			if object_index == obj_soldier
-	        {
-	            other.x = x + image_xscale * 24
-	            if state != states.rage
-	                instance_destroy(other)
-	        }
+			{
+				other.x = x + image_xscale * 24
+				if state != states.rage
+					instance_destroy(other)
+			}
 			
 			if object_index == obj_weeniesquire
 			{
@@ -112,16 +112,16 @@ if instance_exists(ID)
 				}
 			}
 			else if object_index == obj_ninja
-	        {
-	            if state != states.charge && state != states.punch
-	                instance_destroy(other)
-	            if state == states.punch
-	            {
-	                if image_index > 14
-	                    instance_destroy(other)
-	                other.x = x + image_xscale * 24
-	            }
-	        }
+			{
+				if state != states.charge && state != states.punch
+					instance_destroy(other)
+				if state == states.punch
+				{
+					if image_index > 14
+						instance_destroy(other)
+					other.x = x + image_xscale * 24
+				}
+			}
 
 			if object_index == obj_fencer
 			{

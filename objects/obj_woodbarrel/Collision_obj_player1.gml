@@ -2,33 +2,33 @@
 //Grab
 if other.state == states.handstandjump && other.character != "S"
 {
-    instance_create(x + (other.xscale * 40), y, obj_punchdust)
-    with other.id
-    {
-        image_index = 0;
-        sprite_index = spr_haulingstart;
-        baddiegrabbedID = other.id;
-        state = states.grab;
-    }
-    playerid = other.object_index;
-    grabbed = 1;
+	instance_create(x + (other.xscale * 40), y, obj_punchdust)
+	with other.id
+	{
+		image_index = 0;
+		sprite_index = spr_haulingstart;
+		baddiegrabbedID = other.id;
+		state = states.grab;
+	}
+	playerid = other.object_index;
+	grabbed = 1;
 }
 
 // enter barrel
 if (other.state == states.mach2 or other.state == states.mach3 or other.state == states.machroll) && grounded && other.character != "V"
 {
-    instance_create(x, y, obj_genericpoofeffect);
-    with other.id
-    {
-        vsp = 0;
-        mask_index = spr_crouchmask;
-        x = other.x;
-        y = other.y;
-        state = states.barrel;
+	instance_create(x, y, obj_genericpoofeffect);
+	with other.id
+	{
+		vsp = 0;
+		mask_index = spr_crouchmask;
+		x = other.x;
+		y = other.y;
+		state = states.barrel;
 		sprite_index = spr_barrelroll;
-        movespeed = 12;
-    }
-    instance_destroy();
+		movespeed = 12;
+	}
+	instance_destroy();
 }
 
 /*

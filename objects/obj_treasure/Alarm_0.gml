@@ -14,5 +14,5 @@ if global.gameplay == 0
 else
 {
 	if !instance_exists(obj_endlevelfade)
-	    instance_create(x, y, obj_endlevelfade);
+		instance_create(x, y, obj_endlevelfade);
 }

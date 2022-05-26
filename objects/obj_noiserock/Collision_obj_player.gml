@@ -8,10 +8,10 @@ obj_player.sprite_index = spr_player_stunned
 vsp = -5
 
 falling = false
-            with (obj_camera) {
+			with (obj_camera) {
 
-    shake_mag=10;
-    shake_mag_acc=30/room_speed;
+	shake_mag=10;
+	shake_mag_acc=30/room_speed;
 }
 }
 

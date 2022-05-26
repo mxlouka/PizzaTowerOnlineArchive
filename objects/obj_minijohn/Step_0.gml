@@ -1,58 +1,54 @@
-if room == rm_editor exit;
-
-
-switch (state)
+switch state
 {
-    case states.idle: scr_enemy_idle (); break;
-    case states.turn: scr_enemy_turn (); break;
-    case states.walk: scr_enemy_walk (); break;
-    case states.land: scr_enemy_land (); break;
-    case states.hit: scr_enemy_hit (); break;
-    case states.stun: scr_enemy_stun (); break;
-    case states.pizzagoblinthrow: scr_pizzagoblin_throw (); break;
-    // grabbed state here
+	case states.idle: scr_enemy_idle (); break;
+	case states.turn: scr_enemy_turn (); break;
+	case states.walk: scr_enemy_walk (); break;
+	case states.land: scr_enemy_land (); break;
+	case states.hit: scr_enemy_hit (); break;
+	case states.stun: scr_enemy_stun (); break;
+	case states.pizzagoblinthrow: scr_pizzagoblin_throw (); break;
+	// grabbed state here
 	case states.chase: scr_enemy_chase (); break;
 	case states.rage: scr_enemy_rage (); break;
 }
 
-
-if  state = states.stun && stunned > 100 && birdcreated = false
+if state == states.stun && stunned > 100 && !birdcreated
 {
 	birdcreated = true
-	with instance_create(x,y, obj_enemybird)
+	with instance_create(x, y, obj_enemybird)
 		ID = other.id
 }
 
 if global.stylethreshold >= 3 && ragecooldown <= 0
 {
-    var player = instance_nearest(x, y, obj_player);
-    if state == states.chase && instance_exists(player)
-    {
-        if player.x > x - 400 && player.x < x + 400
+	var player = instance_nearest(x, y, obj_player);
+	if state == states.chase && instance_exists(player)
+	{
+		if player.x > x - 400 && player.x < x + 400
 		&& player.y <= y + 60 && player.y >= y - 60
-        {
-            image_xscale = -sign(x - player.x);
-            sprite_index = spr_minijohn_rage1;
-            image_index = 0;
-            vsp = -8;
-            flash = true;
-            alarm[4] = 5;
-            ragecooldown = 100;
-            state = states.rage;
+		{
+			image_xscale = -sign(x - player.x);
+			sprite_index = spr_minijohn_rage1;
+			image_index = 0;
+			vsp = -8;
+			flash = true;
+			alarm[4] = 5;
+			ragecooldown = 100;
+			state = states.rage;
 			
-            create_heatattack_afterimage(x, y, sprite_index, image_index, image_xscale);
+			create_heatattack_afterimage(x, y, sprite_index, image_index, image_xscale);
 			
 			with instance_create(x, y, obj_forkhitbox)
 			{
 				sprite_index = spr_bighitbox
-	            mask_index = spr_bighitbox
-	            ID = other.id
+				mask_index = spr_bighitbox
+				ID = other.id
 			}
-        }
-    }
+		}
+	}
 }
 if ragecooldown > 0
-    ragecooldown--;
+	ragecooldown--;
 
 if state != states.stun
 	birdcreated = false

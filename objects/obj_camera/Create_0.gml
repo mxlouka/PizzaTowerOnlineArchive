@@ -66,7 +66,7 @@ depth = -9998;
 manualhide = false;
 zoom = 1
 frameone = false;
-global.roombgs = [];
+global.roombgs = ds_list_create();
 shaderfade = 0;
 
 // new shit

@@ -17,8 +17,8 @@ with (obj_player)
   //  }
   //  other.state = states.rolling
   //  other.stunned = 200
-    
-    
+	
+	
 //}
 
 //Stomp player
@@ -28,7 +28,7 @@ other.caughtplayer = true
 }
 
 
-    //Stomp
+	//Stomp
 
 if y < other.y  && (attacking = false) && (state == states.jump) && vsp > 0 && sprite_index != spr_player_stompprep
 {
@@ -91,17 +91,17 @@ vsp = -11
 if !(y < other.y)  && state != states.bump && state != states.hurt && other.state != states.stun
 {
 instance_create(x,y,obj_bumpeffect)
-            if x != other.x
-        {
-        xscale = -sign(x - other.x)
-        }
-            hsp = -xscale * 10
-            
-    vsp = -4
-    image_index = 0
-    state = states.bump
+			if x != other.x
+		{
+		xscale = -sign(x - other.x)
+		}
+			hsp = -xscale * 10
+			
+	vsp = -4
+	image_index = 0
+	state = states.bump
 
-    }
+	}
 
 
 }

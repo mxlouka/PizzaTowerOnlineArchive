@@ -5,6 +5,7 @@ if in != noone && out != noone
 	{
 		with in
 		{
+			var inid = id;
 			if place_meeting(x, y, other)
 			{
 				if ds_list_find_index(global.saveroom, id) != -1
@@ -12,7 +13,7 @@ if in != noone && out != noone
 				else
 				{
 					with instance_create(x, y, other.out)
-						ID = id;
+						ID = inid;
 					instance_destroy(id, false);
 				}
 			}

@@ -1133,7 +1133,7 @@ function scr_characterspr(char = character)
 
 				spr_Timesup = spr_playerSP_timesup
 				spr_deathstart = spr_player_deathstart
-				spr_deathend = spr_player_deathend
+				spr_deathend = spr_playerSP_hurt
 				spr_hurtjump = spr_playerSP_hurt
 				spr_entergate = spr_playerSP_entergate
 				spr_gottreasure = spr_playerSP_gottreasure

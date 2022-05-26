@@ -27,7 +27,7 @@ if !pause && !instance_exists(obj_fadeout) && !instance_exists(obj_pausefadeout)
 	}
 	
 	// pressed pause button
-    if kstart && (room != rank_room && room != Realtitlescreen && room != timesuproom && room != characterselect && room != editor_entrance)
+	if kstart && (room != rank_room && room != Realtitlescreen && room != timesuproom && room != characterselect && room != editor_entrance)
 	{
 		keyboard_clear(global.key_jump);
 		
@@ -39,13 +39,13 @@ if !pause && !instance_exists(obj_fadeout) && !instance_exists(obj_pausefadeout)
 		}
 		else
 			scr_soundeffect(sfx_denied);
-    }
+	}
 }
 
 if pause && !instance_exists(obj_option)
 {
 	if !string_startswith(konami, "UUDDLRLR")
-	    scr_getinput();
+		scr_getinput();
 	
 	//DDP Always draw normally while paused
 	application_surface_draw_enable(true)
@@ -53,17 +53,17 @@ if pause && !instance_exists(obj_option)
 		exit;
 	
 	// move
-    if key_down2 && selected < 3
+	if key_down2 && selected < 3
 	{
-        selected += 1
+		selected += 1
 		scr_soundeffect(sfx_step)
-    }
+	}
 
-    if key_up2 && selected > 0
+	if key_up2 && selected > 0
 	{
 		selected -= 1
 		scr_soundeffect(sfx_step)
-    }
+	}
 	
 	// RESTART LEVEL
 	if key_jump && selected == 1
@@ -148,18 +148,18 @@ if pause && !instance_exists(obj_option)
 	}
 	
 	// EXIT TO TITLE
-    if key_jump && selected == 2
+	if key_jump && selected == 2
 	{
 		instance_activate_all();
 		alarm[1] = 1;
-    }
+	}
 	
 	// RESUME
-    if key_jump && selected == 0
+	if key_jump && selected == 0
 	{
-        if !instance_exists(obj_pausefadeout)
+		if !instance_exists(obj_pausefadeout)
 			instance_create(x, y, obj_pausefadeout);
-    }
+	}
 	
 	// OPTIONS
 	if key_jump && selected == 3 && !instance_exists(obj_option)
@@ -178,7 +178,7 @@ if pause && !instance_exists(obj_option)
 				audio_sound_gain(music, global.musicvolume, 0);
 			}
 		}
-    }
+	}
 	
 	// konami code for old golf level funmode
 	if alarm[0] == -1 && alarm[1] == -1 && alarm[2] == -1 && !global.funmode && string_startswith(room_get_name(room), "golf") && !global.timeattack

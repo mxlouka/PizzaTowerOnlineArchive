@@ -49,30 +49,30 @@ function scr_player_barrel()
 		else
 		{
 			vsp = -10
-		    xscale *= -1
-		    movespeed = 0
-		    jumpstop = 1
+			xscale *= -1
+			movespeed = 0
+			jumpstop = 1
 		}
 	}
 
 	// land
 	if (grounded && (vsp > 0))
-	    movespeed = 12
+		movespeed = 12
 	
 	// jump
 	if key_jump
-	    input_buffer_jump = 0
+		input_buffer_jump = 0
 	if ((!key_jump2) && ((jumpstop == 0) && ((vsp < 0.5) && (stompAnim == 0))))
 	{
-	    vsp /= 2
-	    jumpstop = true
+		vsp /= 2
+		jumpstop = true
 	}
 	if grounded && vsp > 0
-	    jumpstop = false
+		jumpstop = false
 	if input_buffer_jump < 8 && grounded && hsp != 0
 	{
 		input_buffer_jump = 8
-	    vsp = -11
+		vsp = -11
 		
 		with instance_create(x, y, obj_highjumpcloud2)
 			image_xscale = other.image_xscale;

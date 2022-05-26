@@ -1,23 +1,23 @@
 // snick rematch vignette
 if ((room == dungeon_10 or room == dungeon_9 or room == snick_challengeend) && global.snickchallenge && global.snickrematch)
 {
-    draw_sprite_ext(spr_vignette, 0, 0, 0, 1, 1, 0, c_white, random_range(0.8, 0.9));
-    instance_destroy(obj_baddie, false);
-    instance_destroy(obj_baddiespawner, false);
+	draw_sprite_ext(spr_vignette, 0, 0, 0, 1, 1, 0, c_white, random_range(0.8, 0.9));
+	instance_destroy(obj_baddie, false);
+	instance_destroy(obj_baddiespawner, false);
 }
 
 // snick rematch jumpscare
 if jumpscare > -1
 {
-    jumpscare--;
+	jumpscare--;
 	
-    if irandom(2) == 0
-        jumpscareimage = irandom(sprite_get_number(spr_scares) - 1);
+	if irandom(2) == 0
+		jumpscareimage = irandom(sprite_get_number(spr_scares) - 1);
 	
-    if jumpscare <= 5
-        draw_sprite(spr_scares_txt, jumpscaretext, 0, 0);
-    else
-        draw_sprite(spr_scares, jumpscareimage, 0, 0);
+	if jumpscare <= 5
+		draw_sprite(spr_scares_txt, jumpscaretext, 0, 0);
+	else
+		draw_sprite(spr_scares, jumpscareimage, 0, 0);
 }
 
 if room == rm_darkreveal or !global.showhud
@@ -98,15 +98,15 @@ else
 		/*
 		if global.use_temperature
 		{
-		    var _width = sprite_get_width(spr_temperature_meterfill)
-		    var _height = sprite_get_height(spr_temperature_meterfill)
-		    global.temperature += global.temperature_spd
-		    global.temperature = clamp(global.temperature, 0, (global.temp_thresholdnumber * 100))
-		    var _tmp = (global.temperature / (global.temp_thresholdnumber * 100))
-		    var _top = 0
-		    var _height2 = (_height * _tmp)
-		    draw_sprite_part_ext(spr_temperature_meterfill, 0, 0, _top, _width, _height2, 864, (192 + _height), 1, -1, c_white, 1)
-		    draw_sprite(spr_temperature_meter, 0, 864, 192)
+			var _width = sprite_get_width(spr_temperature_meterfill)
+			var _height = sprite_get_height(spr_temperature_meterfill)
+			global.temperature += global.temperature_spd
+			global.temperature = clamp(global.temperature, 0, (global.temp_thresholdnumber * 100))
+			var _tmp = (global.temperature / (global.temp_thresholdnumber * 100))
+			var _top = 0
+			var _height2 = (_height * _tmp)
+			draw_sprite_part_ext(spr_temperature_meterfill, 0, 0, _top, _width, _height2, 864, (192 + _height), 1, -1, c_white, 1)
+			draw_sprite(spr_temperature_meter, 0, 864, 192)
 		}
 		*/
 		
@@ -152,7 +152,7 @@ else
 						pal_swap_set(spr_palette, paletteselect, false);
 				}
 				
-			    draw_sprite_ext(tvspr, tvimg, 833 + offset_x, 107 + offset_y + hud_posY, 1, 1, 0, c_white, alpha);
+				draw_sprite_ext(tvspr, tvimg, 833 + offset_x, 107 + offset_y + hud_posY, 1, 1, 0, c_white, alpha);
 				pal_swap_reset();
 				
 				if !sugary && !tvoff && !(instance_exists(obj_player) && (obj_player.character == "PP" or obj_player.character == "CT"))
@@ -192,25 +192,25 @@ else
 				if instance_exists(obj_player) && obj_player.character == "PP"
 					tvcombo = spr_tv_comboPP;
 				
-			    draw_sprite_ext(tvcombo, -1, 833 + offset_x, 107 + offset_y + hud_posY, 1, 1, 0, c_white, alpha * combo_fade)
+				draw_sprite_ext(tvcombo, -1, 833 + offset_x, 107 + offset_y + hud_posY, 1, 1, 0, c_white, alpha * combo_fade)
 				
 				var str = string(combo_prev);
-			    if global.combo < 10 && global.combo > -1
-			        str = "0" + str;
+				if global.combo < 10 && global.combo > -1
+					str = "0" + str;
 				
-			    draw_set_halign(fa_left);
-			    draw_set_valign(fa_top);
-			    draw_set_font(global.combofont);
+				draw_set_halign(fa_left);
+				draw_set_valign(fa_top);
+				draw_set_font(global.combofont);
 				
-			    var num = string_length(str);
-			    var w = round(string_width(str) / num);
+				var num = string_length(str);
+				var w = round(string_width(str) / num);
 				
-			    for (var i = 0; i < num; i++)
-			    {
-			        var char = string_char_at(str, i + 1);
-			        var xx = i * w, yy = i * 5;
-			        draw_text_auto(789 + xx + offset_x + random_range(-combo_shake, combo_shake), 91 - yy + offset_y + hud_posY + random_range(-combo_shake, combo_shake), char,,,combo_fade);
-			    }
+				for (var i = 0; i < num; i++)
+				{
+					var char = string_char_at(str, i + 1);
+					var xx = i * w, yy = i * 5;
+					draw_text_auto(789 + xx + offset_x + random_range(-combo_shake, combo_shake), 91 - yy + offset_y + hud_posY + random_range(-combo_shake, combo_shake), char,,,combo_fade);
+				}
 				
 				// sugary combo timer
 				if sugary
@@ -255,10 +255,10 @@ else
 		}
 	
 		if bubblespr != noone
-		    draw_sprite_ext(bubblespr, bubbleindex, 512 - (sugary * 65), 53 + hud_posY, 1, 1, 1, c_white, alpha);
+			draw_sprite_ext(bubblespr, bubbleindex, 512 - (sugary * 65), 53 + hud_posY, 1, 1, 1, c_white, alpha);
 	
 		if !surface_exists(promptsurface)
-		    promptsurface = surface_create(290, 102);
+			promptsurface = surface_create(290, 102);
 		
 		surface_set_target(promptsurface)
 		draw_clear_alpha(c_black, 0) 
@@ -269,14 +269,14 @@ else
 		// draw bubble
 		if bubblespr == spr_tv_bubble
 		{
-		    promptx -= promptspd;
-		    if bubblespr != spr_tv_bubbleclose && promptx < 350 - string_width(prompt)
-		    {
-		        bubblespr = spr_tv_bubbleclose;
-		        bubbleindex = 0;
+			promptx -= promptspd;
+			if bubblespr != spr_tv_bubbleclose && promptx < 350 - string_width(prompt)
+			{
+				bubblespr = spr_tv_bubbleclose;
+				bubbleindex = 0;
 				promptx = promptxstart;
-		    }
-		    draw_text_color(promptx - 350, 50, prompt, c_black, c_black, c_black, c_black, 1);
+			}
+			draw_text_color(promptx - 350, 50, prompt, c_black, c_black, c_black, c_black, 1);
 		}
 		
 		draw_set_halign(fa_left);

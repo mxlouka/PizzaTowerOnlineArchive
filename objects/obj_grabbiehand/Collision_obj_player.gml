@@ -3,40 +3,40 @@ if sprite_index = spr_grabbiehand_fall
 with (obj_player)
 {
 if state == states.boxxedpep 
-    {
-//    scr_sound(sound_losetransformation)
-    with instance_create(x,y,obj_boxxeddebris)
-    {
-    image_index = 0
-    }
-    with instance_create(x,y,obj_boxxeddebris)
-    {
-    image_index = 1
-    }
-    with instance_create(x,y,obj_boxxeddebris)
-    {
-    image_index = 2
-    }
-    with instance_create(x,y,obj_boxxeddebris)
-    {
-    image_index = 3
-    }
-    with instance_create(x,y,obj_boxxeddebris)
-    {
-    image_index = 4
-    }
+	{
+//	scr_sound(sound_losetransformation)
+	with instance_create(x,y,obj_boxxeddebris)
+	{
+	image_index = 0
+	}
+	with instance_create(x,y,obj_boxxeddebris)
+	{
+	image_index = 1
+	}
+	with instance_create(x,y,obj_boxxeddebris)
+	{
+	image_index = 2
+	}
+	with instance_create(x,y,obj_boxxeddebris)
+	{
+	image_index = 3
+	}
+	with instance_create(x,y,obj_boxxeddebris)
+	{
+	image_index = 4
+	}
 }
 if state == states.cheesepep or state == states.cheesepepstick
-    {
-//    scr_sound(sound_losetransformation)
-    instance_create(x,y,obj_slimedebris) 
-    instance_create(x,y,obj_slimedebris) 
-    instance_create(x,y,obj_slimedebris) 
-    instance_create(x,y,obj_slimedebris) 
-    instance_create(x,y,obj_slimedebris) 
-    instance_create(x,y,obj_slimedebris) 
-    instance_create(x,y,obj_slimedebris) 
-    instance_create(x,y,obj_slimedebris) 
+	{
+//	scr_sound(sound_losetransformation)
+	instance_create(x,y,obj_slimedebris) 
+	instance_create(x,y,obj_slimedebris) 
+	instance_create(x,y,obj_slimedebris) 
+	instance_create(x,y,obj_slimedebris) 
+	instance_create(x,y,obj_slimedebris) 
+	instance_create(x,y,obj_slimedebris) 
+	instance_create(x,y,obj_slimedebris) 
+	instance_create(x,y,obj_slimedebris) 
 }
 }
 grav = 0

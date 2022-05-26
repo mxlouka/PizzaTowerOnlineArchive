@@ -3,9 +3,9 @@ function scr_enemy_grabbed()
 	var player = asset_get_index("obj_player" + string(grabbedby));
 	if object_index == obj_treasureguy && global.gameplay == 0
 	{
-	    with player
-	        scr_pummel();
-	    instance_destroy()
+		with player
+			scr_pummel();
+		instance_destroy()
 	}
 	
 	if instance_exists(player)
@@ -56,8 +56,8 @@ function scr_enemy_grabbed()
 				
 				with obj_camera
 				{
-				    shake_mag = 3;
-				    shake_mag_acc = 3 / room_speed;
+					shake_mag = 3;
+					shake_mag_acc = 3 / room_speed;
 				}
 			}
 			
@@ -106,8 +106,8 @@ function scr_enemy_grabbed()
 			
 			with obj_camera
 			{
-			    shake_mag = 3;
-			    shake_mag_acc = 3 / room_speed;
+				shake_mag = 3;
+				shake_mag_acc = 3 / room_speed;
 			}
 		}
 
@@ -157,9 +157,9 @@ function scr_enemy_grabbed()
 			instance_create(x,y,obj_baddiegibs)
 			flash = true
 			
-		    with (obj_camera) {
-			    shake_mag=3;
-			    shake_mag_acc=3/room_speed;
+			with (obj_camera) {
+				shake_mag=3;
+				shake_mag_acc=3/room_speed;
 			}
 
 		}
@@ -199,8 +199,8 @@ function scr_enemy_grabbed()
 			
 			with obj_camera
 			{
-			    shake_mag = 3;
-			    shake_mag_acc = 3 / room_speed;
+				shake_mag = 3;
+				shake_mag_acc = 3 / room_speed;
 			}
 
 		}
@@ -217,8 +217,8 @@ function scr_enemy_grabbed()
 			}
 			with obj_camera
 			{
-			    shake_mag = 3;
-			    shake_mag_acc = 3 / room_speed;
+				shake_mag = 3;
+				shake_mag_acc = 3 / room_speed;
 			}
 			
 			if (scr_solid(x, y) && object_index == obj_pizzaballOLD)
@@ -306,10 +306,10 @@ function scr_enemy_grabbed()
 			instance_create(x,y,obj_baddiegibs)
 			flash = true
 			
-		    with obj_camera
+			with obj_camera
 			{
-			    shake_mag=3;
-			    shake_mag_acc=3/room_speed;
+				shake_mag=3;
+				shake_mag_acc=3/room_speed;
 			}
 		}
 
@@ -397,11 +397,11 @@ function scr_enemy_grabbed()
 					with player
 					{
 						jumpAnim = true;
-				        state = states.jump;
-				        sprite_index = character == "SP" ? spr_machfreefall : spr_suplexland;
-				        vsp = -11;
-				        jumpstop = true;
-				        image_index = 0;
+						state = states.jump;
+						sprite_index = character == "SP" ? spr_machfreefall : spr_suplexland;
+						vsp = -11;
+						jumpstop = true;
+						image_index = 0;
 					}
 				}
 				else

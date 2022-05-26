@@ -1,5 +1,6 @@
 /// @description 
-switch(image_index) {
+switch image_index
+{
 	case 0:
 		contentEditor = "obj_pizzagoblin";
 		break;
@@ -65,13 +66,10 @@ switch(image_index) {
 		break;
 }
 
-if room != rm_editor
+with instance_create_layer(x, y, "Level_structure", obj_baddiespawner)
 {
-    with instance_create_layer(x, y, "Level_structure", obj_baddiespawner)
-    {
-        image_xscale = other.image_xscale * other.xscale
-        image_yscale = other.image_yscale
-        content = asset_get_index(other.contentEditor)
-    }
-    instance_destroy()
+	image_xscale = other.image_xscale * other.xscale
+	image_yscale = other.image_yscale
+	content = asset_get_index(other.contentEditor)
 }
+instance_destroy()

@@ -20,10 +20,10 @@ function scr_player_slipbanan()
 	
 	if sprite_index == spr_slipbanan1
 	{
-	    if floor(image_index) >= image_number - 1
-	        image_speed = 0;
-	    else
-	        image_speed = 0.35;
+		if floor(image_index) >= image_number - 1
+			image_speed = 0;
+		else
+			image_speed = 0.35;
 	}
 	else
 		image_speed = 0.35;
@@ -79,9 +79,9 @@ function scr_player_slipbanan()
 			scr_soundeffect(sfx_step);
 			instance_create(x, y, obj_landcloud);
 			
-		    sprite_index = spr_slipbanan2;
-		    image_index = 0;
-		    image_speed = 0.35;
+			sprite_index = spr_slipbanan2;
+			image_index = 0;
+			image_speed = 0.35;
 			
 			if !sugary
 				movespeed = 0;

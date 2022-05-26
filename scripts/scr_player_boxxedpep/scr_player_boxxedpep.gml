@@ -52,7 +52,7 @@ function scr_player_boxxedpep()
 	}
 	
 	if !run or (movespeed < 10 && !grounded)
-    {
+	{
 		var runspeed = 8
 		if global.gameplay != 0
 			runspeed = 6

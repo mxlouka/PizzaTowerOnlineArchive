@@ -22,33 +22,33 @@ function scr_player_skateboard() {
 
 
 
-	        //Bump
-	    if (scr_solid(x+1,y) && xscale == 1)
-	    {
-	    machhitAnim = false
-	    state = states.bump
-	    hsp = -2.5
-	    vsp = -3
-	    mach2 = 0
-	    image_index = 0
-	    instance_create(x+10,y+10,obj_bumpeffect)
+			//Bump
+		if (scr_solid(x+1,y) && xscale == 1)
+		{
+		machhitAnim = false
+		state = states.bump
+		hsp = -2.5
+		vsp = -3
+		mach2 = 0
+		image_index = 0
+		instance_create(x+10,y+10,obj_bumpeffect)
 
 	instance_create(x,y+10,obj_skateboarddebris1)
 	instance_create(x,y+10,obj_skateboarddebris2)
-	    }
-	    else if (scr_solid(x-1,y) && xscale == -1)
-	    {
-	    machhitAnim = false
-	    state = states.bump
-	    hsp = 2.5
-	    vsp = -3
-	    mach2 = 0
-	    image_index = 0
-	    instance_create(x-10,y+10,obj_bumpeffect)
+		}
+		else if (scr_solid(x-1,y) && xscale == -1)
+		{
+		machhitAnim = false
+		state = states.bump
+		hsp = 2.5
+		vsp = -3
+		mach2 = 0
+		image_index = 0
+		instance_create(x-10,y+10,obj_bumpeffect)
 
 	instance_create(x,y+10,obj_skateboarddebris1)
 	instance_create(x,y+10,obj_skateboarddebris2)
-	    }
+		}
 
 
 
@@ -59,7 +59,7 @@ function scr_player_skateboard() {
 
 	image_speed = 0.35
 
-    
+	
 	//Effects
 	if !(instance_exists(obj_slidecloud)) && grounded && movespeed > 5
 	instance_create(x,y,obj_slidecloud)

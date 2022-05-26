@@ -21,15 +21,15 @@ function scr_collide_player()
 					break;
 				}
 				
-			    if !scr_solid_player(x, y + sign(_vsp))
-			        y += sign(_vsp);
-			    else
+				if !scr_solid_player(x, y + sign(_vsp))
+					y += sign(_vsp);
+				else
 				{
 					if vsp >= 0
 						grounded |= true;
-			        vsp = 0;
-			        break;
-			    }
+					vsp = 0;
+					break;
+				}
 			}
 		}
 		x = floor(x);
@@ -39,20 +39,23 @@ function scr_collide_player()
 		{
 			repeat abs(_hsp)
 			{
-			    // Move up slope
-			    if scr_solid_player(x + sign(_hsp), y) && !scr_solid_player(x + sign(_hsp), y - 1)
+				// Move up slope
+				if scr_solid_player(x + sign(_hsp), y) && !scr_solid_player(x + sign(_hsp), y - 1)
 					y--;
-    
-			    // Move down slope
-			    if !scr_solid_player(x + sign(_hsp), y) && !scr_solid_player(x + sign(_hsp), y + 1) && scr_solid_player(x + sign(_hsp), y + 2)
-			        y++;
+	
+				// Move down slope
+				if !scr_solid_player(x + sign(_hsp), y) && !scr_solid_player(x + sign(_hsp), y + 1) && scr_solid_player(x + sign(_hsp), y + 2)
+					y++;
 		
 				// if youre going too fast you might phase right through some object triggers, so-
 				with instance_place(x, y + 1, obj_destructibleplatform)
 				{
-					falling = true;
-					sprite_index = spr_dissolve;
-					image_index = 0;
+					if !falling
+					{
+						falling = true;
+						sprite_index = spr_dissolve;
+						image_index = 0;
+					}
 				}
 				with instance_place(x, y, obj_hallway)
 				{
@@ -60,13 +63,13 @@ function scr_collide_player()
 					break;
 				}
 				
-			    if !scr_solid_player(x + sign(_hsp), y)
-			        x += sign(_hsp);
-			    else
+				if !scr_solid_player(x + sign(_hsp), y)
+					x += sign(_hsp);
+				else
 				{
-			        hsp = 0;
-			        break;
-			    }
+					hsp = 0;
+					break;
+				}
 			}
 		}
 		y = floor(y);

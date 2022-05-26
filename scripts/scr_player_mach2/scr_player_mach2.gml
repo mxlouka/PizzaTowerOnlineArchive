@@ -42,17 +42,17 @@ function scr_player_mach2()
 	if key_jump && global.mort && !doublejump && !grounded && !skateboarding
 	{
 		state = states.jump;
-	    repeat 6 with instance_create(x, y, obj_debris)
+		repeat 6 with instance_create(x, y, obj_debris)
 			sprite_index = spr_feather;
 			
-	    scr_soundeffect(sfx_woosh);
-	    sprite_index = spr_pmortjumpstart;
-	    image_index = 0;
-	    jumpstop = false;
+		scr_soundeffect(sfx_woosh);
+		sprite_index = spr_pmortjumpstart;
+		image_index = 0;
+		jumpstop = false;
 		jumpAnim = false;
 		
-	    grav = 0.25;
-	    mort = 1;
+		grav = 0.25;
+		mort = 1;
 		exit;
 	}
 	
@@ -284,13 +284,13 @@ function scr_player_mach2()
 			scr_soundeffect(sfx_step)
 			landAnim = true
 			instance_create(x, y, obj_landcloud)
-		    input_buffer_secondjump = 0
-		    state = states.normal
-		    jumpAnim = true
-		    jumpstop = false
-		    image_index = 0
+			input_buffer_secondjump = 0
+			state = states.normal
+			jumpAnim = true
+			jumpstop = false
+			image_index = 0
 		
-		    freefallstart = 0
+			freefallstart = 0
 		}
 		else
 			state = states.normal

@@ -8,15 +8,15 @@ var _view_center_x = (_l + _r)/2;
 var _view_center_y = (_t + __b)/2;
 var _x1, _y1, _x2, _y2;
 with (playerid) {
-    if (!collision_rectangle(_l,_t,_r,__b,id,0,0)) {
-        _x1 = (x - _view_center_x);
-        _y1 = (y - _view_center_y);
-        if abs(_x1 / _edge_x) > abs(_y1 / _edge_y) { _x2 = sign(_x1) * _edge_x; _y2 = _x2 / _x1 * _y1; } 
-        else { _y2 = sign(_y1) * _edge_y; _x2 = _y2 / _y1 * _x1; }
-        ds_queue_enqueue(other.edge_indicator,_view_center_x + _x2);
-        ds_queue_enqueue(other.edge_indicator,_view_center_y + _y2);
-        ds_queue_enqueue(other.edge_indicator,point_direction(0,0,_x1,_y1));
-    }
+	if (!collision_rectangle(_l,_t,_r,__b,id,0,0)) {
+		_x1 = (x - _view_center_x);
+		_y1 = (y - _view_center_y);
+		if abs(_x1 / _edge_x) > abs(_y1 / _edge_y) { _x2 = sign(_x1) * _edge_x; _y2 = _x2 / _x1 * _y1; } 
+		else { _y2 = sign(_y1) * _edge_y; _x2 = _y2 / _y1 * _x1; }
+		ds_queue_enqueue(other.edge_indicator,_view_center_x + _x2);
+		ds_queue_enqueue(other.edge_indicator,_view_center_y + _y2);
+		ds_queue_enqueue(other.edge_indicator,point_direction(0,0,_x1,_y1));
+	}
 }
 
 

@@ -39,15 +39,15 @@ function scr_enemy_walk()
 				hsp += accel * sign(image_xscale)
 				if hsp < -movespeed or hsp > movespeed
 				{
-				    hsp = movespeed * sign(image_xscale)
-				    walked = true;
+					hsp = movespeed * sign(image_xscale)
+					walked = true;
 				}
 			}
 			else
 			{
 				hsp -= deccel * sign(image_xscale)
 				if hsp > -deccel_threshold && hsp < deccel_threshold
-				    walked = false;
+					walked = false;
 			}
 			break;
 	}

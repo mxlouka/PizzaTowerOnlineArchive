@@ -23,7 +23,7 @@ else if sprite_index == spr_haystackburning && gameplay == 1
 	if haystack
 	{
 		if haystack.sprite_index != spr_haystackburningup && haystack.sprite_index != spr_haystackburning
-	        haystack.sprite_index = spr_haystackburningup
+			haystack.sprite_index = spr_haystackburningup
 	}
 }
 

@@ -1,5 +1,5 @@
 if state == states.golf
-    exit;
+	exit;
 
 vsp = -14
 kicked = false

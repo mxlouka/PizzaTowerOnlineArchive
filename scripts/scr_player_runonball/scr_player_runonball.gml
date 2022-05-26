@@ -15,10 +15,10 @@ function scr_player_runonball() {
 	/*if !(place_meeting(x,y+1,obj_runonball))
 	{
 	mach2 = 0
-	    state = states.normal
-	    jumpAnim = true
-	    jumpstop = false
-	    }
+		state = states.normal
+		jumpAnim = true
+		jumpstop = false
+		}
 
 	//Jump
 	if key_jump && grounded && !key_down && !key_attack
@@ -28,7 +28,7 @@ function scr_player_runonball() {
 	image_index = 0
 	machslideAnim = true
 	jumpAnim = true
-	    audio_sound_gain(sfx_jump, 0.7, 0);
+		audio_sound_gain(sfx_jump, 0.7, 0);
 	if !(audio_is_playing(sfx_jump))
 	audio_play_sound(sfx_jump, 1, false)
 	}

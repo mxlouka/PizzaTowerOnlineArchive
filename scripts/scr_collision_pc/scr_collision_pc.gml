@@ -11,13 +11,13 @@ function scr_collide_player_pc()
 		repeat abs(_vsp)
 		{
 			if !scr_solid_pc(x, y + sign(_vsp))
-			    y += sign(_vsp);
+				y += sign(_vsp);
 			else
 			{
 				if vsp >= 0
 					grounded |= true;
-			    vsp = 0;
-			    break;
+				vsp = 0;
+				break;
 			}
 		}
 	}
@@ -31,17 +31,17 @@ function scr_collide_player_pc()
 			// Move up slope
 			if scr_solid_pc(x + sign(_hsp), y) && !scr_solid_pc(x + sign(_hsp), y - 1)
 				y--;
-    
+	
 			// Move down slope
 			if !scr_solid_pc(x + sign(_hsp), y) && !scr_solid_pc(x + sign(_hsp), y + 1) && scr_solid_pc(x + sign(_hsp), y + 2)
-			    y++;
+				y++;
 				
 			if !scr_solid_pc(x + sign(_hsp), y)
-			    x += sign(_hsp);
+				x += sign(_hsp);
 			else
 			{
-			    hsp = 0;
-			    break;
+				hsp = 0;
+				break;
 			}
 		}
 	}

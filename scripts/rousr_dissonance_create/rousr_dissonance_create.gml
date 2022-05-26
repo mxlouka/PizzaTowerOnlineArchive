@@ -1,7 +1,7 @@
 ///@function rousr_dissonance_create(_application_id, [_steam_id])
 ///@desc initialize the Discord RPC library, and create the GML Discord management object
 ///@param {String} _application_id   the application id string from your developer dashboard
-///@param {String} [_steamd_id]      your steam ID if you'd like Discord to be able to launch your game through Steam.
+///@param {String} [_steamd_id]	  your steam ID if you'd like Discord to be able to launch your game through Steam.
 function rousr_dissonance_create() {
 	gml_pragma("global", "global.__rousr_dissonance = noone;");
 	enum EDiscordHandlers {
@@ -29,18 +29,18 @@ function rousr_dissonance_create() {
 
 	  Handlers = array_create(EDiscordHandlers.Num);
 	  for (var i = 0; i < EDiscordHandlers.Num; ++i) 
-	    Handlers[@ i] = [ rousr_dissonance_dummy_function, undefined ];
-     
-	  Avatars     = [ ];
+		Handlers[@ i] = [ rousr_dissonance_dummy_function, undefined ];
+	 
+	  Avatars	 = [ ];
 	  Num_avatars = 0;
   
 	  if (!Discord_initialized) {
-	    Discord_initialized = discord_init(_application_id, _steam_id) == 1.0;
+		Discord_initialized = discord_init(_application_id, _steam_id) == 1.0;
 	  }
  
 	  if (!Discord_initialized) {
-	    show_debug_message("Discord RPC not initalized!");
-	    return false;
+		show_debug_message("Discord RPC not initalized!");
+		return false;
 	  }
 	}
 

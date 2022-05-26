@@ -4,22 +4,22 @@ if room != Realtitlescreen && global.gameplay != 0
 	if !ds_exists(special_prompts, ds_type_map)
 	or special_prompts == noone
 	{
-	    special_prompts = ds_map_create();
+		special_prompts = ds_map_create();
 	
-	    ini_open("saveData" + global.saveslot + ".ini");
-	    ds_map_set(special_prompts, "knight", ini_read_real("Prompts", "knight", 0));
-	    ds_map_set(special_prompts, "boxxedpep", ini_read_real("Prompts", "boxxedpep", 0));
-	    ds_map_set(special_prompts, "mort", ini_read_real("Prompts", "mort", 0));
-	    ds_map_set(special_prompts, "squished", ini_read_real("Prompts", "squished", 0));
-	    ds_map_set(special_prompts, "skateboard", ini_read_real("Prompts", "skateboard", 0));
-	    ds_map_set(special_prompts, "cheeseball", ini_read_real("Prompts", "cheeseball", 0));
-	    ds_map_set(special_prompts, "shotgun", ini_read_real("Prompts", "shotgun", 0));
-	    ds_map_set(special_prompts, "ghost", ini_read_real("Prompts", "ghost", 0));
-	    ds_map_set(special_prompts, "firemouth", ini_read_real("Prompts", "firemouth", 0));
-	    ds_map_set(special_prompts, "fireass", ini_read_real("Prompts", "fireass", 0));
-	    ds_map_set(special_prompts, "bombpep", ini_read_real("Prompts", "bombpep", 0));
-	    ds_map_set(special_prompts, "rocket", ini_read_real("Prompts", "rocket", 0));
-	    ini_close();
+		ini_open("saveData" + global.saveslot + ".ini");
+		ds_map_set(special_prompts, "knight", ini_read_real("Prompts", "knight", 0));
+		ds_map_set(special_prompts, "boxxedpep", ini_read_real("Prompts", "boxxedpep", 0));
+		ds_map_set(special_prompts, "mort", ini_read_real("Prompts", "mort", 0));
+		ds_map_set(special_prompts, "squished", ini_read_real("Prompts", "squished", 0));
+		ds_map_set(special_prompts, "skateboard", ini_read_real("Prompts", "skateboard", 0));
+		ds_map_set(special_prompts, "cheeseball", ini_read_real("Prompts", "cheeseball", 0));
+		ds_map_set(special_prompts, "shotgun", ini_read_real("Prompts", "shotgun", 0));
+		ds_map_set(special_prompts, "ghost", ini_read_real("Prompts", "ghost", 0));
+		ds_map_set(special_prompts, "firemouth", ini_read_real("Prompts", "firemouth", 0));
+		ds_map_set(special_prompts, "fireass", ini_read_real("Prompts", "fireass", 0));
+		ds_map_set(special_prompts, "bombpep", ini_read_real("Prompts", "bombpep", 0));
+		ds_map_set(special_prompts, "rocket", ini_read_real("Prompts", "rocket", 0));
+		ini_close();
 		
 		// once one of the transformation texts are shown, change save file to never show them again
 	}
@@ -38,8 +38,8 @@ or (instance_exists(obj_gms) && global.__chat)
 	visible = false;
 	if global.gameplay != 0
 	{
-	    animset = spr_tv_off;
-	    tvsprite = spr_tv_idle;
+		animset = spr_tv_off;
+		tvsprite = spr_tv_idle;
 		state = states.transitioncutscene;
 	}
 }
@@ -284,24 +284,24 @@ else
 	image_speed = 0.35;
 	if bubblespr != noone && bubblespr != spr_tv_bubbleclosed
 	{
-	    if prompt != noone
-	        prompt_buffer = 2;
-	    bubbleindex += image_speed;
-	    if floor(bubbleindex) == sprite_get_number(bubblespr)
-	    {
-	        bubbleindex = 0;
-	        switch bubblespr
-	        {
-	            case spr_tv_bubbleopen:
-	                bubblespr = spr_tv_bubble;
-	                break;
-	            case spr_tv_bubbleclose:
-	                bubblespr = spr_tv_bubbleclosed;
-	                if prompt == noone or prompt == ""
-	                    bubblespr = noone;
-	                break;
-	        }
-	    }
+		if prompt != noone
+			prompt_buffer = 2;
+		bubbleindex += image_speed;
+		if floor(bubbleindex) == sprite_get_number(bubblespr)
+		{
+			bubbleindex = 0;
+			switch bubblespr
+			{
+				case spr_tv_bubbleopen:
+					bubblespr = spr_tv_bubble;
+					break;
+				case spr_tv_bubbleclose:
+					bubblespr = spr_tv_bubbleclosed;
+					if prompt == noone or prompt == ""
+						bubblespr = noone;
+					break;
+			}
+		}
 	}
 	
 	var pchar = "";
@@ -330,41 +330,41 @@ else
 	
 	switch state
 	{
-	    case states.normal:
+		case states.normal:
 			if animset != spr_tv_open
-	        {
-		        idlespr = spr_tv_idle;
+			{
+				idlespr = spr_tv_idle;
 			
 				if pchar != "P" && pchar != "N" && pchar != "SP" && pchar != "SN" && pchar != "PP" && pchar != "S" && pchar != "CT"
 					idlespr = spr_tv_placeholder;
 				else
 				{
-			        switch _state
-			        {
+					switch _state
+					{
 						default:
 							with obj_player
-			                {
-			                    if shotgunAnim
-			                        other.idlespr = spr_tv_shotgun;
-			                    else if global.mort
-			                        other.idlespr = spr_tv_mort;
+							{
+								if shotgunAnim
+									other.idlespr = spr_tv_shotgun;
+								else if global.mort
+									other.idlespr = spr_tv_mort;
 								else if skateboarding
 									other.idlespr = spr_tv_clown;
-			                }
-			                break;
+							}
+							break;
 						
-			            case states.knightpep:
-			            case states.knightpepslopes:
-			            case states.knightpepattack:
-			                idlespr = spr_tv_knight;
-			                break;
+						case states.knightpep:
+						case states.knightpepslopes:
+						case states.knightpepattack:
+							idlespr = spr_tv_knight;
+							break;
 						
-			            case states.bombpep:
-			                idlespr = spr_tv_bombpep;
-			                break;
+						case states.bombpep:
+							idlespr = spr_tv_bombpep;
+							break;
 			
-			            case states.fireass:
-			                idlespr = spr_tv_fireass;
+						case states.fireass:
+							idlespr = spr_tv_fireass;
 							with obj_player
 							{
 								if (sprite_index == spr_scaredjump1
@@ -373,139 +373,139 @@ else
 								&& spr_scaredjump2 != spr_fireass
 									other.idlespr = spr_tv_scaredjump;
 							}
-			                break;
+							break;
 			
-			            case states.tumble:
-			                idlespr = spr_tv_tumble;
-			                break;
+						case states.tumble:
+							idlespr = spr_tv_tumble;
+							break;
 			
-			            case states.firemouth:
-			                idlespr = spr_tv_firemouth;
-			                break;
+						case states.firemouth:
+							idlespr = spr_tv_firemouth;
+							break;
 			
-			            case states.ghost:
-			                idlespr = spr_tv_ghost;
-			                break;
+						case states.ghost:
+							idlespr = spr_tv_ghost;
+							break;
 			
-			            case states.stunned:
+						case states.stunned:
 							with obj_player
 							{
 								if sprite_index == spr_squished
 									other.idlespr = spr_tv_squished;
 							}
-			                break;
+							break;
 			
-			            case states.barrel:
-			                idlespr = spr_tv_barrel;
-			                break;
+						case states.barrel:
+							idlespr = spr_tv_barrel;
+							break;
 			
-			            case states.golf:
-			                idlespr = spr_tv_golf;
-			                break;
+						case states.golf:
+							idlespr = spr_tv_golf;
+							break;
 						
-			            case states.rocket:
-			                idlespr = spr_tv_rocket;
-			                break;
+						case states.rocket:
+							idlespr = spr_tv_rocket;
+							break;
 						
-			            case states.cheeseball:
-			                idlespr = spr_tv_cheeseball;
-			                break;
+						case states.cheeseball:
+							idlespr = spr_tv_cheeseball;
+							break;
 						
-			            case states.cotton:
-			                idlespr = spr_tv_cotton;
-			                break;
+						case states.cotton:
+							idlespr = spr_tv_cotton;
+							break;
 						
-			            case states.cheesepep:
-			            case states.cheesepepstick:
-			            case states.cheesepepstickside:
-			            case states.cheesepepstickup:
-			                idlespr = spr_tv_cheesepep
-			                break
+						case states.cheesepep:
+						case states.cheesepepstick:
+						case states.cheesepepstickside:
+						case states.cheesepepstickup:
+							idlespr = spr_tv_cheesepep
+							break
 						
-			            case states.boxxedpep:
-			                idlespr = spr_tv_boxxedpep
-			                break
-			        }
+						case states.boxxedpep:
+							idlespr = spr_tv_boxxedpep
+							break
+					}
 				}
 				
-		        switch animset
-		        {
-		            case spr_tv_off:
-		                if visible
-		                {
-		                    animset = spr_tv_open;
-		                    image_index = 0;
-		                }
-		                break;
+				switch animset
+				{
+					case spr_tv_off:
+						if visible
+						{
+							animset = spr_tv_open;
+							image_index = 0;
+						}
+						break;
 			
-		            case spr_tv_open:
-		                if floor(image_index) == image_number - 1
-		                    animset = idlespr;
-		                break
+					case spr_tv_open:
+						if floor(image_index) == image_number - 1
+							animset = idlespr;
+						break
 				
 					case spr_tv_placeholder:
 						if idlespr != spr_tv_placeholder
 							animset = idlespr;
 						break;
 					
-		            case spr_tv_idle:
-		                if idleanim > 0
-		                    idleanim--;
-		                if animset != idlespr
-		                    animset = idlespr;
+					case spr_tv_idle:
+						if idleanim > 0
+							idleanim--;
+						if animset != idlespr
+							animset = idlespr;
 				
-		                if idleanim <= 0 && floor(image_index) == image_number - 1
-		                {
-		                    animset = choose(spr_tv_idleanim1, spr_tv_idleanim2);
-		                    image_index = 0;
-		                }
-		                break
+						if idleanim <= 0 && floor(image_index) == image_number - 1
+						{
+							animset = choose(spr_tv_idleanim1, spr_tv_idleanim2);
+							image_index = 0;
+						}
+						break
 				
-		            case spr_tv_idleanim1:
-		            case spr_tv_idleanim2:
-		                if floor(image_index) == image_number - 1
-		                {
-		                    animset = idlespr;
-		                    idleanim = 240 + 60 * irandom_range(-1, 2);
-		                }
-		                if idlespr != spr_tv_idle
-		                    animset = idlespr;
-		                break;
+					case spr_tv_idleanim1:
+					case spr_tv_idleanim2:
+						if floor(image_index) == image_number - 1
+						{
+							animset = idlespr;
+							idleanim = 240 + 60 * irandom_range(-1, 2);
+						}
+						if idlespr != spr_tv_idle
+							animset = idlespr;
+						break;
 					
-		            default:
+					default:
 						if ds_list_empty(tvprompts_list)
 						or (tvsprite == spr_tv_idleanim1 or tvsprite == spr_tv_idleanim2)
 							animset = idlespr;
 						break;
-		        }
+				}
 				
-	            if !ds_list_empty(tvprompts_list)
-	            {
+				if !ds_list_empty(tvprompts_list)
+				{
 					if (bubblespr == spr_tv_bubbleclosed or bubblespr == noone)
 					&& prompt_buffer <= 0
 					{
-		                var b = tvprompts_list[| 0];
-		                prompt_buffer = prompt_max;
+						var b = tvprompts_list[| 0];
+						prompt_buffer = prompt_max;
 						
-		                if b[0] != "" && b[0] != noone
-		                {
-		                    bubblespr = spr_tv_bubbleopen;
-		                    bubbleindex = 0;
-		                    prompt = b[0];
-		                    promptspd = b[3];
-		                    promptx = promptxstart;
-		                }
-		                else
-		                {
-		                    if bubblespr != noone && bubblespr != spr_tv_bubbleclosed
-		                        bubblespr = spr_tv_bubbleclose
-		                    if bubblespr == spr_tv_bubbleclosed
-		                        bubblespr = noone;
+						if b[0] != "" && b[0] != noone
+						{
+							bubblespr = spr_tv_bubbleopen;
+							bubbleindex = 0;
+							prompt = b[0];
+							promptspd = b[3];
+							promptx = promptxstart;
+						}
+						else
+						{
+							if bubblespr != noone && bubblespr != spr_tv_bubbleclosed
+								bubblespr = spr_tv_bubbleclose
+							if bubblespr == spr_tv_bubbleclosed
+								bubblespr = noone;
 						
-		                    bubbleindex = 0;
-		                    promptx = promptxstart;
-		                    prompt = noone;
-		                }
+							bubbleindex = 0;
+							promptx = promptxstart;
+							prompt = noone;
+						}
 					
 						tvsprite = b[2];
 						
@@ -523,19 +523,19 @@ else
 						
 						if prompt_buffer > 0
 						{
-				            prompt_buffer--;
-				            if prompt_buffer <= 0
-				            {
-				                promptx = promptxstart;
-				                ds_list_delete(tvprompts_list, 0);
-				                // state = states.normal;
-				            }
+							prompt_buffer--;
+							if prompt_buffer <= 0
+							{
+								promptx = promptxstart;
+								ds_list_delete(tvprompts_list, 0);
+								// state = states.normal;
+							}
 						}
 					}
-	            }
-	            else
-	                bubblespr = noone;
-	        }
+				}
+				else
+					bubblespr = noone;
+			}
 			else if floor(image_index) >= image_number - 1
 				animset = tvsprite;
 			
@@ -596,11 +596,11 @@ else
 			{
 				if instance_exists(obj_player) && obj_player.character != "P"
 				{
-				    var spr = sprite_get_name(animset);
-				    spr = asset_get_index(spr + string_upper(string(obj_player.character)));
+					var spr = sprite_get_name(animset);
+					spr = asset_get_index(spr + string_upper(string(obj_player.character)));
 					
-				    if sprite_exists(spr)
-				        sprite_index = spr;
+					if sprite_exists(spr)
+						sprite_index = spr;
 					else
 					{
 						if sugary
@@ -644,13 +644,13 @@ else
 				sprite_index = idlespr;
 				idleanim = 240;
 			}
-	        break;
+			break;
 		
-	    case states.transitioncutscene:
+		case states.transitioncutscene:
 			if animset == spr_tv_off
 				animset = spr_tv_open;
-	        if animset == spr_tv_open && floor(image_index) == image_number - 1
-	            animset = tvsprite;
+			if animset == spr_tv_open && floor(image_index) == image_number - 1
+				animset = tvsprite;
 			
 			var spr = sprite_get_name(animset);
 			spr = asset_get_index(spr + string_upper(string(obj_player.character)));
@@ -662,7 +662,7 @@ else
 			
 			if animset == tvsprite
 				state = states.normal;
-	        break;
+			break;
 	}
 	
 	// hide tv if player overlapping it
@@ -682,9 +682,9 @@ else
 	
 	var spd = 15;
 	if change_pos
-	    hud_posY = Approach(hud_posY, -300, spd);
+		hud_posY = Approach(hud_posY, -300, spd);
 	else
-	    hud_posY = Approach(hud_posY, 0, spd);
+		hud_posY = Approach(hud_posY, 0, spd);
 }
 
 #endregion

@@ -18,12 +18,12 @@ function scr_player_pizzathrow() {
 	global.sausagefollow = false &&
 	global.pineapplefollow = false
 	{
-	    state = states.normal
-	    landAnim = false
-	    mach2 = 0
-	    image_index = 0
-	    }
-    
+		state = states.normal
+		landAnim = false
+		mach2 = 0
+		image_index = 0
+		}
+	
 
 
 

@@ -1,5 +1,3 @@
-if room == rm_editor exit;
-
 x += hsp
 
 if instance_exists(obj_player) && check_online() && obj_player.state == states.taxi && sprite_index == spr_taximove
@@ -17,3 +15,4 @@ if hsp != 0
 		instance_create(x, y + 43, obj_cloudeffect)
 	}
 }
+

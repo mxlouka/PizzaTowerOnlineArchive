@@ -44,10 +44,10 @@ switch state
 {
 	default: state = states.normal;
 	case -1: break;
-    case states.normal: scr_player_normal (); break;
+	case states.normal: scr_player_normal (); break;
 	case states.revolver: scr_player_revolver (); break;
 	case states.dynamite: scr_player_dynamite (); break;
-    case states.boots: scr_player_boots (); break;
+	case states.boots: scr_player_boots (); break;
 	case states.grabbed: scr_player_grabbed (); break;
 	case states.finishingblow: scr_player_finishingblow (); break;
 	case states.tumble: scr_player_tumble (); break;
@@ -56,81 +56,81 @@ switch state
 	case states.firemouth: scr_player_firemouth (); break;
 	case states.fireass: scr_player_fireass (); break;
 	case states.transitioncutscene: scr_player_transitioncutscene (); break;
-    case states.hookshot: scr_playerN_hookshot (); break;
-    case states.slap: scr_player_slap (); break;
-    case states.tacklecharge: scr_player_tacklecharge (); break;
-    case states.cheesepep: scr_player_cheesepep (); break;
-    case states.cheeseball: scr_player_cheeseball (); break;
-    case states.cheesepepstick: scr_player_cheesepepstick (); break;
-    case states.boxxedpep: scr_player_boxxedpep (); break;
-    case states.pistolaim: scr_player_pistolaim (); break;
-    case states.climbwall: scr_player_climbwall (); break;
-    case states.knightpepslopes: scr_player_knightpepslopes (); break;
-    case states.portal: scr_player_portal(); break;
-    case states.secondjump: scr_player_secondjump (); break;
-    case states.chainsawbump: scr_player_chainsawbump (); break;
-    case states.handstandjump: scr_player_handstandjump (); break;
-    case states.gottreasure: scr_player_gottreasure (); break;
-    case states.knightpep: scr_player_knightpep (); break;
-    case states.knightpepattack: scr_player_knightpepattack (); break;
-    case states.meteorpep: scr_player_meteorpep (); break;
-    case states.bombpep: scr_player_bombpep (); break;
-    case states.grabbing: scr_player_grabbing (); break;
-    case states.chainsawpogo: scr_player_chainsawpogo (); break;
-    case states.shotgunjump: scr_player_shotgunjump (); break;
-    case states.stunned: scr_player_stunned (); break;
-    case states.highjump: scr_player_highjump (); break;
-    case states.chainsaw: scr_player_chainsaw (); break;
-    case states.facestomp: scr_player_facestomp (); break;
-    case states.timesup: scr_player_timesup (); break;
-    case states.machroll: scr_player_machroll (); break;
-    case states.pistol: scr_player_pistol (); break;
-    case states.shotgun: scr_player_shotgun (); break;
-    case states.machfreefall: scr_player_machfreefall (); break;
-    case states._throw: scr_player_throw (); break;
-    case states.superslam: scr_player_superslam (); break;
-    case states.slam: scr_player_slam (); break;
-    case states.skateboard: scr_player_skateboard (); break;
-    case states.grind: scr_player_grind (); break;
-    case states.grab: scr_player_grab (); break;
-    case states.punch: scr_player_punch (); break;
-    case states.backkick: scr_player_backkick (); break;
-    case states.uppunch: scr_player_uppunch (); break;
-    case states.shoulder: scr_player_shoulder (); break;
-    case states.backbreaker: scr_player_backbreaker (); break;
-    case states.bossdefeat: scr_player_bossdefeat (); break;
-    case states.bossintro: scr_player_bossintro (); break;
-    case states.smirk: scr_player_smirk (); break;
-    case states.pizzathrow: scr_player_pizzathrow (); break;
-    case states.gameover: scr_player_gameover (); break;
-    case states.Sjumpland: scr_player_Sjumpland (); break;
-    case states.freefallprep: scr_player_freefallprep (); break;
-    case states.runonball: scr_player_runonball (); break;
-    case states.boulder: scr_player_boulder (); break;
-    case states.keyget: scr_player_keyget (); break;
-    case states.tackle: scr_player_tackle (); break;
-    case states.slipnslide: scr_player_slipnslide (); break;
-    case states.ladder: scr_player_ladder (); break;
-    case states.jump: scr_player_jump (); break;
-    case states.victory: scr_player_victory (); break;
-    case states.comingoutdoor: scr_player_comingoutdoor (); break;
-    case states.Sjump: scr_player_Sjump (); break;
-    case states.Sjumpprep: scr_player_Sjumpprep (); break;
-    case states.crouch: scr_player_crouch (); break;
-    case states.crouchjump: scr_player_crouchjump (); break;
-    case states.crouchslide: scr_player_crouchslide (); break;
-    case states.mach1: scr_player_mach1 (); break;
-    case states.mach2: scr_player_mach2 (); break;
-    case states.mach3: scr_player_mach3 (); break;
-    case states.machslide: scr_player_machslide (); break;
-    case states.bump: scr_player_bump (); break;
-    case states.hurt: scr_player_hurt (); break;
-    case states.freefall: scr_player_freefall (); break;
-    case states.freefallland: scr_player_freefallland (); break;
-    case states.hang: scr_player_hang (); break;
-    case states.door: scr_player_door (); break;
-    case states.barrel: scr_player_barrel (); break;
-    case states.current: scr_player_current (); break;
+	case states.hookshot: scr_playerN_hookshot (); break;
+	case states.slap: scr_player_slap (); break;
+	case states.tacklecharge: scr_player_tacklecharge (); break;
+	case states.cheesepep: scr_player_cheesepep (); break;
+	case states.cheeseball: scr_player_cheeseball (); break;
+	case states.cheesepepstick: scr_player_cheesepepstick (); break;
+	case states.boxxedpep: scr_player_boxxedpep (); break;
+	case states.pistolaim: scr_player_pistolaim (); break;
+	case states.climbwall: scr_player_climbwall (); break;
+	case states.knightpepslopes: scr_player_knightpepslopes (); break;
+	case states.portal: scr_player_portal(); break;
+	case states.secondjump: scr_player_secondjump (); break;
+	case states.chainsawbump: scr_player_chainsawbump (); break;
+	case states.handstandjump: scr_player_handstandjump (); break;
+	case states.gottreasure: scr_player_gottreasure (); break;
+	case states.knightpep: scr_player_knightpep (); break;
+	case states.knightpepattack: scr_player_knightpepattack (); break;
+	case states.meteorpep: scr_player_meteorpep (); break;
+	case states.bombpep: scr_player_bombpep (); break;
+	case states.grabbing: scr_player_grabbing (); break;
+	case states.chainsawpogo: scr_player_chainsawpogo (); break;
+	case states.shotgunjump: scr_player_shotgunjump (); break;
+	case states.stunned: scr_player_stunned (); break;
+	case states.highjump: scr_player_highjump (); break;
+	case states.chainsaw: scr_player_chainsaw (); break;
+	case states.facestomp: scr_player_facestomp (); break;
+	case states.timesup: scr_player_timesup (); break;
+	case states.machroll: scr_player_machroll (); break;
+	case states.pistol: scr_player_pistol (); break;
+	case states.shotgun: scr_player_shotgun (); break;
+	case states.machfreefall: scr_player_machfreefall (); break;
+	case states._throw: scr_player_throw (); break;
+	case states.superslam: scr_player_superslam (); break;
+	case states.slam: scr_player_slam (); break;
+	case states.skateboard: scr_player_skateboard (); break;
+	case states.grind: scr_player_grind (); break;
+	case states.grab: scr_player_grab (); break;
+	case states.punch: scr_player_punch (); break;
+	case states.backkick: scr_player_backkick (); break;
+	case states.uppunch: scr_player_uppunch (); break;
+	case states.shoulder: scr_player_shoulder (); break;
+	case states.backbreaker: scr_player_backbreaker (); break;
+	case states.bossdefeat: scr_player_bossdefeat (); break;
+	case states.bossintro: scr_player_bossintro (); break;
+	case states.smirk: scr_player_smirk (); break;
+	case states.pizzathrow: scr_player_pizzathrow (); break;
+	case states.gameover: scr_player_gameover (); break;
+	case states.Sjumpland: scr_player_Sjumpland (); break;
+	case states.freefallprep: scr_player_freefallprep (); break;
+	case states.runonball: scr_player_runonball (); break;
+	case states.boulder: scr_player_boulder (); break;
+	case states.keyget: scr_player_keyget (); break;
+	case states.tackle: scr_player_tackle (); break;
+	case states.slipnslide: scr_player_slipnslide (); break;
+	case states.ladder: scr_player_ladder (); break;
+	case states.jump: scr_player_jump (); break;
+	case states.victory: scr_player_victory (); break;
+	case states.comingoutdoor: scr_player_comingoutdoor (); break;
+	case states.Sjump: scr_player_Sjump (); break;
+	case states.Sjumpprep: scr_player_Sjumpprep (); break;
+	case states.crouch: scr_player_crouch (); break;
+	case states.crouchjump: scr_player_crouchjump (); break;
+	case states.crouchslide: scr_player_crouchslide (); break;
+	case states.mach1: scr_player_mach1 (); break;
+	case states.mach2: scr_player_mach2 (); break;
+	case states.mach3: scr_player_mach3 (); break;
+	case states.machslide: scr_player_machslide (); break;
+	case states.bump: scr_player_bump (); break;
+	case states.hurt: scr_player_hurt (); break;
+	case states.freefall: scr_player_freefall (); break;
+	case states.freefallland: scr_player_freefallland (); break;
+	case states.hang: scr_player_hang (); break;
+	case states.door: scr_player_door (); break;
+	case states.barrel: scr_player_barrel (); break;
+	case states.current: scr_player_current (); break;
 	case states.taxi: scr_player_taxi (); break;
 	case states.pogo: scr_player_pogo (); break;
 	case states.rideweenie: scr_player_rideweenie (); break;
@@ -162,35 +162,35 @@ else
 if global.gameplay != 0
 {
 	if invhurt_buffer > 0
-	    invhurt_buffer--;
+		invhurt_buffer--;
 	if state == states.hurt
 	{
-	    if hurt_buffer > 0
-	        hurt_buffer--;
-	    else
-	    {
-	        invhurt_buffer = invhurt_max;
-	        hurt_buffer = -1;
-	    }
+		if hurt_buffer > 0
+			hurt_buffer--;
+		else
+		{
+			invhurt_buffer = invhurt_max;
+			hurt_buffer = -1;
+		}
 	}
 	else
 	{
-	    if hurt_buffer > 0
-	        invhurt_buffer = invhurt_max;
-	    hurt_buffer = -1;
+		if hurt_buffer > 0
+			invhurt_buffer = invhurt_max;
+		hurt_buffer = -1;
 	}
 }
 
 // heat meter
 if global.heattime > 0
-    global.heattime -= 0.25;
+	global.heattime -= 0.25;
 if global.heattime <= 0 && global.style > -1 && !global.stylelock
-    global.style -= 0.05;
+	global.style -= 0.05;
 if state == states.victory && place_meeting(x, y, obj_startgate) && global.style > -1
 	global.style -= 5;
 
 if cutscene or global.miniboss
-    global.heattime = 60;
+	global.heattime = 60;
 
 //Titlescreen
 if room == Oldtitlescreen
@@ -230,12 +230,12 @@ if ((global.combo >= 3 && global.gameplay == 0) or (supercharge == 4 && global.g
 		anger = 100
 }
 if global.combotime > 0 && !cutscene && !(character == "SP" && state == states.tacklecharge)
-    global.combotime -= 0.5;
+	global.combotime -= 0.5;
 if global.combotime <= 0 && state != states.backbreaker
 {
-    global.combotime = 0;
-    global.combo = 0;
-    supercharge = 0;
+	global.combotime = 0;
+	global.combo = 0;
+	supercharge = 0;
 	supercharged = false;
 }
 
@@ -460,7 +460,7 @@ if input_buffer_faceplant < 8
 	input_buffer_faceplant++
 
 if shoot_buffer > 0
-    shoot_buffer--;
+	shoot_buffer--;
 
 //Key effect
 if key_particles
@@ -549,9 +549,9 @@ if state != states.jump
 
 // reset gravity
 if state != states.grabbing && state != states.barrel && state != states.tumble && state != states.ghost && sprite_index != spr_pmortjump && state != states.cotton
-    grav = basegrav;
+	grav = basegrav;
 else if state == states.barrel or (state == states.tumble && global.gameplay != 0)
-    grav = 0.6;
+	grav = 0.6;
 
 // reset shot variable
 if state != states.pistol && state != states.normal
@@ -560,8 +560,8 @@ if state != states.pistol && state != states.normal
 // reset mort
 if mort
 {
-    if state != states.normal && state != states.jump && state != states.handstandjump && state != states.pistol
-        mort = false;
+	if state != states.normal && state != states.jump && state != states.handstandjump && state != states.pistol
+		mort = false;
 }
 
 // reset black fade
@@ -596,7 +596,7 @@ or (state == states.pogo && character == "SP" && pogospeed >= 12)
 	}
 	
 	toomuchalarm1 -= 1;
-    if toomuchalarm1 <= 0
+	if toomuchalarm1 <= 0
 	{
 		with instance_create(x, y, obj_mach3effect)
 		{
@@ -607,7 +607,7 @@ or (state == states.pogo && character == "SP" && pogospeed >= 12)
 			image_angle = other.img_angle
 		}
 		toomuchalarm1 = 6
-    }
+	}
 }
 else
 {
@@ -645,7 +645,7 @@ if y > room_height + 200 && !cutscene
 		state = states.freefall;
 		if place_meeting(x, y + 8, obj_boxofpizza)
 		{
-		    state = states.crouchjump;
+			state = states.crouchjump;
 			jumpstop = true;
 			vsp = -4;
 		}

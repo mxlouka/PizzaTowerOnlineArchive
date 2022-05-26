@@ -8,5 +8,5 @@ image_alpha = 0.6
 alarm[0] = 1
 hsp = 0
 vsp = 0
-
+docol = false
 

@@ -1,6 +1,4 @@
-if room == rm_editor exit;
-if index < 0 exit;
-if sprite_index == spr_taximove
+if index >= 0 && sprite_index == spr_taximove
 {
 	with playerid
 	{
@@ -16,3 +14,4 @@ if sprite_index == spr_taximove
 		sign_id = other.sign_id;
 	}
 }
+

@@ -9,7 +9,7 @@ with obj_player1
 		fallinganimation = 0;
 		if key_jump2
 		{
-            vsp = -20;
+			vsp = -20;
 			if state == states.jump && character == "P"
 				sprite_index = spr_player_Sjump;
 		}

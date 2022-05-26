@@ -1,14 +1,45 @@
-image_speed = 0.35
-targetDoor = "A"
+event_inherited();
 enter = false;
 index = 0;
 
-if obj_player1.character == "N"
-	sprite_index = spr_boxofpizzaN
-if obj_player1.character == "SP"
+upbox = function(pbox)
 {
-	sprite_index = spr_boxofpizzaSP
-	mask_index = sprite_index
+	scr_soundeffect(sfx_box)
+	pbox.depth = -10
+	box = true
+	mach2 = 0
+	
+	with obj_camera
+		chargecamera = 0
+	
+	doorx = pbox.x
+	x = doorx;
+	y = pbox.y + 24
+			
+	sprite_index = spr_uppizzabox
+	image_index = 0
+	state = states.door
+			
+	pbox.enter = true;
+}
+downbox = function(pbox)
+{
+	pbox.depth = -10
+	scr_soundeffect(sfx_box)
+	box = true
+	mach2 = 0
+	
+	with obj_camera
+		chargecamera = 0
+	
+	doorx = other.x
+	if !scr_stylecheck(2)
+		x = doorx;
+	
+	sprite_index = spr_downpizzabox
+	image_index = 0
+	state = states.door
+		
+	pbox.enter = true;
 }
 
-//layer_get_id("Backgrounds_1")

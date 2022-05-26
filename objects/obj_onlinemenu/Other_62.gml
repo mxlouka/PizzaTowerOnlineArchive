@@ -82,6 +82,7 @@ if ds_map_find_value(async_load, "id") == request
 		
 		if requestype == reqtypes.register
 		{
+			passconfirm1 = "";
 			passwordstring = "";
 			selectedpassword = false;
 			registering = false;

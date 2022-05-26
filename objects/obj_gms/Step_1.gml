@@ -7,8 +7,8 @@ if keyboard_check_pressed(global.__chat_submitkey) && global.__chat_typing
 	while string_char_at(str, 1) == " "
 		str = string_delete(str, 1, 1);
 	
-    if str != ""
-    {
+	if str != ""
+	{
 		chat_lastmessage = str;
 		if string_length(str) > 2000
 			gms_chat_local(lang_string("online.toolong"), merge_colour(c_red, c_white, 0.5));
@@ -109,12 +109,12 @@ if keyboard_check_pressed(global.__chat_submitkey) && global.__chat_typing
 			#endregion
 		}
 		
-        global.__chat_directclose = true;
-        global.__chat_highl = true;
-    }
+		global.__chat_directclose = true;
+		global.__chat_highl = true;
+	}
 	
-    keyboard_string = "";
-    global.__chat_typing = false;
+	keyboard_string = "";
+	global.__chat_typing = false;
 	
 	keyboard_clear(global.__chat_submitkey);
 	keyboard_clear(global.__chat_togglekey);

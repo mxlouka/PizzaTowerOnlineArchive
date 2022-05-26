@@ -42,7 +42,7 @@ function scr_player_revolver()
 	if (sprite_index == spr_playerV_airrevolverend or sprite_index == spr_playerV_airrevolver or sprite_index == spr_playerV_airrevolverstart) && grounded
 	{
 		if key_attack && movespeed >= 6
-		    state = states.mach2
+			state = states.mach2
 		else 
 			state = states.normal
 	}
@@ -50,7 +50,7 @@ function scr_player_revolver()
 	if floor(image_index) >= image_number - 1 && sprite_index == spr_playerV_airrevolver
 	{
 		if key_attack && movespeed >= 6
-		    state = states.mach2
+			state = states.mach2
 		else
 		{
 			image_index = 0

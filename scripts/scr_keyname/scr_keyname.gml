@@ -7,283 +7,283 @@ function scr_keyname(argument0)
 	//Left
 	if argument0 = (vk_left)
 	{
-	    return "LEFT";
+		return "LEFT";
 	}
 
 	//Right
 	if argument0 = (vk_right)
 	{
-	    return "RIGHT";
+		return "RIGHT";
 	}
 
 	//Up
 	if argument0 = (vk_up)
 	{
-	    return "UP";
+		return "UP";
 	}
 
 	//Down
 	if argument0 = (vk_down)
 	{
-	    return "DOWN";
+		return "DOWN";
 	}
 
 	//Enter
 	if argument0 = (vk_enter)
 	{
-	    return "ENTER";
+		return "ENTER";
 	}
 
 	//Escape
 	if argument0 = (vk_escape)
 	{
-	    return "ESCAPE";
+		return "ESCAPE";
 	}
 
 	//Space
 	if argument0 = (vk_space)
 	{
-	    return "SPACE";
+		return "SPACE";
 	}
 
 	//Shift
 	if argument0 = (vk_shift)
 	{
-	    return "SHIFT";
+		return "SHIFT";
 	}
 
 	//Control
 	if argument0 = (vk_control)
 	{
-	    return "CONTROL";
+		return "CONTROL";
 	}
 
 	//Alt
 	if argument0 = (vk_alt)
 	{
-	    return "ALT";
+		return "ALT";
 	}
 
 	//Backspace
 	if argument0 = (vk_backspace)
 	{
-	    return "BACKSPACE";
+		return "BACKSPACE";
 	}
 
 	//Tab
 	if argument0 = (vk_tab)
 	{
-	    return "TAB";
+		return "TAB";
 	}
 
 	//Home
 	if argument0 = (vk_home)
 	{
-	    return "HOME";
+		return "HOME";
 	}
 
 	//End
 	if argument0 = (vk_end)
 	{
-	    return "END";
+		return "END";
 	}
 
 	//Delete
 	if argument0 = (vk_delete)
 	{
-	    return "DELETE";
+		return "DELETE";
 	}
 
 	//Insert
 	if argument0 = (vk_insert)
 	{
-	    return "INSERT";
+		return "INSERT";
 	}
 
 	//Page Up
 	if argument0 = (vk_pageup)
 	{
-	    return "PAGE UP";
+		return "PAGE UP";
 	}
 
 	//Page Down
 	if argument0 = (vk_pagedown)
 	{
-	    return "PAGE DOWN";
+		return "PAGE DOWN";
 	}
 
 	//Pause
 	if argument0 = (vk_pause)
 	{
-	    return "PAUSE";
+		return "PAUSE";
 	}
 
 	//Printscreen
 	if argument0 = (vk_printscreen)
 	{
-	    return "PRINT SCREEN";
+		return "PRINT SCREEN";
 	}
 
 	//F1
 	if argument0 = (vk_f1)
 	{
-	    return "F1";
+		return "F1";
 	}
 
 	//F2
 	if argument0 = (vk_f2)
 	{
-	    return "F2";
+		return "F2";
 	}
 
 	//F3
 	if argument0 = (vk_f3)
 	{
-	    return "F3";
+		return "F3";
 	}
 
 	//F4
 	if argument0 = (vk_f4)
 	{
-	    return "F4";
+		return "F4";
 	}
 
 	//F5
 	if argument0 = (vk_f5)
 	{
-	    return "F5";
+		return "F5";
 	}
 
 	//F6
 	if argument0 = (vk_f6)
 	{
-	    return "F6";
+		return "F6";
 	}
 
 	//F7
 	if argument0 = (vk_f7)
 	{
-	    return "F7";
+		return "F7";
 	}
 
 	//F8
 	if argument0 = (vk_f8)
 	{
-	    return "F8";
+		return "F8";
 	}
 
 	//F9
 	if argument0 = (vk_f9)
 	{
-	    return "F9";
+		return "F9";
 	}
 
 	//F10
 	if argument0 = (vk_f10)
 	{
-	    return "F10";
+		return "F10";
 	}
 
 	//F11
 	if argument0 = (vk_f11)
 	{
-	    return "F11";
+		return "F11";
 	}
 
 	//F12
 	if argument0 = (vk_f12)
 	{
-	    return "F12";
+		return "F12";
 	}
 
 	//Numpad 0
 	if argument0 = (vk_numpad0)
 	{
-	    return "NUMPAD 0";
+		return "NUMPAD 0";
 	}
 
 	//Numpad 1
 	if argument0 = (vk_numpad1)
 	{
-	    return "NUMPAD 1";
+		return "NUMPAD 1";
 	}
 
 	//Numpad 2
 	if argument0 = (vk_numpad2)
 	{
-	    return "NUMPAD 2";
+		return "NUMPAD 2";
 	}
 
 	//Numpad 3
 	if argument0 = (vk_numpad3)
 	{
-	    return "NUMPAD 3";
+		return "NUMPAD 3";
 	}
 
 	//Numpad 4
 	if argument0 = (vk_numpad4)
 	{
-	    return "NUMPAD 4";
+		return "NUMPAD 4";
 	}
 
 	//Numpad 5
 	if argument0 = (vk_numpad5)
 	{
-	    return "NUMPAD 5";
+		return "NUMPAD 5";
 	}
 
 	//Numpad 6
 	if argument0 = (vk_numpad6)
 	{
-	    return "NUMPAD 6";
+		return "NUMPAD 6";
 	}
 
 	//Numpad 7
 	if argument0 = (vk_numpad7)
 	{
-	    return "NUMPAD 7";
+		return "NUMPAD 7";
 	}
 
 	//Numpad 8
 	if argument0 = (vk_numpad8)
 	{
-	    return "NUMPAD 8";
+		return "NUMPAD 8";
 	}
 
 	//Numpad 9
 	if argument0 = (vk_numpad9)
 	{
-	    return "NUMPAD 9";
+		return "NUMPAD 9";
 	}
 
 	//Multiply
 	if argument0 = (vk_multiply)
 	{
-	    return "MULTIPLY";
+		return "MULTIPLY";
 	}
 
 	//Divide
 	if argument0 = (vk_divide)
 	{
-	    return "DIVIDE";
+		return "DIVIDE";
 	}
 
 	//Add
 	if argument0 = (vk_add)
 	{
-	    return "ADD";
+		return "ADD";
 	}
 
 	//Subtract
 	if argument0 = (vk_subtract)
 	{
-	    return "SUBTRACT";
+		return "SUBTRACT";
 	}
 
 	//Decimal
 	if argument0 = (vk_decimal)
 	{
-	    return "DECIMAL";
+		return "DECIMAL";
 	}
 
 	if argument0 = (-1)

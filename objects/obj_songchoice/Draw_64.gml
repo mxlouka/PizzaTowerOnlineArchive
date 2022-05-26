@@ -60,7 +60,7 @@ if global.jukebox != -1 && audio_is_playing(selarray[sel[1]][0])
 	if array_length(selarray[sel[1]]) > 3
 		discrot -= selarray[sel[1]][3];
 	else
-		discrot -= 1.5;
+		discrot -= 1;
 }
 
 draw_set_colour(c_gray);

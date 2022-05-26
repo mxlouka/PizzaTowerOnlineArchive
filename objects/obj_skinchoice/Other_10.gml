@@ -150,7 +150,7 @@ switch sel[1]
 				["VIOLET", "Now in grape flavor."],
 				["ORANGE", "The color or the fruit?"],
 				["GUM", "Don't actually chew it please."],
-				["CANDY CANE", "It's the Candy           !"],
+				["CANDY CANE", "It's the Candy		   !"],
 				["PUMPKIN", "Now with 30% less fiber."],
 				["FAMILIAR GREMLIN", "Something's wrong."],
 				["SAGE", "If it ever happens I will shit bricks."],

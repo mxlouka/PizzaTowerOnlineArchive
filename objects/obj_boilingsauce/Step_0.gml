@@ -1,5 +1,3 @@
-if room == rm_editor exit;
-
 if firesnd != -1 && !audio_is_playing(firesnd)
 	firesnd = -1;
 

@@ -11,8 +11,8 @@ if scr_stylecheck(2)
 
 if outofx && outofy
 {
-    with obj_camera
-        collect_shake += 10;
+	with obj_camera
+		collect_shake += 10;
 	instance_destroy();
 }
 

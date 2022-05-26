@@ -17,9 +17,9 @@ if shader != noone
 {
 	shaderfade = Approach(shaderfade, 0.45, 0.005);
 	
-    shader_set(shader)
-    var fade = shader_get_uniform(shader, "fade")
-    shader_set_uniform_f(fade, shaderfade)
+	shader_set(shader)
+	var fade = shader_get_uniform(shader, "fade")
+	shader_set_uniform_f(fade, shaderfade)
 }
 draw_surface_stretched_ext(application_surface, 0, 0, 960, 540, c_white, appa);
 if shader != noone

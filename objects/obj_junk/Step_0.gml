@@ -145,10 +145,10 @@ if grabbed == true
 		repeat 6
 			instance_create(x, y, obj_slapstar)
 
-	    with obj_camera
+		with obj_camera
 		{
-		    shake_mag = 3;
-		    shake_mag_acc = 3 / room_speed;
+			shake_mag = 3;
+			shake_mag_acc = 3 / room_speed;
 		}
 
 	}
@@ -180,10 +180,10 @@ if grabbed == true
 		instance_create(x, y, obj_slapstar)
 		flash = true
 		
-	    with obj_camera
+		with obj_camera
 		{
-		    shake_mag = 3;
-		    shake_mag_acc = 3 / room_speed;
+			shake_mag = 3;
+			shake_mag_acc = 3 / room_speed;
 		}
 	}
 	
@@ -246,11 +246,11 @@ if grabbed == true
 				with playerid
 				{
 					jumpAnim = true;
-				    state = states.jump;
-				    sprite_index = character == "SP" ? spr_machfreefall : spr_suplexland;
-				    vsp = -11;
-				    jumpstop = true;
-				    image_index = 0;
+					state = states.jump;
+					sprite_index = character == "SP" ? spr_machfreefall : spr_suplexland;
+					vsp = -11;
+					jumpstop = true;
+					image_index = 0;
 				}
 			}
 			else
@@ -297,8 +297,8 @@ if place_meeting(x, y, obj_swordhitbox) && !swordhitbox && stuntouchbuffer <= 0
 		instance_create(x, y, obj_slapstar)
 	with obj_camera
 	{
-	    shake_mag = 3;
-	    shake_mag_acc = 3 / room_speed;
+		shake_mag = 3;
+		shake_mag_acc = 3 / room_speed;
 	}
 
 	if scr_solid(x, y)

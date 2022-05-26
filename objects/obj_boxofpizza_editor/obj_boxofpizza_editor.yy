@@ -8,8 +8,8 @@
   "spriteMaskId": null,
   "persistent": false,
   "parentObjectId": {
-    "name": "obj_solid",
-    "path": "objects/obj_solid/obj_solid.yy",
+    "name": "obj_boxofpizza",
+    "path": "objects/obj_boxofpizza/obj_boxofpizza.yy",
   },
   "physicsObject": false,
   "physicsSensor": false,

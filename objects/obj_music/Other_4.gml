@@ -249,15 +249,15 @@ else if (!global.panic or string_letters(roomname) == "dragonlair" or string_let
 	if sugaryspire
 	{
 		if string_letters(roomname) == "cotton"
-	    {
-	        for (i = 0; i < 20; i++)
-	        {
-	            if roomname == "cotton_" + string(i) && i < 8
+		{
+			for (i = 0; i < 20; i++)
+			{
+				if roomname == "cotton_" + string(i) && i < 8
 					musplay = mu_cotton
-	            else if roomname == "cotton_" + string(i) && i >= 8
+				else if roomname == "cotton_" + string(i) && i >= 8
 					musplay = mu_cotton2
-	        }
-	    }
+			}
+		}
 		if string_letters(roomname) == "mines"
 			musplay = mu_mines
 		if string_letters(roomname) == "sugarytut"

@@ -7,8 +7,8 @@ if !(global.snickrematch && global.snickchallenge)
 }
 else
 {
-    mask_index = spr_rematchplugwoke;
-    sprite_index = spr_rematchplugwoke;
+	mask_index = spr_rematchplugwoke;
+	sprite_index = spr_rematchplugwoke;
 	
 	x = xstart;
 	y = ystart;

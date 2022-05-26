@@ -2,12 +2,12 @@ if global.gameplay == 0
 {
 	if obj_player.state == states.freefallland && grounded
 	{
-	    if point_in_camera(x, y, view_camera[0])
-	    {
-	        drop = true
-	        vsp = -5
+		if point_in_camera(x, y, view_camera[0])
+		{
+			drop = true
+			vsp = -5
 			grounded = false
-	    }
+		}
 	}
 
 	if !drop
@@ -31,7 +31,7 @@ else
 {
 	scr_collide();
 	if scr_solid(x, y + 1)
-	    hsp = 0;
+		hsp = 0;
 	if banana >= 2 or !instance_exists(baddieID)
-	    instance_destroy();
+		instance_destroy();
 }

@@ -68,10 +68,10 @@ function scr_player_tumble()
 	//Effect
 	if !instance_exists(dashcloudid) && grounded
 	{
-	    with instance_create(x, y, obj_dashcloud)
+		with instance_create(x, y, obj_dashcloud)
 		{
-		    image_xscale = other.xscale
-		    other.dashcloudid = id
+			image_xscale = other.xscale
+			other.dashcloudid = id
 		}
 	}
 }

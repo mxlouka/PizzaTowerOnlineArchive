@@ -5,8 +5,8 @@ prompt_condition = function()
 	
 	if place_meeting(x, y, obj_player1)
 	{
-	    //tv_reset()
-	    return true;
+		//tv_reset()
+		return true;
 	}
 	return false;
 }

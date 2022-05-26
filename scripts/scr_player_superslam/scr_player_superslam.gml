@@ -21,27 +21,27 @@ function scr_player_superslam()
 	{
 		scr_soundeffect(sfx_groundpound)
 		
-	    sprite_index = spr_piledriverland
-	    jumpAnim = true
+		sprite_index = spr_piledriverland
+		jumpAnim = true
 		
-	    image_index = 0
+		image_index = 0
 		
-	    with obj_camera
+		with obj_camera
 		{
-		    shake_mag = 20;
-		    shake_mag_acc = 40 / room_speed;
+			shake_mag = 20;
+			shake_mag_acc = 40 / room_speed;
 		}
 		
 		hsp = 0
 		bounce = false
 		
 		instance_create(x, y + 35, obj_bangeffect)
-	    instance_create(x, y, obj_landcloud)
-	    freefallstart = 0
+		instance_create(x, y, obj_landcloud)
+		freefallstart = 0
 		
-	    with obj_baddie
-	    {
-		    if grounded && point_in_camera(x, y, view_camera[0])
+		with obj_baddie
+		{
+			if grounded && point_in_camera(x, y, view_camera[0])
 			{
 				image_index = 0
 				

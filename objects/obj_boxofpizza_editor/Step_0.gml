@@ -30,24 +30,7 @@ with (obj_player1)
 		if ((key_up && !place_meeting(x,y-1,obj_destructibles) && place_meeting(x,y-10,other) && (state == states.normal or state == states.pogo or state == states.jump or  state = states.mach1 or state == states.mach2 or state == states.mach3 or state == states.Sjumpprep)) or ((state = states.Sjump or state == states.Sjumpland)  && !place_meeting(x,y-1,obj_destructibles) && place_meeting(x,y-1,other))) 
 		&& !instance_exists(obj_fadeout) && state != states.door && state != states.comingoutdoor
 		{
-			scr_soundeffect(sfx_box)
-			other.depth = -10
-			obj_player1.box = true
-			mach2 = 0
 			
-			with obj_camera
-				chargecamera = 0
-			
-			doorx = other.x
-			if !scr_stylecheck(2)
-				x = doorx;
-			y = other.y + 24
-			
-			sprite_index = spr_uppizzabox
-			image_index = 0
-			state = states.door
-			
-			other.enter = true;
 		}
 	}
 }

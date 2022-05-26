@@ -25,3 +25,4 @@ if other.state != states.taxi && sprite_index == spr_taxiidle
 	sprite_index = spr_taximove	
 	hsp = 10
 }
+

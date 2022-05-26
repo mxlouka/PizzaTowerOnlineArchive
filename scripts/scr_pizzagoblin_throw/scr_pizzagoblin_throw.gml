@@ -264,35 +264,35 @@ function scr_pizzagoblin_throw()
 					break
 				
 				case obj_miniufo:
-	                instance_create(x, y, obj_warplaser)
-	                break
+					instance_create(x, y, obj_warplaser)
+					break
 				
 				case obj_miniufo_grounded:
-	                with instance_create(x + 8 * image_xscale, y, obj_enemybullet)
-	                {
-	                    sprite_index = spr_ufogrounded_bullet
-	                    image_xscale = other.image_xscale
-	                }
-	                break
+					with instance_create(x + 8 * image_xscale, y, obj_enemybullet)
+					{
+						sprite_index = spr_ufogrounded_bullet
+						image_xscale = other.image_xscale
+					}
+					break
 				
 				case obj_thug_blue:
-	                with instance_create(x + 8 * image_xscale, y, obj_robotknife)
-	                {
-	                    image_xscale = other.image_xscale
-	                    hsp = other.image_xscale * 5
-	                }
-	                break
+					with instance_create(x + 8 * image_xscale, y, obj_robotknife)
+					{
+						image_xscale = other.image_xscale
+						hsp = other.image_xscale * 5
+					}
+					break
 				
 				case obj_thug_green:
 					/*
-	                with instance_create(x, y, obj_junkenemy)
-		            {
-		                image_xscale = other.image_xscale
-		                hsp = other.image_xscale * 7
-		                vsp = -8
-		            }
+					with instance_create(x, y, obj_junkenemy)
+					{
+						image_xscale = other.image_xscale
+						hsp = other.image_xscale * 7
+						vsp = -8
+					}
 					*/
-	                break
+					break
 			}
 		}
 	}

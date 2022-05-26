@@ -123,7 +123,6 @@ switch sel[0]
 			[mu_medievalsecret_re, "MEDIEVALSECRET", "loypoll"],
 			[mu_ruinsecret_re, "RUINSECRET", "loypoll"],
 			[mu_dungeonsecret_re, "DUNGEONSECRET", "loypoll"],
-			[mu_strongcoldsecret_re, "STRONGCOLDSECRET", "loypoll"],
 			[mu_entrancesecret_ss, "there's a secret\ninside my tower?", "loypoll"],
 		]
 		break;

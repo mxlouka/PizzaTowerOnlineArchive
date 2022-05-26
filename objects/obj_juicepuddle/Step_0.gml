@@ -44,9 +44,9 @@ else
 				{
 					scr_soundeffect(sfx_tumble2)
 					sprite_index = spr_slipbanan1;
-				    vsp = -11;
-				    image_index = 0;
-				    state = states.slipbanan;
+					vsp = -11;
+					image_index = 0;
+					state = states.slipbanan;
 				}
 				instance_destroy(other);
 			}

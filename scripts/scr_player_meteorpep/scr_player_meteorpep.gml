@@ -19,7 +19,7 @@ function scr_player_meteorpep() {
 	if scr_solid(x-1,y) && xscale == 1 && hsp != 0
 	{
 	movespeed = 0
-	    with (obj_baddie)
+		with (obj_baddie)
 	{
 	if (point_in_rectangle(x, y, __view_get( e__VW.XView, 0 ), __view_get( e__VW.YView, 0 ), __view_get( e__VW.XView, 0 ) + __view_get( e__VW.WView, 0 ), __view_get( e__VW.YView, 0 ) + __view_get( e__VW.HView, 0 ))) 
 	{
@@ -28,8 +28,8 @@ function scr_player_meteorpep() {
 	}
 	}
 	with (obj_camera) {
-	    shake_mag=10;
-	    shake_mag_acc=30/room_speed;
+		shake_mag=10;
+		shake_mag_acc=30/room_speed;
 	}
 	image_index = 0
 	sprite_index = spr_meteorpep_land
@@ -46,8 +46,8 @@ function scr_player_meteorpep() {
 	}
 
 	with (obj_camera) {
-	    shake_mag=10;
-	    shake_mag_acc=30/room_speed;
+		shake_mag=10;
+		shake_mag_acc=30/room_speed;
 	}
 	image_index = 0
 	sprite_index = spr_meteorpep_land

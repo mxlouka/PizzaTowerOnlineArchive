@@ -101,20 +101,20 @@ function scr_player_bombpep()
 	// throw bomb
 	if global.gameplay != 0 && key_slap2 && state == states.bombpep && sprite_index != spr_bombpepintro && sprite_index != spr_bombpepend
 	{
-	    sprite_index = spr_player_throw;
-	    image_index = 0;
-	    hsp = 0;
-	    bombpeptimer = 0;
-	    movespeed = 0;
-	    state = states.backbreaker;
+		sprite_index = spr_player_throw;
+		image_index = 0;
+		hsp = 0;
+		bombpeptimer = 0;
+		movespeed = 0;
+		state = states.backbreaker;
 		
-	    with instance_create(x + xscale * 25, y, obj_pizzagoblinbomb)
+		with instance_create(x + xscale * 25, y, obj_pizzagoblinbomb)
 		{
-		    hsp = other.xscale * 8;
-		    vsp = -11;
+			hsp = other.xscale * 8;
+			vsp = -11;
 			
-		    if scr_solid(x, y) && other.xscale != 0
-		    {
+			if scr_solid(x, y) && other.xscale != 0
+			{
 				var tx = 0;
 				while scr_solid(x + tx, y)
 				{
@@ -125,9 +125,9 @@ function scr_player_bombpep()
 						break;
 					}
 				}
-		        if tx != -1
-		            x += tx;
-		    }
+				if tx != -1
+					x += tx;
+			}
 		}
 	}
 	

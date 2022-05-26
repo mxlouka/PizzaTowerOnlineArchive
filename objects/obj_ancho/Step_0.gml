@@ -2,16 +2,16 @@ if room == rm_editor exit;
 
 switch state
 {
-    case states.idle: scr_enemy_idle (); break;
-    case states.charge: scr_enemy_charge (); break;
-    case states.turn: scr_enemy_turn (); break;
-    case states.walk: scr_enemy_walk (); break;
-    case states.land: scr_enemy_land (); break;
-    case states.hit: scr_enemy_hit (); break;
-    case states.stun: scr_enemy_stun (); break;
-    case states.pizzagoblinthrow: scr_pizzagoblin_throw (); break;
+	case states.idle: scr_enemy_idle (); break;
+	case states.charge: scr_enemy_charge (); break;
+	case states.turn: scr_enemy_turn (); break;
+	case states.walk: scr_enemy_walk (); break;
+	case states.land: scr_enemy_land (); break;
+	case states.hit: scr_enemy_hit (); break;
+	case states.stun: scr_enemy_stun (); break;
+	case states.pizzagoblinthrow: scr_pizzagoblin_throw (); break;
 	case states.rage: scr_enemy_rage (); break;
-    // grabbed state here
+	// grabbed state here
 }
 
 if state == states.stun && stunned > 100 && !birdcreated
@@ -73,7 +73,7 @@ var targetplayer = instance_nearest(x, y, obj_player)
 
 //Charge
 if ragebuffer > 0
-    ragebuffer--;
+	ragebuffer--;
 
 var treshx = 200, treshy = 50;
 if global.gameplay != 0
@@ -89,22 +89,22 @@ if ((targetplayer.x > x - treshx) && (targetplayer.x < x + treshx)) && (y <= tar
 	&& (state == states.walk or state == states.charge)
 	{
 		state = states.rage
-        sprite_index = spr_rage1
+		sprite_index = spr_rage1
 		
-        if x != targetplayer.x
-            image_xscale = -sign(x - targetplayer.x)
+		if x != targetplayer.x
+			image_xscale = -sign(x - targetplayer.x)
 		
-        ragebuffer = 100
-        image_index = 0
-        image_speed = 0.5
-        flash = true
-        alarm[4] = 5
+		ragebuffer = 100
+		image_index = 0
+		image_speed = 0.5
+		flash = true
+		alarm[4] = 5
 		
-        with instance_create(x, y, obj_forkhitbox)
+		with instance_create(x, y, obj_forkhitbox)
 		{
-	        sprite_index = spr_bighitbox
-	        mask_index = spr_bighitbox
-	        ID = other.id
+			sprite_index = spr_bighitbox
+			mask_index = spr_bighitbox
+			ID = other.id
 		}
 	}
 	else if x != targetplayer.x && state == states.walk && (y == ystart or stuck)

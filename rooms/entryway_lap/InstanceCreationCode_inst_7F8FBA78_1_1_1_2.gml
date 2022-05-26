@@ -1,3 +1,3 @@
-//targetRoom = entryway_11
+targetRoom = entryway_11
 targetDoor = "C"
 

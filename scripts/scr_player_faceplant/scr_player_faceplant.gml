@@ -31,8 +31,8 @@ function scr_player_faceplant()
 		
 		with obj_camera
 		{
-		    shake_mag = 20;
-		    shake_mag_acc = 40 / room_speed;
+			shake_mag = 20;
+			shake_mag_acc = 40 / room_speed;
 		}
 		
 		hsp = 0
@@ -49,14 +49,14 @@ function scr_player_faceplant()
 				hsp = 0
 			}
 		}
-	    flash = false
+		flash = false
 
-	    state = states.bump
-	    hsp = -2.5
-	    vsp = -3
-	    mach2 = 0
-	    image_index = 0
-	    instance_create(x + 10 * xscale, y + 10, obj_bumpeffect)
+		state = states.bump
+		hsp = -2.5
+		vsp = -3
+		mach2 = 0
+		image_index = 0
+		instance_create(x + 10 * xscale, y + 10, obj_bumpeffect)
 	}
 	
 	if floor(image_index) >= image_number - 1 && input_buffer_faceplant >= 8
@@ -76,11 +76,11 @@ function scr_player_faceplant()
 	
 	if key_down && grounded && vsp > 0
 	{
-	    grav = basegrav;
-	    sprite_index = spr_crouchslip;
-	    machhitAnim = 0;
-	    state = states.crouchslide;
-	    movespeed = 15;
+		grav = basegrav;
+		sprite_index = spr_crouchslip;
+		machhitAnim = 0;
+		state = states.crouchslide;
+		movespeed = 15;
 	}
 	image_speed = 0.5
 	

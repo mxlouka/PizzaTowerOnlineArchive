@@ -7,9 +7,9 @@ chainAngle = degtorad(point_direction(obj_player.x, (obj_player.y + 10), obj_hoo
 
 for(var i = 0; i < chainLength; i += chainWidth) //Run a loop so we draw every chain-segment
 {
-     // This is the big one. We draw the chain segment at the proper rotated angle, with an x-coordinate multiplied by cos(chainAngle), and a y-coordinate multiplied by sin(chainAngle).
-     // They're both multiplied by cos/sin so the chain-segments each appear at the correct x/y coordinates, given by the angle of the chain.
-     draw_sprite_ext(spr_chain, 0, obj_player.x + ( cos(chainAngle) * i ) + ( cos(chainAngle) * (chainWidth/2)), ((obj_player.y + 10) - ( sin( chainAngle ) * i )) + (sin( chainAngle ) * (chainWidth/2)), 1, 1, radtodeg(chainAngle), c_white, 1);
+	 // This is the big one. We draw the chain segment at the proper rotated angle, with an x-coordinate multiplied by cos(chainAngle), and a y-coordinate multiplied by sin(chainAngle).
+	 // They're both multiplied by cos/sin so the chain-segments each appear at the correct x/y coordinates, given by the angle of the chain.
+	 draw_sprite_ext(spr_chain, 0, obj_player.x + ( cos(chainAngle) * i ) + ( cos(chainAngle) * (chainWidth/2)), ((obj_player.y + 10) - ( sin( chainAngle ) * i )) + (sin( chainAngle ) * (chainWidth/2)), 1, 1, radtodeg(chainAngle), c_white, 1);
 }
 
 draw_self()

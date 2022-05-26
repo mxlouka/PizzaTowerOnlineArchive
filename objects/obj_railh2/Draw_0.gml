@@ -13,7 +13,7 @@ if abs(image_xscale) > 1
 		&& !collision_point(xx + 32, y, obj_solid, true, false)
 			spr = spr_railh2right;
 	
-	    draw_sprite(spr, -1, xx, y);
+		draw_sprite(spr, -1, xx, y);
 	}
 }
 else

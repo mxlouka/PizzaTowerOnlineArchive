@@ -11,6 +11,6 @@ if other.sync && !collisioned
 		
 		gms_instance_set(id, "rebound", true);
 	}
-    event_user(0);
+	event_user(0);
 }
 

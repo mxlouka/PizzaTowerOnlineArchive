@@ -7,12 +7,12 @@ function scr_autotile(argument0) {
 	var tile,_obj,iw,w_left,w_right,w_up,w_down,w_upleft,w_downleft,w_upright,w_downright;
 
 	_obj		= argument0;
-	iw          = sprite_width;
-	w_left      = place_meeting(x-iw,y,_obj);
-	w_right     = place_meeting(x+iw,y,_obj);
-	w_up        = place_meeting(x,y-iw,_obj);
-	w_down      = place_meeting(x,y+iw,_obj);
-	w_upleft    = place_meeting(x-iw,y-iw,_obj);
+	iw		  = sprite_width;
+	w_left	  = place_meeting(x-iw,y,_obj);
+	w_right	 = place_meeting(x+iw,y,_obj);
+	w_up		= place_meeting(x,y-iw,_obj);
+	w_down	  = place_meeting(x,y+iw,_obj);
+	w_upleft	= place_meeting(x-iw,y-iw,_obj);
 	w_downleft  = place_meeting(x-iw,y+iw,_obj);
 	w_upright   = place_meeting(x+iw,y-iw,_obj);
 	w_downright = place_meeting(x+iw,y+iw,_obj);
@@ -29,48 +29,48 @@ function scr_autotile(argument0) {
 	   tile=12
 	   if(w_left)
 	   {
-	    tile=28
-	    if(w_upright)
-	    {
-	     tile=29
-	     if(w_downright)
-	     {
-	      tile=33
-	      if(w_downleft)
-	      {
-	       tile=39
-	       if(w_upleft)tile=43
-	      }
-	      else if(w_upleft)tile=40
-	     }
-	     else if(w_downleft)
-	     {
-	      tile=37
-	      if(w_upleft)tile=41
-	     }
-	     else if(w_upleft)tile=36
-	    }
-	    else if(w_downright)
-	    {
-	     tile=30
-	     if(w_downleft)
-	     {
-	      tile=34
-	      if(w_upleft)tile=42
-	     }
-	     else if(w_upleft)tile=38
-	    }
-	    else if(w_downleft)
-	    {
-	     tile=31
-	     if(w_upleft)tile=35
-	    }
-	    else if(w_upleft)tile=32
+		tile=28
+		if(w_upright)
+		{
+		 tile=29
+		 if(w_downright)
+		 {
+		  tile=33
+		  if(w_downleft)
+		  {
+		   tile=39
+		   if(w_upleft)tile=43
+		  }
+		  else if(w_upleft)tile=40
+		 }
+		 else if(w_downleft)
+		 {
+		  tile=37
+		  if(w_upleft)tile=41
+		 }
+		 else if(w_upleft)tile=36
+		}
+		else if(w_downright)
+		{
+		 tile=30
+		 if(w_downleft)
+		 {
+		  tile=34
+		  if(w_upleft)tile=42
+		 }
+		 else if(w_upleft)tile=38
+		}
+		else if(w_downleft)
+		{
+		 tile=31
+		 if(w_upleft)tile=35
+		}
+		else if(w_upleft)tile=32
 	   }
 	   else if(w_upright)
 	   {
-	    tile=16
-	    if(w_downright)tile=18
+		tile=16
+		if(w_downright)tile=18
 	   }
 	   else if(w_downright)tile=17
 	  }
@@ -79,8 +79,8 @@ function scr_autotile(argument0) {
 	   tile=15
 	   if(w_upright)
 	   {
-	    tile=25
-	    if(w_upleft)tile=27
+		tile=25
+		if(w_upleft)tile=27
 	   }
 	   else if(w_upleft)tile=26
 	  }
@@ -94,8 +94,8 @@ function scr_autotile(argument0) {
 	   tile=14
 	   if(w_downleft)
 	   {
-	    tile=22
-	    if(w_upleft)tile=24
+		tile=22
+		if(w_upleft)tile=24
 	   }
 	   else if(w_upleft)tile=23
 	  }
@@ -118,7 +118,7 @@ function scr_autotile(argument0) {
 	   if(w_downright)
 	   {
 	   tile=19
-	    if(w_downleft)tile=21
+		if(w_downleft)tile=21
 	   }
 	   else if(w_downleft)tile=20
 	  }

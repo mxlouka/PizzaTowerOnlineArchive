@@ -13,16 +13,16 @@ if floor(image_index) >= image_number - 1
 {
 	if sprite_index == spr_dissolve
 	{
-	    sprite_index = spr_dead;
-	    falling = true;
-	    x = -100;
-	    y = -100;
+		sprite_index = spr_dead;
+		falling = true;
+		x = -100;
+		y = -100;
 	}
 	if sprite_index == spr_reform
 	{
-	    falling = false;
-	    sprite_index = spr_idle;
-	    image_index = 0;
+		falling = false;
+		sprite_index = spr_idle;
+		image_index = 0;
 		
 		x = xstart;
 		y = ystart;

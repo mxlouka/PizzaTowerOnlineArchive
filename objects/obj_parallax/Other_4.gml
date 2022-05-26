@@ -9,8 +9,8 @@ if string_startswith(roomname, "cotton_") && sugaryspire
 			var l = layer_create(-100, "Backgrounds_steamcc3");
 			var l2 = layer_background_create(l, bg_cotton5);
 			layer_background_htiled(l2, true);
-			array_push(global.roombgs, 
-			{
+			
+			ds_list_add(global.roombgs, {
 				lay : l,
 				bg : l2,
 				x : 0,

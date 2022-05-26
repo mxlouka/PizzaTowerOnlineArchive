@@ -33,11 +33,11 @@ instance_destroy()
 if (scr_solid(x+floor(hsp),y))
 {
 x = floor(x);
-    while(!scr_solid(x+sign(hsp),y))
-    {
-        x += sign(hsp);
-    }
-    hsp = 0;
+	while(!scr_solid(x+sign(hsp),y))
+	{
+		x += sign(hsp);
+	}
+	hsp = 0;
 }
 x += hsp;
 
@@ -45,11 +45,11 @@ x += hsp;
 if (scr_solid(x,y+floor(vsp))) 
 {
 y = floor(y);
-    while(!scr_solid(x,y+sign(vsp)))
-    {
-        y += sign(vsp);
-    }
-    vsp = 0;
+	while(!scr_solid(x,y+sign(vsp)))
+	{
+		y += sign(vsp);
+	}
+	vsp = 0;
 }
 y += floor(vsp);
 

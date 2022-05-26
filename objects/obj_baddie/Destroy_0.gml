@@ -1,7 +1,3 @@
-// SAGE2019
-if room == rm_editor
-	exit;
-
 if ds_list_find_index(global.baddieroom, id) == -1
 {
 	scr_failmod(mods.pacifist);
@@ -53,7 +49,7 @@ if ds_list_find_index(global.baddieroom, id) == -1
 			if global.gameplay != 0
 			{
 				instance_create(x, y, obj_genericpoofeffect);
-			    instance_create(x, y, obj_parryeffect);
+				instance_create(x, y, obj_parryeffect);
 			}
 			instance_create(x, y, obj_bangeffect);
 		}
@@ -121,3 +117,4 @@ if ds_list_find_index(global.baddieroom, id) == -1
 		}
 	}
 }
+

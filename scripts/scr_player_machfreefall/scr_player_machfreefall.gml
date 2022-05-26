@@ -18,33 +18,33 @@ function scr_player_machfreefall() {
 	//Animations
 	sprite_index = spr_player_machfreefall
 
-	    //Bump
-	    if (scr_solid(x+1,y) && image_xscale == 1)
-	    {
-	    machhitAnim = false
-	    state = states.bump
-	    hsp = -2.5
-	    vsp = -2.5
-	    mach2 = 0
-	    image_index = 0
-	    instance_create(x+10,y+10,obj_bumpeffect)
-	//    audio_sound_gain(sfx_bump, 0.7, 0);
+		//Bump
+		if (scr_solid(x+1,y) && image_xscale == 1)
+		{
+		machhitAnim = false
+		state = states.bump
+		hsp = -2.5
+		vsp = -2.5
+		mach2 = 0
+		image_index = 0
+		instance_create(x+10,y+10,obj_bumpeffect)
+	//	audio_sound_gain(sfx_bump, 0.7, 0);
 	//if !(audio_is_playing(sfx_bump))
 	//audio_play_sound(sfx_bump, 1, false)
-	    }
-	    else if (scr_solid(x-1,y) && image_xscale == -1)
-	    {
-	    machhitAnim = false
-	    state = states.bump
-	    hsp = 2.5
-	    vsp = -2.5
-	    mach2 = 0
-	    image_index = 0
-	    instance_create(x-10,y+10,obj_bumpeffect)
-	//    audio_sound_gain(sfx_bump, 0.7, 0);
+		}
+		else if (scr_solid(x-1,y) && image_xscale == -1)
+		{
+		machhitAnim = false
+		state = states.bump
+		hsp = 2.5
+		vsp = -2.5
+		mach2 = 0
+		image_index = 0
+		instance_create(x-10,y+10,obj_bumpeffect)
+	//	audio_sound_gain(sfx_bump, 0.7, 0);
 	//if !(audio_is_playing(sfx_bump))
 	//audio_play_sound(sfx_bump, 1, false)
-	    }
+		}
 
 
   
@@ -53,29 +53,29 @@ function scr_player_machfreefall() {
 
 
 
-	            with (obj_camera) {
+				with (obj_camera) {
 
-	    shake_mag=20;
-	    shake_mag_acc=40/room_speed;
+		shake_mag=20;
+		shake_mag_acc=40/room_speed;
 	}
 
-	     bounce = false
-     
-	    state = states.freefallland
-	    jumpstop = false
-	    image_index = 0
-	            with instance_create(x,y+35,obj_bangeffect)
-	        image_xscale = obj_player.image_xscale
-	    instance_create(x,y,obj_landcloud)
-	    freefallstart = 0
-	//    audio_sound_gain(sfx_land, 0.7, 0);
+		 bounce = false
+	 
+		state = states.freefallland
+		jumpstop = false
+		image_index = 0
+				with instance_create(x,y+35,obj_bangeffect)
+			image_xscale = obj_player.image_xscale
+		instance_create(x,y,obj_landcloud)
+		freefallstart = 0
+	//	audio_sound_gain(sfx_land, 0.7, 0);
 	//if !(audio_is_playing(sfx_land))
 	//audio_play_sound(sfx_land, 1, false)
 
 
-	    with (obj_baddie)
-	    {
-	    if point_in_camera(x, y, view_camera[0]) {
+		with (obj_baddie)
+		{
+		if point_in_camera(x, y, view_camera[0]) {
 
 
 	image_index = 0
@@ -86,7 +86,7 @@ function scr_player_machfreefall() {
 	}
 	}
 	}  
-    
+	
 
 
 	//Sound
@@ -110,7 +110,7 @@ function scr_player_machfreefall() {
 	freefallstart = 0
 
 	}
-    
+	
 	//Input buffer jumping
 	if key_jump
 	input_buffer_jump = 0

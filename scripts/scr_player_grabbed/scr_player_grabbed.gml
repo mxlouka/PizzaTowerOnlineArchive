@@ -230,8 +230,8 @@ function scr_player_grabbed()
 		{
 			if shake_mag <= 0
 			{
-			    shake_mag=3;
-			    shake_mag_acc=3/room_speed;
+				shake_mag=3;
+				shake_mag_acc=3/room_speed;
 			}
 		}
 	}

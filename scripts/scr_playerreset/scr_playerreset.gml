@@ -32,8 +32,8 @@ function scr_playerreset()
 	global.baddiepowerup = false;
 	
 	global.showgnomelist = false;
-    global.failcutscene = false;
-    global.pizzadelivery = false;
+	global.failcutscene = false;
+	global.pizzadelivery = false;
 	
 	global.raceid = 0;
 	global.golfhit = 0;

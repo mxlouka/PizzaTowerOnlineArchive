@@ -51,7 +51,7 @@ if WC_consoleopen
 	{
 		// previous command
 		WC_lastconsoleenterind = max(WC_lastconsoleenterind - 1, 0);
-	    keyboard_string = ds_list_find_value(WC_lastconsoleenter, WC_lastconsoleenterind);
+		keyboard_string = ds_list_find_value(WC_lastconsoleenter, WC_lastconsoleenterind);
 	}
 	if keyboard_check_pressed(vk_down) && ds_list_size(WC_lastconsoleenter) != 0
 	{
@@ -110,8 +110,8 @@ if WC_consoleopen
 	WC_consoletext = keyboard_string;
 	if keyboard_check_pressed(vk_return)
 	{
-	    WC_consoleenter = WC_consoletext;
-	    keyboard_string = "";
+		WC_consoleenter = WC_consoletext;
+		keyboard_string = "";
 		WC_consoletext = "";
 	}
 }
@@ -119,8 +119,8 @@ else if ds_list_size(WC_bindkey) != 0 && WC_assetfinder < 0 // press binds
 {
 	for (i = 0; i < ds_list_size(WC_bindkey); i++)
 	{
-	    if keyboard_check_pressed(ds_list_find_value(WC_bindkey, i))
-	        scr_wcevaluate(ds_list_find_value(WC_bindmap, i));
+		if keyboard_check_pressed(ds_list_find_value(WC_bindkey, i))
+			scr_wcevaluate(ds_list_find_value(WC_bindmap, i));
 	}
 }
 
@@ -147,7 +147,7 @@ if keyboard_check_pressed(WC_togglekey) && !WC_creatingobj && !WC_selectobj && W
 if WC_consoleenter != ""
 {
 	if !WC_consolesilence && WC_consoleopen
-	    console_log("%..." + WC_consoleenter);
+		console_log("%..." + WC_consoleenter);
 	
 	if string_replace_all(WC_consoleenter, " ", "") != ""
 	{
@@ -178,10 +178,10 @@ if array_length(WC_frozenvar) != 0
 	{
 		if WC_frozenvar[i] != undefined
 		{
-		    if string_copy(WC_frozenvar[i], 1, 13) == "__WC_GLOBAL__"
-		        variable_global_set(string_replace(WC_frozenvar[i], "__WC_GLOBAL__", ""), WC_frozenval[i]);
-		    else if instance_exists(WC_frozenobj[i])
-		        variable_instance_set(WC_frozenobj[i], WC_frozenvar[i], WC_frozenval[i]);
+			if string_copy(WC_frozenvar[i], 1, 13) == "__WC_GLOBAL__"
+				variable_global_set(string_replace(WC_frozenvar[i], "__WC_GLOBAL__", ""), WC_frozenval[i]);
+			else if instance_exists(WC_frozenobj[i])
+				variable_instance_set(WC_frozenobj[i], WC_frozenvar[i], WC_frozenval[i]);
 		}
 	}
 }
@@ -199,8 +199,8 @@ if WC_candrag && WC_assetfinder < 0 && !WC_creatingobj && WC_selectobj == 0
 		{
 			with WC_fakedragobj
 			{
-			    x = floor((mouse_x - other.WC_moffsetx) / other.WC_draggrid) * other.WC_draggrid;
-			    y = floor((mouse_y - other.WC_moffsety) / other.WC_draggrid) * other.WC_draggrid;
+				x = floor((mouse_x - other.WC_moffsetx) / other.WC_draggrid) * other.WC_draggrid;
+				y = floor((mouse_y - other.WC_moffsety) / other.WC_draggrid) * other.WC_draggrid;
 				
 				if object_index == obj_otherplayer // pt online exclusive
 					gms_p2p_send(p2p.wcdrag, player_id, x, y);
@@ -209,13 +209,13 @@ if WC_candrag && WC_assetfinder < 0 && !WC_creatingobj && WC_selectobj == 0
 			// just incase the object's coordinates are frozen
 			for (i = 0; i < array_length(WC_frozenobj); i++)
 			{
-			    if WC_fakedragobj == WC_frozenobj[i]
-			    {
-			        if WC_frozenvar[i] == "x"
-			            WC_frozenval[i] = WC_fakedragobj.x;
-			        if WC_frozenvar[i] == "y"
-			            WC_frozenval[i] = WC_fakedragobj.y;
-			    }
+				if WC_fakedragobj == WC_frozenobj[i]
+				{
+					if WC_frozenvar[i] == "x"
+						WC_frozenval[i] = WC_fakedragobj.x;
+					if WC_frozenvar[i] == "y"
+						WC_frozenval[i] = WC_fakedragobj.y;
+				}
 			}
 			
 			WC_fakedragobj = noone;
@@ -233,7 +233,7 @@ if WC_candrag && WC_assetfinder < 0 && !WC_creatingobj && WC_selectobj == 0
 	{
 		with WC_dragobj
 		{
-		    x = floor((mouse_x - other.WC_moffsetx) / other.WC_draggrid) * other.WC_draggrid;
+			x = floor((mouse_x - other.WC_moffsetx) / other.WC_draggrid) * other.WC_draggrid;
 			y = floor((mouse_y - other.WC_moffsety) / other.WC_draggrid) * other.WC_draggrid;
 			
 			if object_index == obj_otherplayer // pt online exclusive
@@ -243,17 +243,17 @@ if WC_candrag && WC_assetfinder < 0 && !WC_creatingobj && WC_selectobj == 0
 		// just incase the object's coordinates are frozen
 		for (i = 0; i < array_length_1d(WC_frozenobj); i++)
 		{
-		    if WC_dragobj == WC_frozenobj[i]
-		    {
-		        if WC_frozenvar[i] == "x"
-		            WC_frozenval[i] = WC_dragobj.x;
-		        if WC_frozenvar[i] == "y"
-		            WC_frozenval[i] = WC_dragobj.y;
-		    }
+			if WC_dragobj == WC_frozenobj[i]
+			{
+				if WC_frozenvar[i] == "x"
+					WC_frozenval[i] = WC_dragobj.x;
+				if WC_frozenvar[i] == "y"
+					WC_frozenval[i] = WC_dragobj.y;
+			}
 		}
 	
 		if mouse_check_button_pressed(mb_right)
-		    instance_destroy(WC_dragobj);
+			instance_destroy(WC_dragobj);
 	}
 
 	// start dragging the object
@@ -261,8 +261,8 @@ if WC_candrag && WC_assetfinder < 0 && !WC_creatingobj && WC_selectobj == 0
 	{
 		if keyboard_check(vk_control) && instance_exists(obj_player1) // drag player
 		{
-		    WC_moffsetx = 0;
-		    WC_moffsety = 0;
+			WC_moffsetx = 0;
+			WC_moffsety = 0;
 		
 			if keyboard_check(vk_alt)
 				WC_fakedragobj = instance_find(obj_player1, 0);
@@ -272,8 +272,8 @@ if WC_candrag && WC_assetfinder < 0 && !WC_creatingobj && WC_selectobj == 0
 		else if keyboard_check(vk_alt) // fake drag
 		{
 			WC_fakedragobj = collision_point(mouse_x, mouse_y, all, true, false);
-		    if instance_exists(WC_fakedragobj)
-		    {
+			if instance_exists(WC_fakedragobj)
+			{
 				// pt exclusive
 				if WC_fakedragobj.object_index == obj_baddiecollisionbox
 				&& WC_prioritizebaddies
@@ -281,15 +281,15 @@ if WC_candrag && WC_assetfinder < 0 && !WC_creatingobj && WC_selectobj == 0
 					if instance_exists(WC_fakedragobj.baddieID)
 						WC_fakedragobj = WC_fakedragobj.baddieID;
 				}
-		        WC_moffsetx = mouse_x - WC_fakedragobj.x;
-		        WC_moffsety = mouse_y - WC_fakedragobj.y;
-		    }
+				WC_moffsetx = mouse_x - WC_fakedragobj.x;
+				WC_moffsety = mouse_y - WC_fakedragobj.y;
+			}
 		}
 		else // normal drag
 		{
-		    WC_dragobj = collision_point(mouse_x, mouse_y, all, true, false);
-		    if instance_exists(WC_dragobj)
-		    {
+			WC_dragobj = collision_point(mouse_x, mouse_y, all, true, false);
+			if instance_exists(WC_dragobj)
+			{
 				// pt exclusive
 				if WC_dragobj.object_index == obj_baddiecollisionbox
 				&& WC_prioritizebaddies
@@ -297,9 +297,9 @@ if WC_candrag && WC_assetfinder < 0 && !WC_creatingobj && WC_selectobj == 0
 					if instance_exists(WC_dragobj.baddieID)
 						WC_dragobj = WC_dragobj.baddieID;
 				}
-		        WC_moffsetx = mouse_x - WC_dragobj.x;
-		        WC_moffsety = mouse_y - WC_dragobj.y;
-		    }
+				WC_moffsetx = mouse_x - WC_dragobj.x;
+				WC_moffsety = mouse_y - WC_dragobj.y;
+			}
 		}
 	}
 
@@ -313,7 +313,7 @@ if WC_candrag && WC_assetfinder < 0 && !WC_creatingobj && WC_selectobj == 0
 		if !instance_exists(WC_fakedragobj)
 		{
 			if !instance_exists(WC_dragobj)
-			    WC_dragobj = collision_point(mouse_x, mouse_y, all, false, false);
+				WC_dragobj = collision_point(mouse_x, mouse_y, all, false, false);
 	
 			if instance_exists(WC_dragobj)
 			{
@@ -329,11 +329,11 @@ if WC_candrag && WC_assetfinder < 0 && !WC_creatingobj && WC_selectobj == 0
 					else
 						other.WC_dragobj = instance_copy(false);
 				}
-			    if !mouse_check_button(mb_left)
-			    {
-			        WC_moffsetx = mouse_x - WC_dragobj.x;
-			        WC_moffsety = mouse_y - WC_dragobj.y;
-			    }
+				if !mouse_check_button(mb_left)
+				{
+					WC_moffsetx = mouse_x - WC_dragobj.x;
+					WC_moffsety = mouse_y - WC_dragobj.y;
+				}
 				
 				// pt exclusive
 				if WC_prioritizebaddies
@@ -343,9 +343,9 @@ if WC_candrag && WC_assetfinder < 0 && !WC_creatingobj && WC_selectobj == 0
 		}
 		else
 		{
-		    with WC_fakedragobj
+			with WC_fakedragobj
 			{
-		        var copyobj = instance_copy(false);
+				var copyobj = instance_copy(false);
 				copyobj.x = round(mouse_x - other.WC_moffsetx);
 				copyobj.y = round(mouse_y - other.WC_moffsety);
 			}
@@ -356,13 +356,13 @@ if WC_candrag && WC_assetfinder < 0 && !WC_creatingobj && WC_selectobj == 0
 	if keyboard_check(vk_control) && mouse_check_button(mb_middle) && instance_exists(WC_dragobj)
 	{
 		with WC_dragobj
-		    instance_copy(false);
+			instance_copy(false);
 	}
 	if keyboard_check(vk_control) && mouse_check_button(mb_middle) && instance_exists(WC_fakedragobj)
 	{
 		with WC_fakedragobj
 		{
-		    var copyobj = instance_copy(false);
+			var copyobj = instance_copy(false);
 			copyobj.x = round(mouse_x - other.WC_moffsetx);
 			copyobj.y = round(mouse_y - other.WC_moffsety);
 		}
@@ -373,7 +373,7 @@ if WC_candrag && WC_assetfinder < 0 && !WC_creatingobj && WC_selectobj == 0
 	{
 		var delobj = collision_point(mouse_x, mouse_y, all, false, false);
 		if instance_exists(delobj)
-		    instance_destroy(delobj);
+			instance_destroy(delobj);
 	}
 }
 else
@@ -386,39 +386,39 @@ else
 if WC_modkp == vk_tab
 {
 	if keyboard_check(vk_control) // restart room
-	    room_restart();
+		room_restart();
 	else
 	{
-	    temproom = get_string("Go to room (index or full name)", room_get_name(room))
-	    if temproom == ""
-	        exit;
-	    if string_length(string_digits(temproom)) + string_count("-", temproom) + string_count(".", temproom) == string_length(temproom)
-	    {
-	        if room_exists(real(temproom))
-	        {
-	            show_message("Successfully traveled to " + room_get_name(real(temproom)) + " (index: " + temproom + ")");
-	            room_goto(real(temproom));
-	            with obj_player // pt exclusive
-	                targetDoor = "none";
-	        }
-	        else
-	            show_message("Room index out of range");
-	    }
-	    else
-	    {
-	        temproom2 = asset_get_index(temproom);
-	        if temproom2 == -1
-	            show_message("Room doesn't exist. Check for typos");
-	        else if asset_get_type(temproom) != asset_room
-	            show_message("The asset " + temproom + " isn't a room");
-	        else
-	        {
-	            show_message("Successfully traveled to " + temproom + " (index: " + string(temproom2) + ")");
-	            room_goto(temproom2);
-	            with obj_player // pt exclusive
-	                targetDoor = "none";
-	        }
-	    }
+		temproom = get_string("Go to room (index or full name)", room_get_name(room))
+		if temproom == ""
+			exit;
+		if string_length(string_digits(temproom)) + string_count("-", temproom) + string_count(".", temproom) == string_length(temproom)
+		{
+			if room_exists(real(temproom))
+			{
+				show_message("Successfully traveled to " + room_get_name(real(temproom)) + " (index: " + temproom + ")");
+				room_goto(real(temproom));
+				with obj_player // pt exclusive
+					targetDoor = "none";
+			}
+			else
+				show_message("Room index out of range");
+		}
+		else
+		{
+			temproom2 = asset_get_index(temproom);
+			if temproom2 == -1
+				show_message("Room doesn't exist. Check for typos");
+			else if asset_get_type(temproom) != asset_room
+				show_message("The asset " + temproom + " isn't a room");
+			else
+			{
+				show_message("Successfully traveled to " + temproom + " (index: " + string(temproom2) + ")");
+				room_goto(temproom2);
+				with obj_player // pt exclusive
+					targetDoor = "none";
+			}
+		}
 	}
 }
 
@@ -427,32 +427,32 @@ if WC_modkp == ord("1")
 {
 	if keyboard_check(vk_control) // object list
 	{
-	    temp_fetchobjects = "There are " + string(instance_number(all)) + " instances in this room:\n"
+		temp_fetchobjects = "There are " + string(instance_number(all)) + " instances in this room:\n"
 		
-	    for (i = 0; i < instance_number(all); i += 1)
-	        temp_fetchobjects = temp_fetchobjects + "\n" + object_get_name(instance_find(all, i).object_index);
-        
+		for (i = 0; i < instance_number(all); i += 1)
+			temp_fetchobjects = temp_fetchobjects + "\n" + object_get_name(instance_find(all, i).object_index);
+		
 		show_message(temp_fetchobjects);
 	}
 	else
 	{
-	    tempobj = get_string("Create object:\nInput the object's name", "");
-	    if tempobj == ""
-	        exit;
+		tempobj = get_string("Create object:\nInput the object's name", "");
+		if tempobj == ""
+			exit;
 		
-	    WC_tempobj = asset_get_index(tempobj);
-	    if WC_tempobj == -1
-	    {
-	        show_message("Asset " + tempobj + " doesn't exist. Check for typos");
-	        exit;
-	    }
+		WC_tempobj = asset_get_index(tempobj);
+		if WC_tempobj == -1
+		{
+			show_message("Asset " + tempobj + " doesn't exist. Check for typos");
+			exit;
+		}
 		else if asset_get_type(tempobj) != asset_object
 		{
 			show_message("The asset " + tempobj + " isn't an object");
-	        exit;
+			exit;
 		}
 		
-	    WC_creatingobj = true;
+		WC_creatingobj = true;
 	}
 }
 
@@ -464,10 +464,10 @@ if WC_creatingobj
 	WC_fakedragobj = noone;
 	
 	if mouse_check_button_pressed(mb_left) or (mouse_check_button(mb_left) && keyboard_check(vk_control))
-	    instance_create(floor(mouse_x / WC_draggrid) * WC_draggrid, floor(mouse_y / WC_draggrid) * WC_draggrid, WC_tempobj);
+		instance_create(floor(mouse_x / WC_draggrid) * WC_draggrid, floor(mouse_y / WC_draggrid) * WC_draggrid, WC_tempobj);
 	
 	if mouse_check_button_pressed(mb_right)
-	    WC_creatingobj = false;
+		WC_creatingobj = false;
 }
 
 // set variable
@@ -476,56 +476,56 @@ if WC_modkp == ord("3")
 	if keyboard_check(vk_shift)
 	{
 		// global
-	    tempvar = get_string("Input global variable name here", "");
-	    if tempvar == ""
-	        exit;
-	    if variable_global_exists(tempvar) && is_array(variable_global_get(tempvar))
-	    {
-	        show_message("The global variable " + tempvar + " is an array. Set arrays with the array command");
-	        exit;
-	    }
-		
-	    if variable_global_exists(tempvar)
-	        tempval = get_string("Overwriting existing value from global." + tempvar + " to...", variable_global_get(tempvar));
-	    else
-	        tempval = get_string("Creating new global variable global." + tempvar + " with value...", "")
-        
-		if tempval == ""
-	        exit;
-		
-	    if asset_get_index(tempval) != -1 // asset
-	    {
-	        variable_global_set(tempvar, asset_get_index(tempval));
-	        show_message("Set global variable global." + string(tempvar) + " to asset " + tempval);
-	    }
-	    else if string_length(string_digits(tempval)) + string_count("-", tempval) + string_count(".", tempval) == string_length(tempval)
-	    // number
+		tempvar = get_string("Input global variable name here", "");
+		if tempvar == ""
+			exit;
+		if variable_global_exists(tempvar) && is_array(variable_global_get(tempvar))
 		{
-	        variable_global_set(tempvar, real(tempval));
-	        show_message("Set global variable global." + string(tempvar) + " to number " + tempval);
-	    }
+			show_message("The global variable " + tempvar + " is an array. Set arrays with the array command");
+			exit;
+		}
+		
+		if variable_global_exists(tempvar)
+			tempval = get_string("Overwriting existing value from global." + tempvar + " to...", variable_global_get(tempvar));
+		else
+			tempval = get_string("Creating new global variable global." + tempvar + " with value...", "")
+		
+		if tempval == ""
+			exit;
+		
+		if asset_get_index(tempval) != -1 // asset
+		{
+			variable_global_set(tempvar, asset_get_index(tempval));
+			show_message("Set global variable global." + string(tempvar) + " to asset " + tempval);
+		}
+		else if string_length(string_digits(tempval)) + string_count("-", tempval) + string_count(".", tempval) == string_length(tempval)
+		// number
+		{
+			variable_global_set(tempvar, real(tempval));
+			show_message("Set global variable global." + string(tempvar) + " to number " + tempval);
+		}
 		else if tempval == "undefined" // undefined
 		{
-	        variable_global_set(tempvar, undefined);
-	        show_message("Set global variable global." + string(tempvar) + " to undefined");
+			variable_global_set(tempvar, undefined);
+			show_message("Set global variable global." + string(tempvar) + " to undefined");
 		}
-	    else // string
-	    {
+		else // string
+		{
 			tempval = string_replace(tempval, "\\", "");
-	        variable_global_set(tempvar, tempval);
-	        show_message("Set global variable global." + string(tempvar) + " to string " + tempval);
-	    }
+			variable_global_set(tempvar, tempval);
+			show_message("Set global variable global." + string(tempvar) + " to string " + tempval);
+		}
 		
-	    for (i = 0; i < array_length(WC_frozenobj); i++)
-	    {
-	        if "__WC_GLOBAL__" + tempvar == WC_frozenvar[i]
-	            WC_frozenval[i] = variable_global_get(tempvar);
-	    }
+		for (i = 0; i < array_length(WC_frozenobj); i++)
+		{
+			if "__WC_GLOBAL__" + tempvar == WC_frozenvar[i]
+				WC_frozenval[i] = variable_global_get(tempvar);
+		}
 	}
 	else
 	{
-	    WC_selectobj = 1;
-	    WC_tempobj = noone;
+		WC_selectobj = 1;
+		WC_tempobj = noone;
 	}
 }
 
@@ -553,144 +553,144 @@ if WC_selectobj != 0
 	// manual input
 	if mouse_check_button_pressed(mb_middle)
 	{
-	    var tempobj_name = get_string("Manual object selection:\nInput the object's name", "");
-	    if tempobj_name == ""
-	    {
-	        WC_selectobj = 0;
+		var tempobj_name = get_string("Manual object selection:\nInput the object's name", "");
+		if tempobj_name == ""
+		{
+			WC_selectobj = 0;
 			WC_tempobj = noone;
-	        exit;
-	    }
-	    else
-	    {
-	        tempobj = asset_get_index(tempobj_name);
+			exit;
+		}
+		else
+		{
+			tempobj = asset_get_index(tempobj_name);
 			
 			if tempobj == -1
-	        {
-	            show_message("Object " + tempobj_name + " doesn't exist. Check for typos");
-	            WC_selectobj = 0;
+			{
+				show_message("Object " + tempobj_name + " doesn't exist. Check for typos");
+				WC_selectobj = 0;
 				WC_tempobj = noone;
-	            exit;
-	        }
+				exit;
+			}
 			else if asset_get_type(tempobj_name) != asset_object
-	        {
-	            show_message("The asset " + tempobj_name + " isn't an object");
-	            WC_selectobj = 0;
+			{
+				show_message("The asset " + tempobj_name + " isn't an object");
+				WC_selectobj = 0;
 				WC_tempobj = noone;
-	            exit;
-	        }
-	        else
-	        {
-	            if instance_number(tempobj) == 1
-	            {
-	                tempobj = instance_find(tempobj, 0);
-	                selected = true;
-	            }
-	            else if instance_number(tempobj) == 0
-	            {
-	                show_message("The object isn't in the room.");
-	                WC_selectobj = 0;
+				exit;
+			}
+			else
+			{
+				if instance_number(tempobj) == 1
+				{
+					tempobj = instance_find(tempobj, 0);
+					selected = true;
+				}
+				else if instance_number(tempobj) == 0
+				{
+					show_message("The object isn't in the room.");
+					WC_selectobj = 0;
 					WC_tempobj = noone;
-	                exit;
-	            }
-	            else if instance_number(tempobj) > 1
-	            {
-	                temp_objfind = get_integer("Multiple instances of this object were found. Specify which (0 to " + string(instance_number(tempobj) - 1) + ")", 0);
-	                tempobj = instance_find(tempobj, temp_objfind);
-	                if tempobj == noone
-	                {
-	                    show_message("The object isn't in the room.");
-	                    WC_selectobj = 0;
+					exit;
+				}
+				else if instance_number(tempobj) > 1
+				{
+					temp_objfind = get_integer("Multiple instances of this object were found. Specify which (0 to " + string(instance_number(tempobj) - 1) + ")", 0);
+					tempobj = instance_find(tempobj, temp_objfind);
+					if tempobj == noone
+					{
+						show_message("The object isn't in the room.");
+						WC_selectobj = 0;
 						WC_tempobj = noone;
-	                    exit;
-	                }
-	                selected = true;
-	            }
-	        }
-	    }
+						exit;
+					}
+					selected = true;
+				}
+			}
+		}
 	}
 	
 	if (mouse_check_button_pressed(mb_left) or selected) && instance_exists(tempobj)
 	{
 		WC_tempobj = noone;
-	    switch WC_selectobj
-	    {
-	        case 1: // set variable
-	            tempvar = get_string("Selected " + object_get_name(tempobj.object_index) + "\nInput variable name here", "");
-	            if tempvar == ""
-	            {
-	                WC_selectobj = 0;
-	                exit;
-	            }
-	            if variable_instance_exists(tempobj, tempvar) && is_array(variable_instance_get(tempobj, tempvar))
-	                show_message("The variable " + tempvar + " is an array. Set arrays with the array command");
-				
-	            if variable_instance_exists(tempobj, tempvar)
-	                tempval = get_string("Overwriting existing value from " + tempvar + " to...", string(variable_instance_get(tempobj, tempvar)));
-	            else
-	                tempval = get_string("Creating new variable " + tempvar + " with value...", "");
-				
-	            if tempval == ""
-	            {
-	                WC_selectobj = 0;
-	                exit;
-	            }
-				
-	            if asset_get_index(tempval) != -1 // asset
-	            {
-	                variable_instance_set(tempobj, tempvar, asset_get_index(tempval));
-	                show_message("Set variable " + string(tempvar) + " to asset " + tempval);
-	            }
-	            else if string_length(string_digits(tempval)) + string_count("-", tempval) + string_count(".", tempval) == string_length(tempval)
-	            // number
+		switch WC_selectobj
+		{
+			case 1: // set variable
+				tempvar = get_string("Selected " + object_get_name(tempobj.object_index) + "\nInput variable name here", "");
+				if tempvar == ""
 				{
-	                variable_instance_set(tempobj, tempvar, real(tempval));
-	                show_message("Set variable " + string(tempvar) + " to number " + tempval);
-	            }
+					WC_selectobj = 0;
+					exit;
+				}
+				if variable_instance_exists(tempobj, tempvar) && is_array(variable_instance_get(tempobj, tempvar))
+					show_message("The variable " + tempvar + " is an array. Set arrays with the array command");
+				
+				if variable_instance_exists(tempobj, tempvar)
+					tempval = get_string("Overwriting existing value from " + tempvar + " to...", string(variable_instance_get(tempobj, tempvar)));
+				else
+					tempval = get_string("Creating new variable " + tempvar + " with value...", "");
+				
+				if tempval == ""
+				{
+					WC_selectobj = 0;
+					exit;
+				}
+				
+				if asset_get_index(tempval) != -1 // asset
+				{
+					variable_instance_set(tempobj, tempvar, asset_get_index(tempval));
+					show_message("Set variable " + string(tempvar) + " to asset " + tempval);
+				}
+				else if string_length(string_digits(tempval)) + string_count("-", tempval) + string_count(".", tempval) == string_length(tempval)
+				// number
+				{
+					variable_instance_set(tempobj, tempvar, real(tempval));
+					show_message("Set variable " + string(tempvar) + " to number " + tempval);
+				}
 				else if tempval == "undefined" // undefined
 				{
-			        variable_instance_set(tempobj, tempvar, undefined);
-			        show_message("Set variable " + string(tempvar) + " to undefined");
+					variable_instance_set(tempobj, tempvar, undefined);
+					show_message("Set variable " + string(tempvar) + " to undefined");
 				}
-	            else // string
-	            {
+				else // string
+				{
 					tempval = string_replace(tempval, "\\", "");
-	                variable_instance_set(tempobj, tempvar, tempval);
-	                show_message("Set variable " + string(tempvar) + " to string " + tempval);
-	            }
+					variable_instance_set(tempobj, tempvar, tempval);
+					show_message("Set variable " + string(tempvar) + " to string " + tempval);
+				}
 				
 				// set variable if frozen
-	            for (i = 0; i < array_length_1d(WC_frozenobj); i++)
-	            {
-	                if tempobj == WC_frozenobj[i] && tempvar == WC_frozenvar[i]
-	                    WC_frozenval[i] = variable_instance_get(tempobj, tempvar);
-	            }
-	            break;
+				for (i = 0; i < array_length_1d(WC_frozenobj); i++)
+				{
+					if tempobj == WC_frozenobj[i] && tempvar == WC_frozenvar[i]
+						WC_frozenval[i] = variable_instance_get(tempobj, tempvar);
+				}
+				break;
 			
-	        case 2: // freeze variable
-	            tempvar = get_string("Selected " + object_get_name(tempobj.object_index) + "\nInput variable name to freeze here", "");
+			case 2: // freeze variable
+				tempvar = get_string("Selected " + object_get_name(tempobj.object_index) + "\nInput variable name to freeze here", "");
 				if tempvar == ""
-	            {
-	                WC_selectobj = 0;
-	                exit;
-	            }
+				{
+					WC_selectobj = 0;
+					exit;
+				}
 				
-	            if variable_instance_exists(tempobj, tempvar)
-	            {
-	                frz = array_length_1d(WC_frozenobj)
-	                for (i = 0; i < frz; i++)
-	                {
+				if variable_instance_exists(tempobj, tempvar)
+				{
+					frz = array_length_1d(WC_frozenobj)
+					for (i = 0; i < frz; i++)
+					{
 						// unfreeze variable
-	                    if tempobj == WC_frozenobj[i] && tempvar == WC_frozenvar[i]
-	                    {
-	                        WC_frozenobj[i] = noone;
-	                        WC_frozenvar[i] = undefined;
-	                        WC_frozenval[i] = undefined;
+						if tempobj == WC_frozenobj[i] && tempvar == WC_frozenvar[i]
+						{
+							WC_frozenobj[i] = noone;
+							WC_frozenvar[i] = undefined;
+							WC_frozenval[i] = undefined;
 							
-	                        WC_selectobj = 0;
-	                        show_message("UNFROZEN variable " + tempvar + " in object " + object_get_name(tempobj.object_index));
-	                        exit;
-	                    }
-	                }
+							WC_selectobj = 0;
+							show_message("UNFROZEN variable " + tempvar + " in object " + object_get_name(tempobj.object_index));
+							exit;
+						}
+					}
 					for (i = 0; i < frz; i++)
 					{
 						// find undefined slot to replace
@@ -698,175 +698,175 @@ if WC_selectobj != 0
 							frz = i;
 					}
 					
-	                WC_frozenobj[frz] = tempobj;
-	                WC_frozenvar[frz] = tempvar;
-	                WC_frozenval[frz] = variable_instance_get(tempobj, tempvar);
-	                show_message("Frozen variable " + tempvar + " in object " + object_get_name(tempobj.object_index) + " to value of " + string(WC_frozenval[frz]));
-	            }
-	            else
-	                show_message("Variable " + tempvar + " doesn't exist. Check for typos");
-	            break;
+					WC_frozenobj[frz] = tempobj;
+					WC_frozenvar[frz] = tempvar;
+					WC_frozenval[frz] = variable_instance_get(tempobj, tempvar);
+					show_message("Frozen variable " + tempvar + " in object " + object_get_name(tempobj.object_index) + " to value of " + string(WC_frozenval[frz]));
+				}
+				else
+					show_message("Variable " + tempvar + " doesn't exist. Check for typos");
+				break;
 			
-	        case 3: // execute script
-	            tempscript = get_string("Input script here", "");
-	            if tempscript == ""
-	            {
-	                WC_selectobj = 0;
-	                exit;
-	            }
+			case 3: // execute script
+				tempscript = get_string("Input script here", "");
+				if tempscript == ""
+				{
+					WC_selectobj = 0;
+					exit;
+				}
 				
-	            var get_script = asset_get_index(tempscript)
-	            if get_script == -1
-	            {
-	                show_message("Script " + tempscript + "doesn't exist");
-	                WC_selectobj = 0;
-	                exit;
-	            }
+				var get_script = asset_get_index(tempscript)
+				if get_script == -1
+				{
+					show_message("Script " + tempscript + "doesn't exist");
+					WC_selectobj = 0;
+					exit;
+				}
 				if asset_get_type(tempscript) != asset_script
-	            {
-	                show_message("The asset " + tempscript + " isn't a script");
-	                WC_selectobj = 0;
-	                exit;
-	            }
+				{
+					show_message("The asset " + tempscript + " isn't a script");
+					WC_selectobj = 0;
+					exit;
+				}
 				
-	            var script_argcount = get_integer("Number of arguments? (Max 10)", 0);
-	            i = 0;
+				var script_argcount = get_integer("Number of arguments? (Max 10)", 0);
+				i = 0;
 				
-	            scrarg[0] = undefined;
-	            scrarg[1] = undefined;
-	            scrarg[2] = undefined;
-	            scrarg[3] = undefined;
-	            scrarg[4] = undefined;
-	            scrarg[5] = undefined;
-	            scrarg[6] = undefined;
-	            scrarg[7] = undefined;
-	            scrarg[8] = undefined;
-	            scrarg[9] = undefined;
+				scrarg[0] = undefined;
+				scrarg[1] = undefined;
+				scrarg[2] = undefined;
+				scrarg[3] = undefined;
+				scrarg[4] = undefined;
+				scrarg[5] = undefined;
+				scrarg[6] = undefined;
+				scrarg[7] = undefined;
+				scrarg[8] = undefined;
+				scrarg[9] = undefined;
 				
-	            repeat clamp(script_argcount, 0, 10)
-	            {
-	                scrarg[i] = get_string("Type in the value for argument " + string(i), "");
-	                if asset_get_index(scrarg[i]) != -1 // asset
-	                    scrarg[i] = asset_get_index(scrarg[i]);
-	                else if string_length(string_digits(scrarg[i])) + string_count("-", scrarg[i]) + string_count(".", scrarg[i]) == string_length(scrarg[i])
-	                // number
+				repeat clamp(script_argcount, 0, 10)
+				{
+					scrarg[i] = get_string("Type in the value for argument " + string(i), "");
+					if asset_get_index(scrarg[i]) != -1 // asset
+						scrarg[i] = asset_get_index(scrarg[i]);
+					else if string_length(string_digits(scrarg[i])) + string_count("-", scrarg[i]) + string_count(".", scrarg[i]) == string_length(scrarg[i])
+					// number
 						scrarg[i] = real(scrarg[i]);
 					else if scrarg[i] == "undefined" // undefined
 						scrarg[i] = undefined;
-	                i++;
-	            }
+					i++;
+				}
 				
-	            with tempobj
-	                script_execute(get_script, scrarg[0], scrarg[1], scrarg[2], scrarg[3], scrarg[4], scrarg[5], scrarg[6], scrarg[7], scrarg[8], scrarg[9])
-	            break;
+				with tempobj
+					script_execute(get_script, scrarg[0], scrarg[1], scrarg[2], scrarg[3], scrarg[4], scrarg[5], scrarg[6], scrarg[7], scrarg[8], scrarg[9])
+				break;
 			
-	        case 4: // debug
+			case 4: // debug
 				WC_debuginfo = true;
 				show_debug_overlay(WC_debuginfo);
 				
-	            WC_debugselected = tempobj;
-	            WC_debugvarstart = 0;
-	            break;
+				WC_debugselected = tempobj;
+				WC_debugvarstart = 0;
+				break;
 			
-	        case 5: // set array
-	            tempvar = get_string("Selected " + object_get_name(tempobj.object_index) + "\nInput array name here", "");
-	            if tempvar == ""
+			case 5: // set array
+				tempvar = get_string("Selected " + object_get_name(tempobj.object_index) + "\nInput array name here", "");
+				if tempvar == ""
 				{
 					WC_selectobj = 0;
-	                exit;
+					exit;
 				}
 				
-	            if variable_instance_exists(tempobj, tempvar) && !is_array(variable_instance_get(tempobj, tempvar))
-	            {
-	                show_message("The variable " + tempvar + " isn't an array.");
-	                WC_selectobj = 0;
-	                exit;
-	            }
-				
-	            if variable_instance_exists(tempobj, tempvar)
+				if variable_instance_exists(tempobj, tempvar) && !is_array(variable_instance_get(tempobj, tempvar))
 				{
-	                tempind = get_integer("Input which index in the array to access", 0);
+					show_message("The variable " + tempvar + " isn't an array.");
+					WC_selectobj = 0;
+					exit;
+				}
+				
+				if variable_instance_exists(tempobj, tempvar)
+				{
+					tempind = get_integer("Input which index in the array to access", 0);
 					temparray = variable_instance_get(tempobj, tempvar);
 				}
-	            else
-	                tempind = get_integer("Variable " + tempvar + " doesn't exist, creating new array.\nInput which index in the array to access", 0);
-                
-				if tempind < 0
-	            {
-	                show_message("Negative indexes are not allowed")
-	                WC_selectobj = 0;
-	                exit;
-	            }
-				
-	            if tempind < array_length_1d(temparray) && temparray[tempind] != pointer_null
-	                tempval = get_string("Overwriting existing value from " + tempvar + "[" + string(tempind) + "] to...", temparray[tempind]);
 				else
-	                tempval = get_string("Creating new index for " + tempvar + "[" + string(tempind) + "] with value of...", "");
+					tempind = get_integer("Variable " + tempvar + " doesn't exist, creating new array.\nInput which index in the array to access", 0);
 				
-				if tempval == ""
-	            {
-	                WC_selectobj = 0;
-	                exit;
-	            }
-				
-	            if asset_get_index(tempval) != -1 // asset
-	            {
-	                temparray[tempind] = asset_get_index(tempval);
-					
-	                variable_instance_set(tempobj, tempvar, temparray);
-	                show_message("Set array " + string(tempvar) + "[" + string(tempind) + "] to asset " + tempval);
-	            }
-	            else if string_length(string_digits(tempval)) + string_count("-", tempval) + string_count(".", tempval) == string_length(tempval)
-	            // number
+				if tempind < 0
 				{
-	                temparray[tempind] = real(tempval);
-					
-	                variable_instance_set(tempobj, tempvar, temparray);
-	                show_message("Set array " + string(tempvar) + "[" + string(tempind) + "] to number " + tempval);
-	            }
-	            else if tempval == "undefined"
-	            // undefined
-				{
-	                temparray[tempind] = undefined;
-					
-	                variable_instance_set(tempobj, tempvar, temparray);
-	                show_message("Set array " + string(tempvar) + "[" + string(tempind) + "] to undefined");
-	            }
-	            else // string
-	            {
-					temparray[tempind] = string_replace(tempval, "\\", "");
-					
-	                variable_instance_set(tempobj, tempvar, temparray);
-	                show_message("Set array " + string(tempvar) + "[" + string(tempind) + "] to string " + temparray[tempind]);
-	            }
-	            break;
-			
-	        case 6: // monitor variable
-	            tempvar = get_string("Selected " + object_get_name(tempobj.object_index) + "\nInput variable to monitor here", "");
-	            if tempvar == ""
-				{
+					show_message("Negative indexes are not allowed")
 					WC_selectobj = 0;
-	                exit;
+					exit;
 				}
 				
-	            if variable_instance_exists(tempobj, tempvar)
-	            {
-	                WC_varmonitor = tempvar;
-	                WC_varobj = tempobj;
-	                show_message("Now monitoring " + object_get_name(tempobj.object_index) + "." + tempvar);
-	                break;
-	            }
-	            else
-	                show_message("The variable \"" + tempvar + "\"" + " doesn't exist. Check for typos");
+				if tempind < array_length_1d(temparray) && temparray[tempind] != pointer_null
+					tempval = get_string("Overwriting existing value from " + tempvar + "[" + string(tempind) + "] to...", temparray[tempind]);
+				else
+					tempval = get_string("Creating new index for " + tempvar + "[" + string(tempind) + "] with value of...", "");
+				
+				if tempval == ""
+				{
+					WC_selectobj = 0;
+					exit;
+				}
+				
+				if asset_get_index(tempval) != -1 // asset
+				{
+					temparray[tempind] = asset_get_index(tempval);
+					
+					variable_instance_set(tempobj, tempvar, temparray);
+					show_message("Set array " + string(tempvar) + "[" + string(tempind) + "] to asset " + tempval);
+				}
+				else if string_length(string_digits(tempval)) + string_count("-", tempval) + string_count(".", tempval) == string_length(tempval)
+				// number
+				{
+					temparray[tempind] = real(tempval);
+					
+					variable_instance_set(tempobj, tempvar, temparray);
+					show_message("Set array " + string(tempvar) + "[" + string(tempind) + "] to number " + tempval);
+				}
+				else if tempval == "undefined"
+				// undefined
+				{
+					temparray[tempind] = undefined;
+					
+					variable_instance_set(tempobj, tempvar, temparray);
+					show_message("Set array " + string(tempvar) + "[" + string(tempind) + "] to undefined");
+				}
+				else // string
+				{
+					temparray[tempind] = string_replace(tempval, "\\", "");
+					
+					variable_instance_set(tempobj, tempvar, temparray);
+					show_message("Set array " + string(tempvar) + "[" + string(tempind) + "] to string " + temparray[tempind]);
+				}
 				break;
-	    }
-        
-	    WC_selectobj = 0;
+			
+			case 6: // monitor variable
+				tempvar = get_string("Selected " + object_get_name(tempobj.object_index) + "\nInput variable to monitor here", "");
+				if tempvar == ""
+				{
+					WC_selectobj = 0;
+					exit;
+				}
+				
+				if variable_instance_exists(tempobj, tempvar)
+				{
+					WC_varmonitor = tempvar;
+					WC_varobj = tempobj;
+					show_message("Now monitoring " + object_get_name(tempobj.object_index) + "." + tempvar);
+					break;
+				}
+				else
+					show_message("The variable \"" + tempvar + "\"" + " doesn't exist. Check for typos");
+				break;
+		}
+		
+		WC_selectobj = 0;
 	}
 	
 	// cancel
 	if mouse_check_button_pressed(mb_right)
-	    WC_selectobj = 0;
+		WC_selectobj = 0;
 }
 
 // out of bounds camera
@@ -880,9 +880,9 @@ if WC_modkp == ord("4")
 		{
 			showtext = true;
 			if other.WC_oobcam
-			    message = "LIMITLESS CAMERA ON";
+				message = "LIMITLESS CAMERA ON";
 			else
-			    message = "LIMITLESS CAMERA OFF";
+				message = "LIMITLESS CAMERA OFF";
 			alarm[0] = 50;
 		}
 	}
@@ -894,52 +894,52 @@ if WC_modkp == ord("5")
 	// pt exclusive
 	if keyboard_check(vk_control) && !WC_consoleopen
 	{
-	    if global.snickchallenge
-	    {
+		if global.snickchallenge
+		{
 			with obj_camera
 				alarm[1] = -1;
-	        audio_stop_all();
-	        global.snickchallenge = false;
+			audio_stop_all();
+			global.snickchallenge = false;
 			
-	        with obj_music
+			with obj_music
 				event_perform(ev_other, ev_room_start);
-	    }
-	    else
-	    {
-	        global.panic = false;
-	        global.wave = 0;
-	        global.maxwave = ((global.minutes * 60) + global.seconds) * 60;
-	        if global.panicbg
-	            scr_panicbg_init();
-	        global.snickchallenge = true;
-	        global.collect = 10000;
+		}
+		else
+		{
+			global.panic = false;
+			global.wave = 0;
+			global.maxwave = ((global.minutes * 60) + global.seconds) * 60;
+			if global.panicbg
+				scr_panicbg_init();
+			global.snickchallenge = true;
+			global.collect = 10000;
 			
-	        with obj_camera
-	        {
-	            alarm[1] = 60;
-	            global.seconds = 59;
-	            global.minutes = 9;
-	        }
+			with obj_camera
+			{
+				alarm[1] = 60;
+				global.seconds = 59;
+				global.minutes = 9;
+			}
 			
-	        if !instance_exists(obj_snickexe)
-	            instance_create(room_width / 2, -10, obj_snickexe);
-	    }
+			if !instance_exists(obj_snickexe)
+				instance_create(room_width / 2, -10, obj_snickexe);
+		}
 	}
 	else if global.panic
 	{
-	    with obj_camera
+		with obj_camera
 			alarm[1] = -1;
-	    audio_stop_all();
-	    global.panic = false;
+		audio_stop_all();
+		global.panic = false;
 		
-	    with obj_music
-	        event_perform(ev_other, ev_room_start);
+		with obj_music
+			event_perform(ev_other, ev_room_start);
 	}
 	else
 	{
-	    global.snickchallenge = false;
-	    with instance_create(room_width + 1000, room_height + 1000, obj_hungrypillar)
-	        instance_destroy();
+		global.snickchallenge = false;
+		with instance_create(room_width + 1000, room_height + 1000, obj_hungrypillar)
+			instance_destroy();
 	}
 }
 
@@ -948,41 +948,41 @@ if WC_modkp == ord("6")
 {
 	if keyboard_check(vk_control)
 	{
-	    for (i = 0; i < array_length_1d(WC_frozenvar); i++)
-	    {
-	        WC_frozenobj[i] = noone;
-	        WC_frozenvar[i] = undefined;
-	        WC_frozenval[i] = undefined;
-	    }
+		for (i = 0; i < array_length_1d(WC_frozenvar); i++)
+		{
+			WC_frozenobj[i] = noone;
+			WC_frozenvar[i] = undefined;
+			WC_frozenval[i] = undefined;
+		}
 		WC_frozenvar[0] = "";
 		WC_frozenval[0] = "";
-	    show_message("Unfrozen all variables");
+		show_message("Unfrozen all variables");
 	}
 	else if keyboard_check(vk_shift) // global
 	{
-	    tempvar = get_string("Input global variable name to freeze here (don't put global.)", "");
-	    if tempvar == ""
-	    {
-	        WC_selectobj = 0;
-	        exit;
-	    }
+		tempvar = get_string("Input global variable name to freeze here (don't put global.)", "");
+		if tempvar == ""
+		{
+			WC_selectobj = 0;
+			exit;
+		}
 		
-	    if variable_global_exists(tempvar)
-	    {
-	        frz = array_length_1d(WC_frozenobj);
-	        for (i = 0; i < frz; i++)
-	        {
-	            if "__WC_GLOBAL__" + tempvar == WC_frozenvar[i]
-	            {
-	                WC_frozenobj[i] = noone;
-	                WC_frozenvar[i] = undefined;
-	                WC_frozenval[i] = undefined;
+		if variable_global_exists(tempvar)
+		{
+			frz = array_length_1d(WC_frozenobj);
+			for (i = 0; i < frz; i++)
+			{
+				if "__WC_GLOBAL__" + tempvar == WC_frozenvar[i]
+				{
+					WC_frozenobj[i] = noone;
+					WC_frozenvar[i] = undefined;
+					WC_frozenval[i] = undefined;
 					
-	                WC_selectobj = 0;
-	                show_message("UNFROZEN global variable " + tempvar);
-	                exit;
-	            }
-	        }
+					WC_selectobj = 0;
+					show_message("UNFROZEN global variable " + tempvar);
+					exit;
+				}
+			}
 			for (i = 0; i < frz; i++)
 			{
 				// find undefined slot to replace
@@ -990,19 +990,19 @@ if WC_modkp == ord("6")
 					frz = i;
 			}
 			
-	        WC_frozenobj[frz] = noone;
-	        WC_frozenvar[frz] = "__WC_GLOBAL__" + tempvar;
-	        WC_frozenval[frz] = variable_global_get(tempvar);
+			WC_frozenobj[frz] = noone;
+			WC_frozenvar[frz] = "__WC_GLOBAL__" + tempvar;
+			WC_frozenval[frz] = variable_global_get(tempvar);
 			
-	        show_message("Frozen global variable " + tempvar + " to value of " + string(WC_frozenval[frz]));
-	    }
-	    else
-	        show_message("Global variable " + tempvar + " doesn't exist. Check for typos");
+			show_message("Frozen global variable " + tempvar + " to value of " + string(WC_frozenval[frz]));
+		}
+		else
+			show_message("Global variable " + tempvar + " doesn't exist. Check for typos");
 	}
 	else
 	{
-	    WC_tempobj = noone;
-	    WC_selectobj = 2;
+		WC_tempobj = noone;
+		WC_selectobj = 2;
 	}
 }
 
@@ -1048,71 +1048,71 @@ if WC_modkp == ord("0")
 {
 	if keyboard_check(vk_shift) // global
 	{
-	    tempvar = get_string("Input global array name here", "");
-	    if tempvar == ""
-	        exit;
+		tempvar = get_string("Input global array name here", "");
+		if tempvar == ""
+			exit;
 		
-	    if variable_global_exists(tempvar) && !is_array(variable_global_get(tempvar))
-	    {
-	        show_message("The global variable " + tempvar + " isn't an array.");
-	        exit;
-	    }
-		
-	    if variable_global_exists(tempvar)
+		if variable_global_exists(tempvar) && !is_array(variable_global_get(tempvar))
 		{
-	        tempind = get_integer("Input which index in the array to access", 0);
+			show_message("The global variable " + tempvar + " isn't an array.");
+			exit;
+		}
+		
+		if variable_global_exists(tempvar)
+		{
+			tempind = get_integer("Input which index in the array to access", 0);
 			temparray = variable_global_get(tempvar);
 		}
-	    else
-	        tempind = get_integer("Variable " + tempvar + " doesn't exist, creating new array.\nInput which index in the array to access", 0);
-        
+		else
+			tempind = get_integer("Variable " + tempvar + " doesn't exist, creating new array.\nInput which index in the array to access", 0);
+		
 		if tempind < 0
-	    {
-	        show_message("Negative indexes are not allowed");
-	        exit;
-	    }
-		
-	    if tempind < array_length_1d(temparray) && temparray[tempind] != pointer_null
-	        tempval = get_string("Overwriting existing value from global." + tempvar + "[" + string(tempind) + "] to...", temparray[tempind]);
-	    else
-	        tempval = get_string("Creating new index for global." + tempvar + "[" + string(tempind) + "] with value of...", "");
-		if tempval == ""
-	        exit;
-		
-	    if asset_get_index(tempval) != -1 // asset
-	    {
-	        temparray[tempind] = asset_get_index(tempval);
-			
-	        variable_global_set(tempvar, temparray);
-	        show_message("Set global array global." + string(tempvar) + "[" + string(tempind) + "] to asset " + tempval)
-	    }
-	    else if string_length(string_digits(tempval)) + string_count("-", tempval) + string_count(".", tempval) == string_length(tempval)
-	    // number
 		{
-	        temparray[tempind] = real(tempval);
+			show_message("Negative indexes are not allowed");
+			exit;
+		}
+		
+		if tempind < array_length_1d(temparray) && temparray[tempind] != pointer_null
+			tempval = get_string("Overwriting existing value from global." + tempvar + "[" + string(tempind) + "] to...", temparray[tempind]);
+		else
+			tempval = get_string("Creating new index for global." + tempvar + "[" + string(tempind) + "] with value of...", "");
+		if tempval == ""
+			exit;
+		
+		if asset_get_index(tempval) != -1 // asset
+		{
+			temparray[tempind] = asset_get_index(tempval);
 			
-	        variable_global_set(tempvar, temparray);
-	        show_message("Set global array global." + string(tempvar) + "[" + string(tempind) + "] to number " + tempval);
-	    }
-	    else if tempval == "undefined" // undefined
+			variable_global_set(tempvar, temparray);
+			show_message("Set global array global." + string(tempvar) + "[" + string(tempind) + "] to asset " + tempval)
+		}
+		else if string_length(string_digits(tempval)) + string_count("-", tempval) + string_count(".", tempval) == string_length(tempval)
+		// number
+		{
+			temparray[tempind] = real(tempval);
+			
+			variable_global_set(tempvar, temparray);
+			show_message("Set global array global." + string(tempvar) + "[" + string(tempind) + "] to number " + tempval);
+		}
+		else if tempval == "undefined" // undefined
 		{
 			temparray[tempind] = undefined;
 			
-	        variable_global_set(tempvar, temparray);
-	        show_message("Set global array global." + string(tempvar) + "[" + string(tempind) + "] to undefined");
-	    }
-	    else // string
-	    {
-	        temparray[tempind] = tempval;
+			variable_global_set(tempvar, temparray);
+			show_message("Set global array global." + string(tempvar) + "[" + string(tempind) + "] to undefined");
+		}
+		else // string
+		{
+			temparray[tempind] = tempval;
 			
-	        variable_global_set(tempvar, temparray);
-	        show_message("Set global array global." + string(tempvar) + "[" + string(tempind) + "] to string " + tempval);
-	    }
+			variable_global_set(tempvar, temparray);
+			show_message("Set global array global." + string(tempvar) + "[" + string(tempind) + "] to string " + tempval);
+		}
 	}
 	else
 	{
-	    WC_selectobj = 5;
-	    WC_tempobj = noone;
+		WC_selectobj = 5;
+		WC_tempobj = noone;
 	}
 }
 
@@ -1172,9 +1172,9 @@ if WC_modkp == vk_numpad2
 			{
 				with instance_create_depth(obj_player1.x, obj_player1.y, 0, obj_exitgate)
 				{
-				    image_index = 1;
-				    visible = false;
-				    event_perform(ev_collision, obj_player);
+					image_index = 1;
+					visible = false;
+					event_perform(ev_collision, obj_player);
 				}
 			}
 		}
@@ -1206,33 +1206,33 @@ if WC_modkp == vk_numpad4
 	tempobj = get_string("Manual object deletion:\nInput the object's name", "")
 	if tempobj != ""
 	{
-	    WC_tempobj = asset_get_index(tempobj)
-	    if !object_exists(WC_tempobj)
-	        show_message("Object " + tempobj + " doesn't exist. Check for typos");
-	    else
-	    {
-	        if instance_number(WC_tempobj) == 1
-	        {
-	            WC_tempobj = instance_find(WC_tempobj, 0);
-		        show_message("Deleted object " + object_get_name(WC_tempobj.object_index));
-		        instance_destroy(WC_tempobj);
-	        }
-	        else if instance_number(WC_tempobj) <= 0
-	            show_message("The object isn't in the room");
-	        else if instance_number(WC_tempobj) > 1
-	        {
-	            temp_objfind = get_integer("Multiple instances of this object were found. Specify which (0 to " + string(instance_number(WC_tempobj) - 1) + ")", 0);
-	            WC_tempobj = instance_find(WC_tempobj, temp_objfind);
-                
+		WC_tempobj = asset_get_index(tempobj)
+		if !object_exists(WC_tempobj)
+			show_message("Object " + tempobj + " doesn't exist. Check for typos");
+		else
+		{
+			if instance_number(WC_tempobj) == 1
+			{
+				WC_tempobj = instance_find(WC_tempobj, 0);
+				show_message("Deleted object " + object_get_name(WC_tempobj.object_index));
+				instance_destroy(WC_tempobj);
+			}
+			else if instance_number(WC_tempobj) <= 0
+				show_message("The object isn't in the room");
+			else if instance_number(WC_tempobj) > 1
+			{
+				temp_objfind = get_integer("Multiple instances of this object were found. Specify which (0 to " + string(instance_number(WC_tempobj) - 1) + ")", 0);
+				WC_tempobj = instance_find(WC_tempobj, temp_objfind);
+				
 				if WC_tempobj == noone
-	                show_message("The object isn't in the room");
+					show_message("The object isn't in the room");
 				else
 				{
-			        show_message("Deleted object " + object_get_name(WC_tempobj.object_index));
-			        instance_destroy(WC_tempobj);
+					show_message("Deleted object " + object_get_name(WC_tempobj.object_index));
+					instance_destroy(WC_tempobj);
 				}
-	        }
-	    }
+			}
+		}
 	}
 }
 
@@ -1241,27 +1241,27 @@ if WC_modkp == vk_numpad6
 {
 	if WC_varmonitor != undefined
 	{
-	    WC_varmonitor = undefined;
-	    WC_varobj = undefined;
+		WC_varmonitor = undefined;
+		WC_varobj = undefined;
 	}
 	else if keyboard_check(vk_control) // global
 	{
-	    tempvar = get_string("Input global variable to monitor here", "");
-	    if tempvar == ""
-	        exit;
-	    if variable_global_exists(tempvar)
-	    {
-	        WC_varmonitor = tempvar;
-	        WC_varobj = global;
-	        show_message("Now monitoring global." + tempvar);
-	    }
-	    else
-	        show_message("The global variable \"" + tempvar + "\"" + " doesn't exist. Check for typos");
+		tempvar = get_string("Input global variable to monitor here", "");
+		if tempvar == ""
+			exit;
+		if variable_global_exists(tempvar)
+		{
+			WC_varmonitor = tempvar;
+			WC_varobj = global;
+			show_message("Now monitoring global." + tempvar);
+		}
+		else
+			show_message("The global variable \"" + tempvar + "\"" + " doesn't exist. Check for typos");
 	}
 	else
 	{
-	    WC_selectobj = 6;
-	    WC_tempobj = noone;
+		WC_selectobj = 6;
+		WC_tempobj = noone;
 	}
 }
 
@@ -1270,13 +1270,13 @@ if WC_modkp == vk_numpad6
 if keyboard_check_pressed(vk_insert) && room_exists(room_next(room))
 {
 	with obj_player // pt exclusive
-	    targetDoor = "none";
+		targetDoor = "none";
 	room_goto_next();
 }
 if keyboard_check_pressed(vk_delete) && room_exists(room_previous(room))
 {
 	with obj_player // pt exclusive
-	    targetDoor = "none";
+		targetDoor = "none";
 	room_goto_previous();
 }
 */

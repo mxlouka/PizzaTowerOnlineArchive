@@ -103,7 +103,7 @@ if (place_meeting(x, y, obj_player1) or place_meeting(x, y, obj_antonball)) && o
 			if global.toppintotal < 5
 			{
 				if sugary
-					message = "YOU ARE ONLY MISSING " + string(5 - global.toppintotal) + " CONFECTI!";
+					message = "YOURE ONLY MISSING " + string(5 - global.toppintotal) + " CONFECTI!";
 				else
 					message = "YOU NEED " + string(5 - global.toppintotal) + " MORE " + toppinname + "!";
 			}
@@ -127,17 +127,17 @@ if (place_meeting(x, y, obj_player1) or place_meeting(x, y, obj_antonball)) && o
 	}
 	
 	if object_get_parent(content) == obj_baddie
-    {
-        scr_soundeffect(sfx_enemyprojectile)
-        with instance_create(x, y - 25, content)
-        {
-            image_xscale = other.image_xscale
-            state = states.stun
-            stunned = 20
-            vsp = -5
-        }
+	{
+		scr_soundeffect(sfx_enemyprojectile)
+		with instance_create(x, y - 25, content)
+		{
+			image_xscale = other.image_xscale
+			state = states.stun
+			stunned = 20
+			vsp = -5
+		}
 		instance_create(x, y - 25, obj_genericpoofeffect);
-    }
+	}
 	
 	image_index = 0;
 	sprite_index = spr_open
@@ -147,9 +147,9 @@ if sprite_index == spr_open
 {
 	if floor(image_index) >= 3 && !createdpizza && content == obj_bigcollect
 	{
-	    createdpizza = true
+		createdpizza = true
 		depth = 105
-	    with instance_create(x, y, content)
+		with instance_create(x, y, content)
 			owner = other.id;
 	}
 	

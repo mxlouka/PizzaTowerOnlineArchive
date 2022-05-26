@@ -73,10 +73,10 @@ if fadealpha > 1
 			}
 			
 			with obj_player1
-            {
-                x = other.xx
-                y = other.yy
-            }
+			{
+				x = other.xx
+				y = other.yy
+			}
 		}
 		if instance_exists(obj_player1) && obj_player1.state == states.grabbed
 		{

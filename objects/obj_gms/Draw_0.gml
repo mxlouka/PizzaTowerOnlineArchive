@@ -57,45 +57,45 @@ else
 		_y = global.__chat_y2;
 		
 		draw_set_color(global.__chat_bgcol);
-	    draw_set_font(global.__chat_font);
+		draw_set_font(global.__chat_font);
 		
-        draw_set_color(global.__chat_textcol);
-        draw_set_halign(fa_left)
-        draw_set_valign(fa_top)
+		draw_set_color(global.__chat_textcol);
+		draw_set_halign(fa_left)
+		draw_set_valign(fa_top)
 		
-        for(_i = gms_chat_num() - 1; _i >= 0 && _y > global.__chat_y1; _i -= 1)
-        {
-            draw_set_color(gms_chat_get_color(_i))
-            
+		for(_i = gms_chat_num() - 1; _i >= 0 && _y > global.__chat_y1; _i -= 1)
+		{
+			draw_set_color(gms_chat_get_color(_i))
+			
 			// figure out sender name
-            var _snder;
-            if gms_chat_get_sendername(_i) != ""
-                _snder = gms_chat_get_sendername(_i) + ": ";
+			var _snder;
+			if gms_chat_get_sendername(_i) != ""
+				_snder = gms_chat_get_sendername(_i) + ": ";
 			else
-                _snder = "";
-            
+				_snder = "";
+			
 			// positioning
-            _t = string_replace_all(gms_chat_get_text(_i), "#", "\\#");
-            _y -= string_height_ext(_snder + _t, -1, global.__chat_x2 - global.__chat_x1);
-            
+			_t = string_replace_all(gms_chat_get_text(_i), "#", "\\#");
+			_y -= string_height_ext(_snder + _t, -1, global.__chat_x2 - global.__chat_x1);
+			
 			// fade out chat message if above screen
-            if _y >= global.__chat_y1 + 5
-                __scl = 1;
+			if _y >= global.__chat_y1 + 5
+				__scl = 1;
 			else
 			{
-                __scl = 1 - (global.__chat_y1 - _y) / string_height_ext(_t, -1, global.__chat_x2 - global.__chat_x1);
-                _y += string_height_ext(_t + "xXgYg", -1, global.__chat_x2 - global.__chat_x1) * (1 - __scl)
-            }
-            
+				__scl = 1 - (global.__chat_y1 - _y) / string_height_ext(_t, -1, global.__chat_x2 - global.__chat_x1);
+				_y += string_height_ext(_t + "xXgYg", -1, global.__chat_x2 - global.__chat_x1) * (1 - __scl)
+			}
+			
 			// draw the text
-            if script_exists(global.__chat_colorscript) && global.__chat_colorscript != -1
+			if script_exists(global.__chat_colorscript) && global.__chat_colorscript != -1
 			{
 				//x, y, username, userid, message, width, yscale, color
-                script_execute(global.__chat_colorscript, global.__chat_x1 + 5, max(_y, global.__chat_y1), gms_chat_get_sendername(_i), gms_chat_get_sender(_i), _t, global.__chat_x2 - global.__chat_x1, __scl, gms_chat_get_color(_i))
+				script_execute(global.__chat_colorscript, global.__chat_x1 + 5, max(_y, global.__chat_y1), gms_chat_get_sendername(_i), gms_chat_get_sender(_i), _t, global.__chat_x2 - global.__chat_x1, __scl, gms_chat_get_color(_i))
 			}
 			else
-                draw_text_ext_transformed(global.__chat_x1 + 5, max(_y, global.__chat_y1),_snder + _t, -1, global.__chat_x2 - global.__chat_x1, 1, __scl, 0);
-        }
+				draw_text_ext_transformed(global.__chat_x1 + 5, max(_y, global.__chat_y1),_snder + _t, -1, global.__chat_x2 - global.__chat_x1, 1, __scl, 0);
+		}
 		
 		#endregion
 	}

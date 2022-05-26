@@ -205,9 +205,12 @@ function scr_collide_destructibles()
 		{
 			with instance_place(x, y + 1, obj_destructibleplatform)
 			{
-				falling = true;
-				sprite_index = spr_dissolve;
-				image_index = 0;
+				if !falling
+				{
+					falling = true;
+					sprite_index = spr_dissolve;
+					image_index = 0;
+				}
 			}
 		}
 		

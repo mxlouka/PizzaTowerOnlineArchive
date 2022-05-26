@@ -36,22 +36,22 @@ function scr_player_backbreaker()
 		if character != "V" && character != "S"
 		{
 			if !instance_exists(parry_inst) && taunttimer > parry_max
-		    {
-		        parry_inst = instance_create(x, y, obj_parryhitbox);
-		        with parry_inst
-		        {
-		            player_id = 1;
-		            image_xscale = other.xscale;
-		        }
-		    }
-		    if taunttimer < taunt_to_parry_max
-		    {
-		        if instance_exists(parry_inst)
-		        {
-		            instance_destroy(parry_inst)
-		            parry_inst = noone
-		        }
-		    }
+			{
+				parry_inst = instance_create(x, y, obj_parryhitbox);
+				with parry_inst
+				{
+					player_id = 1;
+					image_xscale = other.xscale;
+				}
+			}
+			if taunttimer < taunt_to_parry_max
+			{
+				if instance_exists(parry_inst)
+				{
+					instance_destroy(parry_inst)
+					parry_inst = noone
+				}
+			}
 		}
 		
 		if noisebombcooldown > 0
@@ -95,8 +95,8 @@ function scr_player_backbreaker()
 			
 			with obj_camera
 			{
-			    shake_mag = 10;
-			    shake_mag_acc = 30 / room_speed;
+				shake_mag = 10;
+				shake_mag_acc = 30 / room_speed;
 			}
 		}
 		

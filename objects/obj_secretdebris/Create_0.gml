@@ -9,13 +9,13 @@ image_angle = random_range(1, 270)
 
 depth = -1
 
+s = -1;
+mode = 0;
+tile_dataid = 0;
 if global.secretdebris && room != custom_lvl_room
 {
-	s = -1;
 	tile_dataset = tileset_secret;
 	tile_dataid = 49;
-	height = sprite_xoffset;
-	width = sprite_yoffset;
 	mode = 1;
 }
 momentum = [0, 0];

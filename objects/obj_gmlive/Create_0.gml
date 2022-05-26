@@ -25,8 +25,8 @@ alarm[0] = 1;
 // please
 /*
 for (var i = 100001; script_exists(i); i++) {
-    var s = script_get_name(i);
-    if (gml_func_sig.h_exists(s)) continue;
-    gml_func_add(":::" + s + "(...):", i);
+	var s = script_get_name(i);
+	if (gml_func_sig.h_exists(s)) continue;
+	gml_func_add(":::" + s + "(...):", i);
 }
 

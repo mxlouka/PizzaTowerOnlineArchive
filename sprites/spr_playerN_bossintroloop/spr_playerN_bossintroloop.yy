@@ -77,8 +77,8 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "pto extra",
-    "path": "folders/Sprites/pto extra.yy",
+    "name": "PTO extra",
+    "path": "folders/Sprites/PTO extra.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_playerN_bossintroloop",

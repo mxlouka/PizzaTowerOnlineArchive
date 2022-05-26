@@ -1,13 +1,13 @@
 if !instance_exists(ID)
 {
-    instance_destroy()
-    return;
+	instance_destroy()
+	return;
 }
 if ID.state != states.punch
 {
-    instance_destroy()
-    ID.breakdanceinst = noone
-    exit;
+	instance_destroy()
+	ID.breakdanceinst = noone
+	exit;
 }
 
 x = ID.x

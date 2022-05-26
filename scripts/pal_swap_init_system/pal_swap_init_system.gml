@@ -18,8 +18,8 @@ function pal_swap_init_system()
 	
 	if(argument_count>1 && argument[1])
 	{
-	    globalvar Pal_Map;
-	    Pal_Map = ds_map_create();
+		globalvar Pal_Map;
+		Pal_Map = ds_map_create();
 	}
 }
 

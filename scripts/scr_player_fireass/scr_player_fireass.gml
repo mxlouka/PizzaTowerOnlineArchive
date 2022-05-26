@@ -57,7 +57,7 @@ function scr_player_fireass() {
 	}
 
 	if floor(image_index) == image_number - 1 && sprite_index == spr_scaredjump1
-	    sprite_index = spr_scaredjump2
+		sprite_index = spr_scaredjump2
 
 	if sprite_index = spr_fireassground
 	{

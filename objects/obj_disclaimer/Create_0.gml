@@ -9,7 +9,7 @@ con = -1;
 size = 0;
 cancon = false;
 
-version = 7;
+version = 8;
 drm = true;
 if !patron
 	drm = false;
@@ -27,3 +27,4 @@ t = 0;
 
 alarm[1] = room_speed * 5;
 showwait = false;
+

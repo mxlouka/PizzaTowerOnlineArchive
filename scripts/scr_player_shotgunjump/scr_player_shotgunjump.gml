@@ -56,14 +56,14 @@ function scr_player_shotgunjump() {
 
 
 	///Back to other states
-	    //Normal
-	    if sprite_index = spr_player_shotgunjump2 && floor(image_index) = image_number - 1
-	    {
+		//Normal
+		if sprite_index = spr_player_shotgunjump2 && floor(image_index) = image_number - 1
+		{
 	state = states.jump
 
-	    }
+		}
 
-    
+	
 	//Input jumping
 
 	if grounded && (input_buffer_jump < 5) && !key_down && vsp > 0
@@ -82,7 +82,7 @@ function scr_player_shotgunjump() {
 
 
 
-    
+	
 	//Input buffer jumping
 	if key_jump
 	input_buffer_jump = 0

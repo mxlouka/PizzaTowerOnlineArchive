@@ -5,7 +5,7 @@ y = room_height + 10
 cantp = room_speed * 3
 
 if room == dungeon_10 or room == dungeon_9 or room == snick_challengeend
-    maxspeed = 2.5
+	maxspeed = 2.5
 else
 	maxspeed = 1
 

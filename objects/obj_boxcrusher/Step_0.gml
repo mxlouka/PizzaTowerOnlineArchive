@@ -12,10 +12,10 @@ if obj_player1.x > x-50 && obj_player1.x < x+50 && obj_player1.y > y && obj_play
 if grounded && sprite_index == spr_boxcrusher_fall
 {
 	scr_soundeffect(sfx_groundpound)
-    with (obj_camera)
+	with (obj_camera)
 	{
-	    shake_mag=10;
-	    shake_mag_acc=30/room_speed;
+		shake_mag=10;
+		shake_mag_acc=30/room_speed;
 	}
 	vsp = 0
 	image_index = 0

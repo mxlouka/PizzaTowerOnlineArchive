@@ -1,5 +1,5 @@
 if vsp < 40
-    vsp += grav;
+	vsp += grav;
 
 if scr_solid(x + hsp, y + vsp)
 	instance_destroy();

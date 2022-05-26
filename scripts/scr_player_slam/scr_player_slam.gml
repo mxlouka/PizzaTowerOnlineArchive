@@ -67,10 +67,10 @@ function scr_player_slam()
 		hsp = 0
 		image_speed = 0.35
 
-		            with (obj_camera) {
+					with (obj_camera) {
 
-		    shake_mag=10;
-		    shake_mag_acc=30/room_speed;
+			shake_mag=10;
+			shake_mag_acc=30/room_speed;
 		}
 
 

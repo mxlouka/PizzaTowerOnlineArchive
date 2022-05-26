@@ -26,10 +26,10 @@ if stomped = false && shot = false
 {
 if cigar = true
 {
-    with (obj_camera) {
+	with (obj_camera) {
 
-    shake_mag=5;
-    shake_mag_acc=20/room_speed;
+	shake_mag=5;
+	shake_mag_acc=20/room_speed;
 }
 
 
@@ -38,10 +38,10 @@ sprite_index = spr_noisesatellitedead
 }
 else
 {
-    with (obj_camera) {
+	with (obj_camera) {
 
-    shake_mag=5;
-    shake_mag_acc=20/room_speed;
+	shake_mag=5;
+	shake_mag_acc=20/room_speed;
 }
 
 with instance_create(x,y,obj_sausageman_dead)
@@ -57,10 +57,10 @@ if cigar = true
 with instance_create(x,y,obj_sausageman_dead)
 {
 sprite_index = spr_noisesatellitedead
-    with (obj_camera) {
+	with (obj_camera) {
 
-    shake_mag=5;
-    shake_mag_acc=20/room_speed;
+	shake_mag=5;
+	shake_mag_acc=20/room_speed;
 }
 
 hsp = 0
@@ -73,10 +73,10 @@ else
 with instance_create(x,y,obj_sausageman_dead)
 {
 sprite_index = spr_noisesatellitedead
-    with (obj_camera) {
+	with (obj_camera) {
 
-    shake_mag=5;
-    shake_mag_acc=20/room_speed;
+	shake_mag=5;
+	shake_mag_acc=20/room_speed;
 }
 
 hsp = 0
@@ -84,42 +84,42 @@ vsp = 0
 }
 }
 
-    if shot = true && stomped = false
-    {
-    if cigar = true
-    {
-    with instance_create(x,y,obj_sausageman_dead)
-    {
+	if shot = true && stomped = false
+	{
+	if cigar = true
+	{
+	with instance_create(x,y,obj_sausageman_dead)
+	{
    sprite_index = spr_noisesatellitedead
-        with (obj_camera) {
+		with (obj_camera) {
 
-    shake_mag=20;
-    shake_mag_acc=40/room_speed;
+	shake_mag=20;
+	shake_mag_acc=40/room_speed;
 }
 
 
 
-    hsp = hsp *3
-    vsp = vsp *3
-    cigar = true
-    }
-    }
-    else
-    with instance_create(x,y,obj_sausageman_dead)
-    {
-    sprite_index = spr_noisesatellitedead
-        with (obj_camera) {
+	hsp = hsp *3
+	vsp = vsp *3
+	cigar = true
+	}
+	}
+	else
+	with instance_create(x,y,obj_sausageman_dead)
+	{
+	sprite_index = spr_noisesatellitedead
+		with (obj_camera) {
 
-    shake_mag=20;
-    shake_mag_acc=40/room_speed;
+	shake_mag=20;
+	shake_mag_acc=40/room_speed;
 }
 
 
-    hsp = hsp *3
-    vsp = vsp *3
-    }
-    }
-    
+	hsp = hsp *3
+	vsp = vsp *3
+	}
+	}
+	
 }
 
 

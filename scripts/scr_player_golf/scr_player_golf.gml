@@ -17,7 +17,7 @@ function scr_player_golf()
 	global.heattime = 60;
 	
 	if !instance_exists(golfid) or golfid.state != states.golf
-	    state = states.normal;
+		state = states.normal;
 	else if sprite_index != spr_golfswing
 	{
 		with obj_camera

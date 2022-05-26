@@ -35,8 +35,8 @@ if room == rm_editor exit;
 	{
 		alarm[1] = 60;
 		
-	    shake_mag = 3;
-	    shake_mag_acc = 3 / room_speed;
+		shake_mag = 3;
+		shake_mag_acc = 3 / room_speed;
 	}
 
 	with instance_create(x, y, obj_sausageman_dead)
@@ -219,28 +219,28 @@ if room == rm_editor exit;
 				global.seconds = 59
 				break
 				
-		    case "cotton_12":
+			case "cotton_12":
 				global.minutes = 3
 				global.seconds = 59
 				break
 			
-		    case "entryway_11":
+			case "entryway_11":
 				global.minutes = 2
 				global.seconds = 29
 				break
 			
 			case "custom_lvl_room":
 				with obj_destroyableescape
-			        alarm[0] = 1
-			    with obj_destroyable2escape
-			        alarm[0] = 1
-			    with obj_destroyable3escape
-			        alarm[0] = 1
-			    with obj_destroyable2_bigescape
-			        alarm[0] = 1
-			    global.minutes = global.editorminutes
-			    global.seconds = global.editorseconds
-			    break
+					alarm[0] = 1
+				with obj_destroyable2escape
+					alarm[0] = 1
+				with obj_destroyable3escape
+					alarm[0] = 1
+				with obj_destroyable2_bigescape
+					alarm[0] = 1
+				global.minutes = global.editorminutes
+				global.seconds = global.editorseconds
+				break
 		}
 		if global.modifier == mods.no_toppings
 		{

@@ -6,12 +6,12 @@ function scr_enemy_stun()
 	// april build bullshit
 	switch hp
 	{
-	    case -1:
-	        grav = 1.1;
-	        break;
-	    case -2:
-	        grav = 1.3;
-	        break;
+		case -1:
+			grav = 1.1;
+			break;
+		case -2:
+			grav = 1.3;
+			break;
 	}
 	
 	if grounded
@@ -26,17 +26,17 @@ function scr_enemy_stun()
 		{
 			switch global.stylethreshold
 			{
-			    case 0:
-			        stunned -= 1
-			        break
-			    case 1:
-			        stunned -= 1.35
-			        break
-			    case 2:
-			        stunned -= 1.65
-			        break
-			    case 3:
-			        stunned -= 2
+				case 0:
+					stunned -= 1
+					break
+				case 1:
+					stunned -= 1.35
+					break
+				case 2:
+					stunned -= 1.65
+					break
+				case 3:
+					stunned -= 2
 			}
 		}
 	}
@@ -48,9 +48,9 @@ function scr_enemy_stun()
 		sprite_index = stunfallspr
 	else if floor(image_index) >= image_number - 1 && sprite_index == spr_tank_hitwall && global.gameplay != 0
 	{
-	    state = states.walk
-	    stunned = 0
-	    sprite_index = spr_tank_walk
+		state = states.walk
+		stunned = 0
+		sprite_index = spr_tank_walk
 	}
 	
 	image_speed = 0.35

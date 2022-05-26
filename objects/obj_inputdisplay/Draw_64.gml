@@ -44,8 +44,8 @@ function draw_inputdisplay_key(xx, yy, keycode, width, height = width)
 		var _stringwidth = string_width(drawer);
 		
 		siz = (width - 16) / _stringwidth;
-	    if siz > 1
-	        siz = max(floor(siz / 2), 1);
+		if siz > 1
+			siz = max(floor(siz / 2), 1);
 	
 		if siz != 1
 			draw_text_transformed(floor(xx + width / 2), floor(yy + height / 2), drawer, siz, siz, 0);
@@ -57,8 +57,8 @@ function draw_inputdisplay_key(xx, yy, keycode, width, height = width)
 	else
 	{
 		siz = (width - 16) / 28;
-	    if siz > 1
-	        siz = max(floor(siz / 2), 1);
+		if siz > 1
+			siz = max(floor(siz / 2), 1);
 		draw_sprite_ext(spr_inputdisplay_arrow, 0, floor(xx + width / 2), floor(yy + height / 2), siz, siz, drawer, c_white, image_alpha);
 	}
 	

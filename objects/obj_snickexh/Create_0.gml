@@ -19,11 +19,11 @@ if global.snickchallenge && global.snickrematch && global.gameplay == 0
 	else
 	{
 		with obj_tv
-	    {
-	        showtext = true
-	        message = "SNUCK IS COMING"
-	        alarm[2] = 100
-	    }
+		{
+			showtext = true
+			message = "SNUCK IS COMING"
+			alarm[2] = 100
+		}
 	}
 }
 

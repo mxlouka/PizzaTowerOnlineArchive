@@ -5,9 +5,9 @@ function scr_player_parry()
 		state = states.normal;
 
 	if movespeed <= 0
-	    movespeed = 0;
+		movespeed = 0;
 	else if grounded or global.gameplay != 0
-	    movespeed -= 0.5;
+		movespeed -= 0.5;
 	
 	hsp = movespeed * -xscale;
 	
@@ -19,14 +19,14 @@ function scr_player_parry()
 	var _grabbedby = 1;
 	if parry_count > 0
 	{
-	    parry_count--;
-	    var parry_threshold = 64;
+		parry_count--;
+		var parry_threshold = 64;
 		
-	    with obj_baddie
-	    {
-	        if object_index != obj_grandpa && object_index != obj_pizzaballOLD
+		with obj_baddie
+		{
+			if object_index != obj_grandpa && object_index != obj_pizzaballOLD
 			&& distance_to_object(other) < parry_threshold && state != states.grabbed && state != states.hit && state != states.stun && parryable && !(state == states.stun && thrown)
-	        {
+			{
 				if global.gameplay != 0
 					other.xscale = -image_xscale;
 				else
@@ -38,8 +38,8 @@ function scr_player_parry()
 				
 					if hp > 1
 						hp = 1;
-		            grabbedby = _grabbedby;
-		            state = states.grabbed;
+					grabbedby = _grabbedby;
+					state = states.grabbed;
 				}
 				else
 				{
@@ -60,7 +60,7 @@ function scr_player_parry()
 						shake_mag_acc = 3 / room_speed;
 					}
 				}
-	        }
-	    }
+			}
+		}
 	}
 }

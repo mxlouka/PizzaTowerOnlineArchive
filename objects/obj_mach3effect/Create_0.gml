@@ -7,7 +7,7 @@ sync = check_bysync();
 
 alarm[0] = 15
 alarm[1] = 3
-if !sync
+if !sync && check_online()
 	alarm[10] = 2;
 
 playerid = obj_player1

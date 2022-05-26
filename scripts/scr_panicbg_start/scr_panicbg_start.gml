@@ -18,13 +18,15 @@ function scr_panicbg_start() {
 		var _cam_x = camera_get_view_x(view_camera[0])
 		var _cam_y = camera_get_view_y(view_camera[0])
 		
-		for (var i = 0; i < array_length(global.roombgs); i++;)
+		var siz = ds_list_size(global.roombgs);
+		for (var i = 0; i < siz; i++;)
 		{
-			if layer_get_depth(global.roombgs[i].lay) < 0
+			var l = global.roombgs[|i];
+			if layer_get_depth(l.lay) < 0
 				continue;
 			
-			var lay = global.roombgs[i].lay;
-			var bg = global.roombgs[i].bg;
+			var lay = l.lay;
+			var bg = l.bg;
 			
 			layer_x(lay, layer_get_x(lay) - _cam_x + 64)
 			layer_y(lay, layer_get_y(lay) - _cam_y + 64)

@@ -37,10 +37,10 @@ if player && !player.cutscene && (player.state != states.firemouth or global.gam
 				image_index = 0
 			}
 			if state == states.chainsawbump && sprite_index != spr_player_chainsawhit
-            {
-                image_index = 0
-                sprite_index = spr_player_chainsawhit
-            }
+			{
+				image_index = 0
+				sprite_index = spr_player_chainsawhit
+			}
 			if bad.object_index != obj_tankOLD && !bad.killprotection
 			{
 				if state == states.mach3 or state == states.rocket or state == states.tumble
@@ -68,20 +68,20 @@ if player && !player.cutscene && (player.state != states.firemouth or global.gam
 			
 			if (sprite_index == spr_attackdash or sprite_index == spr_airattack or sprite_index == spr_airattackstart)
 			&& character == "P"
-            {
+			{
 				lag = 12;
 				if sprite_index == spr_attackdash
-                    sprite_index = spr_player_groundedattack
-                else
-                    sprite_index = spr_player_ungroundedattack
-                image_index = random_range(0, image_number)
-            }
-            if state == states.chainsawbump
-            {
-                bad.hp -= 99
-                sprite_index = spr_player_chainsawhit
-                image_index = 0
-            }
+					sprite_index = spr_player_groundedattack
+				else
+					sprite_index = spr_player_ungroundedattack
+				image_index = random_range(0, image_number)
+			}
+			if state == states.chainsawbump
+			{
+				bad.hp -= 99
+				sprite_index = spr_player_chainsawhit
+				image_index = 0
+			}
 			
 			if global.gameplay == 0
 				instance_destroy(bad);
@@ -175,7 +175,7 @@ if player && !player.cutscene && (player.state != states.firemouth or global.gam
 				if global.gameplay != 0
 				{
 					bad.hsp = xscale * 5
-	                bad.vsp = -5
+					bad.vsp = -5
 				}
 				else
 				{
@@ -211,19 +211,22 @@ if player && !player.cutscene && (player.state != states.firemouth or global.gam
 		}
 			
 		//Pogo
-		else if place_meeting(x, y + 1, other) && state == states.pogo && vsp > 0 && bad.vsp >= 0 && sprite_index != spr_playerN_pogobounce && !bad.invincible
+		else if place_meeting(x, y + 1, other) && state == states.pogo && vsp > 0 && bad.vsp >= 0 && sprite_index != spr_playerN_pogobounce && sprite_index != spr_playerSP_canebounce && !bad.invincible
 		{
 			if !pogochargeactive or bad.object_index == obj_pizzaballOLD
 			{
 				pogospeedprev = false
-				bad.vsp = -3
 				scr_soundeffect(sfx_stompenemy)
+				
 				bad.state = states.stun
+				bad.vsp = -3
+				bad.stunned = max(bad.stunned, 100)
 				if scr_stylecheck(2)
 					bad.yscale = 0.35;
-				if bad.stunned < 100
-					bad.stunned = 100
+				
 				sprite_index = spr_playerN_pogobounce
+				if character == "N"
+					sprite_index = spr_playerSP_canebounce
 			}
 			else if !bad.thrown
 			{
@@ -233,7 +236,7 @@ if player && !player.cutscene && (player.state != states.firemouth or global.gam
 					increase_combo();
 				sprite_index = spr_playerN_pogobouncemach
 			}
-				
+			
 			instance_create(x, y + 50, obj_stompeffect)
 			image_index = 0
 			movespeed = 0
@@ -306,11 +309,11 @@ if player && !player.cutscene && (player.state != states.firemouth or global.gam
 			{
 				bad.stuntouchbuffer = 10;
 				if y == bad.y && state != states.stunned && grounded && !hurted && (bad.state == states.walk or bad.state == states.pizzagoblinthrow) && bad.image_xscale == -sign(bad.x - x)
-                {
-                    state = states.stunned
-                    sprite_index = spr_squished
-                    image_index = 0
-                }
+				{
+					state = states.stunned
+					sprite_index = spr_squished
+					image_index = 0
+				}
 			}
 		}
 	}

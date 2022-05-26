@@ -6,11 +6,11 @@ if !(global.snickrematch && global.snickchallenge)
 
 if deactivate
 {
-    x = room_width / 2;
-    y = room_height + 100;
+	x = room_width / 2;
+	y = room_height + 100;
 	
-    hitboxcreate = false;
-    visible = false;
+	hitboxcreate = false;
+	visible = false;
 	
 	appear = 0;
 	appeartimer = room_speed * 5;
@@ -63,7 +63,7 @@ else
 		lockcam = false;
 		image_xscale = 1;
 		
-	    // abilities
+		// abilities
 		if appeartimer > 0
 		{
 			appeartimer -= 1;
@@ -214,8 +214,8 @@ else
 						sprite_index = spr_shotgunimpact
 					
 					appear = 0;
-				    appeartimer = room_speed * (10 + random(5));
-				    gotoplayer = room_speed * 5;
+					appeartimer = room_speed * (10 + random(5));
+					gotoplayer = room_speed * 5;
 				}
 				with obj_parryhitbox
 				{

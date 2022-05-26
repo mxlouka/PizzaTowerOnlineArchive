@@ -2,7 +2,7 @@ player = playerobj
 
 // shaking when collect get
 if collect_shake > 0
-    collect_shake = min(collect_shake * 0.5, 20);
+	collect_shake = min(collect_shake * 0.5, 20);
 
 // shake health count
 if healthshaketime > 0
@@ -87,7 +87,7 @@ if instance_exists(player) && player.state == states.hitlag
 
 // decelerate shaking
 if shake_mag > 0
-    shake_mag = max(shake_mag - shake_mag_acc, 0);
+	shake_mag = max(shake_mag - shake_mag_acc, 0);
 
 // target override
 if targetoverride != noone
@@ -185,7 +185,7 @@ if instance_exists(player) && player.state != states.timesup && player.state != 
 				chargecamera = Approach(chargecamera, 0, (player.state == states.machslide ? 8 : 2));
 			
 			// crouch
-			if ((player.state == states.crouch or (player.character == "S" && player.state == states.normal)) && player.hsp == 0)
+			if scr_stylecheck(2) && ((player.state == states.crouch or (player.character == "S" && player.state == states.normal)) && player.hsp == 0)
 			&& !crouchcameragoingback && player.key_down
 			{
 				if crouchcamera < 1

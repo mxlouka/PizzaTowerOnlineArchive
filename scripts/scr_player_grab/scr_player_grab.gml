@@ -176,18 +176,18 @@ function scr_player_grab()
 	{
 		hsp = xscale * movespeed;
 		
-	    if scr_solid(x + xscale, y)
+		if scr_solid(x + xscale, y)
 		&& !place_meeting(x + sign(hsp), y, obj_slope)
 		&& !place_meeting(x + sign(hsp), y, obj_destructibles)
-	        xscale *= -1;
+			xscale *= -1;
 		
-	    if swingdingbuffer == 0 && !key_attack
-	        swingdingbuffer = -1;
-	    if swingdingbuffer == -1
-	        movespeed = Approach(movespeed, 0, 0.5);
+		if swingdingbuffer == 0 && !key_attack
+			swingdingbuffer = -1;
+		if swingdingbuffer == -1
+			movespeed = Approach(movespeed, 0, 0.5);
 		
-	    if movespeed == 0
-	        sprite_index = spr_haulingidle;
+		if movespeed == 0
+			sprite_index = spr_haulingidle;
 	}
 	
 	//Input buffer jumping
@@ -313,9 +313,9 @@ function scr_player_grab()
 	
 	if swingdingbuffer > 0 && global.gameplay != 0
 	{
-	    swingdingbuffer--;
-	    if movespeed > 0
-	        movespeed -= 0.1;
+		swingdingbuffer--;
+		if movespeed > 0
+			movespeed -= 0.1;
 	}
 	
 	//Throws

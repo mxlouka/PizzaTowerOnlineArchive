@@ -73,7 +73,7 @@ with obj_dashpad {
 #endregion
 
 if !instance_exists(obj_escapetimer)
-    instance_create_layer(128, 0, "Instances", obj_escapetimer)
+	instance_create_layer(128, 0, "Instances", obj_escapetimer)
 
 global.coop = false
 if obj_onlinemenu.menu != -1

@@ -27,7 +27,7 @@ if floor(image_index) >= image_number - 1
 }
 
 if room == snick_challengeend && global.snickrematch
-    audio_sound_pitch(global.music, min(distance_to_object(obj_player1) / (room_width - 480), 1));
+	audio_sound_pitch(global.music, min(distance_to_object(obj_player1) / (room_width - 480), 1));
 
 if hit
 {

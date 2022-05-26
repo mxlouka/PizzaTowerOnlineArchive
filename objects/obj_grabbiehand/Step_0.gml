@@ -9,7 +9,7 @@ image_xscale = 1
 }
 
 //Fall
-    if (x <= xstarte + 6 && x >= xstarte - 6) && (y <= ystarte + 6 && y >= ystarte - 6) && (obj_player.x >(x-50) && obj_player.x <(x+50)) && (obj_player.y > y && obj_player.y < (y + 400)) && thumbingup = false
+	if (x <= xstarte + 6 && x >= xstarte - 6) && (y <= ystarte + 6 && y >= ystarte - 6) && (obj_player.x >(x-50) && obj_player.x <(x+50)) && (obj_player.y > y && obj_player.y < (y + 400)) && thumbingup = false
 {
 delay --
 if delay <= 0

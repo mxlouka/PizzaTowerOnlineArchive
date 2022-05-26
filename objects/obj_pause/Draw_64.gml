@@ -244,39 +244,39 @@ if (pause or pausefad == 2 or pausefad == 4)
 				if global.srank > 0
 				{
 					if _score >= global.crank && sprite_exists(_crankpizza)
-					    draw_sprite_ext(_crankpizza, 0, hud_xx, hud_yy, 1, 1, 0, c_white, 1);
+						draw_sprite_ext(_crankpizza, 0, hud_xx, hud_yy, 1, 1, 0, c_white, 1);
 					if _score >= global.brank && sprite_exists(_brankpizza)
-					    draw_sprite_ext(_brankpizza, 0, hud_xx, hud_yy, 1, 1, 0, c_white, 1);
+						draw_sprite_ext(_brankpizza, 0, hud_xx, hud_yy, 1, 1, 0, c_white, 1);
 					if _score >= global.arank && sprite_exists(_arankpizza)
-					    draw_sprite_ext(_arankpizza, 0, hud_xx, hud_yy, 1, 1, 0, c_white, 1);
+						draw_sprite_ext(_arankpizza, 0, hud_xx, hud_yy, 1, 1, 0, c_white, 1);
 					if _score >= global.srank && sprite_exists(_srankpizza)
-					    draw_sprite_ext(_srankpizza, 0, hud_xx, hud_yy, 1, 1, 0, c_white, 1);
+						draw_sprite_ext(_srankpizza, 0, hud_xx, hud_yy, 1, 1, 0, c_white, 1);
 				}
 				
 				draw_set_valign(fa_top);
-			    draw_set_halign(fa_left);
+				draw_set_halign(fa_left);
 				
-			    if sugary
+				if sugary
 					draw_set_font(global.candyfont)
 				else if character == "PP"
 					draw_set_font(global.collectfontPP)
 				else
 					draw_set_font(global.collectfont)
 			
-			    var str = string(_score);
-			    var num = string_length(str);
-			    var xx = hud_xx - string_width(str) / 2;
-			
-			    draw_set_alpha(1);
-			    for (var ii = 0; ii < num; ii++)
-			    {
-			        var yy = (ii + 1) % 2 == 0 ? -5 : 0;
-			        draw_text(xx, hud_yy - 56 + yy, string_char_at(str, ii + 1));
-			        xx += string_width(str) / num;
-			    }
+				var str = string(_score);
+				var num = string_length(str);
+				var xx = hud_xx - string_width(str) / 2;
 			
 				draw_set_alpha(1);
-			    pal_swap_reset();
+				for (var ii = 0; ii < num; ii++)
+				{
+					var yy = (ii + 1) % 2 == 0 ? -5 : 0;
+					draw_text(xx, hud_yy - 56 + yy, string_char_at(str, ii + 1));
+					xx += string_width(str) / num;
+				}
+			
+				draw_set_alpha(1);
+				pal_swap_reset();
 			}
 			
 			// toppins

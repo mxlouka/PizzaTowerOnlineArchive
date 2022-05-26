@@ -1,14 +1,14 @@
 switch (state)
 {
-    case states.idle: scr_enemy_idle (); break;
-    case states.charge: scr_enemy_charge (); break;
-    case states.turn: scr_enemy_turn (); break;
-    case states.walk: scr_enemy_walk (); break;
-    case states.land: scr_enemy_land (); break;
-    case states.hit: scr_enemy_hit (); break;
-    case states.stun: scr_enemy_stun (); break;
-    case states.pizzagoblinthrow: scr_pizzagoblin_throw (); break;
-    // grabbed state here
+	case states.idle: scr_enemy_idle (); break;
+	case states.charge: scr_enemy_charge (); break;
+	case states.turn: scr_enemy_turn (); break;
+	case states.walk: scr_enemy_walk (); break;
+	case states.land: scr_enemy_land (); break;
+	case states.hit: scr_enemy_hit (); break;
+	case states.stun: scr_enemy_stun (); break;
+	case states.pizzagoblinthrow: scr_pizzagoblin_throw (); break;
+	// grabbed state here
 }
 
 if global.gameplay != 0
@@ -16,25 +16,25 @@ if global.gameplay != 0
 	walkspr = phase == 0 ? walkspr : spr_noisey_bouncefall;
 	if state == states.walk && phase == 1
 	{
-	    if grounded && sprite_index != spr_noisey_bounceland && vsp > 0
-	    {
-	        image_index = 0
-	        sprite_index = spr_noisey_bounceland
-	    }
-	    if sprite_index == spr_noisey_bounceland
-	    {
-	        if floor(image_index) >= image_number - 1
-	            sprite_index = spr_noisey_bouncefall
-	        if floor(image_index) == 4
-	            vsp = -6
-	    }
+		if grounded && sprite_index != spr_noisey_bounceland && vsp > 0
+		{
+			image_index = 0
+			sprite_index = spr_noisey_bounceland
+		}
+		if sprite_index == spr_noisey_bounceland
+		{
+			if floor(image_index) >= image_number - 1
+				sprite_index = spr_noisey_bouncefall
+			if floor(image_index) == 4
+				vsp = -6
+		}
 	}
 	if lasthp != hp && phase == 0 && state == states.stun && grounded
 	{
-	    lasthp = hp
-	    phase = 1
-	    stunned = 5
-	    killprotection = false
+		lasthp = hp
+		phase = 1
+		stunned = 5
+		killprotection = false
 	}
 	scr_scareenemy();
 }

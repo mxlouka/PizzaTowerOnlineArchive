@@ -12,11 +12,11 @@ function scr_player_crouchslide()
 	{
 		if !key_jump2 && !jumpstop && vsp < 0.5 && !stompAnim
 		{
-		    vsp /= 10;
-		    jumpstop = true;
+			vsp /= 10;
+			jumpstop = true;
 		}
 		if key_jump
-		    input_buffer_jump = 0;
+			input_buffer_jump = 0;
 		
 		if !grounded && character == "SP"
 			sprite_index = spr_playerSP_jumpdive2;
@@ -28,16 +28,16 @@ function scr_player_crouchslide()
 			{
 				scr_soundeffect(sfx_jump)
 				
-			    sprite_index = spr_player_jumpdive1
-			    image_index = 0
-			    vsp = -11
+				sprite_index = spr_player_jumpdive1
+				image_index = 0
+				vsp = -11
 				jumpstop = false
 				
-			    with instance_create(x, y, obj_superdashcloud)
-			    {
-			        image_xscale = other.xscale
-			        other.dashcloudid = id
-			    }
+				with instance_create(x, y, obj_superdashcloud)
+				{
+					image_xscale = other.xscale
+					other.dashcloudid = id
+				}
 			}
 			else
 			{
@@ -64,21 +64,21 @@ function scr_player_crouchslide()
 	if grounded && (sprite_index == spr_player_jumpdive1 or sprite_index == spr_player_jumpdive2 or sprite_index == spr_playerSP_jumpdive2) && vsp > 0
 	{
 		scr_soundeffect(sfx_step)
-	    sprite_index = spr_crouchslip
-	    jumpstop = false
+		sprite_index = spr_crouchslip
+		jumpstop = false
 	}
 	
 	if sprite_index == spr_player_jumpdive1 && floor(image_index) >= image_number - 1
-	    sprite_index = spr_player_jumpdive2
+		sprite_index = spr_player_jumpdive2
 	mask_index = spr_crouchmask
 	
 	if (grounded && key_attack2 && !scr_solid(x + 27 * xscale, y - 32) && !scr_solid(x, y - 16)) && (character != "N" or (character == "N" && noisetype == 1))
 	{
-	    movespeed = 8
+		movespeed = 8
 		//scr_soundeffect(sfx_rollgetup)
-	    state = states.mach2
-	    image_index = 0
-	    sprite_index = spr_rollgetup
+		state = states.mach2
+		image_index = 0
+		sprite_index = spr_rollgetup
 	}
 	
 	var minspeed = 5;
@@ -95,8 +95,8 @@ function scr_player_crouchslide()
 	
 	if !instance_exists(obj_slidecloud) && grounded && movespeed > 5
 	{
-	    with instance_create(x, y, obj_slidecloud)
-	        image_xscale = other.xscale
+		with instance_create(x, y, obj_slidecloud)
+			image_xscale = other.xscale
 	}
 	
 	if sprite_index == spr_player_breakdancesuper

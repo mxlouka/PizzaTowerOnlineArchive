@@ -12,7 +12,7 @@ if activated && fade != -1
 		if fade == 1
 		{
 			ds_list_destroy(deactivatedlist);
-            fade = -1;
+			fade = -1;
 		}
 	}
 }

@@ -55,10 +55,10 @@ if scr_solid(x+hsp,y) && !place_meeting(x,y,obj_slope) && charge = true
 	stun = true
 	movespeed = 5
 	vsp = -10
-	            with (obj_camera) {
+				with (obj_camera) {
 
-    shake_mag=10;
-    shake_mag_acc=30/room_speed;
+	shake_mag=10;
+	shake_mag_acc=30/room_speed;
 }
 sprite_index = spr_weeniesquire_stun
 charge = false

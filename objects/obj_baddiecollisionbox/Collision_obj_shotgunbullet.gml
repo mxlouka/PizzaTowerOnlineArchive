@@ -3,8 +3,6 @@ if instance_exists(baddieID) && baddieID.object_index != obj_pizzaballOLD
 	increase_combo();
 	instance_create(x, y, obj_parryeffect);
 	
-	baddieID.hsp = other.spd / 3;
-	
 	instance_destroy()
 	instance_destroy(baddieID)
 }
@@ -30,8 +28,8 @@ else if instance_exists(baddieID) && baddieID.stuntouchbuffer <= 0
 	if baddieID.stunned < 100
 		baddieID.stunned = 100
 	
-	instance_create(x,y,obj_bumpeffect)
-	instance_create(baddieID.x,baddieID.y,obj_bangeffect)
+	instance_create(x, y, obj_bumpeffect)
+	instance_create(baddieID.x, baddieID.y, obj_bangeffect)
 	
 	baddieID.vsp = -4
 	baddieID.hsp = other.image_xscale * 5

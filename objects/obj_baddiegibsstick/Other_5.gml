@@ -13,11 +13,11 @@ if saveable
 	hsp = 0;
 	if col or colSlope or colPlatform
 	{
-	    while !grounded
-	    {
-	        vsp = 1;
-	        scr_collide();
-	    }
+		while !grounded
+		{
+			vsp = 1;
+			scr_collide();
+		}
 	}
 
 	vsp = 0;

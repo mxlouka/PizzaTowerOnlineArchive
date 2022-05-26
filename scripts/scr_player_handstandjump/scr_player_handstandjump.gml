@@ -58,11 +58,11 @@ function scr_player_handstandjump()
 		if key_jump && grounded
 		{
 			scr_soundeffect(sfx_jump)
-		    movespeed = 10
-		    sprite_index = spr_mach2jump
-		    instance_create(x, y, obj_jumpdust)
-		    state = states.mach2
-		    vsp = -11
+			movespeed = 10
+			sprite_index = spr_mach2jump
+			instance_create(x, y, obj_jumpdust)
+			state = states.mach2
+			vsp = -11
 			dir = predir;
 		}
 		image_speed = 0.35
@@ -338,17 +338,17 @@ function scr_player_handstandjump()
 	if key_jump && global.mort && !doublejump && !grounded
 	{
 		state = states.jump;
-	    repeat 6 with instance_create(x, y, obj_debris)
+		repeat 6 with instance_create(x, y, obj_debris)
 			sprite_index = spr_feather;
 			
-	    scr_soundeffect(sfx_woosh);
-	    sprite_index = spr_pmortjumpstart;
-	    image_index = 0;
-	    jumpstop = false;
+		scr_soundeffect(sfx_woosh);
+		sprite_index = spr_pmortjumpstart;
+		image_index = 0;
+		jumpstop = false;
 		jumpAnim = false;
 		
-	    grav = 0.25;
-	    mort = 1;
+		grav = 0.25;
+		mort = 1;
 	}
 	
 	// Bump

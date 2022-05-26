@@ -207,14 +207,14 @@ if global.shownames
 	// apply the color
 	var nickcol = col;
 	if gms_other_isowner(player_id)
-	    nickcol = c_owner;
+		nickcol = c_owner;
 	else if nickname == "DenchickMario"
-	    nickcol = c_pvp;
+		nickcol = c_pvp;
 	else if gms_other_admin_rights(player_id)
-	    nickcol = c_admin;
+		nickcol = c_admin;
 	else if gms_other_get_real(player_id, "pvp")
-	    nickcol = c_pvp;
-	    
+		nickcol = c_pvp;
+		
 	draw_set_colour(make_colour_hsv(color_get_hue(nickcol), color_get_saturation(nickcol), color_get_value(nickcol) * (color_get_value(col) / 255)));
 	
 	// setup

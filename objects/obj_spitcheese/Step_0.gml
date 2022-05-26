@@ -1,15 +1,15 @@
 switch (state)
 {
-    case states.idle: scr_enemy_idle (); break;
-    case states.charge: scr_enemy_charge (); break;
-    case states.turn: scr_enemy_turn (); break;
-    case states.walk: scr_enemy_walk (); break;
-    case states.land: scr_enemy_land (); break;
-    case states.hit: scr_enemy_hit (); break;
-    case states.stun: scr_enemy_stun (); break;
-    case states.pizzagoblinthrow: scr_pizzagoblin_throw (); break;
+	case states.idle: scr_enemy_idle (); break;
+	case states.charge: scr_enemy_charge (); break;
+	case states.turn: scr_enemy_turn (); break;
+	case states.walk: scr_enemy_walk (); break;
+	case states.land: scr_enemy_land (); break;
+	case states.hit: scr_enemy_hit (); break;
+	case states.stun: scr_enemy_stun (); break;
+	case states.pizzagoblinthrow: scr_pizzagoblin_throw (); break;
 	case states.rage: scr_enemy_rage (); break;
-    // grabbed state here
+	// grabbed state here
 }
 
 if state == states.stun && stunned > 100 && !birdcreated
@@ -37,18 +37,18 @@ or global.gameplay == 0
 		if global.stylethreshold >= 3
 		{
 			bombreset = 130;
-	        ragedash = 5;
-	        state = states.rage;
+			ragedash = 5;
+			state = states.rage;
 			
-	        sprite_index = spr_spitcheese_rage;
-	        if x != player.x
-	            image_xscale = -sign(x - player.x);
+			sprite_index = spr_spitcheese_rage;
+			if x != player.x
+				image_xscale = -sign(x - player.x);
 			
-	        ragebuffer = 100;
-	        image_index = 0;
-	        image_speed = 0.4;
-	        flash = true;
-	        alarm[4] = 1;
+			ragebuffer = 100;
+			image_index = 0;
+			image_speed = 0.4;
+			flash = true;
+			alarm[4] = 1;
 		}
 		else if grounded
 		{

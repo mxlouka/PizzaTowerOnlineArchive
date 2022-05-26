@@ -4,8 +4,9 @@ with other
 	
 	if !instance_exists(obj_fadeout) or obj_fadeout.fadein && !instance_exists(obj_pausefadeout) && !obj_pause.pause
 	{
+		instance_destroy(obj_fadeout)
 		targetDoor = other.targetDoor
-	    targetRoom = other.targetRoom
+		targetRoom = other.targetRoom
 		
 		verticalhallway = true
 		vhallwaydirection = other.image_yscale
