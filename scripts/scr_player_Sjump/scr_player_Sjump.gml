@@ -112,7 +112,7 @@ function scr_player_Sjump()
 		{
 			if key_attack2 && (!(character == "N" && noisetype == 0) && character != "V" && (character != "SP" or global.gameplay != 0))
 			{
-				jumpstop = key_jump2;
+				jumpstop = false;
 				springsjump = false;
 				if move != 0
 					xscale = move

@@ -2,7 +2,7 @@
 function scr_loadlevel(argument0)
 {
 	var _wrapper = json_decode(argument0);
-
+	
 	// level doesn't even exist
 	if _wrapper == -1
 	{
@@ -12,7 +12,7 @@ function scr_loadlevel(argument0)
 	
 	var _list = ds_map_find_value(_wrapper, "ROOT");
 	var _unsupported = ds_list_create();
-
+	
 	// root missing
 	if _list == undefined
 	{
@@ -20,7 +20,7 @@ function scr_loadlevel(argument0)
 		ds_map_destroy(_wrapper);
 		return -4;
 	}
-
+	
 	// forbidden object list
 	var _forbidden = ds_list_create();
 	ds_list_add(_forbidden,
@@ -31,30 +31,31 @@ function scr_loadlevel(argument0)
 		obj_otherplayer,
 		obj_wc,
 		rousrDissonance,
-		obj_editor,
+		obj_drpc_updater,
 		obj_player,
 		obj_player1,
 		obj_player2,
-
+		
 		obj_acceleratecurrent,
 		obj_gravityrect,
-		obj_baddiemenu,
-		obj_doormessage,
 		obj_taxiold,
-		obj_rematchblock,
 		obj_antonball,
-		obj_antonballtrail,
 		obj_gmlive,
-		obj_skinchoice,
-		obj_hatchoice,
 		obj_snickexf,
 		obj_snickexg,
 		obj_snickexh,
 		obj_snickexi,
 		obj_snickexgquill,
-		obj_grabbablenoise,
-		obj_shootsign,
-		obj_timeattackclock
+		obj_timeattackclock,
+		obj_prelogin,
+		obj_load,
+		obj_disclaimer,
+		obj_crashed,
+		obj_mariohell,
+		obj_arcadehub,
+		obj_devdoor,
+		obj_mariologgedin,
+		obj_racemenu,
 	);
 
 	// start creating the level
@@ -70,13 +71,13 @@ function scr_loadlevel(argument0)
 			{
 				// figure position for object
 				var _x = ds_map_find_value(_map, "x");
+				var _y = ds_map_find_value(_map, "y");
+				
 				if _x == undefined
 					_x = 0;
-			
-				var _y = ds_map_find_value(_map, "y");
 				if _y == undefined
 					_y = 0;
-			
+				
 				// parent specific layers
 				var lay = "Instances";
 				switch object_get_parent(_getobj)
@@ -103,7 +104,10 @@ function scr_loadlevel(argument0)
 					if _yscale != undefined
 						image_yscale = _yscale;
 					if _image != undefined
+					{
 						image_index = _image;
+						img_index = _image;
+					}
 				
 					// object specific variables
 					switch _obj

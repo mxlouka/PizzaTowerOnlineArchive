@@ -36,39 +36,32 @@ with obj_solid
 
 #region image index 0
 
-with obj_boilingsauce {
+with obj_boilingsauce
 	image_index = 0;
-}
-with obj_destructibleplatform {
+with obj_destructibleplatform
 	image_index = 0;
-}
-with obj_spike {
+with obj_spike
 	image_index = 0;
-}
-with obj_collect {
+with obj_collect
 	image_index = 0;
-}
-with obj_bigcollect {
+with obj_bigcollect
 	image_index = 0;
-}
-with obj_giantcollect {
+with obj_giantcollect
 	image_index = 0;
-}
-with obj_minipillar {
+with obj_minipillar
 	image_index = 0;
-}
-with obj_reverseminipillar {
+with obj_reverseminipillar
 	image_index = 0;
-}
-with obj_water_editor {
+with obj_water
 	image_index = 0;
-}
-with obj_current_editor {
+with obj_current
 	image_index = 0;
-}
-with obj_dashpad {
+with obj_dashpad
 	image_index = 0;
-}
+with obj_iceblock
+	image_index = 0;
+with obj_teleporter
+	image_index = 0;
 
 #endregion
 

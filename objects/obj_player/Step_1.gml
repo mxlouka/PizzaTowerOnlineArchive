@@ -18,7 +18,7 @@ if (character == "PUFFER" or drawspr == spr_pufferfish_move or drawspr == spr_pu
 }
 
 // konami shit
-if character == "PP" && !global.timeattack && state != states.backbreaker
+if character == "PP" && !global.timeattack && state != states.backbreaker && object_index == obj_player1
 {
 	switch keyboard_lastkey
 	{
@@ -57,3 +57,4 @@ if character == "PP" && !global.timeattack && state != states.backbreaker
 	}
 	keyboard_lastkey = -1;
 }
+

@@ -15,7 +15,7 @@ function scr_player_mach1()
 	move = key_left + key_right;
 
 	landAnim = false
-	if scr_solid(x + xscale, y) && (!place_meeting(x + xscale, y, obj_slope) or scr_solidwall(x, y - 1))
+	if scr_solid(x + xscale, y) && (!place_meeting(x + xscale, y, obj_slope) or scr_solidwall(x, y - 2))
 	{
 		mach2 = 0 
 		state = states.normal

@@ -9,5 +9,5 @@ with instance_create(x + sprite_width / 2, y + sprite_height / 2, obj_sausageman
 	image_yscale = other.image_yscale;
 	sugary = true;
 }
-instance_create(x, y, obj_genericpoofeffect);
 ds_list_add(global.saveroom, id);
+

@@ -518,14 +518,13 @@ switch menu
 		{
 			if viewpos == 1
 			{
-				camera_set_view_pos(view_camera[0], camera_get_view_x(view_camera[0]), lerp(camera_get_view_y(view_camera[0]), 540, 0.25));
-			
+				camera_set_view_pos(view_camera[0], _camx, lerp(_camy, 540, 0.25));
 				if draw_editorbutton(32, 540 + 32, lang_string("editor.menu.back"))
 				{
 					alarm[0] = min(alarm[0], 1);
 					viewpos = 0;
 				}
-			
+				
 				draw_set_colour(c_white);
 				draw_set_font(global.font_small);
 				draw_set_halign(fa_center);
@@ -567,7 +566,7 @@ switch menu
 	#endregion
 	#region login / register
 	case menutypes.login:
-		var lg_name = "testuser";
+		var lg_name = "admin";
 		if check_online()
 			lg_name = string_copy(gms_self_name(), 1, 32);
 		

@@ -225,7 +225,7 @@ if player && !player.cutscene && (player.state != states.firemouth or global.gam
 					bad.yscale = 0.35;
 				
 				sprite_index = spr_playerN_pogobounce
-				if character == "N"
+				if character == "SP"
 					sprite_index = spr_playerSP_canebounce
 			}
 			else if !bad.thrown
@@ -244,7 +244,7 @@ if player && !player.cutscene && (player.state != states.firemouth or global.gam
 		}
 			
 		// Cotton
-		else if state == states.cotton && (sprite_index == spr_cotton_attack or movespeed > 4) && bad.instantkillable && !bad.thrown
+		else if state == states.cotton && (sprite_index == spr_cotton_attack) && bad.instantkillable && !bad.thrown
 		{
 			scr_soundeffect(sfx_punch);
 			if sprite_index == spr_cotton_drill

@@ -7,4 +7,3 @@ sprite_index = spr_trigger_hitbox
 image_alpha = 0.6
 alarm[0] = 1
 continuous = true
-

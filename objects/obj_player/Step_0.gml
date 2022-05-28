@@ -14,19 +14,6 @@ if room == custom_lvl_room
 		
 		with obj_camera
 			bound_camera = true;
-		
-		/*
-		if cam != instance_place(x, y, par_camera_editor) {
-			scr_render();
-			cam = instance_place(x, y, par_camera_editor);
-			cam_width = instance_place(x, y, par_camera_editor).width;
-			cam_height = instance_place(x, y, par_camera_editor).height;
-		}
-		if cam == instance_place(x, y, par_camera_editor) {
-			with obj_camera {
-				bound_camera = true;
-			}
-		}*/
 	}
 	else
 	{
@@ -288,7 +275,7 @@ if pogochargeactive
 	}
 	
 	flashflicker = true
-	pogocharge --
+	pogocharge--
 }
 else
 	flashflicker = false
@@ -296,7 +283,7 @@ else
 if state != states._throw
 	kickbomb = false
 
-if pogocharge = 0
+if pogocharge <= 0
 {
 	pogochargeactive = false
 	pogocharge = 100
@@ -305,8 +292,8 @@ if pogocharge = 0
 //Flash flicker
 if flashflicker
 {
-	flashflickertime ++
-	if flashflickertime = 20
+	flashflickertime++
+	if flashflickertime >= 20
 	{
 		flash = true
 		flashflickertime = 0
@@ -427,17 +414,29 @@ if sprite_index == spr_player_idlevomitblood && image_index > 28 && image_index 
 // Sweat
 if global.playerhealth <= 30 && state == states.normal
 {
-	if !instance_exists(obj_sweat)
-		instance_create(x, y, obj_sweat);
+	var createsweat = true;
+	with obj_sweat
+	{
+		if playerid == other.id
+			createsweat = false;
+	}
+	if createsweat
+	{
+		with instance_create(x, y, obj_sweat)
+			playerid = other.id;
+	}
 }
-else
-	instance_destroy(obj_sweat);
+else with obj_sweat
+{
+	if playerid == other.id
+		instance_destroy();
+}
 
 //Angry cloud
 if (angry or global.stylethreshold >= 2) && !instance_exists(angryeffectid)
 && state == states.normal && character != "V"
 {
-	with instance_create(x,y,obj_angrycloud)
+	with instance_create(x, y, obj_angrycloud)
 	{
 		playerid = other.object_index
 		other.angryeffectid = id	 
@@ -464,7 +463,7 @@ if shoot_buffer > 0
 
 //Key effect
 if key_particles
-	instance_create(random_range(x+25, x -25),random_range(y+35, y -25),obj_keyeffect)
+	instance_create(random_range(x + 25, x - 25), random_range(y + 35, y - 25), obj_keyeffect)
 
 if inv_frames = false && hurted = false && state != states.ghost
 image_alpha = 1
@@ -488,9 +487,8 @@ else
 	instakillmove = false
 
 //Flash
-if (flash == true && alarm[0] <= 0 ) {
-   alarm[0] = 0.15 * room_speed; // Flashes for 0.8 seconds before turning back to normal
-}
+if flash && alarm[0] <= 0
+	alarm[0] = 0.15 * room_speed;
 
 //Reset Variables
 if state != states.Sjump
@@ -695,7 +693,6 @@ cutscene = (
 	or state == states.victory or state == states.comingoutdoor or state == states.gameover
 )
 
-//SAGE2019
 //Up arrow
 if ((place_meeting(x, y, obj_door) && !place_meeting(x, y, obj_doorblocked)) or place_meeting(x, y, obj_dresser) or place_meeting(x, y, obj_menuphone) or place_meeting(x, y, obj_filedoor) or place_meeting(x, y, obj_devdoor) or place_meeting(x, y, obj_arcademachine) or place_meeting(x, y, obj_arcadehub) or place_meeting(x, y, obj_snick) or place_meeting(x, y, obj_keydoor) or place_meeting(x, y, obj_door_editor) or place_meeting(x, y, obj_keydoor_editor) or place_meeting(x, y, obj_baddiemenu) or place_meeting(x, y, obj_npcparent) or place_meeting(x, y, obj_eatery_cashreg) or place_meeting(x, y, obj_taxi) or (place_meeting(x, y, obj_hubelevator) && instance_place(x, y, obj_hubelevator).state == 0) or (place_meeting(x, y, obj_geromedoor) && global.gerome) or (place_meeting(x, y, obj_exitgate) && (global.panic or global.snickchallenge) && character != "S" && !global.failedmod) or (place_meeting(x, y, obj_startgate) && state == states.normal && scr_stylecheck(2)))
 && grounded && vsp >= 0 && state == states.normal
@@ -751,3 +748,4 @@ if petfollow > -1
 }
 else if instance_exists(obj_petfollow)
 	instance_destroy(obj_petfollow);
+

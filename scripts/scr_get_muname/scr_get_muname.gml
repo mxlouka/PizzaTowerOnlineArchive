@@ -1,4 +1,5 @@
-function scr_get_muname(argument0) {
+function scr_get_muname(argument0)
+{
 	var _index = argument0
 	switch _index
 	{
@@ -81,6 +82,4 @@ function scr_get_muname(argument0) {
 			name = "mu_farmsecret"
 			break
 	}
-
-
 }

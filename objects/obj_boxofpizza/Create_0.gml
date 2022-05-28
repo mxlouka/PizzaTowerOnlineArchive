@@ -18,46 +18,57 @@ if string_startswith(room_get_name(room), "strongcold")
 if global.snickrematch
 	sprite_index = spr_boxofpizza_re
 
-downbox = function(pbox)
+downbox = function(player, pbox)
 {
-	pbox.depth = -8
-	scr_soundeffect(sfx_box)
-	box = true
-	mach2 = 0
-	obj_camera.chargecamera = 0
-			
-	doorx = pbox.x
-	if !scr_stylecheck(2)
+	scr_soundeffect(sfx_box);
+	pbox.depth = -10;
+	pbox.enter = true;
+	
+	with obj_camera
+		chargecamera = 0;
+	
+	with player
+	{
+		vsp = 0;
+		state = states.door;
+		box = true;
+		mach2 = 0;
+		
+		sprite_index = spr_downpizzabox;
+		image_index = 0;
+		
+		targetRoom = pbox.targetRoom;
+		targetDoor = pbox.targetDoor;
+		
+		doorx = pbox.x;
+		if !scr_stylecheck(2)
+			x = doorx;
+	}
+}
+upbox = function(player, pbox)
+{
+	scr_soundeffect(sfx_box);
+	pbox.depth = -10;
+	pbox.enter = true;
+	
+	with obj_camera
+		chargecamera = 0;
+	
+	with player
+	{
+		vsp = 0;
+		state = states.door;
+		box = true;
+		mach2 = 0;
+		
+		sprite_index = spr_uppizzabox;
+		image_index = 0;
+		
+		targetDoor = pbox.targetDoor;
+		targetRoom = pbox.targetRoom;
+		
+		doorx = pbox.x;
 		x = doorx;
-			
-	targetDoor = pbox.targetDoor
-	targetRoom = pbox.targetRoom
-			
-	sprite_index = spr_downpizzabox
-	image_index = 0
-	state = states.door
-			
-	vsp = 0
+		y = pbox.y + 24;
+	}
 }
-upbox = function(pbox)
-{
-	pbox.depth = -8
-	scr_soundeffect(sfx_box)
-	box = true
-	mach2 = 0
-	obj_camera.chargecamera = 0
-			
-	doorx = pbox.x
-	x = doorx;
-			
-	y = pbox.y + 24
-	targetDoor = pbox.targetDoor
-	targetRoom = pbox.targetRoom
-			
-	sprite_index = spr_uppizzabox
-	image_index = 0
-	state = states.door
-			
-	vsp = 0
-}
-

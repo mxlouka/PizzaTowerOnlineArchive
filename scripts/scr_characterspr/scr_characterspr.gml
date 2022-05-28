@@ -288,6 +288,7 @@ function scr_characterspr(char = character)
 				spr_cotton_jump = spr_playerSP_cotton_jump;
 				spr_cotton_fall = spr_playerSP_cotton_fall;
 				spr_cotton_land = spr_playerSP_cotton_land;
+				spr_cotton_land2 = spr_playerSP_cotton_land2;
 				spr_cotton_attack = spr_playerSP_cotton_attack;
 				spr_cotton_drill = spr_playerSP_cotton_drill;
 				spr_cotton_doublejump = spr_playerSP_cotton_doublejump;

@@ -66,8 +66,7 @@ function scr_set_background_trigger(argument0)
 		case 3:
 			layer_background_sprite(back_id_bg1, bg_medieval3)
 			layer_background_sprite(back_id_scroll, bg_medieval2)
-			if room == custom_lvl_room
-				layer_hspeed(lay_id_scroll, 1)
+			scrollhsp = 1
 			layer_background_sprite(back_id_bg3, bg_medieval1)
 			break
 	
@@ -90,16 +89,14 @@ function scr_set_background_trigger(argument0)
 		case 8:
 			layer_background_sprite(back_id_bg3, bg_ruin)
 			layer_background_sprite(back_id_scroll, bg_ruincloud)
-			if room == custom_lvl_room
-				layer_hspeed(lay_id_scroll, 1)
+			scrollhsp = 1
 			layer_background_sprite(back_id_bg1, bg_medieval3)
 			break
 	
 		case 9:
 			layer_background_sprite(back_id_bg3, bg_ruinarchitecture1)
 			layer_background_sprite(back_id_scroll, bg_ruinarchitecture2)
-			if room == custom_lvl_room
-				layer_hspeed(lay_id_scroll, 1)
+			scrollhsp = 1
 			layer_background_sprite(back_id_bg1, bg_ruinarchitecture3)
 			break
 	
@@ -107,47 +104,41 @@ function scr_set_background_trigger(argument0)
 			layer_background_sprite(back_id_ground1, bg_ruincheese1)
 			layer_background_sprite(back_id_ground2, bg_ruincheese2)
 			layer_background_sprite(back_id_scroll, bg_ruincheese3)
-			if room == custom_lvl_room
-				layer_vspeed(lay_id_scroll, -1)
+			scrollvsp = -1
 			break
 	
 		case 11:
 			layer_background_sprite(back_id_ground1, bg_ruinstatue1)
 			layer_background_sprite(back_id_ground2, bg_ruinstatue2)
 			layer_background_sprite(back_id_scroll, bg_ruincloud)
-			if room == custom_lvl_room
-				layer_hspeed(lay_id_scroll, 1)
+			scrollhsp = 1
 			layer_background_sprite(back_id_bg1, bg_ruinstatue3)
 			break
 	
 		case 12:
 			layer_background_sprite(back_id_scroll, bg_dungeon2)
-			if room == custom_lvl_room
-				layer_vspeed(lay_id_scroll, -1)
+			scrollvsp = -1
 			layer_background_sprite(back_id_bg3, bg_dungeon3)
 			layer_background_sprite(back_id_bg1, bg_dungeontomato)
 			break
 	
 		case 13:
 			layer_background_sprite(back_id_scroll, bg_dungeon2)
-			if room == custom_lvl_room
-				layer_vspeed(lay_id_scroll, -1)
+			scrollvsp = -1
 			layer_background_sprite(back_id_bg3, bg_dungeon3)
 			layer_background_sprite(back_id_bg1, bg_dungeondark2)
 			break
 	
 		case 14:
 			layer_background_sprite(back_id_scroll, bg_dungeonskeleton2)
-			if room == custom_lvl_room
-				layer_vspeed(lay_id_scroll, -1)
+			scrollvsp = -1
 			layer_background_sprite(back_id_bg3, bg_dungeontomato2)
 			layer_background_sprite(back_id_bg1, bg_dungeon1)
 			break
 	
 		case 15:
 			layer_background_sprite(back_id_scroll, bg_dungeonskeleton2)
-			if room == custom_lvl_room
-				layer_vspeed(lay_id_scroll, -1)
+			scrollvsp = -1
 			layer_background_sprite(back_id_ground1, bg_dungeondark1)
 			layer_background_sprite(back_id_bg1, bg_dungeonskeleton1)
 			break
@@ -160,8 +151,7 @@ function scr_set_background_trigger(argument0)
 		case 17:
 			layer_background_sprite(back_id_bg3, bg_chateau1)
 			layer_background_sprite(back_id_scroll, bg_chateau2)
-			if room == custom_lvl_room
-				layer_hspeed(lay_id_scroll, 1)
+			scrollhsp = 1
 			layer_background_sprite(back_id_bg1, bg_chateau3)
 			break
 	
@@ -182,32 +172,28 @@ function scr_set_background_trigger(argument0)
 	
 		case 21:
 			layer_background_sprite(back_id_scroll, bg_dungeonskeleton2)
-			if room == custom_lvl_room
-				layer_vspeed(lay_id_scroll, -1)
+			scrollvsp = -1
 			layer_background_sprite(back_id_ground1, bg_dungeondark1)
 			layer_background_sprite(back_id_bg1, bg_strongcold6)
 			break
 	
 		case 22:
 			layer_background_sprite(back_id_scroll, bg_dungeonskeleton2)
-			if room == custom_lvl_room
-				layer_vspeed(lay_id_scroll, -1)
+			scrollvsp = -1
 			layer_background_sprite(back_id_bg3, bg_dungeontomato2)
 			layer_background_sprite(back_id_bg1, bg_strongcold1)
 			break
 	
 		case 23:
 			layer_background_sprite(back_id_scroll, bg_strongcold2)
-			if room == custom_lvl_room
-				layer_vspeed(lay_id_scroll, 1)
+			scrollvsp = 1
 			layer_background_sprite(back_id_bg3, bg_strongcold3)
 			layer_background_sprite(back_id_bg1, bg_strongcold4)
 			break
 	
 		case 24:
 			layer_background_sprite(back_id_scroll, bg_strongcold2)
-			if room == custom_lvl_room
-				layer_vspeed(lay_id_scroll, 1)
+			scrollvsp = 1
 			layer_background_sprite(back_id_bg3, bg_strongcold3)
 			layer_background_sprite(back_id_bg1, bg_strongcold5)
 			break
@@ -243,16 +229,14 @@ function scr_set_background_trigger(argument0)
 			layer_background_sprite(back_id_bg4, bg_pizzamartinterior)
 			layer_background_sprite(back_id_bg3, bg_ruinarchitecture1)
 			layer_background_sprite(back_id_scroll, bg_ruinarchitecture2)
-			if room == custom_lvl_room
-				layer_hspeed(lay_id_scroll, 1)
+			scrollhsp = 1
 			layer_background_sprite(back_id_bg1, bg_ruinarchitecture3)
 			break
 	
 		case 32:
 			layer_background_sprite(back_id_bg4, bg_pizzamartinterior)
 			layer_background_sprite(back_id_scroll, bg_dungeon2)
-			if room == custom_lvl_room
-				layer_vspeed(lay_id_scroll, -1)
+			scrollvsp = -1
 			layer_background_sprite(back_id_bg3, bg_dungeon3)
 			layer_background_sprite(back_id_bg1, bg_dungeondark2)
 			break
@@ -308,8 +292,8 @@ function scr_set_background_trigger(argument0)
 			layer_background_sprite(back_id_scroll, bg_secret)
 			if room == custom_lvl_room
 			{
-				layer_hspeed(lay_id_scroll, 1)
-				layer_vspeed(lay_id_scroll, 1)
+				scrollhsp = 1
+				scrollvsp = 1
 			}
 			break
 	
@@ -317,7 +301,7 @@ function scr_set_background_trigger(argument0)
 			layer_background_sprite(back_id_sky2, bg_beach1)
 			layer_background_speed(back_id_sky2, room_speed * 0.1);
 			break
-	
+		
 		case 46:
 			layer_background_sprite(back_id_bg1, bg_beach2)
 			break
@@ -331,8 +315,7 @@ function scr_set_background_trigger(argument0)
 			layer_background_sprite(back_id_scroll, bg_ruincloud)
 		
 			layer_depth(lay_id_scroll, layer_get_depth(lay_id_still1) - 1);
-			if room == custom_lvl_room
-				layer_hspeed(lay_id_scroll, 1)
+			scrollhsp = 1
 			break
 	
 		case 49:
@@ -347,7 +330,7 @@ function scr_set_background_trigger(argument0)
 	var listsize = ds_list_size(global.roombgs);
 	for(var i = 0; i < listsize; i++)
 	{
-		var l = global.roombgs[i];
+		var l = global.roombgs[|i];
 		if l.lay == lay_id_scroll
 		{
 			l.hsp = scrollhsp;
@@ -355,4 +338,3 @@ function scr_set_background_trigger(argument0)
 		}
 	}
 }
-

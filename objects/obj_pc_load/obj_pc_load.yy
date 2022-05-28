@@ -25,7 +25,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "PIZZA CASTLE",
-    "path": "folders/Objects/minigames/PIZZA CASTLE.yy",
+    "path": "folders/Objects/modifs and minigames/PIZZA CASTLE.yy",
   },
   "resourceVersion": "1.0",
   "name": "obj_pc_load",

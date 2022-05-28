@@ -5,6 +5,7 @@
   },
   "solid": false,
   "visible": true,
+  "managed": true,
   "spriteMaskId": {
     "name": "spr_hungrypillar",
     "path": "sprites/spr_hungrypillar/spr_hungrypillar.yy",

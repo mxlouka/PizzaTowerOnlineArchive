@@ -116,7 +116,7 @@ function scr_levelname()
 function endlevel()
 {
 	// give pizzacoin if online mode
-	if check_online()
+	if check_online() && !instance_exists(obj_onlinemenu)
 	{
 		with obj_pizzacoinindicator
 			show = room_speed;

@@ -7,8 +7,8 @@ if scr_checkskin(checkskin.p_anton)
 if audio_is_playing(global.jukebox)
 	exit;
 
-if (lemusic != obj_music_set.music_editor && audio_is_playing(pausedmusic))
-or lemusic == -1
+if (lemusic != obj_music_set.music_editor or !audio_is_playing(lemusic))
+&& audio_exists(lemusic)
 {
 	var mus = obj_music_set.music_editor;
 	if mus == mu_entrance
@@ -27,7 +27,7 @@ or lemusic == -1
 	if global.musicgame == 1
 		musfinal = scr_getmidi(musfinal);
 	
-	audio_stop_all()
+	audio_stop_sound(global.music)
 	scr_sound(musfinal)
 	if continuous
 	{
@@ -37,4 +37,3 @@ or lemusic == -1
 	pausedmusic = musfinal
 	lemusic = mus
 }
-

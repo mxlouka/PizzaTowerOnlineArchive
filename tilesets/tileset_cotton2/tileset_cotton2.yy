@@ -3,8 +3,8 @@
     "debug": {"textureGroupId":"{\"name\":\"tg_sugaryspire\",\"path\":\"texturegroups/tg_sugaryspire\"}",},
   },
   "spriteId": {
-    "name": "spr_cottontile2",
-    "path": "sprites/spr_cottontile2/spr_cottontile2.yy",
+    "name": "tile_cotton2",
+    "path": "sprites/tile_cotton2/tile_cotton2.yy",
   },
   "tileWidth": 32,
   "tileHeight": 32,

@@ -305,56 +305,57 @@ if !variable_global_exists("saveroom")
 	global.baddieroom = ds_list_create();
 	global.followerlist = ds_list_create();
 	global.baddietomb = ds_list_create();
+	
+	global.playerhealth = 100
+	
+	global.toppintotal = 1
+	global.shroomfollow = false
+	global.cheesefollow = false
+	global.tomatofollow = false
+	global.sausagefollow = false
+	global.pineapplefollow = false
+
+	global.key_inv = 0
+	global.keyget = false
+	global.giantkey = false
+	global.collect = 0
+	global.collectN = 0
+	global.treasure = false
+	global.gotshotgun = false
+
+	global.combo = 0
+	global.combotime = 0
+	global.hit = 0
+
+	global.panic = false
+	global.snickchallenge = false
+	global.snickrematch = false
+
+	global.golfhit = 0
+	global.funmode = false
+	global.secretfound = 0
+
+	scr_setcoin(0)
+	global.pizzacoinstart = global.pizzacoin;
+
+	global.heattime = 0;
+	global.style = 0;
+	global.stylethreshold = 0;
+	global.baddiespeed = 1;
+	global.baddiepowerup = false;
+	global.baddierage = false;
+
+	global.showgnomelist = true;
+	global.pizzadelivery = false;
+	global.failcutscene = false;
+	global.pizzasdelivered = 0;
+
+	global.spaceblockswitch = true;
+
+	global.bullet = 3;
+	global.mort = false;
+
+	global.gerome = false;
+	global.stylelock = false;
 }
-global.playerhealth = 100
-
-global.toppintotal = 1
-global.shroomfollow = false
-global.cheesefollow = false
-global.tomatofollow = false
-global.sausagefollow = false
-global.pineapplefollow = false
-
-global.key_inv = 0
-global.keyget = false
-global.giantkey = false
-global.collect = 0
-global.collectN = 0
-global.treasure = false
-global.gotshotgun = false
-
-global.combo = 0
-global.combotime = 0
-global.hit = 0
-
-global.panic = false
-global.snickchallenge = false
-global.snickrematch = false
-
-global.golfhit = 0
-global.funmode = false
-global.secretfound = 0
-
-scr_setcoin(0)
-global.pizzacoinstart = global.pizzacoin;
-
-global.heattime = 0;
-global.style = 0;
-global.stylethreshold = 0;
-global.baddiespeed = 1;
-global.baddiepowerup = false;
-global.baddierage = false;
-
-global.showgnomelist = true;
-global.pizzadelivery = false;
-global.failcutscene = false;
-global.pizzasdelivered = 0;
-
-global.spaceblockswitch = true;
-
-global.bullet = 3;
-global.mort = false;
-
-global.gerome = false;
-global.stylelock = false;
 

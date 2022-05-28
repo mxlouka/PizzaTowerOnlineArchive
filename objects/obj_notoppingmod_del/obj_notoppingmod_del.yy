@@ -26,8 +26,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "pto",
-    "path": "folders/Objects/level_structure/pto.yy",
+    "name": "modifs and minigames",
+    "path": "folders/Objects/modifs and minigames.yy",
   },
   "resourceVersion": "1.0",
   "name": "obj_notoppingmod_del",

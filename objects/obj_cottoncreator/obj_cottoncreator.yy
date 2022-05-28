@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_cottonmaker",
-    "path": "sprites/spr_cottonmaker/spr_cottonmaker.yy",
+    "name": "spr_cottonmaker_NEW",
+    "path": "sprites/spr_cottonmaker_NEW/spr_cottonmaker_NEW.yy",
   },
   "solid": false,
   "visible": true,

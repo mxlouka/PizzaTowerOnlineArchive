@@ -2,6 +2,9 @@ if firesnd != -1 && !audio_is_playing(firesnd)
 	firesnd = -1;
 
 var player = instance_place(x, y - 1, obj_player);
+if !player
+	player = instance_place(x, y - 1, obj_shadowplayer);
+
 if player
 {
 	if player.character == "V" 

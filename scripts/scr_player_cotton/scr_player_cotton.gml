@@ -18,22 +18,29 @@ function scr_player_cotton()
 	}
 	
 	if drilling
+	{
+		movespeed = 1;
 		hsp = move;
+	}
 	else if move != 0
 	{
 		var maxspeed = 6;
 		var acc = 0.5;
 		if key_attack && grounded
 		{
-			maxspeed = 10;
+			maxspeed = 9;
 			acc = 0.25;
 		}
-		
+		if movespeed < 1
+			movespeed = 1;
 		if movespeed < maxspeed or grounded
 			movespeed = Approach(movespeed, maxspeed, acc);
-		hsp = move * movespeed;
 	}
 	else
+		movespeed = 0;
+	hsp = move * movespeed;
+	
+	if scr_solid(x + xscale, y) && (!place_meeting(x + xscale, y, obj_slope) or scr_solidwall(x, y - 2))
 		movespeed = 0;
 	
 	if vsp > 5 && !drilling
@@ -77,7 +84,8 @@ function scr_player_cotton()
 	// attack
 	if sprite_index == spr_cotton_attack
 	{
-		movespeed = 8
+		if movespeed < 8
+			movespeed = 8
 		hsp = movespeed * xscale
 		move = xscale
 		
@@ -134,6 +142,11 @@ function scr_player_cotton()
 			image_index = 0;
 			sprite_index = spr_cotton_idle;
 		}
+		if sprite_index == spr_cotton_land2
+		{
+			image_index = 0;
+			sprite_index = spr_cotton_walk;
+		}
 	}
 	
 	// land
@@ -144,6 +157,11 @@ function scr_player_cotton()
 		instance_create(x, y, obj_landcloud)
 		scr_soundeffect(sfx_step)
 	}
+	
+	if sprite_index == spr_cotton_land && move != 0
+		sprite_index = spr_cotton_land2;
+	if sprite_index == spr_cotton_land2 && move == 0
+		sprite_index = spr_cotton_land;
 	
 	// double jump
 	if !grounded && (sprite_index == spr_cotton_fall or sprite_index == spr_cotton_jump) && key_jump && vsp > 0

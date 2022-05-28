@@ -12,4 +12,3 @@ if cam == noone or other.cam == cam
 		alarm[0] = 1
 	}
 }
-

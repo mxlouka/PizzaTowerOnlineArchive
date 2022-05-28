@@ -8,6 +8,7 @@ if scr_stylecheck(2)
 			sprite_index = spr_crazyrunothereffect_overlay;
 			image_index = other.image_index;
 			image_speed = 0.5;
+			image_xscale = other.image_xscale;
 		}
 	}
 }
