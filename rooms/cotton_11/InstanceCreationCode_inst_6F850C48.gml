@@ -1,2 +1,0 @@
-targetRoom = cotton_10
-
