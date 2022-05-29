@@ -5,6 +5,7 @@
   },
   "solid": false,
   "visible": true,
+  "managed": true,
   "spriteMaskId": {
     "name": "spr_baddiespawner",
     "path": "sprites/spr_baddiespawner/spr_baddiespawner.yy",
