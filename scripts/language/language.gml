@@ -395,21 +395,21 @@ function lang_load(lang)
 		ds_map_add(global.langmap, "roomname.entryway_10", "Operation Crunch Creak Construct");
 		ds_map_add(global.langmap, "roomname.entryway_11", "Beary Careful");
 		
-		ds_map_add(global.langmap, "roomname.cotton_secret1", "Rocky Road");
-		ds_map_add(global.langmap, "roomname.cotton_secret2", "Kick Gum And Chew Gum");
-		ds_map_add(global.langmap, "roomname.cotton_secret3", "Digging For Cotton");
-		ds_map_add(global.langmap, "roomname.cotton_1", "Welcome to Cottontown!");
-		ds_map_add(global.langmap, "roomname.cotton_2", "Scary Monsters Nice Sights");
-		ds_map_add(global.langmap, "roomname.cotton_3", "Boiler Room");
-		ds_map_add(global.langmap, "roomname.cotton_4", "Cakewalk");
-		ds_map_add(global.langmap, "roomname.cotton_5", "Steamy Cotton Candy");
-		ds_map_add(global.langmap, "roomname.cotton_6", "Skyhigh");
-		ds_map_add(global.langmap, "roomname.cotton_7", "Grand Gateau");
-		ds_map_add(global.langmap, "roomname.cotton_8", "A Clockwork Worm");
-		ds_map_add(global.langmap, "roomname.cotton_9", "Clocks And Candies");
-		ds_map_add(global.langmap, "roomname.cotton_10", "Race Around The Clock");
-		ds_map_add(global.langmap, "roomname.cotton_11", "Froghop");
-		ds_map_add(global.langmap, "roomname.cotton_12", "Pillars Break Room");
+		ds_map_add(global.langmap, "roomname.cotton_secret1", "");
+		ds_map_add(global.langmap, "roomname.cotton_secret2", "");
+		ds_map_add(global.langmap, "roomname.cotton_secret3", "");
+		ds_map_add(global.langmap, "roomname.cotton_1", "");
+		ds_map_add(global.langmap, "roomname.cotton_2", "");
+		ds_map_add(global.langmap, "roomname.cotton_3", "");
+		ds_map_add(global.langmap, "roomname.cotton_4", "");
+		ds_map_add(global.langmap, "roomname.cotton_5", "");
+		ds_map_add(global.langmap, "roomname.cotton_6", "");
+		ds_map_add(global.langmap, "roomname.cotton_7", "");
+		ds_map_add(global.langmap, "roomname.cotton_8", "");
+		ds_map_add(global.langmap, "roomname.cotton_9", "");
+		ds_map_add(global.langmap, "roomname.cotton_10", "");
+		ds_map_add(global.langmap, "roomname.cotton_11", "");
+		ds_map_add(global.langmap, "roomname.cotton_12", "");
 		
 		ds_map_add(global.langmap, "roomname.sanctum_1", "Temple of the Pizza Tower");
 		ds_map_add(global.langmap, "roomname.sanctum_2", "Ruinous Road");

@@ -7,7 +7,10 @@ if ds_list_find_index(global.saveroom, ID) == -1
 	with obj_rockblock
 	{
 		if point_distance(x + sprite_width / 2, y + sprite_height / 2, other.x + other.sprite_width / 2, other.y + other.sprite_height / 2) <= sprite_width
-			alarm[1] = 2;
+		{
+			destroy = true;
+			alarm[1] = 8;
+		}
 	}
 	
 	repeat 7
