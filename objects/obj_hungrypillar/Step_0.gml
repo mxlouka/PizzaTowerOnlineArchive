@@ -68,3 +68,4 @@ if global.musicvolume > 0 && global.jukebox == -1
 		}
 	}
 }
+

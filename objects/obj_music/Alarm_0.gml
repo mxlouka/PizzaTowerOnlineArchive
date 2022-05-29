@@ -7,8 +7,7 @@ if scr_checkskin(checkskin.p_anton)
 if audio_is_playing(global.jukebox)
 	exit;
 
-if (lemusic != obj_music_set.music_editor or !audio_is_playing(lemusic))
-&& audio_exists(lemusic)
+if (lemusic != obj_music_set.music_editor or (!audio_is_playing(lemusic) && audio_exists(lemusic)))
 {
 	var mus = obj_music_set.music_editor;
 	if mus == mu_entrance

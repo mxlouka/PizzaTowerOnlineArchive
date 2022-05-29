@@ -8,3 +8,14 @@ index = -1;
 xx = x;
 yy = y;
 sign_id = 0;
+
+// snap to ground
+for(var i = 0; i < 20; i++)
+{
+	if scr_solid(x, y + i + 1)
+	{
+		y += i;
+		break;
+	}
+}
+

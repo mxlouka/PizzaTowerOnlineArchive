@@ -96,7 +96,7 @@ function scr_secretbigdebris(debris = true, blend = c_white, sprite = -1)
 		{
 			repeat 4
 			{
-				with instance_create(xx + 16, yy + 16, obj_secretdebris)
+				with instance_create(x + sprite_width / 2, y + sprite_height / 2, obj_secretdebris)
 				{
 					blendsprite = letile.sprite_index;
 					tile_dataid = letile.image_index;

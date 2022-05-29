@@ -11,6 +11,7 @@ depth = -1
 
 s = -1;
 mode = 0;
+blendsprite = -1;
 tile_dataid = 0;
 if global.secretdebris && room != custom_lvl_room
 {
