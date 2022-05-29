@@ -216,7 +216,7 @@ function scr_collide_destructibles()
 		
 		// Destroy tnt block
 		var block = instance_place(x + hsp, y, obj_tntblock);
-		if block && ((state == states.firemouth && global.gameplay != 0) or state == states.handstandjump)
+		if block && ((state == states.firemouth && global.gameplay != 0) or (state == states.handstandjump && global.gameplay == 0))
 		{
 			with block
 			{

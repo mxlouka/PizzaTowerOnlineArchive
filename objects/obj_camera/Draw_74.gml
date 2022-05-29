@@ -8,7 +8,7 @@ if global.panic && global.panicmelt
 	appa = max(lerp(1.0, 1.0 - MAX_BLUR, global.wave / global.maxwave), 0.01);
 
 var shader = noone;
-if global.panic && global.minutes <= 0 && global.seconds <= 0 && check_sugary()
+if check_sugary() && ((global.panic && global.minutes <= 0 && global.seconds <= 0) or global.failedmod)
 	shader = shd_greyscale;
 else if !instance_exists(obj_endlevelfade)
 	shaderfade = 0;
