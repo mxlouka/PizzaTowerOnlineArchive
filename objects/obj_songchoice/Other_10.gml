@@ -72,6 +72,7 @@ switch sel[0]
 	
 	case 1:
 		selarray = [
+			[mu_credits, "Credits", "loypoll"],
 			[mu_snickescape, "06 Minutes Til' Boom", "[c]ness"],
 			[mu_snickentrance, "Freefallin'", "Frostix"],
 			[mu_hub2, "Quintessence", "Frostix"],
@@ -203,7 +204,7 @@ switch sel[0]
 			[mu_snickrematch_pc, "Snick's Rematch", "loypoll"],
 			[mu_snickrematchend_pc, "Peppino's\nLeaning Nightmare", "loypoll"],
 			
-			[mu_antonlevel_pc, "Ballbuster Blues", "loypoll"],
+			[mu_antonlevel_pc, "Dynamite Man", "loypoll"],
 			[mu_antonsecret_pc, "Bonus Blitz", "loypoll"],
 			[mu_antonpunchball_pc, "Punch Bowl", "loypoll"],
 			[mu_antonescape_pc, "VS! Sewer Slam","loypoll", 5],
@@ -236,10 +237,12 @@ switch sel[0]
 				[mu_waffle_pc, "Down - To - Noise", "loypoll"],
 				[mu_cotton_pc, "Steamy Cotton Candy", "loypoll"],
 				[mu_cotton2_pc, "Around The Gateau's Gears", "loypoll"],
+				[mu_swamp_pc, "Lost Chocolate", "loypoll"],
 				[mu_mines_pc, "Mineshaft Depths", "loypoll"],
 				[mu_mines2_pc, "Cobalt Catastrophe", "loypoll"],
 				[mu_cottonsecret_pc, "Lookie! You've found\na steamy surprise.", "loypoll"],
 				[mu_wafflesecret_pc, "there's a secret\ninside my breakfast?", "loypoll"],
+				[mu_swampsecret_pc, "man's lost secret.", "loypoll"],
 				[mu_minessecret_pc, "a jawbreaking secret.", "loypoll"],
 			);
 		}
@@ -255,10 +258,12 @@ switch sel[0]
 			[mu_gummyharry, "Gummy Harry", "???"],
 			[mu_cotton, "Steamy Cotton Candy", "RodMod"],
 			[mu_cotton2, "Around The Gateau's Gears", "RodMod"],
+			[mu_swamp, "Lost Chocolate", "Jessie Productions"],
 			[mu_mines, "Mineshaft Depths", "RodMod"],
 			[mu_mines2, "Cobalt Catastrophe", "RodMod"],
 			[mu_cottonsecret, "Lookie! You've found\na steamy surprise.", "RodMod"],
 			[mu_wafflesecret, "there's a secret\ninside my breakfast?", "RodMod"],
+			[mu_swampsecret, "man's lost secret.", "RodMod"],
 			[mu_minessecret, "a jawbreaking secret.", "RodMod"],
 		]
 		break;

@@ -14,8 +14,8 @@
     "name": "audiogroup_default",
     "path": "audiogroups/audiogroup_default",
   },
-  "soundFile": "mu_antonlevel_pc.wav",
-  "duration": 57.6,
+  "soundFile": "mu_antonlevel_pc.ogg",
+  "duration": 130.909088,
   "parent": {
     "name": "antonball",
     "path": "folders/Sounds/PTO extra/pizza castle/antonball.yy",
