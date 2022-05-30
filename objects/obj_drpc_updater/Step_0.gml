@@ -30,9 +30,6 @@ if running
 				case "SN":
 					rousr_dissonance_set_small_image("char_sn", "Pizzano");
 					break;
-				case "CT":
-					rousr_dissonance_set_small_image("char_ct", "Cheemstoon");
-					break;
 				case "PUFFER":
 					rousr_dissonance_set_small_image("char_puffer", "Pufferfish");
 					break;

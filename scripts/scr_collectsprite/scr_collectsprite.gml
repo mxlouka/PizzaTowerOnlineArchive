@@ -38,9 +38,6 @@ function scr_collectsprite(single = false, escape = false)
 			
 				
 		}
-		// cheemstoon
-		else if char == "CT"
-			toppings = [spr_collect1CT, spr_collect2CT, spr_collect3CT, spr_collect4CT, spr_collect5CT];
 		// default / peppino
 		else
 		{

@@ -199,7 +199,6 @@ if global.gameplay == 0
 			case "SN": character = "PIZZANO"; break;
 			case "M": character = "PEPPERMAN"; break;
 			case "PP": character = "PISSINO"; break;
-			case "CT": character = "CHEEMSTOON"; break;
 			case "PUFFER": character = "PUFFERFISH"; break;
 			
 			default: character = "UNKNOWN"; break;
@@ -335,7 +334,7 @@ else
 			{
 				idlespr = spr_tv_idle;
 			
-				if pchar != "P" && pchar != "N" && pchar != "SP" && pchar != "SN" && pchar != "PP" && pchar != "S" && pchar != "CT"
+				if pchar != "P" && pchar != "N" && pchar != "SP" && pchar != "SN" && pchar != "PP" && pchar != "S"
 					idlespr = spr_tv_placeholder;
 				else
 				{
@@ -612,11 +611,6 @@ else
 						{
 							animset = spr_tv_placeholderPP;
 							sprite_index = spr_tv_placeholderPP;
-						}
-						else if pchar == "CT"
-						{
-							animset = spr_tv_placeholderCT;
-							sprite_index = spr_tv_placeholderCT;
 						}
 						else
 						{

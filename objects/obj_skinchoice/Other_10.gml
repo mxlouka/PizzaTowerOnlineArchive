@@ -155,7 +155,7 @@ switch sel[1]
 				["FAMILIAR GREMLIN", "Something's wrong."],
 				["SAGE", "If it ever happens I will shit bricks."],
 				["DOOM", "It's the rip and tearing patisje!"],
-				["ANTON", "It's ball-busting time."],
+				["ANNIE", "It's ball-busting time."],
 				["SCOOTER", "I- ...wh- what?"],
 				["BLURPLE", "Also known as test."],
 				["PAINTLAD", "Very original name there."],
@@ -246,6 +246,7 @@ switch sel[1]
 		}
 		break;
 	
+	/*
 	case "CT":
 		spr_palette = spr_cheemspalette;
 		spr_idle = spr_playerCT_idle;
@@ -258,6 +259,7 @@ switch sel[1]
 			["SQUIDWARD", "description here"],
 		]
 		break;
+	*/
 	
 	case "PUFFER":
 		spr_palette = spr_pufferpalette;

@@ -159,14 +159,6 @@ if (pause or pausefad == 2 or pausefad == 4)
 					var _spr_palette = spr_snickpalette;
 					break;
 				
-				case "CT":
-					var _spr_resume = _ppanic ? spr_playerCT_panic : spr_playerCT_idle;
-					var _spr_options = [spr_playerCT_taunt, 5];
-					var _spr_retry = _ppanic ? spr_playerCT_crazyrun : spr_playerCT_mach2;
-					var _spr_exit = [spr_playerCT_entergate, 22];
-					var _spr_palette = spr_cheemspalette;
-					break;
-				
 				case "PUFFER":
 					var _spr_resume = spr_pufferfish_idle;
 					var _spr_options = spr_pufferfish_idle;

@@ -8,6 +8,5 @@ switch char
 	case "M": image_index = 4; break;
 	case "PP": image_index = 5; break;
 	case "SN": image_index = 6; break;
-	case "CT": image_index = 7; break;
 }
 

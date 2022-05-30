@@ -5,8 +5,10 @@
   },
   "solid": false,
   "visible": true,
-  "managed": true,
-  "spriteMaskId": null,
+  "spriteMaskId": {
+    "name": "spr_bigbreakableescape",
+    "path": "sprites/spr_bigbreakableescape/spr_bigbreakableescape.yy",
+  },
   "persistent": false,
   "parentObjectId": {
     "name": "obj_bigdestructibles",

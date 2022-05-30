@@ -42,28 +42,11 @@ if key_down2 && sel[1] != lastchar
 			sel[1] = "PP"; // to pissino
 			break;
 		case "PP":
-			if sugaryspire
-				sel[1] = "SP"; // to pizzelle
-			else
-				sel[1] = "CT"; // to cheemstoon
+			sel[1] = "SP"; // to pizzelle
 			break;
 		case "SP":
-			sel[1] = "SN"; // to pizzano
-			break;
-		case "SN":
-			sel[1] = "CT"; // to cheemstoon
-			break;
-		case "CT":
 			sel[1] = "PUFFER"; // to beloved
 			break;
-		
-		/*
-			sel[1] = "M";
-			break;
-		case "M":
-			sel[1] = "SP";
-			break;
-		*/
 	}
 	event_user(0);
 }
@@ -90,17 +73,8 @@ else if key_up2 && sel[1] != "P"
 		case "SP":
 			sel[1] = "PP";
 			break;
-		case "SN": // from pizzano
-			sel[1] = "SP"; // to pizzelle
-			break;
-		case "CT": // from cheemstoon
-			if sugaryspire
-				sel[1] = "SN"; // to pizzano
-			else
-				sel[1] = "PP"; // to pissino
-			break;
 		case "PUFFER": // from beloved
-			sel[1] = "CT"; // to cheemstoon
+			sel[1] = "SP"; // to pizzelle
 			break;
 	}
 	event_user(0);

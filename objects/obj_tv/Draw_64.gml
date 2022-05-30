@@ -155,7 +155,7 @@ else
 				draw_sprite_ext(tvspr, tvimg, 833 + offset_x, 107 + offset_y + hud_posY, 1, 1, 0, c_white, alpha);
 				pal_swap_reset();
 				
-				if !sugary && !tvoff && !(instance_exists(obj_player) && (obj_player.character == "PP" or obj_player.character == "CT"))
+				if !sugary && !tvoff && !(instance_exists(obj_player) && obj_player.character == "PP")
 					draw_sprite_ext(spr_tv_frame, 0, 833 + offset_x, 107 + offset_y + hud_posY, 1, 1, 0, c_white, alpha);
 				
 				if sugary && !tvoff

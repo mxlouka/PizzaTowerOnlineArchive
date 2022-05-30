@@ -74,9 +74,6 @@ if keyboard_check_pressed(global.__chat_submitkey) && global.__chat_typing
 						case "PP":
 							avatar = "https://cdn.discordapp.com/app-assets/828220751810265098/954737210811383861.png";
 							break;
-						case "CT":
-							avatar = "https://cdn.discordapp.com/app-assets/828220751810265098/962396866505502771.png";
-							break;
 						case "PUFFER":
 							avatar = "https://cdn.discordapp.com/app-assets/828220751810265098/962397483084955699.png";
 							break;
