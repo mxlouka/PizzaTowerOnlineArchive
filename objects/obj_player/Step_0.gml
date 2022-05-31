@@ -494,7 +494,7 @@ if flash && alarm[0] <= 0
 if state != states.Sjump
 	sjumpvsp = -12;
 
-if state != states.freefall
+if state != states.freefall && state != states.cotton
 	freefallvsp = 15;
 
 if state != states.mach3 && state != states.machslide
@@ -516,7 +516,7 @@ if state != states.normal
 }
 
 // reset momentum
-if state != states.mach1 && state != states.jump && state != states.hookshot && state != states.handstandjump && state != states.normal && state != states.mach2 && state != states.mach3 && state != states.freefallprep && state != states.knightpep && state != states.shotgun && state != states.knightpepslopes && state != states.faceplant
+if state != states.mach1 && state != states.jump && state != states.hookshot && state != states.handstandjump && state != states.normal && state != states.mach2 && state != states.mach3 && state != states.freefallprep && state != states.knightpep && state != states.shotgun && state != states.knightpepslopes && state != states.faceplant && state != states.cotton
 	momentum = false
 
 // reset super side jump speed?
@@ -667,7 +667,7 @@ else
 {
 	if !scr_solid_player(x, y)
 	{
-		if state != states.bump && state != states.ghost && sprite_index != spr_player_barrelslipnslide && sprite_index != spr_barrelroll  && sprite_index != spr_bombpepintro && sprite_index != spr_knightpepthunder && state != states.tumble && state != states.stunned   && state != states.crouch && state != states.boxxedpep && (state != states.pistol or sprite_index != spr_player_crouchshoot) && state != states.Sjumpprep && state != states.crouchslide && state != states.chainsaw && state != states.machroll && state != states.hurt && state != states.crouchjump && sprite_index != spr_player_breakdancesuper
+		if state != states.bump && state != states.ghost && sprite_index != spr_player_barrelslipnslide && sprite_index != spr_barrelroll  && sprite_index != spr_bombpepintro && sprite_index != spr_knightpepthunder && state != states.tumble && state != states.stunned   && state != states.crouch && state != states.boxxedpep && (state != states.pistol or sprite_index != spr_player_crouchshoot) && state != states.Sjumpprep && state != states.crouchslide && state != states.chainsaw && state != states.machroll && state != states.hurt && state != states.crouchjump && sprite_index != spr_player_breakdancesuper && sprite_index != spr_cotton_roll && sprite_index != spr_cotton_rollmax
 		{
 			mask_index = spr_player_mask;
 			if scr_solid_player(x, y)

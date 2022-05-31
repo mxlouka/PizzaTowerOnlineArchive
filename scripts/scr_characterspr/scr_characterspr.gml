@@ -293,6 +293,8 @@ function scr_characterspr(char = character)
 				spr_cotton_drill = spr_playerSP_cotton_drill;
 				spr_cotton_doublejump = spr_playerSP_cotton_doublejump;
 				spr_cotton_doublefall = spr_playerSP_cotton_doublefall;
+				spr_cotton_roll = spr_playerSP_cotton_roll;
+				spr_cotton_rollmax = spr_playerSP_cotton_rollmax;
 				
 				spr_palette = spr_peppalette
 				break;
@@ -1347,14 +1349,19 @@ function scr_characterspr(char = character)
 				
 				spr_cotton_idle = spr_playerSP_cotton_idle;
 				spr_cotton_walk = spr_playerSP_cotton_walk;
+				spr_cotton_run = spr_playerSP_cotton_run;
+				spr_cotton_maxrun = spr_playerSP_cotton_maxrun;
 				spr_cotton_slam = spr_playerSP_cotton_slam;
 				spr_cotton_jump = spr_playerSP_cotton_jump;
 				spr_cotton_fall = spr_playerSP_cotton_fall;
 				spr_cotton_land = spr_playerSP_cotton_land;
+				spr_cotton_land2 = spr_playerSP_cotton_land2;
 				spr_cotton_attack = spr_playerSP_cotton_attack;
 				spr_cotton_drill = spr_playerSP_cotton_drill;
 				spr_cotton_doublejump = spr_playerSP_cotton_doublejump;
 				spr_cotton_doublefall = spr_playerSP_cotton_doublefall;
+				spr_cotton_roll = spr_playerSP_cotton_roll;
+				spr_cotton_rollmax = spr_playerSP_cotton_rollmax;
 				
 				spr_palette = spr_pizzpalette;
 				
