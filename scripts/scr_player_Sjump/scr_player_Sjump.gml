@@ -41,7 +41,7 @@ function scr_player_Sjump()
 	
 	//Back to other states
 	//Freefallland
-	if scr_solid(x, y - 1) && !place_meeting(x, y - 1, obj_destructibles) && ((springsjump && !place_meeting(x, y - 1, obj_metalblock)) or !springsjump)
+	if scr_solid(x, y - 1) && !place_meeting(x, y - 1, obj_destructibles) && !(place_meeting(x, y - 1, obj_metalblock) && (springsjump or check_sugary()))
 	{
 		// attempt to push player slightly
 		var closest = 0;

@@ -1,6 +1,6 @@
 //Throw Collision
 if instance_exists(baddieID) && instance_exists(other.baddieID)
-&& baddieID.state != states.grabbed && baddieID.object_index != obj_pizzaballOLD
+&& baddieID.state != states.grabbed && baddieID.state != states.hit && baddieID.object_index != obj_pizzaballOLD
 {
 	with other
 	{
@@ -16,3 +16,4 @@ if instance_exists(baddieID) && instance_exists(other.baddieID)
 		}
 	}
 }
+

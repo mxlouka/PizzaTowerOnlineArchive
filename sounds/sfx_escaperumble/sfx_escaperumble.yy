@@ -15,7 +15,7 @@
     "path": "audiogroups/audiogroup_default",
   },
   "soundFile": "sfx_escaperumble",
-  "duration": 21.605,
+  "duration": 21.6,
   "parent": {
     "name": "sfx",
     "path": "folders/Sounds/sfx.yy",

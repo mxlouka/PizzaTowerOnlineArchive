@@ -125,6 +125,7 @@ function endlevel()
 	}
 	
 	// stop the music
+	audio_stop_sound(sfx_escaperumble);
 	if !audio_is_playing(global.jukebox)
 		audio_stop_sound(global.music)
 	

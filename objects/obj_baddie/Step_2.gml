@@ -81,9 +81,9 @@ if global.gameplay != 0
 }
 
 // provoke
-var targetplayer = obj_player;
+var targetplayer = instance_nearest(x, y, obj_player);
 if targetplayer && targetplayer.x > x - 400 && targetplayer.x < x + 400 && y <= targetplayer.y + 20 && y >= targetplayer.y - 20
-&& targetplayer.state == states.backbreaker && state != states.pizzagoblinthrow
+&& targetplayer.state == states.backbreaker && state != states.pizzagoblinthrow && targetplayer.taunttimer < targetplayer.taunt_to_parry_max
 {
 	stunned = 0;
 	bombreset = 0;

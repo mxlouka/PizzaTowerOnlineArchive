@@ -53,32 +53,8 @@ function scr_player_climbwall()
 				state = states.normal
 				movespeed = 0
 			}
-
-			//Hit head
-			if scr_solidwall(x, y - 1) && !place_meeting(x, y - 1, obj_destructibles) or place_meeting(x, y - 1, obj_slope) //&& !place_meeting(x + sign(hsp), y, obj_slope) && !place_meeting(x - sign(hsp), y, obj_slope)
-			{
-				image_speed = 0.6;
-				with obj_camera
-				{
-					shake_mag = 3;
-					shake_mag_acc = 4 / room_speed;
-				}
-				
-				if character == "SP"
-				{
-					sprite_index = spr_playerSP_hitceiling
-					if global.gameplay != 0
-						sprite_index = spr_playerSP_hitceiling_NEW
-				}
-				else
-					sprite_index = spr_superjumpland
-				
-				scr_soundeffect(sfx_groundpound)
-				image_index = 0
-				state = states.Sjumpland
-				machhitAnim = false
-			}
 			
+			// back to ground
 			if !scr_solid(x + xscale, y) && state == states.climbwall
 			{
 				var yplus = 0;
@@ -109,6 +85,31 @@ function scr_player_climbwall()
 				}
 				vsp = -grav
 				hsp = movespeed * xscale
+			}
+			
+			//Hit head
+			if (scr_solidwall(x, y - 1) && !place_meeting(x, y - 1, obj_destructibles) or place_meeting(x, y - 1, obj_slope)) && state == states.climbwall
+			{
+				image_speed = 0.6;
+				with obj_camera
+				{
+					shake_mag = 3;
+					shake_mag_acc = 4 / room_speed;
+				}
+				
+				if character == "SP"
+				{
+					sprite_index = spr_playerSP_hitceiling
+					if global.gameplay != 0
+						sprite_index = spr_playerSP_hitceiling_NEW
+				}
+				else
+					sprite_index = spr_superjumpland
+				
+				scr_soundeffect(sfx_groundpound)
+				image_index = 0
+				state = states.Sjumpland
+				machhitAnim = false
 			}
 			
 			//Jump

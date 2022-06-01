@@ -1,6 +1,10 @@
 if global.musicvolume <= 0
 	exit;
 
+// stop rumbling
+if !global.panic
+	audio_stop_sound(sfx_escaperumble);
+
 // music loop points
 if audio_is_playing(global.music)
 {
