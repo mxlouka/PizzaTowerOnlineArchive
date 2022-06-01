@@ -214,8 +214,9 @@ function scr_player_cotton()
 		sprite_index = spr_cotton_land;
 	
 	// double jump
-	if !grounded && (sprite_index == spr_cotton_fall or sprite_index == spr_cotton_jump) && key_jump && vsp > 0
+	if !grounded && !doublejump && key_jump && vsp > 0
 	{
+		doublejump = true
 		jumpstop = false
 		vsp = -10
 		image_index = 0
