@@ -193,19 +193,14 @@ if grabbed == true
 		image_xscale = -playerid.xscale
 			
 		thrown = true
-		x = player.x
+		x = playerid.x
 		vsp = 0
-		y = player.y
+		y = playerid.y
 		
-		state = states.stun
 		hsp = -image_xscale * 25
 		
-		increase_combo();
 		repeat 3
-		{
 			instance_create(x, y, obj_slapstar)
-			create_particle(x, y, particles.baddiegibs)
-		}
 		flash = true
 		
 		with obj_camera

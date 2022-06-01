@@ -255,7 +255,7 @@ switch sel[0]
 			[mu_sugaryhub, "Welcome Back!", "101Undertale"],
 			[mu_tutorial_ss, "Ragtime Ice Cream Gal", "Jessie Productions?"],
 			[mu_waffle, "Down - To - Noise", "RodMod"],
-			[mu_gummyharry, "Gummy Harry", "???"],
+			[mu_gummyharry, "Pagotophobia", "RodMod"],
 			[mu_cotton, "Steamy Cotton Candy", "RodMod"],
 			[mu_cotton2, "Around The Gateau's Gears", "RodMod"],
 			[mu_swamp, "Lost Chocolate", "Jessie Productions"],

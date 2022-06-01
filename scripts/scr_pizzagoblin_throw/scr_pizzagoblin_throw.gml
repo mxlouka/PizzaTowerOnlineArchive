@@ -22,7 +22,7 @@ function scr_pizzagoblin_throw()
 		global.throw_frame[obj_miniufo] = 3
 		global.throw_frame[obj_miniufo_grounded] = 11
 		global.throw_frame[obj_thug_blue] = 9
-		global.throw_frame[obj_thug_green] = 9
+		global.throw_frame[obj_thug_green] = 8
 		
 		global.throw_frame[obj_cottonwitch] = 7
 		
@@ -284,14 +284,13 @@ function scr_pizzagoblin_throw()
 					break
 				
 				case obj_thug_green:
-					/*
-					with instance_create(x, y, obj_junkenemy)
+					with instance_create(x, y - 62, obj_junkenemy)
 					{
 						image_xscale = other.image_xscale
+						image_index = other.trashimg
 						hsp = other.image_xscale * 7
-						vsp = -8
+						vsp = -6
 					}
-					*/
 					break
 			}
 		}

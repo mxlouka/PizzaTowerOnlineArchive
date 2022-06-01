@@ -1,7 +1,7 @@
 event_inherited();
 
 var player = instance_nearest(x, y, obj_player);
-if global.gameplay == 0 && instance_exists(player) && (state == states.walk or state == states.charge)
+if global.gameplay == 0 && instance_exists(player) && (state == states.walk or state == states.chase)
 {
 	if player.x > x - 400 && player.x < x + 400
 	&& player.y <= y + 60 && player.y >= y - 60

@@ -7,12 +7,12 @@ if state == states.walk
 {
 	if !chasing
 	{
-		if redthug
+		if targetplayer.x > x - 400 && targetplayer.x < x + 400
+		&& targetplayer.y <= y + 20 && targetplayer.y >= y - 20
 		{
-			if targetplayer.x > x - 400 && targetplayer.x < x + 400
-			&& targetplayer.y <= y + 20 && targetplayer.y >= y - 20
+			chasing = true;
+			if redthug
 			{
-				chasing = true;
 				state = states.charge;
 				attack_count = attack_max;
 				
@@ -22,6 +22,12 @@ if state == states.walk
 				image_index = 0;
 				
 				bombreset = attackreset;
+			}
+			else
+			{
+				state = states.chase;
+				sprite_index = walkspr;
+				image_index = 0;
 			}
 		}
 	}
