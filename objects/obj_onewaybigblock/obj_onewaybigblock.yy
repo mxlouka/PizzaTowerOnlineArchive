@@ -5,7 +5,6 @@
   },
   "solid": false,
   "visible": true,
-  "managed": true,
   "spriteMaskId": {
     "name": "spr_onewaybigblock",
     "path": "sprites/spr_onewaybigblock/spr_onewaybigblock.yy",

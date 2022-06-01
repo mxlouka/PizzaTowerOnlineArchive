@@ -5480,6 +5480,7 @@
     {"id":{"name":"spr_toppinchoco","path":"sprites/spr_toppinchoco/spr_toppinchoco.yy",},"order":3,},
     {"id":{"name":"obj_signprops","path":"objects/obj_signprops/obj_signprops.yy",},"order":16,},
     {"id":{"name":"obj_secretprops","path":"objects/obj_secretprops/obj_secretprops.yy",},"order":17,},
+    {"id":{"name":"cotton_secret1","path":"rooms/cotton_secret1/cotton_secret1.yy",},"order":7,},
     {"id":{"name":"obj_beachprops1","path":"objects/obj_beachprops1/obj_beachprops1.yy",},"order":18,},
     {"id":{"name":"obj_beachprops2","path":"objects/obj_beachprops2/obj_beachprops2.yy",},"order":19,},
     {"id":{"name":"obj_beachprops3","path":"objects/obj_beachprops3/obj_beachprops3.yy",},"order":20,},
@@ -6696,6 +6697,7 @@
     {"roomId":{"name":"cotton_2","path":"rooms/cotton_2/cotton_2.yy",},},
     {"roomId":{"name":"cotton_template2","path":"rooms/cotton_template2/cotton_template2.yy",},},
     {"roomId":{"name":"cotton_3","path":"rooms/cotton_3/cotton_3.yy",},},
+    {"roomId":{"name":"cotton_secret1","path":"rooms/cotton_secret1/cotton_secret1.yy",},},
   ],
   "Folders": [
     {"folderPath":"folders/Sprites.yy","order":0,"resourceVersion":"1.0","name":"Sprites","tags":[],"resourceType":"GMFolder",},

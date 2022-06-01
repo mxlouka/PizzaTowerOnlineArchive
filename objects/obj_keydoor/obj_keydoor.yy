@@ -5,7 +5,6 @@
   },
   "solid": false,
   "visible": true,
-  "managed": true,
   "spriteMaskId": {
     "name": "spr_doorvisited",
     "path": "sprites/spr_doorvisited/spr_doorvisited.yy",
