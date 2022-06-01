@@ -199,6 +199,7 @@
     {"id":{"name":"spr_sausagemannocigar_recovery","path":"sprites/spr_sausagemannocigar_recovery/spr_sausagemannocigar_recovery.yy",},"order":10,},
     {"id":{"name":"spr_sausageman_recovery","path":"sprites/spr_sausageman_recovery/spr_sausageman_recovery.yy",},"order":11,},
     {"id":{"name":"tileset_molasses3","path":"tilesets/tileset_molasses3/tileset_molasses3.yy",},"order":1,},
+    {"id":{"name":"cotton_5","path":"rooms/cotton_5/cotton_5.yy",},"order":9,},
     {"id":{"name":"spr_snick_boxxedjump","path":"sprites/spr_snick_boxxedjump/spr_snick_boxxedjump.yy",},"order":73,},
     {"id":{"name":"spr_sausagemannocigar_rolling","path":"sprites/spr_sausagemannocigar_rolling/spr_sausagemannocigar_rolling.yy",},"order":12,},
     {"id":{"name":"spr_sausageman_rolling","path":"sprites/spr_sausageman_rolling/spr_sausageman_rolling.yy",},"order":13,},
@@ -6700,6 +6701,7 @@
     {"roomId":{"name":"cotton_3","path":"rooms/cotton_3/cotton_3.yy",},},
     {"roomId":{"name":"cotton_secret1","path":"rooms/cotton_secret1/cotton_secret1.yy",},},
     {"roomId":{"name":"cotton_4","path":"rooms/cotton_4/cotton_4.yy",},},
+    {"roomId":{"name":"cotton_5","path":"rooms/cotton_5/cotton_5.yy",},},
   ],
   "Folders": [
     {"folderPath":"folders/Sprites.yy","order":0,"resourceVersion":"1.0","name":"Sprites","tags":[],"resourceType":"GMFolder",},

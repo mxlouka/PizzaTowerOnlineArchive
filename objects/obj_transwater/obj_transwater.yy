@@ -5,7 +5,6 @@
   },
   "solid": false,
   "visible": true,
-  "managed": true,
   "spriteMaskId": {
     "name": "spr_watertransparent",
     "path": "sprites/spr_watertransparent/spr_watertransparent.yy",
