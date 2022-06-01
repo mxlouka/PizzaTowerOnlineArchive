@@ -2075,6 +2075,7 @@
     {"id":{"name":"spr_pizzaslice_re","path":"sprites/spr_pizzaslice_re/spr_pizzaslice_re.yy",},"order":26,},
     {"id":{"name":"spr_mortprojectile","path":"sprites/spr_mortprojectile/spr_mortprojectile.yy",},"order":4,},
     {"id":{"name":"spr_spaghetti","path":"sprites/spr_spaghetti/spr_spaghetti.yy",},"order":27,},
+    {"id":{"name":"cotton_4","path":"rooms/cotton_4/cotton_4.yy",},"order":8,},
     {"id":{"name":"spr_shotgun","path":"sprites/spr_shotgun/spr_shotgun.yy",},"order":28,},
     {"id":{"name":"spr_minigun","path":"sprites/spr_minigun/spr_minigun.yy",},"order":30,},
     {"id":{"name":"spr_canecollect","path":"sprites/spr_canecollect/spr_canecollect.yy",},"order":18,},
@@ -6698,6 +6699,7 @@
     {"roomId":{"name":"cotton_template2","path":"rooms/cotton_template2/cotton_template2.yy",},},
     {"roomId":{"name":"cotton_3","path":"rooms/cotton_3/cotton_3.yy",},},
     {"roomId":{"name":"cotton_secret1","path":"rooms/cotton_secret1/cotton_secret1.yy",},},
+    {"roomId":{"name":"cotton_4","path":"rooms/cotton_4/cotton_4.yy",},},
   ],
   "Folders": [
     {"folderPath":"folders/Sprites.yy","order":0,"resourceVersion":"1.0","name":"Sprites","tags":[],"resourceType":"GMFolder",},

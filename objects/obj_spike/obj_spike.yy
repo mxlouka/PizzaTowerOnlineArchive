@@ -5,7 +5,6 @@
   },
   "solid": false,
   "visible": true,
-  "managed": true,
   "spriteMaskId": {
     "name": "spr_plug",
     "path": "sprites/spr_plug/spr_plug.yy",

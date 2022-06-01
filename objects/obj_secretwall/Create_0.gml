@@ -1,4 +1,4 @@
-mylayer = -1;
+mylayers = [];
 alpha = 1;
 uniform = shader_get_uniform(shd_layeralpha, "alpha");
 oneway = false;

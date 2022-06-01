@@ -1,8 +1,12 @@
-mylayer = layer_get_id("Tiles_Secret");
-if layer_exists(mylayer)
+mylayers = ["Tiles_Secret", "Tiles_Secret1", "Tiles_Secret2"];
+for(var i = 0; i < array_length(mylayers); i++)
 {
-	layer_depth(mylayer, 90);
-	layer_shader(mylayer, shd_layeralpha);
+	var mylayer = mylayers[i];
+	if layer_exists(mylayer)
+	{
+		layer_depth(mylayer, 90 - i);
+		layer_shader(mylayer, shd_layeralpha);
+	}
 }
 
 if place_meeting(x, y, obj_player)
