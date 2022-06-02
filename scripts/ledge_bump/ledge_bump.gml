@@ -7,8 +7,7 @@ function ledge_bump()
 		if vsp < 0
 			ht = 22;
 		
-		if (scr_solidwall(x + xscale, y) or scr_solid_slope(x + hsp, y))
-		&& (!scr_solid(x + xscale, y - ht) or (scr_stylecheck(2) && !scr_solid(x + xscale, y + ht)))
+		if (scr_solidwall(x + xscale, y) or scr_solid_slope(x + hsp, y)) && !scr_solid(x + xscale, y - ht)
 		{
 			vsp = 0;
 			
