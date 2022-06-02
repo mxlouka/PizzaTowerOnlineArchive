@@ -6,12 +6,8 @@ function scr_enemy_stun()
 	// april build bullshit
 	switch hp
 	{
-		case -1:
-			grav = 1.1;
-			break;
-		case -2:
-			grav = 1.3;
-			break;
+		case -1: grav = 1.1; break;
+		case -2: grav = 1.3; break;
 	}
 	
 	if grounded
@@ -37,6 +33,7 @@ function scr_enemy_stun()
 					break
 				case 3:
 					stunned -= 2
+					break
 			}
 		}
 	}
@@ -69,7 +66,7 @@ function scr_enemy_stun()
 	var railmeet = instance_place(x, y + 1, obj_railparent);
 	if railmeet then hsp = railmeet.spdh;
 	
-	var xx = sign(hsp);
+	var xx = hsp;
 	if thrown && hp <= 0 && !thrown_vertically
 		xx = -image_xscale;
 	

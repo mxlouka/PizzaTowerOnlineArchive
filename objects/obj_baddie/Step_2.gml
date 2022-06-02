@@ -23,7 +23,7 @@ if room == custom_lvl_room
 var sold = instance_place(x, y, obj_solid);
 if sold && !inst_relation(sold, obj_slope)
 {
-	if state != states.grabbed && state != states.hit
+	if state != states.grabbed && state != states.hit && state != states.stun
 	&& !inst_isobj(sold, obj_enemyblock)
 	&& (!inst_relation(sold, obj_destructibles) or !thrown
 	or (inst_relation(sold, obj_onewaybigblock) && sign(image_xscale) == -sign(other.hsp)))

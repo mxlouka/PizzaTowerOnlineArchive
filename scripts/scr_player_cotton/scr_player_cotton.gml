@@ -105,6 +105,17 @@ function scr_player_cotton()
 		instance_create(x, y, obj_highjumpcloud2)
 		scr_soundeffect(sfx_cottonjump)
 	}
+	else if !grounded && !doublejump && key_jump
+	{
+		doublejump = true
+		jumpstop = false
+		vsp = -10
+		image_index = 0
+		sprite_index = spr_cotton_doublejump
+		with instance_create(x, y, obj_highjumpcloud2)
+			sprite_index = spr_cottonpoof;
+		scr_soundeffect(sfx_cottondoublejump)
+	}
 	
 	// attack
 	if key_slap2 && sprite_index != spr_cotton_attack && !suplexmove
@@ -212,19 +223,6 @@ function scr_player_cotton()
 		sprite_index = spr_cotton_land2;
 	if sprite_index == spr_cotton_land2 && move == 0
 		sprite_index = spr_cotton_land;
-	
-	// double jump
-	if !grounded && !doublejump && key_jump && vsp > 0
-	{
-		doublejump = true
-		jumpstop = false
-		vsp = -10
-		image_index = 0
-		sprite_index = spr_cotton_doublejump
-		with instance_create(x, y, obj_highjumpcloud2)
-			sprite_index = spr_cottonpoof;
-		scr_soundeffect(sfx_cottondoublejump)
-	}
 	
 	// drill move
 	if key_down2 && !grounded && !drilling && sprite_index != spr_cotton_slam

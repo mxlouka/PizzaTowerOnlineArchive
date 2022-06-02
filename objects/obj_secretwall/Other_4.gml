@@ -4,7 +4,7 @@ for(var i = 0; i < array_length(mylayers); i++)
 	var mylayer = mylayers[i];
 	if layer_exists(mylayer)
 	{
-		layer_depth(mylayer, 90 - i);
+		layer_depth(mylayer, -10 - i);
 		layer_shader(mylayer, shd_layeralpha);
 	}
 }

@@ -1,7 +1,4 @@
 {
-  "ConfigValues": {
-    "debug": {"textureGroupId":"{\"name\":\"tg_sugaryspire\",\"path\":\"texturegroups/tg_sugaryspire\"}",},
-  },
   "bboxMode": 0,
   "collisionKind": 1,
   "type": 0,
@@ -27,12 +24,12 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"938acfc6-a3fc-4d21-b12d-c2d5ea89f49c","path":"sprites/spr_clockdoor/spr_clockdoor.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"938acfc6-a3fc-4d21-b12d-c2d5ea89f49c","path":"sprites/spr_clockdoor/spr_clockdoor.yy",},"LayerId":{"name":"66f74013-9491-4f9d-9da3-ab8783527ff8","path":"sprites/spr_clockdoor/spr_clockdoor.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"spr_clockdoor","path":"sprites/spr_clockdoor/spr_clockdoor.yy",},"resourceVersion":"1.0","name":"938acfc6-a3fc-4d21-b12d-c2d5ea89f49c","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"ec9e9e76-5d43-4f3f-b3c9-76c851f9d889","path":"sprites/spr_clockdoorlocked/spr_clockdoorlocked.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"ec9e9e76-5d43-4f3f-b3c9-76c851f9d889","path":"sprites/spr_clockdoorlocked/spr_clockdoorlocked.yy",},"LayerId":{"name":"842c83d8-74c1-4670-82e1-d8b47ba57e20","path":"sprites/spr_clockdoorlocked/spr_clockdoorlocked.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"spr_clockdoorlocked","path":"sprites/spr_clockdoorlocked/spr_clockdoorlocked.yy",},"resourceVersion":"1.0","name":"ec9e9e76-5d43-4f3f-b3c9-76c851f9d889","tags":[],"resourceType":"GMSpriteFrame",},
   ],
   "sequence": {
-    "spriteId": {"name":"spr_clockdoor","path":"sprites/spr_clockdoor/spr_clockdoor.yy",},
+    "spriteId": {"name":"spr_clockdoorlocked","path":"sprites/spr_clockdoorlocked/spr_clockdoorlocked.yy",},
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 1.0,
@@ -44,7 +41,7 @@
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
       {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"07043aad-3852-43a4-b587-a31d544cf33e","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"938acfc6-a3fc-4d21-b12d-c2d5ea89f49c","path":"sprites/spr_clockdoor/spr_clockdoor.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"cee9cf08-9e0e-4e40-8112-2e67c1169cd7","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"ec9e9e76-5d43-4f3f-b3c9-76c851f9d889","path":"sprites/spr_clockdoorlocked/spr_clockdoorlocked.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
           ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
     ],
     "visibleRange": null,
@@ -61,14 +58,14 @@
     "yorigin": 0,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"spr_clockdoor","path":"sprites/spr_clockdoor/spr_clockdoor.yy",},
+    "parent": {"name":"spr_clockdoorlocked","path":"sprites/spr_clockdoorlocked/spr_clockdoorlocked.yy",},
     "resourceVersion": "1.4",
-    "name": "spr_clockdoor",
+    "name": "spr_clockdoorlocked",
     "tags": [],
     "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"66f74013-9491-4f9d-9da3-ab8783527ff8","tags":[],"resourceType":"GMImageLayer",},
+    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"842c83d8-74c1-4670-82e1-d8b47ba57e20","tags":[],"resourceType":"GMImageLayer",},
   ],
   "nineSlice": null,
   "parent": {
@@ -76,7 +73,7 @@
     "path": "folders/Sprites/SUGARY SPIRE/door.yy",
   },
   "resourceVersion": "1.0",
-  "name": "spr_clockdoor",
+  "name": "spr_clockdoorlocked",
   "tags": [],
   "resourceType": "GMSprite",
 }

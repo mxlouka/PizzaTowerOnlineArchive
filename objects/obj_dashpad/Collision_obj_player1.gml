@@ -64,7 +64,7 @@ with other
 			
 			// snap to ground, since the fucking sugary spire dashpads put you mid air
 			// if i sound mildly annoyed it's because i am
-			for(var i = 0; i < 32; i++)
+			for(var i = 0; i < 64; i++)
 			{
 				if scr_solid_player(x, y + i + 1)
 				{

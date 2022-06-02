@@ -10,3 +10,4 @@ if scr_depthcheck()
 targetDoor = "A"
 if check_sugary()
 	sprite_index = spr_keydoor_ss
+
