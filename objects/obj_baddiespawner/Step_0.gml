@@ -12,6 +12,8 @@ with obj_player
 
 if (!instance_exists(baddieid) && content != obj_shotgun) or (!instance_exists(baddieid) && content == obj_shotgun && !obj_player1.shotgunAnim)
 	refresh--;
+else
+	refresh = 100;
 
 if refresh <= 0 
 {
