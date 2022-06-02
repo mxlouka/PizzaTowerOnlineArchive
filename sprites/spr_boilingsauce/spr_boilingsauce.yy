@@ -169,7 +169,7 @@
   ],
   "nineSlice": {
     "left": 0,
-    "top": 0,
+    "top": 63,
     "right": 0,
     "bottom": 0,
     "guideColour": [
@@ -183,7 +183,7 @@
     "enabled": true,
     "tileMode": [
       0,
-      0,
+      1,
       0,
       0,
       1,

@@ -93,7 +93,7 @@
     "path": "folders/Tile Sets/war.yy",
   },
   "resourceVersion": "1.0",
-  "name": "tileset_tile_warslope",
+  "name": "tileset_warslope",
   "tags": [],
   "resourceType": "GMTileSet",
 }

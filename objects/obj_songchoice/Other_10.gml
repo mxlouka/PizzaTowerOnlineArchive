@@ -258,7 +258,7 @@ switch sel[0]
 			[mu_gummyharry, "Pagotophobia", "RodMod"],
 			[mu_cotton, "Steamy Cotton Candy", "RodMod"],
 			[mu_cotton2, "Around The Gateau's Gears", "RodMod"],
-			[mu_swamp, "Lost Chocolate", "Jessie Productions"],
+			[mu_swamp, "Lost Chocolate", "Jessie Productions, RodMod"],
 			[mu_mines, "Mineshaft Depths", "RodMod"],
 			[mu_mines2, "Cobalt Catastrophe", "RodMod"],
 			[mu_cottonsecret, "Lookie! You've found\na steamy surprise.", "RodMod"],

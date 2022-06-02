@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "tile_spaceprops1",
-    "path": "sprites/tile_spaceprops1/tile_spaceprops1.yy",
+    "name": "tile_spaceprops2",
+    "path": "sprites/tile_spaceprops2/tile_spaceprops2.yy",
   },
   "tileWidth": 32,
   "tileHeight": 32,
