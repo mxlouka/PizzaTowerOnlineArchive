@@ -31,8 +31,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "gamesettings",
-    "path": "folders/Objects/gamesettings.yy",
+    "name": "others",
+    "path": "folders/Objects/others.yy",
   },
   "resourceVersion": "1.0",
   "name": "obj_destructibles",

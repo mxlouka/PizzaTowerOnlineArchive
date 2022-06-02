@@ -1,5 +1,8 @@
 {
-  "spriteId": null,
+  "spriteId": {
+    "name": "spr_manualicon",
+    "path": "sprites/spr_manualicon/spr_manualicon.yy",
+  },
   "solid": false,
   "visible": true,
   "spriteMaskId": null,

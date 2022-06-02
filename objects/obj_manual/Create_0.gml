@@ -1,5 +1,5 @@
 depth = -100
 i = 0
-visible = false;
+open = false
+manualspr = spr_manual
 
-manualspr = spr_manual;

@@ -1,11 +1,11 @@
-if !visible
+if !open
 {
 	i = 0;
 	if keyboard_check_pressed(vk_f5)
 	&& (!instance_exists(obj_player1) or obj_player1.state != states.door)
 	{
 		scr_soundeffect(sfx_step);
-		visible = true;
+		open = true;
 	}
 }
 else
@@ -26,6 +26,7 @@ else
 	if key_slap2 or keyboard_check_pressed(vk_f5) or key_start
 	{
 		scr_soundeffect(sfx_enemyprojectile);
-		visible = false;
+		open = false;
 	}
 }
+

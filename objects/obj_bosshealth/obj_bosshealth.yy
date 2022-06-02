@@ -24,8 +24,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "gamesettings",
-    "path": "folders/Objects/gamesettings.yy",
+    "name": "boss",
+    "path": "folders/Objects/baddie/boss.yy",
   },
   "resourceVersion": "1.0",
   "name": "obj_bosshealth",

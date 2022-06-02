@@ -1,3 +1,7 @@
+draw_self();
+if !open
+	exit;
+
 draw_sprite(manualspr, i, 0, 0);
 
 draw_set_font(fnt_manual);

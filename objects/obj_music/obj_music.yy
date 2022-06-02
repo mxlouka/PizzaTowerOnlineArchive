@@ -1,5 +1,8 @@
 {
-  "spriteId": null,
+  "spriteId": {
+    "name": "dbg_e",
+    "path": "sprites/dbg_e/dbg_e.yy",
+  },
   "solid": false,
   "visible": false,
   "spriteMaskId": null,
