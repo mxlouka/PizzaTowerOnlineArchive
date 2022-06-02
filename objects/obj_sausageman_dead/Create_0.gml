@@ -12,4 +12,5 @@ haspalette = false;
 
 sugary = false;
 deadrot = choose(4, 5, 8, 10); // courtesy of pitchmaster's incompetency
+scream = -1;
 

@@ -143,7 +143,7 @@
     "eventStubScript": null,
     "parent": {"name":"spr_player_idle","path":"sprites/spr_player_idle/spr_player_idle.yy",},
     "resourceVersion": "1.4",
-    "name": "",
+    "name": "spr_player_idle",
     "tags": [],
     "resourceType": "GMSequence",
   },

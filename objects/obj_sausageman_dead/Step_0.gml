@@ -21,3 +21,4 @@ y += floor(vsp);
 
 if sugary
 	image_angle += deadrot * image_xscale;
+

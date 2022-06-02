@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_pepcooter",
-    "path": "sprites/spr_pepcooter/spr_pepcooter.yy",
+    "name": "dbg_player",
+    "path": "sprites/dbg_player/dbg_player.yy",
   },
   "solid": false,
   "visible": true,

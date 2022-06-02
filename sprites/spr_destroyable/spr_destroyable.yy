@@ -60,7 +60,7 @@
     "eventStubScript": null,
     "parent": {"name":"spr_destroyable","path":"sprites/spr_destroyable/spr_destroyable.yy",},
     "resourceVersion": "1.4",
-    "name": "",
+    "name": "spr_destroyable",
     "tags": [],
     "resourceType": "GMSequence",
   },

@@ -101,6 +101,7 @@ character = "P"
 
 scr_characterspr()
 paletteselect = check_shaders()
+sprite_index = spr_idle
 
 colorchange = false
 
@@ -115,10 +116,9 @@ treasure_room = 0
 
 wallspeed = 0
 
-
 tauntstoredstate = states.normal
 tauntstoredmovespeed = 6
-tauntstoredsprite = spr_player_idle
+tauntstoredsprite = spr_idle
 taunttimer = 0
 
 backtohubstartx = 0

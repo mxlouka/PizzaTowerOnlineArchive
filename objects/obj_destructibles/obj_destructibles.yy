@@ -1,5 +1,8 @@
 {
-  "spriteId": null,
+  "spriteId": {
+    "name": "dbg_destroyable",
+    "path": "sprites/dbg_destroyable/dbg_destroyable.yy",
+  },
   "solid": false,
   "visible": true,
   "spriteMaskId": null,
