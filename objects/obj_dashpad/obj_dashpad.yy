@@ -5,7 +5,6 @@
   },
   "solid": false,
   "visible": true,
-  "managed": true,
   "spriteMaskId": {
     "name": "spr_dashpad",
     "path": "sprites/spr_dashpad/spr_dashpad.yy",

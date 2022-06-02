@@ -1,2 +1,2 @@
-//targetRoom = cotton_5;
+targetRoom = cotton_5;
 
