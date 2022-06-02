@@ -19,9 +19,6 @@ function scr_player_mach2()
 		jumpstop = true
 	}
 	
-	if grounded && vsp > 0
-		jumpstop = false
-	
 	//Input buffer jumping
 	if key_jump
 		input_buffer_jump = 0
@@ -115,6 +112,9 @@ function scr_player_mach2()
 	{
 		if movespeed < 8
 			movespeed = 8;
+		if vsp > 0
+			jumpstop = false;
+		
 		if movespeed < 12
 		{
 			if scr_checkskin(checkskin.n_hardoween)
@@ -125,12 +125,12 @@ function scr_player_mach2()
 		{
 			movespeed = 12
 			machhitAnim = false
-			state = states.mach3 
+			state = states.mach3
 			flash = true
 			
 			if sprite_index != spr_rollgetup
 				sprite_index = spr_mach4
-			with instance_create(x,y,obj_jumpdust)
+			with instance_create(x, y, obj_jumpdust)
 				image_xscale = other.xscale
 		}
 	}
