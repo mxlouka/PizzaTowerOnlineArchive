@@ -5,7 +5,7 @@ function scr_getinput2(force = false)
 	
 	var cont = global.cont2;
 	if ((instance_exists(obj_gms) && global.__chat)
-	or (instance_exists(obj_manual) && obj_manual.visible)
+	or (instance_exists(obj_manual) && obj_manual.open)
 	or (instance_exists(obj_wc) && (obj_wc.WC_consoleopen or obj_wc.WC_assetfinder > -1))
 	or (instance_exists(obj_choicebase))
 	or (instance_exists(obj_hubelevator) && obj_hubelevator.state == 1)
