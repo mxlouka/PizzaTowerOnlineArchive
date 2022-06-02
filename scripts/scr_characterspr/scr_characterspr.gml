@@ -1644,7 +1644,6 @@ function scr_characterspr(char = character)
 		
 		#endregion
 	}
-	pal_swap_index_palette(spr_palette);
-	
 	character = setchar;
 }
+

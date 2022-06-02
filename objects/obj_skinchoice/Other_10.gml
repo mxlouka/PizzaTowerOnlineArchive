@@ -293,7 +293,6 @@ switch sel[1]
 	
 	#endregion
 }
-pal_swap_index_palette(spr_palette);
 
 switch sel[1]
 {

@@ -10,7 +10,7 @@ if !check_shaders() && !ini_read_real("online", "shitgraphs", false)
 	ini_write_real("online", "shitgraphs", true);
 }
 
-pal_swap_init_system(shd_pal_swapper, true);
+pal_swap_init_system(shd_pal_swapper);
 
 // fonts
 global.bigfont = font_add_sprite_ext(spr_font, "ABCDEFGHIJKLMNOPQRSTUVWXYZ!.1234567890:_-?'", true, 0)

@@ -4,7 +4,7 @@
   },
   "conversionMode": 0,
   "compression": 0,
-  "volume": 1.0,
+  "volume": 0.7,
   "preload": false,
   "bitRate": 128,
   "sampleRate": 44100,
@@ -15,7 +15,7 @@
     "path": "audiogroups/audiogroup_default",
   },
   "soundFile": "sfx_tumble1_PP.wav",
-  "duration": 5.067755,
+  "duration": 5.060272,
   "parent": {
     "name": "sfx",
     "path": "folders/Sounds/REPAINT/sfx.yy",
