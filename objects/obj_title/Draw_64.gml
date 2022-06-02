@@ -22,3 +22,4 @@ if object_index == obj_title
 		}
 	}
 }
+

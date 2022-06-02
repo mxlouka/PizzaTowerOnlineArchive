@@ -4,7 +4,7 @@ vsp = 0;
 grav = 0;
 grounded = false;
 
-depth = 250;
+depth = 190;
 
 image_speed = 0;
 image_index = 0;

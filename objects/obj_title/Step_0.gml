@@ -8,7 +8,7 @@ if y >= ystart
 	y = ystart;
 	if !grounded
 	{
-		if !(instance_exists(obj_manual) && obj_manual.visible) && !instance_exists(obj_option) && !instance_exists(obj_erasegame)
+		if !(instance_exists(obj_manual) && obj_manual.open) && !instance_exists(obj_option) && !instance_exists(obj_erasegame)
 		{
 			scr_soundeffect(sfx_breakblock2)
 			with obj_camera
@@ -133,3 +133,4 @@ if object_index == obj_title
 	else
 		layer_background_index(back_id, sel);
 }
+
