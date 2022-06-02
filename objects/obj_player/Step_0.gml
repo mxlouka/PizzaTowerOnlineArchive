@@ -516,7 +516,7 @@ if state != states.normal
 }
 
 // reset momentum
-if state != states.mach1 && state != states.jump && state != states.hookshot && state != states.handstandjump && state != states.normal && state != states.mach2 && state != states.mach3 && state != states.freefallprep && state != states.knightpep && state != states.shotgun && state != states.knightpepslopes && state != states.faceplant && state != states.cotton
+if state != states.hitlag && state != states.mach1 && state != states.jump && state != states.hookshot && state != states.handstandjump && state != states.normal && state != states.mach2 && state != states.mach3 && state != states.freefallprep && state != states.knightpep && state != states.shotgun && state != states.knightpepslopes && state != states.faceplant && state != states.cotton
 	momentum = false
 
 // reset super side jump speed?
