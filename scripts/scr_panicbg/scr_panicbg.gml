@@ -13,7 +13,7 @@ function scr_panicbg_init(stop = false)
 		if layer_get_depth(l.lay) < 0 // trust me it would completely break the game
 			continue;
 		
-		var bg = l.bg;
+		var bg = layer_background_get_sprite(l.bg);
 		if bg != bg_etbbrick && bg != bg_select
 			layers[layernum++] = layer_get_name(l.lay);
 	}
