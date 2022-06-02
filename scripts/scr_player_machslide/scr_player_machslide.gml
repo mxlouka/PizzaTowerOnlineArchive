@@ -26,7 +26,7 @@ function scr_player_machslide()
 
 	//Back to other states
 	//Normal
-	if (floor(movespeed) <= 0 && (sprite_index = spr_machslide or sprite_index = spr_crouchslide)) 
+	if floor(movespeed) <= 0 && (sprite_index = spr_machslide or sprite_index = spr_crouchslide) 
 	{
 		state = states.normal
 		image_index = 0
@@ -35,7 +35,8 @@ function scr_player_machslide()
 		movespeed  = 0
 	}
 	
-	if scr_solidwall(x+xscale,y) && (sprite_index = spr_machslide or sprite_index = spr_machslidestart)
+	if (scr_solidwall(x + xscale, y) or scr_solid_slope(x + xscale, y))
+	&& (sprite_index == spr_machslide or sprite_index == spr_machslidestart)
 	{
 		hsp = -xscale * 2.5
 		vsp = -4
@@ -43,7 +44,7 @@ function scr_player_machslide()
 		image_index = 4
 	}
 
-	if floor(image_index) = image_number -1 && sprite_index = spr_machslideboost
+	if floor(image_index) >= image_number - 1 && sprite_index == spr_machslideboost
 	{
 		hsp = 0
 		image_index = 0

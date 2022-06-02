@@ -15,7 +15,7 @@ function scr_player_machroll()
 		if character != "N" or (character == "N" && noisetype == 1)
 		{ 
 			//Bump
-			if scr_solidwall(x + xscale,y) && !place_meeting(x + sign(hsp), y, obj_slope) && !place_meeting(x + sign(hsp), y, obj_destructibles)
+			if (scr_solidwall(x + xscale,y) or scr_solid_slope(x + sign(hsp), y)) && !place_meeting(x + sign(hsp), y, obj_destructibles)
 			{
 				scr_soundeffect(sfx_bumpwall)
 				
@@ -83,7 +83,7 @@ function scr_player_machroll()
 		else
 		{
 			//Bump
-			if scr_solid(x + xscale,y, false) && !place_meeting(x + sign(hsp), y, obj_slope) && !place_meeting(x + sign(hsp), y, obj_destructibles)
+			if (scr_solidwall(x + xscale,y) or scr_solid_slope(x + sign(hsp), y)) && !place_meeting(x + sign(hsp), y, obj_destructibles)
 			{
 				scr_soundeffect(sfx_bumpwall)
 				
@@ -124,7 +124,7 @@ function scr_player_machroll()
 				sprite_index = spr_playerV_divekick
 			
 			//Bump
-			if scr_solid(x + xscale, y, false) && !place_meeting(x + sign(hsp), y, obj_slope)
+			if scr_solidwall(x + xscale,y) or scr_solid_slope(x + sign(hsp), y)
 			{
 				scr_soundeffect(sfx_bumpwall)
 				

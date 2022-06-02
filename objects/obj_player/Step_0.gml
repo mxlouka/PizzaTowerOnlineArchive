@@ -626,8 +626,10 @@ else
 if y > room_height + 200 && !cutscene
 && room != custom_lvl_room && room != rank_room && canfall
 && state != states.gameover && state != states.comingoutdoor && visible
-{
+{	
 	grav = basegrav;
+	vsp = 10;
+	hsp = 0;
 	
 	x = roomstartx;
 	y = roomstarty;
@@ -637,6 +639,8 @@ if y > room_height + 200 && !cutscene
 		x = falloffrespawn.x;
 		y = falloffrespawn.y;
 	}
+	
+	scr_transfobump(false);
 	
 	if !skateboarding
 	{
@@ -648,8 +652,6 @@ if y > room_height + 200 && !cutscene
 			vsp = -4;
 		}
 	}
-	vsp = 10;
-	hsp = 0;
 }
 
 //Mask

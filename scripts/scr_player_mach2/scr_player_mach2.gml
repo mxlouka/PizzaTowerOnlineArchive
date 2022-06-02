@@ -162,7 +162,10 @@ function scr_player_mach2()
 	
 	// Climbwall
 	var slop = scr_slope();
-	var bump = scr_solidwall(x + hsp, y) && (!slop or scr_solid(x + xscale, y - 10)) && (!place_meeting(x + hsp, y, obj_destructibles) or character == "V");
+	
+	var bump = (scr_solidwall(x + hsp, y) or scr_solid_slope(x + hsp, y)) 
+	&& (!slop or scr_solid(x + xscale, y - 10))
+	&& (!place_meeting(x + hsp, y, obj_destructibles) or character == "V");
 	
 	if bump && (slop or !grounded)
 	{
@@ -192,18 +195,22 @@ function scr_player_mach2()
 	}
 	
 	//Effect
-	if !(instance_exists(dashcloudid)) && grounded
-	with instance_create(x, y, obj_dashcloud)
+	if !instance_exists(dashcloudid) && grounded
 	{
-		image_xscale = other.xscale
-		other.dashcloudid = id
+		with instance_create(x, y, obj_dashcloud)
+		{
+			image_xscale = other.xscale
+			other.dashcloudid = id
+		}
 	}
 	
-	if !(instance_exists(speedlineseffectid)) && grounded && global.gameplay != 0
-	with instance_create(x, y, obj_speedlines)
+	if !instance_exists(speedlineseffectid) && grounded && global.gameplay != 0
 	{
-		image_xscale = other.xscale
-		other.speedlineseffectid = id
+		with instance_create(x, y, obj_speedlines)
+		{
+			image_xscale = other.xscale
+			other.speedlineseffectid = id
+		}
 	}
 	
 	if grounded && floor(image_index) >= image_number - 1 && sprite_index == spr_rollgetup

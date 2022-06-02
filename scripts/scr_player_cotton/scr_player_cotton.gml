@@ -46,7 +46,7 @@ function scr_player_cotton()
 		hsp = xscale * movespeed;
 	}
 	
-	if scr_solid(x + xscale, y) && (!place_meeting(x + xscale, y, obj_slope) or scr_solidwall(x, y - 2))
+	if scr_solid(x + xscale, y) && (!place_meeting(x + xscale, y, obj_slope) or scr_solid_slope(x + xscale, y) or scr_solidwall(x, y - 2))
 		movespeed = 0;
 	
 	if vsp > 5 && !drilling

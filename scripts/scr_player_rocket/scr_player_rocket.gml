@@ -68,8 +68,7 @@ function scr_player_rocket()
 	if grounded && vsp > 0 && fightball
 		jumpstop = false
 	
-	if scr_solid(x + sign(hsp), y)
-	&& (!place_meeting(x + sign(hsp), y, obj_slope) or place_meeting(x + sign(hsp), y, obj_solid))
+	if scr_solidwall(x + sign(hsp), y)
 	&& (!place_meeting(x + sign(hsp), y, obj_metalblock) or character == "V")
 	&& (!place_meeting(x + sign(hsp), y, obj_destructibles) or character == "V")
 	{

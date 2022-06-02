@@ -177,7 +177,7 @@ function scr_player_grab()
 		hsp = xscale * movespeed;
 		
 		if scr_solid(x + xscale, y)
-		&& !place_meeting(x + sign(hsp), y, obj_slope)
+		&& (!place_meeting(x + sign(hsp), y, obj_slope) or scr_solid_slope(x + sign(hsp), y))
 		&& !place_meeting(x + sign(hsp), y, obj_destructibles)
 			xscale *= -1;
 		

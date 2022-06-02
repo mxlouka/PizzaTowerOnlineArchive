@@ -354,8 +354,8 @@ function scr_player_handstandjump()
 	// Bump
 	if !place_meeting(x + xscale, y, obj_destructibles) && ((!place_meeting(x + xscale, y, obj_shotgunblock) && !place_meeting(x + xscale, y, obj_enemyblock)) or !(character == "SP" && shotgunAnim)) && character != "S"
 	{
-		ledge_bump();
-		if scr_solid(x + xscale, y) && (!place_meeting(x + xscale, y, obj_slope) or scr_solidwall(x + xscale, y) or scr_solidwall(x, y - 1))
+		if scr_solid(x + xscale, y) && (!place_meeting(x + xscale, y, obj_slope) or scr_solid_slope(x + xscale, y) or scr_solidwall(x + xscale, y) or scr_solidwall(x, y - 1))
+		&& !ledge_bump()
 		{
 			grav = basegrav
 			movespeed = 0

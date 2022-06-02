@@ -34,7 +34,7 @@ function scr_player_shotgun()
 	if sprite_index == spr_shotgunpullout
 		movespeed = 0
 
-	if scr_solid(x + sign(hsp), y) && xscale == move && !place_meeting(x + xscale, y, obj_slope)
+	if scr_solid(x + sign(hsp), y) && xscale == move && (!place_meeting(x + xscale, y, obj_slope) or scr_solid_slope(x + xscale, y))
 		movespeed = 0
 	
 	landAnim = false

@@ -650,7 +650,7 @@ function scr_player_normal()
 	//}
 
 	//Mach1
-	if key_attack && !scr_solidwall(x + xscale, y) && !(place_meeting(x + xscale, y, obj_slope) && scr_solidwall(x, y - 1)) && (!(character == "N" && noisetype == 0) && character != "S" && !(character == "SP" && shotgunAnim))
+	if key_attack && !scr_solidwall(x + xscale, y) && !scr_solid_slope(x + xscale, y) && !(place_meeting(x + xscale, y, obj_slope) && scr_solidwall(x, y - 1)) && (!(character == "N" && noisetype == 0) && character != "S" && !(character == "SP" && shotgunAnim))
 	{
 		if pizzapepper == 0
 		{
