@@ -1,2 +1,3 @@
 depth = 5;
-img = 0;
+image_speed = 0.05;
+

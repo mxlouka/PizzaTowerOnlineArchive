@@ -1,5 +1,5 @@
 /// @description autotile
-if abs(image_yscale) == 1
+if image_yscale <= 1
 {
 	var up = place_meeting(x, y - 32, obj_ladder);
 	var down = place_meeting(x, y + 32, obj_ladder);
@@ -14,3 +14,4 @@ if abs(image_yscale) == 1
 	else if down
 		image_index = 2;
 }
+
