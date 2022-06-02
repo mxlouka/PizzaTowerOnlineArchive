@@ -32,3 +32,13 @@ if refresh <= 0
 		refresh = 100;
 	}
 }
+
+// provoke
+if scr_stylecheck(2)
+{
+	var targetplayer = instance_nearest(x, y, obj_player);
+	if targetplayer && targetplayer.x > x - 200 && targetplayer.x < x + 200 && y <= targetplayer.y + 20 && y >= targetplayer.y - 20
+	&& targetplayer.state == states.backbreaker
+		refresh = 1;
+}
+
