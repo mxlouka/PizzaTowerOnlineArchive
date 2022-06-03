@@ -26,6 +26,7 @@ function scr_player_mach2()
 	//Jump
 	if input_buffer_jump < 8 && grounded && move != -xscale
 	{
+		jumpstop = false
 		input_buffer_jump = 8
 		
 		image_index = 0

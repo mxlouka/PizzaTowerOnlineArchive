@@ -66,7 +66,7 @@ function scr_enemy_stun()
 	var railmeet = instance_place(x, y + 1, obj_railparent);
 	if railmeet then hsp = railmeet.spdh;
 	
-	var xx = hsp;
+	var xx = sign(hsp);
 	if thrown && hp <= 0 && !thrown_vertically
 		xx = -image_xscale;
 	
