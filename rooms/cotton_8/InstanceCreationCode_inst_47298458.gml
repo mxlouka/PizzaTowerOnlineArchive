@@ -5,5 +5,5 @@ spr_open = spr_clockdoor
 lockspr = -1
 
 // target
-//targetRoom = cotton_9
+targetRoom = cotton_10
 
