@@ -47,6 +47,7 @@ if player && !player.cutscene && (player.state != states.firemouth or global.gam
 				or (state == states.freefall && freefallsmash > 10) or state == states.superslam
 				or state == states.chainsawbump or state == states.punch or state == states.firemouth
 				or state == states.knightpep or state == states.knightpepslopes or state == states.grab
+				or state == states.rideweenie
 				{
 					bad.hp -= 99;
 					bad.instakilled = true;

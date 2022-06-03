@@ -3,7 +3,7 @@ with obj_player
 	// mach3 break
 	if character != "V"
 	&& (place_meeting(x + hsp, y, other) or place_meeting(x + xscale, y, other))
-	&& (state == states.mach3 or state == states.knightpepslopes or state == states.slipbanan) 
+	&& (state == states.mach3 or state == states.rocket or state == states.knightpepslopes or state == states.slipbanan) 
 	{
 		if scr_stylecheck(2)
 			other.momentum[0] = hsp;

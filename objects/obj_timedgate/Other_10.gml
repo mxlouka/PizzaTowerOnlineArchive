@@ -4,5 +4,9 @@ mysolid.image_yscale = image_yscale * 3;
 mysolid.image_xscale = image_xscale;
 
 if scr_stylecheck(1)
+{
 	mysolid.sprite_index = other.sprite_index;
+	mysolid.image_yscale = image_yscale;
+	mysolid.x = x;
+}
 

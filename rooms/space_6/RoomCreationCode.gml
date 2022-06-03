@@ -1,2 +1,2 @@
-global.roommessage = "MISSILE TEST";
+global.roommessage = "MISSILE TEST"
 

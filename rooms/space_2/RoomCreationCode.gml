@@ -1,2 +1,2 @@
-global.roommessage = "LIFTOFF";
 
+global.roommessage = "LIFTOFF"

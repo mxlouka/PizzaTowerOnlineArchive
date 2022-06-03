@@ -69,6 +69,7 @@ with other
 				if scr_solid_player(x, y + i + 1)
 				{
 					y += i;
+					vsp = 0;
 					break;
 				}
 			}

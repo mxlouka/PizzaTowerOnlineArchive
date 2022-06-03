@@ -1,4 +1,4 @@
-function scr_secretdebris(debris = true, blend = c_white, sprite = -1)
+function scr_secretdebris(debris = true, blend = c_white, sprite = -1, lay_ids = ["Tiles_1", "Tiles_2"])
 {
 	var diddebris = false;
 	
@@ -26,7 +26,6 @@ function scr_secretdebris(debris = true, blend = c_white, sprite = -1)
 	}
 	else
 	{
-		var lay_ids = ["Tiles_1", "Tiles_2"]; // tile layers to use
 		while array_length(lay_ids) > 0
 		{
 			var lay_id = get_layer(array_pop(lay_ids));
@@ -81,7 +80,7 @@ function scr_secretdebris(debris = true, blend = c_white, sprite = -1)
 	}
 }
 
-function scr_secretbigdebris(debris = true, blend = c_white, sprite = -1)
+function scr_secretbigdebris(debris = true, blend = c_white, sprite = -1, lay_ids = ["Tiles_1", "Tiles_2"])
 {
 	var diddebris = false;
 	
@@ -110,7 +109,6 @@ function scr_secretbigdebris(debris = true, blend = c_white, sprite = -1)
 	}
 	else
 	{
-		var lay_ids = ["Tiles_1", "Tiles_2"]; // tile layers to use
 		while array_length(lay_ids) > 0
 		{
 			var lay_id = get_layer(array_pop(lay_ids));

@@ -318,7 +318,7 @@ function lang_load(lang)
 		ds_map_add(global.langmap, "msg.level.beach", "Pineapple Beach");
 		ds_map_add(global.langmap, "msg.level.kungfu", "Kung Fu");
 		ds_map_add(global.langmap, "msg.level.minigolf", "Golf WIP");
-		ds_map_add(global.langmap, "msg.level.space", "Space WIP");
+		ds_map_add(global.langmap, "msg.level.space", "Space");
 		ds_map_add(global.langmap, "msg.level.city", "City WIP");
 		ds_map_add(global.langmap, "msg.level.sewer", "Sewers");
 		ds_map_add(global.langmap, "msg.level.war", "War WIP");

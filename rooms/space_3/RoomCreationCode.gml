@@ -1,2 +1,2 @@
-global.roommessage = "PEPPERONI FIELD";
 
+global.roommessage = "PEPPERONI FIELD"

@@ -13,7 +13,7 @@ function scr_enemy_hit()
 		
 		with obj_player
 		{
-			if baddiegrabbedID == other.id
+			if baddiegrabbedID == other.id && state == states.grab
 				other.state = states.grabbed;
 		}
 		

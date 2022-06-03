@@ -1,1 +1,2 @@
-targetRoom = 8
+targetRoom = space_secret5
+

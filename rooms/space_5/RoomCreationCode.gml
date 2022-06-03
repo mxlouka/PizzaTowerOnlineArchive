@@ -1,2 +1,2 @@
-global.roommessage = "HOLOLIVE STATION";
 
+global.roommessage = "HOLOLIVE STATION"

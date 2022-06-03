@@ -1,2 +1,2 @@
-global.roommessage = "TECHNO BABBLE";
 
+global.roommessage = "TECHNO BABBLE"

@@ -358,8 +358,8 @@
     "PhysicsWorldPixToMetres": 0.1,
   },
   "parent": {
-    "name": "old (fucked up tiles)",
-    "path": "folders/Rooms/Sugary Spire/Cottontown/old (fucked up tiles).yy",
+    "name": "old (construct)",
+    "path": "folders/Rooms/Sugary Spire/Cottontown/old (construct).yy",
   },
   "resourceVersion": "1.0",
   "name": "cottonOLD_1",
