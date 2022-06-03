@@ -2,8 +2,7 @@ var player = instance_place(x, y, obj_player);
 if player
 {
 	// unlock door
-	if player.key_up && player.grounded && global.key_inv > 0
-	&& (sprite_index == spr_doorkey or sprite_index == spr_keydoor_ss)
+	if player.key_up && player.grounded && global.key_inv > 0 && sprite_index == spr_locked
 	&& (player.state == states.normal or player.state == states.mach1 or player.state == states.pogo or player.state == states.mach2 or player.state == states.mach3 or player.state == states.Sjumpprep)
 	{
 		if scr_stylecheck(2)
@@ -17,17 +16,13 @@ if player
 			keydoor = true
 			doorx = other.x + 50
 		}
-	
+		
 		with instance_create(x + 50, y + 50, obj_lock)
-			if other.sprite_index == spr_keydoor_ss
-				sprite_index = spr_lock_ss
-	
+			sprite_index = other.lockspr
+		
 		image_index = 0
-		if sprite_index == spr_keydoor_ss
-			sprite_index = spr_door_ss
-		else
-			sprite_index = spr_doorkeyopen
-	
+		sprite_index = spr_opening
+		
 		image_speed = 0.35
 		global.key_inv -= 1
 	}
@@ -49,8 +44,8 @@ if player
 		}
 	}
 }
-if sprite_index == spr_doorkeyopen && floor(image_index) >= 2
-	sprite_index = spr_doorvisited
+if sprite_index == spr_opening && floor(image_index) >= 2
+	sprite_index = spr_open
 
 if targetRoom != room
 {

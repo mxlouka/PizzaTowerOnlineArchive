@@ -14,8 +14,8 @@
     "name": "audiogroup_default",
     "path": "audiogroups/audiogroup_default",
   },
-  "soundFile": "mu_beach.wav",
-  "duration": 167.578033,
+  "soundFile": "mu_beach.mp3",
+  "duration": 167.68,
   "parent": {
     "name": "music",
     "path": "folders/Sounds/music.yy",

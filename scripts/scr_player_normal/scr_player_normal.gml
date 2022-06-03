@@ -259,7 +259,7 @@ function scr_player_normal()
 		}
 	}
 	
-	if scr_solid(x + xscale, y) && move == xscale && (!place_meeting(x+xscale,y,obj_slope) or scr_solidwall(x, y - 1))
+	if scr_solid(x + xscale, y) && move == xscale && (!place_meeting(x + xscale, y, obj_slope) or scr_solid_slope(x + xscale, y) or scr_solidwall(x, y - 1))
 		movespeed = 0
 	
 	if grounded
