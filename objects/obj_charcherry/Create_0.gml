@@ -2,6 +2,7 @@ event_inherited();
 
 groundpound = false;
 stunnable = false;
+parryable = false;
 
 grav = 0.5;
 hsp = 0;

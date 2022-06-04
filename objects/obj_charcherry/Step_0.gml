@@ -34,6 +34,7 @@ switch state
 		
 		if sprite_index == popoutspr
 		{
+			parryable = true;
 			if floor(image_index) >= 22
 				state = states.walk;
 			else

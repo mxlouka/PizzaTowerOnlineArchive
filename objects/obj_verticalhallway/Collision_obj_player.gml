@@ -24,6 +24,7 @@ with other
 			vhallwaypos = x - door.x
 		else
 			vhallwaypos = x - other.x
+		vhallwaypos /= sprite_width
 		
 		if other.targetRoom == room
 		{

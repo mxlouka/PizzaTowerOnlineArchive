@@ -623,7 +623,7 @@ else
 }
 
 // Bottomless pits
-if y > room_height + 200 && !cutscene
+if (y > room_height + 200 or place_meeting(x, y, obj_backtostart)) && !cutscene
 && room != custom_lvl_room && room != rank_room && canfall
 && state != states.gameover && state != states.comingoutdoor && visible
 {	

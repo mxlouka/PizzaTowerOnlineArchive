@@ -1,5 +1,3 @@
-/// @description Insert description here
-// You can write your code in this editor
 //Tomato block 
 with obj_player1
 {
@@ -7,7 +5,7 @@ with obj_player1
 	{
 		endtumble = true;
 		fallinganimation = 0;
-		if key_jump2
+		if key_jump2 && (scr_stylecheck(2) or string_startswith(room_get_name(room), "floor4"))
 		{
 			vsp = -20;
 			if state == states.jump && character == "P"

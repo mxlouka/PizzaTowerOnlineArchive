@@ -7,16 +7,16 @@ with obj_cameraregion
 	{
 		if boundary_x
 		{
-			other.limitcam[0] = Approach(other.limitcam[0], x, 32);
-			other.limitcam[2] = Approach(other.limitcam[2], x + sprite_width, 32);
+			other.limitcam[0] = Approach(other.limitcam[0], x, 32, other.frameone);
+			other.limitcam[2] = Approach(other.limitcam[2], x + sprite_width, 32, other.frameone);
 		}
 		if boundary_y
 		{
-			other.limitcam[1] = Approach(other.limitcam[1], y, 32);
-			other.limitcam[3] = Approach(other.limitcam[3], y + sprite_height, 32);
+			other.limitcam[1] = Approach(other.limitcam[1], y, 32, other.frameone);
+			other.limitcam[3] = Approach(other.limitcam[3], y + sprite_height, 32, other.frameone);
 		}
-		other.angle = Approach(other.angle, angle, 5);
-		other.zoom = Approach(other.zoom, zoom, 0.15);
+		other.angle = Approach(other.angle, angle, 5, other.frameone);
+		other.zoom = Approach(other.zoom, zoom, 0.15, other.frameone);
 		exit;
 	}
 }

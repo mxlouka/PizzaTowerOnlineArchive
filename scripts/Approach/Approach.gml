@@ -1,5 +1,7 @@
-function Approach(a, b, amount)
+function Approach(a, b, amount, instant = false)
 {
+	if instant
+		return b;
 	if a < b
 	{
 		a += amount;

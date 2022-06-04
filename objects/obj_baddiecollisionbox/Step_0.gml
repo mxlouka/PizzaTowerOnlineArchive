@@ -260,7 +260,9 @@ if player && !player.cutscene && (player.state != states.firemouth or global.gam
 					bad.vsp = -12; 
 				bad.hsp = xscale * 15;
 			}
-				
+			if sprite_index == spr_cotton_attack
+				bad.cottoncoated = true;
+			
 			with bad
 			{
 				if global.gameplay == 0

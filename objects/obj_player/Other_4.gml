@@ -31,19 +31,30 @@ if !oldhallway
 	
 	if instance_exists(doortarget)
 	{
+		y = doortarget.y - 14;
 		if hallway
 			x = doortarget.x + (hallwaydirection * 100);
 		else if box
 			x = doortarget.x + 32;
 		else if verticalhallway
 		{
-			x = doortarget.x + vhallwaypos;
+			var hw = 32;
+			with doortarget
+			{
+				var vh = instance_place(x, y, obj_verticalhallway);
+				if vh
+				{
+					x = vh.x;
+					hw = vh.sprite_width;
+				}
+			}
+			
+			x = doortarget.x + floor(vhallwaypos * hw);
 			if scr_solid_player(x, y)
 				x = doortarget.x + 18;
 		}
 		else
 			x = doortarget.x + 18;
-		y = doortarget.y - 14;
 		
 		if targetDoor == "A" && place_meeting(x, y, obj_exitgate)
 			x -= 18;
