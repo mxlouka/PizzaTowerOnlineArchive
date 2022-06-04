@@ -27,3 +27,4 @@ gnome_yy[3] = 159
 gnome_check[4] = false;
 gnome_xx[4] = 137
 gnome_yy[4] = 160;
+

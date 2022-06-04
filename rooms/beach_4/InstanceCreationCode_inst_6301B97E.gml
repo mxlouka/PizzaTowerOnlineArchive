@@ -1,2 +1,1 @@
-object = obj_baddie;
 

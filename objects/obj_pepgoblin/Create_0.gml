@@ -23,7 +23,7 @@ grounded = true
 
 idlespr = spr_pepgoblin
 stunfallspr = spr_pepgoblinstun
-walkspr =spr_pepgoblin
+walkspr = spr_pepgoblin
 stunspr =  spr_pepgoblinstun
 grabbedspr =  spr_pepgoblinstun
 scaredspr = spr_pepgoblin_scared
@@ -34,7 +34,7 @@ boundbox = false
 spr_dead = spr_pepgoblin_dead
 important = false
 heavy = true
-depth =0
+depth = 0
 grabbedby= 0
 if string_startswith(room_get_name(room), "chateau")
 	paletteselect = 1

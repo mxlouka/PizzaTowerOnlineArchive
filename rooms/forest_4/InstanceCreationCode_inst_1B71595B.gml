@@ -65,3 +65,4 @@ if !global.pizzadelivery && global.pizzasdelivered < 5 && !global.panic
 }
 else
 	scene_info = [cutscene_wait, 2];
+

@@ -22,14 +22,18 @@ with obj_player
 {
 	if x > _camx + other.xx && y > _camy + other.yy
 		hide = true;
+	if (state != states.normal or abs(hsp) > 0) && state != states.actor
+		other.alarm[0] = room_speed;
 }
+if alarm[0] > 0
+	hide = true;
 
 if hide
 {
-	if image_alpha > 0.5
+	if image_alpha > 0.2
 		image_alpha -= 0.1;
 	else
-		image_alpha = 0.5;
+		image_alpha = 0.2;
 }
 else if image_alpha < 1
 	image_alpha += 0.1;

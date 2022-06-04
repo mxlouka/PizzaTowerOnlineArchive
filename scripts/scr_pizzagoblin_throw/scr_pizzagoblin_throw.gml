@@ -1,79 +1,34 @@
 function scr_pizzagoblin_throw()
 {
-	if !variable_global_exists("throw_frame")
+	// STATIC values
+	if !variable_global_exists("throw_vars")
 	{
-		// What frame should the enemy be on to throw stuff
-		global.throw_frame[obj_pizzagoblin] = 2
-		global.throw_frame[obj_canongoblin] = 5
-		global.throw_frame[obj_noisegoblin] = 18
-		global.throw_frame[obj_cheeserobot] = 6
-		global.throw_frame[obj_spitcheese] = 2
-		global.throw_frame[obj_trash] = 2
-		global.throw_frame[obj_invtrash] = 2
-		global.throw_frame[obj_robot] = 2
-		global.throw_frame[obj_kentukykenny] = 8
-		global.throw_frame[obj_pizzard] = 6
-		global.throw_frame[obj_pepgoblin] = 0
-		global.throw_frame[obj_swedishmonkey] = 15
-		global.throw_frame[obj_rancher] = 3
-		global.throw_frame[obj_pickle] = 2
-		global.throw_frame[obj_tankOLD] = 6
-		global.throw_frame[obj_tank] = 6
-		global.throw_frame[obj_miniufo] = 3
-		global.throw_frame[obj_miniufo_grounded] = 11
-		global.throw_frame[obj_thug_blue] = 9
-		global.throw_frame[obj_thug_green] = 8
+		global.throw_vars[obj_pizzagoblin] = {frame: 2, sprite: spr_pizzagoblin_throwbomb, timer: 200};
+		global.throw_vars[obj_canongoblin] = {frame: 5, sprite: spr_canongoblin_throwbomb, timer: 200};
+		global.throw_vars[obj_noisegoblin] = {frame: 18, sprite: spr_archergoblin_shoot, timer: 200};
+		global.throw_vars[obj_cheeserobot] = {frame: 6, sprite: spr_cheeserobot_attack, timer: 200};
+		global.throw_vars[obj_spitcheese] = {frame: 2, sprite: spr_spitcheese_spit, timer: 100};
+		global.throw_vars[obj_trash] = {frame: 2, sprite: spr_trash_throw, timer: 100};
+		global.throw_vars[obj_invtrash] = {frame: 2, sprite: spr_invtrash_throw, timer: 100};
+		global.throw_vars[obj_robot] = {frame: 6, sprite: spr_robot_attack, timer: 200};
+		global.throw_vars[obj_kentukykenny] = {frame: 8, sprite: spr_kentukykenny_throw, timer: 200};
+		global.throw_vars[obj_pizzard] = {frame: 6, sprite: spr_pizzard_shoot, timer: 100};
+		global.throw_vars[obj_swedishmonkey] = {frame: 15, sprite: spr_swedishmonkey_eat, timer: 200};
+		global.throw_vars[obj_rancher] = {frame: 3, sprite: spr_ranch_shoot, timer: 100};
+		global.throw_vars[obj_tankOLD] = {frame: 6, sprite: spr_tank_shoot, timer: 100};
+		global.throw_vars[obj_tank] = {frame: 6, sprite: spr_tank_shoot, timer: 100};
+		global.throw_vars[obj_miniufo] = {frame: 3, sprite: spr_ufolive_shoot, timer: 100};
+		global.throw_vars[obj_miniufo_grounded] = {frame: 11, sprite: spr_ufogrounded_shoot, timer: 100};
+		global.throw_vars[obj_thug_blue] = {frame: 9, sprite: spr_shrimp_knife, timer: 60};
+		global.throw_vars[obj_thug_green] = {frame: 8, sprite: spr_shrimp_throw, timer: 60};
 		
-		global.throw_frame[obj_cottonwitch] = 7
-		
-		// What sprite should the enemy go to when throwing
-		global.throw_sprite[obj_pizzagoblin] = spr_pizzagoblin_throwbomb
-		global.throw_sprite[obj_canongoblin] = spr_canongoblin_throwbomb
-		global.throw_sprite[obj_noisegoblin] = spr_archergoblin_shoot
-		global.throw_sprite[obj_cheeserobot] = spr_cheeserobot_attack
-		global.throw_sprite[obj_spitcheese] = spr_spitcheese_spit
-		global.throw_sprite[obj_trash] = spr_trash_throw
-		global.throw_sprite[obj_invtrash] = spr_invtrash_throw
-		global.throw_sprite[obj_robot] = spr_robot_attack
-		global.throw_sprite[obj_kentukykenny] = spr_kentukykenny_throw
-		global.throw_sprite[obj_pizzard] = spr_pizzard_shoot
-		global.throw_sprite[obj_pepgoblin] = spr_pepgoblin_kick
-		global.throw_sprite[obj_swedishmonkey] = spr_swedishmonkey_eat
-		global.throw_sprite[obj_rancher] = spr_ranch_shoot
-		global.throw_sprite[obj_pickle] = spr_pickle_attack
-		global.throw_sprite[obj_tankOLD] = spr_tank_shoot
-		global.throw_sprite[obj_tank] = spr_tank_shoot
-		global.throw_sprite[obj_miniufo] = spr_ufolive_shoot
-		global.throw_sprite[obj_miniufo_grounded] = spr_ufogrounded_shoot
-		global.throw_sprite[obj_thug_blue] = spr_shrimp_knife
-		global.throw_sprite[obj_thug_green] = spr_shrimp_throw
-		
-		global.throw_sprite[obj_cottonwitch] = spr_cottonwitch_shoot
-		
-		// How long before the enemy throws something again
-		global.reset_timer[obj_pizzagoblin] = 200
-		global.reset_timer[obj_canongoblin] = 200
-		global.reset_timer[obj_noisegoblin] = 200
-		global.reset_timer[obj_cheeserobot] = 200
-		global.reset_timer[obj_spitcheese] = 100
-		global.reset_timer[obj_trash] = 100
-		global.reset_timer[obj_invtrash] = 100
-		global.reset_timer[obj_robot] = 200
-		global.reset_timer[obj_kentukykenny] = 200
-		global.reset_timer[obj_pizzard] = 100
-		global.reset_timer[obj_pepgoblin] = 100
-		global.reset_timer[obj_swedishmonkey] = 200
-		global.reset_timer[obj_rancher] = 100
-		global.reset_timer[obj_pickle] = 120
-		global.reset_timer[obj_tankOLD] = 100
-		global.reset_timer[obj_tank] = 100
-		global.reset_timer[obj_miniufo] = 100
-		global.reset_timer[obj_miniufo_grounded] = 100
-		global.reset_timer[obj_thug_blue] = 60
-		global.reset_timer[obj_thug_green] = 60
-		
-		global.reset_timer[obj_cottonwitch] = 100
+		// sugary spire
+		global.throw_vars[obj_cottonwitch] = {frame: 7, sprite: spr_cottonwitch_shoot, timer: 100};
 	}
+	
+	// gameplay specific values
+	global.throw_vars[obj_pepgoblin] = {frame: global.gameplay == 1 ? 0 : 2, sprite: spr_pepgoblin_kick, timer: 100};
+	global.throw_vars[obj_pickle] = {frame: 2, sprite: spr_pickle_attack, timer: global.gameplay == 0 ? 120 : 200};
 	
 	// Stop moving
 	hsp = 0
@@ -95,7 +50,7 @@ function scr_pizzagoblin_throw()
 	// Check if bomb timer expired and I'm on the right animation frame
 	if bombreset <= 0
 	{
-		var spr = global.throw_sprite[object_index];
+		var spr = global.throw_vars[object_index].sprite;
 		if global.snickrematch
 		{
 			if spr == spr_pizzagoblin_throwbomb
@@ -107,10 +62,10 @@ function scr_pizzagoblin_throw()
 		}
 		sprite_index = spr;
 		
-		if floor(image_index) == global.throw_frame[object_index]
+		if floor(image_index) == global.throw_vars[object_index].frame
 		{
 			// Set bomb timer and animation frame
-			bombreset = global.reset_timer[object_index];
+			bombreset = global.throw_vars[object_index].timer;
 			if scr_stylecheck(2)
 				bombreset = ceil(bombreset / max((global.stylethreshold + 1) / 2, 1));
 			

@@ -1,6 +1,6 @@
 if room == rm_editor exit;
 
-switch (state)
+switch state
 {
 	case states.idle: scr_enemy_idle (); break;
 	case states.charge: scr_enemy_charge (); break;
@@ -14,31 +14,26 @@ switch (state)
 }
 
 
-if  state = states.stun && stunned > 100 && birdcreated = false
+if state == states.stun && stunned > 100 && !birdcreated
 {
-birdcreated = true
-with instance_create(x,y, obj_enemybird)
-ID = other.id
+	birdcreated = true
+	with instance_create(x, y, obj_enemybird)
+		ID = other.id
 }
 
 if state != states.stun
-birdcreated = false
+	birdcreated = false
 
 
 //Flash
-if (flash == true && alarm[2] <= 0) {
+if flash == true && alarm[2] <= 0
    alarm[2] = 0.15 * room_speed; // Flashes for 0.8 seconds before turning back to normal
-}
-
 
 if state != states.grabbed
-depth = 0
-
+	depth = 0
 
 if state != states.stun
-thrown= false
-
-
+	thrown = false
 
 //Scared
 scr_scareenemy()
@@ -54,7 +49,7 @@ if instance_exists(targetplayer)
 {
 	if x != targetplayer.x && state != states.pizzagoblinthrow && targetplayer.state != states.tumble && bombreset == 0 && grounded
 	{
-		if ((targetplayer.x > x - 80) && (targetplayer.x < x + 80)) && (y <= targetplayer.y+100 && y >= targetplayer.y- 100)
+		if targetplayer.x > x - 80 && targetplayer.x < x + 80 && y <= targetplayer.y + 100 && y >= targetplayer.y - 100
 		{
 			if state == states.walk && !rematchscare
 			{
@@ -73,7 +68,7 @@ if grounded && state == states.pizzagoblinthrow && floor(image_index) == 3
 
 if !boundbox
 {
-	with instance_create(x,y,obj_baddiecollisionbox)
+	with instance_create(x, y, obj_baddiecollisionbox)
 	{
 		sprite_index = spr_pepgoblin
 		mask_index = sprite_index

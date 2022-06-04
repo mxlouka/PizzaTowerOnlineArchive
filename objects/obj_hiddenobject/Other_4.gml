@@ -1,21 +1,29 @@
 if ds_list_find_index(global.saveroom, id) == -1
 {
-	var objectlist = ds_list_create();
-	var num = instance_place_list(x, y, object, objectlist, false);
-	
-	for(var i = 0; i < num; i++)
+	var instancelist = ds_list_create();
+	for(var j = 0; j < array_length(objects); j++)
 	{
-		var obj = objectlist[| i];
-		if obj.object_index != obj_collectescape or global.panic
-			ds_list_add(deactivatedlist, obj.id);
-		if inst_relation(obj, obj_baddie)
+		var l = instance_place_list(x, y, objects[j], instancelist, false);
+		for(var i = 0; i < l; i++)
 		{
-			obj.boundbox = false;
-			obj.hitboxcreate = false;
+			var obj = instancelist[| i];
+			if ds_list_find_index(deactivatedlist, obj.id) == -1
+			{
+				if obj.object_index != obj_collectescape or global.panic
+					ds_list_add(deactivatedlist, obj.id);
+			
+				switch objects[j]
+				{
+					case obj_baddie:
+						obj.boundbox = false;
+						obj.hitboxcreate = false;
+						break;
+				}
+				instance_deactivate_object(obj);
+			}
 		}
-		instance_deactivate_object(obj);
 	}
-	ds_list_destroy(objectlist);
+	ds_list_destroy(instancelist);
 }
 else
 	instance_destroy();

@@ -8,7 +8,7 @@ with obj_player
 
 var showhud = !instance_exists(obj_player) or (obj_player.state != states.rotate && obj_player.state != states.gameover);
 if global.pizzadelivery && global.hp > 0
-	draw_sprite(spr_pizzahealthbar, 8 - global.hp, (global.gameplay == 0 ? 190 : 100) + healthshake, (global.gameplay == 0 ? 70 : 240) + hud_posY + healthshake)
+	draw_sprite(spr_pizzahealthbar, 8 - global.hp, 190 + healthshake, 70 + hud_posY + healthshake)
 
 #region old hud
 

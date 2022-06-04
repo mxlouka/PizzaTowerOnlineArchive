@@ -15,3 +15,4 @@ if collision_line(x, y, x, y + 400, obj_solid, false, true) != noone
 	while !place_meeting(x, y + 1, obj_solid)
 		y++;
 }
+

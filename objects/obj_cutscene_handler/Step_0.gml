@@ -23,3 +23,4 @@ if array_length(current_scene) > 0
 			break;
 	}
 }
+
