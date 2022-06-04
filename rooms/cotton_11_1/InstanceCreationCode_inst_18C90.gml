@@ -1,2 +1,2 @@
-//targetRoom = cotton_12
+targetRoom = cotton_12
 visible = false
