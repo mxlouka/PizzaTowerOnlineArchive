@@ -546,7 +546,7 @@ if state != states.jump
 	stompAnim = false
 
 // reset gravity
-if state != states.grabbing && state != states.barrel && state != states.tumble && state != states.ghost && sprite_index != spr_pmortjump && state != states.cotton
+if state != states.grabbing && state != states.barrel && state != states.tumble && state != states.ghost && sprite_index != spr_pmortjump && state != states.cotton && state != states.fling
 	grav = basegrav;
 else if state == states.barrel or (state == states.tumble && global.gameplay != 0)
 	grav = 0.6;

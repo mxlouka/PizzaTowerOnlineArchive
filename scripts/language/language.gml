@@ -408,7 +408,7 @@ function lang_load(lang)
 		ds_map_add(global.langmap, "roomname.cotton_9", "Like Clockwork");
 		ds_map_add(global.langmap, "roomname.cotton_10", "Race Around The Clock");
 		ds_map_add(global.langmap, "roomname.cotton_11", "Froghop");
-		ds_map_add(global.langmap, "roomname.cotton_11_1", "Top Of The Clock");
+		ds_map_add(global.langmap, "roomname.cotton_11b", "Top Of The Clock");
 		ds_map_add(global.langmap, "roomname.cotton_12", "Beary Break Room");
 		ds_map_add(global.langmap, "roomname.cotton_13", "Secret Side Room");
 		ds_map_add(global.langmap, "roomname.cotton_14", "Slow And Steady");

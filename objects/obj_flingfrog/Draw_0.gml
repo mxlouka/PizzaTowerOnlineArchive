@@ -5,4 +5,6 @@ draw_sprite_ext(playerid == noone ? spr_flingfrog_handsidle : spr_flingfrog_hand
 
 if playerid == noone
 	draw_sprite_ext(spr_flingfroggrab, handsimg, handsx, handsy, 1, 1, 0, c_white, 1);
+else if tired > 10
+	draw_sprite_ext(spr_flingfrogmadtire, -1, x, y, image_xscale, image_yscale, image_angle, image_blend, image_alpha);
 

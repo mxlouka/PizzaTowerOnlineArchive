@@ -262,6 +262,9 @@ function scr_player_jump()
 
 			if sprite_index == spr_shotgunshoot
 				sprite_index = spr_shotgunfall
+			
+			if sprite_index == spr_playerSP_candytransitionup
+				sprite_index = spr_playerSP_candyup
 
 			if sprite_index == spr_stompprep
 			{
@@ -272,7 +275,7 @@ function scr_player_jump()
 	}
 	else
 	{
-		if sprite_index == spr_stompprep && floor(image_index) == image_number -1
+		if sprite_index == spr_stompprep && floor(image_index) == image_number - 1
 			sprite_index = spr_stomp
 	}
 

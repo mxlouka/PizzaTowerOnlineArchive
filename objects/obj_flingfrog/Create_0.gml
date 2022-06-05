@@ -5,4 +5,5 @@ handsx = x;
 handsy = y;
 handsimg = 0;
 shake = 0;
+tired = 0;
 

@@ -1,1 +1,1 @@
-targetRoom = cotton_11_1
+targetRoom = cotton_11b

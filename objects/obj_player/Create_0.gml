@@ -165,6 +165,8 @@ speedlineseffectid = obj_null
 angryeffectid = obj_null
 thrown = false
 
+candyeffect = noone
+
 mach1snd = -1
 mach2snd = -1
 mach3snd = -1
