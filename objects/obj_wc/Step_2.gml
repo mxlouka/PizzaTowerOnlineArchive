@@ -3,17 +3,18 @@
 // pt online exclusive
 if instance_exists(obj_login)
 or (instance_exists(obj_gms) && global.__chat)
-or (instance_exists(obj_onlinemenu) && (obj_onlinemenu.selectedsearch or obj_onlinemenu.selectedpassword))
+or (safe_get(obj_onlinemenu, "selectedsearch") or safe_get(obj_onlinemenu, "selectedpassword"))
+or safe_get(obj_shell, "isOpen")
 	exit;
 
-if check_online() && !gms_self_admin_rights() && !debug
+if !debug
 {
 	instance_destroy();
 	exit;
 }
 
-// vars
-var tempobj, tempvar, temparray, tempind, tempval, tempscript, temproom, temproom2, temp_fetchobjects, temp_objfind, frz, i, scrarg; // funny variables
+// funny variables
+var tempobj, tempvar, temparray, tempind, tempval, tempscript, temproom, temproom2, temp_fetchobjects, temp_objfind, frz, i, scrarg;
 WC_modkp = -1; // reset keybind
 
 WC_mx = device_mouse_x_to_gui(0);

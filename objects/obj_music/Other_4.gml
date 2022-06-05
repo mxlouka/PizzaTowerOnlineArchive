@@ -216,7 +216,9 @@ else if (!global.panic or string_letters(roomname) == "dragonlair" or string_let
 	
 	if string_letters(roomname) == "forest" 
 	{
-		if roomname == "forest_4" or roomname == "forest_4b"
+		if real(string_digits(roomname)) < 4
+			musplay = mu_forest
+		else if roomname == "forest_4" or roomname == "forest_4b"
 		{
 			fadeoff = 0
 			musplay = mu_gustavo

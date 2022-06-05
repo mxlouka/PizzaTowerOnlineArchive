@@ -5,10 +5,11 @@ function scr_getinput(force = false)
 	
 	var cont = global.cont;
 	if ((instance_exists(obj_gms) && global.__chat)
-	or (instance_exists(obj_manual) && variable_instance_get(obj_manual, "open"))
-	or (instance_exists(obj_wc) && (obj_wc.WC_consoleopen or obj_wc.WC_assetfinder > -1))
+	or (safe_get(obj_manual, "open"))
+	or (safe_get(obj_wc, "WC_consoleopen") or safe_get(obj_wc, "WC_assetfinder") > -1)
+	or (safe_get(obj_shell, "isOpen"))
 	or (instance_exists(obj_choicebase))
-	or (instance_exists(obj_hubelevator) && obj_hubelevator.state == 1)
+	or (safe_get(obj_hubelevator, "state") == 1)
 	or instance_exists(obj_arcademenu)
 	or instance_exists(obj_dialoguebox))
 	{

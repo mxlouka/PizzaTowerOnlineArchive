@@ -56,7 +56,7 @@ function scr_chat_verify(argument0)
 				//"Relatably empty.",
 				//"Try again.",
 				//"Don't you have anything better to do?",
-				//"Nobody. You're better off playing sandbox mode.",
+				//"Nobody. You're better off playing offline mode.",
 				//"Nobody. You don't count.",
 				//"Nobody. Sounds like you need friends.",
 			]

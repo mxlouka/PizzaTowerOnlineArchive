@@ -34,7 +34,6 @@ function lang_load(lang)
 		ds_map_add(global.langmap, "load.txgrp", "LOADING TPAGE...");
 		ds_map_add(global.langmap, "load.unusual", "The disclaimer is taking unusually long to load.\nYou can either keep waiting or restart the game.");
 		
-		ds_map_add(global.langmap, "general.wc", "Welcome to the developer console");
 		ds_map_add(global.langmap, "general.crash", "The game crashed last time.");
 		ds_map_add(global.langmap, "general.crash.con", "Press start to play");
 		ds_map_add(global.langmap, "general.crashed", "The game crashed! longMessage:\n\n");
@@ -194,7 +193,7 @@ function lang_load(lang)
 		ds_map_add(global.langmap, "manual.credits.fuckoffptd", "You can't see the credits\nin streamer mode. For safety.");
 		
 		// prelogin
-		ds_map_add(global.langmap, "prelogin.offline", "Sandbox");
+		ds_map_add(global.langmap, "prelogin.offline", "Offline");
 		ds_map_add(global.langmap, "prelogin.online", "Online");
 		ds_map_add(global.langmap, "prelogin.nonet", "Connect to Network");
 		ds_map_add(global.langmap, "prelogin.skip", "SKIP");

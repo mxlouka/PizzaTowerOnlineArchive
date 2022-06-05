@@ -12,7 +12,7 @@ function scr_player_mach3()
 		
 		mach2 = 100
 		momentum = true
-	
+		
 		move = key_right + key_left
 		move2 = key_right2 + key_left2
 		
@@ -174,7 +174,7 @@ function scr_player_mach3()
 		var slop = scr_slope();
 		
 		var bump = (scr_solidwall(x + hsp, y) or scr_solid_slope(x + hsp, y))
-		&& (!slop or scr_solid(x + xscale, y - 10)) 
+		&& (!slop or scr_solidwall(x + xscale, y - 10)) 
 		&& ((!place_meeting(x + hsp, y, obj_destructibles) && !place_meeting(x + hsp, y, obj_metalblock) && !place_meeting(x + hsp, y, obj_mach3solid)) or character == "V");
 		
 		if bump && (slop or !grounded)
@@ -373,7 +373,10 @@ function scr_player_mach3()
 		}
 			
 		//Bump
-		if scr_solid(x + sign(hsp), y, false) && !place_meeting(x + sign(hsp), y, obj_metalblock) && !place_meeting(x + sign(hsp), y, obj_destructibles)
+		var bump = (scr_solidwall(x + hsp, y) or scr_solid_slope(x + hsp, y))
+		&& (!place_meeting(x + hsp, y, obj_destructibles) && !place_meeting(x + hsp, y, obj_metalblock) && !place_meeting(x + hsp, y, obj_mach3solid));
+		
+		if bump
 		{
 			sprite_index = spr_hitwall
 			scr_soundeffect(sfx_groundpound)
@@ -407,7 +410,7 @@ function scr_player_mach3()
 			vsp = -3
 			mach2 = 0
 			image_index = 0
-			instance_create(x - 10, y + 10, obj_bumpeffect)
+			instance_create(x + 10 * xscale, y + 10, obj_bumpeffect)
 		}
 	}
 	#endregion

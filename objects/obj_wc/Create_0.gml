@@ -1,5 +1,4 @@
 /// @description world control create
-message = "this is the OLD world controller object, i was making a new one in a separate project but never implemented it."
 WC_consoleopen = false;
 
 // world console
@@ -57,7 +56,7 @@ WC_drawline = true;
 WC_drawlinetimer = 30;
 
 WC_saveversion = 0;
-WC_togglekey = vk_f5;
+WC_togglekey = 220;
 
 WC_consolescroll = 0;
 WC_assetfinder = -1;
@@ -75,6 +74,4 @@ WC_prioritizebaddies = true;
 WC_pausebinds = true;
 WC_livestep = undefined;
 WC_gmlivedone = false;
-
-console_log(lang_string("general.wc"));
 

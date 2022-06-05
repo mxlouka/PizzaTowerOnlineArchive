@@ -63,3 +63,4 @@ if global.miniboss
 	alarm[2] = -1
 	global.miniboss = false
 }
+

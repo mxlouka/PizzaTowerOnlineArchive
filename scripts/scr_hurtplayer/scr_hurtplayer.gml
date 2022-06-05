@@ -114,12 +114,7 @@ function scr_hurtplayer(argument0 = obj_player, loseamount = 50)
 		else if state != states.grabbed && !cutscene && invhurt_buffer <= 0
 		&& ((state != states.hurt && !hurted)/* or global.gameplay != 0*/)
 		{
-			if state == states.cotton
-			{
-				scr_soundeffect(sfx_hitenemy);
-				instance_create(x, y, obj_genericpoofeffect);
-			}
-			
+			scr_transfobump(false);
 			if hurt_buffer == -1 && global.gameplay != 0
 				hurt_buffer = hurt_max;
 			

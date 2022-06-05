@@ -11,20 +11,8 @@ with other
 		verticalhallway = true
 		vhallwaydirection = other.image_yscale
 		
-		var door = noone;
-		switch targetDoor
-		{
-			case "A": door = obj_doorA; break;
-			case "B": door = obj_doorB; break;
-			case "C": door = obj_doorC; break;
-			case "D": door = obj_doorD; break;
-			case "E": door = obj_doorE; break;
-		}
-		if instance_exists(door)
-			vhallwaypos = x - door.x
-		else
-			vhallwaypos = x - other.x
-		vhallwaypos /= sprite_width
+		vhallwaypos = x - other.x
+		vhallwaypos /= other.sprite_width
 		
 		if other.targetRoom == room
 		{

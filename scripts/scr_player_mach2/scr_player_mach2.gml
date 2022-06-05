@@ -165,7 +165,7 @@ function scr_player_mach2()
 	var slop = scr_slope();
 	
 	var bump = (scr_solidwall(x + hsp, y) or scr_solid_slope(x + hsp, y)) 
-	&& (!slop or scr_solid(x + xscale, y - 10))
+	&& (!slop or scr_solidwall(x + xscale, y - 10))
 	&& (!place_meeting(x + hsp, y, obj_destructibles) or character == "V");
 	
 	if bump && (slop or !grounded)
