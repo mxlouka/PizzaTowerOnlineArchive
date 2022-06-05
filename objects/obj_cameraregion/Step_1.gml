@@ -18,6 +18,6 @@ if place_meeting(x, y, obj_player)
 	}
 	col = true;
 }
-else
+else if !permanent
 	col = false;
 
