@@ -11,7 +11,8 @@ function scr_player_climbwall()
 			move = key_left + key_right;
 
 			suplexmove = false
-
+			
+			hsp = 0
 			vsp = -wallspeed + (place_meeting(x + xscale, y, obj_railv) * -3);
 			
 			if place_meeting(x + xscale, y, obj_unclimbablewall)
@@ -55,7 +56,7 @@ function scr_player_climbwall()
 			}
 			
 			// back to ground
-			if !scr_solid(x + xscale, y) && state == states.climbwall
+			if !scr_solidwall(x + xscale, y) && !scr_solid_slope(x + xscale, y) && state == states.climbwall
 			{
 				var yplus = 0;
 				while !scr_solid(x + xscale, y + yplus)

@@ -1,3 +1,7 @@
+// extra wc code
+scr_wc_step();
+
+// shell
 if (saveHistory) {
 	if (!loadedSavedHistory) {
 		self._load_history();

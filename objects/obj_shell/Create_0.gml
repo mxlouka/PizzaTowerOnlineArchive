@@ -1,4 +1,4 @@
-depth = power(2, 31) - 1;
+scr_wc_create();
 
 isOpen = false;
 isAutocompleteOpen = false;

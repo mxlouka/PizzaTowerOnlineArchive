@@ -6,8 +6,8 @@ if room != characterselect
 }
 working = true;
 
-if !debug
-	instance_destroy(obj_wc);
+with obj_shell
+	WC_debug = false;
 
 // init
 gms_init(obj_gms);

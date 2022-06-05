@@ -1,7 +1,9 @@
 function sh_room(args)
 {
-	if check_online()
-		return "Command only available in OFFLINE mode.";
+	if !WC_debug
+		return "You do not have permission to use this command";
+	if array_length(args) < 2
+		return "The current room is " + room_get_name(room) + " (" + string(room) + ")";
 	
 	var roomgoto = args[1];
 	

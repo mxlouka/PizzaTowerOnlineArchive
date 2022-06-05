@@ -49,10 +49,9 @@ if loadsave
 		state = states.door;
 	}
 	instance_create(x, y, obj_fadeout);
-
-	// spawn in world controller
-	if gms_self_admin_rights()
-		instance_create(0, 0, obj_wc);
+	
+	with obj_shell
+		WC_debug = gms_self_admin_rights();
 }
 else
 	alarm[3] = 10;

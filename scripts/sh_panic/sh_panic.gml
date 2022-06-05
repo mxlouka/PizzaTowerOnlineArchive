@@ -1,7 +1,7 @@
 function sh_panic(args)
 {
-	if check_online()
-		return "Command only available in OFFLINE mode.";
+	if !WC_debug
+		return "You do not have permission to use this command";
 	
 	var togglepanic = !global.panic;
 	if array_length(args) > 1

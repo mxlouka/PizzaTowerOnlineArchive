@@ -18,10 +18,11 @@ with obj_player
 }
 
 playmusic = false;
-if !debug
-	instance_destroy(obj_wc);
+with obj_shell
+	WC_debug = false;
 
 tryconnect = 0;
 alpha = 0;
 
 sel = 0;
+

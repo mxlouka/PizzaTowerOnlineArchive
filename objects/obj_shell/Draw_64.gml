@@ -1,3 +1,5 @@
+scr_wc_drawgui();
+
 if (isOpen) {
 	draw_set_font(consoleFont);
 	draw_set_halign(fa_left);

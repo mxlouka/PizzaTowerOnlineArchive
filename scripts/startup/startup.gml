@@ -143,7 +143,8 @@ function offline_travel()
 	
 	// travel
 	audio_stop_all();
-	//instance_create(0, 0, obj_wc);
+	with obj_shell
+		WC_debug = true;
 	
 	instance_create(x, y, obj_fadeout)
 	with obj_player
