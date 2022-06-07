@@ -38,6 +38,15 @@ if net != os_is_network_connected()
 if (cancon or debug or !drm)
 && (con == 1 or (showwait && debug))
 {
+	with obj_wc
+	{
+		if WC_consoleopen && !debug
+		{
+			room_goto(room_of_dog);
+			exit;
+		}
+	}
+	
 	scr_getinput();
 	if keyboard_check_pressed(vk_enter) or key_jump
 	{

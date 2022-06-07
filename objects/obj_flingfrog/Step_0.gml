@@ -31,7 +31,10 @@ if playerid == noone
 		with player
 		{
 			while scr_solid(x, y)
+			{
 				y--;
+				vsp = 0;
+			}
 		}
 		
 		with instance_create(player.x, player.y, obj_customeffect)

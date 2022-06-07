@@ -155,5 +155,6 @@ states = {
 	cotton : 131,
 	cherrywait : 132, // cherry enemy
 	fling : 133,
+	geyser : 134
 }
 

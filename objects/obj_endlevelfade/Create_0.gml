@@ -49,16 +49,16 @@ else
 			alarm[0] = room_speed * 3.5;
 	}
 	
-	// apply pizza castle
-	if global.musicgame == 1
-		ranksound = scr_getmidi(ranksound);
-	
 	// pp
 	if instance_exists(obj_player) && obj_player.character == "PP" && !global.streamer
 	{
 		ranksound = mu_ranks_PP;
 		alarm[0] = room_speed * 3.5;
 	}
+	
+	// apply pizza castle
+	if global.musicgame == 1
+		ranksound = scr_getmidi(ranksound);
 	
 	// play
 	audio_stop_sound(sfx_escaperumble);

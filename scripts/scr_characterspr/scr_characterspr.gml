@@ -296,6 +296,8 @@ function scr_characterspr(char = character)
 				spr_cotton_roll = spr_playerSP_cotton_roll;
 				spr_cotton_rollmax = spr_playerSP_cotton_rollmax;
 				
+				spr_geyser = spr_player_machfreefall;
+				
 				spr_palette = spr_peppalette
 				break;
 		
@@ -578,6 +580,8 @@ function scr_characterspr(char = character)
 				spr_golflook2 = spr_playerN_golflook2;
 				spr_golflook3 = spr_playerN_golflook3;
 				spr_golfswing = spr_playerN_golfswing;
+				
+				spr_geyser = spr_playerN_rockethitwall;
 				
 				spr_palette = spr_noisepalette
 				break;
@@ -1363,6 +1367,8 @@ function scr_characterspr(char = character)
 				spr_cotton_roll = spr_playerSP_cotton_roll;
 				spr_cotton_rollmax = spr_playerSP_cotton_rollmax;
 				
+				spr_geyser = spr_playerSP_rockethitwall;
+				
 				spr_palette = spr_pizzpalette;
 				
 				// new sprites
@@ -1631,6 +1637,8 @@ function scr_characterspr(char = character)
 				spr_Current = spr_playerPP_current;
 				spr_catched = spr_playerPP_catched;
 				spr_grind = spr_playerPP_grinding;
+				
+				spr_geyser = spr_playerPP_machfreefall;
 				
 				snd_fireass = sfx_scream5_PP;
 				break;

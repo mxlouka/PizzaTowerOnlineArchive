@@ -5,7 +5,7 @@ if con == -1
 		draw_set_font(global.font_small);
 		draw_text(room_width / 2, room_height / 2, lang_string("load.unusual"));
 		if debug
-			draw_text(room_width / 2, room_height / 2 + 200, "You're in debug mode though, so just\npress Z to skip this if you want.");
+			draw_text(room_width / 2, room_height / 2 + 100, "You're in debug mode though, so just\npress Z to skip this if you want.");
 	}
 }
 else
