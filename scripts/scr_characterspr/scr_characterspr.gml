@@ -1081,6 +1081,8 @@ function scr_characterspr(char = character)
 				spr_golflook3 = spr_player_golflook3;
 				spr_golfswing = spr_player_golfswing;
 				
+				spr_geyser = spr_snick_hurt
+				
 				spr_palette = spr_snickpalette
 				break
 	
