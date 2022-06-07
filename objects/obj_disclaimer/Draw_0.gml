@@ -2,7 +2,9 @@ if con == -1
 {
 	if showwait
 	{
+		draw_set_colour(c_white);
 		draw_set_font(global.font_small);
+		draw_set_align(fa_center, fa_middle);
 		draw_text(room_width / 2, room_height / 2, lang_string("load.unusual"));
 		if debug
 			draw_text(room_width / 2, room_height / 2 + 100, "You're in debug mode though, so just\npress Z to skip this if you want.");

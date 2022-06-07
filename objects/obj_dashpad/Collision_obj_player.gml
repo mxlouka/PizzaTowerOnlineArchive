@@ -12,7 +12,9 @@ with other
 			if other.image_xscale != 0
 				xscale = sign(other.image_xscale)
 			flash = true
-		
+			
+			alarm[0] = 50
+			
 			scr_soundeffect(sfx_noisewoah)
 			state = states.Sjumpprep
 			image_index = 0
@@ -34,11 +36,11 @@ with other
 			state = states.mach3
 			image_index = 0;
 			
-			if spr_dashpadmach != spr_move
+			if spr_dashpadmach != spr_move && !(character == "N" && noisetype == 0)
 				sprite_index = spr_dashpadmach
 			else
 			{
-				sprite_index = spr_mach4
+				sprite_index = global.gameplay == 0 ? spr_mach4 : spr_crazyrun
 				alarm[0] = 20
 			}
 			instance_create(x, y, obj_jumpdust)

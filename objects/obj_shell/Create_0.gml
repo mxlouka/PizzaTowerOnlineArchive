@@ -1,5 +1,3 @@
-scr_wc_create();
-
 isOpen = false;
 isAutocompleteOpen = false;
 
@@ -150,7 +148,7 @@ function _update_filtered_suggestions() {
 	autocompleteMaxWidth = 0;
 	suggestionIndex = 0;
 	activeMouseArgType = undefined;
-	var inputString = string_lower(consoleString);
+	var inputString = string(consoleString);
 	inputArray = self._input_string_split(inputString);
 	
 	// Return if we have nothing to parse
@@ -200,7 +198,7 @@ function _update_filtered_suggestions() {
 			}
 		}
 	}
-	
+	autocompleteScrollPosition = 0;
 	array_sort(filteredSuggestions, true);
 }
 
@@ -211,9 +209,9 @@ function _find_common_prefix() {
 		return "";
 	}
 	
-	var first = string_lower(filteredSuggestions[0]);
-	var last = string_lower(filteredSuggestions[array_length(filteredSuggestions) - 1]);
-		
+	var first = string(filteredSuggestions[0]);
+	var last = string(filteredSuggestions[array_length(filteredSuggestions) - 1]);
+	
 	var result = "";
 	var spaceCount = string_count(" ", consoleString);
 	if (spaceCount > 0) {
@@ -376,6 +374,7 @@ function _execute_script(args, deferred = false) {
 			show_debug_message(_exception.script);
 			show_debug_message(_exception.stacktrace);
 			show_debug_message("----------------------------");
+			isOpen = true;
 		}
 		if (!deferred) {
 			array_push(history, consoleString);
@@ -390,6 +389,7 @@ function _execute_script(args, deferred = false) {
 		array_push(output, ">" + consoleString);
 		array_push(output, "No such command: " + consoleString);
 		array_push(history, consoleString);
+		isOpen = true;
 		self._update_positions();
 	}
 }
@@ -501,3 +501,6 @@ function _remap(value, min_input, max_input, min_output, max_output) {
 	var _t = (value - min_input) / (max_input - min_input);
 	return lerp(min_output, max_output, _t);
 }
+
+scr_wc_create();
+

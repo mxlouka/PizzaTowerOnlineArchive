@@ -1946,7 +1946,7 @@ function scr_wcevaluate(argument0)
 			else
 				console_log("Saveroom and Baddieroom reset");
 			break
-			
+		
 		case "delete":
 		case "destroy":
 			arg1 = ds_list_find_value(arg, 1);

@@ -385,7 +385,7 @@ if menu == 2
 						break;
 				}
 				x = wrap(x + movespeed, -100, 960 + 100);
-			
+				
 				pal_swap_set(spr_peppalette, 1, false);
 				draw_sprite_ext(spr, (floor(state) == 3 ? img2 : (state == 0 ? lerp(0, sprite_get_number(spr), movespeed / 12) : img * isp)), x, 280, 2, 2, 0, c_white, 1)
 				pal_swap_reset();

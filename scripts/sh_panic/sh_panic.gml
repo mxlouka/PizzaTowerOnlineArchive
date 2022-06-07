@@ -73,7 +73,7 @@ function meta_panic()
 {
 	return {
 		description: "toggle it's pizza time on or off",
-		arguments: ["active", "minutes", "seconds"],
+		arguments: ["<active>", "<minutes>", "<seconds>"],
 		suggestions: [
 			["toggle", "true", "false"],
 			[],
@@ -86,4 +86,5 @@ function meta_panic()
 		],
 	}
 }
+WCscr_altname("panic", "pizzatime");
 

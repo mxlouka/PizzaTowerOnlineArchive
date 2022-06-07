@@ -78,6 +78,7 @@ function scr_player_mach3()
 		//Jump
 		if input_buffer_jump < 8 && grounded && (move == xscale or move == 0)
 		{
+			jumpstop = false;
 			input_buffer_jump = 8;
 				
 			scr_soundeffect(sfx_jump)

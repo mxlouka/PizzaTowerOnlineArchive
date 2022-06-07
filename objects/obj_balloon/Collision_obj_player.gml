@@ -19,3 +19,6 @@ with other
 		sprite_index = spr_machfreefall;
 }
 
+if scr_stylecheck(2)
+	scr_soundeffect(sfx_step);
+

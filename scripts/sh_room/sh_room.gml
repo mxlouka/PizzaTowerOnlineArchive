@@ -32,7 +32,7 @@ function meta_room()
 {
 	return {
 		description: "travel to a room",
-		arguments: ["targetRoom", "targetDoor"],
+		arguments: ["targetRoom", "<targetDoor>"],
 		suggestions: [
 			function()
 			{

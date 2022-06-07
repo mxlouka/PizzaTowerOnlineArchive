@@ -1,7 +1,22 @@
+function WCscr_altname(name, alt)
+{
+	variable_global_set("sh_" + alt, variable_global_get("sh_" + name));
+	variable_global_set("meta_" + alt, variable_global_get("meta_" + name));
+}
+
 function scr_wc_create()
 {
-	depth = power(2, 31) - 1;
+	WCscr_altname("clear", "cls");
 	WC_debug = false;
+	
+	enum WC_select_modes
+	{
+		create,
+		debugview,
+		variable
+	}
+	WC_select_mode = -1;
+	WC_select_inst = noone;
 	
 	// instance drag
 	WC_drag_toggle = !instance_exists(obj_wc);
@@ -10,6 +25,49 @@ function scr_wc_create()
 	WC_drag_grid = [1, 1];
 	WC_drag_inst = noone;
 	WC_drag_deleting = false;
+	
+	// debug view
+	WC_debugview = false;
+	WC_debugview_target = noone;
+	WC_debugview_scroll = 0;
+	
+	// shortcuts
+	WC_binds = ds_map_create();
+	function WCscr_addbind(key, command_or_method) {
+		ds_map_add(WC_binds, string(key), command_or_method);
+	}
+	WCscr_addbind(ord("1"), "create");
+	WCscr_addbind(ord("3"), "var");
+	WCscr_addbind(ord("9"), "debughud");
+	WCscr_addbind(vk_numpad1, "resetsaveroom");
+	
+	// frozen variables
+	WC_frozen = ds_list_create();
+	function WCscr_freezevar(instance, variable)
+	{
+		for(var i = 0; i < ds_list_size(WC_frozen); i++)
+		{
+			var frozen = WC_frozen[|i];
+			if frozen[0] == instance && frozen[1] == variable
+			{
+				ds_list_delete(WC_frozen, i);
+				return false;
+			}
+		}
+		ds_list_add(WC_frozen, [instance, variable, variable_instance_get(instance, variable)]);
+		return true;
+	}
+	
+	// open console bind
+	if !instance_exists(obj_wc)
+	{
+		WCscr_addbind(220, function() {
+			if !isOpen
+				self.open();
+			else
+				self.close();
+		});
+	}
 	
 	// windows
 	WC_win_list = ds_list_create();
@@ -40,13 +98,13 @@ function scr_wc_create()
 	WC_win_dragx = 0;
 	WC_win_dragy = 0;
 	
-	// funcs
+	#region functions
+	
 	function WCscr_overconsole()
 	{
 		var mx = device_mouse_x_to_gui(0), my = device_mouse_y_to_gui(0);
 		return isOpen && mx >= shellOriginX && my >= shellOriginY && mx < shellOriginX + width && my < shellOriginY + height;
 	}
-	
 	function WCscr_findobj(obj)
 	{
 		var target_one = false;
@@ -121,39 +179,141 @@ function scr_wc_create()
 			{
 				if instance_exists(real(obj))
 					target = real(obj);
+				if real(obj) >= 100000 // most likely an instance id
+					target_one = true;
 			}
 		}
 		return [target, target_one];
 	}
-	
 	function WCscr_allargs(args, after = 0)
 	{
 		var ret = "";
-		for(var i = after; i < ds_list_size(args); i++)
-			ret += args[|i] + (i == ds_list_size(args) - 1 ? "" : " ");
+		for(var i = after; i < array_length(args); i++)
+			ret += args[i] + (i == array_length(args) - 1 ? "" : " ");
 		return ret;
 	}
+	function WCscr_getvalue(value)
+	{
+		value = string(value);
+		if asset_get_index(value) != -1 // asset
+			value = asset_get_index(value);
+		else if string_is_number(value) // number
+			value = real(value);
+		else if string_char_at(value, 1) == "'"
+		&& string_char_at(value, string_length(value)) == "'" // forced string
+		{
+			value = string_delete(value, 1, 1);
+			value = string_delete(value, string_length(value), 1);
+		}
+		else
+		{
+			// parse?
+			
+		}
+		return value;
+	}
+	
+	#endregion
 }
 
 function scr_wc_step()
 {
-	if debug
-		WC_debug = true;
+	// prepare
+	depth = -16000;
+	WC_debug |= debug;
 	
-	if display_mouse_get_x() > window_get_x() && display_mouse_get_x() < window_get_x() + window_get_width()
-	&& display_mouse_get_y() > window_get_y() && display_mouse_get_y() < window_get_y() + window_get_height()
-		window_set_cursor(cr_default);
-	
-	// alternative key to open the console
-	if keyboard_check_pressed(220) && !instance_exists(obj_wc)
+	// ugly as fuck cursor resetter
+	if window_get_cursor() == cr_size_nwse
 	{
-		if !isOpen
-			self.open();
-		else
-			self.close();
+		if display_mouse_get_x() > window_get_x() && display_mouse_get_x() < window_get_x() + window_get_width()
+		&& display_mouse_get_y() > window_get_y() && display_mouse_get_y() < window_get_y() + window_get_height()
+			window_set_cursor(cr_default);
 	}
 	
-	// focus on a window
+	#region bound keys
+	
+	for(var i = ds_map_find_first(WC_binds); !is_undefined(i); i = ds_map_find_next(WC_binds, i))
+	{
+		if keyboard_check_pressed(real(i))
+		{
+			var val = ds_map_find_value(WC_binds, i);
+			if is_method(val)
+				val();
+			else if !isOpen
+			{
+				var args = _input_string_split(val);
+				
+				// set arguments outside of the console
+				if array_length(args) == 1
+				{
+					if args[0] == "var" or args[0] == "variable"
+					{
+						if keyboard_check(vk_shift)
+						{
+							var variable = get_string("Input global variable name here", "");
+							if variable != ""
+							{
+								if variable_global_exists(variable)
+									var value = get_string("Overwriting existing value in global." + variable + " to...", string(variable_global_get(variable)));
+								else
+									var value = get_string("Creating new variable global." + variable + " with value...", "");
+							
+								consoleString = "var global " + variable + " " + value;
+								_execute_script(_input_string_split(consoleString));
+								consoleString = "";
+							}
+						}
+						else
+							WC_select_mode = WC_select_modes.variable;
+					}
+					else
+					{
+						var metadata = functionData[$ args[0]];
+						if !is_undefined(metadata) && variable_struct_exists(metadata, "arguments")
+						{
+							for(var i = 0; i < array_length(metadata.arguments); i++)
+							{
+								if string_char_at(metadata.arguments[i], 1) != "<"
+								{
+									var getstring = get_string("Write value for argument:\n" + metadata.arguments[i], "");
+									if getstring == ""
+										break;
+								
+									val += " \"" + getstring + "\"";
+								}
+							}
+						}
+						args = _input_string_split(val)
+						
+						consoleString = val;
+						if array_length(args) > 0
+							_execute_script(args);
+					}
+				}
+				else
+				{
+					consoleString = val;
+					if array_length(args) > 0
+						_execute_script(args);
+				}
+				consoleString = "";
+			}
+		}
+	}
+	
+	#endregion
+	#region frozen variables
+	
+	for(var i = 0; i < ds_list_size(WC_frozen); i++)
+	{
+		var frozen = WC_frozen[|i];
+		if instance_exists(frozen[0]) or frozen[0] == global
+			variable_instance_set(frozen[0], frozen[1], frozen[2]);
+	}
+	
+	#endregion
+	#region focus on a window
+	
 	var mousex = device_mouse_x_to_gui(0), mousey = device_mouse_y_to_gui(0);
 	if mouse_check_button_pressed(mb_left)
 	{
@@ -172,9 +332,10 @@ function scr_wc_step()
 			}
 		}
 	}
+	#endregion
+	#region drag objects
 	
-	// drag objects
-	if WC_drag_toggle && WC_debug
+	if WC_drag_toggle && WC_debug && WC_select_mode <= -1
 	{
 		// object gone failsafe
 		if !instance_exists(WC_drag_inst)
@@ -250,7 +411,17 @@ function scr_wc_step()
 				}
 				
 				// handle frozen position
-				
+				for(var i = 0; i < ds_list_size(WC_frozen); i++)
+				{
+					var frozen = WC_frozen[|i];
+					if instance_exists(frozen[0]) && frozen[0].id == WC_drag_inst.id
+					{
+						if frozen[1] == "x"
+							WC_frozen[|i][2] = WC_drag_inst.x;
+						if frozen[2] == "y"
+							WC_frozen[|i][2] = WC_drag_inst.y;
+					}
+				}
 			}
 			
 			// delete or cancel
@@ -284,10 +455,90 @@ function scr_wc_step()
 	}
 	else
 		WC_drag_inst = noone;
+	
+	#endregion
+	#region instance selection mode
+	
+	switch WC_select_mode
+	{
+		case -1:
+			WC_select_inst = noone; 
+			break;
+		
+		case WC_select_modes.create:
+			if mouse_check_button_pressed(mb_left) or (mouse_check_button(mb_left) && keyboard_check(vk_control))
+				instance_create(floor(mouse_x / WC_drag_grid[0]) * WC_drag_grid[0], floor(mouse_y / WC_drag_grid[1]) * WC_drag_grid[1], WC_select_inst);
+			break;
+		
+		default:
+			WC_select_inst = collision_point(mouse_x, mouse_y, all, false, false);
+			
+			// make sure you select the baddie instead of its collision
+			if WC_select_inst && WC_select_inst.object_index == obj_baddiecollisionbox && !keyboard_check(vk_shift)
+			{
+				if instance_exists(WC_select_inst.baddieID)
+					WC_select_inst = WC_select_inst.baddieID;
+			}
+			
+			// select
+			if WC_select_inst && mouse_check_button_pressed(mb_left)
+			{
+				switch WC_select_mode
+				{
+					default: show_message("Boop"); break;
+					
+					case WC_select_modes.debugview:
+						WC_debugview = true;
+						WC_debugview_target = WC_select_inst;
+						WC_debugview_scroll = 0;
+						break;
+					
+					case WC_select_modes.variable:
+						var variable = get_string("Selected " + object_get_name(WC_select_inst.object_index) + "\nInput variable name here", "");
+						if variable == ""
+							WC_select_mode = -1;
+						else
+						{
+							if variable_instance_exists(WC_select_inst, variable)
+								var value = get_string("Overwriting existing value in " + variable + " to...", string(variable_instance_get(WC_select_inst, variable)));
+							else
+								var value = get_string("Creating new variable " + variable + " with value...", "");
+							
+							consoleString = "var " + string(WC_select_inst.id) + " " + variable + " " + value;
+							_execute_script(_input_string_split(consoleString));
+							consoleString = "";
+						}
+						break;
+				}
+				WC_select_mode = -1;
+			}
+			break;
+	}
+	
+	// cancel
+	if mouse_check_button_pressed(mb_right)
+		WC_select_mode = -1;
+	
+	#endregion
+}
+
+function WCscr_drawobject(instance, alpha = 0.75, drawmask = false)
+{
+	// redraw sprite
+	var xscale = instance.image_xscale, yscale = instance.image_yscale;
+	if variable_instance_exists(instance, "xscale")
+		xscale = instance.xscale;
+	if variable_instance_exists(instance, "yscale")
+		yscale = instance.yscale;
+	draw_sprite_ext(instance.sprite_index, instance.image_index, instance.x, instance.y, xscale, yscale, instance.image_angle, instance.image_blend, alpha);
 }
 
 function scr_wc_draw()
 {
+	draw_set_font(consoleFont);
+	
+	#region dragging instance
+	
 	if instance_exists(WC_drag_inst)
 	{
 		with WC_drag_inst
@@ -318,6 +569,55 @@ function scr_wc_draw()
 			y = yp;
 		}
 	}
+	
+	#endregion
+	#region selecting instance
+	
+	if WC_select_mode != -1
+	{
+		// make color
+		var col = c_white;
+		switch WC_select_mode
+		{
+			case WC_select_modes.debugview:
+				col = merge_colour(c_white, c_orange, 0.35);
+				break;
+		}
+		draw_set_colour(col);
+		
+		// make text
+		var text = "Select object", xx = mouse_x, yy = mouse_y;
+		if WC_select_mode == WC_select_modes.create
+		{
+			xx = floor(mouse_x / WC_drag_grid[0]) * WC_drag_grid[0];
+			yy = floor(mouse_y / WC_drag_grid[1]) * WC_drag_grid[1];
+			
+			text = "Spawn here";
+			
+			var objspr = object_get_sprite(WC_select_inst);
+			if sprite_exists(objspr)
+			{
+				text = "";
+				draw_sprite_ext(object_get_sprite(WC_select_inst), 0, xx, yy, 1, 1, 0, c_white, 0.5);
+			}
+		}
+		else if instance_exists(WC_select_inst)
+		{
+			text = object_get_name(WC_select_inst.object_index);
+			xx += choose(1, -1);
+			
+			draw_set_flash(true, col);
+			WCscr_drawobject(WC_select_inst, abs(sin(current_time / 100)) * 0.5);
+			draw_set_flash(false);
+		}
+		
+		// draw it
+		draw_set_align(fa_center, fa_middle);
+		draw_text_outline(xx, yy, text);
+		draw_set_align();
+	}
+	
+	#endregion
 }
 
 function scr_wc_drawgui()
@@ -327,8 +627,103 @@ function scr_wc_drawgui()
 	// vars
 	var mousex = device_mouse_x_to_gui(0), mousey = device_mouse_y_to_gui(0);
 	var wincol = c_black, txtcol = c_white;
-
-	// windows
+	var guiwidth = display_get_gui_width(), guiheight = display_get_gui_height();
+	
+	#region debug view
+	
+	show_debug_overlay(WC_debugview);
+	if WC_debugview
+	{
+		draw_set_align();
+		draw_set_colour(c_white);
+		
+		draw_text_outline(4, 24, "room: " + room_get_name(room) + " (" + string(room) + ")" +
+		"\nfps: " + string(fps) + " instances: " + string(instance_number(all)));
+		
+		if instance_exists(WC_debugview_target) or WC_debugview_target == global
+		{
+			if WC_debugview_target != global
+			{
+				var str = "\n\n\nSelected " + object_get_name(WC_debugview_target.object_index) + " (id: " + string(WC_debugview_target.id) + ")";
+				str += "\nx: " + string(WC_debugview_target.x);
+				str += "\ny: " + string(WC_debugview_target.y);
+				
+				if WC_debugview_target.sprite_index == -1
+					str += "\nsprite_index: none";
+				else
+					str += "\nsprite_index: " + sprite_get_name(WC_debugview_target.sprite_index) + " (" + string(WC_debugview_target.sprite_index) + ")";
+				str += "\nimage_index: " + string(WC_debugview_target.image_index);
+				str += "\nimage_xscale: " + string(WC_debugview_target.image_xscale);
+				str += "\nimage_yscale: " + string(WC_debugview_target.image_yscale);
+				
+				if WC_debugview_target.mask_index == -1
+					str += "\nmask_index: none";
+				else
+					str += "\nmask_index: " + sprite_get_name(WC_debugview_target.mask_index) + " (" + string(WC_debugview_target.mask_index) + ")";
+				
+				for (var c = 0; c <= 11; c++)
+				{
+					if WC_debugview_target.alarm[c] > -1
+						str += "\nalarm[" + string(c) + "]: " + string(WC_debugview_target.alarm[c]);
+				}
+			
+				draw_text_outline(4, 24, str);
+			}
+			
+			draw_set_halign(fa_right);
+			var objvars = variable_instance_get_names(WC_debugview_target);
+		
+			if array_length(objvars) == 0
+				draw_text_outline(display_get_gui_width(), 4, "No variables");
+			else
+			{
+				WC_debugview_scroll = clamp(WC_debugview_scroll, 0, max(array_length(objvars) - 32, 0));
+				for (var b = WC_debugview_scroll; b < min(WC_debugview_scroll + 33, array_length(objvars)); b++)
+				{
+					var getvar = variable_instance_get(WC_debugview_target, objvars[b]);
+					
+					var todraw = "";
+					if is_array(getvar)
+					{
+						draw_set_colour(merge_colour(c_white, c_yellow, 0.5));
+						todraw = "ARRAY";
+					}
+					else
+					{
+						draw_set_colour(c_white);
+						if string_char_at(string(getvar), 1) == "-"
+							draw_set_colour(merge_colour(c_white, c_red, 0.5));
+						todraw = string(getvar);
+					}
+					todraw = string_replace_all(todraw, "\n", "\\n");
+					
+					if b <= 32 + WC_debugview_scroll
+						draw_text_outline(956, ((b - WC_debugview_scroll) * 16) + 4, objvars[b] + ": " + todraw);
+				}
+				
+				if keyboard_check_pressed(vk_pageup)
+				{
+					WC_debugview_scroll -= 32;
+					if WC_debugview_scroll < 0
+						WC_debugview_scroll = 0;
+				}
+				if keyboard_check_pressed(vk_pagedown)
+				{
+					WC_debugview_scroll += 32;
+					if WC_debugview_scroll > array_length(objvars) - 32
+						WC_debugview_scroll = array_length(objvars) - 32;
+				}
+			}
+		}
+		else
+			WC_debugview_target = noone;
+	}
+	else
+		WC_debugview_target = noone;
+	
+	#endregion
+	#region windows
+	
 	for(var i = 0; i < ds_list_size(WC_win_list); i++)
 	{
 		var win = WC_win_list[|i];
@@ -349,6 +744,10 @@ function scr_wc_drawgui()
 					}
 					win_x = mousex - WC_win_dragx;
 					win_y = mousey - WC_win_dragy;
+					
+					// snap window to screen sides
+					win_x = clamp(win_x, 0, guiwidth - win_width);
+					win_y = clamp(win_y, 32, guiheight - win_height);
 				}
 				else
 					win_moving = false;
@@ -417,12 +816,13 @@ function scr_wc_drawgui()
 		}
 	}
 	
-	// dragging
+	#endregion
+	#region dragging
+	
 	if instance_exists(WC_drag_inst)
 	{
 		draw_set_color(WC_drag_alt ? merge_colour(c_aqua, c_white, 0.75) : c_white);
-		draw_set_halign(fa_center);
-		draw_set_valign(fa_top);
+		draw_set_align(fa_center, fa_top);
 		
 		var dragtext = "Dragging ";
 		if mouse_check_button(mb_middle) && keyboard_check(vk_control)
@@ -430,7 +830,19 @@ function scr_wc_drawgui()
 		var postext = "x" + string(WC_drag_inst.x) + " y" + string(WC_drag_inst.y);
 		if WC_drag_alt
 			postext += "  >  x" + string(floor((mouse_x - other.WC_drag_offset[0]) / other.WC_drag_grid[0]) * other.WC_drag_grid[0]) + " y" + string(floor((mouse_y - other.WC_drag_offset[1]) / other.WC_drag_grid[1]) * other.WC_drag_grid[1]);
-		draw_text_outline(display_get_gui_width() / 2, 0, dragtext + object_get_name(WC_drag_inst.object_index) + "\n" + postext);
+		draw_text_outline(guiwidth / 2, 0, dragtext + object_get_name(WC_drag_inst.object_index) + "\n" + postext);
 	}
+	
+	#endregion
+	#region selecting instance
+	
+	if WC_select_mode != -1
+	{
+		draw_set_color(c_white);
+		draw_set_align(fa_center, fa_top);
+		draw_text_outline(guiwidth / 2, 0, "Right click to cancel");
+	}
+	
+	#endregion
 }
 

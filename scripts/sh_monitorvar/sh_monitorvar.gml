@@ -1,10 +1,15 @@
 function sh_monitorvar(args)
 {
+	if !WC_debug
+		return "You do not have permission to use this command";
+	
 	if array_length(args) < 2
 		return "Missing argument: instance";
 	
 	if args[1] == "global"
 		var inst = global;
+	else if args[1] == "all"
+		return "You can't monitor all objects";
 	else
 	{
 		var inst = WCscr_findobj(args[1]);
@@ -73,7 +78,7 @@ function meta_monitorvar()
 	return
 	{
 		description: "monitor an instance's variable or a global variable in a pop-up window",
-		arguments: ["instance", "variable(s)"],
+		arguments: ["instance", "variables"],
 		suggestions: [
 			function()
 			{
@@ -92,6 +97,7 @@ function meta_monitorvar()
 					}
 				}
 				array_sort(obj_array, true);
+				array_insert(obj_array, 0, "global");
 				return obj_array;
 			},
 			[]
