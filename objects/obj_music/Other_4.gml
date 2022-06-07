@@ -260,6 +260,8 @@ else if (!global.panic or string_letters(roomname) == "dragonlair" or string_let
 					musplay = mu_cotton2
 			}
 		}
+		if string_letters(roomname) == "molasses"
+			musplay = mu_swamp
 		if string_letters(roomname) == "mines"
 			musplay = mu_mines
 		if string_letters(roomname) == "sugarytut"
@@ -429,6 +431,8 @@ else if (!global.panic or string_letters(roomname) == "dragonlair" or string_let
 	}
 	if string_letters(roomname) == "cottonsecret"
 		musplay = mu_cottonsecret
+	if string_letters(roomname) == "molassessecret"
+		musplay = mu_swampsecret
 	if string_letters(roomname) == "minessecret"
 		musplay = mu_minessecret
 	if string_letters(roomname) == "sanctumsecret"
