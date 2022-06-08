@@ -46,7 +46,7 @@ function scr_solid_player(argX, argY, retcol = false)
 	}
 	
 	var transwater = instance_place(x, y, obj_transwater);
-	if transwater && !place_meeting(x, old_y, transwater)
+	if transwater && !place_meeting(x, old_y, transwater) && scr_stylecheck(0, 2)
 	{
 		if state == states.mach3 or (state == states.machslide && sprite_index == spr_mach3boost)
 			collide = transwater;

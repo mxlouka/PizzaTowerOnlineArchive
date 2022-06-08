@@ -10,7 +10,7 @@ function sh_panic(args)
 			togglepanic = true;
 		else if args[1] == "false" or args[1] == "0"
 			togglepanic = false;
-		else if args[1] != "toggle"
+		else
 			return "Invalid argument: " + args[1];
 	}
 	
@@ -75,7 +75,7 @@ function meta_panic()
 		description: "toggle it's pizza time on or off",
 		arguments: ["<active>", "<minutes>", "<seconds>"],
 		suggestions: [
-			["toggle", "true", "false"],
+			["true", "false"],
 			[],
 			[],
 		],

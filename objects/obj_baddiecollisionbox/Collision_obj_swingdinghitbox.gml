@@ -1,6 +1,5 @@
-if instance_exists(baddieID)
-&& baddieID.state != states.grabbed && baddieID.state != states.hit
-&& baddieID.object_index != obj_pizzaballOLD
+if instance_exists(baddieID) && baddieID.state != states.grabbed && baddieID.state != states.hit
+&& !baddieID.invincible && baddieID.instantkillable
 {
 	if global.gameplay == 0
 	{
@@ -10,10 +9,11 @@ if instance_exists(baddieID)
 	else
 	{
 		scr_soundeffect(sfx_punch);
-		
-		scr_hitthrow(baddieID, noone);
 		baddieID.hp -= 99;
-		baddieID.hitLag = 8;
+		baddieID.image_xscale = -other.image_xscale;
+		baddieID.hitvsp = -8;
+		baddieID.hithsp = other.image_xscale * 15;
+		scr_hitthrow(baddieID, noone, 8);
+		baddieID.invtime = 25;
 	}
 }
-

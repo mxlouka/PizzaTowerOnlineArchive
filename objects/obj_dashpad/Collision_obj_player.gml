@@ -36,7 +36,7 @@ with other
 			state = states.mach3
 			image_index = 0;
 			
-			if spr_dashpadmach != spr_move && !(character == "N" && noisetype == 0)
+			if global.gameplay != 0 && spr_dashpadmach != spr_move && !(character == "N" && noisetype == 0)
 				sprite_index = spr_dashpadmach
 			else
 			{

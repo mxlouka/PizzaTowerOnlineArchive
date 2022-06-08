@@ -5,6 +5,7 @@
   },
   "solid": false,
   "visible": true,
+  "managed": true,
   "spriteMaskId": {
     "name": "spr_babybear_walk",
     "path": "sprites/spr_babybear_walk/spr_babybear_walk.yy",

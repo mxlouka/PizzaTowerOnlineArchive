@@ -5,6 +5,7 @@
   },
   "solid": false,
   "visible": true,
+  "managed": true,
   "spriteMaskId": {
     "name": "spr_pizzaboxunopen",
     "path": "sprites/spr_pizzaboxunopen/spr_pizzaboxunopen.yy",

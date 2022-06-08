@@ -7,10 +7,10 @@ if instance_exists(baddieID)
 	
 	repeat 3
 		instance_create(x, y, obj_slapstar)
-	repeat 4
+	repeat 3
 		create_particle(x, y, particles.baddiegibs)
+	instance_create(x, y, obj_bangeffect)
 	
 	instance_destroy(baddieID)
 	instance_destroy()
 }
-

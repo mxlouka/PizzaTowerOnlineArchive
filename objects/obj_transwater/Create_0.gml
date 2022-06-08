@@ -9,4 +9,3 @@ if check_sugary()
 }
 else
 	sprite_index = spr_water;
-

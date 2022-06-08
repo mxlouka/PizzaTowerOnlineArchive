@@ -67,11 +67,12 @@ globalvar playerobj;
 playerobj = obj_player;
 global.coop = false;
 
+// create the shell
+instance_create(0, 0, obj_shell);
+
 // unlock sugary spire content
 globalvar sugaryspire;
 sugaryspire = true;
-//sugaryspire = ini_read_real("online", "shove10poundsofsugarupmyspire", false);
-//event_user(0);
 
 // language
 global.language = ini_read_string("online", "language", "en") // language

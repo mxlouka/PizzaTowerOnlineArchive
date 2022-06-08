@@ -117,7 +117,7 @@ function increase_combo()
 		global.combotime = 60;
 }
 
-function scr_hitthrow(baddie, player, lag = 5)
+function scr_hitthrow(baddie, player = noone, lag = 5)
 {
 	with baddie
 	{
@@ -144,7 +144,7 @@ function scr_hitthrow(baddie, player, lag = 5)
 			
 			hsp = hithsp;
 			vsp = hitvsp;
-						
+			
 			grounded = false;
 		}
 	}

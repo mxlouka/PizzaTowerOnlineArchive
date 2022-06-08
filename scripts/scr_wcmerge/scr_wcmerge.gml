@@ -28,7 +28,7 @@ function scr_wc_create()
 	WC_select_inst = noone;
 	
 	// instance drag
-	WC_drag_toggle = !instance_exists(obj_wc);
+	WC_drag_toggle = true;
 	WC_drag_alt = false;
 	WC_drag_offset = [0, 0];
 	WC_drag_grid = [1, 1];
@@ -40,6 +40,9 @@ function scr_wc_create()
 	WC_debugview_target = noone;
 	WC_debugview_scroll = 0;
 	
+	// etc
+	WC_showinvisible = 0; // 0: no, 1: yes, 2: show names of objects without sprites
+	
 	// shortcuts
 	WC_binds = ds_map_create();
 	function WCscr_addbind(key, command_or_method) {
@@ -47,6 +50,8 @@ function scr_wc_create()
 	}
 	WCscr_addbind(ord("1"), "create");
 	WCscr_addbind(ord("3"), "var");
+	WCscr_addbind(ord("5"), "panic");
+	WCscr_addbind(ord("7"), "showinvisible");
 	WCscr_addbind(ord("9"), "debughud");
 	WCscr_addbind(vk_numpad1, "resetsaveroom");
 	
@@ -68,15 +73,12 @@ function scr_wc_create()
 	}
 	
 	// open console bind
-	if !instance_exists(obj_wc)
-	{
-		WCscr_addbind(220, function() {
-			if !isOpen
-				self.open();
-			else
-				self.close();
-		});
-	}
+	WCscr_addbind(220, function() {
+		if !isOpen
+			self.open();
+		else
+			self.close();
+	});
 	
 	// windows
 	WC_win_list = ds_list_create();
@@ -531,15 +533,59 @@ function scr_wc_step()
 	#endregion
 }
 
-function WCscr_drawobject(instance, alpha = 0.75, drawmask = false)
+function WCscr_drawmask(xx = x, yy = y)
+{
+	var _mask = mask_index == -1 ? sprite_index : mask_index;
+	
+	// Get the unmodified mask data
+	var _b1 = sprite_get_bbox_left(_mask) * image_xscale;
+	var _b2 = sprite_get_bbox_top(_mask) * image_yscale;
+	var _b3 = (sprite_get_bbox_right(_mask) + 1) * image_xscale;
+	var _b4 = (sprite_get_bbox_bottom(_mask) + 1) * image_yscale;
+	
+	var _xoff = sprite_get_xoffset(_mask) * image_xscale;
+	var _yoff = sprite_get_yoffset(_mask) * image_yscale;
+	
+	// Get the unmodified vector for each corner
+	var _dis1 = point_distance(_xoff, _yoff, _b1, _b2);
+	var _dir1 = point_direction(_xoff, _yoff, _b1, _b2);
+	var _dis2 = point_distance(_xoff, _yoff, _b3, _b2);
+	var _dir2 = point_direction(_xoff, _yoff, _b3, _b2);
+	var _dis3 = point_distance(_xoff, _yoff, _b3, _b4);
+	var _dir3 = point_direction(_xoff, _yoff, _b3, _b4);
+	var _dis4 = point_distance(_xoff, _yoff, _b1, _b4);
+	var _dir4 = point_direction(_xoff, _yoff, _b1, _b4);
+
+	// Now modify the vectors using the current position and image angle
+	var _x1 = lengthdir_x(_dis1, image_angle + _dir1);
+	var _y1 = lengthdir_y(_dis1, image_angle + _dir1);
+	var _x2 = lengthdir_x(_dis2, image_angle + _dir2);
+	var _y2 = lengthdir_y(_dis2, image_angle + _dir2);
+	var _x3 = lengthdir_x(_dis3, image_angle + _dir3);
+	var _y3 = lengthdir_y(_dis3, image_angle + _dir3);
+	var _x4 = lengthdir_x(_dis4, image_angle + _dir4);
+	var _y4 = lengthdir_y(_dis4, image_angle + _dir4);
+			
+	draw_primitive_begin(pr_trianglefan);
+	draw_vertex(xx + _x1, yy + _y1);
+	draw_vertex(xx + _x2, yy + _y2);
+	draw_vertex(xx + _x3, yy + _y3);
+	draw_vertex(xx + _x4, yy + _y4);
+	draw_primitive_end();
+}
+
+function WCscr_drawobject(instance, alpha = 0.75)
 {
 	// redraw sprite
-	var xscale = instance.image_xscale, yscale = instance.image_yscale;
-	if variable_instance_exists(instance, "xscale")
-		xscale = instance.xscale;
-	if variable_instance_exists(instance, "yscale")
-		yscale = instance.yscale;
-	draw_sprite_ext(instance.sprite_index, instance.image_index, instance.x, instance.y, xscale, yscale, instance.image_angle, instance.image_blend, alpha);
+	if sprite_exists(instance.sprite_index)
+	{
+		var xscale = instance.image_xscale, yscale = instance.image_yscale;
+		if variable_instance_exists(instance, "xscale")
+			xscale = instance.xscale;
+		if variable_instance_exists(instance, "yscale")
+			yscale = instance.yscale;
+		draw_sprite_ext(instance.sprite_index, instance.image_index, instance.x, instance.y, xscale, yscale, instance.image_angle, instance.image_blend, alpha);
+	}
 }
 
 function scr_wc_draw()
@@ -550,6 +596,8 @@ function scr_wc_draw()
 	
 	if instance_exists(WC_drag_inst)
 	{
+		var drawmask = WCscr_drawmask;
+		
 		with WC_drag_inst
 		{
 			var xp = x, yp = y;
@@ -559,19 +607,16 @@ function scr_wc_draw()
 		}
 		
 		// draw spr
-		var xscale = WC_drag_inst.image_xscale, yscale = WC_drag_inst.image_yscale;
-		if variable_instance_exists(WC_drag_inst, "xscale")
-			xscale = WC_drag_inst.xscale;
-		if variable_instance_exists(WC_drag_inst, "yscale")
-			yscale = WC_drag_inst.yscale;
-		draw_sprite_ext(WC_drag_inst.sprite_index, WC_drag_inst.image_index, WC_drag_inst.x, WC_drag_inst.y, xscale, yscale, WC_drag_inst.image_angle, WC_drag_inst.image_blend, 0.75);
+		WCscr_drawobject(WC_drag_inst);
 		
 		// mask
 		draw_set_colour(WC_drag_alt ? c_aqua : c_red);
 		draw_set_alpha(0.25);
-		draw_rectangle(WC_drag_inst.bbox_left, WC_drag_inst.bbox_top, WC_drag_inst.bbox_right, WC_drag_inst.bbox_bottom, false);
+		with WC_drag_inst
+			drawmask();
 		draw_set_alpha(1);
 		
+		// resetti positioni
 		with WC_drag_inst
 		{
 			x = xp;
@@ -616,7 +661,7 @@ function scr_wc_draw()
 			xx += choose(1, -1);
 			
 			draw_set_flash(true, col);
-			WCscr_drawobject(WC_select_inst, abs(sin(current_time / 100)) * 0.5);
+			WCscr_drawobject(WC_select_inst, abs(sin(current_time / 500)) * 0.5);
 			draw_set_flash(false);
 		}
 		
@@ -624,6 +669,53 @@ function scr_wc_draw()
 		draw_set_align(fa_center, fa_middle);
 		draw_text_outline(xx, yy, text);
 		draw_set_align();
+	}
+	
+	#endregion
+	#region show invisible
+	
+	if WC_showinvisible > 0
+	{
+		var drawobject = WCscr_drawobject;
+		with all
+		{
+			if sprite_exists(sprite_index)
+				drawobject(id);
+			else if other.WC_showinvisible == 2
+			{
+				draw_set_alpha(1);
+				draw_set_colour(c_white);
+				draw_set_align(fa_center, fa_middle);
+				draw_text_outline(x, y, object_get_name(object_index));
+				draw_set_align();
+			}
+		}
+	}
+	
+	#endregion
+	#region debug view
+	
+	if WC_debugview && instance_exists(WC_debugview_target)
+	{
+		// draw its mask
+		if !(instance_exists(WC_drag_inst) && WC_drag_inst.id == WC_debugview_target.id)
+		{
+			var drawmask = WCscr_drawmask;
+			
+			draw_set_alpha(0.5);
+			draw_set_colour(c_red);
+			with WC_debugview_target
+				drawmask();
+			draw_set_alpha(1);
+		}
+		
+		// draw the sprite
+		if !WC_debugview_target.visible or WC_debugview_target.image_alpha <= 0
+			WCscr_drawobject(WC_debugview_target);
+		
+		// and draw the center of the object
+		draw_set_colour(c_red);
+		draw_rectangle(WC_debugview_target.x - 1, WC_debugview_target.y - 1, WC_debugview_target.x + 1, WC_debugview_target.y + 1, false);
 	}
 	
 	#endregion

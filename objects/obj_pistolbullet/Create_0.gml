@@ -1,3 +1,4 @@
-sprite_index = choose(spr_shroomcollect, spr_cheesecollect, spr_tomatocollect, spr_pineapplecollect, spr_sausagecollect)
-
-mask_index = spr_peppalette
+image_speed = 0.5
+image_xscale = obj_player.xscale
+spd = image_xscale * 25
+spdh = 0

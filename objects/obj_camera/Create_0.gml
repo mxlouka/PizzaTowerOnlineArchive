@@ -1,3 +1,5 @@
+sprite_index = -1
+
 n = 0
 image_speed = 0.35
 alarm[1] = -1
