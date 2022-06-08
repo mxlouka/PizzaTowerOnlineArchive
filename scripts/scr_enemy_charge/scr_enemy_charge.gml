@@ -91,7 +91,19 @@ function scr_enemy_charge()
 		or (scr_solid(x + image_xscale, y) && !place_meeting(x + image_xscale, y, obj_slope))
 			image_xscale *= -1
 	}
-
+	
+	if object_index == obj_bananacharger
+	{
+		movespeed = 0
+		if sprite_index != spr_banana_chargestart
+			movespeed = 8
+		hsp = image_xscale * movespeed
+		
+		if place_meeting(x + hsp * 2, y, obj_hallway)
+		or (scr_solid(x + sign(hsp), y) && !place_meeting(x + sign(hsp), y, obj_slope))
+			image_xscale *= -1
+	}
+	
 	if object_index == obj_ancho
 	{
 		if sprite_index != spr_chargestart
@@ -99,7 +111,7 @@ function scr_enemy_charge()
 		else
 			hsp = 0
 		
-		if scr_solid(x + hsp, y)
+		if scr_solid(x + hsp, y) && !place_meeting(x + hsp, y, obj_slope)
 		{ 
 			state = states.stun
 			stunned = 100

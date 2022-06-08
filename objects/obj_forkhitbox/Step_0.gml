@@ -100,6 +100,7 @@ if instance_exists(ID)
 
 			if object_index == obj_peasanto
 			or object_index == obj_fencer
+			or object_index == obj_bananacharger
 			or (object_index == obj_ninja && global.gameplay == 0)
 			or object_index == obj_pizzice
 			or object_index == obj_ancho

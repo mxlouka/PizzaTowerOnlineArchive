@@ -203,5 +203,3 @@ function meta_var()
 		],
 	}
 }
-WCscr_altname("var", "variable");
-

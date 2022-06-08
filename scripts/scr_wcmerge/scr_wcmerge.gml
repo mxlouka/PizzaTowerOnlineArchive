@@ -1,14 +1,23 @@
 function WCscr_altname(name, alt)
 {
 	variable_global_set("sh_" + alt, variable_global_get("sh_" + name));
-	variable_global_set("meta_" + alt, variable_global_get("meta_" + name));
+	array_push(allFunctions, alt);
+	
+	var metadata = functionData[$ name];
+	metadata.hidden = true;
+	functionData[$ alt] = metadata;
 }
 
 function scr_wc_create()
 {
-	WCscr_altname("clear", "cls");
 	WC_debug = false;
 	
+	// all command aliases
+	WCscr_altname("clear", "cls");
+	WCscr_altname("var", "variable");
+	WCscr_altname("panic", "pizzatime");
+	
+	// selection modes
 	enum WC_select_modes
 	{
 		create,

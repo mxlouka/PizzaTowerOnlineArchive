@@ -86,5 +86,3 @@ function meta_panic()
 		],
 	}
 }
-WCscr_altname("panic", "pizzatime");
-
