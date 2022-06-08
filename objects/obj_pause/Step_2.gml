@@ -129,6 +129,8 @@ if pause && !instance_exists(obj_option)
 				gotoroom = entryway_1;
 			else if string_startswith(roomname, "cotton")
 				gotoroom = cotton_1;
+			else if string_startswith(roomname, "molasses")
+				gotoroom = molasses_1;
 			else if room == custom_lvl_room
 				gotoroom = room;
 			

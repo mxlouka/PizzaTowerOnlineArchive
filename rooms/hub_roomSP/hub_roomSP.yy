@@ -52,6 +52,7 @@
         {"properties":[],"isDnd":false,"objectId":{"name":"obj_hallway","path":"objects/obj_hallway/obj_hallway.yy",},"inheritCode":false,"hasCreationCode":true,"colour":4294967295,"rotation":0.0,"scaleX":-2.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":-64.0,"y":1280.0,"resourceVersion":"1.0","name":"inst_7062226D","tags":[],"resourceType":"GMRInstance",},
         {"properties":[],"isDnd":false,"objectId":{"name":"obj_doorD","path":"objects/obj_doorD/obj_doorD.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":-128.0,"y":1312.0,"resourceVersion":"1.0","name":"inst_108A43EF","tags":[],"resourceType":"GMRInstance",},
         {"properties":[],"isDnd":false,"objectId":{"name":"obj_secretwall","path":"objects/obj_secretwall/obj_secretwall.yy",},"inheritCode":false,"hasCreationCode":true,"colour":4294967295,"rotation":0.0,"scaleX":11.0,"scaleY":2.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":-224.0,"y":1280.0,"resourceVersion":"1.0","name":"inst_2F5B23C3","tags":[],"resourceType":"GMRInstance",},
+        {"properties":[],"isDnd":false,"objectId":{"name":"obj_startgate","path":"objects/obj_startgate/obj_startgate.yy",},"inheritCode":false,"hasCreationCode":true,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":448.0,"y":736.0,"resourceVersion":"1.0","name":"inst_3B0F2D0E","tags":[],"resourceType":"GMRInstance",},
       ],"visible":true,"depth":0,"userdefinedDepth":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"gridX":32,"gridY":32,"layers":[],"hierarchyFrozen":false,"effectEnabled":true,"effectType":null,"properties":[],"resourceVersion":"1.0","name":"Instances_1","tags":[],"resourceType":"GMRInstanceLayer",},
     {"assets":[
         {"spriteId":{"name":"spr_cottoncandle","path":"sprites/spr_cottoncandle/spr_cottoncandle.yy",},"headPosition":0.0,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"animationSpeed":1.0,"colour":4294967295,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":1088.0,"y":768.0,"resourceVersion":"1.0","name":"graphic_711F9042","tags":[],"resourceType":"GMRSpriteGraphic",},
@@ -596,6 +597,7 @@
     {"name":"inst_108A43EF","path":"rooms/hub_roomSP/hub_roomSP.yy",},
     {"name":"inst_7062226D","path":"rooms/hub_roomSP/hub_roomSP.yy",},
     {"name":"inst_2F5B23C3","path":"rooms/hub_roomSP/hub_roomSP.yy",},
+    {"name":"inst_3B0F2D0E","path":"rooms/hub_roomSP/hub_roomSP.yy",},
   ],
   "inheritCreationOrder": false,
   "sequenceId": null,
