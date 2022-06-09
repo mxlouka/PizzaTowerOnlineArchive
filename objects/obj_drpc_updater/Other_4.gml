@@ -116,19 +116,19 @@ else
 		det = "Strongcold";
 	
 	else if string_startswith(r, "golf")
-		det = "Golf";
+		det = "Old Golf";
 	
-	else if string_startswith(r, "floor2")
-		det = "Mansion";
+	else if string_startswith(r, "oldmansion")
+		det = "Old Mansion";
 	
-	else if string_startswith(r, "floor3")
-		det = "Factory";
+	else if string_startswith(r, "oldfactory")
+		det = "Old Factory";
 	
-	else if string_startswith(r, "floor4")
-		det = "Sewer";
+	else if string_startswith(r, "oldsewer")
+		det = "Old Sewers";
 	
-	else if string_startswith(r, "floor5")
-		det = "Freezer";
+	else if string_startswith(r, "oldfreezer")
+		det = "Old Freezer";
 	
 	else if string_startswith(r, "etb")
 		det = "Early Test Build";

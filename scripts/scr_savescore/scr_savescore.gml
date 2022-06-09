@@ -90,13 +90,11 @@ function scr_levelname()
 	}
 	else if string_startswith(room_get_name(room), "floor1_")
 		namestring = "desert";
-	else if string_startswith(room_get_name(room), "floor2_")
+	else if string_startswith(room_get_name(room), "oldmansion_")
 		namestring = "mansion";
-	else if string_startswith(room_get_name(room), "floor3_")
+	else if string_startswith(room_get_name(room), "oldfactory_")
 		namestring = "factory";
-	else if string_startswith(room_get_name(room), "floor4_")
-		namestring = "sewer";
-	else if string_startswith(room_get_name(room), "floor5_")
+	else if string_startswith(room_get_name(room), "oldfreezer_")
 		namestring = "freezer";
 	else if string_startswith(room_get_name(room), "golf_")
 		namestring = "golf";

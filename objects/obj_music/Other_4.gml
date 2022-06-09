@@ -230,7 +230,7 @@ else if (!global.panic or string_letters(roomname) == "dragonlair" or string_let
 	if string_letters(roomname) == "kungfu" 
 		musplay = mu_kungfu
 	
-	if string_startswith(roomname, "golf_room")
+	if string_startswith(roomname, "golf_")
 	or string_letters(roomname) == "minigolf"
 	{
 		musplay = mu_minigolf;
@@ -286,25 +286,25 @@ else if (!global.panic or string_letters(roomname) == "dragonlair" or string_let
 	}
 
 	// freezer
-	if string_startswith(roomname, "floor5_room")
+	if string_startswith(roomname, "oldfreezer_")
 	{
 		for (i = 0; i < 20; ++i)
 		{
-			if roomname = "floor5_room" + string(i) && i <= 6
+			if roomname = "oldfreezer_" + string(i) && i <= 6
 				musplay = mu_freezer
-			else if roomname = "floor5_room" + string(i) && i > 6
+			else if roomname = "oldfreezer_" + string(i) && i > 6
 				musplay = mu_freezer2
 		}
 	}
 
 	// sewer
-	if string_startswith(roomname, "floor4_room")
+	if string_startswith(roomname, "oldsewer_")
 	{
 		for (i = 0; i < 20; ++i)
 		{
-			if roomname = "floor4_room" + string(i) && i <= 5
+			if roomname = "oldsewer_" + string(i) && i <= 5
 				musplay = mu_sewer;
-			else if roomname = "floor4_room" + string(i) && i > 5
+			else if roomname = "oldsewer_" + string(i) && i > 5
 			{
 				fadeoff = 0
 				musplay = mu_sewer2
@@ -313,7 +313,7 @@ else if (!global.panic or string_letters(roomname) == "dragonlair" or string_let
 	}
 
 	// factory
-	if string_startswith(roomname, "floor3_room")
+	if string_startswith(roomname, "oldfactory_")
 		musplay = mu_factory2
 
 	// etb
@@ -352,11 +352,11 @@ else if (!global.panic or string_letters(roomname) == "dragonlair" or string_let
 		musplay = mu_sanctum;
 	
 	// mansion
-	if string_startswith(roomname, "floor2_room")
+	if string_startswith(roomname, "oldmansion_")
 	{
 		for (i = 0; i < 20; ++i)
 		{
-			if string_startswith(roomname, "floor2_room" + string(i))
+			if string_startswith(roomname, "oldmansion_" + string(i))
 			{
 				if i <= 8
 					musplay = mu_mansion
@@ -402,7 +402,7 @@ else if (!global.panic or string_letters(roomname) == "dragonlair" or string_let
 		musplay = mu_strongcoldsecret
 	if string_startswith(roomname, "floor1_secret")
 		musplay = mu_desertsecret
-	if string_startswith(roomname, "floor2_secret")
+	if string_startswith(roomname, "oldmansion_secret")
 		musplay = mu_mansionsecret
 	if string_letters(roomname) == "graveyardsecret" 
 		musplay = mu_graveyardsecret

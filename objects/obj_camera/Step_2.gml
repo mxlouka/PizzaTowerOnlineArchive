@@ -135,7 +135,7 @@ else
 if instance_exists(player) && player.state != states.timesup && player.state != states.rotate && player.state != states.gameover && room != editor_entrance
 {
 	// vars
-	var WC_oobcam = instance_exists(obj_wc) ? obj_wc.WC_oobcam : false;
+	var WC_oobcam = (safe_get(obj_shell, "WC_oobcam") == true);
 	
 	var cam_view = view_camera[0];
 	var cam_width = camera_get_view_width(cam_view);

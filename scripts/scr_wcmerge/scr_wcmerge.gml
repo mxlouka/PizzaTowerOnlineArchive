@@ -42,6 +42,7 @@ function scr_wc_create()
 	
 	// etc
 	WC_showinvisible = 0; // 0: no, 1: yes, 2: show names of objects without sprites
+	WC_oobcam = false;
 	
 	// shortcuts
 	WC_binds = ds_map_create();
@@ -50,6 +51,7 @@ function scr_wc_create()
 	}
 	WCscr_addbind(ord("1"), "create");
 	WCscr_addbind(ord("3"), "var");
+	WCscr_addbind(ord("4"), "oobcam");
 	WCscr_addbind(ord("5"), "panic");
 	WCscr_addbind(ord("7"), "showinvisible");
 	WCscr_addbind(ord("9"), "debughud");

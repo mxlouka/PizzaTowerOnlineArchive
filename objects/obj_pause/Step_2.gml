@@ -85,16 +85,16 @@ if pause && !instance_exists(obj_option)
 				gotoroom = dungeon_1;
 			else if string_startswith(roomname, "floor1_")
 				gotoroom = floor1_room0;
-			else if string_startswith(roomname, "floor2_")
-				gotoroom = floor2_room9;
-			else if string_startswith(roomname, "floor3_")
-				gotoroom = floor3_room0;
-			else if string_startswith(roomname, "floor4_")
-				gotoroom = floor4_room0;
-			else if string_startswith(roomname, "floor5_")
-				gotoroom = floor5_room1;
+			else if string_startswith(roomname, "oldmansion_")
+				gotoroom = oldmansion_9;
+			else if string_startswith(roomname, "oldfactory_")
+				gotoroom = oldfactory_0;
+			else if string_startswith(roomname, "oldsewer_")
+				gotoroom = oldsewer_0;
+			else if string_startswith(roomname, "oldfreezer_")
+				gotoroom = oldfreezer_1;
 			else if string_startswith(roomname, "golf_")
-				gotoroom = golf_room1;
+				gotoroom = golf_1;
 			else if string_startswith(roomname, "graveyard")
 				gotoroom = graveyard_1;
 			else if string_startswith(roomname, "farm")

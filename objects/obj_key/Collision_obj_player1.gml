@@ -21,7 +21,7 @@ with other
 		if other.sprite_index == spr_key_ss
 			sprite_index = spr_keyget_ss
 		
-		if room == floor2_roompepperman
+		if room == oldmansion_pepperman
 			instance_destroy(obj_peppermandestroyable);
 	}
 }

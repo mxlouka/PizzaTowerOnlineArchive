@@ -5,6 +5,7 @@
   },
   "solid": false,
   "visible": true,
+  "managed": true,
   "spriteMaskId": {
     "name": "spr_cheeseblock",
     "path": "sprites/spr_cheeseblock/spr_cheeseblock.yy",

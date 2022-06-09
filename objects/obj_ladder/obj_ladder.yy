@@ -6,7 +6,10 @@
   "solid": false,
   "visible": true,
   "managed": true,
-  "spriteMaskId": null,
+  "spriteMaskId": {
+    "name": "spr_ladder",
+    "path": "sprites/spr_ladder/spr_ladder.yy",
+  },
   "persistent": false,
   "parentObjectId": null,
   "physicsObject": false,

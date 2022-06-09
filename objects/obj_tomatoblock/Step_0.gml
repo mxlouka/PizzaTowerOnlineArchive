@@ -1,11 +1,11 @@
 //Tomato block 
-with obj_player1
+with obj_player
 {
 	if place_meeting(x, y + 1, other) && state != states.gameover
 	{
 		endtumble = true;
 		fallinganimation = 0;
-		if key_jump2 && (scr_stylecheck(2) or string_startswith(room_get_name(room), "floor4"))
+		if key_jump2 && (scr_stylecheck(0, 2) or string_startswith(room_get_name(room), "oldsewer"))
 		{
 			vsp = -20;
 			if state == states.jump && character == "P"
@@ -14,6 +14,9 @@ with obj_player1
 		else
 			vsp = -11;
 		suplexmove = false;
+		
+		if state == states.cheeseball
+			jumpstop = true;
 		
 		with other
 		{

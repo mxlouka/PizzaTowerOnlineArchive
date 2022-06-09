@@ -1,4 +1,4 @@
 level = "factory"
-targetRoom = floor3_room0
+targetRoom = oldfactory_0
 targetDoor = "A";
 sprite_index = spr_computerfactory

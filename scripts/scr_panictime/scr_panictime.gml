@@ -125,27 +125,27 @@ function scr_panictime()
 			global.seconds = 30
 			break
 			
-		case "floor4_roomtreasure":
+		case "oldsewer_treasure":
 			global.minutes = 2
 			global.seconds = 30
 			break
 			
-		case "floor3_roomtreasure":
+		case "oldfactory_treasure":
 			global.minutes = 2
 			global.seconds = 30
 			break
 			
-		case "floor2_roomtreasure":
+		case "oldmansion_treasure":
 			global.minutes = 2
 			global.seconds = 30
 			break
 
-		case "floor5_roomtreasure":
+		case "oldfreezer_treasure":
 			global.minutes = 1
 			global.seconds = 59
 			break
 			
-		case "golf_roomtreasure":
+		case "golf_treasure":
 			global.minutes = 1
 			global.seconds = 59
 			break

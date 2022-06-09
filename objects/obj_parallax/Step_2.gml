@@ -20,8 +20,8 @@ function layer_get_parallax(layer_id)
 		case "Backgrounds_3": return [_camx * 0.05, _camy * 0.05]; break;
 		
 		case "Backgrounds_fore1": return [_camx * -0.1, _camy * -0.1]; break;
-		case "Backgrounds_Ground1": return [_camx * 0.25, 0]; break;
-		case "Backgrounds_Ground2": return [_camx * 0.25, 0]; break;
+		case "Backgrounds_Ground1": return [_camx * 0.35, roomheight - _camh + ((roomheight - (_camy2 + _camh)) * -0.25)]; break;
+		case "Backgrounds_Ground2": return [_camx * 0.25, roomheight - _camh + ((roomheight - (_camy2 + _camh)) * -0.35)]; break;
 		case "Backgrounds_H1": return [_camx * 0.25, _camy]; break;
 		
 		case "Backgrounds_sky": return [_camx * 0.85, _camy * 0.85]; break;
@@ -29,6 +29,7 @@ function layer_get_parallax(layer_id)
 		case "Backgrounds_sky3": return [_camx * 0.95, _camy * 0.95]; break;
 		
 		case "Backgrounds_scroll": return [_camx * 0.25, _camy * 0.25]; break;
+		case "Backgrounds_FG": return [(layer_get_x(layer_id) - _camx) * 0.15, (layer_get_y(layer_id) - _camy) * 0.15]; break;
 		
 		case "Backgrounds_still1":
 		case "Backgrounds_still2":
@@ -54,8 +55,7 @@ function layer_get_parallax(layer_id)
 		// pinpan moment
 		case "Backgrounds_steamcc1": return [_camx * 0.95, _camy * 0.95]; break;
 		case "Backgrounds_steamcc2": return [_camx * 0.75, _camy * 0.75]; break;
-		case "Backgrounds_steamcc3": return [_camx * -0.25, (room_height - 560) + ((room_height - (_camy + _camh)) * 0.25)]; break;
-		case "Backgrounds_steamcc4": return [_camx * 0.35, (room_height - 540) + ((room_height - (_camy + _camh)) * -0.35)]; break;
+		case "Backgrounds_steamcc3": return [_camx * 0.25, (room_height - 560) + ((room_height - (_camy + _camh)) * 0.25)]; break;
 		case "Backgrounds_steamcc5": return [_camx * 0.65, _camy * 0.65]; break;
 	}
 	return [0, 0];

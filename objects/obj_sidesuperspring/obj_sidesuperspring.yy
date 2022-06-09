@@ -5,6 +5,7 @@
   },
   "solid": false,
   "visible": true,
+  "managed": true,
   "spriteMaskId": {
     "name": "spr_sidespringblock_idle",
     "path": "sprites/spr_sidespringblock_idle/spr_sidespringblock_idle.yy",

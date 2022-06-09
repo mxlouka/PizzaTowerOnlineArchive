@@ -8,11 +8,11 @@ switch room
 	case ruin_1: global.srank = 11200; break;
 	case ufo_1: global.srank = 10950; break;
 	case floor1_room0: global.srank = 13400; break; // desert
-	case floor2_room9: global.srank = 10000; break; // mansion
-	case floor3_room0: global.srank = 6500; break; // factory
-	case floor4_room0: global.srank = 5800; break; // sewer
-	case floor5_room1: global.srank = 7800; break; // freezer
-	case golf_room1: global.srank = (global.gameplay != 0 ? 3200 : 4500); break;
+	case oldmansion_9: global.srank = 10000; break; // mansion
+	case oldfactory_0: global.srank = 6500; break; // factory
+	case oldsewer_0: global.srank = 5800; break; // sewer
+	case oldfreezer_1: global.srank = 7800; break; // freezer
+	case golf_1: global.srank = (global.gameplay != 0 ? 3200 : 4500); break;
 	case farm_1: global.srank = 10300; break;
 	case graveyard_1: case graveyard_1_NEW: global.srank = 11850; break;
 	case dungeon_1: global.srank = 10300; break;

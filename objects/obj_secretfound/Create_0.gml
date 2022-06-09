@@ -10,7 +10,7 @@ if ds_list_find_index(global.saveroom, id) == -1 && !global.snickchallenge
 			var outof = 6;
 			if string_startswith(room_get_name(room), "etb_")
 				outof = 2;
-			if string_startswith(room_get_name(room), "floor2_")
+			if string_startswith(room_get_name(room), "oldmansion_")
 				outof = 3;
 		}
 		

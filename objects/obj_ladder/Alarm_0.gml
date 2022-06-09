@@ -14,4 +14,4 @@ if image_yscale <= 1
 	else if down
 		image_index = 2;
 }
-
+autotile = true;

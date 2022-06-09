@@ -1,23 +1,13 @@
-if room == custom_lvl_room {
-	tile_layer_delete_at(1, x, y);
-}
-
-if  ds_list_find_index(global.saveroom, id) = -1
+if ds_list_find_index(global.saveroom, id) == -1
 {
-instance_create(x+ 16,y,obj_debris)
-instance_create(x+ 16,y,obj_debris)
-instance_create(x+ 16,y,obj_debris)
-instance_create(x + 16,y,obj_debris)
-tile_layer_delete_at(1, x, y);
-
-if audio_is_playing(sfx_breakblock1) or audio_is_playing(sfx_breakblock2)
-{
-audio_stop_sound(sfx_breakblock1)
-audio_stop_sound(sfx_breakblock2) 
+	repeat 4
+	{
+		with instance_create(x + sprite_width / 2, y + sprite_height / 2, obj_debris)
+		{
+			sprite_index = spr_secretdebris;
+			image_blend = choose(#88A8C8, c_white);
+		}
+	}
+	scr_soundeffect(sfx_breakblock1, sfx_breakblock2)
+	ds_list_add(global.saveroom, id) 
 }
-scr_soundeffect(sfx_breakblock1, sfx_breakblock2)
-
-
-ds_list_add(global.saveroom, id) 
-}
-

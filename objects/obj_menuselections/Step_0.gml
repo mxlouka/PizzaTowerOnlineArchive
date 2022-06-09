@@ -84,7 +84,7 @@ if levelselect = true
 	
 				if other.b = 1
 				{
-					obj_player.targetRoom = floor2_room0
+					obj_player.targetRoom = oldmansion_0
 					obj_player.player_x = 192 + 16
 					obj_player.player_y = 480 - 46 	
 					obj_player.character = "P"
@@ -92,7 +92,7 @@ if levelselect = true
 	
 				if other.b = 2
 				{
-					obj_player.targetRoom = floor3_room0
+					obj_player.targetRoom = oldfactory_0
 					obj_player.player_x = 960 + 16
 					obj_player.player_y = 480 - 46	
 					obj_player.character = "P"
@@ -100,14 +100,14 @@ if levelselect = true
 	
 				if other.b = 3
 				{
-					obj_player.targetRoom = floor4_room0
+					obj_player.targetRoom = oldsewer_0
 					obj_player.player_x = 288 + 16
 					obj_player.player_y = 448 - 46
 					obj_player.character = "P"
 				}
 				if other.b = 4
 				{
-					obj_player.targetRoom = floor5_room1
+					obj_player.targetRoom = oldfreezer_1
 					obj_player.player_x = 228 + 16
 					obj_player.player_y = 233 - 46
 					obj_player.character = "P"
@@ -115,7 +115,7 @@ if levelselect = true
 				}
 								if other.b = 5
 				{
-					obj_player.targetRoom = golf_room1
+					obj_player.targetRoom = golf_1
 					obj_player.player_x = 160 + 16
 					obj_player.player_y = 448 - 46
 					obj_player.character = "P"
@@ -139,7 +139,7 @@ if levelselect = true
 	
 				if other.b = 1
 				{
-					obj_player.targetRoom = floor2_roomtreasure
+					obj_player.targetRoom = oldmansion_treasure
 					obj_player.player_x = 250
 					obj_player.player_y = 250
 					obj_player.character = "P"

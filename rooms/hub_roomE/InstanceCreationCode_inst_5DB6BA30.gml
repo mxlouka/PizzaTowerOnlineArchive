@@ -1,4 +1,4 @@
 level = "sewer"
-targetRoom = floor4_room0
+targetRoom = oldsewer_0
 targetDoor = "A";
 sprite_index = spr_computersewer

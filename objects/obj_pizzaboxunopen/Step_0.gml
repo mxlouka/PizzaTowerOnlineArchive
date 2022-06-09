@@ -46,19 +46,19 @@ if (place_meeting(x, y, obj_player1) or place_meeting(x, y, obj_antonball)) && o
 				global.minutes = 2
 				global.seconds = 30
 				break
-			case floor2_roomtreasure:
+			case oldmansion_treasure:
 				global.minutes = 2
 				global.seconds = 40
 				break
-			case floor3_roomtreasure:
+			case oldfactory_treasure:
 				global.minutes = 2
 				global.seconds = 30
 				break
-			case floor4_roomtreasure:
+			case oldsewer_treasure:
 				global.minutes = 2
 				global.seconds = 0
 				break
-			case floor5_roomtreasure:
+			case oldfreezer_treasure:
 				global.minutes = 2
 				global.seconds = 0
 				break

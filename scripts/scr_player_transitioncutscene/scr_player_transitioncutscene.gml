@@ -94,7 +94,7 @@ function scr_player_transitioncutscene() {
 	}
 
 
-	if room == floor2_room0
+	if room == oldmansion_0
 	{
 	ini_open("saveData.ini");
 
@@ -129,7 +129,7 @@ function scr_player_transitioncutscene() {
 	}
 
 
-	if room == floor3_room0
+	if room == oldfactory_0
 	{
 	ini_open("saveData.ini");
 
@@ -165,7 +165,7 @@ function scr_player_transitioncutscene() {
 
 
 
-	if room == floor4_room0
+	if room == oldsewer_0
 	{
 	ini_open("saveData.ini");
 
@@ -199,7 +199,7 @@ function scr_player_transitioncutscene() {
 	ini_write_string("Ranks","sewer",global.rank)
 	}
 
-	if room == floor5_room1
+	if room == oldfreezer_1
 	{
 	
 	

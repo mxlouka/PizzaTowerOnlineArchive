@@ -503,4 +503,3 @@ function _remap(value, min_input, max_input, min_output, max_output) {
 }
 
 scr_wc_create();
-
