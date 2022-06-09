@@ -313,7 +313,7 @@ function lang_load(lang)
 		ds_map_add(global.langmap, "msg.level.graveyard", "The Wasteyard");
 		ds_map_add(global.langmap, "msg.level.farm", "Fun Farm WIP");
 		ds_map_add(global.langmap, "msg.level.ufo", "Space Pinball");
-		ds_map_add(global.langmap, "msg.level.forest", "Gnome Forest WIP");
+		ds_map_add(global.langmap, "msg.level.forest", "Gnome Forest");
 		ds_map_add(global.langmap, "msg.level.beach", "Pineapple Beach");
 		ds_map_add(global.langmap, "msg.level.kungfu", "Kung Fu");
 		ds_map_add(global.langmap, "msg.level.minigolf", "Golf WIP");
@@ -342,7 +342,7 @@ function lang_load(lang)
 		ds_map_add(global.langmap, "msg.level.sanctum", "La Burrata Temple WIP");
 		
 		ds_map_add(global.langmap, "msg.level.entryway", "Entryway");
-		ds_map_add(global.langmap, "msg.level.cotton", "Cottontown WIP");
+		ds_map_add(global.langmap, "msg.level.cotton", "Cottontown");
 		ds_map_add(global.langmap, "msg.level.mines", "Sugarshack Mines WIP");
 		ds_map_add(global.langmap, "msg.level.molasses", "Molasses Swamp WIP");
 		

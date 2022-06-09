@@ -27,3 +27,5 @@ if check_bysync() == true && !global.pvp
 
 sync = false; //check_bysync();
 rmstart = room;
+
+player = obj_player;
