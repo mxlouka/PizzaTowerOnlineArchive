@@ -5,6 +5,7 @@
   },
   "solid": false,
   "visible": true,
+  "managed": true,
   "spriteMaskId": null,
   "persistent": false,
   "parentObjectId": null,
@@ -32,7 +33,7 @@
     "path": "folders/Objects/level_structure/sugary spire.yy",
   },
   "resourceVersion": "1.0",
-  "name": "obj_coolgear",
+  "name": "obj_cottongear",
   "tags": [],
   "resourceType": "GMObject",
 }

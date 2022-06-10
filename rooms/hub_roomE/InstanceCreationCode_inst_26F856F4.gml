@@ -1,1 +1,1 @@
-levelsign = "mansion";
+levelsign = "oldmansion";
