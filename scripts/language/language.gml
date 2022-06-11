@@ -413,6 +413,27 @@ function lang_load(lang)
 		ds_map_add(global.langmap, "roomname.cotton_13", "Secret Side Room");
 		ds_map_add(global.langmap, "roomname.cotton_14", "Slow And Steady");
 		
+		ds_map_add(global.langmap, "roomname.molasses_secret1", "Groundpound To Go Higher");
+		ds_map_add(global.langmap, "roomname.molasses_secret2", "And This Used To Be The Bathroom");
+		ds_map_add(global.langmap, "roomname.molasses_secret3", "");
+		ds_map_add(global.langmap, "roomname.molasses_1", "The Swamp Of The Spire");
+		ds_map_add(global.langmap, "roomname.molasses_2", "Big Stump");
+		ds_map_add(global.langmap, "roomname.molasses_2b", "Sweden's Dream");
+		ds_map_add(global.langmap, "roomname.molasses_3", "Bubbly Swamp Water");
+		ds_map_add(global.langmap, "roomname.molasses_4", "Sticky And Wet");
+		ds_map_add(global.langmap, "roomname.molasses_5", "Drowning In Molasses");
+		ds_map_add(global.langmap, "roomname.molasses_6", "The Sweet Smell Of Death");
+		ds_map_add(global.langmap, "roomname.molasses_6b", "The Ancient Temple Entrance");
+		ds_map_add(global.langmap, "roomname.molasses_6c", "Ancient Hallways");
+		ds_map_add(global.langmap, "roomname.molasses_6d", "Meet The Fling Frog");
+		ds_map_add(global.langmap, "roomname.molasses_7", "Falling And Flinging");
+		ds_map_add(global.langmap, "roomname.molasses_8", "This Used To Be The Gallery");
+		ds_map_add(global.langmap, "roomname.molasses_8b", "Molasses Everywhere");
+		ds_map_add(global.langmap, "roomname.molasses_9", "Gummy Harry In The Ancient Temple");
+		ds_map_add(global.langmap, "roomname.molasses_11", "Unstationary Ground");
+		ds_map_add(global.langmap, "roomname.molasses_12", "Froghop Strikes Back");
+		ds_map_add(global.langmap, "roomname.molasses_13", "The Temple Of Goop");
+		
 		ds_map_add(global.langmap, "roomname.sanctum_1", "Temple of the Pizza Tower");
 		ds_map_add(global.langmap, "roomname.sanctum_2", "Ruinous Road");
 		ds_map_add(global.langmap, "roomname.sanctum_3", "Bizzarely Dissimilar");
