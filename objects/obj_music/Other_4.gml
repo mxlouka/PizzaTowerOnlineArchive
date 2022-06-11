@@ -404,6 +404,8 @@ else if (!global.panic or string_letters(roomname) == "dragonlair" or string_let
 		musplay = mu_desertsecret
 	if string_startswith(roomname, "oldmansion_secret")
 		musplay = mu_mansionsecret
+	if string_startswith(roomname, "oldsewer_secret")
+		musplay = mu_sewersecret
 	if string_letters(roomname) == "graveyardsecret" 
 		musplay = mu_graveyardsecret
 	if string_letters(roomname) == "farmsecret" 

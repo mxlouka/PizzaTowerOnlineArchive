@@ -135,6 +135,7 @@ switch state
 	case states.spindash: scr_player_spindash (); break;
 	case states.golf: scr_player_golf (); break;
 	case states.rocket: scr_player_rocket (); break;
+	case states.tube: scr_player_tube (); break;
 	case states.cotton: if sugaryspire scr_player_cotton (); break;
 	case states.fling: if sugaryspire scr_player_fling (); break;
 	case states.geyser: if sugaryspire scr_player_geyser (); break;

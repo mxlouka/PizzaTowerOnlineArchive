@@ -3,7 +3,7 @@
     "name": "spr_plug",
     "path": "sprites/spr_plug/spr_plug.yy",
   },
-  "solid": false,
+  "solid": true,
   "visible": true,
   "managed": true,
   "spriteMaskId": {

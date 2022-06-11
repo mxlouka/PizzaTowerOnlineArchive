@@ -1,2 +1,1 @@
-
-global.roommessage = "LAP AGAIN IN THE SEWAGE";
+global.roommessage = "BACK TO SEWAGE";

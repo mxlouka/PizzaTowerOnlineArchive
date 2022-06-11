@@ -15,6 +15,9 @@ function sh_gameplay(args)
 	if is_string(g) && string_is_number(g)
 		g = real(g);
 	
+	if g != 0 && g != 1 && g != 2
+		return "Invalid gameplay style " + string(g);
+	
 	global.gameplay = g;
 	with obj_player
 		targetDoor = "NONE";

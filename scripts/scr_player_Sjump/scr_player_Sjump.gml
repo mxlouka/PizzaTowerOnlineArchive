@@ -16,7 +16,7 @@ function scr_player_Sjump()
 	sjump = false
 	
 	// set vsp
-	if global.gameplay == 0 or springsjump or sprite_index == spr_playerV_superjump2
+	if global.gameplay == 0 or sprite_index == spr_playerV_superjump2
 	{
 		sjumpvsp = -15;
 		vsp = sjumpvsp;
@@ -26,7 +26,7 @@ function scr_player_Sjump()
 		vsp = sjumpvsp;
 	sjumpvsp -= 0.1;
 	
-	if character = "V" && image_index > 3 && !springsjump
+	if character == "V" && image_index > 3 && !springsjump
 		vsp = -11
 	
 	if sprite_index == spr_player_supersidejump
@@ -108,7 +108,7 @@ function scr_player_Sjump()
 	}
 	else
 	{
-		if !springsjump && (sprite_index != spr_superspringplayer or sprite_index == spr_superjump)
+		if sprite_index != spr_superspringplayer
 		{
 			if key_attack2 && (!(character == "N" && noisetype == 0) && character != "V" && (character != "SP" or global.gameplay != 0))
 			{

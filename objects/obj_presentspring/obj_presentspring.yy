@@ -5,6 +5,7 @@
   },
   "solid": false,
   "visible": true,
+  "managed": true,
   "spriteMaskId": {
     "name": "spr_presentbox_idle",
     "path": "sprites/spr_presentbox_idle/spr_presentbox_idle.yy",

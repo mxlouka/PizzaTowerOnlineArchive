@@ -9,8 +9,8 @@ with other
 		sprite_index = spr_superjump
 		state = states.Sjump
 		vsp = -15
-		other.image_index= 0
-		other.image_speed= 0.35
+		other.image_index = 0
+		other.image_speed = 0.35
 		
 		x = other.x + (other.sprite_width / 2)
 		if scr_solid(x, y)

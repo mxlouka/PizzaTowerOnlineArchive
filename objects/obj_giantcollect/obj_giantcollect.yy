@@ -5,6 +5,7 @@
   },
   "solid": false,
   "visible": true,
+  "managed": true,
   "spriteMaskId": {
     "name": "spr_giantpizza",
     "path": "sprites/spr_giantpizza/spr_giantpizza.yy",

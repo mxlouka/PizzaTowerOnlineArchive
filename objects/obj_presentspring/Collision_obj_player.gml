@@ -4,7 +4,7 @@ with other
 	{
 		scr_transfobump(false);
 		if state == states.bombpep
-			instance_create(x,y,obj_bombexplosion)
+			instance_create(x, y, obj_bombexplosion)
 		
 		x = other.x
 		if scr_solid(x, y)
@@ -16,6 +16,7 @@ with other
 		scr_soundeffect(sfx_superjumprelease)
 		sprite_index = spr_superspringplayer
 		state = states.Sjump
+		springsjump = true
 		vsp = -10
 		
 		other.image_index = 0
