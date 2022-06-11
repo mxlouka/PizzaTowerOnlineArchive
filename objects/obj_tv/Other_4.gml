@@ -43,10 +43,21 @@ else
 	global.crank = global.srank - global.srank / 4 * 3;
 }
 
-// change snick rematch appearance
 var layers = layer_get_all();
-for (var i = 0; i < array_length(layers); i++;)
+for (var i = 0; i < array_length(layers); i++)
 {
+	// layer depths
+	var layername = layer_get_name(layers[i]);
+	if string_startswith(layername, "Tiles_")
+	{
+		var tilesuffix = string_replace(layername, "Tiles_", "");
+		if string_is_number(tilesuffix)
+			layer_depth(layers[i], 101 - real(tilesuffix));
+	}
+	if layername == "Assets_FG"
+		layer_depth(layers[i], 90);
+	
+	// change snick rematch appearance
 	var layers_e = layer_get_all_elements(layers[i]);
 	for (var j = 0; j < array_length(layers_e); j++)
 	{

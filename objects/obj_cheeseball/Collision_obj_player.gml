@@ -1,4 +1,4 @@
-if other.state == states.hitlag or other.state == states.parry or place_meeting(x, y, obj_parryhitbox)
+if other.state == states.hitlag or ((other.state == states.parry or place_meeting(x, y, obj_parryhitbox)) && !trash)
 	exit;
 
 if !(other.state == states.knightpep or other.state == states.knightpepattack or other.state == states.knightpepslopes)

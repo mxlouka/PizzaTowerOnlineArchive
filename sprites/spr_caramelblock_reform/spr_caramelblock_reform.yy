@@ -1,4 +1,7 @@
 {
+  "ConfigValues": {
+    "debug": {"textureGroupId":"{\"name\":\"tg_sugaryspire\",\"path\":\"texturegroups/tg_sugaryspire\"}",},
+  },
   "bboxMode": 0,
   "collisionKind": 1,
   "type": 0,
@@ -186,7 +189,7 @@
   "nineSlice": null,
   "parent": {
     "name": "caramel block",
-    "path": "folders/Sprites/SUGARY SPIRE/caramel block.yy",
+    "path": "folders/Sprites/SUGARY SPIRE/level design/caramel block.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_caramelblock_reform",

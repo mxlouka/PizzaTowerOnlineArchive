@@ -1,6 +1,6 @@
 with other
 {
-	if state == states.tumble or state == states.knightpepslopes or state == states.mach3 or state == states.mach2 or state == states.machroll or state == states.rocket
+	if state == states.tumble or state == states.knightpepslopes or state == states.mach3 or state == states.mach2 or state == states.machroll or state == states.rocket or state == states.cheeseball
 	{
 		if other.sprite_index == spr_spring
 			other.image_speed = 0.35
@@ -13,4 +13,3 @@ with other
 			xscale = other.image_xscale
 	}
 }
-

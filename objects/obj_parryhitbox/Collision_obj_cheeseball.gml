@@ -1,3 +1,6 @@
+if other.trash
+	exit;
+
 with other.id
 {
 	var _dir = sign(image_xscale)

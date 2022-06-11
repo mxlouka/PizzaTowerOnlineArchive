@@ -92,8 +92,8 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "hazard",
-    "path": "folders/Sprites/SUGARY SPIRE/hazard.yy",
+    "name": "level design",
+    "path": "folders/Sprites/SUGARY SPIRE/level design.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_springup_ss",

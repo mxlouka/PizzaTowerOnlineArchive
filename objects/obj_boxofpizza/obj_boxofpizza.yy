@@ -5,6 +5,7 @@
   },
   "solid": false,
   "visible": true,
+  "managed": true,
   "spriteMaskId": {
     "name": "spr_boxofpizza",
     "path": "sprites/spr_boxofpizza/spr_boxofpizza.yy",

@@ -1,5 +1,4 @@
 var roomname = room_get_name(room);
-
 if !string_contains(roomname, "secret")
 {
 	// change color of entryway effect layer
@@ -53,20 +52,3 @@ if !string_contains(roomname, "secret")
 		});
 	}
 }
-
-// tile layer depths
-if layer_exists("Tiles_1")
-	layer_depth("Tiles_1", 100)
-if layer_exists("Tiles_2")
-	layer_depth("Tiles_2", 99)
-if layer_exists("Tiles_3")
-	layer_depth("Tiles_3", 98)
-if layer_exists("Tiles_4")
-	layer_depth("Tiles_4", 97)
-if layer_exists("Tiles_5")
-	layer_depth("Tiles_5", 96)
-if layer_exists("Tiles_6")
-	layer_depth("Tiles_6", 95)
-
-if layer_exists("Assets_fg")
-	layer_depth("Assets_fg", 90)

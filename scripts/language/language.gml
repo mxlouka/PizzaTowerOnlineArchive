@@ -331,7 +331,12 @@ function lang_load(lang)
 		ds_map_add(global.langmap, "msg.level.exit", "Exit WIP");
 		
 		ds_map_add(global.langmap, "msg.level.golf", "Golf");
+		ds_map_add(global.langmap, "msg.level.oldmansion", "Mansion");
+		ds_map_add(global.langmap, "msg.level.oldfactory", "Factory");
+		ds_map_add(global.langmap, "msg.level.oldsewer", "Sewers");
+		ds_map_add(global.langmap, "msg.level.oldfreezer", "Freezer");
 		ds_map_add(global.langmap, "msg.level.snickchallenge", "Snick Challenge");
+		
 		ds_map_add(global.langmap, "msg.level.snickrematch", "Snick Rematch");
 		ds_map_add(global.langmap, "msg.level.medieval_re", "Snick Castle");
 		ds_map_add(global.langmap, "msg.level.ruin_re", "Ruins Of The Temple");

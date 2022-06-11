@@ -306,7 +306,8 @@ else if (!global.panic or string_letters(roomname) == "dragonlair" or string_let
 				musplay = mu_sewer;
 			else if roomname = "oldsewer_" + string(i) && i > 5
 			{
-				fadeoff = 0
+				if audio_is_playing(mu_sewer)
+					fadeoff = 0
 				musplay = mu_sewer2
 			}
 		}

@@ -16,11 +16,11 @@ function scr_scareenemy()
 			state = states.idle
 			sprite_index = scaredspr
 			if x != player.x
-			image_xscale = -sign(x - player.x)
+				image_xscale = -sign(x - player.x)
 			scaredbuffer = 100 / (global.stylethreshold + 1)
 			if grounded
 				vsp = -5
-				
+			
 			if object_index == obj_coolpineapple
 			{
 				invincible = false

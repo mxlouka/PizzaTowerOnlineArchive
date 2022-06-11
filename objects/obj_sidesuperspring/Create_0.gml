@@ -1,4 +1,4 @@
-if scr_stylecheck(0, 2)
+if scr_stylecheck(0)
 {
 	sprite_index = spr_spring
 	image_speed = 0

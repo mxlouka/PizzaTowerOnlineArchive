@@ -11,7 +11,6 @@ switch state
 	// grabbed state here
 }
 
-scr_scareenemy();
 if state == states.stun && stunned > 100 && !birdcreated
 {
 	birdcreated = true
@@ -216,6 +215,8 @@ else
 if attack_buffer > 0
 	attack_buffer--
 
+scr_scareenemy();
+
 //Flash
 if (flash == true && alarm[2] <= 0) {
    alarm[2] = 0.15 * room_speed; // Flashes for 0.8 seconds before turning back to normal
@@ -229,7 +230,7 @@ if state != states.stun
 
 if !boundbox
 {
-	with instance_create(x,y,obj_baddiecollisionbox)
+	with instance_create(x, y, obj_baddiecollisionbox)
 	{
 		sprite_index = other.sprite_index
 		mask_index = sprite_index

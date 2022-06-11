@@ -26,7 +26,7 @@ grabbedspr = spr_banana_stun
 scaredspr = spr_banana_scared
 
 image_xscale = -1
-hp = 1
+hp = 3
 slapped = false
 grounded = true
 birdcreated = false

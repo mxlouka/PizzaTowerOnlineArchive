@@ -1,4 +1,7 @@
 {
+  "ConfigValues": {
+    "debug": {"textureGroupId":"{\"name\":\"tg_sugaryspire\",\"path\":\"texturegroups/tg_sugaryspire\"}",},
+  },
   "bboxMode": 2,
   "collisionKind": 1,
   "type": 0,
@@ -129,8 +132,8 @@
     "resourceType": "GMNineSliceData",
   },
   "parent": {
-    "name": "hazard",
-    "path": "folders/Sprites/SUGARY SPIRE/hazard.yy",
+    "name": "level design",
+    "path": "folders/Sprites/SUGARY SPIRE/level design.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_molasses",

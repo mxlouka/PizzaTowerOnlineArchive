@@ -108,7 +108,7 @@ function scr_player_Sjump()
 	}
 	else
 	{
-		if sprite_index != spr_superspringplayer
+		if sprite_index != spr_superspringplayer or sprite_index == spr_superjump
 		{
 			if key_attack2 && (!(character == "N" && noisetype == 0) && character != "V" && (character != "SP" or global.gameplay != 0))
 			{

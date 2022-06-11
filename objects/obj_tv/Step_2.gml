@@ -349,6 +349,9 @@ else
 									other.idlespr = spr_tv_mort;
 								else if skateboarding
 									other.idlespr = spr_tv_clown;
+								else if sprite_index == spr_playerSP_candyup
+								or sprite_index == spr_playerSP_candytransitionup
+									other.idlespr = spr_tv_croaked;
 							}
 							break;
 						
@@ -414,6 +417,10 @@ else
 							idlespr = spr_tv_cotton;
 							break;
 						
+						case states.fling:
+							idlespr = spr_tv_croaked;
+							break;
+						
 						case states.cheesepep:
 						case states.cheesepepstick:
 						case states.cheesepepstickside:
@@ -436,12 +443,12 @@ else
 							image_index = 0;
 						}
 						break;
-			
+					
 					case spr_tv_open:
 						if floor(image_index) == image_number - 1
 							animset = idlespr;
 						break
-				
+					
 					case spr_tv_placeholder:
 						if idlespr != spr_tv_placeholder
 							animset = idlespr;
@@ -459,7 +466,7 @@ else
 							image_index = 0;
 						}
 						break
-				
+					
 					case spr_tv_idleanim1:
 					case spr_tv_idleanim2:
 						if floor(image_index) == image_number - 1
