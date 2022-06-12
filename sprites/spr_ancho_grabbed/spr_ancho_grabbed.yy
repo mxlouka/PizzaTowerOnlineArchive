@@ -76,8 +76,8 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "achovies",
-    "path": "folders/Sprites/baddie/achovies.yy",
+    "name": "ancho",
+    "path": "folders/Sprites/baddie/ancho.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_ancho_grabbed",

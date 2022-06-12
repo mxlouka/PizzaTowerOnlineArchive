@@ -199,6 +199,23 @@ function scr_enemy_rage()
 				sprite_index = spr_chargestart
 			}
 			break
+		
+		case obj_smokingpizzaslice:
+            if floor(image_index) == 12 && !shot
+            {
+				scr_soundeffect(sfx_killingblow)
+				
+                shot = true
+                with instance_create(x, y, obj_enemybullet)
+                    image_xscale = other.image_xscale
+            }
+            if floor(image_index) == image_number - 1
+            {
+                shot = false
+                state = states.walk
+                ragecooldown = 100
+            }
+            break
 	}
 	
 	var railmeet = instance_place(x, y + 1, obj_railparent);

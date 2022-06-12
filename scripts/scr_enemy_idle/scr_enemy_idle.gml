@@ -34,6 +34,9 @@ function scr_enemy_idle()
 	{
 		sprite_index = walkspr
 		state = states.walk
+		
+		if sprite_index == spr_pizzaslug_turn
+			image_xscale *= -1
 	}
 	
 	/*

@@ -21,6 +21,7 @@ function scr_pizzagoblin_throw()
 		global.throw_vars[obj_miniufo_grounded] = {frame: 11, sprite: spr_ufogrounded_shoot, timer: 100};
 		global.throw_vars[obj_thug_blue] = {frame: 9, sprite: spr_shrimp_knife, timer: 60};
 		global.throw_vars[obj_thug_green] = {frame: 8, sprite: spr_shrimp_throw, timer: 60};
+		global.throw_vars[obj_smokingpizzaslice] = {frame: 13, sprite: spr_pizzaslug_cough, timer: 10};
 		
 		// sugary spire
 		global.throw_vars[obj_cottonwitch] = {frame: 7, sprite: spr_cottonwitch_shoot, timer: 100};
@@ -217,6 +218,16 @@ function scr_pizzagoblin_throw()
 					with instance_create(x + image_xscale * 6, y + 26, obj_rancher_bullet)
 						image_xscale = other.image_xscale
 					break
+				
+				case obj_smokingpizzaslice:
+	                substate = choose(states.walk, states.idle, states.idle)
+	                if substate == states.walk
+	                    image_xscale = choose(-1, 1, -image_xscale)
+					
+	                substate_buffer = substate_max
+	                with instance_create(x + 50 * image_xscale, y + 20, obj_smokingprojectile)
+	                    image_xscale = other.image_xscale
+	                break
 				
 				case obj_miniufo:
 					instance_create(x, y, obj_warplaser)

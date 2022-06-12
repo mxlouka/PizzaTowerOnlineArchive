@@ -5,12 +5,12 @@ if instance_exists(baddieID) && !baddieID.invincible && baddieID.instantkillable
 {
 	scr_soundeffect(sfx_punch);
 	
-	instance_destroy()
-	instance_destroy(baddieID)
-	
 	baddieID.hitvsp = -8;
     baddieID.hithsp = other.image_xscale * 15;
 	scr_hitthrow(baddieID, noone, 10);
+	
+	instance_destroy()
+	instance_destroy(baddieID)
 	
 	with obj_camera
     {

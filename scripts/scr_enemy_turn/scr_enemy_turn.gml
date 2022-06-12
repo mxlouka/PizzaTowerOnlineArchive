@@ -20,4 +20,3 @@ function scr_enemy_turn()
 		}
 	}
 }
-

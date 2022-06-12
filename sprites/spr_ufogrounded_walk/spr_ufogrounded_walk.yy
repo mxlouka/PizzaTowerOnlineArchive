@@ -104,8 +104,8 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "grounded ufolive",
-    "path": "folders/Sprites/baddie/grounded ufolive.yy",
+    "name": "ufogrounded",
+    "path": "folders/Sprites/baddie/ufogrounded.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_ufogrounded_walk",
