@@ -1,8 +1,10 @@
-zoomfactor = 1 + (1 - obj_camera.zoom);
+if live_call() return live_result;
+
+zoomfactor = max(1 + (1 - obj_camera.zoom), 1);
 function layer_get_parallax(layer_id)
 {
 	var roomwidth = room_width, roomheight = room_height;
-	var camx = _camx * zoomfactor, camy = _camy * zoomfactor, camw = _camw, camh = _camh;
+	var camx = _camx, camy = _camy, camw = _camw, camh = _camh;
 	
 	if instance_exists(obj_camera) && instance_exists(obj_player)
 	&& obj_camera.bound_camera && instance_exists(obj_player.cam)
