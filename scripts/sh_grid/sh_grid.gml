@@ -18,7 +18,7 @@ function sh_grid(args)
 			return "Y parameter must be a number";
 		
 		WC_drag_grid = [xx, yy];
-		return "Set dragging grid to " + args[1] + "x" + args[2];
+		return "Set dragging grid to " + string(xx) + "x" + string(yy);
 	}
 	else
 	{
@@ -34,14 +34,14 @@ function meta_grid()
 		suggestions: [
 			function()
 			{
-				if WC_drag_grid[0] != 32
-					return [WC_drag_grid[0], 32];
+				if other.WC_drag_grid[0] != 32
+					return [other.WC_drag_grid[0], 32];
 				return [32];
 			},
 			function()
 			{
-				if WC_drag_grid[1] != 32
-					return [WC_drag_grid[1], 32];
+				if other.WC_drag_grid[1] != 32
+					return [other.WC_drag_grid[1], 32];
 				return [32];
 			}
 		],

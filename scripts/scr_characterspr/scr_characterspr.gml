@@ -1263,7 +1263,7 @@ function scr_characterspr(char = character)
 				spr_shotgunfall = spr_shotgun_fall
 				spr_shotgunjump = spr_shotgun_jump
 				spr_shotgunjump1 = spr_playerSP_canefall
-				spr_shotgunjump2 = spr_player_shotgunjump2
+				spr_shotgunjump2 = spr_playerSP_bodyslamland
 				spr_shotgunjump3 = spr_playerSP_caneslam
 				spr_shotgunpullout = spr_playerSP_caneidle
 				

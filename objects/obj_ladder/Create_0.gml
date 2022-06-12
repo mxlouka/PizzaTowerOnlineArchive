@@ -121,5 +121,8 @@ if sprite_index == spr_ladder
 	}
 	
 	with obj_ladder
-		sprite_index = ladderspr;
+	{
+		if object_index == obj_ladder
+			sprite_index = ladderspr;
+	}
 }

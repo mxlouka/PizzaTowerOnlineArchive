@@ -10,9 +10,10 @@ if global.secretdebris && (tile_dataid != -1 or blendsprite != -1)
 			draw_clear_alpha(c_white, 0)
 			
 			gpu_set_blendmode(bm_normal)
-			draw_sprite_ext(sprite_index, image_index, sprite_xoffset, sprite_yoffset, image_xscale, image_yscale, 0, image_blend, image_alpha)
+			draw_sprite_ext(sprite_index, image_index, sprite_xoffset, sprite_yoffset, image_xscale, image_yscale, 0, c_white, image_alpha)
 			gpu_set_blendmode_ext(9, 6)
 			
+			draw_set_colour(c_white);
 			if mode == 1
 			{
 				for (var i = -1; i < 2; i++) 
@@ -34,7 +35,7 @@ if global.secretdebris && (tile_dataid != -1 or blendsprite != -1)
 			var dir = point_direction(x, y, x - sprite_get_xoffset(sprite_index), y - sprite_get_yoffset(sprite_index))
 			var drawx = (x - sprite_xoffset) + lengthdir_x(sprite_diagonal / 2, image_angle + dir);
 			var drawy = (y - sprite_yoffset) + lengthdir_y(sprite_diagonal / 2, image_angle + dir);
-			draw_surface_ext(s, drawx + sprite_get_xoffset(sprite_index), drawy + sprite_get_yoffset(sprite_index), image_xscale, image_yscale, image_angle, image_blend, image_alpha)
+			draw_surface_ext(s, drawx + sprite_get_xoffset(sprite_index), drawy + sprite_get_yoffset(sprite_index), image_xscale, image_yscale, image_angle, c_white, image_alpha)
 		}
 	}
 }
@@ -48,4 +49,3 @@ else
 	
 	draw_sprite_ext(spr, image_index, x, y, image_xscale, image_yscale, image_angle, image_blend, image_alpha);
 }
-

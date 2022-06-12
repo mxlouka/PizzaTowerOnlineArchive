@@ -8,14 +8,14 @@ if other.state == states.hurt
     exit;
 if other.state == states.gotoplayer
     exit;
-if object_index != obj_tubeenter && other.state != states.pipe
+if object_index != obj_tubeenter && other.state != states.tube
     exit;
 
 var _offset_x = 32 * image_xscale
 var _offset_y = 14 * image_yscale
 with other
 {
-    state = states.pipe
+    state = states.tube
     hsp = 0
     movespeed = 0
     vsp = 0
@@ -29,9 +29,9 @@ if floor(other.x) == x + _offset_x && floor(other.y) == y + _offset_y
     other.y = y + _offset_y
     image_index = 0
     playerid = other.id
-    other.state = states.pipe
+    other.state = states.tube
     other.hsp = 0
     other.vsp = 0
     other.tube_vsp = 0
-    state = states.pipe
+    state = states.tube
 }

@@ -2,7 +2,7 @@ zoomfactor = 1 + (1 - obj_camera.zoom);
 function layer_get_parallax(layer_id)
 {
 	var roomwidth = room_width, roomheight = room_height;
-	var camx = _camx, camy = _camy, camw = _camw, camh = _camh;
+	var camx = _camx * zoomfactor, camy = _camy * zoomfactor, camw = _camw, camh = _camh;
 	
 	if instance_exists(obj_camera) && instance_exists(obj_player)
 	&& obj_camera.bound_camera && instance_exists(obj_player.cam)
@@ -21,8 +21,8 @@ function layer_get_parallax(layer_id)
 		case "Backgrounds_3": return [camx * 0.05, camy * 0.05]; break;
 		
 		case "Backgrounds_fore1": return [camx * -0.1, camy * -0.1]; break;
-		case "Backgrounds_Ground1": return [camx * 0.25, roomheight - camh + ((roomheight - (camy + camh)) * -0.35)]; break;
-		case "Backgrounds_Ground2": return [camx * 0.35, roomheight - camh + ((roomheight - (camy + camh)) * -0.25)]; break;
+		case "Backgrounds_Ground1": return [camx * 0.35, roomheight - camh + ((roomheight - (camy + camh)) * -0.35)]; break;
+		case "Backgrounds_Ground2": return [camx * 0.25, roomheight - camh + ((roomheight - (camy + camh)) * -0.25)]; break;
 		case "Backgrounds_H1": return [camx * 0.25, camy]; break;
 		
 		case "Backgrounds_sky": return [camx * 0.85, camy * 0.85]; break;

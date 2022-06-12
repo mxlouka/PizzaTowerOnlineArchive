@@ -121,6 +121,8 @@ tauntstoredmovespeed = 6
 tauntstoredsprite = spr_idle
 taunttimer = 0
 
+tube_id = -1
+
 backtohubstartx = 0
 backtohubstarty = 0
 backtohubroom = hub_room1

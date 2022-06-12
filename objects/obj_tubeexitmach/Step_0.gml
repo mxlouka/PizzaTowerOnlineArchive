@@ -1,6 +1,6 @@
-if state == states.pipe
+if state == states.tube
 {
-    if image_index > image_number - 1
+    if image_index >= image_number - 1
     {
         with playerid
         {

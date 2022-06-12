@@ -13,13 +13,13 @@ with other
     vsp = 0
     movespeed = 0
     tube_vsp = 0
-    state = states.pipe
+    state = states.tube
     x = Approach(x, (other.x + _offset_x), other.approach_spd)
     y = Approach(y, (other.y + _offset_y), other.approach_spd)
 }
 if floor(other.x) == x + _offset_x && floor(other.y) == y + _offset_y
 {
-    other.state = states.pipe
+    other.state = states.tube
     other.tube_id = id
     other.hsp = hsp * movespeed
     other.vsp = vsp * movespeed
