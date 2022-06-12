@@ -5,6 +5,7 @@
   },
   "solid": false,
   "visible": true,
+  "managed": true,
   "spriteMaskId": {
     "name": "spr_arenagate_open",
     "path": "sprites/spr_arenagate_open/spr_arenagate_open.yy",
