@@ -35,7 +35,7 @@
     "spriteId": {"name":"spr_tv_shotgunSP","path":"sprites/spr_tv_shotgunSP/spr_tv_shotgunSP.yy",},
     "timeUnits": 1,
     "playback": 1,
-    "playbackSpeed": 1.0,
+    "playbackSpeed": 0.5,
     "playbackSpeedType": 1,
     "autoRecord": true,
     "volume": 1.0,
