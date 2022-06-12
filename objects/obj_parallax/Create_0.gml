@@ -5,4 +5,4 @@ if instance_number(object_index) >= 2
 }
 depth = 99;
 uTime = -1;
-
+global.roombgs = ds_list_create();

@@ -1,35 +1,37 @@
+zoomfactor = 1 + (1 - obj_camera.zoom);
 function layer_get_parallax(layer_id)
 {
 	var roomwidth = room_width, roomheight = room_height;
-	var _camx2 = _camx, _camy2 = _camy;
-
+	var camx = _camx, camy = _camy, camw = _camw, camh = _camh;
+	
 	if instance_exists(obj_camera) && instance_exists(obj_player)
 	&& obj_camera.bound_camera && instance_exists(obj_player.cam)
 	{
 		roomwidth = obj_player.cam_width;
 		roomheight = obj_player.cam_width;
-		_camx2 -= obj_player.cam.x;
-		_camy2 -= obj_player.cam.y;
+		camx -= obj_player.cam.x;
+		camy -= obj_player.cam.y;
 	}
 	
 	var n = layer_get_name(layer_id);
 	switch n
 	{
-		case "Backgrounds_1": return [_camx * 0.25, _camy * 0.25]; break;
-		case "Backgrounds_2": return [_camx * 0.15, _camy * 0.15]; break;
-		case "Backgrounds_3": return [_camx * 0.05, _camy * 0.05]; break;
+		case "Backgrounds_1": return [camx * 0.25, camy * 0.25]; break;
+		case "Backgrounds_2": return [camx * 0.15, camy * 0.15]; break;
+		case "Backgrounds_3": return [camx * 0.05, camy * 0.05]; break;
 		
-		case "Backgrounds_fore1": return [_camx * -0.1, _camy * -0.1]; break;
-		case "Backgrounds_Ground1": return [_camx * 0.35, roomheight - _camh + ((roomheight - (_camy2 + _camh)) * -0.25)]; break;
-		case "Backgrounds_Ground2": return [_camx * 0.25, roomheight - _camh + ((roomheight - (_camy2 + _camh)) * -0.35)]; break;
-		case "Backgrounds_H1": return [_camx * 0.25, _camy]; break;
+		case "Backgrounds_fore1": return [camx * -0.1, camy * -0.1]; break;
+		case "Backgrounds_Ground1": return [camx * 0.25, roomheight - camh + ((roomheight - (camy + camh)) * -0.35)]; break;
+		case "Backgrounds_Ground2": return [camx * 0.35, roomheight - camh + ((roomheight - (camy + camh)) * -0.25)]; break;
+		case "Backgrounds_H1": return [camx * 0.25, camy]; break;
 		
-		case "Backgrounds_sky": return [_camx * 0.85, _camy * 0.85]; break;
-		case "Backgrounds_sky2": return [_camx, _camy]; break;
-		case "Backgrounds_sky3": return [_camx * 0.95, _camy * 0.95]; break;
+		case "Backgrounds_sky": return [camx * 0.85, camy * 0.85]; break;
+		case "Backgrounds_sky2": return [camx * 0.9, camy * 0.9]; break;
+		case "Backgrounds_sky3": return [camx * 0.95, camy * 0.95]; break;
+		case "Backgrounds_sky4": return [camx, camy]; break;
 		
-		case "Backgrounds_scroll": return [_camx * 0.25, _camy * 0.25]; break;
-		case "Backgrounds_FG": return [(layer_get_x(layer_id) - _camx) * 0.15, (layer_get_y(layer_id) - _camy) * 0.15]; break;
+		case "Backgrounds_scroll": return [camx * 0.25, camy * 0.25]; break;
+		case "Backgrounds_FG": return [(layer_get_x(layer_id) - camx) * 0.15, (layer_get_y(layer_id) - camy) * 0.15]; break;
 		
 		case "Backgrounds_still1":
 		case "Backgrounds_still2":
@@ -46,17 +48,17 @@ function layer_get_parallax(layer_id)
 				case "Backgrounds_stillH3": p = [0.95, 0.15]; hor = false; break;
 			}
 			if hor
-				var returnx = _camx - clamp(_camx2 * p[0] * (960 / roomwidth), 0, sprite_get_width(layer_background_get_sprite(layer_background_get_id(layer_id))) - 960);
+				var returnx = camx - clamp(camx * p[0] * (960 / roomwidth), 0, sprite_get_width(layer_background_get_sprite(layer_background_get_id(layer_id))) - 960);
 			else
-				returnx = _camx * p[0];
+				returnx = camx * p[0];
 			
-			return [returnx, _camy - clamp(_camy2 * p[1] * (540 / roomheight), 0, sprite_get_height(layer_background_get_sprite(layer_background_get_id(layer_id))) - 540)]; break;
+			return [returnx, camy - clamp(camy * p[1] * (540 / roomheight), 0, sprite_get_height(layer_background_get_sprite(layer_background_get_id(layer_id))) - 540)]; break;
 		
 		// pinpan moment
-		case "Backgrounds_steamcc1": return [_camx * 0.95, _camy * 0.95]; break;
-		case "Backgrounds_steamcc2": return [_camx * 0.75, _camy * 0.75]; break;
-		case "Backgrounds_steamcc3": return [_camx * 0.25, (room_height - 560) + ((room_height - (_camy + _camh)) * 0.25)]; break;
-		case "Backgrounds_steamcc5": return [_camx * 0.65, _camy * 0.65]; break;
+		case "Backgrounds_steamcc1": return [camx * 0.95, camy * 0.95]; break;
+		case "Backgrounds_steamcc2": return [camx * 0.75, camy * 0.75]; break;
+		case "Backgrounds_steamcc3": return [camx * 0.25, (room_height - 560) + ((room_height - (camy + camh)) * 0.25)]; break;
+		case "Backgrounds_steamcc5": return [camx * 0.65, camy * 0.65]; break;
 	}
 	return [0, 0];
 }
@@ -74,5 +76,11 @@ for(var i = 0; i < siz; i++)
 	
 	layer_x(l.lay, floor(l.x + parallax[0]));
 	layer_y(l.lay, floor(l.y + parallax[1]));
+	
+	// scale the backgrounds up if the camera zooms out
+	if layer_get_depth(l.lay) >= 0
+	{
+		layer_background_xscale(l.bg, zoomfactor);
+		layer_background_yscale(l.bg, zoomfactor);
+	}
 }
-

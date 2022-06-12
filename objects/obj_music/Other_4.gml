@@ -14,7 +14,6 @@ if global.musicvolume <= 0
 	audio_stop_sound(global.music);
 	exit;
 }
-
 if audio_is_playing(global.jukebox)
 	exit;
 
@@ -23,11 +22,9 @@ if string_endswith(roomname, "_NEW")
 	roomname = string_replace(roomname, "_NEW", "");
 
 var musplay = -1;
-
-#region antonball
-
 if scr_checkskin(checkskin.p_anton)
 {
+	// ANTONBALL
 	if !global.panic && !global.snickchallenge
 	{
 		if string_contains(roomname, "secret")
@@ -40,13 +37,16 @@ if scr_checkskin(checkskin.p_anton)
 			musplay = mu_antonlevel;
 	}
 }
-
-#endregion
-#region pizza tower
-
 else if (!global.panic or string_letters(roomname) == "dragonlair" or string_letters(roomname) == "grinch")
 && !global.snickchallenge
 {
+	// room number
+	var roomnumber = string_digits(roomname);
+	if string_is_number(roomnumber)
+		roomnumber = real(roomnumber);
+	else
+		roomnumber = 0;
+	
 	if instance_exists(obj_pepperman)
 	{
 		fadeoff = 0
@@ -124,41 +124,26 @@ else if (!global.panic or string_letters(roomname) == "dragonlair" or string_let
 	
 	if string_letters(roomname) == "dungeon"
 	{
-		for (i = 0; i < 20; ++i)
+		musplay = !global.snickrematch ? mu_dungeon : mu_dungeon_re;
+		if roomnumber > 8
 		{
-			if roomname == "dungeon_" + string(i) && i <= 8
-			{
-				musplay = mu_dungeon;
-				if global.snickrematch
-					musplay = mu_dungeon_re;
-			}
-			else if roomname == "dungeon_" + string(i) && i > 8
-			{
-				fadeoff = 0;
-				musplay = mu_dungeondepth;
-				if global.snickrematch
-					musplay = mu_dungeondepth_re;
-			}
+			fadeoff = 0;
+			musplay = !global.snickrematch ? mu_dungeondepth : mu_dungeondepth_re;
 		}
 	}
 	
 	if string_letters(roomname) == "strongcold"
 	{
-		for (i = 0; i < 20; ++i)
+		musplay = mu_strongcold
+		if roomnumber == 1
 		{
-			if roomname = "strongcold_" + string(i) && i <= 8 && i > 1
-				musplay = mu_strongcold
-			else if roomname = "strongcold_" + string(i) && i > 8
-			{
-				fadeoff = 0
-				musplay = mu_dungeondepth
-			}
-			
-			if roomname = "strongcold_1"
-			{
-				fadeoff = 0
-				musplay = mu_chateau
-			}
+			fadeoff = 0
+			musplay = mu_chateau
+		}
+		else if roomnumber > 8
+		{
+			fadeoff = 0
+			musplay = mu_dungeondepth
 		}
 	}
 	
@@ -168,15 +153,12 @@ else if (!global.panic or string_letters(roomname) == "dragonlair" or string_let
 			musplay = mu_phantom
 		else
 		{
-			for (i = 0; i < 20; ++i)
-			{
-				if roomname = "medieval_" + string(i) && i <= 2
-					musplay = mu_medievalentrance
-				else if roomname = "medieval_" + string(i) && i > 2 && i <= 5
-					musplay = mu_medievalremix
-				else if roomname = "medieval_" + string(i) && i > 5
-					musplay = mu_medieval
-			}
+			if roomnumber <= 2
+				musplay = mu_medievalentrance;
+			else if roomnumber <= 5
+				musplay = mu_medievalremix;
+			else
+				musplay = mu_medieval;
 		}
 	}
 
@@ -186,13 +168,9 @@ else if (!global.panic or string_letters(roomname) == "dragonlair" or string_let
 			musplay = mu_apartment
 		else
 		{
-			for (i = 0; i < 20; ++i)
-			{
-				if roomname = "ruin_" + string(i) && i <= 6
-					musplay = mu_ruin
-				else if roomname = "ruin_" + string(i) && i > 6
-					musplay = mu_ruinremix
-			}
+			musplay = mu_ruin;
+			if roomnumber > 6
+				musplay = mu_ruinremix;
 		}
 	}
 
@@ -216,15 +194,14 @@ else if (!global.panic or string_letters(roomname) == "dragonlair" or string_let
 	
 	if string_letters(roomname) == "forest" 
 	{
-		if real(string_digits(roomname)) < 4
-			musplay = mu_forest
-		else if roomname == "forest_4" or roomname == "forest_4b"
+		musplay = mu_gnomeforest;
+		if roomnumber < 4
+			musplay = mu_forest;
+		if roomnumber == 4
 		{
-			fadeoff = 0
-			musplay = mu_gustavo
+			fadeoff = 0;
+			musplay = mu_gustavo;
 		}
-		else
-			musplay = mu_gnomeforest
 	}
 	
 	if string_letters(roomname) == "kungfu" 
@@ -250,21 +227,17 @@ else if (!global.panic or string_letters(roomname) == "dragonlair" or string_let
 	
 	if sugaryspire
 	{
-		if string_letters(roomname) == "cotton"
+		if string_startswith(roomname, "cotton")
 		{
-			for (i = 0; i < 20; i++)
-			{
-				if roomname == "cotton_" + string(i) && i < 8
-					musplay = mu_cotton
-				else if roomname == "cotton_" + string(i) && i >= 8
-					musplay = mu_cotton2
-			}
+			musplay = mu_cotton;
+			if roomnumber >= 8
+				musplay = mu_cotton2;
 		}
-		if string_letters(roomname) == "molasses"
+		if string_startswith(roomname, "molasses")
 			musplay = mu_swamp
-		if string_letters(roomname) == "mines"
+		if string_startswith(roomname, "mines")
 			musplay = mu_mines
-		if string_letters(roomname) == "sugarytut"
+		if string_startswith(roomname, "sugarytut")
 		{
 			fadeoff = 0
 			musplay = mu_tutorial_ss
@@ -275,41 +248,28 @@ else if (!global.panic or string_letters(roomname) == "dragonlair" or string_let
 	if string_startswith(roomname, "floor1_room")
 	or string_startswith(roomname, "floor1_mart")
 	{
-		for (i = 0; i < 20; ++i)
-		{
-			if roomname == "floor1_room" + string(i) && i <= 9
-			or string_startswith(roomname, "floor1_mart")
-				musplay = mu_desert
-			else if roomname == "floor1_room" + string(i) && i > 9
-				musplay = mu_ufo
-		}
+		musplay = mu_desert;
+		if roomnumber > 9
+			musplay = mu_ufo;
 	}
 
 	// freezer
 	if string_startswith(roomname, "oldfreezer_")
 	{
-		for (i = 0; i < 20; ++i)
-		{
-			if roomname = "oldfreezer_" + string(i) && i <= 6
-				musplay = mu_freezer
-			else if roomname = "oldfreezer_" + string(i) && i > 6
-				musplay = mu_freezer2
-		}
+		musplay = mu_freezer;
+		if roomnumber > 6
+			musplay = mu_freezer2;
 	}
 
 	// sewer
 	if string_startswith(roomname, "oldsewer_")
 	{
-		for (i = 0; i < 20; ++i)
+		musplay = mu_sewer;
+		if roomnumber > 5
 		{
-			if roomname = "oldsewer_" + string(i) && i <= 5
-				musplay = mu_sewer;
-			else if roomname = "oldsewer_" + string(i) && i > 5
-			{
-				if audio_is_playing(mu_sewer)
-					fadeoff = 0
-				musplay = mu_sewer2
-			}
+			if audio_is_playing(mu_sewer)
+				fadeoff = 0
+			musplay = mu_sewer2
 		}
 	}
 
@@ -320,23 +280,20 @@ else if (!global.panic or string_letters(roomname) == "dragonlair" or string_let
 	// etb
 	if string_startswith(roomname, "etb_")
 	{
-		for (i = 0; i < 20; ++i)
+		if roomnumber == 1
 		{
-			if roomname == "etb_" + string(i) && i <= 1
-			{
-				fadeoff = 0
-				musplay = mu_tutorial
-			}
-			else if roomname == "etb_" + string(i) && i > 1
-			{
-				if audio_is_playing(mu_tutorial)
-					fadeoff = 0;
-				
-				if scr_checkskin(checkskin.p_peter) && global.musicgame != 1
-					musplay = music_onepizzaatatime
-				else
-					musplay = mu_ruin
-			}
+			fadeoff = 0
+			musplay = mu_tutorial
+		}
+		else
+		{
+			if audio_is_playing(mu_tutorial)
+				fadeoff = 0;
+			
+			if scr_checkskin(checkskin.p_peter) && global.musicgame != 1
+				musplay = music_onepizzaatatime
+			else
+				musplay = mu_ruin
 		}
 	}
 	
@@ -355,16 +312,9 @@ else if (!global.panic or string_letters(roomname) == "dragonlair" or string_let
 	// mansion
 	if string_startswith(roomname, "oldmansion_")
 	{
-		for (i = 0; i < 20; ++i)
-		{
-			if string_startswith(roomname, "oldmansion_" + string(i))
-			{
-				if i <= 8
-					musplay = mu_mansion
-				else
-					musplay = mu_forest
-			}
-		}
+		musplay = mu_mansion;
+		if roomnumber > 8
+			musplay = mu_forest;
 	}
 	
 	// secrets
@@ -444,8 +394,6 @@ else if (!global.panic or string_letters(roomname) == "dragonlair" or string_let
 	if room == custom_lvl_room
 		alarm[0] = 4;
 }
-
-#endregion
 
 if musplay > -1
 {

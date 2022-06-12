@@ -68,7 +68,6 @@ depth = -9998;
 manualhide = false;
 zoom = 1
 frameone = false;
-global.roombgs = ds_list_create();
 shaderfade = 0;
 
 // new shit
@@ -84,4 +83,3 @@ keyimg = 0;
 zoom = 0;
 angle = 0;
 limitcam = [0, 0, 960, 540];
-

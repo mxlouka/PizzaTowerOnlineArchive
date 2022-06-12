@@ -6,4 +6,3 @@ trigger = function() {
 func = function() {
 	instance_destroy();
 }
-

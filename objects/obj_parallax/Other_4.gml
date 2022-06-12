@@ -1,3 +1,22 @@
+// get all background layers in the room
+ds_list_clear(global.roombgs);
+var l = layer_get_all();
+for (var i = 0; i < array_length(l); i++;)
+{
+	var lbg = layer_background_get_id(l[i]);
+	if lbg != -1
+	{
+		ds_list_add(global.roombgs, {
+			lay : l[i],
+			bg : lbg,
+			x : layer_get_x(l[i]),
+			y : layer_get_y(l[i]),
+			hsp : layer_get_hspeed(l[i]),
+			vsp : layer_get_vspeed(l[i]),
+		});
+	}
+}
+
 var roomname = room_get_name(room);
 if !string_contains(roomname, "secret")
 {

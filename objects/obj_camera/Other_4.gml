@@ -46,7 +46,3 @@ if !check_shaders()
 	global.panicbg = false;
 if (global.panic or global.snickchallenge) && global.panicbg
 	scr_panicbg_init();
-
-//DDP Disable any kind of motion blur
-application_surface_draw_enable(true)
-
