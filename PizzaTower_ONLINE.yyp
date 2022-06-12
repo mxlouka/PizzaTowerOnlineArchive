@@ -2061,6 +2061,7 @@
     {"id":{"name":"spr_metalblockdebrisescape","path":"sprites/spr_metalblockdebrisescape/spr_metalblockdebrisescape.yy",},"order":26,},
     {"id":{"name":"spr_bowlingballtrap","path":"sprites/spr_bowlingballtrap/spr_bowlingballtrap.yy",},"order":27,},
     {"id":{"name":"spr_swedishmonkey_palette","path":"sprites/spr_swedishmonkey_palette/spr_swedishmonkey_palette.yy",},"order":6,},
+    {"id":{"name":"sh_showhud","path":"scripts/sh_showhud/sh_showhud.yy",},"order":18,},
     {"id":{"name":"spr_bowlingballfalling","path":"sprites/spr_bowlingballfalling/spr_bowlingballfalling.yy",},"order":28,},
     {"id":{"name":"spr_skateboard","path":"sprites/spr_skateboard/spr_skateboard.yy",},"order":29,},
     {"id":{"name":"spr_wetfloor","path":"sprites/spr_wetfloor/spr_wetfloor.yy",},"order":30,},

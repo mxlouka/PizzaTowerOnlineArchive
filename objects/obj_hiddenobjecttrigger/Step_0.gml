@@ -16,4 +16,3 @@ if _sound
 	audio_stop_sound(sfx_secretwall);
 	scr_soundeffect(sfx_secretwall);
 }
-

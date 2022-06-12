@@ -5,4 +5,3 @@ fade = 0;
 depth = 106;
 
 objects = [obj_baddie, obj_collect, obj_bigcollect];
-

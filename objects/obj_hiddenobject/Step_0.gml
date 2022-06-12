@@ -16,4 +16,3 @@ if activated && fade != -1
 		}
 	}
 }
-
