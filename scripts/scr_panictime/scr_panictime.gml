@@ -164,6 +164,11 @@ function scr_panictime()
 			global.minutes = 2
 			global.seconds = 29
 			break
+		
+		case "molasses_9":
+			global.minutes = 4
+			global.seconds = 59
+			break
 			
 		case "custom_lvl_room":
 			with obj_destroyableescape
