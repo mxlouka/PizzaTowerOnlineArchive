@@ -669,7 +669,7 @@ function scr_player_jump()
 				movespeed = 6
 			sprite_index = spr_mach1
 			jumpAnim = true
-			state = states.mach1
+			state = global.gameplay == 0 ? states.mach1 : states.mach2
 			image_index = 0
 		}
 		else
