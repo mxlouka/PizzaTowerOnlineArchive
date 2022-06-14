@@ -147,6 +147,48 @@ if scr_checkskin(checkskin.n_hardoween)
 else
 	basegrav = 0.5;
 
+if verticalbuffer > 0
+    verticalbuffer--
+if superchargecombo_buffer > 0
+    superchargecombo_buffer--
+else if superchargecombo_buffer == 0
+{
+    superchargecombo_buffer = -1
+    global.combotime = 4
+}
+
+if !place_meeting(x, y + 1, obj_railparent)
+{
+    if state == states.mach3 or state == states.mach2 or state == states.tumble
+        railmovespeed = Approach(railmovespeed, 0, 0.1)
+    else
+        railmovespeed = Approach(railmovespeed, 0, 0.5)
+}
+
+if state != states.handstandjump && state != states.tumble
+    crouchslipbuffer = 0
+
+// blur afterimages
+if global.gameplay != 0
+{
+	if blur_effect > 0
+	    blur_effect--
+	else if breakdance_speed >= 0.6 or boxxeddash or state == states.ghost or state == states.tumble or state == states.ratmountbounce or state == states.ratmountattack or state == states.handstandjump or state == states.barrelslide or (state == states.grab && sprite_index == spr_swingding && swingdingdash <= 0) or (state == states.punch && (sprite_index == spr_player_breakdanceuppercut or sprite_index == spr_player_breakdanceuppercutend)) or state == states.freefall or (state == states.cotton && (sprite_index == spr_cotton_attack or movespeed > 6))
+	{
+	    if visible && !place_meeting(x, y, obj_secretportal) && !place_meeting(x, y, obj_secretportalstart)
+	    {
+	        blur_effect = 2
+	        with instance_create(x, y, obj_blurafterimage)
+			{
+				sprite_index = other.sprite_index
+				image_index = other.image_index
+				image_xscale = other.xscale
+	            playerid = other.id
+			}
+	    }
+	}
+}
+
 // invhurt
 if global.gameplay != 0
 {
@@ -210,7 +252,19 @@ if global.gameplay == 1
 }
  
 //Supercharge
-if ((global.combo >= 3 && global.gameplay == 0) or (supercharge == 4 && global.gameplay != 0))
+if global.combo != global.previouscombo
+{
+    global.previouscombo = global.combo
+    if (global.combo % 5) == 0 && global.combo != 0
+    {
+        with instance_create(x, y - 80, obj_combotitle)
+        {
+            title = floor(global.combo / 5)
+            title = clamp(title, 0, floor(sprite_get_number(spr_comboend_title1) / 5))
+        }
+    }
+}
+if ((global.combo >= 3 && global.gameplay == 0) or (supercharge > 9 && global.gameplay != 0))
 && state != states.backbreaker && character != "S"
 {
 	if character != "V"
@@ -218,10 +272,14 @@ if ((global.combo >= 3 && global.gameplay == 0) or (supercharge == 4 && global.g
 	else
 		anger = 100
 }
-if global.combotime > 0 && !cutscene && !(character == "SP" && state == states.tacklecharge)
-	global.combotime -= 0.5;
+if !(state == states.door or state == states.tube or state == states.taxi or state == states.gottreasure or state == states.victory or state == states.actor or state == states.comingoutdoor or (state == states.knightpep && (sprite_index == spr_knightpepstart or sprite_index == spr_knightpepthunder)) or instance_exists(obj_fadeout) or place_meeting(x, y, obj_secretportal) or place_meeting(x, y, obj_secretportalstart))
+{
+	if global.combotime > 0 && !cutscene && !(character == "SP" && state == states.tacklecharge)
+		global.combotime -= global.gameplay == 0 ? 0.5 : 0.15;
+}
 if global.combotime <= 0 && state != states.backbreaker
 {
+	global.savedcombo = global.combo;
 	global.combotime = 0;
 	global.combo = 0;
 	supercharge = 0;
@@ -578,15 +636,14 @@ if grounded && state != states.Sjump
 // colorful afterimages
 if state == states.mach3 or pizzapepper > 0 or sprite_index == spr_barrelroll
 or state == states.parry or state == states.rideweenie 
-or (state == states.punch && scr_stylecheck(0, 2))
 or state == states.climbwall or (state == states.jump && sprite_index == spr_playerN_noisebombspinjump)
 or pogochargeactive or state == states.hookshot or state == states.mach2
 or state == states.tacklecharge or state == states.machslide
 or (state == states.machroll)
-or (state == states.handstandjump)
-or (state == states.Sjump && scr_stylecheck(0, 2))
+or (state == states.handstandjump && global.gameplay == 0)
+or (state == states.Sjump && global.gameplay == 0)
 or (state == states.chainsaw && mach2 >= 100)
-or (state == states.cotton && (sprite_index == spr_cotton_attack or movespeed > 6))
+or (state == states.cotton && (sprite_index == spr_cotton_attack or movespeed > 6) && global.gameplay == 0)
 or (state == states.pogo && character == "SP" && pogospeed >= 12)
 {
 	if !macheffect
@@ -695,6 +752,7 @@ cutscene = (
 	state == states.gottreasure or sprite_index == spr_knightpepstart or sprite_index == spr_knightpepthunder
 	or state == states.keyget or state == states.door or state == states.ejected
 	or state == states.victory or state == states.comingoutdoor or state == states.gameover
+	or place_meeting(x, y, obj_secretportal) or place_meeting(x, y, obj_secretportalstart)
 )
 
 //Up arrow
@@ -718,7 +776,7 @@ else with obj_uparrow
 }
  
 // speed lines
-if state == states.mach2
+if (global.gameplay == 0 && state == states.mach2) or (global.gameplay != 0 && state == states.mach3 && movespeed >= 16)
 {
 	if !instance_exists(speedlineseffectid)
 	{
@@ -743,6 +801,9 @@ if state == states.tube or state == states.gotoplayer
 else if state != states.titlescreen && state != states.grabbed && state != states.door && state != states.ejected && state != states.comingoutdoor && state != states.keyget && state != states.victory && state != states.portal && state != states.timesup && state != states.gottreasure && state != states.rotate && state != states.gameover && (((state != states.backbreaker or taunttimer <= 0)) or global.gameplay == 0)
 	scr_collide_player();
 
+prevstate = state
+prevsprite = sprite_index
+
 // correct depth
 depth = (state == states.grabbed ? -5 : -7);
 if state == states.rotate
@@ -758,4 +819,3 @@ if petfollow > -1
 }
 else if instance_exists(obj_petfollow)
 	instance_destroy(obj_petfollow);
-

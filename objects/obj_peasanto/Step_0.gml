@@ -30,6 +30,7 @@ if place_meeting(x + hsp, y, obj_iceblock) && state == states.charge
 var targetplayer = instance_nearest(x, y, obj_player)
 if global.gameplay != 0
 {
+	scr_scareenemy();
 	if state == states.walk && attack_cooldown <= 0
 	{
 		if targetplayer.x > x - 200 && targetplayer.x < x + 200

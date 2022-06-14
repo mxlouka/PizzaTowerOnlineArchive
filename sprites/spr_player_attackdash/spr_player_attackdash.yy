@@ -132,8 +132,8 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "new",
-    "path": "folders/Sprites/players/pepino/new.yy",
+    "name": "pepino",
+    "path": "folders/Sprites/players/pepino.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_player_attackdash",

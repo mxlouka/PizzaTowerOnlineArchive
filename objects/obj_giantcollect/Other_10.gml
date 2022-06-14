@@ -3,10 +3,10 @@ audio_stop_sound(sfx_collectgiantpizza);
 audio_stop_sound(sfx_secretwall);
 scr_soundeffect(sfx_collectgiantpizza);
 
-global.collect += 1000;
-
+var val = heat_calculate(1000)
+global.collect += val;
 with instance_create(x, y, obj_smallnumber)
-	number = string(1000);
+	number = string(val);
 
 if global.bullet < 3
 	global.bullet += 1;

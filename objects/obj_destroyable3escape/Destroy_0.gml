@@ -17,10 +17,8 @@ if ds_list_find_index(global.saveroom, id) == -1 && global.panic
 		{
 			image_xscale = abs(other.image_xscale)
 			image_yscale = abs(other.image_yscale)
-		
-			if other.sprite_index == spr_bigdestroyableescape_NEW
-				sprite_index = spr_debrisescape_NEW
-			else if other.sprite_index == spr_bigdestroyableescape_ss
+			
+			if other.sprite_index == spr_bigdestroyableescape_ss
 				sprite_index = spr_bigdebrisescape_ss
 			else if other.sprite_index == spr_bigdestroyableescapeNEW_ss
 				sprite_index = spr_bigdebrisescapeNEW_ss

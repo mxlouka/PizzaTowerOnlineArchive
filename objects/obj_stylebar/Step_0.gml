@@ -28,3 +28,4 @@ if global.style < 0 && global.stylethreshold == 0
 if global.stylethreshold == 3 && global.style > 55
 	global.style = 55
 
+global.stylemultiplier = (global.style + (global.stylethreshold * 55)) / 220

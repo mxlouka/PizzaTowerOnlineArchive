@@ -15,4 +15,3 @@ if !sugaryspire
 			room_assign(i, rm_blank);
 	}
 }
-

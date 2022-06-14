@@ -49,9 +49,6 @@ else // noise
 		sprite_index = spr_rankNC
 	if global.rank == "d"
 		sprite_index = spr_rankND
-	
-	if scr_checkskin(checkskin.n_nose)
-		image_index = image_number - 1;
 }
 if global.rank == "yousuck"
 	sprite_index = spr_yousuck

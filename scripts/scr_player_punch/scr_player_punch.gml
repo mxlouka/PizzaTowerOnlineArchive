@@ -122,33 +122,113 @@ function scr_player_punch()
 		{
 			default:
 				move = key_left + key_right
-				jumpstop = 0
-			
+				jumpstop = false
+				
 				if sprite_index == spr_breakdanceuppercut or sprite_index == spr_breakdanceuppercutend
 				{
-					if abs(hsp) <= movespeed or move != xscale or !scr_stylecheck(2)
-						hsp = move * movespeed;
-				
-					if floor(image_index) == image_number - 1
-					{
-						if move != 0
-							xscale = move;
-						movespeed = abs(hsp);
+					landAnim = true
+					if move != 0
+			        {
+			            dir = move
+			            movespeed = Approach(movespeed, (move * 4), 0.5)
+			        }
+					hsp = movespeed;
 					
-						jumpstop = true;
-						state = states.jump;
-						sprite_index = spr_breakdanceuppercutend;
-					}
-				
+					if floor(image_index) == image_number - 1 && sprite_index == spr_breakdanceuppercut
+						sprite_index = spr_breakdanceuppercutend
+					
 					if grounded && vsp >= 0
 					{
-						dir = xscale;
-						state = states.jump;
+						if hsp != 0
+						{
+							dir = sign(hsp);
+							xscale = dir;
+						}
+						
+						movespeed = abs(movespeed);
+						state = states.normal;
 					}
+					
+					if punch_afterimage > 0
+				        punch_afterimage--
+				    else
+				    {
+				        punch_afterimage = 5
+						with instance_create(x, y, obj_blueafterimage)
+						{
+							sprite_index = other.sprite_index
+							image_index = other.image_index
+							image_xscale = other.xscale
+						}
+				    }
+				}
+				else if sprite_index == spr_player_Sjumpcancel or sprite_index == spr_player_Sjumpcancelland or sprite_index == spr_player_Sjumpcancelslide
+				{
+					if move != 0
+	                {
+	                    if move != xscale && movespeed > -6
+							movespeed -= 1
+	                }
+					
+					if floor(image_index) == image_number - 1 && sprite_index == spr_player_Sjumpcancelland
+						sprite_index = spr_player_Sjumpcancelslide
+					
+					hsp = xscale * movespeed
+					if grounded && vsp > 0
+                    {
+                        if sprite_index == spr_player_Sjumpcancel
+                        {
+                            sprite_index = spr_player_Sjumpcancelland
+                            image_index = 0
+                        }
+                        if key_attack
+                        {
+                            if movespeed >= 12
+                                state = states.mach3
+                            else
+                                state = states.mach2
+							if move != 0
+								xscale = move
+                            sprite_index = spr_rollgetup
+                            image_index = 0
+                        }
+                        else if movespeed > 6
+                        {
+                            state = states.machslide
+                            sprite_index = spr_machslidestart
+                            image_index = 0
+                        }
+                        else
+                            state = states.normal
+                    }
+                    if sprite_index == spr_player_Sjumpcancelslide
+                        image_speed = abs(movespeed) / 15
+					
+					if sprite_index != spr_player_kungfujump && place_meeting(x + xscale, y, obj_solid) && !place_meeting(x + xscale, y, obj_destructibles) && !place_meeting(x + xscale, y, obj_slope)
+	                {
+	                    vsp = -4
+	                    sprite_index = spr_player_kungfujump
+	                    image_index = 0
+	                    movespeed = -6
+	                }
+					
+					if punch_afterimage > 0
+				        punch_afterimage--
+				    else
+				    {
+				        punch_afterimage = 5
+						with instance_create(x, y, obj_blueafterimage)
+						{
+							sprite_index = other.sprite_index
+							image_index = other.image_index
+							image_xscale = other.xscale
+						}
+				    }
+					exit;
 				}
 				else
 					hsp = xscale * movespeed
-			
+				
 				if sprite_index == spr_player_breakdancesuper && key_shoot2
 					movespeed = 14
 			

@@ -83,13 +83,19 @@ function scr_player_mach2()
 				machpunchAnim = false
 			}
 		}
-		else if sprite_index != spr_mach && sprite_index != spr_mach4 && sprite_index != spr_player_machhit
+		else if sprite_index != spr_mach && sprite_index != spr_mach1 && sprite_index != spr_mach4 && sprite_index != spr_player_machhit
 		&& sprite_index != spr_snick_tumble && (sprite_index != spr_snick_bodyslamstart or grounded)
+		&& sprite_index != spr_player_Sjumpcancelstart
 		{
 			if sprite_index != spr_rollgetup or character == "S"
 				sprite_index = spr_mach
 		}
 	}
+	if floor(image_index) == image_number - 1 && sprite_index == spr_mach1
+        sprite_index = spr_mach
+    if floor(image_index) == image_number - 1 && sprite_index == spr_player_longjump
+        sprite_index = spr_player_longjumpend
+	
 	if !grounded
 	{
 		machpunchAnim = false
@@ -111,7 +117,10 @@ function scr_player_mach2()
 	//Mach3
 	if grounded
 	{
-		if movespeed < 8
+		if hsp != 0 && movespeed > 8
+			scr_player_addslopemomentum(0.1, 0.2);
+		
+		if movespeed < 8 && global.gameplay == 0
 			movespeed = 8;
 		if vsp > 0
 			jumpstop = false;
@@ -155,6 +164,7 @@ function scr_player_mach2()
 			flash = false
 			state = states.machroll
 			vsp = 10
+	        sprite_index = spr_machroll
 			
 			if character == "V"
 				sprite_index = spr_playerV_divekickstart
@@ -183,6 +193,8 @@ function scr_player_mach2()
 			else
 			{
 				wallspeed = movespeed
+				if vsp > 0 && global.gameplay != 0
+					wallspeed -= vsp
 				vsp = -wallspeed
 				state = states.climbwall
 			}
@@ -191,8 +203,20 @@ function scr_player_mach2()
 	
 	if state != states.climbwall && grounded && bump
 	{
-		movespeed = 0
-		state = states.normal
+		if !ledge_bump()
+		{
+			if global.gameplay == 0
+			{
+				movespeed = 0
+				state = states.normal
+			}
+			else
+			{
+				state = states.bump
+                image_index = 0
+                sprite_index = spr_player_wallsplat
+			}
+		}
 	}
 	
 	//Effect
@@ -222,7 +246,7 @@ function scr_player_mach2()
 			sprite_index = spr_mach
 	}
 
-	if !grounded && sprite_index != spr_secondjump2 && sprite_index != spr_mach2jump && sprite_index != spr_walljumpstart && sprite_index != spr_walljumpend
+	if !grounded && sprite_index != spr_secondjump2 && sprite_index != spr_mach2jump && sprite_index != spr_walljumpstart && sprite_index != spr_walljumpend && sprite_index != spr_player_longjump && sprite_index != spr_player_longjumpend
 		sprite_index = spr_secondjump1
 
 	if floor(image_index) = image_number -1 && sprite_index = spr_secondjump1

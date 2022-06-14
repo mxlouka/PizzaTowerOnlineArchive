@@ -10,4 +10,3 @@ if ds_list_find_index(global.baddieroom, id) == -1
 		sprite_index = other.spr_content_dead
 }
 event_inherited()
-

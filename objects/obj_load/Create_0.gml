@@ -10,7 +10,7 @@ if !check_shaders() && !ini_read_real("online", "shitgraphs", false)
 	ini_write_real("online", "shitgraphs", true);
 }
 
-pal_swap_init_system(shd_pal_swapper);
+pal_swap_init_system(shd_pal_swapper, -1, -1);
 
 // fonts
 global.bigfont = font_add_sprite_ext(spr_font, "ABCDEFGHIJKLMNOPQRSTUVWXYZ!.1234567890:_-?'", true, 0)
@@ -21,6 +21,7 @@ global.collectfont = font_add_sprite_ext(spr_font_collect, "0123456789.-", true,
 global.collectfontPP = font_add_sprite_ext(spr_font_collectPP, "0123456789.-", true, 0)
 global.candyfont = font_add_sprite_ext(spr_font_candycollect, "0123456789", true, 0)
 global.combofont = font_add_sprite_ext(spr_font_combo, "0123456789.-", true, 0)
+global.combofont2 = font_add_sprite_ext(spr_tv_combobubbletext, "0123456789", true, 0)
 global.sugarybigfont = font_add_sprite_ext(spr_font_ss, "ABCDEFGHIJKLMNOPQRSTUVWXYZ!.1234567890:_-?'", true, 0)
 global.sugarysmallfont = font_add_sprite_ext(spr_smallfont_ss, "ABCDEFGHIJKLMNOPQRSTUVWXYZ!.:?1234567890',", true, 0)
 loadfont = global.bigfont;
@@ -79,7 +80,7 @@ global.language = ini_read_string("online", "language", "en") // language
 global.langmap = -1;
 lang_load(global.language);
 
-// prepare
+// window resolution
 global.option_fullscreen = ini_read_real("Option", "fullscreen", false)  
 global.option_resolution = ini_read_real("Option", "resolution", 1)  
 window_set_fullscreen(global.option_fullscreen);
@@ -94,11 +95,20 @@ if !global.option_fullscreen
 	}
 }
 
-alarm[0] = 2;
+// eggplant build loading screen
+draw_flush();
+var group_arr = ["tg_player", "tg_background", "tg_baddie", "tg_palette", "tg_hud", "Default"]
 
-loadwhat = -1;
-prog = -1;
+tex_list = ds_list_create();
+tex_pos = 0;
+for (var i = 0; i < array_length(group_arr); i++)
+{
+    var _tex_array = texturegroup_get_textures(group_arr[i]);
+    ds_list_add(tex_list, _tex_array);
+}
+tex_max = ds_list_size(tex_list);
+alarm[0] = 30;
 
 // done
+loadwhat = -1;
 ini_close();
-

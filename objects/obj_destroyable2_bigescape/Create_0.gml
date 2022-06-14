@@ -10,6 +10,9 @@ else if obj_player1.character == "SP"
 else if obj_player1.character == "PP"
 	sprite_index = spr_bigbreakableescape_PP
 
+if !check_sugary() && global.gameplay != 0
+	instance_destroy(id, false);
+
 depth = 1
 content = noone
 image_speed = 0.35;

@@ -349,7 +349,7 @@ function lang_load(lang)
 		ds_map_add(global.langmap, "msg.level.entryway", "Entryway");
 		ds_map_add(global.langmap, "msg.level.cotton", "Cottontown");
 		ds_map_add(global.langmap, "msg.level.mines", "Sugarshack Mines WIP");
-		ds_map_add(global.langmap, "msg.level.molasses", "Molasses Swamp WIP");
+		ds_map_add(global.langmap, "msg.level.molasses", "Molasses Swamp");
 		
 		// roomname
 		ds_map_add(global.langmap, "roomname.characterselect", "Mode Select");

@@ -78,7 +78,7 @@ if playerid != noone
 			sprite_index = spr_playerSP_candytransitionup;
 			jumpAnim = true;
 			state = states.jump;
-			vsp = -15;
+			vsp = -16;
 			jumpstop = true;
 			instance_destroy(candyeffect);
 			scr_soundeffect(sfx_flingfrogjump);

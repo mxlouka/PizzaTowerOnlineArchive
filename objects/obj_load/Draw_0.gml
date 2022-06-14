@@ -10,28 +10,12 @@ switch loadwhat
 	
 	case 0:
 		draw_text(960 / 2, 540 / 2, lang_string("load.txgrp"));
-		if prog < 0
-			prog++;
-		else
-		{
-			// load texture groups
-			function load_tg(tgname)
-			{
-				var _tex_array = texturegroup_get_textures(tgname);
-				for (var i = 0; i < array_length(_tex_array); ++i)
-					texture_prefetch(_tex_array[i]);
-			}
-			
-			load_tg("tg_player");
-			load_tg("tg_background");
-			load_tg("tg_baddie");
-			load_tg("tg_palette");
-			load_tg("tg_hud");
-			load_tg("tg_danceroom");
-			load_tg("Default");
-			
-			loadwhat = 2;
-		}
+		if !ds_exists(tex_list, ds_type_list)
+		    break;
+		
+		var p = tex_max - ds_list_size(tex_list);
+		var t = (p / tex_max) * 100;
+		draw_healthbar(0, 540 - 16, 960, 540, t, c_black, c_white, c_white, 0, 0, 0);
 		break;
 	
 	case 1:
@@ -46,10 +30,4 @@ switch loadwhat
 		}
 		loadwhat = 2;
 		break;
-	
-	case 2:
-		loadwhat = -1;
-		alarm[1] = 2;
-		break;
 }
-

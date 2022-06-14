@@ -15,6 +15,7 @@ function scr_player_ladder()
 	hsp = 0
 	
 	var upspd = (global.gameplay == 0 ? -2 : -6);
+	var downspd = (global.gameplay == 0 ? 6 : 10);
 	if key_up && !(place_meeting(x, y, obj_hookup) && !place_meeting(x, y + upspd, obj_hookup))
 	{
 		sprite_index = spr_laddermove
@@ -24,7 +25,7 @@ function scr_player_ladder()
 	else if key_down
 	{
 		sprite_index = spr_ladderdown
-		vsp = 6
+		vsp = downspd
 		image_speed = 0.35
 	}
 	else
@@ -91,7 +92,10 @@ function scr_player_ladder()
 		ladderbuffer = 20
 		jumpAnim = true
 		state = states.jump
-		vsp = -9
+		if key_down && global.gameplay != 0
+            vsp = 5
+        else
+            vsp = -9
 		image_index = 0
 	}
 	if key_down && grounded && !place_meeting(x, y, obj_platform) 

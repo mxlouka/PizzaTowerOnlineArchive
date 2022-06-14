@@ -122,10 +122,24 @@ if sugary
 }
 else
 {
-	x = Approach(x, playerid.x, maxspeed);
-	y = Approach(y, playerid.y, maxspeed);
+	if image_alpha >= 1	
+	{
+		if global.gameplay == 0
+		{
+			x = Approach(x, playerid.x, maxspeed);
+			y = Approach(y, playerid.y, maxspeed);
+		}
+		else
+		{
+			var dir = point_direction(x, y, playerid.x, playerid.y)
+		    x += lengthdir_x(maxspeed, dir)
+		    y += lengthdir_y(maxspeed, dir)
+		}
+	}
+	else
+		image_alpha += 0.01	
 	
-	if place_meeting(x, y, playerid) && !instance_exists(obj_fadeout) && !instance_exists(obj_endlevelfade) && playerid.state != states.portal && playerid.state != states.door
+	if place_meeting(x, y, playerid) && !instance_exists(obj_fadeout) && !instance_exists(obj_endlevelfade) && playerid.state != states.portal && playerid.state != states.door && image_alpha == 1
 	{
 		if instance_exists(obj_toppinwarrior)
 		{
@@ -180,11 +194,10 @@ else
 		}
 	}
 	
-	if maxspeed < 5
+	if maxspeed < global.gameplay == 0 ? 5 : 3 && image_alpha == 1
 	{
 		maxspeed += 0.01
 		if maxspeed < 1
 			maxspeed += 0.1;
 	}
 }
-

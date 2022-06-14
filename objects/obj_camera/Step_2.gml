@@ -8,7 +8,7 @@ if collect_shake > 0
 if healthshaketime > 0
 {
 	healthshaketime--
-	healthshake = random_range(-2,2)
+	healthshake = random_range(-2, 2)
 }
 else
 	healthshake = 0
@@ -34,6 +34,27 @@ visible = true;
 
 if room == timesuproom
 	timestop = true;
+
+// combo
+if global.combo > 0
+{
+    alarm[4] = 2
+    global.savedcombo = global.combo
+	
+    var ct = global.combotime
+    if ct <= 40
+    {
+        if alarm[5] == -1
+        {
+            if ct >= 20
+                alarm[5] = 12
+            else
+                alarm[5] = 5
+        }
+    }
+    else
+        combobubblevisible = true
+}
 
 // spawn pizzaface
 if global.seconds <= 0 && global.minutes <= 0 && !ded
@@ -66,14 +87,14 @@ else
 	global.timedgatetime = 0;
 
 // pizza time shaking
-if global.panicshake
+if global.panicshake && global.panic && !instance_exists(obj_ghostcollectibles)
 {
-	if global.panic && global.minutes < 1
+	if global.gameplay != 0
+		shake_mag_panic = 2;
+	else if global.minutes < 1
 		shake_mag_panic = 1.5;
-	else if global.panic && !basement
-		shake_mag_panic = 1;
 	else
-		shake_mag_panic = 0;
+		shake_mag_panic = 1;
 }
 else
 	shake_mag_panic = 0;
@@ -169,12 +190,16 @@ if instance_exists(player) && player.state != states.timesup && player.state != 
 			chargesmooth = median(chargesmooth - 16, 0, chargesmooth + 16);
 			
 			// mach
-			if (player.state == states.mach3 or player.state == states.tumble or player.state == states.rideweenie or player.state == states.machroll or player.state == states.rocket)
+			if ((player.state == states.mach2 && global.gameplay != 0) or player.state == states.mach3 or player.state == states.tumble or player.state == states.rideweenie or player.state == states.machroll or player.state == states.rocket)
 			{
 				var ch = sign(player.xscale) * 100, chspd = 2;
 				if global.gameplay != 0
 				{
-					ch = sign(player.xscale) * ((player.movespeed / 4) * 50);
+					chspd = 0.3;
+					if (abs(player.hsp) >= 16 or (player.state == states.chainsaw && player.tauntstoredmovespeed >= 16)) && player.state != states.climbwall && player.state != states.Sjump
+						chspd = 2;
+					
+					ch = sign(player.xscale) * (abs(player.movespeed / 4) * 50);
 					if (ch > 0 && chargecamera < 0) or (ch < 0 && chargecamera > 0)
 						chspd = 8;
 				}
@@ -182,7 +207,16 @@ if instance_exists(player) && player.state != states.timesup && player.state != 
 				chargecamera = Approach(chargecamera, ch, chspd);
 			}
 			else if chargecamera != 0
-				chargecamera = Approach(chargecamera, 0, (player.state == states.machslide ? 8 : 2));
+			{
+				var chspd = 2;
+				if global.gameplay != 0
+				{
+					chspd = 6;
+					if player.state == states.machslide
+						chspd = 10;
+				}
+				chargecamera = Approach(chargecamera, 0, chspd);
+			}
 			
 			// crouch
 			if scr_stylecheck(2) && ((player.state == states.crouch or (player.character == "S" && player.state == states.normal)) && player.hsp == 0)
@@ -214,8 +248,9 @@ if instance_exists(player) && player.state != states.timesup && player.state != 
 			pancur[0] = median(pancur[0] - 2, panto[0], pancur[0] + 2);
 		if pancur[1] != panto[1]
 			pancur[1] = median(pancur[1] - 2, panto[1], pancur[1] + 2);
-	
+		
 		// set camera position
+		var cameraheight = global.gameplay == 0 ? 0 : 50;
 		if is_real(target) && instance_exists(target)
 		{
 			lastx = -1;
@@ -232,7 +267,7 @@ if instance_exists(player) && player.state != states.timesup && player.state != 
 			
 				// calculate target pos
 				var tx = target.x - (cam_width / 2) + chargecamera + chargesmooth + pancur[0];
-				var ty = target.y - (cam_height / 2) + floor(crouchcamera) + pancur[1];
+				var ty = target.y - (cam_height / 2) + floor(crouchcamera) + pancur[1] - cameraheight;
 			
 				// go to position
 				var xx = Approach(camera_get_view_x(cam_view), tx, maxspeed);
@@ -246,7 +281,7 @@ if instance_exists(player) && player.state != states.timesup && player.state != 
 			{
 				// normal camera
 				var xx = target.x - (cam_width / 2) + chargecamera + chargesmooth + pancur[0];
-				var yy = target.y - (cam_height / 2) + floor(crouchcamera) + pancur[1];
+				var yy = target.y - (cam_height / 2) + floor(crouchcamera) + pancur[1] - cameraheight;
 			}
 			camera_set_view_pos(cam_view, lerp(xx, cam_xprev, (0.9 * global.camerasmoothing) * !frameone), lerp(yy, cam_yprev, (0.9 * global.camerasmoothing) * !frameone));
 		}

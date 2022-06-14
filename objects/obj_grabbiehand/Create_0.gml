@@ -10,7 +10,6 @@ dropspoty = 0
 released = false
 grabbing = false
 thumbingup = false
-xstarte =x
-ystarte =y
+xstarte = x
+ystarte = y
 delay = 5
-

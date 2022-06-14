@@ -20,7 +20,6 @@ function scr_checkskin(skin, player = undefined)
 		p_gray,
 		n_hardoween,
 		n_big,
-		n_nose,
 		s_shit,
 		s_sbombic
 	}
@@ -39,8 +38,6 @@ function scr_checkskin(skin, player = undefined)
 		return global.gameplay == 0 && obj_player.noisetype == 1 && obj_player.character == "N" && obj_player.paletteselect == 1;
 	if skin == checkskin.n_big
 		return obj_player.character == "N" && obj_player.paletteselect == 14;
-	if skin == checkskin.n_nose
-		return false;
 	if skin == checkskin.s_shit
 		return obj_player.character == "S" && obj_player.paletteselect == 11;
 	if skin == checkskin.s_sbombic

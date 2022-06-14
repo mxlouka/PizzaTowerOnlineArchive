@@ -4,6 +4,7 @@ if state == states.tube
     {
         with playerid
         {
+			tube_id = -1;
             sprite_index = spr_superspringplayer
 			
             state = states.Sjump

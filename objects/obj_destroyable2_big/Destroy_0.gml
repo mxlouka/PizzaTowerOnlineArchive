@@ -2,18 +2,12 @@ if room == rm_editor exit;
 
 if ds_list_find_index(global.saveroom, id) = -1 && !global.snickchallenge
 {
-	// new destroy
 	if sprite_index == spr_bigbreakable_NEW
 	{
-		with instance_create(x, y, obj_destroyanim)
-		{
-			image_xscale = other.image_xscale;
-			image_yscale = other.image_yscale;
-			sprite_index = spr_bigbreakabledes_NEW;
-		}
+		scr_sleep(5)
+	    with instance_create(x + sprite_width / 2, y + sprite_height / 2, obj_parryeffect)
+	        sprite_index = spr_bigpizzablockdead
 	}
-	
-	// old destroy
 	else
 	{
 		repeat 6 with instance_create(x + sprite_width / 2, y + sprite_height / 2, obj_debris)
@@ -39,28 +33,34 @@ if ds_list_find_index(global.saveroom, id) = -1 && !global.snickchallenge
 	
 	if content == noone
 	{
-		with instance_create(x + sprite_width / 2, y + sprite_height / 2, obj_pizzaslice)
-			hsp = 2
-		with instance_create(x + sprite_width / 2, y + sprite_height / 2, obj_pizzaslice)
-			hsp = -2
+		if global.gameplay != 0
+		{
+			scr_failmod(mods.no_toppings);
+			
+			global.heattime += 10
+	        global.heattime = clamp(global.heattime, 0, 60)
+	        global.combotime += 10
+	        global.combotime = clamp(global.combotime, 0, 60)
+			
+	        var val = heat_calculate(100)
+	        global.collect += val
+			
+	        scr_soundeffect(sfx_collecttopping)
+	        with instance_create(x + sprite_width / 2, y, obj_smallnumber)
+	            number = string(val)
+		}
+		else
+		{
+			with instance_create(x + sprite_width / 2, y + sprite_height / 2, obj_pizzaslice)
+				hsp = 2
+			with instance_create(x + sprite_width / 2, y + sprite_height / 2, obj_pizzaslice)
+				hsp = -2
+		}
 	}
 	else
-		instance_create(x + sprite_width / 2, y + sprite_height / 2, content);
+		instance_create(x + sprite_width / 2, y, content);
 	
 	create_baddiegibsticks(x + sprite_width / 2, y + sprite_height / 2);
-	
-	/*
-	tile_layer_delete_at(1, x, y);
-	tile_layer_delete_at(1, x+32, y);
-	tile_layer_delete_at(1, x+32, y+32);
-	tile_layer_delete_at(1, x, y+32);
-	*/
-	
-	if audio_is_playing(sfx_breakblock1) or audio_is_playing(sfx_breakblock2)
-	{
-		audio_stop_sound(sfx_breakblock1)
-		audio_stop_sound(sfx_breakblock2)
-	}
 	scr_soundeffect(sfx_breakblock1, sfx_breakblock2)
 	ds_list_add(global.saveroom, id) 
 }

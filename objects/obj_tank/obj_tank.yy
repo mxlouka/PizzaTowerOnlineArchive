@@ -5,6 +5,7 @@
   },
   "solid": false,
   "visible": true,
+  "managed": true,
   "spriteMaskId": {
     "name": "spr_tank_walk",
     "path": "sprites/spr_tank_walk/spr_tank_walk.yy",

@@ -1,2 +1,2 @@
-//targetRoom = medieval_10
-targetDoor = "C"
+targetRoom = molasses_9
+targetDoor = "E"

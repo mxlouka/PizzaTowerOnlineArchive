@@ -1,4 +1,5 @@
-if ds_list_find_index(global.baddieroom, id) == -1
+var list = escape ? global.escaperoom : global.baddieroom;
+if ds_list_find_index(list, id) == -1
 {
 	scr_failmod(mods.pacifist);
 	scr_soundeffect(sfx_killenemy);
@@ -81,15 +82,7 @@ if ds_list_find_index(global.baddieroom, id) == -1
 		if scr_stylecheck(2) && object_index == obj_swedishmonkey && irandom_range(1, 100) == 5 // 1% chance
 			scr_soundeffect(sfx_monkey);
 		
-		if object_index != obj_miniufo or global.stylethreshold < 3
-			ds_list_add(global.baddieroom, id);
-		else
-		{
-			with instance_create(x, y, obj_miniufo_grounded)
-				stored_id = other.id
-		}
-		if object_index == obj_miniufo_grounded && stored_id != noone
-			ds_list_add(global.baddieroom, stored_id);
+		ds_list_add(list, id);
 		
 		// Combos
 		if killreward
@@ -108,15 +101,18 @@ if ds_list_find_index(global.baddieroom, id) == -1
 					if global.combo <= 1
 						num = 10;
 					else num = min(power(2, global.combo - 1) * 10, 80);
+					
+					with instance_create(x, y, obj_smallnumber)
+						number = string(num);
+					
+					global.collect += num;
 				}
 				else
-					num = 10 * (global.stylethreshold + 1);
-		
-				global.collect += num;
-				with instance_create(x, y, obj_smallnumber)
-					number = string(num);
+				{
+					num = 10 + round(10 * (global.combo * 0.5));
+					global.comboscore += num;
+				}
 			}
 		}
 	}
 }
-

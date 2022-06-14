@@ -9,9 +9,6 @@ if ds_list_find_index(global.saveroom, id) == -1
 			var obj = instancelist[| i];
 			if ds_list_find_index(deactivatedlist, obj.id) == -1
 			{
-				if obj.object_index != obj_collectescape or global.panic
-					ds_list_add(deactivatedlist, obj.id);
-			
 				switch objects[j]
 				{
 					case obj_baddie:

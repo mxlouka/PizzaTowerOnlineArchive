@@ -51,27 +51,31 @@ function scr_collide_destructibles()
 					if inst_relation(self, obj_bigdestructibles) && (other.state == states.handstandjump or (other.state == states.mach2 && hp > 1))
 					{
 						// grab on big blocks
-						with other
+						if hp > 1 or global.gameplay == 0
 						{
-							suplexmove = false;
-							if !shotgunAnim or global.gameplay != 0 or character == "SP"
-								scr_pummel();
-							else
+							with other
 							{
-								state = states.shotgun;
-								image_index = 0;
-								sprite_index = spr_shotgunshoot;
-								
-								if character != "N"
+								suplexmove = false;
+								if !shotgunAnim or global.gameplay != 0 or character == "SP"
+									scr_pummel();
+								else
 								{
-									instance_create(x + xscale * 20, y + 20, obj_shotgunbullet);
-									with instance_create(x + xscale * 20, y + 20, obj_shotgunbullet)
-										spdh = 4;
-									with instance_create(x + xscale * 20, y + 20, obj_shotgunbullet)
-										spdh = -4;
+									state = states.shotgun;
+									image_index = 0;
+									sprite_index = spr_shotgunshoot;
+								
+									if character != "N"
+									{
+										instance_create(x + xscale * 20, y + 20, obj_shotgunbullet);
+										with instance_create(x + xscale * 20, y + 20, obj_shotgunbullet)
+											spdh = 4;
+										with instance_create(x + xscale * 20, y + 20, obj_shotgunbullet)
+											spdh = -4;
+									}
 								}
 							}
 						}
+						
 						hp--;
 						if hp <= 0
 							instance_destroy();

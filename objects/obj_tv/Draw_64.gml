@@ -124,6 +124,43 @@ else
 			offset_x -= 1;
 			offset_y -= 32 + sin(current_time / 500) * 2;
 		}
+		else
+		{
+			offset_x += 12;
+			offset_y -= 27;
+		}
+		var tv_x = 833 + offset_x, tv_y = 107 + offset_y;
+		
+		// combo timer
+		if !sugary
+		{
+			var _cx = (tv_x + combo_posX)
+			var _cy = (((tv_y + 117) + hud_posY) + combo_posY)
+			var _perc = (global.combotime / 60)
+			var _minX = (_cx - 56)
+			var _maxX = (_cx + 59)
+			
+			combofill_x = lerp(combofill_x, (_minX + ((_maxX - _minX) * _perc)), 0.5)
+			combofill_y = _cy
+			
+			draw_sprite(spr_tv_combobubblefill, combofill_index, combofill_x, combofill_y)
+			draw_sprite(spr_tv_combobubble, -1, _cx, _cy)
+			draw_set_font(global.combofont2)
+			draw_set_halign(fa_left)
+			draw_set_valign(fa_top)
+			
+			var _tx = (_cx - 64)
+			var _ty = (_cy - 12)
+			var _str = string(global.combo)
+			var num = string_length(_str)
+			for (var i = num; i > 0; i--)
+			{
+			    var char = string_char_at(_str, i)
+			    draw_text(_tx, _ty, char)
+			    _tx -= 22
+			    _ty -= 8
+			}
+		}
 		
 		if room != strongcold_endscreen && room != Realtitlescreen
 		{
@@ -131,16 +168,17 @@ else
 			if sprite_exists(sprite_index)
 			{
 				var tvspr = sprite_index;
-				if sugary && sprite_prev != -1 && idlespr != sprite_prev
+				if sprite_prev != -1 && idlespr != sprite_prev
 				{
-					static_timer = 15;
+					noisebuffer = sugary ? noisemax : 16;
 					sprite_prev = idlespr;
 				}
-				if static_timer > 0
+				if noisebuffer > 0
 				{
-					tvspr = spr_tv_staticSP;
+					tvspr = sugary ? spr_tv_whitenoiseSP : spr_tv_whitenoise;
+					
 					tvimg += 0.35;
-					static_timer--;
+					noisebuffer--;
 				}
 				else
 					tvimg = image_index;
@@ -161,7 +199,7 @@ else
 				if sugary && !tvoff
 				{
 					var propeller = spr_tvpropeller;
-					if tvspr == spr_tv_staticSP
+					if tvspr == spr_tv_whitenoiseSP
 						propeller = spr_tvpropellerstatic;
 					
 					sugary_propeller += image_speed;
@@ -174,53 +212,45 @@ else
 			// draw combo
 			combo_fade = 1;
 			if sugary
-				combo_fade = min(global.combotime / 5, 1);
-			if global.combo != 0 && global.combotime > 0 && !tvoff
 			{
-				// i fucking hate sugary spire
-				if combo_prev < global.combo && sugary
+				combo_fade = min(global.combotime / 5, 1);
+				if global.combo != 0 && global.combotime > 0 && !tvoff
 				{
-					combo_shake = 5;
-					combo_prev = global.combo;
-				}
-				if !sugary
-					combo_prev = global.combo;
-				
-				var tvcombo = spr_tv_combo;
-				if sugary
+					// i fucking hate sugary spire
+					if combo_prev < global.combo
+					{
+						combo_shake = 5;
+						combo_prev = global.combo;
+					}
 					tvcombo = spr_tv_comboSP;
-				if instance_exists(obj_player) && obj_player.character == "PP"
-					tvcombo = spr_tv_comboPP;
 				
-				draw_sprite_ext(tvcombo, -1, 833 + offset_x, 107 + offset_y + hud_posY, 1, 1, 0, c_white, alpha * combo_fade)
+					draw_sprite_ext(tvcombo, -1, 833 + offset_x, 107 + offset_y + hud_posY, 1, 1, 0, c_white, alpha * combo_fade)
+					
+					var str = string(combo_prev);
+					if global.combo < 10 && global.combo > -1
+						str = "0" + str;
 				
-				var str = string(combo_prev);
-				if global.combo < 10 && global.combo > -1
-					str = "0" + str;
+					draw_set_halign(fa_left);
+					draw_set_valign(fa_top);
+					draw_set_font(global.combofont);
 				
-				draw_set_halign(fa_left);
-				draw_set_valign(fa_top);
-				draw_set_font(global.combofont);
+					var num = string_length(str);
+					var w = round(string_width(str) / num);
 				
-				var num = string_length(str);
-				var w = round(string_width(str) / num);
+					for (var i = 0; i < num; i++)
+					{
+						var char = string_char_at(str, i + 1);
+						var xx = i * w, yy = i * 5;
+						draw_text_auto(789 + xx + offset_x + random_range(-combo_shake, combo_shake), 91 - yy + offset_y + hud_posY + random_range(-combo_shake, combo_shake), char,,,combo_fade);
+					}
 				
-				for (var i = 0; i < num; i++)
-				{
-					var char = string_char_at(str, i + 1);
-					var xx = i * w, yy = i * 5;
-					draw_text_auto(789 + xx + offset_x + random_range(-combo_shake, combo_shake), 91 - yy + offset_y + hud_posY + random_range(-combo_shake, combo_shake), char,,,combo_fade);
-				}
-				
-				// sugary combo timer
-				if sugary
-				{
+					// sugary combo timer
 					if !surface_exists(popsurf)
 						popsurf = surface_create(112, 32);
 					else
 					{
 						var b = global.combotime / 55;
-					
+						
 						surface_set_target(popsurf);
 						draw_clear_alpha(c_black, 0);
 						draw_sprite_tiled(spr_barpop2_ss, 0, (-current_time / 100) + global.combotime, 0);
@@ -238,19 +268,8 @@ else
 						draw_set_alpha(1);
 					}
 				}
-			}
-			else
-				combo_prev = 0;
-			
-			if !sugary
-			{
-				var barxx = -26;
-				var baryy = 30;
-				draw_sprite(spr_barpop, 0, 832 + barxx, 250 + baryy);
-				var sw = sprite_get_width(spr_barpop);
-				var sh = sprite_get_height(spr_barpop);
-				var b = global.combotime / 55;
-				draw_sprite_part(spr_barpop, 1, 0, 0, sw * b, sh, 832 + barxx, 250 + baryy);
+				else
+					combo_prev = 0;
 			}
 		}
 	
@@ -315,3 +334,32 @@ or instance_exists(obj_pizzaball)
 	draw_set_halign(fa_center);
 }
 
+// timer
+if global.panic
+{
+    var _fill = global.fill
+    var _currentbarpos = chunkmax - _fill
+    var _perc = _currentbarpos / chunkmax
+    var _max_x = 299
+    var _barpos = _max_x * _perc
+	
+    if !surface_exists(bar_surface)
+        bar_surface = surface_create(298, 30)
+	
+    var _barfillpos = floor(_barpos) + 13
+    if _barfillpos > 0
+    {
+        surface_resize(bar_surface, _barfillpos, 30)
+        surface_set_target(bar_surface)
+        draw_clear_alpha(c_black, 0)
+        var clip_x = timer_x + 3
+        var clip_y = timer_y + 5
+        for (i = 0; i < 3; i++)
+            draw_sprite(spr_timer_barfill, 0, barfill_x + (i * 173), 0)
+        surface_reset_target()
+        draw_surface(bar_surface, clip_x, clip_y)
+    }
+    draw_sprite(spr_timer_bar, -1, timer_x, timer_y)
+    draw_sprite(johnface_sprite, johnface_index, timer_x + 13 + _barpos, timer_y + 20)
+    draw_sprite(pizzaface_sprite, pizzaface_index, timer_x + 320, timer_y + 10)
+}

@@ -8,6 +8,8 @@ else if obj_player1.character == "SP"
 }
 else if obj_player1.character == "PP"
 	sprite_index = spr_destroyable2_PP
+else if global.gameplay == 0
+	sprite_index = spr_destroyable2
 
 if string_startswith(room_get_name(room), "strongcold")
 	sprite_index = spr_xmasblock

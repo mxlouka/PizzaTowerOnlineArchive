@@ -17,12 +17,8 @@ if ds_list_find_index(global.saveroom, id) == -1
 			sprite_index = spr_metalblockdebrisescape_ss;
 		else if other.sprite_index == spr_metalbescape
 			sprite_index = spr_metalblockdebrisescape;
-		else if other.sprite_index == spr_metalbescape_NEW
-			sprite_index = spr_metalblockdebrisescape_NEW;
 		else if other.sprite_index == spr_hotmetalblock
 			sprite_index = spr_metalblockharddebris;
-		else if other.sprite_index == spr_metalb_NEW
-			sprite_index = spr_metalblockdebris_NEW;
 		
 		image_index = random(image_number);
 		momentum = other.momentum;

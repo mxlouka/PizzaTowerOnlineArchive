@@ -9,9 +9,11 @@ else if obj_player1.character == "SP"
 else if obj_player1.character == "PP"
 	sprite_index = spr_destroyable21_PP
 
+if !check_sugary() && global.gameplay != 0
+	instance_destroy(id, false)
+
 depth = 1
 image_speed = 0.35;
 image_index = random(image_number);
 
 momentum = [0, 0];
-

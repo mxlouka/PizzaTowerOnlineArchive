@@ -11,12 +11,14 @@ if global.gameplay != 0
 		}
 	}
 		
-	instance_activate_object(obj_collectescape);
-	with obj_collectescape
-	{
-		visible = true;
-		instance_create(x, y, obj_genericpoofeffect);
-	}
+	with obj_escapecollect
+        image_alpha = 1
+    with obj_escapecollectbig
+        image_alpha = 1
+	
+	global.fill = 4000
+    with obj_tv
+        chunkmax = global.fill
 }
 
 instance_create(x, y, obj_bangeffect)
@@ -58,7 +60,7 @@ if !instance_exists(obj_endlevelfade)
 	// Start up panicbg effects if option is enabled
 	if global.panicbg
 		scr_panicbg_init()
-		
+	
 	global.wave = 0;
 	global.maxwave = (global.minutes * 60 + global.seconds) * 60;
 }
@@ -69,4 +71,3 @@ with obj_panicdebris
 	canflash = true;
 	event_user(0);
 }
-

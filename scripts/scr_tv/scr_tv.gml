@@ -50,3 +50,24 @@ function tv_create_prompt(text, tvon, sprite, textspeed)
 	var array = [text, tvon, sprite, textspeed];
 	return array;
 }
+
+function tv_do_expression(sprite)
+{
+	with obj_tv
+    {
+        if expressionsprite != sprite && bubblespr == noone
+        {
+            state = 250
+            expressionsprite = sprite
+            switch expressionsprite
+            {
+				case spr_tv_exprhurt:
+                    expressionbuffer = 60
+                    break
+                case spr_tv_exprcollect:
+                    expressionbuffer = 150
+                    break
+            }
+        }
+    }
+}

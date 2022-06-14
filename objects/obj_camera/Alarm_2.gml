@@ -1,4 +1,4 @@
-if global.panic or (global.snickchallenge && global.collect <= 0)
+if (global.panic && global.gameplay == 0) or (global.snickchallenge && global.collect <= 0)
 {
 	if global.snickrematch
 	{

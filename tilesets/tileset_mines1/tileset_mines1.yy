@@ -3,8 +3,8 @@
     "debug": {"textureGroupId":"{\"name\":\"tg_sugaryspire\",\"path\":\"texturegroups/tg_sugaryspire\"}",},
   },
   "spriteId": {
-    "name": "tile_mines_1",
-    "path": "sprites/tile_mines_1/tile_mines_1.yy",
+    "name": "tile_mines1",
+    "path": "sprites/tile_mines1/tile_mines1.yy",
   },
   "tileWidth": 32,
   "tileHeight": 32,

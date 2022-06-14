@@ -354,18 +354,6 @@ function scr_player_grab()
 		image_speed = 0.35;
 	}
 	
-	if character == "SP" && global.gameplay != 0 && sprite_index == spr_haulingstart && key_up
-	{
-		if scr_stylecheck(0, 2)
-			scr_soundeffect(sfx_jump);
-		sprite_index = spr_piledriverstart;
-		
-		vsp = -12;
-		state = states.superslam;
-		image_index = 0;
-		image_speed = 0.35;
-	}
-	
 	//Crouch
 	if key_down && grounded
 	{

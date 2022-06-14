@@ -275,7 +275,7 @@ else if (!global.panic or string_letters(roomname) == "dragonlair" or string_let
 
 	// factory
 	if string_startswith(roomname, "oldfactory_")
-		musplay = mu_factory2
+		musplay = mu_factory
 
 	// etb
 	if string_startswith(roomname, "etb_")

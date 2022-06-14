@@ -192,15 +192,26 @@ function scr_player_handstandjump()
 		if key_down && grounded && vsp >= 0 && character != "S"
 		{
 			grav = basegrav
-			if character == "P" && scr_stylecheck(1)
-				sprite_index = spr_player_breakdancesuper
+			if character == "P"
+			{
+				with instance_create(x, y, obj_jumpdust)
+		            image_xscale = other.xscale
+		        movespeed = 12
+		        crouchslipbuffer = 25
+		        grav = basegrav
+		        sprite_index = spr_player_Sjumpcancelland
+		        image_index = 0
+		        machhitAnim = 0
+		        state = states.tumble
+			}
 			else
+			{
 				sprite_index = spr_crouchslip
-			
-			machhitAnim = false
-			state = states.crouchslide
-			movespeed = 16
-			dir = predir;
+				machhitAnim = false
+				state = states.crouchslide
+				movespeed = 16
+				dir = predir
+			}
 		}
 		
 		//Input jumping
@@ -235,13 +246,16 @@ function scr_player_handstandjump()
 			jumpstop = 0
 			vsp = -11
 			
-			if global.gameplay != 0 && !(obj_player1.character == "N" && obj_player1.noisetype == 0)
+			if global.gameplay != 0 && !(character == "N" && noisetype == 0)
 			{
 				if state == states.crouchslide
 					movespeed = 8;
 				
 				state = states.mach2;
-				sprite_index = spr_mach2jump;
+				if character == "P"
+					sprite_index = spr_player_longjump
+				else
+					sprite_index = spr_mach2jump;
 			}
 			else
 			{

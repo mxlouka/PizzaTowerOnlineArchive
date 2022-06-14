@@ -23,8 +23,8 @@ function layer_get_parallax(layer_id)
 		case "Backgrounds_3": return [camx * 0.05, camy * 0.05]; break;
 		
 		case "Backgrounds_fore1": return [camx * -0.1, camy * -0.1]; break;
-		case "Backgrounds_Ground1": return [camx * 0.35, roomheight - camh + ((roomheight - (camy + camh)) * -0.35)]; break;
-		case "Backgrounds_Ground2": return [camx * 0.25, roomheight - camh + ((roomheight - (camy + camh)) * -0.25)]; break;
+		case "Backgrounds_Ground1": return [camx * 0.3, roomheight - camh + ((roomheight - (camy + camh)) * -0.3)]; break;
+		case "Backgrounds_Ground2": return [camx * 0.35, roomheight - camh + ((roomheight - (camy + camh)) * -0.35)]; break;
 		case "Backgrounds_H1": return [camx * 0.25, camy]; break;
 		
 		case "Backgrounds_sky": return [camx * 0.85, camy * 0.85]; break;

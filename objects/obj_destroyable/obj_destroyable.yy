@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_destroyable",
-    "path": "sprites/spr_destroyable/spr_destroyable.yy",
+    "name": "spr_towerblocksmall",
+    "path": "sprites/spr_towerblocksmall/spr_towerblocksmall.yy",
   },
   "solid": false,
   "visible": true,

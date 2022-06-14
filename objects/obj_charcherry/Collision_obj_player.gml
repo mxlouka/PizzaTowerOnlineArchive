@@ -1,4 +1,4 @@
-if (state == states.chase or sprite_index == popoutspr) && !other.cutscene
+if (state == states.chase or sprite_index == popoutspr) && !other.cutscene && other.state != states.hit
 {
 	instance_destroy();
 	with other
@@ -27,4 +27,3 @@ if (state == states.chase or sprite_index == popoutspr) && !other.cutscene
 		}
 	}
 }
-

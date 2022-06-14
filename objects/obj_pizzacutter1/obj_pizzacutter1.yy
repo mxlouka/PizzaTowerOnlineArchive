@@ -5,6 +5,7 @@
   },
   "solid": false,
   "visible": true,
+  "managed": true,
   "spriteMaskId": {
     "name": "spr_pizzacutterstart",
     "path": "sprites/spr_pizzacutterstart/spr_pizzacutterstart.yy",

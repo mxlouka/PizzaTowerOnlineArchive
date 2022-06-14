@@ -368,9 +368,9 @@ function scr_player_normal()
 				image_index = 0;
 				sprite_index = spr_breakdanceuppercut;
 				vsp = -14;
-				movespeed = 2;
+				movespeed = hsp;
 				instance_create(x, y, obj_highjumpcloud2);
-				instance_create(x, y, obj_swingdinghitbox);
+				//instance_create(x, y, obj_swingdinghitbox);
 			}
 			else if character == "N"
 			{
@@ -654,10 +654,11 @@ function scr_player_normal()
 	{
 		if pizzapepper == 0
 		{
-			movespeed = 6
+			if movespeed < 6 or global.gameplay == 0
+				movespeed = 6
 			sprite_index = spr_mach1
 			jumpAnim = true
-			state = states.mach1
+			state = global.gameplay == 0 ? states.mach1 : states.mach2
 			image_index = 0
 		}
 		else

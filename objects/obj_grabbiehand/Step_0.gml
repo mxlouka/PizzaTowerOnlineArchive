@@ -14,7 +14,7 @@ image_xscale = 1
 delay --
 if delay <= 0
 {
-//scr_sound(sound_enemythrow)
+scr_soundeffect(sfx_enemyprojectile)
 grav = 0.35
 vsp = 10
 sprite_index =spr_grabbiehand_fall

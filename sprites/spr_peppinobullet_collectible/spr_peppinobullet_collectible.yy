@@ -113,7 +113,7 @@
   "nineSlice": null,
   "parent": {
     "name": "bullet",
-    "path": "folders/Sprites/players/pepino/new/pistol/bullet.yy",
+    "path": "folders/Sprites/players/pepino/pistol/bullet.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_peppinobullet_collectible",

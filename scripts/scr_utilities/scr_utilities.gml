@@ -227,3 +227,6 @@ function safe_get(inst, variable)
 	return noone;
 }
 
+function heat_calculate(num) {
+	return num + round(num * global.stylemultiplier);
+}

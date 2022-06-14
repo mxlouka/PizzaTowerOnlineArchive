@@ -8,8 +8,11 @@ if hsp == 0
 	}
 	else
 		sig = 1;
-
-	hsp = sig * random_range(5, 10);
+	
+	if global.gameplay == 0
+		hsp = sig * random_range(5, 10);
+	else
+		hsp = sig * random_range(10, 18);
 }
 image_xscale = -sign(hsp);
 
@@ -20,5 +23,9 @@ x += hsp;
 y += floor(vsp);
 
 if sugary
-	image_angle += deadrot * image_xscale;
+	image_angle += spinspeed * image_xscale;
 
+if buffer > 0
+    buffer--
+if d > 150
+    d -= 20

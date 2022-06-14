@@ -14,11 +14,17 @@ function scr_playerreset()
 		ds_list_add(global.followerlist, id);
 	}
 	
+	instance_destroy(obj_combotitle)
+    instance_destroy(obj_comboend)
+	
 	// modifiers
 	global.failedmod = false;
 	global.toppings = 0;
 	
 	// other shit
+	global.combodropped = false
+	global.fill = 500
+    global.chunk = 5
 	global.spaceblockswitch = true
 	global.pizzacoin = global.pizzacoinstart
 	global.bullet = 3;
@@ -30,6 +36,14 @@ function scr_playerreset()
 	global.stylelock = false;
 	global.baddiespeed = 1;
 	global.baddiepowerup = false;
+	global.hasfarmer = array_create(3, 0)
+    global.checkpoint_room = -4
+    global.checkpoint_door = "A"
+	global.noisejetpack = false
+    global.hp = 0
+	global.kungfu = false
+    global.graffiticount = 0
+	global.horse = false
 	
 	global.showgnomelist = false;
 	global.failcutscene = false;
@@ -141,6 +155,8 @@ function scr_playerreset()
 	
 	if ds_exists(global.saveroom, ds_type_list)
 		ds_list_clear(global.saveroom)
+	if ds_exists(global.escaperoom, ds_type_list)
+		ds_list_clear(global.escaperoom)
 	if ds_exists(global.baddieroom, ds_type_list)
 		ds_list_clear(global.baddieroom)
 	
@@ -306,6 +322,8 @@ function scr_playerreset()
 		mort = false;
 		shot = false;
 		endtumble = false
+		scale_xs = 1
+		scale_ys = 1
 		
 		konami = "";
 	}

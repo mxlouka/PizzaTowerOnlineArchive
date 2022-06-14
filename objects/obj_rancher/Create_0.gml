@@ -23,10 +23,10 @@ grounded = true
 
 idlespr = spr_ranch_idle
 stunfallspr = spr_ranch_stun
-walkspr =spr_ranch_idle
+walkspr = spr_ranch_idle
 stunspr = spr_ranch_stun
 grabbedspr = spr_ranch_stun
-scaredspr = spr_ranch_stun
+scaredspr = spr_ranch_scared
 sprite_index = spr_ranch_idle
 
 //image_xscale = -1

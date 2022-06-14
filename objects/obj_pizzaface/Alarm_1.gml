@@ -5,4 +5,3 @@ with instance_create(x, y, obj_afterimage)
 	image_yscale = other.image_yscale
 }
 alarm[1] = 10
-

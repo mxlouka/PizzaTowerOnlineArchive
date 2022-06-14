@@ -22,6 +22,13 @@ if global.gameplay != 0
 		spr_happy = spr_hungrypillar_ss;
 		spr_dead = spr_hungrypillardead_ss;
 	}
+	else
+	{
+		spr_idle = spr_hungrypillar_NEW;
+		spr_angry = scr_stylecheck(2) ? spr_hungrypillar_angry_NEW : spr_hungrypillar_NEW;
+		spr_happy = spr_hungrypillar_NEW;
+		spr_dead = spr_hungrypillar_NEW;
+	}
 }
 else if check_sugary()
 {
@@ -38,5 +45,4 @@ if global.snickrematch
 	spr_happy = spr_hungrypillar_re;
 	spr_dead = spr_hungrypillar_dead_re;
 }
-
 sprite_index = spr_idle;

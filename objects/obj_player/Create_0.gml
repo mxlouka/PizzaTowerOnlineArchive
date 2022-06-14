@@ -150,6 +150,7 @@ roomstartx = 0
 roomstarty = 0
 
 swingdingbuffer = 0
+swingdingdash = 0
 lastmove = 0
 backupweapon = false
 
@@ -229,7 +230,24 @@ transformation = [
 	states.knightpepattack,
 	states.tube,
 	states.rocket,
-	states.rocket,
+	states.actor,
+	states.gotoplayer,
+	states.bombgrab,
+	states.bombpepup,
+	states.bombpepside,
+	states.barrelslide,
+	states.barreljump,
+	states.barrelclimbwall,
+	states.cheeseballclimbwall,
+	states.motorcycle,
+	states.knightpepbump,
+	states.knightpepattack,
+	states.mortattack,
+	states.morthook,
+	states.mortjump,
+	states.boxxedpepjump,
+	states.boxxedpepspin,
+	states.rocketslide,
 	
 	states.cotton,
 ]
@@ -302,13 +320,120 @@ konamiend = "UUDDLRLRBA";
 
 input_buffer_faceplant = 8;
 
+// eggplant build shit
+vsp_carry = 0
+hsp_carry = 0
+rocketvsp = 0
+sticking = false
+platformid = noone
+jetpackdash = 0
+flamecloud_buffer = 0
+rankpos_x = x
+rankpos_y = y
+transformationlives = 0
+punch_afterimage = 0
+superchargecombo_buffer = -1
+superattackstate = states.normal
+afterimagedebris_buffer = 0
+scale_xs = 1
+scale_ys = 1
+verticalbuffer = 0
+verticalstate = states.normal
+webID = noone
+float = 0
+boxxedpepjump = 10
+boxxedpepjumpmax = 10
+icemovespeed = 0
+prevmove = 0
+prevhsp = 0
+prevstate = states.normal
+prevxscale = 1
+prevsprite = sprite_index
+move = 0
+prevmovespeed = 0
+previcemovespeed = 0
+icedir = 1
+icemomentum = 0
+savedicedir = 1
+isgustavo = false
+jumped = true
+ramp = 0
+ramp_points = 0
+bombup_dir = 1
+knightmomentum = 0
+grabbingenemy = 0
+blur_effect = 0
+firemouth_dir = 1
+firemouth_max = 10
+firemouth_buffer = firemouth_max
+firemouth_afterimage = 0
+cow_buffer = 0
+balloonbuffer = 0
+golfid = -4
+bombgrabID = noone
+barrelslope = 0
+barrel_maxmovespeed = 16
+barrel_maxfootspeed = 10
+barrel_rollspeed_threshold = 10
+barrel_accel = 1
+barrel_deccel = 1
+barrel_slopeaccel = 0.25
+barrel_slopedeccel = 0.5
+barrelroll_slopeaccel = 0.5
+barrelroll_slopedeccel = 0.35
+ratmount_movespeed = 8
+ratmount_fallingspeed = 0
+ratgrabbedID = -4
+ratpowerup = -4
+ratshootbuffer = 0
+rateaten = 0
+gustavodash = 0
+brick = 0
+ratmountpunchtimer = 25
+gustavokicktimer = 5
+cheesepep_buffer = 0
+cheesepep_max = 10
+pepperman_accel = 0.25
+pepperman_deccel = 0.5
+pepperman_accel_air = 0.15
+pepperman_deccel_air = 0.25
+pepperman_maxhsp_normal = 6
+pepperman_jumpspeed = 11
+pepperman_grabID = -4
+shoulderbash_mspeed_start = 12
+shoulderbash_mspeed_loop = 10
+shoulderbash_jumpspeed = 11
+input_attack_buffer = 0
+input_finisher_buffer = 0
+input_up_buffer = 0
+input_down_buffer = 0
+hit_connected = false
+mach4mode = false
+railmomentum = 0
+railmovespeed = 0
+raildir = 1
+boxxed = false
+boxxeddash = 0
+cheesepeptimer = -1
+cheeseballbounce = 0
+slopejump = 0
+slopejumpx = 0
+hooked = false
+swingdingendcooldown = 0
+crouchslipbuffer = 0
+breakdance_speed = 0.25
+notecreate = 50
+
 // globals
 if !variable_global_exists("saveroom")
 {
+	global.combodropped = false
+	
 	global.saveroom = ds_list_create();
 	global.baddieroom = ds_list_create();
 	global.followerlist = ds_list_create();
 	global.baddietomb = ds_list_create();
+	global.escaperoom = ds_list_create();
 	
 	global.playerhealth = 100
 	
@@ -328,9 +453,13 @@ if !variable_global_exists("saveroom")
 	global.gotshotgun = false
 
 	global.combo = 0
-	global.combotime = 0
+    global.previouscombo = 0
+    global.combotime = 0
+    global.comboscore = 0
+    global.savedcomboscore = 0
+    global.savedcombo = 0
 	global.hit = 0
-
+	
 	global.panic = false
 	global.snickchallenge = false
 	global.snickrematch = false
@@ -361,5 +490,19 @@ if !variable_global_exists("saveroom")
 
 	global.gerome = false;
 	global.stylelock = false;
+	
+	global.horse = false
+    global.checkpoint_room = -4
+    global.checkpoint_door = "A"
+    global.kungfu = false
+    global.graffiticount = 0
+    global.graffitimax = 20
+    global.noisejetpack = false
+    global.hasfarmer = array_create(3, 0)
+    global.savedattackstyle = -4
+	
+	global.lap = false
+    global.laps = 0
+	
 }
 

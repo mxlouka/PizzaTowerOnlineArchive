@@ -2,36 +2,21 @@ if room == rm_editor exit;
 
 if ds_list_find_index(global.saveroom, id) == -1 && global.panic
 {
-	// new destroy
-	if sprite_index == spr_bigbreakableescape_NEW
+	repeat 6 with instance_create(x + sprite_width / 2, y + sprite_height / 2, obj_debris)
 	{
-		with instance_create(x, y, obj_destroyanim)
-		{
-			image_xscale = other.image_xscale;
-			image_yscale = other.image_yscale;
-			sprite_index = spr_bigbreakableescapedes_NEW;
-		}
-	}
-	
-	// old destroy
-	else
-	{
-		repeat 6 with instance_create(x + sprite_width / 2, y + sprite_height / 2, obj_debris)
-		{
-			image_xscale = abs(other.image_xscale)
-			image_yscale = abs(other.image_yscale)
+		image_xscale = abs(other.image_xscale)
+		image_yscale = abs(other.image_yscale)
 		
-			if other.sprite_index == spr_destroyable2bigescape_ss
-				sprite_index = spr_bigdebrisescape_ss
-			else if other.sprite_index == spr_destroyable2bigescapeNEW_ss
-				sprite_index = spr_bigbreak2escapedebris_ss
-			else if other.sprite_index == spr_bigbreakableescape_PP
-				sprite_index = spr_bigdebrisescape_PP
-			else
-				sprite_index = spr_bigdebrisescape
-			
-			momentum = other.momentum;
-		}
+		if other.sprite_index == spr_destroyable2bigescape_ss
+			sprite_index = spr_bigdebrisescape_ss
+		else if other.sprite_index == spr_destroyable2bigescapeNEW_ss
+			sprite_index = spr_bigbreak2escapedebris_ss
+		else if other.sprite_index == spr_bigbreakableescape_PP
+			sprite_index = spr_bigdebrisescape_PP
+		else
+			sprite_index = spr_bigdebrisescape
+		
+		momentum = other.momentum;
 	}
 	
 	if content == noone

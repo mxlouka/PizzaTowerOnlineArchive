@@ -1,6 +1,6 @@
 {
   "ConfigValues": {
-    "debug": {"audioGroupId":"{\"name\":\"ag_pcmusic\",\"path\":\"audiogroups/ag_pcmusic\"}",},
+    "debug": {"audioGroupId":"{\"name\":\"audiogroup_default\",\"path\":\"audiogroups/audiogroup_default\"}",},
   },
   "conversionMode": 0,
   "compression": 1,
@@ -15,7 +15,7 @@
     "path": "audiogroups/audiogroup_default",
   },
   "soundFile": "mu_factory_pc.ogg",
-  "duration": 144.005219,
+  "duration": 128.0,
   "parent": {
     "name": "PIZZA CASTLE",
     "path": "folders/Sounds/PIZZA CASTLE.yy",

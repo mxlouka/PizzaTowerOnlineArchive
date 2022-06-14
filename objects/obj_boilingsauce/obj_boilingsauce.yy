@@ -5,6 +5,7 @@
   },
   "solid": false,
   "visible": true,
+  "managed": true,
   "spriteMaskId": {
     "name": "spr_boilingsauce",
     "path": "sprites/spr_boilingsauce/spr_boilingsauce.yy",

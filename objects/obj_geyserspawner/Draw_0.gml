@@ -6,12 +6,10 @@ for(var i = 0; i < image_xscale; i++)
 	draw_sprite_part(geyserspr, img_index, 32, 0, 32, 64, x + 32 * i, y - 64);
 if !active
 {
-	for(var i = 0; i < image_xscale + 2; i++)
+	for(var i = 0; i < image_xscale + 1; i++)
 	{
 		if i % 3 == 0
 			draw_sprite(spr_geyser_cloud, img_index, x + 32 * (i - 1), y - 64);
 	}
 }
-
 img_index += 0.35;
-

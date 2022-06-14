@@ -23,7 +23,16 @@ if sugary
 	}
 }
 else
+{
 	scr_soundeffect(sfx_pizzaface);
+	
+	if global.gameplay != 0
+	{
+		image_alpha = 0
+		x = obj_player.x
+		y = obj_player.y
+	}
+}
 
 siner = room_speed * random_range(4, 8);
 attack = 0;

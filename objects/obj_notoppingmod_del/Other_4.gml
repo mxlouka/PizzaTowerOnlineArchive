@@ -45,7 +45,7 @@ if global.modifier == mods.no_toppings
 		if place_meeting(x, y, other)
 			instance_destroy(id, false);
 	}
-	with obj_collectescape
+	with obj_escapecollect
 	{
 		if place_meeting(x, y, other)
 			instance_destroy(id, false);

@@ -1,6 +1,15 @@
 if state == states.hang
 	state = states.normal;
 
+with obj_secretportal
+{
+    if secret
+    {
+        if !instance_exists(obj_ghostcollectibles)
+            instance_create(0, 0, obj_ghostcollectibles)
+    }
+}
+
 if place_meeting(x, y + 1, obj_boxofpizza) or place_meeting(x, y - 1, obj_boxofpizza)
 {
 	box = true;
@@ -123,6 +132,9 @@ verticalhallway = false
 box = false
 oldhallway = false
 
+if isgustavo
+    brick = true
+
 roomstartx = x
 roomstarty = y
 hitX = x
@@ -137,4 +149,3 @@ if baddiegrabbedID != 0 && baddiegrabbedID != obj_null && baddiegrabbedID != obj
 		if baddieID == other.baddiegrabbedID
 			persistent = false;
 }
-

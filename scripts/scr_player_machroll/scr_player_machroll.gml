@@ -41,14 +41,13 @@ function scr_player_machroll()
 			
 			if grounded && sprite_index != spr_playerV_divekickstart
 				sprite_index = spr_machroll 
-			else
+			else if sprite_index != spr_dive 
 			{
-				if sprite_index != spr_dive 
-				{
-					sprite_index = spr_dive 
-					vsp = 10
-				}
+				sprite_index = spr_dive 
+				vsp = 10
 			}
+			if scr_slope() && global.gameplay != 0
+                movespeed += 0.1
 			image_speed = 0.8
 		
 			if !key_down && state != states.bump && (!scr_solid(x, y - 32) or character == "S")

@@ -39,7 +39,7 @@ else
 
 // draw
 var alp = image_alpha;
-draw_sprite_ext(drawspr, _img, x + random_range(-shake, shake), y, xscale, yscale, img_angle, col, alp);
+draw_sprite_ext(drawspr, _img, x + random_range(-shake, shake), y, xscale * scale_xs, yscale * scale_ys, img_angle, col, alp);
 
 // reset flash and palette
 draw_set_flash(false);

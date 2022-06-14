@@ -48,6 +48,9 @@ function scr_soundeffect_ext(snd, loops = false)
 	var sndplay = audio_play_sound(snd, 0, loops);
 	if room != rm_disclaimer
 		audio_sound_gain(sndplay, global.soundvolume, 0);
+	
+	if snd == sfx_collecttopping && scr_stylecheck(2)
+		audio_sound_pitch(sndplay, random_range(0.95, 1.05));
 	return sndplay;
 }
 

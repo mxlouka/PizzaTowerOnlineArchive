@@ -1,7 +1,3 @@
-// escape collectibles
-if !global.panic
-	instance_deactivate_object(obj_collectescape);
-
 // arena rounds
 with obj_arenaspawn
 {

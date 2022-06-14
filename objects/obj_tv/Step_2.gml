@@ -343,15 +343,23 @@ else
 						default:
 							with obj_player
 							{
-								if shotgunAnim
+								if sprite_index == spr_playerSP_candyup
+								or sprite_index == spr_playerSP_candytransitionup
+									other.idlespr = spr_tv_croaked;
+								else if _state == states.mach3 || sprite_index == spr_mach3boost
+				                    tv_do_expression(spr_tv_exprmach3)
+				                else if _state == states.hurt
+				                    tv_do_expression(spr_tv_exprhurt)
+								else if global.combo >= 3 && !obj_player.isgustavo
+				                    tv_do_expression(spr_tv_exprcombo)
+				                else if global.stylethreshold >= 3 && !obj_player.isgustavo
+				                    tv_do_expression(spr_tv_exprheat)
+								else if shotgunAnim
 									other.idlespr = spr_tv_shotgun;
 								else if global.mort
 									other.idlespr = spr_tv_mort;
 								else if skateboarding
 									other.idlespr = spr_tv_clown;
-								else if sprite_index == spr_playerSP_candyup
-								or sprite_index == spr_playerSP_candytransitionup
-									other.idlespr = spr_tv_croaked;
 							}
 							break;
 						
@@ -376,16 +384,18 @@ else
 									other.idlespr = spr_tv_scaredjump;
 							}
 							break;
-			
+						
 						case states.tumble:
-							idlespr = spr_tv_tumble;
+							if obj_player.sprite_index == obj_player.spr_tumble or obj_player.sprite_index == obj_player.spr_tumblestart or obj_player.sprite_index == obj_player.spr_tumbleend
+								idlespr = spr_tv_tumble;
 							break;
-			
+						
 						case states.firemouth:
 							idlespr = spr_tv_firemouth;
 							break;
 			
 						case states.ghost:
+						case states.ghostpossess:
 							idlespr = spr_tv_ghost;
 							break;
 			
@@ -474,7 +484,7 @@ else
 							animset = idlespr;
 							idleanim = 240 + 60 * irandom_range(-1, 2);
 						}
-						if idlespr != spr_tv_idle
+						if idlespr != spr_tv_idle && idlespr != spr_tv_exprcollect
 							animset = idlespr;
 						break;
 					
@@ -664,6 +674,87 @@ else
 			if animset == tvsprite
 				state = states.normal;
 			break;
+		
+		case 250:
+			if expressionsprite == noone
+			{
+				state = states.normal;
+				break;
+			}
+		
+		case 251:
+			state = 251;
+	        switch expressionsprite
+	        {
+				case spr_tv_exprhurt:
+					if _state != states.hurt
+						break;
+				case spr_tv_exprcollect:
+	                if expressionbuffer > 0
+	                    expressionbuffer--
+	                else
+	                {
+	                    state = 250
+	                    expressionsprite = noone
+	                }
+	                break
+			
+	            case spr_tv_exprcombo:
+	                if global.combo < 3 or obj_player1.isgustavo
+	                {
+	                    state = 250
+	                    expressionsprite = noone
+	                    if _state == states.hurt
+	                        tv_do_expression(spr_tv_exprhurt)
+	                }
+	                break
+			
+	            case spr_tv_exprmach3:
+	            case spr_tv_exprmach4:
+	                with obj_player
+	                {
+	                    if state != states.mach3 && (state != states.chainsaw or tauntstoredstate != states.mach3) && sprite_index != spr_mach3boost
+	                    {
+	                        other.state = 250
+	                        other.expressionsprite = noone
+	                    }
+	                }
+	                break
+			
+	            case spr_tv_exprheat:
+	                var _transfo = false
+	                with obj_player
+	                {
+	                    if !scr_transformationcheck()
+	                        _transfo = true
+	                    if isgustavo
+	                        _transfo = true
+	                }
+	                if global.stylethreshold < 3 or _transfo
+	                {
+	                    state = 250
+	                    expressionsprite = noone
+	                }
+	                break
+	        }
+	        if !ds_list_empty(tvprompts_list)
+	        {
+	            state = 250
+	            expressionsprite = noone
+	        }
+			
+			if sprite_exists(expressionsprite)
+			{
+				var spr = sprite_get_name(expressionsprite);
+				spr = asset_get_index(spr + string_upper(string(pchar)));
+				
+				if sprite_exists(spr)
+					sprite_index = spr;
+				else
+					sprite_index = expressionsprite;
+				idlespr = sprite_index;
+			}
+			break;
 	}
 	
 	// hide tv if player overlapping it
@@ -686,6 +777,107 @@ else
 		hud_posY = Approach(hud_posY, -300, spd);
 	else
 		hud_posY = Approach(hud_posY, 0, spd);
+	
+	// pizza timer
+	pizzaface_index += 0.35
+	hand_index += 0.35
+	johnface_index += 0.35
+	if global.panic && global.fill > 0
+	{
+	    showtime_buffer = 100
+	    if !instance_exists(obj_ghostcollectibles)
+	        timer_y = Approach(timer_y, timer_ystart, 1)
+	    else
+	        timer_y = Approach(timer_y, timer_ystart + 212, 4)
+	}
+	else if global.panic
+	{
+	    if pizzaface_sprite == spr_timer_pizzaface1
+	    {
+	        pizzaface_sprite = spr_timer_pizzaface2
+	        pizzaface_index = 0
+	    }
+	    else if pizzaface_sprite == spr_timer_pizzaface2
+	    {
+	        if floor(pizzaface_index) == sprite_get_number(pizzaface_sprite) - 1
+	        {
+	            pizzaface_sprite = spr_timer_pizzaface3
+	            pizzaface_index = 0
+	        }
+	    }
+	    else if showtime_buffer > 0
+	        showtime_buffer--
+	    else
+	        timer_y = Approach(timer_y, timer_ystart + 212, 1)
+	}
+	else
+	{
+	    pizzaface_sprite = spr_timer_pizzaface1
+	    hand_sprite = spr_timer_hand1
+	    timer_y = timer_ystart + 212
+	}
+	if global.panic && global.fill < chunkmax / 5
+	    hand_sprite = spr_timer_hand2
+	
+	barfill_x -= 0.2
+	if barfill_x < -173
+	    barfill_x = 0
+	
+	if pizzaface_index > sprite_get_number(pizzaface_sprite) - 1
+	    pizzaface_index = frac(pizzaface_index)
+	if hand_index > sprite_get_number(hand_sprite) - 1
+	    hand_index = frac(hand_index)
+	if johnface_index > sprite_get_number(johnface_sprite) - 1
+	    johnface_index = frac(johnface_index)
+	
+	combo_posX = Wave(-5, 5, 2, 20)
+	if global.combotime > 0 && global.combo != 0
+	{
+	    switch combo_state
+	    {
+	        case 0:
+	            combo_posY += combo_vsp
+	            combo_vsp += 0.5
+	            if combo_posY > 20
+	                combo_state++
+	            break
+	        case 1:
+	            combo_posY = lerp(combo_posY, 0, 0.05)
+	            if combo_posY < 1
+	            {
+	                combo_posY = 0
+	                combo_vsp = 0
+	                combo_state++
+	            }
+	            break
+	        case 2:
+	            if global.combotime < 30
+	            {
+	                combo_posY += combo_vsp
+	                if combo_vsp < 20
+	                    combo_vsp += 0.5
+	                if combo_posY > 0
+	                {
+	                    combo_posY = 0
+	                    combo_vsp = -1
+	                    if global.combotime < 15
+	                        combo_vsp = -2
+	                }
+	            }
+	            else
+	                combo_posY = Approach(combo_posY, 0, 10)
+	            break
+	    }
+	}
+	else
+	{
+	    combo_posY = Approach(combo_posY, -500, 5)
+	    combo_vsp = 0
+	    combo_state = 0
+	}
+	combofill_index += 0.35
+	if combofill_index > sprite_get_number(spr_tv_combobubblefill) - 1
+	    combofill_index = frac(combofill_index)
 }
 
 #endregion

@@ -22,7 +22,13 @@ function scr_player_climbwall()
 				if wallspeed > 6
 					wallspeed = 6;
 				
-				if sprite_index != spr_machclimbwall && wallspeed < 8
+				if wallspeed <= 0
+				{
+					state = states.jump
+					sprite_index = spr_fall
+				}
+				
+				if sprite_index != spr_machclimbwall && wallspeed < 8 && global.gameplay == 0
 					wallspeed = 8;
 				
 				var mv = wallspeed / 16;
@@ -30,15 +36,20 @@ function scr_player_climbwall()
 			}
 			else
 			{
-				if wallspeed < 24 && move == xscale
+				if global.gameplay == 0
 				{
-					if global.gameplay == 0
+					if wallspeed < 24 && move == xscale
 						wallspeed += 0.05;
-					else
-						wallspeed += 0.1;
+					if wallspeed < 8
+						wallspeed = 8;
 				}
-				if wallspeed < 8
-					wallspeed = 8;
+				else
+				{
+					if wallspeed < 20
+						wallspeed += 0.1
+					if wallspeed < 0
+						movespeed += 0.2
+				}
 				
 				image_speed = 0.6;
 			}
@@ -46,13 +57,24 @@ function scr_player_climbwall()
 			crouchslideAnim = true
 
 			//Animations
-			sprite_index = spr_machclimbwall
+			if global.gameplay != 0 && character == "P"
+			{
+				if vsp < -5
+	                sprite_index = spr_player_climbwall_NEW
+	            else
+	                sprite_index = spr_player_clingwall
+			}
+			else
+				sprite_index = spr_machclimbwall
 
 			//Back to other states
 			if (!key_attack && character != "S") or (character == "S" && move == 0)
 			{
 				state = states.normal
 				movespeed = 0
+				
+				railmovespeed = 6
+				raildir = -xscale
 			}
 			
 			// back to ground
@@ -144,12 +166,6 @@ function scr_player_climbwall()
 				vsp = (character == "SP" ? -9 : -11);
 				xscale *= -1
 				jumpstop = false
-			}
-			
-			if wallspeed <= 0
-			{
-				state = states.jump
-				sprite_index = spr_fall
 			}
 			
 			if !instance_exists(obj_cloudeffect)

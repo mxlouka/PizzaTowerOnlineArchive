@@ -73,8 +73,8 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "generalobjects",
-    "path": "folders/Sprites/generalobjects.yy",
+    "name": "gates",
+    "path": "folders/Sprites/generalobjects/gates.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_exitgate",

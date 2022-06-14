@@ -70,12 +70,11 @@ function scr_player_crouchslide()
 	
 	if sprite_index == spr_player_jumpdive1 && floor(image_index) >= image_number - 1
 		sprite_index = spr_player_jumpdive2
-	mask_index = spr_crouchmask
 	
+	mask_index = spr_crouchmask
 	if (grounded && key_attack2 && !scr_solid(x + 27 * xscale, y - 32) && !scr_solid(x, y - 16)) && (character != "N" or (character == "N" && noisetype == 1))
 	{
 		movespeed = 8
-		//scr_soundeffect(sfx_rollgetup)
 		state = states.mach2
 		image_index = 0
 		sprite_index = spr_rollgetup
@@ -99,7 +98,7 @@ function scr_player_crouchslide()
 			image_xscale = other.xscale
 	}
 	
-	if sprite_index == spr_player_breakdancesuper
+	if sprite_index == spr_player_breakdancesuper or global.gameplay != 0
 		image_speed = movespeed / 24;
 	else
 		image_speed = 0.4;

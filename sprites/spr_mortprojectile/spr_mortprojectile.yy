@@ -81,7 +81,7 @@
   "nineSlice": null,
   "parent": {
     "name": "pistol",
-    "path": "folders/Sprites/players/pepino/new/pistol.yy",
+    "path": "folders/Sprites/players/pepino/pistol.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_mortprojectile",

@@ -1,5 +1,6 @@
-if ds_list_find_index(global.baddieroom, id) != -1
-	instance_destroy();
+var list = escape ? global.escaperoom : global.baddieroom;
+if ds_list_find_index(list, id) != -1
+	instance_destroy(id, false);
 else
 	event_user(0);
 

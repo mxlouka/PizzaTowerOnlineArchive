@@ -4,6 +4,7 @@ if state == states.tube
     {
         with playerid
         {
+			tube_id = -1;
             if sprite_index != spr_dashpadmach
             {
                 sprite_index = spr_dashpadmach

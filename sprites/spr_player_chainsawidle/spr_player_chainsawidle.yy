@@ -78,7 +78,7 @@
   "nineSlice": null,
   "parent": {
     "name": "chainsaw",
-    "path": "folders/Sprites/players/pepino/new/chainsaw.yy",
+    "path": "folders/Sprites/players/pepino/chainsaw.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_player_chainsawidle",

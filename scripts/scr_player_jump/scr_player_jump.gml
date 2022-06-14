@@ -1,9 +1,11 @@
 function scr_player_jump()
 {
+	landAnim = true
 	if !momentum
 		hsp = move * movespeed;
 	else
 		hsp = xscale * movespeed;
+	hsp += railmovespeed * raildir
 	
 	if dir != xscale
 	{
@@ -27,7 +29,7 @@ function scr_player_jump()
 	
 	//Movespeed
 	var _acc = 0.5;
-	var _msp = 6;
+	var _msp = global.gameplay != 0 ? 8 : 6;
 	if scr_checkskin(checkskin.n_hardoween)
 	{
 		_acc = 0.25;
@@ -301,7 +303,10 @@ function scr_player_jump()
 	{
 		image_index = 0
 		state = states.freefallprep
-		if character != "N" && character != "V"
+		
+		if global.gameplay != 0
+			vsp = -6
+		else if character != "N" && character != "V"
 			vsp = -5
 		else
 			vsp = -7
@@ -314,6 +319,9 @@ function scr_player_jump()
 			if (character != "N" or global.gameplay != 0) && character != "SP"
 			{
 				scr_soundeffect(sfx_killingblow)
+				if global.gameplay != 0
+					vsp = -11
+				
 				with instance_create(x, y + 60, obj_shotgunbullet)
 				{
 					sprite_index = sprite10391
@@ -385,31 +393,7 @@ function scr_player_jump()
 		state = states.freefallland
 		grav = basegrav;
 	}
-
-
-
-		//Suplex dash
-	//	if key_slap2 && suplexmove = false && !key_down
-	//	{
-
-	//instance_create(x,y,obj_slaphitbox)
-	//suplexmove = true
-	//vsp = 0
-	//instance_create(x,y,obj_jumpdust)
-	//image_index = 0
-	//sprite_index = spr_suplexdash
-	//state = states.handstandjump
-	//if character = "N"
-	//vsp = -5
-	//slapcharge = 0
-	//	}
-
-
-
-
-
-
-
+	
 	//Suplex Dash
 	if key_slap2 && (character != "S" && character != "V")
 	{
@@ -422,9 +406,9 @@ function scr_player_jump()
 			image_index = 0;
 			sprite_index = spr_breakdanceuppercut;
 			vsp = -7;
-			movespeed = 2;
+			movespeed = hsp;
 			instance_create(x, y, obj_highjumpcloud2);
-			instance_create(x, y, obj_swingdinghitbox);
+			//instance_create(x, y, obj_swingdinghitbox);
 			
 			grav = basegrav;
 		}
@@ -681,7 +665,8 @@ function scr_player_jump()
 	{
 		if pizzapepper == 0
 		{
-			movespeed = 6
+			if movespeed < 6 or global.gameplay == 0
+				movespeed = 6
 			sprite_index = spr_mach1
 			jumpAnim = true
 			state = states.mach1

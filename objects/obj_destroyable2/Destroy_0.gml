@@ -2,39 +2,33 @@ if room == rm_editor exit;
 
 if ds_list_find_index(global.saveroom, id) == -1 && !global.snickchallenge
 {
-	// new destroy
-	if sprite_index == spr_destroyable2_NEW
+	repeat 6 with instance_create(x + sprite_width / 2, y + sprite_height / 2, obj_pizzadebris)
 	{
-		with instance_create(x, y, obj_destroyanim)
-		{
-			image_xscale = other.image_xscale;
-			image_yscale = other.image_yscale;
-		}
+		image_xscale = abs(other.image_xscale);
+		image_yscale = abs(other.image_yscale);
+		
+		if other.sprite_index == spr_halloweensmallblock
+		or other.sprite_index == spr_xmasblock
+			sprite_index = spr_halloweendebris;
+		else if other.sprite_index == spr_destroyable2_ss
+			sprite_index = spr_pizzadebris_ss;
+		else if other.sprite_index == spr_destroyable2_NEW_ss
+			sprite_index = spr_pizzadebris_NEW_ss;
+		else if other.sprite_index == spr_destroyable2_PP
+			sprite_index = spr_pizzadebris_PP;
+		else
+			sprite_index = spr_pizzadebris;
+		
+		momentum = other.momentum;
 	}
 	
-	// old destroy
-	else
+	if other.sprite_index == spr_destroyable2_NEW
 	{
-		repeat 6 with instance_create(x + sprite_width / 2, y + sprite_height / 2, obj_pizzadebris)
-		{
-			image_xscale = abs(other.image_xscale);
-			image_yscale = abs(other.image_yscale);
-		
-			if other.sprite_index == spr_halloweensmallblock
-			or other.sprite_index == spr_xmasblock
-				sprite_index = spr_halloweendebris;
-			else if other.sprite_index == spr_destroyable2_ss
-				sprite_index = spr_pizzadebris_ss;
-			else if other.sprite_index == spr_destroyable2_NEW_ss
-				sprite_index = spr_pizzadebris_NEW_ss;
-			else if other.sprite_index == spr_destroyable2_PP
-				sprite_index = spr_pizzadebris_PP;
-			else
-				sprite_index = spr_pizzadebris;
-			
-			momentum = other.momentum;
-		}
+		with instance_create(x + sprite_width / 2, y + sprite_height / 2, obj_parryeffect)
+	        sprite_index = spr_pizzablockdead
+	    scr_sleep(5)
 	}
+	
 	create_baddiegibsticks(x + sprite_width / 2, y + sprite_height / 2);
 	
 	with instance_create(x, y, obj_collect)

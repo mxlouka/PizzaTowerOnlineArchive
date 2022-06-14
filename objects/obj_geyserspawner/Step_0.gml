@@ -16,4 +16,3 @@ else
 	if !instance_exists(verticalid)
 		active = false;
 }
-

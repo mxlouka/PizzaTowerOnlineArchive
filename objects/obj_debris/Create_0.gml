@@ -4,11 +4,10 @@ image_speed = 0;
 vsp = random_range(-4, 0);
 hsp = random_range(-4, 4);
 
-if !scr_stylecheck(0)
+if global.gameplay != 0
 {
-	if !scr_stylecheck(2)
-		hsp = random_range(-5, 5);
-	vsp = random_range(-7, -3);
+	hsp = random_range(-5, 5);
+	vsp = random_range(-10, 10);
 }
 
 grav = 0.4;
@@ -17,4 +16,3 @@ image_angle = irandom_range(0, 360);
 
 depth = -1;
 alarm[0] = 1;
-

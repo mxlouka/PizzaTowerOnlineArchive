@@ -13,12 +13,12 @@ if player
 			}
 			ds_list_add(global.saveroom, id);
 		}
-		alpha = Approach(alpha, 0, 0.1);
+		alpha = Approach(alpha, 0, 0.05);
 	}
 }
 else if alpha < 1
 {
-	alpha = Approach(alpha, 1, 0.1);
+	alpha = Approach(alpha, 1, 0.05);
 	if alpha >= 1 && oneway
 	{
 		with instance_create(x, y, obj_solid)
@@ -28,4 +28,3 @@ else if alpha < 1
 		}
 	}
 }
-

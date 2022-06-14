@@ -106,25 +106,49 @@ function scr_player_Sjump()
 			machhitAnim = false
 		}
 	}
+	else if sprite_index == spr_player_Sjumpcancelstart
+	{
+		vsp = 0
+		if move != 0
+			xscale = move
+		if floor(image_index) == image_number - 1
+		{
+			vsp = -5
+			movespeed = 12
+			image_index = 0
+			sprite_index = spr_player_Sjumpcancel
+			state = states.punch
+			with instance_create(x, y, obj_crazyruneffect)
+			    image_xscale = other.xscale
+		}
+	}
 	else
 	{
-		if sprite_index != spr_superspringplayer or sprite_index == spr_superjump
+		if (sprite_index != spr_superspringplayer or sprite_index == spr_superjump)
 		{
-			if key_attack2 && (!(character == "N" && noisetype == 0) && character != "V" && (character != "SP" or global.gameplay != 0))
+			if (key_attack2 or key_slap2) && (!(character == "N" && noisetype == 0) && character != "V" && (character != "SP" or global.gameplay != 0))
 			{
-				jumpstop = false;
-				springsjump = false;
-				if move != 0
-					xscale = move
-				
-				sprite_index = spr_mach4
-				if global.gameplay != 0
+				if global.gameplay != 0 && character == "P"
 				{
 					image_index = 0
-					sprite_index = spr_dashpadmach
+					sprite_index = spr_player_Sjumpcancelstart
 				}
-				state = states.mach3
-				movespeed = 12
+				else
+				{
+					jumpstop = false;
+					springsjump = false;
+					if move != 0
+						xscale = move
+				
+					sprite_index = spr_mach4
+					if global.gameplay != 0
+					{
+						image_index = 0
+						sprite_index = spr_dashpadmach
+					}
+					state = states.mach3
+					movespeed = 12
+				}
 			}
 			else if key_attack2 && character == "SP"
 			{
@@ -180,17 +204,16 @@ function scr_player_Sjump()
 				state = states.jump
 				sprite_index = spr_playerN_noisebombspinjump
 				image_index = 0
-				with instance_create(x,y,obj_jumpdust)
+				with instance_create(x, y, obj_jumpdust)
 				image_xscale = other.xscale
 			}
-
-
+			
 			//Jetpack
 			if key_attack2 && character == "N" && noisetype == 0
 			{
 				springsjump = false;
 				scr_soundeffect(sfx_noisewoah)
-				state =states.Sjumpprep
+				state = states.Sjumpprep
 				image_index = 0
 				sprite_index = spr_playerN_jetpackstart
 				hsp = 0

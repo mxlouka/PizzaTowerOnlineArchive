@@ -1,5 +1,16 @@
 function scr_player_bump()
 {
+	if sprite_index == spr_player_wallsplat
+    {
+		movespeed = 0
+        hsp = 0
+        vsp = 0
+        if floor(image_index) == image_number - 1
+            state = states.normal
+        image_speed = 0.35
+		exit;
+	}
+	
 	movespeed = 0
 	mach2 = 0
 	landAnim = false
@@ -29,7 +40,7 @@ function scr_player_bump()
 	if sprite_index == spr_rockethitwall && grounded
 		image_index = image_number - 1;
 	
-	if floor(image_index) >= image_number -1
+	if floor(image_index) >= image_number - 1 && sprite_index != spr_player_catched && sprite_index != spr_boxxedpep_air
 	{
 		endtumble = false
 		if !skateboarding
@@ -45,4 +56,3 @@ function scr_player_bump()
 	if sprite_index != spr_player_catched && sprite_index != spr_rockethitwall && sprite_index != spr_tumbleend && sprite_index != spr_hitwall
 		sprite_index = ((!skateboarding) ? spr_bump : spr_clownbump);
 }
-

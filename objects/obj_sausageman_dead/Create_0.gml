@@ -11,6 +11,10 @@ spr_palette = -1;
 haspalette = false;
 
 sugary = false;
-deadrot = choose(4, 5, 8, 10); // courtesy of pitchmaster's incompetency
+spinspeed = choose(4, 5, 8, 10); // courtesy of pitchmaster's incompetency
 scream = -1;
 
+buffer = 10;
+if global.gameplay != 0
+	vsp = random_range(-10, -18);
+d = 255;

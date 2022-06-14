@@ -1,33 +1,18 @@
 if ds_list_find_index(global.saveroom, id) == -1 && global.panic
 {
-	// new destroy
-	if sprite_index == spr_destroyable2escape_NEW
+	repeat 6 with instance_create(x + sprite_width / 2, y + sprite_height / 2, obj_pizzadebris)
 	{
-		with instance_create(x, y, obj_destroyanim)
-		{
-			image_xscale = other.image_xscale;
-			image_yscale = other.image_yscale;
-			sprite_index = spr_destroyable2escapedes_NEW;
-		}
-	}
-	
-	// old destroy
-	else
-	{
-		repeat 6 with instance_create(x + sprite_width / 2, y + sprite_height / 2, obj_pizzadebris)
-		{
-			image_xscale = abs(other.image_xscale);
-			image_yscale = abs(other.image_yscale);
+		image_xscale = abs(other.image_xscale);
+		image_yscale = abs(other.image_yscale);
 			
-			if other.sprite_index == spr_destroyable2escape_ss
-				sprite_index = spr_debrisescape_ss
-			else if other.sprite_index == spr_destroyable2escapeNEW_ss
-				sprite_index = spr_smallbreak2escapedebris_ss;
-			else
-				sprite_index = spr_debrisescape
+		if other.sprite_index == spr_destroyable2escape_ss
+			sprite_index = spr_debrisescape_ss
+		else if other.sprite_index == spr_destroyable2escapeNEW_ss
+			sprite_index = spr_smallbreak2escapedebris_ss;
+		else
+			sprite_index = spr_debrisescape
 			
-			momentum = other.momentum;
-		}
+		momentum = other.momentum;
 	}
 	create_baddiegibsticks(x + sprite_width / 2, y + sprite_height / 2);
 	
