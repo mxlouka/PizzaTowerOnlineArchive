@@ -485,7 +485,7 @@ if !variable_global_exists("saveroom")
 
 	global.spaceblockswitch = true;
 
-	global.bullet = 3;
+	global.bullet = 0;
 	global.mort = false;
 
 	global.gerome = false;

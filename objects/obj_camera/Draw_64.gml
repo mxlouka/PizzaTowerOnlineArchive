@@ -574,8 +574,8 @@ if showhud
 		var yy = 30;
 		if global.gameplay != 0
 		{
-			xx = 69;
-			yy = 185 + hud_posY;
+			xx = 41;
+			yy = 150 + hud_posY;
 		}
 		
 		if global.key_inv > 0

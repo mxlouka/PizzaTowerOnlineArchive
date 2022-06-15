@@ -27,7 +27,7 @@ function scr_playerreset()
     global.chunk = 5
 	global.spaceblockswitch = true
 	global.pizzacoin = global.pizzacoinstart
-	global.bullet = 3;
+	global.bullet = 0;
 	global.mort = false;
 	global.stylethreshold = 0;
 	global.heattime = 0;

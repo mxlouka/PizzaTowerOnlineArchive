@@ -16,17 +16,19 @@ function scr_player_machslide()
 	}
 
 	//Animations
-	if sprite_index == spr_machslidestart && floor(image_index) == image_number-1
+	if sprite_index == spr_machslidestart && floor(image_index) == image_number - 1
 		sprite_index = spr_machslide
-
-	image_speed = 0.35
+	
+	if floor(image_index) == image_number - 1 && (sprite_index == spr_machslideboost or sprite_index == spr_mach3boost)
+        image_speed = 0
+	else
+		image_speed = 0.35
 
 	landAnim = false
-
-
+	
 	//Back to other states
 	//Normal
-	if floor(movespeed) <= 0 && (sprite_index = spr_machslide or sprite_index = spr_crouchslide) 
+	if floor(movespeed) <= 0 && (sprite_index == spr_machslide or sprite_index == spr_crouchslide) 
 	{
 		state = states.normal
 		image_index = 0
@@ -38,13 +40,21 @@ function scr_player_machslide()
 	if (scr_solidwall(x + xscale, y) or scr_solid_slope(x + xscale, y))
 	&& (sprite_index == spr_machslide or sprite_index == spr_machslidestart)
 	{
-		hsp = -xscale * 2.5
-		vsp = -4
-		state = states.bump	
-		image_index = 4
+		state = states.bump
+		if global.gameplay == 0 or character == "SP"
+		{
+			hsp = -xscale * 2.5
+			vsp = -4
+			image_index = 4
+		}
+		else
+		{
+			sprite_index = spr_player_wallsplat
+	        image_index = 0
+		}
 	}
 
-	if floor(image_index) >= image_number - 1 && sprite_index == spr_machslideboost
+	if floor(image_index) >= image_number - 1 && sprite_index == spr_machslideboost && (grounded or global.gameplay == 0)
 	{
 		hsp = 0
 		image_index = 0
@@ -53,7 +63,7 @@ function scr_player_machslide()
 		state = states.mach2
 	}
 
-	if floor(image_index) == image_number -1 && sprite_index == spr_mach3boost
+	if floor(image_index) >= image_number - 1 && sprite_index == spr_mach3boost && (grounded or global.gameplay == 0)
 	{
 		hsp = 0
 		sprite_index = spr_mach4

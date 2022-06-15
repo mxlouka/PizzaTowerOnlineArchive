@@ -4,7 +4,7 @@ if myturn
 	global.style = 0;
 	global.stylethreshold = 0;
 	global.collect = 0;
-	global.bullet = 3;
+	//global.bullet = 3;
 	
 	// SAGE2019
 	if level == "snickchallenge" 
