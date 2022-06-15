@@ -13,12 +13,44 @@ function scr_player_taunt()
 			tauntstoredstate = state
 			state = states.backbreaker
 			
-			if supercharged && !audio_is_playing(sfx_supertaunt) && !audio_is_playing(sfx_supertaunt_SP) && scr_stylecheck(2)
+			sprite_index = spr_taunt
+			image_index = irandom(sprite_get_number(sprite_index))
+			
+			var oldsupertaunt = (character == "S" or character == "PP");
+			if supercharged or (oldsupertaunt && global.combo >= 3) && character != "V" && (key_up or global.gameplay == 0)
 			{
-				if character == "SP"
-					scr_soundeffect(sfx_supertaunt_SP)
-				else
-					scr_soundeffect(sfx_supertaunt)
+				if scr_stylecheck(2)
+				{
+					if character == "SP"
+						scr_soundeffect(sfx_supertaunt_SP)
+					else
+						scr_soundeffect(sfx_supertaunt)
+				}
+				
+				image_index = 0
+				if !oldsupertaunt
+					sprite_index = choose(spr_supertaunt1, spr_supertaunt2, spr_supertaunt3, spr_supertaunt4)
+				
+				// supertaunt kill
+				if !instance_exists(obj_tauntaftereffectspawner)
+				{
+					vsp = 0
+					with instance_create(x, y, obj_tauntaftereffectspawner)
+						legacy = oldsupertaunt;
+			
+					if !oldsupertaunt
+					{
+						supercharged = false;
+						supercharge = 0;
+					}
+				
+					scr_baddie_screenclear();
+					with obj_camera
+					{
+						shake_mag = 10;
+						shake_mag_acc = 30 / room_speed;
+					}
+				}
 			}
 			else
 			{
@@ -26,18 +58,8 @@ function scr_player_taunt()
 					scr_soundeffect(sfx_tauntSP_1, sfx_tauntSP_2, sfx_tauntSP_3, sfx_tauntSP_4, sfx_tauntSP_5, sfx_tauntSP_6, sfx_tauntSP_7, sfx_tauntSP_8);
 				else
 					scr_soundeffect(sfx_taunt)
-			}
-			
-			if supercharged && character != "S" && character != "V" && character != "PP"
-			{
-				image_index = 0
-				sprite_index = choose(spr_supertaunt1, spr_supertaunt2, spr_supertaunt3, spr_supertaunt4)
-			}
-			else
-			{
+				
 				taunttimer = 20
-				sprite_index = spr_taunt
-				image_index = irandom(sprite_get_number(sprite_index))
 				image_speed = 0
 				
 				// new gameplay removed beter :(

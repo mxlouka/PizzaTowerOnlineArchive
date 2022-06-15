@@ -5,156 +5,178 @@ function scr_panictime()
 	if string_endswith(roomname, "_NEW")
 		roomname = string_replace(roomname, "_NEW", "");
 	
+	if global.gameplay == 0
+	{
+		switch roomname
+		{
+			default:
+				global.minutes = 2
+				global.seconds = 59
+				break
+			
+			case "entrance_10":
+				global.minutes = 2
+				global.seconds = 30
+				break
+			
+			case "medieval_10":
+				global.minutes = 2
+				global.seconds = 15
+				break
+			
+			case "ruin_11":
+				global.minutes = 2
+				global.seconds = 59
+				break
+			
+			case "dungeon_10":
+				global.minutes = 4
+				global.seconds = 30
+				break
+	
+			case "chateau_6":
+				global.minutes = 3
+				global.seconds = 15
+				break
+	
+			case "strongcold_1":
+				global.minutes = 3
+				global.seconds = 59
+				break
+	
+			case "floor1_room11":
+				global.minutes = 2
+				global.seconds = 59
+				break
+	
+			case "graveyard_6":
+				global.minutes = 3
+				global.seconds = 59
+				break
+	
+			case "farm_11":
+				global.minutes = 3
+				global.seconds = 59
+				break
+			
+			case "ufo_12":
+				global.minutes = 2
+				global.seconds = 30
+				break
+			
+			case "beach_13":
+				global.minutes = 3
+				global.seconds = 59
+				break
+			
+			case "forest_5":
+				global.minutes = 3
+				global.seconds = 30
+				break
+			
+			case "kungfu_10":
+				global.minutes = 6
+				global.seconds = 30
+				break
+			
+			case "minigolf_8":
+				global.minutes = 7
+				global.seconds = 30
+				break
+			
+			case "space_9":
+				global.minutes = 5
+				global.seconds = 30
+				break
+			
+			case "mansion_7":
+				global.minutes = 5
+				global.seconds = 30
+				break
+			
+			case "factory_10":
+				global.minutes = 6
+				global.seconds = 30
+				break
+			
+			case "freezer_3":
+				global.minutes = 5
+				global.seconds = 30
+				break
+			
+			case "war_1":
+				global.minutes = 8
+				global.seconds = 59
+				break
+			
+			case "exit_1":
+				global.minutes = 9
+				global.seconds = 59
+				break
+			
+			case "kidsparty_lastroom":
+				global.minutes = 3
+				global.seconds = 30
+				break
+			
+			case "oldsewer_treasure":
+				global.minutes = 2
+				global.seconds = 30
+				break
+			
+			case "oldfactory_treasure":
+				global.minutes = 2
+				global.seconds = 30
+				break
+			
+			case "oldmansion_treasure":
+				global.minutes = 2
+				global.seconds = 30
+				break
+
+			case "oldfreezer_treasure":
+				global.minutes = 1
+				global.seconds = 59
+				break
+			
+			case "golf_treasure":
+				global.minutes = 1
+				global.seconds = 59
+				break
+			
+			case "etb_8":
+				global.minutes = 2
+				global.seconds = 59
+				break
+			
+			case "custom_lvl_room":
+				with obj_destroyableescape
+					alarm[0] = 1
+				with obj_destroyable2escape
+					alarm[0] = 1
+				with obj_destroyable3escape
+					alarm[0] = 1
+				with obj_destroyable2_bigescape
+					alarm[0] = 1
+				global.minutes = global.editorminutes
+				global.seconds = global.editorseconds
+				break
+		}
+	}
+	
+	// sugary spire level timers go here and dont you dare ask me why
 	switch roomname
 	{
 		default:
-			global.minutes = 2
-			global.seconds = 59
-			break
-			
-		case "entrance_10":
-			global.minutes = 2
-			global.seconds = 30
-			break
-			
-		case "medieval_10":
-			global.minutes = 2
-			global.seconds = 15
-			break
-			
-		case "ruin_11":
-			global.minutes = 2
-			global.seconds = 59
-				
 			if global.gameplay != 0
-				global.minutes = 3
-			break
-			
-		case "dungeon_10":
-			global.minutes = 4
-			global.seconds = 30
-			break
-	
-		case "chateau_6":
-			global.minutes = 3
-			global.seconds = 15
-			break
-	
-		case "strongcold_1":
-			global.minutes = 3
-			global.seconds = 59
-			break
-	
+				return false;
+			break;
+		
 		case "dragonlair_1":
-			global.minutes = 0
-			global.seconds = 59
-			break
-	
-		case "floor1_room11":
-			global.minutes = 2
-			global.seconds = 59
-			break
-	
-		case "graveyard_6":
-			global.minutes = 3
-			global.seconds = 59
-			break
-	
-		case "farm_11":
-			global.minutes = 3
-			global.seconds = 59
-			break
-			
-		case "ufo_12":
-			global.minutes = 2
-			global.seconds = 30
-			break
-			
-		case "beach_13":
-			global.minutes = 3
-			global.seconds = 59
-			break
-			
-		case "forest_5":
-			global.minutes = 3
-			global.seconds = 30
-			break
-			
-		case "kungfu_10":
-			global.minutes = 6
-			global.seconds = 30
-			break
-			
-		case "minigolf_8":
-			global.minutes = 7
-			global.seconds = 30
-			break
-			
-		case "space_9":
-			global.minutes = 5
-			global.seconds = 30
-			break
-			
-		case "mansion_7":
-			global.minutes = 5
-			global.seconds = 30
-			break
-			
-		case "factory_10":
-			global.minutes = 6
-			global.seconds = 30
-			break
-			
-		case "freezer_3":
-			global.minutes = 5
-			global.seconds = 30
-			break
-			
-		case "war_1":
-			global.minutes = 8
-			global.seconds = 59
-			break
-			
-		case "exit_1":
-			global.minutes = 9
-			global.seconds = 59
-			break
-			
-		case "kidsparty_lastroom":
-			global.minutes = 3
-			global.seconds = 30
-			break
-			
-		case "oldsewer_treasure":
-			global.minutes = 2
-			global.seconds = 30
-			break
-			
-		case "oldfactory_treasure":
-			global.minutes = 2
-			global.seconds = 30
-			break
-			
-		case "oldmansion_treasure":
-			global.minutes = 2
-			global.seconds = 30
-			break
-
-		case "oldfreezer_treasure":
-			global.minutes = 1
-			global.seconds = 59
-			break
-			
-		case "golf_treasure":
-			global.minutes = 1
-			global.seconds = 59
-			break
-			
-		case "etb_8":
-			global.minutes = 2
-			global.seconds = 59
-			break
-				
+				global.minutes = 0
+				global.seconds = 59
+				break
+		
 		case "cotton_12":
 			global.minutes = 3
 			global.seconds = 59
@@ -168,19 +190,6 @@ function scr_panictime()
 		case "molasses_9":
 			global.minutes = 4
 			global.seconds = 59
-			break
-			
-		case "custom_lvl_room":
-			with obj_destroyableescape
-				alarm[0] = 1
-			with obj_destroyable2escape
-				alarm[0] = 1
-			with obj_destroyable3escape
-				alarm[0] = 1
-			with obj_destroyable2_bigescape
-				alarm[0] = 1
-			global.minutes = global.editorminutes
-			global.seconds = global.editorseconds
 			break
 	}
 	
@@ -207,4 +216,5 @@ function scr_panictime()
 		if global.seconds > 40
 			global.seconds = 59;
 	}
+	return true;
 }

@@ -46,20 +46,3 @@ if player
 }
 if sprite_index == spr_opening && floor(image_index) >= 2
 	sprite_index = spr_open
-
-if targetRoom != room
-{
-	if place_meeting(x, y, obj_doorA)
-		targetDoor = "A"
-	if place_meeting(x, y, obj_doorB)
-		targetDoor = "B"
-	if place_meeting(x, y, obj_doorC)
-		targetDoor = "C"
-	if place_meeting(x, y, obj_doorD)
-		targetDoor = "D"
-	if place_meeting(x, y, obj_doorE)
-		targetDoor = "E"
-	if place_meeting(x, y, obj_doorANY)
-		targetDoor = instance_place(x, y, obj_doorANY).door
-}
-

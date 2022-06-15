@@ -71,8 +71,9 @@ function scr_player_crouch()
 		with instance_create(x, y, obj_highjumpcloud2)
 			image_xscale = other.xscale
 	}
-
-	if scr_slope() && key_down
+	
+	// tumble
+	if scr_slope() && key_down && global.gameplay == 0
 	{
 		var slope = instance_place(x, y + 2, obj_slope);
 		if abs(slope.image_xscale) <= abs(slope.image_yscale)

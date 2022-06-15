@@ -1,16 +1,10 @@
-var door = noone;
-switch targetDoor
+var doortarget = noone;
+with obj_doorPARENT
+	if door == other.targetDoor doortarget = id;
+if instance_exists(doortarget)
 {
-	case "A": door = obj_doorA; break;
-	case "B": door = obj_doorB; break;
-	case "C": door = obj_doorC; break;
-	case "D": door = obj_doorD; break;
-	case "E": door = obj_doorE; break;
-}
-if instance_exists(door)
-{
-	x = door.x;
-	y = door.y;
+	x = doortarget.x;
+	y = doortarget.y;
 }
 
 canmove = true;

@@ -53,6 +53,8 @@ function scr_player_climbwall()
 				
 				image_speed = 0.6;
 			}
+			if scr_solid(x, y + 1) && wallspeed < 0
+				wallspeed = 0;
 			
 			crouchslideAnim = true
 
@@ -80,33 +82,33 @@ function scr_player_climbwall()
 			// back to ground
 			if !scr_solidwall(x + xscale, y) && !scr_solid_slope(x + xscale, y) && state == states.climbwall
 			{
-				var yplus = 0;
-				while !scr_solid(x + xscale, y + yplus)
+				if vsp < 0
 				{
-					yplus++;
-					if yplus > 32
+					for(var i = 0; i < 32; i++)
 					{
-						yplus = -1;
-						break;
+						if scr_solid(x + xscale, y + i + 1)
+						{
+							y += i;
+							break;
+						}
 					}
+					vsp = 0
 				}
-				y += yplus - 1;
-				
 				with instance_create(x, y, obj_jumpdust)
 					image_xscale = other.xscale
 				
-				if movespeed >= 12
+				if wallspeed >= 12
 				{
 					sprite_index = spr_mach4
 					state = states.mach3
 				}
 				else
 				{
-					movespeed = max(movespeed, 8);
 					sprite_index = spr_mach
 					state = states.mach2
 				}
-				vsp = -grav
+				movespeed = max(wallspeed, 6);
+				
 				hsp = movespeed * xscale
 			}
 			

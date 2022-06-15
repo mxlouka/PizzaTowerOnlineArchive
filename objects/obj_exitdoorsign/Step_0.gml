@@ -1,2 +1,1 @@
-visible = global.panic && !global.gerome;
-
+visible = global.panic;

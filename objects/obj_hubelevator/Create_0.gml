@@ -7,6 +7,7 @@ hub_array = [
 	["FLOOR 1", hub_room1],
 	["ARCADE", hub_arcade],
 ]
+targetDoor = "A";
 
 if sugaryspire
 	array_insert(hub_array, 0, ["SUGARY", hub_roomSP]);

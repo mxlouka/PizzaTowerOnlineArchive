@@ -1,9 +1,7 @@
 if instance_exists(obj_endlevelfade)
 	exit;
 
-if (!global.panic or global.gerome 
-or (instance_exists(obj_snicklevelend) && obj_snicklevelend.alarm[0] > -1))
-&& (!global.treasure or global.gameplay == 0)
+if !global.panic or (instance_exists(obj_snicklevelend) && obj_snicklevelend.alarm[0] > -1)
 {
 	x = -10000
 	y = -10000
@@ -20,9 +18,9 @@ else
 	x = xstart
 	y = ystart
 	
-	if place_meeting(x, y, obj_player1)
+	if place_meeting(x, y, obj_player)
 	{
-		with obj_player1
+		with obj_player
 			scr_pushout(-1);
 	}
 	

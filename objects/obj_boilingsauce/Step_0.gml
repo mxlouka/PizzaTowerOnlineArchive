@@ -25,6 +25,9 @@ if player
 			player.sprite_index = player.spr_fireass
 			player.image_index = 0
 			
+			if global.gameplay != 0
+				player.movespeed = player.hsp
+			
 			player.vsp = -25
 			if room != custom_lvl_room // react to upside down lava (unless in level editor)
 				player.vsp *= image_yscale == 0 ? 1 : sign(image_yscale);

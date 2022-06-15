@@ -162,10 +162,18 @@ function scr_player_mach2()
 				image_xscale = other.xscale
 			
 			flash = false
-			state = states.machroll
-			vsp = 10
-	        sprite_index = spr_machroll
+			if global.gameplay == 0
+				state = states.machroll
+			else
+			{
+				state = states.tumble
+				if !grounded
+		            sprite_index = spr_mach2jump
+		        else
+		            sprite_index = spr_machroll
+			}
 			
+			vsp = 10
 			if character == "V"
 				sprite_index = spr_playerV_divekickstart
 		}
@@ -173,10 +181,7 @@ function scr_player_mach2()
 	
 	// Climbwall
 	var slop = scr_slope();
-	
-	var bump = (scr_solidwall(x + hsp, y) or scr_solid_slope(x + hsp, y)) 
-	&& (!slop or scr_solidwall(x + xscale, y - 10))
-	&& (!place_meeting(x + hsp, y, obj_destructibles) or character == "V");
+	var bump = climb_wall();
 	
 	if bump && (slop or !grounded)
 	{
@@ -246,7 +251,7 @@ function scr_player_mach2()
 			sprite_index = spr_mach
 	}
 
-	if !grounded && sprite_index != spr_secondjump2 && sprite_index != spr_mach2jump && sprite_index != spr_walljumpstart && sprite_index != spr_walljumpend && sprite_index != spr_player_longjump && sprite_index != spr_player_longjumpend
+	if !grounded && sprite_index != spr_secondjump2 && sprite_index != spr_mach2jump && sprite_index != spr_walljumpstart && sprite_index != spr_walljumpend && sprite_index != spr_machroll && sprite_index != spr_player_longjump && sprite_index != spr_player_longjumpend
 		sprite_index = spr_secondjump1
 
 	if floor(image_index) = image_number -1 && sprite_index = spr_secondjump1

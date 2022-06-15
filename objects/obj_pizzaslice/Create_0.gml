@@ -18,4 +18,3 @@ if global.snickrematch
 
 if sprite_index == spr_snickcollectible2
 	mask_index = spr_snickcollectible2
-

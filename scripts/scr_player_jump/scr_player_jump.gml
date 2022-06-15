@@ -434,14 +434,14 @@ function scr_player_jump()
 			state = states.handstandjump
 			image_index = 0
 			
-			if character == "SP"
-				movespeed = 10;
-			else if scr_checkskin(checkskin.n_hardoween)
+			if character == "N"
 				movespeed = 4;
 			else
 				movespeed = 6;
 			
 			if global.gameplay != 0
+				flash = true;
+			if scr_stylecheck(2)
 				instance_create(x, y, obj_crazyrunothereffect)
 			grav = basegrav;
 		}

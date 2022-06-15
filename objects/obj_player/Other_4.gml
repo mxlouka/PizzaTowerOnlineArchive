@@ -21,22 +21,8 @@ if place_meeting(x, y + 1, obj_boxofpizza) or place_meeting(x, y - 1, obj_boxofp
 if !oldhallway
 {
 	var doortarget = noone;
-	if targetDoor == "A"
-		doortarget = obj_doorA;
-	else if targetDoor == "B"
-		doortarget = obj_doorB;
-	else if targetDoor == "C"
-		doortarget = obj_doorC;
-	else if targetDoor == "D"
-		doortarget = obj_doorD;
-	else if targetDoor == "E"
-		doortarget = obj_doorE;
-	
-	if !instance_exists(doortarget) && instance_exists(obj_doorANY)
-	{
-		with obj_doorANY
-			if door == other.targetDoor doortarget = id;
-	}
+	with obj_doorPARENT
+		if door == other.targetDoor doortarget = id;
 	
 	if instance_exists(doortarget)
 	{

@@ -1,10 +1,3 @@
-if room == custom_lvl_room {
-	tile_layer_delete_at(1, x, y);
-	tile_layer_delete_at(1, x + 32, y);
-	tile_layer_delete_at(1, x, y + 32);
-	tile_layer_delete_at(1, x + 32, y + 32);
-}
-
 if ds_list_find_index(global.saveroom, id) = -1
 {
 	scr_secretbigdebris(true, $00C058);

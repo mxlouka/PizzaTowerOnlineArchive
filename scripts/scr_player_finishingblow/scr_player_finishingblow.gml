@@ -1,10 +1,25 @@
 function scr_player_finishingblow()
 {
-	hsp = 0
-	vsp = 0
+	if global.gameplay == 0
+	{
+		hsp = 0
+		vsp = 0
+	}
+	else
+	{
+		hsp = movespeed
+	    move = key_right + key_left
+	    if floor(image_index) < 6 && sprite_index != spr_swingdingend
+	        movespeed = Approach(movespeed, 0, 0.25)
+	    else
+	        movespeed = Approach(movespeed, move * 10, 0.5)
+	}
 
 	if floor(image_index) >= image_number - 1
+	{
+		movespeed = abs(movespeed)
 		state = states.normal
+	}
 	
 	if floor(image_index) == 4 && global.gameplay != 0
 		image_index += 2;
@@ -32,6 +47,25 @@ function scr_player_finishingblow()
 	
 		with instance_create(x, y, obj_swordhitbox)
 			playerid = other.object_index
+	}
+	
+	if !instance_exists(obj_dashcloud2) && grounded && abs(hsp) > 3
+    {
+        with instance_create(x, y, obj_dashcloud2)
+            image_xscale = other.xscale
+    }
+	
+	if punch_afterimage > 0
+		punch_afterimage--
+	else
+	{
+		punch_afterimage = 5
+		with instance_create(x, y, obj_blueafterimage)
+		{
+			sprite_index = other.sprite_index
+			image_index = other.image_index
+			image_xscale = other.xscale
+		}
 	}
 	
 	image_speed = 0.4;

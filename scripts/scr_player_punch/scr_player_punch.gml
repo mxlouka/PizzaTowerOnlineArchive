@@ -176,11 +176,15 @@ function scr_player_punch()
 					hsp = xscale * movespeed
 					if grounded && vsp > 0
                     {
+						/*
                         if sprite_index == spr_player_Sjumpcancel
                         {
                             sprite_index = spr_player_Sjumpcancelland
                             image_index = 0
                         }
+						*/
+						
+						movespeed = abs(movespeed)
                         if key_attack
                         {
                             if movespeed >= 12
@@ -194,6 +198,7 @@ function scr_player_punch()
                         }
                         else if movespeed > 6
                         {
+							xscale = sign(hsp)
                             state = states.machslide
                             sprite_index = spr_machslidestart
                             image_index = 0
@@ -224,7 +229,20 @@ function scr_player_punch()
 							image_xscale = other.xscale
 						}
 				    }
-					exit;
+				}
+				else if sprite_index == spr_player_kungfujump
+				{
+					if move != 0
+	                {
+	                    if move != xscale && movespeed > -6
+	                        movespeed -= 0.1
+	                    else if move == xscale && movespeed < 6
+	                        movespeed += 0.2
+	                }
+	                hsp = xscale * movespeed
+					
+					if grounded && vsp >= 0
+                        state = states.normal
 				}
 				else
 					hsp = xscale * movespeed

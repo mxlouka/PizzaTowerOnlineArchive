@@ -170,7 +170,7 @@ else
 				var tvspr = sprite_index;
 				if sprite_prev != -1 && idlespr != sprite_prev
 				{
-					noisebuffer = sugary ? noisemax : 16;
+					noisebuffer = sugary ? 16 : noisemax;
 					sprite_prev = idlespr;
 				}
 				if noisebuffer > 0

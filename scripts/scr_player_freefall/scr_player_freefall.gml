@@ -1,7 +1,6 @@
 function scr_player_freefall()
 {
 	landAnim = true
-	vsp = 15
 	
 	if global.gameplay != 0
 	{
@@ -10,6 +9,9 @@ function scr_player_freefall()
 	}
 	else
 		vsp = 15
+	
+	if floor(image_index) == image_number - 1 && sprite_index == spr_bodyslamstart
+        sprite_index = spr_bodyslamfall
 	
 	move = key_left + key_right;
 	if !grounded
@@ -92,19 +94,31 @@ function scr_player_freefall()
 		}
 	}
 	
-	if sprite_index != spr_bodyslamstart && (sprite_index != spr_player_poundcancel1 or vsp > 0)
-        freefallsmash++
+	if global.gameplay == 0
+	{
+		if sprite_index != spr_bodyslamstart
+	        freefallsmash++
+		freefallsmash++
+	}
+	else
+	{
+		if vsp > 0
+	        freefallsmash++
+	    else if vsp < 0
+	        freefallsmash = -14
+	}
 	
-	freefallsmash ++
-	if freefallsmash > 10 &&  !instance_exists(superslameffectid) 
-		with instance_create(x,y,obj_superslameffect)
+	if freefallsmash >= 10 && !instance_exists(superslameffectid)
+	{
+		with instance_create(x, y, obj_superslameffect)
 		{
 			playerid = other.object_index	
 			other.superslameffectid = id
 		}
+	}
 
 	//Normal
-	if grounded  && !(input_buffer_jump < 8) && ((!place_meeting(x, y + 1, obj_destructibles) && (!place_meeting(x, y + 1, obj_targetblock) or !(character == "SP" && shotgunAnim)))
+	if grounded && ((freefallsmash < 10 or global.gameplay == 0) or (!place_meeting(x, y + 1, obj_destructibles) && (!place_meeting(x, y + 1, obj_targetblock) or !(character == "SP" && shotgunAnim)))
 	or (!place_meeting(x, y, obj_platform) && place_meeting(x, y + 1, obj_platform)))
 	{
 		if scr_slope() && global.gameplay != 0
@@ -119,7 +133,7 @@ function scr_player_freefall()
                 else
                     other.movespeed = 8
                 with instance_create(other.x, other.y, obj_jumpdust)
-                    image_xscale = -other.image_xscale
+                    image_xscale = other.xscale
             }
 	    }
 		else
@@ -169,11 +183,21 @@ function scr_player_freefall()
 				combo = 0
 				bounce = false
 			}
-		
-			instance_create(x, y, obj_landcloud)
+			
+			if global.gameplay == 0
+				instance_create(x, y, obj_landcloud)
+			else
+			{
+				with instance_create(x, y + 3, obj_landcloud)
+				{
+					sprite_index = spr_groundpoundeffect;
+					image_speed = 0.25;
+				}
+			}
 			freefallstart = 0
 		}
 	}
 	image_speed = 0.35
+	if sprite_index == spr_bodyslamstart
+        image_speed = 0.4
 }
-

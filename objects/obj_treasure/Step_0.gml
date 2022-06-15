@@ -6,16 +6,19 @@ if sprite_index == sprgot && obj_player.state != states.gottreasure
 if sprite_index != sprgot
 	sprite_index = spridle
 
-if place_meeting(x, y, obj_player1) && !player && obj_player1.state != states.gameover
+var p = instance_place(x, y, obj_player);
+if p && !player && p.state != states.gameover
 {
+	/*
 	if global.gameplay != 0 && global.musicgame == 1
 	{
 		instance_create_depth(0, 0, 0, obj_levelendfade);
 		instance_destroy();
 	}
 	else
+	*/
 	{
-		with obj_player1
+		with p
 		{
 			if grounded
 			{
@@ -58,6 +61,8 @@ if place_meeting(x, y, obj_player1) && !player && obj_player1.state != states.ga
 						alarm[2] = 200
 					}
 				}
+				else
+					global.combotime = 60;
 				
 				if global.timeattack with obj_timeattack
 					stop = true;

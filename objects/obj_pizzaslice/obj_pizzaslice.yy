@@ -5,6 +5,7 @@
   },
   "solid": false,
   "visible": true,
+  "managed": true,
   "spriteMaskId": {
     "name": "spr_pizzaslice",
     "path": "sprites/spr_pizzaslice/spr_pizzaslice.yy",

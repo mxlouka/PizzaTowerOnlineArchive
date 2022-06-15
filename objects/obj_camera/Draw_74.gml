@@ -8,7 +8,7 @@ if global.panic && global.panicmelt
 	appa = max(lerp(1.0, 1.0 - MAX_BLUR, global.wave / global.maxwave), 0.01);
 
 var shader = noone;
-if check_sugary() && ((global.panic && global.minutes <= 0 && global.seconds <= 0) or global.failedmod)
+if check_sugary() && ((global.panic && global.wave >= global.maxwave) or global.failedmod)
 	shader = shd_greyscale;
 else if !instance_exists(obj_endlevelfade)
 	shaderfade = 0;
@@ -24,4 +24,3 @@ if shader != noone
 draw_surface_stretched_ext(application_surface, 0, 0, 960, 540, c_white, appa);
 if shader != noone
 	shader_reset();
-

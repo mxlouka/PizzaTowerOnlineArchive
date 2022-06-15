@@ -35,4 +35,3 @@ if limitcam[2] > _camx + _camw + 64
 	limitcam[2] = room_width;
 if limitcam[3] > _camy + _camh + 64
 	limitcam[3] = room_height;
-

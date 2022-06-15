@@ -402,11 +402,16 @@ else if !(instance_exists(player) && player.state == states.rotate) && !instance
 var panicangle = 0;
 if global.panic or global.snickchallenge
 {
-	var camsmooth = max(alarm[1] / 60, 0);
-	if alarm[1] == -1 or (global.minutes == 0 && global.seconds == 0)
-		camsmooth = 0;
+	if global.gameplay == 0
+	{
+		var camsmooth = max(alarm[1] / 60, 0);
+		if alarm[1] == -1 or (global.minutes == 0 && global.seconds == 0)
+			camsmooth = 0;
 	
-	global.wave = max(global.maxwave - (global.minutes * 60 + global.seconds + camsmooth) * 60, 0);
+		global.wave = max(global.maxwave - (global.minutes * 60 + global.seconds + camsmooth) * 60, 0);
+	}
+	else
+		global.wave = global.maxwave - global.fill;
 	
 	// tilting
 	if check_sugary()
@@ -418,4 +423,3 @@ if global.panic or global.snickchallenge
 
 frameone = false;
 camera_set_view_angle(view_camera[0], Approach(camera_get_view_angle(view_camera[0]), round(angle) + panicangle, 1));
-

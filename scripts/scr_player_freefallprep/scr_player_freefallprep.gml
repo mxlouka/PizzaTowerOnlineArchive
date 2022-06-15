@@ -38,11 +38,13 @@ function scr_player_freefallprep()
 		}
 		if move != 0
 			xscale = move
+		if vsp > 0 && global.gameplay != 0
+            vsp = 0
 	}
 	
 	//Animations
 	image_speed = 0.5
-
+	
 	if floor(image_index) >= image_number - 1 
 	{
 		if global.gameplay == 0

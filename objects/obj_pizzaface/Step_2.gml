@@ -156,6 +156,7 @@ else
 		
 			instance_create(x, y, obj_flash)
 			global.seconds = 59
+			global.fill = 0
 			obj_camera.alarm[1] = 60
 			obj_camera.ded = false
 			instance_destroy()

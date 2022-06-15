@@ -3,12 +3,19 @@ function scr_player_cotton()
 	if live_call() return live_result;
 	image_speed = 0.35;
 	
+	var drilling = sprite_index == spr_cotton_drill;
+	var rolling = sprite_index == spr_cotton_roll or sprite_index == spr_cotton_rollmax;
+	
+	// break rat blocks
+	if drilling or rolling or sprite_index == spr_cotton_attack or movespeed > 6
+	{
+		with instance_place(x + hsp, y + vsp, obj_ratblock)
+	        instance_destroy()
+	}
+	
 	// move
 	if sprite_index != spr_cotton_slam
 		move = key_left + key_right;
-	
-	var drilling = sprite_index == spr_cotton_drill;
-	var rolling = sprite_index == spr_cotton_roll or sprite_index == spr_cotton_rollmax;
 	
 	if !rolling && grounded
 		momentum = false;

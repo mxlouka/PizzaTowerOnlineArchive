@@ -27,61 +27,6 @@ if audio_is_playing(global.music)
 	}
 }
 
-// music pitch depending on player state
-if !scr_stylecheck(0, 2)
-{
-	if !global.panic && !global.snickchallenge && !global.miniboss && room != Realtitlescreen
-	{
-		with playerobj
-		{
-			var _state = state;
-			if _state == states.hitlag
-				_state = tauntstoredstate;
-			if _state == states.backbreaker
-			{
-				with obj_teleporter
-				{
-					if player.id == other.id && (alarm[0] > -1 or alarm[1] > -1)
-						_state = storedstate;
-				}
-				with obj_warplaser
-				{
-					if player.id == other.id && (alarm[0] > -1 or alarm[1] > -1)
-						_state = storedstate;
-				}
-			}
-			
-			switch _state
-			{
-				case states.knightpep:
-					other.musicpitch = 0.9;
-					break;
-				case states.knightpepslopes:
-					other.musicpitch = 1.2;
-					break;
-				case states.tumble:
-					other.musicpitch = 1.2;
-					break;
-				
-				default:
-					other.musicpitch = 1;
-					break;
-			}
-		}
-	}
-	else
-		musicpitch = 1;
-	
-	var pitch = true;
-	with obj_startgate
-		if drawing pitch = false;
-	with playerobj
-		if state == states.frozen pitch = false;
-	
-	if pitch
-		audio_sound_pitch(global.music, lerp(audio_sound_get_pitch(global.music), musicpitch, 0.35));
-}
-
 if audio_is_playing(global.jukebox)
 	exit;
 
@@ -99,10 +44,6 @@ if global.panic && !(room == custom_lvl_room && global.disableescapemusic)
 		// antonball
 		if scr_checkskin(checkskin.p_anton)
 			musplay = mu_antonescape;
-		
-		// gerome
-		else if global.gameplay != 0 && (global.gerome or global.treasure or instance_exists(obj_geromeanim))
-			musplay = mu_chase;
 		
 		// pizza time
 		else
@@ -168,4 +109,3 @@ pausedmusic = global.music;
 // pln slowdown
 if room == hub_roomPLN && audio_is_playing(global.music)
 	audio_sound_pitch(global.music, 0.5);
-

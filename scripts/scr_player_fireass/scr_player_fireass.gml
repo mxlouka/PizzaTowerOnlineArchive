@@ -1,23 +1,45 @@
-function scr_player_fireass() {
+function scr_player_fireass()
+{
 	image_speed = 0.35
-
-	if sprite_index = spr_fireass or sprite_index == spr_scaredjump1 or sprite_index == spr_scaredjump2
+	with instance_place(x + hsp, y + vsp, obj_ratblock)
+        instance_destroy()
+	
+	if sprite_index == spr_fireass or sprite_index == spr_scaredjump1 or sprite_index == spr_scaredjump2
 	{
-		if floor(image_index) = image_number -1 && sprite_index == spr_fireass
+		if floor(image_index) >= image_number - 1 && sprite_index == spr_fireass
 		{
-			with instance_create(x, y+25,obj_balloonpop)
-				sprite_index= spr_shotgunimpact
+			with instance_create(x, y + 25, obj_balloonpop)
+				sprite_index = spr_shotgunimpact
 		}
 		move = key_left + key_right;
-	
-		if move != 0
-			xscale = move
-	
-		hsp = move * movespeed
-		movespeed = 4
-		if place_meeting(x,y+1,obj_haystack)
+		
+		if global.gameplay == 0
+		{
+			if move != 0
+				xscale = move
+			
+			hsp = move * movespeed
+			movespeed = 4
+		}
+		else
+		{
+	        hsp = movespeed
+	        if move != 0
+	        {
+	            if move == xscale
+	                movespeed = Approach(movespeed, (xscale * 8), 0.5)
+	            else
+	                movespeed = Approach(movespeed, 0, 0.5)
+	            if movespeed <= 0
+	                xscale = move
+	        }
+	        else
+	            movespeed = Approach(movespeed, 0, 0.1)
+		}
+		
+		if place_meeting(x, y + 1, obj_haystack)
 			vsp = -20
-		else if grounded && vsp > 0 
+		else if grounded && vsp > 0 && !place_meeting(x, y + 1, obj_ratblock)
 		{
 			instance_create(x, y, obj_landcloud)
 			

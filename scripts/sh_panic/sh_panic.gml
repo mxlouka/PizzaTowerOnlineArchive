@@ -48,8 +48,19 @@ function sh_panic(args)
 		if seconds != undefined
 			global.seconds = seconds;
 		
+		// new gameplay timer
+		if minutes != undefined && seconds != undefined
+		{
+			global.fill = ((minutes * 60 + seconds) * 60) * obj_chunktimer.fillrate;
+		    with obj_tv
+		        chunkmax = global.fill
+		}
+		
 		global.wave = 0;
-		global.maxwave = max((global.minutes * 60 + global.seconds) * 60, 1);
+		if global.gameplay == 0
+			global.maxwave = max((global.minutes * 60 + global.seconds) * 60, 1);
+		else
+			global.maxwave = max(global.fill, 1)
 	}
 	else
 	{

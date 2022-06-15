@@ -785,20 +785,10 @@ function scr_wc_drawgui()
 				{
 					var getvar = variable_instance_get(WC_debugview_target, objvars[b]);
 					
-					var todraw = "";
-					if is_array(getvar)
-					{
-						draw_set_colour(merge_colour(c_white, c_yellow, 0.5));
-						todraw = "ARRAY";
-					}
-					else
-					{
-						draw_set_colour(c_white);
-						if string_char_at(string(getvar), 1) == "-"
-							draw_set_colour(merge_colour(c_white, c_red, 0.5));
-						todraw = string(getvar);
-					}
-					todraw = string_replace_all(todraw, "\n", "\\n");
+					draw_set_colour(c_white);
+					if string_char_at(string(getvar), 1) == "-"
+						draw_set_colour(merge_colour(c_white, c_red, 0.5));
+					var todraw = string_replace_all(string(getvar), "\n", "\\n");
 					
 					if b <= 32 + WC_debugview_scroll
 						draw_text_outline(956, ((b - WC_debugview_scroll) * 16) + 4, objvars[b] + ": " + todraw);

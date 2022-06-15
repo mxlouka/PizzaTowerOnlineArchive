@@ -5,7 +5,7 @@ if room != Realtitlescreen && global.gameplay != 0
 	or special_prompts == noone
 	{
 		special_prompts = ds_map_create();
-	
+		
 		ini_open("saveData" + global.saveslot + ".ini");
 		ds_map_set(special_prompts, "knight", ini_read_real("Prompts", "knight", 0));
 		ds_map_set(special_prompts, "boxxedpep", ini_read_real("Prompts", "boxxedpep", 0));
@@ -346,13 +346,14 @@ else
 								if sprite_index == spr_playerSP_candyup
 								or sprite_index == spr_playerSP_candytransitionup
 									other.idlespr = spr_tv_croaked;
-								else if _state == states.mach3 || sprite_index == spr_mach3boost
+								else if (_state == states.mach3 or sprite_index == spr_mach3boost)
+								&& !other.sugary
 				                    tv_do_expression(spr_tv_exprmach3)
 				                else if _state == states.hurt
 				                    tv_do_expression(spr_tv_exprhurt)
 								else if global.combo >= 3 && !obj_player.isgustavo
 				                    tv_do_expression(spr_tv_exprcombo)
-				                else if global.stylethreshold >= 3 && !obj_player.isgustavo
+				                else if (global.stylethreshold >= 3 or obj_player.angry) && !obj_player.isgustavo
 				                    tv_do_expression(spr_tv_exprheat)
 								else if shotgunAnim
 									other.idlespr = spr_tv_shotgun;
@@ -575,22 +576,6 @@ else
 				sprite_index = panic_sprite;
 				idlespr = sprite_index;
 			}
-			else if pchar == "SP" && happy_timer > 0
-			{
-				happy_timer--;
-				sprite_index = spr_tv_happySP;
-				idlespr = sprite_index;
-			}
-			else if pchar == "SP" && obj_player.angry
-			{
-				sprite_index = spr_tv_angrySP;
-				idlespr = sprite_index;
-			}
-			else if pchar == "SP" && global.combo >= 3 && global.combotime > 0
-			{
-				sprite_index = spr_tv_menacingSP;
-				idlespr = sprite_index;
-			}
 			else if pchar == "SP" && (_state == states.mach1 or _state == states.handstandjump or _state == states.crouchslide)
 				sprite_index = spr_tv_mach1SP;
 			else if pchar == "SP" && (_state == states.mach2 or _state == states.machslide)
@@ -600,11 +585,6 @@ else
 				sprite_index = spr_tv_mach3SP;
 				if obj_player.sprite_index == obj_player.spr_crazyrun
 					sprite_index = spr_tv_mach4SP;
-			}
-			else if pchar == "SP" && _state == states.hurt
-			{
-				sprite_index = spr_tv_hurtSP;
-				idlespr = sprite_index;
 			}
 			
 			// set tv sprite to the corresponding character
@@ -737,6 +717,9 @@ else
 	                }
 	                break
 	        }
+			if expressionsprite == noone
+				state = states.normal
+			
 	        if !ds_list_empty(tvprompts_list)
 	        {
 	            state = 250
@@ -750,7 +733,7 @@ else
 				
 				if sprite_exists(spr)
 					sprite_index = spr;
-				else
+				else if pchar == "P"
 					sprite_index = expressionsprite;
 				idlespr = sprite_index;
 			}
@@ -782,10 +765,11 @@ else
 	pizzaface_index += 0.35
 	hand_index += 0.35
 	johnface_index += 0.35
+	
 	if global.panic && global.fill > 0
 	{
 	    showtime_buffer = 100
-	    if !instance_exists(obj_ghostcollectibles)
+	    if !instance_exists(obj_ghostcollectibles) && !global.failedmod
 	        timer_y = Approach(timer_y, timer_ystart, 1)
 	    else
 	        timer_y = Approach(timer_y, timer_ystart + 212, 4)

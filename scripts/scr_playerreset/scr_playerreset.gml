@@ -23,6 +23,7 @@ function scr_playerreset()
 	
 	// other shit
 	global.combodropped = false
+	global.comboscore = 0
 	global.fill = 500
     global.chunk = 5
 	global.spaceblockswitch = true
@@ -151,6 +152,7 @@ function scr_playerreset()
 	{
 		chargecamera = 0
 		crouchcamera = 0
+		alarm[4] = -1
 	}
 	
 	if ds_exists(global.saveroom, ds_type_list)

@@ -16,10 +16,21 @@ if global.gameplay != 0
     with obj_escapecollectbig
         image_alpha = 1
 	
-	global.fill = 4000
+	if scr_panictime()
+		global.fill = ((global.minutes * 60 + global.seconds) * 60) * obj_chunktimer.fillrate;
+	else
+		global.fill = 4000
+	
+	global.maxwave = global.fill
     with obj_tv
         chunkmax = global.fill
 }
+else
+{
+	scr_panictime();
+	global.maxwave = (global.minutes * 60 + global.seconds) * 60;
+}
+global.wave = 0;
 
 instance_create(x, y, obj_bangeffect)
 repeat 3
@@ -51,18 +62,13 @@ if !instance_exists(obj_endlevelfade)
 {
 	instance_create(x, y, obj_itspizzatime)
 	
-	scr_panictime();
 	global.panic = true
-	
 	if global.snickrematch
 		instance_create(room_width / 2, -50, obj_snickexi);
 		
 	// Start up panicbg effects if option is enabled
 	if global.panicbg
 		scr_panicbg_init()
-	
-	global.wave = 0;
-	global.maxwave = (global.minutes * 60 + global.seconds) * 60;
 }
 //ds_list_add(global.saveroom, id)
 	

@@ -365,11 +365,27 @@ function scr_player_handstandjump()
 		mort = 1;
 	}
 	
-	// Bump
-	if !place_meeting(x + xscale, y, obj_destructibles) && ((!place_meeting(x + xscale, y, obj_shotgunblock) && !place_meeting(x + xscale, y, obj_enemyblock)) or !(character == "SP" && shotgunAnim)) && character != "S"
+	// climb wall
+	var slop = scr_slope();
+	var bump = climb_wall();
+	
+	if bump && (slop or !grounded) && key_attack && character != "S" && character != "SP"
+	&& global.gameplay != 0
 	{
-		if scr_solid(x + xscale, y) && (!place_meeting(x + xscale, y, obj_slope) or scr_solid_slope(x + xscale, y) or scr_solidwall(x + xscale, y) or scr_solidwall(x, y - 1))
-		&& !ledge_bump()
+		if !grounded or (!scr_solidwall(x, y - 32) or place_meeting(x, y - 32, obj_destructibles))
+		{
+			wallspeed = movespeed
+			if vsp > 0
+				wallspeed -= vsp
+			vsp = -wallspeed
+			state = states.climbwall
+		}
+	}
+	
+	// Bump
+	if bump && state != states.climbwall && (!place_meeting(x + xscale, y, obj_shotgunblock) or !(character == "SP" && shotgunAnim)) && character != "S"
+	{
+		if !ledge_bump() && (!place_meeting(x + xscale, y, obj_slope) or scr_solid_slope(x + xscale, y) or scr_solidwall(x + xscale, y) or scr_solidwall(x, y - 1))
 		{
 			grav = basegrav
 			movespeed = 0

@@ -1,17 +1,3 @@
-var yy = y - image_yscale * 6;
-if place_meeting(x, yy, obj_doorA)
-	targetDoor = "A"
-if place_meeting(x, yy, obj_doorB)
-	targetDoor = "B"
-if place_meeting(x, yy, obj_doorC)
-	targetDoor = "C"
-if place_meeting(x, yy, obj_doorD)
-	targetDoor = "D"
-if place_meeting(x, yy, obj_doorE)
-	targetDoor = "E"
-if place_meeting(x, yy, obj_doorANY)
-	targetDoor = instance_place(x, yy, obj_doorANY).door
-
 with obj_player
 {
 	if sign(other.image_yscale) == 1

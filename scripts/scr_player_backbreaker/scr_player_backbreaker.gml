@@ -22,8 +22,8 @@ function scr_player_backbreaker()
 		vsp = 0;
 	
 	//Taunt
-	if sprite_index = spr_taunt or sprite_index = spr_supertaunt1 or sprite_index = spr_supertaunt2
-	or sprite_index = spr_supertaunt3 or sprite_index = spr_supertaunt4
+	if sprite_index == spr_taunt or sprite_index == spr_supertaunt1 or sprite_index == spr_supertaunt2
+	or sprite_index == spr_supertaunt3 or sprite_index == spr_supertaunt4
 	{
 		if sprite_index == spr_taunt
 		{
@@ -72,31 +72,6 @@ function scr_player_backbreaker()
 						event_user(0);
 					}
 				}
-			}
-		}
-
-		// supertaunt kill
-		if (supercharged or ((character == "S" or character == "PP") && global.combo >= 3)) && !instance_exists(obj_tauntaftereffectspawner)
-		{
-			vsp = 0
-			with instance_create(x, y, obj_tauntaftereffectspawner)
-			{
-				if other.character == "S" or other.character == "PP"
-					legacy = true;
-			}
-			
-			if character != "S" && character != "PP"
-			{
-				supercharged = false;
-				supercharge = 0;
-			}
-			
-			scr_baddie_screenclear();
-			
-			with obj_camera
-			{
-				shake_mag = 10;
-				shake_mag_acc = 30 / room_speed;
 			}
 		}
 		

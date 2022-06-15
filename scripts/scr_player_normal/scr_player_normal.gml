@@ -414,6 +414,8 @@ function scr_player_normal()
 					movespeed = 4
 				
 				if global.gameplay != 0
+					flash = true;
+				if scr_stylecheck(2)
 				{
 					with instance_create(x, y, obj_crazyrunothereffect)
 						image_xscale = other.xscale;

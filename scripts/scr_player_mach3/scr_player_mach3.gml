@@ -33,14 +33,13 @@ function scr_player_mach3()
 		{
 			if movespeed < 24
 			{
-				if scr_checkskin(checkskin.n_hardoween)
-					movespeed += 0.1;
-				
-				movespeed += 0.1;
+				repeat (1 + scr_checkskin(checkskin.n_hardoween))
+					movespeed += global.gameplay == 0 ? 0.1 : 0.025;
 			}
 			
 			if sprite_index == spr_crazyrun && global.gameplay != 0
 			{
+				movespeed += 0.1;
 				if !instance_exists(crazyruneffectid) && grounded
 				{
 					with instance_create(x, y, obj_crazyruneffect)
@@ -123,15 +122,6 @@ function scr_player_mach3()
 				other.crazyruneffectid = id
 			}
 		}
-			
-		/*
-		if sprite_index = spr_mach4 or sprite_index = spr_fightball
-			image_speed = 0.4
-		if sprite_index = spr_crazyrun
-			image_speed = 0.75
-		if sprite_index = spr_rollgetup or sprite_index = spr_mach3hit
-			image_speed = 0.4
-		*/
 
 		// Input buffer jumping
 		if key_jump
@@ -162,29 +152,39 @@ function scr_player_mach3()
 		if key_down && !fightball && !place_meeting(x, y, obj_dashpad)
 		{
 			with instance_create(x, y, obj_jumpdust)
-			image_xscale = other.xscale
+				image_xscale = other.xscale
 			flash = false
-			state = states.machroll
+			
+			if global.gameplay == 0
+				state = states.machroll
+			else
+			{
+				state = states.tumble
+				if !grounded
+		            sprite_index = spr_mach2jump
+		        else
+		            sprite_index = spr_machroll
+			}
+			
 			vsp = 10
-				
 			if character == "V"
 				sprite_index = spr_playerV_divekickstart
 		}
-
+		
 		// Climbwall
 		var slop = scr_slope();
-		
-		var bump = (scr_solidwall(x + hsp, y) or scr_solid_slope(x + xscale, y))
-		&& (!slop or scr_solidwall(x + xscale, y - 10)) 
-		&& ((!place_meeting(x + hsp, y, obj_destructibles) && !place_meeting(x + hsp, y, obj_metalblock) && !place_meeting(x + hsp, y, obj_mach3solid)) or character == "V");
+		var bump = climb_wall() && ((!place_meeting(x + hsp, y, obj_metalblock) && !place_meeting(x + hsp, y, obj_mach3solid)) or character == "V");
 		
 		if bump && (slop or !grounded)
 		{
 			if !grounded or (!scr_solidwall(x, y - 32) or place_meeting(x, y - 32, obj_destructibles))
 			{
 				wallspeed = movespeed;
-				if global.gameplay == 0 && character != "SP"
+				if global.gameplay == 0
 					wallspeed = 10;
+				else if vsp > 0
+					wallspeed -= vsp;
+				
 				vsp = -wallspeed;
 				state = states.climbwall;
 			}
@@ -422,12 +422,11 @@ function scr_player_mach3()
 		var dashcloud = instance_create(x, y, obj_superdashcloud);
 		with dashcloud
 		{
-			if other.fightball
-				instance_create(x, y, obj_slapstar)
-	
 			image_xscale = other.xscale
 			other.dashcloudid = id
 		}
+		if fightball or (global.gameplay != 0 && sprite_index == spr_crazyrun)
+			instance_create(x, y, obj_slapstar)
 		
 		if place_meeting(x, y + 1, obj_water)
 			dashcloud.sprite_index = spr_watereffect;

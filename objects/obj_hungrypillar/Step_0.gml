@@ -42,8 +42,8 @@ if global.musicvolume > 0 && global.jukebox == -1
 			}
 			
 			var mv = global.musicvolume;
-			audio_sound_gain(song, vol * mv, 1000);
-			audio_sound_gain(global.music, mv - (vol * mv), 1000);
+			audio_sound_gain(song, vol * mv, 2000);
+			audio_sound_gain(global.music, mv - (vol * mv), 2000);
 		}
 	}
 	else if !global.panic
