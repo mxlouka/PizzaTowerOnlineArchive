@@ -5,12 +5,12 @@ with obj_boxofpizza
 }
 with obj_door
 {
-	if place_meeting(x, y, other)
+	if place_meeting(x, y, other) && targetRoom != room
 		targetDoor = other.door;
 }
 with obj_hallway
 {
-	if place_meeting(x, y, other)
+	if place_meeting(x, y, other) && targetRoom != room
 		targetDoor = other.door;
 }
 with obj_keydoor

@@ -17,6 +17,9 @@ function scr_player_superslam()
 		hsp = 0
 	}
 	
+	if sprite_index == spr_piledriver && vsp >= 0 && global.gameplay != 0
+        vsp += 0.5
+	
 	if grounded && !place_meeting(x, y + 1, obj_destructibles) && sprite_index == spr_piledriver && vsp > 0
 	{
 		scr_soundeffect(sfx_groundpound)
@@ -39,14 +42,17 @@ function scr_player_superslam()
 		instance_create(x, y, obj_landcloud)
 		freefallstart = 0
 		
-		with obj_baddie
+		if global.gameplay == 0
 		{
-			if grounded && point_in_camera(x, y, view_camera[0])
+			with obj_baddie
 			{
-				image_index = 0
+				if grounded && point_in_camera(x, y, view_camera[0])
+				{
+					image_index = 0
 				
-				vsp = -7
-				hsp = 0
+					vsp = -7
+					hsp = 0
+				}
 			}
 		}
 	}
@@ -65,16 +71,10 @@ function scr_player_superslam()
 		if sprite_index == spr_piledriverstart
 			sprite_index = spr_piledriver;
 		
-		if sprite_index = spr_piledriverland
-		&& (!instance_exists(baddiegrabbedID) or baddiegrabbedID == obj_otherplayer)
+		if sprite_index == spr_piledriverland
 		{
-			state = states.normal;
-			if baddiegrabbedID == obj_otherplayer
-			{
-				state = states.jump
-				vsp = -8
-				sprite_index = spr_machfreefall
-			}
+			state = states.jump
+			vsp = -6
 		}
 	}
 	
@@ -95,6 +95,9 @@ function scr_player_superslam()
 	if (character == "N" or character == "SP") && move != 0
 		xscale = move
 	
-	image_speed = 0.35
+	if vsp < 0 or global.gameplay == 0
+        image_speed = 0.35
+    else
+        image_speed = 0.5
 }
 

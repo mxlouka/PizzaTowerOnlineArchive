@@ -668,7 +668,9 @@ else
 	        {
 				case spr_tv_exprhurt:
 					if _state != states.hurt
-						break;
+						expressionsprite = noone
+					break;
+				
 				case spr_tv_exprcollect:
 	                if expressionbuffer > 0
 	                    expressionbuffer--

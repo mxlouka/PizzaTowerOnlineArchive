@@ -35,11 +35,10 @@ function scr_enemy_grabbed()
 		with player
 		{
 			suplexhavetomash = other.hp - 1
-			//Suplex mash
 			scr_getinput();
-
+			
 			move = key_left2 + key_right2;
-
+			
 			if key_slap && sprite_index == spr_grab
 			{
 				global.hit += 1
@@ -111,29 +110,96 @@ function scr_enemy_grabbed()
 			}
 		}
 
-		if _state = states.finishingblow && player.image_index < 5
+		if _state == states.finishingblow
 		{
-			x = player.x + (player.xscale * clipin);
-			y = player.y
-			player.baddiegrabbedID = id
-			
-			// clip in bounds
-			with player
+			if (player.image_index < 6 or (player.image_index < 1 && player.sprite_index == player.spr_swingdingend))
+			&& !(global.gameplay == 0 && place_meeting(x, y, obj_swordhitbox))
 			{
-				if scr_solid(x + xscale, y)
+				x = player.x + (player.xscale * clipin);
+				y = player.y
+				player.baddiegrabbedID = id
+			
+				// clip in bounds
+				with player
 				{
-					other.clipin = 1;
-					other.x = x;
+					if scr_solid(x + xscale, y)
+					{
+						other.clipin = 1;
+						other.x = x;
+					}
+				}
+				while scr_solid(x, y) && clipin > 0
+				{
+					clipin--;
+					x = player.x + (player.xscale * clipin);
 				}
 			}
-			while scr_solid(x, y) && clipin > 0
+			else
 			{
-				clipin--;
-				x = player.x + (player.xscale * clipin);
+				if global.gameplay != 0 && object_index != obj_noisey && object_index != obj_tank
+					hp -= 5
+				
+				repeat 3
+				{
+					instance_create(x, y, obj_slapstar)
+					create_particle(x, y, particles.baddiegibs)
+				}
+				with obj_camera
+				{
+					shake_mag = 3;
+					shake_mag_acc = 3 / room_speed;
+				}
+			
+				if (scr_solid(x, y) && object_index == obj_pizzaballOLD)
+				or place_meeting(x - (image_xscale * 24), y, obj_onewaybigblock)
+				{
+					x = player.x
+					y = player.y
+				}
+			
+				if place_meeting(x, y, obj_slope) && hp > 0 && object_index != obj_pizzaballOLD
+					hp = -10;
+			
+				alarm[3] = 3
+				global.hit += 1
+				if object_index = obj_pizzaballOLD
+					global.golfhit += 1
+				global.combotime = 60
+				alarm[1] = 5
+
+				thrown = true
+				state = states.stun
+				with player
+				{
+					move = key_right + key_left
+					if sprite_index == spr_uppercutfinishingblow
+					{
+						other.hsp = 0
+						other.vsp = -25
+						other.thrown_vertically = true
+					}
+					else
+					{
+						other.hsp = -other.image_xscale * 25
+						other.vsp = global.gameplay == 0 ? -6 : -8
+					}
+				}
+			
+				if global.gameplay != 0
+				{
+					player.vsp = -6
+					
+					hithsp = hsp;
+					hitvsp = vsp;
+				
+					scr_hitthrow(id, noone);
+				}
+				else
+					hp -= 1
 			}
 		}
 		
-		if _state = states.backkick 
+		if _state == states.backkick 
 		{
 			alarm[3] = 3
 			global.hit += 1
@@ -153,15 +219,15 @@ function scr_enemy_grabbed()
 			vsp = -7
 
 			global.combotime = 60
-			instance_create(x,y,obj_slapstar)
-			instance_create(x,y,obj_baddiegibs)
+			instance_create(x, y, obj_slapstar)
+			instance_create(x, y, obj_baddiegibs)
 			flash = true
 			
-			with (obj_camera) {
-				shake_mag=3;
-				shake_mag_acc=3/room_speed;
+			with obj_camera
+			{
+				shake_mag = 3;
+				shake_mag_acc = 3 / room_speed;
 			}
-
 		}
 
 		if _state = states.shoulder 
@@ -175,7 +241,7 @@ function scr_enemy_grabbed()
 			alarm[1] = 5
 
 			thrown = true
-			x =player.x
+			x = player.x
 			y = player.y
 			state = states.stun
 
@@ -203,68 +269,6 @@ function scr_enemy_grabbed()
 				shake_mag_acc = 3 / room_speed;
 			}
 
-		}
-		
-		if place_meeting(x, y, obj_swordhitbox)
-		{
-			if global.gameplay != 0 && object_index != obj_noisey && object_index != obj_tank
-				hp -= 5
-			
-			repeat 3
-			{
-				instance_create(x, y, obj_slapstar)
-				create_particle(x, y, particles.baddiegibs)
-			}
-			with obj_camera
-			{
-				shake_mag = 3;
-				shake_mag_acc = 3 / room_speed;
-			}
-			
-			if (scr_solid(x, y) && object_index == obj_pizzaballOLD)
-			or place_meeting(x - (image_xscale * 24), y, obj_onewaybigblock)
-			{
-				x = player.x
-				y = player.y
-			}
-			
-			if place_meeting(x, y, obj_slope) && hp > 0 && object_index != obj_pizzaballOLD
-				hp = -10;
-			
-			alarm[3] = 3
-			global.hit += 1
-			if object_index = obj_pizzaballOLD
-				global.golfhit += 1
-			global.combotime = 60
-			alarm[1] = 5
-
-			thrown = true
-			state = states.stun
-			with player
-			{
-				move = key_right + key_left
-				if sprite_index == spr_uppercutfinishingblow
-				{
-					other.hsp = 0
-					other.vsp = -25
-					other.thrown_vertically = true
-				}
-				else
-				{
-					other.hsp = -other.image_xscale * 25
-					other.vsp = -6
-				}
-			}
-			
-			if global.gameplay != 0
-			{
-				hithsp = hsp;
-				hitvsp = vsp;
-				
-				scr_hitthrow(id, noone);
-			}
-			else
-				hp -= 1
 		}
 		
 		if _state == states._throw 

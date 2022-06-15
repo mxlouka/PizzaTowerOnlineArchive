@@ -7,8 +7,6 @@ if activated && fade != -1
 			var obj = deactivatedlist[| i];
 			if instance_exists(obj)
 				obj.image_alpha = fade;
-			else
-				instance_activate_object(obj);
 		}
 		fade += 0.025;
 		if fade == 1

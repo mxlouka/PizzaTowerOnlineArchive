@@ -98,7 +98,7 @@ function sh_var(args)
 		
 		if arrind != -1
 		{
-			if variable == "alarm" && instance_exists(target) && is_real(value)
+			if variable == "alarm" && target != global && is_real(value)
 			{
 				with target
 					alarm[arrind[0]] = value;
@@ -118,19 +118,20 @@ function sh_var(args)
 		variable_instance_set(target, variable, value);
 		
 		// handle frozen var
-		if instance_exists(target)
+		for(var i = 0; i < ds_list_size(WC_frozen); i++)
 		{
-			for(var i = 0; i < ds_list_size(WC_frozen); i++)
+			var frozen = WC_frozen[|i];
+			if target != global
 			{
-				var frozen = WC_frozen[|i];
 				with target
 				{
 					if instance_exists(frozen[0]) && frozen[0].id == target.id && frozen[1] == variable
 						other.WC_frozen[|i][2] = value;
 				}
 			}
+			else if frozen[0] == global && frozen[1] == variable
+				WC_frozen[|i][2] = value;
 		}
-		
 		return ret;
 	}
 	

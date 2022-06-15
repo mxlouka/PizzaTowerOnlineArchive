@@ -17,7 +17,7 @@ function scr_player_taunt()
 			image_index = irandom(sprite_get_number(sprite_index))
 			
 			var oldsupertaunt = (character == "S" or character == "PP");
-			if supercharged or (oldsupertaunt && global.combo >= 3) && character != "V" && (key_up or global.gameplay == 0)
+			if (supercharged or (oldsupertaunt && global.combo >= 3)) && character != "V" && (key_up or global.gameplay == 0)
 			{
 				if scr_stylecheck(2)
 				{

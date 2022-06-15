@@ -24,7 +24,7 @@ function scr_player_finishingblow()
 	if floor(image_index) == 4 && global.gameplay != 0
 		image_index += 2;
 	
-	if floor(image_index) >= 6 - (global.gameplay != 0) && !instance_exists(obj_swordhitbox)
+	if (floor(image_index) >= 6 or global.gameplay != 0) && !instance_exists(obj_swordhitbox)
 	{
 		if instance_exists(baddiegrabbedID) && baddiegrabbedID.object_index == obj_junk && scr_checkskin(checkskin.p_anton)
 			scr_soundeffect(sfx_punchball_throw);

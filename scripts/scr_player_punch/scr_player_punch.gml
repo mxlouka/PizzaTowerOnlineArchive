@@ -148,19 +148,6 @@ function scr_player_punch()
 						movespeed = abs(movespeed);
 						state = states.normal;
 					}
-					
-					if punch_afterimage > 0
-				        punch_afterimage--
-				    else
-				    {
-				        punch_afterimage = 5
-						with instance_create(x, y, obj_blueafterimage)
-						{
-							sprite_index = other.sprite_index
-							image_index = other.image_index
-							image_xscale = other.xscale
-						}
-				    }
 				}
 				else if sprite_index == spr_player_Sjumpcancel or sprite_index == spr_player_Sjumpcancelland or sprite_index == spr_player_Sjumpcancelslide
 				{
@@ -216,19 +203,6 @@ function scr_player_punch()
 	                    image_index = 0
 	                    movespeed = -6
 	                }
-					
-					if punch_afterimage > 0
-				        punch_afterimage--
-				    else
-				    {
-				        punch_afterimage = 5
-						with instance_create(x, y, obj_blueafterimage)
-						{
-							sprite_index = other.sprite_index
-							image_index = other.image_index
-							image_xscale = other.xscale
-						}
-				    }
 				}
 				else if sprite_index == spr_player_kungfujump
 				{
@@ -246,6 +220,19 @@ function scr_player_punch()
 				}
 				else
 					hsp = xscale * movespeed
+				
+				if punch_afterimage > 0
+				    punch_afterimage--
+				else if global.gameplay != 0
+				{
+				    punch_afterimage = 5
+					with instance_create(x, y, obj_blueafterimage)
+					{
+						sprite_index = other.sprite_index
+						image_index = other.image_index
+						image_xscale = other.xscale
+					}
+				}
 				
 				if sprite_index == spr_player_breakdancesuper && key_shoot2
 					movespeed = 14

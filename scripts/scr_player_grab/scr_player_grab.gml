@@ -109,12 +109,12 @@ function scr_player_grab()
 			if move != xscale && baddiegrabbedID.object_index != obj_pizzaballOLD
 				movespeed = 2
 			
-			if momentum = false
+			if !momentum
 				hsp = move * movespeed;
 			else
 				hsp = xscale * movespeed
 
-			if move != xscale && momentum = true && movespeed != 0 
+			if move != xscale && momentum && movespeed != 0 
 				movespeed -= 0.05
 
 			if movespeed = 0
@@ -125,7 +125,7 @@ function scr_player_grab()
 			if movespeed > 6 
 				movespeed -= 0.5
 
-			if ((scr_solid(x+1,y) && move == 1) or (scr_solid(x-1,y) && move == -1))
+			if scr_solid(x + move, y)
 				movespeed = 0
 		}
 		
@@ -147,15 +147,11 @@ function scr_player_grab()
 		landAnim = true
 		
 		//Jump Stop
-		if (!key_jump2) && jumpstop = false && vsp < 0.5 && stompAnim =false
+		if !key_jump2 && !jumpstop && vsp < 0.5 && !stompAnim
 		{
 			vsp /= 10
 			jumpstop = true
 		}
-		
-		//Ladder Buffer
-		if ladderbuffer > 0
-			ladderbuffer --
 		
 		//Hit head
 		if scr_solid(x, y - 1) && !jumpstop && jumpAnim
@@ -174,20 +170,43 @@ function scr_player_grab()
 	}
 	else
 	{
-		hsp = xscale * movespeed;
+		if scr_stylecheck(2)
+		{
+			hsp = xscale * movespeed;
 		
-		if scr_solid(x + xscale, y)
-		&& (!place_meeting(x + sign(hsp), y, obj_slope) or scr_solid_slope(x + sign(hsp), y))
-		&& !place_meeting(x + sign(hsp), y, obj_destructibles)
-			xscale *= -1;
+			if scr_solid(x + xscale, y)
+			&& (!place_meeting(x + sign(hsp), y, obj_slope) or scr_solid_slope(x + sign(hsp), y))
+			&& !place_meeting(x + sign(hsp), y, obj_destructibles)
+				xscale *= -1;
 		
-		if swingdingbuffer == 0 && !key_attack
-			swingdingbuffer = -1;
-		if swingdingbuffer == -1
-			movespeed = Approach(movespeed, 0, 0.5);
+			if swingdingbuffer == 0 && !key_attack
+				swingdingbuffer = -1;
+			if swingdingbuffer == -1
+				movespeed = Approach(movespeed, 0, 0.5);
 		
-		if movespeed == 0
-			sprite_index = spr_haulingidle;
+			if movespeed == 0
+				sprite_index = spr_haulingidle;
+		}
+		else
+		{
+			if grounded
+	            movespeed = Approach(movespeed, 0, 0.25)
+	        if movespeed <= 0
+	            sprite_index = spr_haulingidle
+	        swingdingendcooldown++
+	        hsp = xscale * movespeed
+			
+	        if scr_solid(x + xscale, y) && (!place_meeting(x + sign(hsp), y, obj_slope) or scr_solid_slope(x + sign(hsp), y)) && !place_meeting(x + sign(hsp), y, obj_destructibles)
+	        {
+	            vsp = -4
+	            sprite_index = spr_player_kungfujump
+	            image_index = 0
+	            state = states.punch
+	            movespeed = -6
+	        }
+	        with instance_place(x + xscale, y, obj_destructibles)
+	            instance_destroy()
+		}
 	}
 	
 	//Input buffer jumping
@@ -195,7 +214,7 @@ function scr_player_grab()
 		input_buffer_jump = 0
 
 	//Input jumping
-	if (grounded && input_buffer_jump < 8 && !key_down && !key_attack && vsp > 0 ) && sprite_index != spr_swingding
+	if (grounded && input_buffer_jump < 8 && !key_down && !key_attack && vsp > 0) && sprite_index != spr_swingding
 	{
 		scr_soundeffect(sfx_jump)
 		sprite_index = spr_haulingjump
@@ -217,7 +236,7 @@ function scr_player_grab()
 	else if grounded && move == 0 && sprite_index == spr_haulingwalk
 		sprite_index = spr_haulingidle
 	
-	if sprite_index = spr_haulingstart && floor(image_index) >= image_number - 1
+	if sprite_index == spr_haulingstart && floor(image_index) >= image_number - 1
 		sprite_index = spr_haulingidle
 	
 	//Fall
@@ -284,13 +303,14 @@ function scr_player_grab()
 	
 	if key_attack && sprite_index != spr_swingding
 	{
+		var did = true;
 		if global.gameplay == 0
 		{
 			state = states.tacklecharge
 			sprite_index = spr_charge
 			scr_soundeffect(sfx_suplexdash)
 		}
-		else
+		else if scr_stylecheck(2)
 		{
 			if move != 0
 				xscale = move
@@ -304,11 +324,16 @@ function scr_player_grab()
 			if !key_jump2 && vsp < 0.5
 				vsp /= 10;
 		}
+		else
+			did = false;
 		
-		if baddiegrabbedID.object_index == obj_pizzaballOLD
-			global.golfhit += 1;
-		with instance_create(x, y, obj_jumpdust)
-			image_xscale = other.xscale
+		if did
+		{
+			if baddiegrabbedID.object_index == obj_pizzaballOLD
+				global.golfhit += 1;
+			with instance_create(x, y, obj_jumpdust)
+				image_xscale = other.xscale
+		}
 	}
 	
 	if swingdingbuffer > 0 && global.gameplay != 0
@@ -319,7 +344,7 @@ function scr_player_grab()
 	}
 	
 	//Throws
-	if key_slap2 && (sprite_index != spr_swingding or global.gameplay != 1)
+	if key_slap2 && (sprite_index != spr_swingding or swingdingendcooldown > 20 or scr_stylecheck(2))
 	{
 		if move != 0
 			move = xscale
@@ -333,8 +358,13 @@ function scr_player_grab()
 			sprite_index = spr_uppercutfinishingblow
 		
 		image_index = 0
-		hsp = 0
-		movespeed = 0
+		if global.gameplay == 0
+		{
+			hsp = 0
+			movespeed = 0
+		}
+		else
+			movespeed = hsp
 	}
 	
 	if key_down && !grounded
@@ -348,7 +378,7 @@ function scr_player_grab()
 		else
 			sprite_index = spr_piledriver;
 		
-		vsp = -6;
+		vsp = global.gameplay == 0 ? -6 : -5;
 		state = states.superslam;
 		image_index = 0;
 		image_speed = 0.35;

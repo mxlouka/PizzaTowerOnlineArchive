@@ -69,8 +69,8 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "HUD",
-    "path": "folders/Sprites/HUD.yy",
+    "name": "new hud",
+    "path": "folders/Sprites/HUD/new hud.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_comboend",

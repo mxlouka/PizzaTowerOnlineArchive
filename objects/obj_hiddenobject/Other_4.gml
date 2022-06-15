@@ -14,6 +14,7 @@ if ds_list_find_index(global.saveroom, id) == -1
 					obj.hitboxcreate = false;
 					break;
 			}
+			ds_list_add(deactivatedlist, obj);
 			instance_deactivate_object(obj);
 		}
 	}
