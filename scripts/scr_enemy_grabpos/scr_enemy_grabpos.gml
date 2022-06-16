@@ -82,12 +82,7 @@ function scr_enemy_grabpos(player)
 				y += 20;
 		}
 		else
-		{
 			y = player.y - (floor(player.image_index) * 10);
-			if (sprite_index == spr_slimegrabbed or sprite_index == spr_slimegrabbed_re)
-			&& global.gameplay != 0
-				y -= 25;
-		}
 	}
 	image_xscale = -player.xscale;
 }

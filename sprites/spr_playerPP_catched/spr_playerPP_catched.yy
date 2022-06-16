@@ -1,4 +1,7 @@
 {
+  "ConfigValues": {
+    "debug": {"textureGroupId":"{\"name\":\"tg_player\",\"path\":\"texturegroups/tg_player\"}",},
+  },
   "bboxMode": 0,
   "collisionKind": 1,
   "type": 0,
@@ -38,7 +41,7 @@
     "spriteId": {"name":"spr_playerPP_catched","path":"sprites/spr_playerPP_catched/spr_playerPP_catched.yy",},
     "timeUnits": 1,
     "playback": 1,
-    "playbackSpeed": 20.0,
+    "playbackSpeed": 1.0,
     "playbackSpeedType": 1,
     "autoRecord": true,
     "volume": 1.0,

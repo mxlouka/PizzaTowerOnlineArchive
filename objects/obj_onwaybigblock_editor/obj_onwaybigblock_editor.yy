@@ -1,10 +1,11 @@
 {
   "spriteId": {
-    "name": "spr_onewaybigblock",
-    "path": "sprites/spr_onewaybigblock/spr_onewaybigblock.yy",
+    "name": "spr_onewaybigblock_NEW",
+    "path": "sprites/spr_onewaybigblock_NEW/spr_onewaybigblock_NEW.yy",
   },
   "solid": false,
   "visible": true,
+  "managed": true,
   "spriteMaskId": null,
   "persistent": false,
   "parentObjectId": {
@@ -23,10 +24,7 @@
   "physicsStartAwake": true,
   "physicsKinematic": false,
   "physicsShapePoints": [],
-  "eventList": [
-    {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
-    {"isDnD":false,"eventNum":0,"eventType":2,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
-  ],
+  "eventList": [],
   "properties": [],
   "overriddenProperties": [],
   "parent": {

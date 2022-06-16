@@ -56,6 +56,8 @@ for (var i = 0; i < array_length(layers); i++)
 	}
 	if layername == "Assets_FG"
 		layer_depth(layers[i], 90);
+	if layername == "Backgrounds_FG"
+		layer_depth(layers[i], -100);
 	
 	// change snick rematch appearance
 	var layers_e = layer_get_all_elements(layers[i]);

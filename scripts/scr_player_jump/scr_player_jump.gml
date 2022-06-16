@@ -414,36 +414,8 @@ function scr_player_jump()
 		}
 		else if !suplexmove
 		{
-			suplexmove = true
-			
-			if global.gameplay != 0 or character != "SP"
-				suplexdashsnd =	scr_soundeffect(sfx_suplexdash)
-			else
-				scr_soundeffect(sfx_suplexdashSP);
-				
-			sprite_index = spr_suplexdashjumpstart
-			if character == "SP"
-			{
-				sprite_index = spr_suplexdash;
-				if shotgunAnim
-					sprite_index = spr_shotgunsuplexdash;
-			}
-			else if global.gameplay == 0
-				vsp = -4
-			
-			state = states.handstandjump
-			image_index = 0
-			
-			if character == "N"
-				movespeed = 4;
-			else
-				movespeed = 6;
-			
-			if global.gameplay != 0
-				flash = true;
-			if scr_stylecheck(2)
-				instance_create(x, y, obj_crazyrunothereffect)
-			grav = basegrav;
+			state = states.handstandjump;
+			scr_player_dosuplexdash();
 		}
 	}
 

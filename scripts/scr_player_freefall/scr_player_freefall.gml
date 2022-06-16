@@ -132,9 +132,9 @@ function scr_player_freefall()
                     other.movespeed = 12
                 else
                     other.movespeed = 8
-                with instance_create(other.x, other.y, obj_jumpdust)
-                    image_xscale = other.xscale
             }
+			with instance_create(other.x, other.y, obj_jumpdust)
+                image_xscale = other.xscale
 	    }
 		else
 		{

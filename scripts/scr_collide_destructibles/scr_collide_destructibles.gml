@@ -155,10 +155,15 @@ function scr_collide_destructibles()
 		// Freefall destroy
 		if vsp >= 0 && (state == states.freefall or state == states.freefallland)
 		{
-			var block = instance_place(x, y + vsp + 2, obj_destructibles);
-			if block && !place_meeting(x, y + vsp + 2, obj_platform)
+			var block = instance_place(x, y + vsp + 4, obj_destructibles);
+			if block
 			{
-				if place_meeting(x, y + vsp + 2, obj_bigdestructibles)
+				with block
+					if place_meeting(x, y, obj_platform) block = false;
+			}
+			if block
+			{
+				if inst_relation(block, obj_bigdestructibles)
 				&& (freefallsmash <= 10 or global.gameplay == 0)
 				{
 					if !shotgunAnim

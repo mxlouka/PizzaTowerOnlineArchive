@@ -86,5 +86,7 @@ function scr_collide_player()
 	}
 	
 	//Gravity
-	vsp = min(vsp + (grav * gravmult), 20 * gravmult);
+	var maxvsp = 20 * gravmult;
+	if vsp < maxvsp
+		vsp = min(vsp + (grav * gravmult), maxvsp);
 }

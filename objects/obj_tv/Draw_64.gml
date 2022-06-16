@@ -176,6 +176,8 @@ else
 				if noisebuffer > 0
 				{
 					tvspr = sugary ? spr_tv_whitenoiseSP : spr_tv_whitenoise;
+					if instance_exists(obj_player) && obj_player.character == "PP"
+						tvspr = spr_tv_whitenoisePP;
 					
 					tvimg += 0.35;
 					noisebuffer--;
@@ -190,6 +192,8 @@ else
 						pal_swap_set(spr_palette, paletteselect, false);
 				}
 				
+				if !sugary
+					draw_sprite_ext(spr_tv_cheapbg, 0, 833 + offset_x, 107 + offset_y + hud_posY, 1, 1, 0, c_white, alpha);
 				draw_sprite_ext(tvspr, tvimg, 833 + offset_x, 107 + offset_y + hud_posY, 1, 1, 0, c_white, alpha);
 				pal_swap_reset();
 				

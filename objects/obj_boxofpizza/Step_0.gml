@@ -3,7 +3,8 @@ with obj_player
 	if sign(other.image_yscale) == 1
 	{
 		if ((key_down && ((state == states.crouch or (character == "S" && scr_transformationcheck())) or state == states.machroll))
-		or (state == states.crouchslide or state == states.freefall or state == states.freefallland))
+		or (state == states.crouchslide or state == states.freefall or state == states.freefallland)
+		or (sprite_index == spr_machroll && grounded) or sprite_index == spr_dive)
 		&& !instance_exists(obj_fadeout) && !place_meeting(x, y + 1, obj_destructibles) && place_meeting(x, y + 1, other) && state != states.gameover && state != states.hitlag
 			other.downbox(id, other);
 	}

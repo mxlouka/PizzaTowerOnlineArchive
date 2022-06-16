@@ -1,117 +1,84 @@
-
-
-
-if floor(image_index) = image_number - 1 && sprite_index = spr_grabbiehand_hifive
+if floor(image_index) >= image_number - 1 && sprite_index == spr_grabbiehand_hifive
 {
-sprite_index =spr_grabbiehand_idle
-thumbingup = false
-image_xscale = 1
+	sprite_index = spr_grabbiehand_idle
+	thumbingup = false
+	image_xscale = 1
 }
 
 //Fall
-	if (x <= xstarte + 6 && x >= xstarte - 6) && (y <= ystarte + 6 && y >= ystarte - 6) && (obj_player.x >(x-50) && obj_player.x <(x+50)) && (obj_player.y > y && obj_player.y < (y + 400)) && thumbingup = false
+var targetplayer = instance_nearest(x, y, obj_player);
+if targetplayer && x == xstarte && y == ystarte && !thumbingup
+&& number_in_range(targetplayer.x, x - 50, x + 50) && number_in_range(targetplayer.y, y, y + 400)
 {
-delay --
-if delay <= 0
-{
-scr_soundeffect(sfx_enemyprojectile)
-grav = 0.35
-vsp = 10
-sprite_index =spr_grabbiehand_fall
-delay =5
+	delay--
+	if delay <= 0
+	{
+		scr_soundeffect(sfx_enemyprojectile)
+		grav = 0.35
+		vsp = 10
+		sprite_index = spr_grabbiehand_fall
+		delay = 5
+	}
 }
-}
-
-
 
 //Land and go back up
-if grounded && sprite_index = spr_grabbiehand_fall && grabbing = false
+if grounded && sprite_index == spr_grabbiehand_fall && !grabbing
 {
-
-grav = 0
-sprite_index =spr_grabbiehand_idle
-vsp = -3
+	grav = 0
+	sprite_index = spr_grabbiehand_idle
+	vsp = -3
 }
 
 //Ready to fall again
-if (y <= ystarte + 6 && y >= ystarte - 6) && vsp = -3 && grabbing = false
-{
-vsp = 0
-
-}
-
-
-
-
-
+if y == ystarte && vsp < 0 && !grabbing
+	vsp = 0
 
 //Move toward drop spot
-if sprite_index = spr_grabbiehand_catch && released = false && grabbing = true
+if sprite_index == spr_grabbiehand_catch && !released && grabbing
 {
-if dropspotx > x
-x += 4
-
-if dropspotx < x
-x -= 4
-
-if dropspoty > y
-y += 4
-
-if dropspoty < y
-y -= 4
-
-
-
+	x = Approach(x, dropspotx, 4);
+	y = Approach(y, dropspoty, 4);
 }
-
 
 //Release
-if (x <= dropspotx + 5 && x >= dropspotx - 5) && (y <= dropspoty + 5 && y >= dropspoty - 5) && released = false && grabbing = true
+if x == dropspotx && y == dropspoty && !released && grabbing
 {
-obj_player.state = states.freefall
-image_index = 0
-sprite_index =spr_grabbiehand_release
-released = true
+	with player
+		state = states.freefall
+	
+	player = noone
+	image_index = 0
+	sprite_index = spr_grabbiehand_release
+	released = true
 }
-
-
-
-
 
 //Come back from release
-if sprite_index =spr_grabbiehand_release && floor(image_index) == image_number-1 && released = true && grabbing = true
+if sprite_index == spr_grabbiehand_release && floor(image_index) >= image_number - 1 && released && grabbing
+	sprite_index = spr_grabbiehand_idle
+
+if sprite_index = spr_grabbiehand_idle && released && grabbing
 {
-sprite_index = spr_grabbiehand_idle
-
+	x = Approach(x, xstarte, 4);
+	y = Approach(y, ystarte, 4);
 }
-
-
-if sprite_index = spr_grabbiehand_idle && released = true && grabbing = true
-{
-if xstarte > x
-x += 4
-
-if xstarte < x
-x -= 4
-
-if ystarte > y
-y += 4
-
-if ystarte < y
-y -= 4
-
-}
-
 
 //Back to start
-if (x <= xstarte + 6 && x >= xstarte - 6) && (y <= ystarte + 6 && y >= ystarte - 6) && grabbing = true && sprite_index = spr_grabbiehand_idle
+if x == xstarte && y == ystarte && grabbing && sprite_index == spr_grabbiehand_idle
 {
-grabbing = false
-released = false
-
+	grabbing = false
+	released = false
 }
-
-
-
 scr_collide()
 
+if instance_exists(player)
+{
+	with player
+	{
+		vsp = 0
+		hsp = 0
+		state = states.bump
+		sprite_index = spr_catched
+		x = x
+		y = y
+	}
+}

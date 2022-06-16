@@ -7,6 +7,9 @@ with other
 		if place_meeting(x, y, obj_superspring) or global.gameplay == 0
 			changecoord = false;
 		
+		with instance_create(x, y, obj_jumpdust)
+			image_xscale = other.image_xscale;
+		
 		if grounded && state == states.pogo && (key_attack or global.gameplay != 0)
 		{
 			if other.image_xscale != 0
@@ -23,6 +26,12 @@ with other
 			vsp = 0
 			with instance_create(x, y, obj_jumpdust)
 				image_xscale = other.xscale
+		}
+		
+		else if (state == states.boxxedpep or state == states.boxxedpepjump or state == states.boxxedpepspin)
+		&& global.gameplay != 0
+		{
+			
 		}
 		
 		else if (grounded && (state == states.mach1 or state == states.mach2 or (state == states.handstandjump && (-key_left or key_right) && character == "S")) && key_attack)
@@ -47,6 +56,9 @@ with other
 			
 			if movespeed < 14
 				movespeed = 14
+			else if global.gameplay != 0
+				movespeed += 0.5
+			hsp = xscale * movespeed
 		
 			if global.gameplay == 0
 				flash = true

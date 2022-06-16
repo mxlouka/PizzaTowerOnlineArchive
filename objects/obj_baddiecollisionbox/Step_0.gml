@@ -25,7 +25,7 @@ if player && !player.cutscene && (player.state != states.firemouth or global.gam
 		if bad.invtime <= 0 && instakillmove && (!bad.thrown or global.gameplay != 0) && !bad.invincible && bad.instantkillable
 		{
 			suplexmove = false
-			if state == states.mach3 && sprite_index != spr_mach3hit && (character = "P" or character = "V" or (character == "N" && noisetype == 1))
+			if state == states.mach3 && sprite_index != spr_mach3hit && (character != "S" && !(character == "N" && noisetype == 0))
 			{
 				if !fightball
 					sprite_index = spr_mach3hit
@@ -57,7 +57,7 @@ if player && !player.cutscene && (player.state != states.firemouth or global.gam
 				bad.grabbedby = 1;
 			
 			global.hit += 1;
-			if !grounded && state != states.freefall && key_jump2
+			if !grounded && state != states.freefall && key_jump2 && global.gameplay == 0
 			{
 				if state == states.mach2 or (state == states.mach3 && !fightball)
 					sprite_index = spr_mach2jump
@@ -65,8 +65,7 @@ if player && !player.cutscene && (player.state != states.firemouth or global.gam
 				vsp = -11
 			}
 			
-			var lag = 5;
-			
+			var lag = bad.instakilled ? 5 : 0;
 			if (sprite_index == spr_attackdash or sprite_index == spr_airattack or sprite_index == spr_airattackstart)
 			&& character == "P"
 			{
@@ -79,6 +78,7 @@ if player && !player.cutscene && (player.state != states.firemouth or global.gam
 			}
 			if state == states.chainsawbump
 			{
+				lag = 5;
 				bad.hp -= 99
 				sprite_index = spr_player_chainsawhit
 				image_index = 0
@@ -88,23 +88,47 @@ if player && !player.cutscene && (player.state != states.firemouth or global.gam
 				instance_destroy(bad);
 			else
 			{
-				bad.image_xscale = -xscale;
-				bad.hithsp = 0;
-				
-				if key_up
+				if lag <= 0
 				{
-					bad.hitvsp = -11;
-					bad.thrown_vertically = true;
+					with bad
+					{
+						xscale = 0.8
+                        yscale = 1.3
+						instance_create(x, y, obj_bangeffect)
+                        state = states.stun
+                        image_xscale = -other.xscale
+                        hsp = other.xscale * 12
+                        vsp = (other.y - 180 - y) / 60
+                        invtime = 5
+                        flash = true
+					}
+					
+					repeat 2
+                    {
+                        with instance_create(x, y, obj_slapstar)
+                            vsp = irandom_range(-6, -11)
+                    }
 				}
-				else if key_down
-					bad.hitvsp = 11;
 				else
 				{
-					bad.hithsp = -8 * bad.image_xscale;
-					bad.hitvsp = -8;
+					bad.image_xscale = -xscale;
+					bad.hithsp = 0;
+				
+					if key_up
+					{
+						bad.hitvsp = -11;
+						bad.thrown_vertically = true;
+					}
+					else if key_down
+						bad.hitvsp = 11;
+					else
+					{
+						bad.hithsp = -8 * bad.image_xscale;
+						bad.hitvsp = -8;
+					}
+					scr_hitthrow(bad, id, lag);
+					bad.invtime = 25;
 				}
-				scr_hitthrow(bad, id, lag);
-				bad.invtime = 25;
 			}
 			
 			scr_soundeffect(sfx_punch);
@@ -117,11 +141,40 @@ if player && !player.cutscene && (player.state != states.firemouth or global.gam
 		{
 			if (!bad.thrown or global.gameplay != 0) && !(character == "SP" && shotgunAnim && !key_slap) // && (character = "P" or character = "N" or character == "SP" or bad.object_index == obj_pizzaballOLD)
 			{
-				movespeed = 0
 				image_index = 0
-				sprite_index = spr_haulingstart
+				if global.gameplay != 0 && key_up
+				{
+					if character == "SP"
+					{
+						if scr_stylecheck(0, 2)
+							scr_soundeffect(sfx_jump);
+						sprite_index = spr_piledriverstart;
+					}
+					else
+						sprite_index = spr_piledriver;
+					
+					state = states.superslam;
+					image_index = 0;
+					image_speed = 0.35;
+					vsp = -14
+				}
+				else
+				{
+					sprite_index = spr_haulingstart
+					swingdingendcooldown = 0
 				
-				state = states.grab
+					if global.gameplay != 0
+					{
+						if movespeed > 10 && !scr_stylecheck(2)
+							sprite_index = spr_swingding
+						if !grounded
+		                    vsp = -6
+					}
+					else
+						movespeed = 0
+				
+					state = states.grab
+				}
 				if character == "SP"
 					scr_soundeffect(sfx_grabenemy_ss)
 				
@@ -196,8 +249,11 @@ if player && !player.cutscene && (player.state != states.firemouth or global.gam
 				if bad.stunned < 100
 					bad.stunned = 100
 			}
-			if scr_stylecheck(2)
-				bad.yscale = 0.35;
+			if global.gameplay != 0
+			{
+				bad.xscale = 1.4;
+				bad.yscale = 0.6;
+			}
 			
 			instance_create(x, y + 50, obj_stompeffect)
 			stompAnim = true
@@ -222,8 +278,12 @@ if player && !player.cutscene && (player.state != states.firemouth or global.gam
 				bad.state = states.stun
 				bad.vsp = -3
 				bad.stunned = max(bad.stunned, 100)
-				if scr_stylecheck(2)
-					bad.yscale = 0.35;
+				
+				if global.gameplay != 0
+				{
+					bad.xscale = 1.4;
+					bad.yscale = 0.6;
+				}
 				
 				sprite_index = spr_playerN_pogobounce
 				if character == "SP"

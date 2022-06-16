@@ -637,7 +637,7 @@ if grounded && state != states.Sjump
 
 // colorful afterimages
 if state == states.mach3 or pizzapepper > 0 or sprite_index == spr_barrelroll
-or state == states.parry or state == states.rideweenie 
+or (state == states.parry && global.gameplay != 1) or state == states.rideweenie 
 or state == states.climbwall or (state == states.jump && sprite_index == spr_playerN_noisebombspinjump)
 or pogochargeactive or state == states.hookshot or state == states.mach2
 or state == states.tacklecharge or state == states.machslide

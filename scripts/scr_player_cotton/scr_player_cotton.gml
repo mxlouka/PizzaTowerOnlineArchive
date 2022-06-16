@@ -9,7 +9,7 @@ function scr_player_cotton()
 	// break rat blocks
 	if drilling or rolling or sprite_index == spr_cotton_attack or movespeed > 6
 	{
-		with instance_place(x + hsp, y + vsp, obj_ratblock)
+		with instance_place(x + hsp + xscale, y + vsp, obj_ratblock)
 	        instance_destroy()
 	}
 	
@@ -292,7 +292,7 @@ function scr_player_cotton()
 	}
 	
 	// land while drilling
-	if drilling && grounded && !place_meeting(x, y + 1, obj_cottonblock) && !place_meeting(x, y + 1, obj_destructibles)
+	if drilling && grounded && !place_meeting(x, y + 1, obj_ratblock) && !place_meeting(x, y + 1, obj_destructibles)
 	{
 		var slop = instance_place(x, y + 2, obj_slope);
 		if !slop

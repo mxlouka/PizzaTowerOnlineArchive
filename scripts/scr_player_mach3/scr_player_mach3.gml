@@ -33,13 +33,16 @@ function scr_player_mach3()
 		{
 			if movespeed < 24
 			{
-				repeat (1 + scr_checkskin(checkskin.n_hardoween))
+				if global.gameplay != 0 && sprite_index == spr_crazyrun
+					movespeed += 0.1;
+				else repeat (1 + scr_checkskin(checkskin.n_hardoween))
 					movespeed += global.gameplay == 0 ? 0.1 : 0.025;
+				
+				scr_player_addslopemomentum(0.1, 0.2);
 			}
 			
 			if sprite_index == spr_crazyrun && global.gameplay != 0
 			{
-				movespeed += 0.1;
 				if !instance_exists(crazyruneffectid) && grounded
 				{
 					with instance_create(x, y, obj_crazyruneffect)
@@ -261,6 +264,9 @@ function scr_player_mach3()
 				vsp = -6
 			}
 		}
+		
+		if key_slap2 && global.gameplay != 0
+			scr_player_dosuplexdash();
 	}
 	#endregion
 	#region pogo noise

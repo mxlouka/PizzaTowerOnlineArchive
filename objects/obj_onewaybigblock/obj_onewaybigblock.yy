@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_onewaybigblock",
-    "path": "sprites/spr_onewaybigblock/spr_onewaybigblock.yy",
+    "name": "spr_onewaybigblock_NEW",
+    "path": "sprites/spr_onewaybigblock_NEW/spr_onewaybigblock_NEW.yy",
   },
   "solid": false,
   "visible": true,
@@ -32,6 +32,7 @@
     {"isDnD":false,"eventNum":0,"eventType":1,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
     {"isDnD":false,"eventNum":4,"eventType":7,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
     {"isDnD":false,"eventNum":10,"eventType":7,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
+    {"isDnD":false,"eventNum":0,"eventType":2,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
   ],
   "properties": [],
   "overriddenProperties": [],

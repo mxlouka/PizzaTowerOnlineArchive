@@ -1,5 +1,5 @@
 draw_set_colour(c_white);
-draw_set_halign(fa_center);
+draw_set_align(fa_center, fa_middle);
 draw_set_font(loadfont);
 
 switch loadwhat
@@ -31,3 +31,4 @@ switch loadwhat
 		loadwhat = 2;
 		break;
 }
+draw_set_align();

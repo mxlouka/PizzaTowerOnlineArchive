@@ -31,6 +31,7 @@ function scr_player_normal()
 		_msp = 7;
 	
 	//Idles Anim
+	var outoftime = !instance_exists(obj_toppinwarrior) && ((global.gameplay == 0 && global.minutes <= 0 && global.seconds <= 0) or (global.gameplay != 0 && global.panic && global.fill <= 0));
 	if character != "S"
 	{
 		if move != 0
@@ -63,8 +64,7 @@ function scr_player_normal()
 					sprite_index = spr_3hpwalk
 				else if global.stylethreshold >= 3 && character != "SP"
 					sprite_index = spr_ragemove
-				else if global.minutes <= 0 && global.seconds <= 0
-				&& !instance_exists(obj_toppinwarrior)
+				else if outoftime
 					sprite_index = spr_hurtwalk
 				else if angry && global.gameplay != 1
 					sprite_index = spr_3hpwalk
@@ -120,8 +120,7 @@ function scr_player_normal()
 										sprite_index = spr_3hpidle
 									else if global.stylethreshold >= 3 && character != "SP"
 										sprite_index = spr_rageidle
-									else if global.minutes <= 0 && global.seconds <= 0
-									&& !instance_exists(obj_toppinwarrior)
+									else if outoftime
 										sprite_index = spr_hurtidle
 									else if global.panic or global.snickchallenge
 										sprite_index = spr_panic
@@ -273,8 +272,7 @@ function scr_player_normal()
 			{
 				if shotgunAnim && character != "SP"
 					sprite_index = spr_shotgunjump
-				else if global.minutes <= 0 && global.seconds <= 0 && character == "P"
-				&& !instance_exists(obj_toppinwarrior)
+				else if outoftime
 					sprite_index = spr_player_hurtjump
 				else
 					sprite_index = spr_jump
@@ -392,46 +390,7 @@ function scr_player_normal()
 			}
 		}
 		else if character != "S" && character != "V" && !suplexmove
-		{
-			suplexmove = true
-			if character != "SP" or global.gameplay != 0
-				suplexdashsnd =	scr_soundeffect(sfx_suplexdash);
-			else
-				scr_soundeffect(sfx_suplexdashSP);
-			
-			if !(character == "SP" && state == states.jump && vsp < 0)
-			{
-				state = states.handstandjump
-				image_index = 0
-				if !shotgunAnim
-					sprite_index = spr_suplexdash
-				else
-					sprite_index = spr_shotgunsuplexdash
-				
-				if character != "N"
-					movespeed = 6
-				else
-					movespeed = 4
-				
-				if global.gameplay != 0
-					flash = true;
-				if scr_stylecheck(2)
-				{
-					with instance_create(x, y, obj_crazyrunothereffect)
-						image_xscale = other.xscale;
-					with instance_create(x + (xscale * -50), y, obj_superdashcloud)
-						image_xscale = other.xscale;
-				}
-			}
-			else
-			{
-				movespeed = 10
-				sprite_index = spr_mach2jump
-				instance_create(x, y, obj_jumpdust)
-				state = states.mach2
-				vsp = -11
-			}
-		}
+			scr_player_dosuplexdash();
 	}
 
 	// Breakdance

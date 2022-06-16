@@ -16,9 +16,10 @@ function scr_player_climbwall()
 			vsp = -wallspeed + (place_meeting(x + xscale, y, obj_railv) * -3);
 			
 			if place_meeting(x + xscale, y, obj_unclimbablewall)
+			or place_meeting(x, y, obj_stickycheese)
 			{
 				if wallspeed > 0
-					wallspeed -= 1;
+					wallspeed -= 0.25;
 				if wallspeed > 6
 					wallspeed = 6;
 				

@@ -77,8 +77,8 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "HUD",
-    "path": "folders/Sprites/players/pissino/HUD.yy",
+    "name": "hud (old)",
+    "path": "folders/Sprites/players/pissino/hud (old).yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_tvbomb_PP",

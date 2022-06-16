@@ -17,4 +17,3 @@ for(var i = 0; i < array_length(mylayers); i++)
 			layer_shader(mylayer, -1);
 	}
 }
-

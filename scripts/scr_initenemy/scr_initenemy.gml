@@ -5,6 +5,7 @@ function scr_initenemy()
 	grav = 0.5
 	hsp = 0
 	vsp = 0
+	xscale = 1
 	yscale = 1
 	stunned = 0
 	alarm[0] = 150
@@ -70,6 +71,8 @@ function scr_initenemy()
 	
 	if !variable_instance_exists(id, "escape")
 		escape = false;
+	if !variable_instance_exists(id, "elite")
+		elite = false;
 	oggrav = 0.5
 	arena = false
 	wave = 0
@@ -89,5 +92,9 @@ function scr_initenemy()
 	
 	custom_death_fnc = -1;
 	ghost = false;
+	
+	railmovespeed = 0;
+	blur_effect = 0;
+	dashcloudid = noone;
 }
 

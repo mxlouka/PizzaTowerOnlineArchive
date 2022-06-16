@@ -332,13 +332,16 @@ function scr_player_mach2()
 		else
 			state = states.normal
 	}
-
-	if !grounded
-		freefallstart = 1
-	else
-		freefallstart = 0
-
-	image_speed = 0.5
+	
+	if global.gameplay == 0
+		image_speed = 0.5
+	else if sprite_index == spr_rollgetup
+        image_speed = 0.4
+    else
+        image_speed = abs(movespeed) / 15
+	
+	if key_slap2 && global.gameplay != 0
+		scr_player_dosuplexdash();
 	
 	//Taunt
 	if key_taunt2 

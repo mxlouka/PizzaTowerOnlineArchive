@@ -59,7 +59,8 @@ else if object_index != obj_tankOLD
 if invtime > 0 && state != states.hit
 	invtime--;
 
-yscale = Approach(yscale, 1, 0.1);
+xscale = Approach(xscale, 1, 0.03);
+yscale = Approach(yscale, 1, 0.03);
 
 // heat meter image speed and cloud effects
 if global.gameplay != 0

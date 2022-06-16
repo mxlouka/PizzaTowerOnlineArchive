@@ -28,7 +28,13 @@ function scr_transfobump(_setstate = true)
 		repeat 6 with instance_create(x, y, obj_debris)
 			sprite_index = spr_feather;
 	}
-	else if state == states.boxxedpep
+	else if state == states.cheesepep or state == states.cheesepepstick or state == states.cheesepepfling or state == states.cheesepepjump or state == states.cheesepeplaunch or state == states.cheesepepstickside or state == states.cheesepepstickup
+	{
+		scr_soundeffect(sfx_loseknight)
+		repeat 8
+			instance_create(x,y,obj_slimedebris)
+	}
+	else if state == states.boxxedpep or state == states.boxxedpepjump or state == states.boxxedpepspin
 	{
 		scr_soundeffect(sfx_loseknight)
 		grav = basegrav

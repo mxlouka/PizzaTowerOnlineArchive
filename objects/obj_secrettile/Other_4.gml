@@ -1,14 +1,4 @@
 mylayers = ["Tiles_Secret", "Tiles_Secret1", "Tiles_Secret2"];
-for(var i = 0; i < array_length(mylayers); i++)
-{
-	var mylayer = mylayers[i];
-	if layer_exists(mylayer)
-	{
-		layer_depth(mylayer, -10 - i);
-		layer_shader(mylayer, shd_layeralpha);
-	}
-}
-
 if place_meeting(x, y, obj_player)
 {
 	alpha = 0;
@@ -21,5 +11,15 @@ else if oneway
 		image_xscale = other.image_xscale;
 		image_yscale = other.image_yscale;
 	}
+	done = true;
 }
 
+for(var i = 0; i < array_length(mylayers); i++)
+{
+	var mylayer = mylayers[i];
+	if layer_exists(mylayer)
+	{
+		layer_depth(mylayer, (done ? 90 : -10) - i);
+		layer_shader(mylayer, shd_layeralpha);
+	}
+}

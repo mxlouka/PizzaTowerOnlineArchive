@@ -348,13 +348,17 @@ else
 									other.idlespr = spr_tv_croaked;
 								else if (_state == states.mach3 or sprite_index == spr_mach3boost)
 								&& !other.sugary
-				                    tv_do_expression(spr_tv_exprmach3)
+								{
+				                    other.idlespr = spr_tv_exprmach3;
+									if sprite_index == spr_crazyrun
+										other.idlespr = spr_tv_exprmach4;
+								}
 				                else if _state == states.hurt
-				                    tv_do_expression(spr_tv_exprhurt)
+				                    other.idlespr = spr_tv_exprhurt;
 								else if global.combo >= 3 && !obj_player.isgustavo
-				                    tv_do_expression(spr_tv_exprcombo)
+									other.idlespr = spr_tv_exprcombo;
 				                else if (global.stylethreshold >= 3 or obj_player.angry) && !obj_player.isgustavo
-				                    tv_do_expression(spr_tv_exprheat)
+				                    other.idlespr = spr_tv_exprheat;
 								else if shotgunAnim
 									other.idlespr = spr_tv_shotgun;
 								else if global.mort
@@ -666,11 +670,6 @@ else
 			state = 251;
 	        switch expressionsprite
 	        {
-				case spr_tv_exprhurt:
-					if _state != states.hurt
-						expressionsprite = noone
-					break;
-				
 				case spr_tv_exprcollect:
 	                if expressionbuffer > 0
 	                    expressionbuffer--
@@ -681,43 +680,6 @@ else
 	                }
 	                break
 			
-	            case spr_tv_exprcombo:
-	                if global.combo < 3 or obj_player1.isgustavo
-	                {
-	                    state = 250
-	                    expressionsprite = noone
-	                    if _state == states.hurt
-	                        tv_do_expression(spr_tv_exprhurt)
-	                }
-	                break
-			
-	            case spr_tv_exprmach3:
-	            case spr_tv_exprmach4:
-	                with obj_player
-	                {
-	                    if state != states.mach3 && (state != states.chainsaw or tauntstoredstate != states.mach3) && sprite_index != spr_mach3boost
-	                    {
-	                        other.state = 250
-	                        other.expressionsprite = noone
-	                    }
-	                }
-	                break
-			
-	            case spr_tv_exprheat:
-	                var _transfo = false
-	                with obj_player
-	                {
-	                    if !scr_transformationcheck()
-	                        _transfo = true
-	                    if isgustavo
-	                        _transfo = true
-	                }
-	                if global.stylethreshold < 3 or _transfo
-	                {
-	                    state = 250
-	                    expressionsprite = noone
-	                }
-	                break
 	        }
 			if expressionsprite == noone
 				state = states.normal

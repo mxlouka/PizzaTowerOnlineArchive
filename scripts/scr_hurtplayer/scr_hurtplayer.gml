@@ -1,18 +1,18 @@
-function scr_hurtplayer(argument0 = obj_player, loseamount = 50)
+function scr_hurtplayer(pid = obj_player, loseamount = 50)
 {
-	with argument0
+	loseamount *= global.stylethreshold + 1;
+	with pid
 	{
 		// Auto parry
 		if (state == states.mach3 or state == states.grab && sprite_index == spr_swingding)
-		&& (character != "S" && character != "V" && global.gameplay != 0)
+		&& (character != "S" && character != "V" && scr_stylecheck(2))
 		{
 			// kill baddie if grabbing
 			if state == states.grab
 			{
 				with obj_baddie
 				{
-					if state == states.grabbed && grabbedby > -1
-					&& object_index != obj_pizzaballOLD
+					if state == states.grabbed && grabbedby > -1 && parryable
 						instance_destroy();
 				}
 			}
@@ -119,7 +119,7 @@ function scr_hurtplayer(argument0 = obj_player, loseamount = 50)
 				hurt_buffer = hurt_max;
 			
 			//Pizza delivery HP
-			if /*(hurt_buffer == -1 or global.gameplay == 0) && */global.pizzadelivery
+			if global.pizzadelivery
 			{
 				with instance_create(x, y, obj_debris)
 					sprite_index = spr_healthpickupeaten;
@@ -157,16 +157,6 @@ function scr_hurtplayer(argument0 = obj_player, loseamount = 50)
 					}
 				}
 			}
-			
-			if global.gameplay != 0
-			{
-				invhurt_buffer = 10;
-				global.combo = 0;
-				global.combotime = 0;
-				global.heattime = 0;
-				global.style -= 25;
-			}
-			
 			if character == "V"
 				global.playerhealth -= 25
 				
@@ -178,20 +168,18 @@ function scr_hurtplayer(argument0 = obj_player, loseamount = 50)
 					sprite_index = spr_feather
 				grav = basegrav
 			}
-			
-			//scr_soundeffect(sfx_oh, sfx_ohman,sfx_hurt1,sfx_hurt2,sfx_hurt3, sfx_mammamia)
-			
 			scr_soundeffect(sfx_pephurt)
-
+			
 			alarm[8] = 100
-			alarm[7] = 30
+			alarm[7] = global.gameplay == 0 ? 30 : 50
 			
 			if xscale = other.image_xscale
 				sprite_index = spr_hurtjump
 			else
 				sprite_index = spr_hurt
-			movespeed = 12
-			vsp = -5
+			
+			movespeed = global.gameplay == 0 ? 12 : 8
+			vsp = global.gameplay == 0 ? -5 : -14
 			timeuntilhpback = 300
 			
 			if global.gameplay == 0
@@ -261,22 +249,30 @@ function scr_hurtplayer(argument0 = obj_player, loseamount = 50)
 			}
 			
 			hurted = true;
+			
+			if global.gameplay != 0
+			{
+				invhurt_buffer = 10;
+				global.combotime -= 25
+				global.style -= 25
+	            global.hurtcounter += 1
+			}
 			return true;
 		}
 	}
 	return false;
 }
 
-function scr_hurtplayer_weak(argument0)
+function scr_hurtplayer_weak(pid)
 {
-	if is_undefined(argument0)
-		argument0 = obj_player1;
+	if is_undefined(pid)
+		pid = obj_player1;
 	if argument_count > 1
 		var m = argument[1];
 	else
 		m = true;
 	
-	with argument0
+	with pid
 	{
 		if state == states.parry
 		{

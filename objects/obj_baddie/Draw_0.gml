@@ -19,7 +19,7 @@ if sugaryenemy
 
 var drawx = x + (aggr * random_range(-2, 2)), drawy = y + (1 - yscale) * (50 - 4) + (aggr * random_range(-2, 2));
 draw_set_flash(flash);
-draw_sprite_ext(sprite_index, image_index, drawx, drawy, image_xscale, image_yscale * yscale, img_angle, image_blend, image_alpha);
+draw_sprite_ext(sprite_index, image_index, drawx, drawy, image_xscale * xscale, image_yscale * yscale, img_angle, image_blend, image_alpha);
 draw_set_flash(false);
 
 if haspalette
@@ -28,14 +28,13 @@ if haspalette
 if aggr
 {
 	aggrimg += 0.35;
-	draw_sprite_ext(spr_angrycloud, aggrimg, drawx, drawy, image_xscale, image_yscale * yscale, img_angle, c_white, image_alpha); 
+	draw_sprite_ext(spr_angrycloud, aggrimg, drawx, drawy, 1, 1, img_angle, c_white, image_alpha); 
 }
 
 // attacked with cotton transfo
 if cottoncoated
 {
 	draw_set_flash(true, #FF8BDC);
-	draw_sprite_ext(sprite_index, image_index, drawx, drawy, image_xscale, image_yscale * yscale, img_angle, c_white, 0.5);
+	draw_sprite_ext(sprite_index, image_index, drawx, drawy, image_xscale * xscale, image_yscale * yscale, img_angle, c_white, 0.5);
 	draw_set_flash(false);
 }
-
