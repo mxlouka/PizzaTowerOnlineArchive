@@ -55,15 +55,5 @@ with other
 		
 		if !instance_exists(obj_endlevelfade)
 			instance_create(x, y, obj_endlevelfade);
-		
-		if global.combo > 0
-        {
-            global.combotime = 0
-            global.combo = 0
-            obj_camera.alarm[4] = -1
-            for (var i = 0; i < global.comboscore; i += 10)
-				create_collect(other.x + irandom_range(-60, 60), other.y - 100 + irandom_range(-60, 60), scr_collectsprite())
-            global.comboscore = 0
-        }
 	}
 }

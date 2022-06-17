@@ -1,4 +1,4 @@
-if global.panic
+if global.panic && (!instance_exists(obj_secretfound) or global.gameplay == 0)
 {
 	var xx = 0, w = room_width, yy = 0;
 	if room == custom_lvl_room

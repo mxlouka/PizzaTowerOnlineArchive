@@ -1,8 +1,19 @@
 function scr_savescore(namestring)
 {
+	with obj_camera
+		alarm[4] = -1
+	
+	if global.combo > 0
+    {
+        global.combotime = 0
+        global.combo = 0
+		global.collect += global.comboscore;
+        scr_soundeffect(sfx_collecttopping);
+        global.comboscore = 0
+    }
+	
 	//Level rank saves
 	ini_open("saveData" + string(global.saveslot) + ".ini");
-	
 	if !(namestring == "golf" && global.funmode)
 	{
 		// score

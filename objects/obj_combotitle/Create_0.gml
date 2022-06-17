@@ -10,5 +10,8 @@ sugary = false;
 with obj_player
 {
 	if character == "SP"
+	{
 		other.sugary = true;
+		other.sprite_index = spr_comboend_titleSP;
+	}
 }

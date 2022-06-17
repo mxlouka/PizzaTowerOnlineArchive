@@ -4,4 +4,3 @@ scr_initenemy();
 sugaryenemy = false;
 aggrimg = 0;
 cottoncoated = false;
-

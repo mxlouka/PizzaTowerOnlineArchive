@@ -37,7 +37,7 @@ if scr_checkskin(checkskin.p_anton)
 			musplay = mu_antonlevel;
 	}
 }
-else if (!global.panic or string_letters(roomname) == "dragonlair" or string_letters(roomname) == "grinch")
+else if (!global.panic or string_letters(roomname) == "dragonlair" or string_letters(roomname) == "grinch" or (instance_exists(obj_secretfound) && global.gameplay != 0))
 && !global.snickchallenge
 {
 	// room number

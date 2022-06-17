@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_molassesground",
-    "path": "sprites/spr_molassesground/spr_molassesground.yy",
+    "name": "spr_destroyable2_NEW",
+    "path": "sprites/spr_destroyable2_NEW/spr_destroyable2_NEW.yy",
   },
   "solid": false,
   "visible": true,

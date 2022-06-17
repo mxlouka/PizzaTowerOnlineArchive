@@ -1,5 +1,3 @@
-var _sugary = sugary;
-
 var player = instance_place(x, y, obj_player);
 if player
 {
@@ -10,10 +8,7 @@ if player
 	        repeat 2
 			{
 	            with instance_create(x, y + 43, obj_debris)
-				{
-					sprite_index = _sugary ? spr_molassesgoop : spr_cheesechunk
-					vsp = min(vsp, 0)
-				}
+					sprite_index = spr_cheesechunk
 			}
 	        vsp *= 0.5
 			
@@ -27,13 +22,10 @@ if player
 		if state == states.climbwall
 			state = grounded ? states.normal : states.jump
 		
-	    if hsp != 0 && (floor(image_index) % 4 == 0 or _sugary)
+	    if hsp != 0 && (floor(image_index) % 4 == 0)
 	    {
 	        with instance_create(x, y + 43, obj_debris)
-			{
-				sprite_index = _sugary ? spr_molassesgoop : spr_cheesechunk
-				vsp = min(vsp, 0)
-			}
+				sprite_index = spr_cheesechunk
 			
 	        if !other.stepped
 	        {

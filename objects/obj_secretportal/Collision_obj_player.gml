@@ -5,19 +5,6 @@ if active && sprite_index != spr_secretportal_open && ds_list_find_index(global.
         sprite_index = spr_secretportal_close
         image_index = 0
     }
-    if !touched
-    {
-        if !obj_music.secret
-        {
-            obj_music.secret = true
-            obj_music.secretend = false
-        }
-        else
-        {
-            obj_music.secretend = true
-            obj_music.secret = false
-        }
-    }
     touched = true
     playerid = other.id
     other.x = x

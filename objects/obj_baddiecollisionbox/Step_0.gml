@@ -25,7 +25,7 @@ if player && !player.cutscene && (player.state != states.firemouth or global.gam
 		if bad.invtime <= 0 && instakillmove && (!bad.thrown or global.gameplay != 0) && !bad.invincible && bad.instantkillable
 		{
 			suplexmove = false
-			if state == states.mach3 && sprite_index != spr_mach3hit && (character != "S" && !(character == "N" && noisetype == 0))
+			if state == states.mach3 && sprite_index != spr_mach3hit && (character != "SP" && character != "S" && !(character == "N" && noisetype == 0))
 			{
 				if !fightball
 					sprite_index = spr_mach3hit
@@ -47,7 +47,7 @@ if player && !player.cutscene && (player.state != states.firemouth or global.gam
 				or (state == states.freefall && freefallsmash > 10) or state == states.superslam
 				or state == states.chainsawbump or state == states.punch or state == states.firemouth
 				or state == states.knightpep or state == states.knightpepslopes or state == states.grab
-				or state == states.rideweenie
+				or state == states.rideweenie or state == states.faceplant
 				{
 					bad.hp -= 99;
 					bad.instakilled = true;
@@ -92,10 +92,12 @@ if player && !player.cutscene && (player.state != states.firemouth or global.gam
 				{
 					with bad
 					{
+						stuntouchbuffer = 15
 						xscale = 0.8
                         yscale = 1.3
 						instance_create(x, y, obj_bangeffect)
                         state = states.stun
+						stunned = 15
                         image_xscale = -other.xscale
                         hsp = other.xscale * 12
                         vsp = (other.y - 180 - y) / 60
@@ -343,9 +345,10 @@ if player && !player.cutscene && (player.state != states.firemouth or global.gam
 		}
 		
 		//Stun from touching
-		else if !bad.thrown && bad.stuntouchbuffer == 0 && bad.state != states.pizzagoblinthrow && bad.vsp > 0 && state != states.punch && state != states.tackle && state != states.superslam && state != states.pogo && state != states.machslide  && state != states.freefall && (state != states.mach2 or bad.object_index == obj_pizzaballOLD) && state != states.handstandjump && state != states.hurt && bad.state != states.chase
+		else if !bad.thrown && bad.stuntouchbuffer <= 0 && bad.state != states.pizzagoblinthrow && bad.vsp > 0 && state != states.punch && state != states.tackle && state != states.superslam && state != states.pogo && state != states.machslide  && state != states.freefall && (state != states.mach2 or bad.object_index == obj_pizzaballOLD) && state != states.handstandjump && state != states.hurt && bad.state != states.chase
 		&& bad.bumpable && !bad.invincible 
 		&& ((bad.object_index != obj_pizzice && bad.object_index != obj_ninja) or bad.state != states.charge)
+		&& global.gameplay == 0
 		{
 			if bad.object_index != obj_tank
 			{

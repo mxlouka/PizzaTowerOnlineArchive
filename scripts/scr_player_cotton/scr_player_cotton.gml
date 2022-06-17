@@ -99,7 +99,7 @@ function scr_player_cotton()
 		
 		if movespeed > 8
 			sprite_index = spr_cotton_rollmax;
-		else if !key_down
+		else if !key_down && !scr_solid(x, y - 16)
 		{
 			sprite_index = spr_cotton_idle;
 			rolling = false;
@@ -160,7 +160,7 @@ function scr_player_cotton()
 		hsp = movespeed * xscale
 		move = xscale
 		
-		if grounded && global.gameplay == 0
+		if grounded && vsp > 0 && global.gameplay == 0
 		{
 			scr_soundeffect(sfx_step);
 			instance_create(x, y, obj_landcloud);

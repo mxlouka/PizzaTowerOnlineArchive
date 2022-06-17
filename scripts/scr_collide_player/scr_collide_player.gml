@@ -32,6 +32,7 @@ function scr_collide_player()
 					vsp = 0;
 					break;
 				}
+				scr_collide_destructibles();
 			}
 		}
 		x = floor(x);
@@ -41,14 +42,14 @@ function scr_collide_player()
 		{
 			repeat abs(_hsp)
 			{
-				// Move up slope
-				if scr_solid_player(x + sign(_hsp), y) && !scr_solid_player(x + sign(_hsp), y - 1)
-					y--;
-	
-				// Move down slope
-				if !scr_solid_player(x + sign(_hsp), y) && !scr_solid_player(x + sign(_hsp), y + 1) && scr_solid_player(x + sign(_hsp), y + 2)
-					y++;
-		
+				for(var k = 1; k <= 4; k++)
+				{
+					if scr_solid_player(x + sign(_hsp), y) && !scr_solid_player(x + sign(_hsp), y - k)
+						y -= k;
+					if !scr_solid_player(x + sign(_hsp), y) && !scr_solid_player(x + sign(_hsp), y + k) && scr_solid_player(x + sign(_hsp), y + k + 1)
+						y += k;
+				}
+				
 				// if youre going too fast you might phase right through some object triggers, so-
 				with instance_place(x, y + 1, obj_destructibleplatform)
 				{

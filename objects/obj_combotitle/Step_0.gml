@@ -4,10 +4,11 @@ if title_index >= 2
 
 if sugary
 {
-	image_speed = 0.35;
-	sprite_index = spr_comboend_titleSP;
 	if title >= 6
+	{
 		sprite_index = spr_wtfcombo_boil;
+		image_speed = 0.35;
+	}
 }
 else
 	image_index = (title * 2) + title_index

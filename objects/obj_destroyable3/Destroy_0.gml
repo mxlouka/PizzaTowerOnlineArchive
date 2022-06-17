@@ -47,7 +47,6 @@ if ds_list_find_index(global.saveroom, id) = -1
 	            image_speed = 0.35
 	        }
 	    }
-	    scr_sleep(5)
 	}
 	scr_soundeffect(sfx_breakblock1, sfx_breakblock2)
 	ds_list_add(global.saveroom, id) 

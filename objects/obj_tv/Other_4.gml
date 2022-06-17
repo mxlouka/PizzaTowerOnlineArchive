@@ -43,9 +43,24 @@ else
 	global.crank = global.srank - global.srank / 4 * 3;
 }
 
+ds_list_clear(global.roombgs);
 var layers = layer_get_all();
 for (var i = 0; i < array_length(layers); i++)
 {
+	// add to room bgs
+	var lbg = layer_background_get_id(l[i]);
+	if lbg != -1
+	{
+		ds_list_add(global.roombgs, {
+			lay : l[i],
+			bg : lbg,
+			x : layer_get_x(l[i]),
+			y : layer_get_y(l[i]),
+			hsp : layer_get_hspeed(l[i]),
+			vsp : layer_get_vspeed(l[i]),
+		});
+	}
+	
 	// layer depths
 	var layername = layer_get_name(layers[i]);
 	if string_startswith(layername, "Tiles_")
@@ -101,6 +116,13 @@ for (var i = 0; i < array_length(layers); i++)
 			break;
 	}
 }
+
+// panic background
+if !check_shaders()
+	global.panicbg = false;
+if (global.panic or global.snickchallenge) && global.panicbg
+&& !(instance_exists(obj_secretfound) && global.gameplay != 0)
+	scr_panicbg_init();
 
 // handle unfinished rooms
 if string_startswith(room_get_name(room), "sanctum_") or string_startswith(room_get_name(room), "space_")

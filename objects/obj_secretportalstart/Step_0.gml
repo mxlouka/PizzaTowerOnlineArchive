@@ -14,7 +14,7 @@ switch sprite_index
                 roomstarty = y
                 hsp = 0
                 vsp = 0
-                cutscene = 1
+                cutscene = true
                 visible = false
                 if !isgustavo && state != states.knightpep && state != states.knightpepslopes && state != states.knightpepbump
                     state = states.normal

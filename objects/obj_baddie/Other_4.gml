@@ -4,6 +4,12 @@ if ds_list_find_index(list, id) != -1
 else
 	event_user(0);
 
+if elite && global.gameplay != 0
+{
+    hp += 1
+    elitehp = hp
+}
+
 // snap to ground
 if room != custom_lvl_room
 {

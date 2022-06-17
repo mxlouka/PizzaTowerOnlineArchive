@@ -21,7 +21,7 @@ function scr_player_normal()
 	
 	// hardoween noise physics
 	var _acc = 0.5;
-	var _msp = 6;
+	var _msp = global.gameplay == 0 ? 6 : 8;
 	if scr_checkskin(checkskin.n_hardoween)
 	{
 		_acc = 0.25;

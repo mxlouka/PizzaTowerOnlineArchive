@@ -733,7 +733,7 @@ else
 	if global.panic && global.fill > 0
 	{
 	    showtime_buffer = 100
-	    if !instance_exists(obj_ghostcollectibles) && !global.failedmod
+	    if !instance_exists(obj_secretfound) && !global.failedmod
 	        timer_y = Approach(timer_y, timer_ystart, 1)
 	    else
 	        timer_y = Approach(timer_y, timer_ystart + 212, 4)

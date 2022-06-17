@@ -33,7 +33,7 @@ if audio_is_playing(global.jukebox)
 // music to play
 var musplay = -1;
 	
-if global.panic && !(room == custom_lvl_room && global.disableescapemusic)
+if global.panic && !(room == custom_lvl_room && global.disableescapemusic) && (!instance_exists(obj_secretfound) or global.gameplay == 0)
 && ((string_letters(roomname) != "dragonlair" && string_letters(roomname) != "grinch") or scr_checkskin(checkskin.p_anton))
 {
 	// war level
@@ -96,12 +96,18 @@ if musplay > -1
 	{
 		audio_stop_sound(global.music);
 		scr_sound(musplay);
+		if global.panic
+			audio_sound_set_track_position(global.music, panicfadeoff);
 	}
 }
 
 // last music position
 if audio_is_playing(global.music)
+{
 	fadeoff = audio_sound_get_track_position(global.music);
+	if global.panic
+		panicfadeoff = audio_sound_get_track_position(global.music);
+}
 else
 	fadeoff = 0;
 pausedmusic = global.music;

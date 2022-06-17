@@ -17,20 +17,28 @@ function scr_player_climbwall()
 			
 			if place_meeting(x + xscale, y, obj_unclimbablewall)
 			or place_meeting(x, y, obj_stickycheese)
+			or place_meeting(x, y, obj_molasseswall)
 			{
-				if wallspeed > 0
-					wallspeed -= 0.25;
+				wallspeed -= grav / 2;
 				if wallspeed > 6
 					wallspeed = 6;
 				
-				if wallspeed <= 0
+				if global.gameplay == 0
 				{
-					state = states.jump
-					sprite_index = spr_fall
+					if wallspeed <= 0
+					{
+						state = states.jump
+						sprite_index = spr_fall
+						exit;
+					}
+					if sprite_index != spr_machclimbwall && wallspeed < 8
+						wallspeed = 8;
 				}
-				
-				if sprite_index != spr_machclimbwall && wallspeed < 8 && global.gameplay == 0
-					wallspeed = 8;
+				else if grounded
+				{
+					state = states.normal
+					movespeed = 0
+				}
 				
 				var mv = wallspeed / 16;
 				image_speed = lerp(0.35, 0.75, mv); // limit to 2 decimal places
@@ -139,7 +147,7 @@ function scr_player_climbwall()
 			}
 			
 			//Jump
-			if key_jump && wallspeed > 0
+			if key_jump
 			{
 				if character == "SP" && abs(wallspeed) >= 12
 				{

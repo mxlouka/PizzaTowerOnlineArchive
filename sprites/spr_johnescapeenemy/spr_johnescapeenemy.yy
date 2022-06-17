@@ -1,0 +1,163 @@
+{
+  "bboxMode": 0,
+  "collisionKind": 1,
+  "type": 0,
+  "origin": 4,
+  "preMultiplyAlpha": false,
+  "edgeFiltering": false,
+  "collisionTolerance": 0,
+  "swfPrecision": 2.525,
+  "bbox_left": 3,
+  "bbox_right": 96,
+  "bbox_top": 5,
+  "bbox_bottom": 97,
+  "HTile": false,
+  "VTile": false,
+  "For3D": false,
+  "width": 100,
+  "height": 100,
+  "textureGroupId": {
+    "name": "Default",
+    "path": "texturegroups/Default",
+  },
+  "swatchColours": null,
+  "gridX": 0,
+  "gridY": 0,
+  "frames": [
+    {"compositeImage":{"FrameId":{"name":"542c4e56-e7d5-4cfd-9e74-66a9f265f45d","path":"sprites/spr_johnescapeenemy/spr_johnescapeenemy.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"542c4e56-e7d5-4cfd-9e74-66a9f265f45d","path":"sprites/spr_johnescapeenemy/spr_johnescapeenemy.yy",},"LayerId":{"name":"ea0f5356-66eb-4cd6-ac12-7ea7f2d8de91","path":"sprites/spr_johnescapeenemy/spr_johnescapeenemy.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"spr_johnescapeenemy","path":"sprites/spr_johnescapeenemy/spr_johnescapeenemy.yy",},"resourceVersion":"1.0","name":"542c4e56-e7d5-4cfd-9e74-66a9f265f45d","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"45c179ec-8a0f-47b3-a506-081dc0bb09f8","path":"sprites/spr_johnescapeenemy/spr_johnescapeenemy.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"45c179ec-8a0f-47b3-a506-081dc0bb09f8","path":"sprites/spr_johnescapeenemy/spr_johnescapeenemy.yy",},"LayerId":{"name":"ea0f5356-66eb-4cd6-ac12-7ea7f2d8de91","path":"sprites/spr_johnescapeenemy/spr_johnescapeenemy.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"spr_johnescapeenemy","path":"sprites/spr_johnescapeenemy/spr_johnescapeenemy.yy",},"resourceVersion":"1.0","name":"45c179ec-8a0f-47b3-a506-081dc0bb09f8","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"5ad0def4-dc4d-4a41-aa19-94210d6c0d37","path":"sprites/spr_johnescapeenemy/spr_johnescapeenemy.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"5ad0def4-dc4d-4a41-aa19-94210d6c0d37","path":"sprites/spr_johnescapeenemy/spr_johnescapeenemy.yy",},"LayerId":{"name":"ea0f5356-66eb-4cd6-ac12-7ea7f2d8de91","path":"sprites/spr_johnescapeenemy/spr_johnescapeenemy.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"spr_johnescapeenemy","path":"sprites/spr_johnescapeenemy/spr_johnescapeenemy.yy",},"resourceVersion":"1.0","name":"5ad0def4-dc4d-4a41-aa19-94210d6c0d37","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"845fbb68-0a67-4fff-a01f-241dfd05d77a","path":"sprites/spr_johnescapeenemy/spr_johnescapeenemy.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"845fbb68-0a67-4fff-a01f-241dfd05d77a","path":"sprites/spr_johnescapeenemy/spr_johnescapeenemy.yy",},"LayerId":{"name":"ea0f5356-66eb-4cd6-ac12-7ea7f2d8de91","path":"sprites/spr_johnescapeenemy/spr_johnescapeenemy.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"spr_johnescapeenemy","path":"sprites/spr_johnescapeenemy/spr_johnescapeenemy.yy",},"resourceVersion":"1.0","name":"845fbb68-0a67-4fff-a01f-241dfd05d77a","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"4372c9a1-9948-4656-97a5-0fbd3915bbe3","path":"sprites/spr_johnescapeenemy/spr_johnescapeenemy.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"4372c9a1-9948-4656-97a5-0fbd3915bbe3","path":"sprites/spr_johnescapeenemy/spr_johnescapeenemy.yy",},"LayerId":{"name":"ea0f5356-66eb-4cd6-ac12-7ea7f2d8de91","path":"sprites/spr_johnescapeenemy/spr_johnescapeenemy.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"spr_johnescapeenemy","path":"sprites/spr_johnescapeenemy/spr_johnescapeenemy.yy",},"resourceVersion":"1.0","name":"4372c9a1-9948-4656-97a5-0fbd3915bbe3","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"5231921e-fc2d-41a8-888c-6ddfc7e14720","path":"sprites/spr_johnescapeenemy/spr_johnescapeenemy.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"5231921e-fc2d-41a8-888c-6ddfc7e14720","path":"sprites/spr_johnescapeenemy/spr_johnescapeenemy.yy",},"LayerId":{"name":"ea0f5356-66eb-4cd6-ac12-7ea7f2d8de91","path":"sprites/spr_johnescapeenemy/spr_johnescapeenemy.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"spr_johnescapeenemy","path":"sprites/spr_johnescapeenemy/spr_johnescapeenemy.yy",},"resourceVersion":"1.0","name":"5231921e-fc2d-41a8-888c-6ddfc7e14720","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"23424426-1f15-4abc-8385-534c31a1c250","path":"sprites/spr_johnescapeenemy/spr_johnescapeenemy.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"23424426-1f15-4abc-8385-534c31a1c250","path":"sprites/spr_johnescapeenemy/spr_johnescapeenemy.yy",},"LayerId":{"name":"ea0f5356-66eb-4cd6-ac12-7ea7f2d8de91","path":"sprites/spr_johnescapeenemy/spr_johnescapeenemy.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"spr_johnescapeenemy","path":"sprites/spr_johnescapeenemy/spr_johnescapeenemy.yy",},"resourceVersion":"1.0","name":"23424426-1f15-4abc-8385-534c31a1c250","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"7e7a0009-f99c-440c-a234-f2ee2c43355a","path":"sprites/spr_johnescapeenemy/spr_johnescapeenemy.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"7e7a0009-f99c-440c-a234-f2ee2c43355a","path":"sprites/spr_johnescapeenemy/spr_johnescapeenemy.yy",},"LayerId":{"name":"ea0f5356-66eb-4cd6-ac12-7ea7f2d8de91","path":"sprites/spr_johnescapeenemy/spr_johnescapeenemy.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"spr_johnescapeenemy","path":"sprites/spr_johnescapeenemy/spr_johnescapeenemy.yy",},"resourceVersion":"1.0","name":"7e7a0009-f99c-440c-a234-f2ee2c43355a","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"cb71f150-89a4-4957-8101-ec774fa01c1f","path":"sprites/spr_johnescapeenemy/spr_johnescapeenemy.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"cb71f150-89a4-4957-8101-ec774fa01c1f","path":"sprites/spr_johnescapeenemy/spr_johnescapeenemy.yy",},"LayerId":{"name":"ea0f5356-66eb-4cd6-ac12-7ea7f2d8de91","path":"sprites/spr_johnescapeenemy/spr_johnescapeenemy.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"spr_johnescapeenemy","path":"sprites/spr_johnescapeenemy/spr_johnescapeenemy.yy",},"resourceVersion":"1.0","name":"cb71f150-89a4-4957-8101-ec774fa01c1f","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"3edd90a9-ccd3-42e3-b2c5-6e9b35984437","path":"sprites/spr_johnescapeenemy/spr_johnescapeenemy.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"3edd90a9-ccd3-42e3-b2c5-6e9b35984437","path":"sprites/spr_johnescapeenemy/spr_johnescapeenemy.yy",},"LayerId":{"name":"ea0f5356-66eb-4cd6-ac12-7ea7f2d8de91","path":"sprites/spr_johnescapeenemy/spr_johnescapeenemy.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"spr_johnescapeenemy","path":"sprites/spr_johnescapeenemy/spr_johnescapeenemy.yy",},"resourceVersion":"1.0","name":"3edd90a9-ccd3-42e3-b2c5-6e9b35984437","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"86387ae8-510f-434e-ae68-04ea814331a8","path":"sprites/spr_johnescapeenemy/spr_johnescapeenemy.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"86387ae8-510f-434e-ae68-04ea814331a8","path":"sprites/spr_johnescapeenemy/spr_johnescapeenemy.yy",},"LayerId":{"name":"ea0f5356-66eb-4cd6-ac12-7ea7f2d8de91","path":"sprites/spr_johnescapeenemy/spr_johnescapeenemy.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"spr_johnescapeenemy","path":"sprites/spr_johnescapeenemy/spr_johnescapeenemy.yy",},"resourceVersion":"1.0","name":"86387ae8-510f-434e-ae68-04ea814331a8","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"87364750-0509-44a3-91af-46b55d4e6850","path":"sprites/spr_johnescapeenemy/spr_johnescapeenemy.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"87364750-0509-44a3-91af-46b55d4e6850","path":"sprites/spr_johnescapeenemy/spr_johnescapeenemy.yy",},"LayerId":{"name":"ea0f5356-66eb-4cd6-ac12-7ea7f2d8de91","path":"sprites/spr_johnescapeenemy/spr_johnescapeenemy.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"spr_johnescapeenemy","path":"sprites/spr_johnescapeenemy/spr_johnescapeenemy.yy",},"resourceVersion":"1.0","name":"87364750-0509-44a3-91af-46b55d4e6850","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"8ef8578d-85b7-45a1-866a-646e5a9d30fe","path":"sprites/spr_johnescapeenemy/spr_johnescapeenemy.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"8ef8578d-85b7-45a1-866a-646e5a9d30fe","path":"sprites/spr_johnescapeenemy/spr_johnescapeenemy.yy",},"LayerId":{"name":"ea0f5356-66eb-4cd6-ac12-7ea7f2d8de91","path":"sprites/spr_johnescapeenemy/spr_johnescapeenemy.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"spr_johnescapeenemy","path":"sprites/spr_johnescapeenemy/spr_johnescapeenemy.yy",},"resourceVersion":"1.0","name":"8ef8578d-85b7-45a1-866a-646e5a9d30fe","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"83102650-e9fa-4475-addd-16834a128f95","path":"sprites/spr_johnescapeenemy/spr_johnescapeenemy.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"83102650-e9fa-4475-addd-16834a128f95","path":"sprites/spr_johnescapeenemy/spr_johnescapeenemy.yy",},"LayerId":{"name":"ea0f5356-66eb-4cd6-ac12-7ea7f2d8de91","path":"sprites/spr_johnescapeenemy/spr_johnescapeenemy.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"spr_johnescapeenemy","path":"sprites/spr_johnescapeenemy/spr_johnescapeenemy.yy",},"resourceVersion":"1.0","name":"83102650-e9fa-4475-addd-16834a128f95","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"cf32217a-ea69-435d-b4e4-dc14a04bdf9a","path":"sprites/spr_johnescapeenemy/spr_johnescapeenemy.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"cf32217a-ea69-435d-b4e4-dc14a04bdf9a","path":"sprites/spr_johnescapeenemy/spr_johnescapeenemy.yy",},"LayerId":{"name":"ea0f5356-66eb-4cd6-ac12-7ea7f2d8de91","path":"sprites/spr_johnescapeenemy/spr_johnescapeenemy.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"spr_johnescapeenemy","path":"sprites/spr_johnescapeenemy/spr_johnescapeenemy.yy",},"resourceVersion":"1.0","name":"cf32217a-ea69-435d-b4e4-dc14a04bdf9a","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"d5d907ec-7330-47f6-821b-1c47a4f28eba","path":"sprites/spr_johnescapeenemy/spr_johnescapeenemy.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"d5d907ec-7330-47f6-821b-1c47a4f28eba","path":"sprites/spr_johnescapeenemy/spr_johnescapeenemy.yy",},"LayerId":{"name":"ea0f5356-66eb-4cd6-ac12-7ea7f2d8de91","path":"sprites/spr_johnescapeenemy/spr_johnescapeenemy.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"spr_johnescapeenemy","path":"sprites/spr_johnescapeenemy/spr_johnescapeenemy.yy",},"resourceVersion":"1.0","name":"d5d907ec-7330-47f6-821b-1c47a4f28eba","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"2f335bfc-b5c3-446b-b680-7137aa2723c8","path":"sprites/spr_johnescapeenemy/spr_johnescapeenemy.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"2f335bfc-b5c3-446b-b680-7137aa2723c8","path":"sprites/spr_johnescapeenemy/spr_johnescapeenemy.yy",},"LayerId":{"name":"ea0f5356-66eb-4cd6-ac12-7ea7f2d8de91","path":"sprites/spr_johnescapeenemy/spr_johnescapeenemy.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"spr_johnescapeenemy","path":"sprites/spr_johnescapeenemy/spr_johnescapeenemy.yy",},"resourceVersion":"1.0","name":"2f335bfc-b5c3-446b-b680-7137aa2723c8","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"b4c434df-ff29-440e-b722-e2ccfc846bc5","path":"sprites/spr_johnescapeenemy/spr_johnescapeenemy.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"b4c434df-ff29-440e-b722-e2ccfc846bc5","path":"sprites/spr_johnescapeenemy/spr_johnescapeenemy.yy",},"LayerId":{"name":"ea0f5356-66eb-4cd6-ac12-7ea7f2d8de91","path":"sprites/spr_johnescapeenemy/spr_johnescapeenemy.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"spr_johnescapeenemy","path":"sprites/spr_johnescapeenemy/spr_johnescapeenemy.yy",},"resourceVersion":"1.0","name":"b4c434df-ff29-440e-b722-e2ccfc846bc5","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"8a0dee4e-7739-4291-8132-c271c0e2bc32","path":"sprites/spr_johnescapeenemy/spr_johnescapeenemy.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"8a0dee4e-7739-4291-8132-c271c0e2bc32","path":"sprites/spr_johnescapeenemy/spr_johnescapeenemy.yy",},"LayerId":{"name":"ea0f5356-66eb-4cd6-ac12-7ea7f2d8de91","path":"sprites/spr_johnescapeenemy/spr_johnescapeenemy.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"spr_johnescapeenemy","path":"sprites/spr_johnescapeenemy/spr_johnescapeenemy.yy",},"resourceVersion":"1.0","name":"8a0dee4e-7739-4291-8132-c271c0e2bc32","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"62393f25-1771-41ef-9ffc-1c34b7433cd9","path":"sprites/spr_johnescapeenemy/spr_johnescapeenemy.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"62393f25-1771-41ef-9ffc-1c34b7433cd9","path":"sprites/spr_johnescapeenemy/spr_johnescapeenemy.yy",},"LayerId":{"name":"ea0f5356-66eb-4cd6-ac12-7ea7f2d8de91","path":"sprites/spr_johnescapeenemy/spr_johnescapeenemy.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"spr_johnescapeenemy","path":"sprites/spr_johnescapeenemy/spr_johnescapeenemy.yy",},"resourceVersion":"1.0","name":"62393f25-1771-41ef-9ffc-1c34b7433cd9","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"68dedc1a-4e1a-4a9c-b08d-a9f637fdbc30","path":"sprites/spr_johnescapeenemy/spr_johnescapeenemy.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"68dedc1a-4e1a-4a9c-b08d-a9f637fdbc30","path":"sprites/spr_johnescapeenemy/spr_johnescapeenemy.yy",},"LayerId":{"name":"ea0f5356-66eb-4cd6-ac12-7ea7f2d8de91","path":"sprites/spr_johnescapeenemy/spr_johnescapeenemy.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"spr_johnescapeenemy","path":"sprites/spr_johnescapeenemy/spr_johnescapeenemy.yy",},"resourceVersion":"1.0","name":"68dedc1a-4e1a-4a9c-b08d-a9f637fdbc30","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"a0a60171-48d1-4283-b833-6d72f422dcd5","path":"sprites/spr_johnescapeenemy/spr_johnescapeenemy.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"a0a60171-48d1-4283-b833-6d72f422dcd5","path":"sprites/spr_johnescapeenemy/spr_johnescapeenemy.yy",},"LayerId":{"name":"ea0f5356-66eb-4cd6-ac12-7ea7f2d8de91","path":"sprites/spr_johnescapeenemy/spr_johnescapeenemy.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"spr_johnescapeenemy","path":"sprites/spr_johnescapeenemy/spr_johnescapeenemy.yy",},"resourceVersion":"1.0","name":"a0a60171-48d1-4283-b833-6d72f422dcd5","tags":[],"resourceType":"GMSpriteFrame",},
+  ],
+  "sequence": {
+    "spriteId": {"name":"spr_johnescapeenemy","path":"sprites/spr_johnescapeenemy/spr_johnescapeenemy.yy",},
+    "timeUnits": 1,
+    "playback": 1,
+    "playbackSpeed": 1.0,
+    "playbackSpeedType": 1,
+    "autoRecord": true,
+    "volume": 1.0,
+    "length": 22.0,
+    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MessageEventKeyframe>",},
+    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
+    "tracks": [
+      {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
+            {"id":"ec8aaa9f-c0d3-4f82-9fd9-e80862d3bb05","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"542c4e56-e7d5-4cfd-9e74-66a9f265f45d","path":"sprites/spr_johnescapeenemy/spr_johnescapeenemy.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"b1717191-9973-4177-82b7-edcea4ecbd8b","Key":1.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"45c179ec-8a0f-47b3-a506-081dc0bb09f8","path":"sprites/spr_johnescapeenemy/spr_johnescapeenemy.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"20a21174-83f8-4ea1-a23b-27808aa045a0","Key":2.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"5ad0def4-dc4d-4a41-aa19-94210d6c0d37","path":"sprites/spr_johnescapeenemy/spr_johnescapeenemy.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"41791d2f-ac00-41b4-aa60-ec12105b165f","Key":3.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"845fbb68-0a67-4fff-a01f-241dfd05d77a","path":"sprites/spr_johnescapeenemy/spr_johnescapeenemy.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"7673bc2f-1e4e-4dc6-b6ec-04c92dd9c81b","Key":4.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"4372c9a1-9948-4656-97a5-0fbd3915bbe3","path":"sprites/spr_johnescapeenemy/spr_johnescapeenemy.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"6fb3bade-0bc0-4114-802f-7bcda347fac6","Key":5.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"5231921e-fc2d-41a8-888c-6ddfc7e14720","path":"sprites/spr_johnescapeenemy/spr_johnescapeenemy.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"56be1f9b-9c17-4631-b813-93d4b1d652ea","Key":6.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"23424426-1f15-4abc-8385-534c31a1c250","path":"sprites/spr_johnescapeenemy/spr_johnescapeenemy.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"06a2a790-52db-4ab3-a4f8-2642bb548172","Key":7.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"7e7a0009-f99c-440c-a234-f2ee2c43355a","path":"sprites/spr_johnescapeenemy/spr_johnescapeenemy.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"1602a7c8-cdf1-4f8f-995d-a94d221904fd","Key":8.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"cb71f150-89a4-4957-8101-ec774fa01c1f","path":"sprites/spr_johnescapeenemy/spr_johnescapeenemy.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"9ed21a93-66e7-4a2d-8697-e04f92307f19","Key":9.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"3edd90a9-ccd3-42e3-b2c5-6e9b35984437","path":"sprites/spr_johnescapeenemy/spr_johnescapeenemy.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"5a3f6815-b847-4646-8b3b-817385c884a6","Key":10.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"86387ae8-510f-434e-ae68-04ea814331a8","path":"sprites/spr_johnescapeenemy/spr_johnescapeenemy.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"3b3bc2d0-ad59-4e47-b9ec-4d1d233f4b99","Key":11.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"87364750-0509-44a3-91af-46b55d4e6850","path":"sprites/spr_johnescapeenemy/spr_johnescapeenemy.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"ca461b48-6bb5-4960-8d2b-59de8bee33de","Key":12.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"8ef8578d-85b7-45a1-866a-646e5a9d30fe","path":"sprites/spr_johnescapeenemy/spr_johnescapeenemy.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"34e4fa57-2cda-4ad3-b043-0cd7a9c717e7","Key":13.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"83102650-e9fa-4475-addd-16834a128f95","path":"sprites/spr_johnescapeenemy/spr_johnescapeenemy.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"ccbec553-7786-412a-9e29-4a3c14ebda97","Key":14.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"cf32217a-ea69-435d-b4e4-dc14a04bdf9a","path":"sprites/spr_johnescapeenemy/spr_johnescapeenemy.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"4be91e88-372b-4563-a02a-d0d38ae8edcd","Key":15.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"d5d907ec-7330-47f6-821b-1c47a4f28eba","path":"sprites/spr_johnescapeenemy/spr_johnescapeenemy.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"5f1f6fd6-22f1-40ef-a436-6817d9193321","Key":16.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"2f335bfc-b5c3-446b-b680-7137aa2723c8","path":"sprites/spr_johnescapeenemy/spr_johnescapeenemy.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"f29a1274-b49d-42a6-839a-4e1678fcb9c0","Key":17.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"b4c434df-ff29-440e-b722-e2ccfc846bc5","path":"sprites/spr_johnescapeenemy/spr_johnescapeenemy.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"a20bdf68-d5d3-4a73-94bf-c41165e7fd40","Key":18.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"8a0dee4e-7739-4291-8132-c271c0e2bc32","path":"sprites/spr_johnescapeenemy/spr_johnescapeenemy.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"97829875-68d8-43a7-a136-64ce496422d0","Key":19.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"62393f25-1771-41ef-9ffc-1c34b7433cd9","path":"sprites/spr_johnescapeenemy/spr_johnescapeenemy.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"fd9ffa0f-4e6f-4581-a9c8-fb4579f86610","Key":20.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"68dedc1a-4e1a-4a9c-b08d-a9f637fdbc30","path":"sprites/spr_johnescapeenemy/spr_johnescapeenemy.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"62c85a07-50b0-460e-bb2b-3e194298081f","Key":21.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"a0a60171-48d1-4283-b833-6d72f422dcd5","path":"sprites/spr_johnescapeenemy/spr_johnescapeenemy.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
+    ],
+    "visibleRange": null,
+    "lockOrigin": false,
+    "showBackdrop": true,
+    "showBackdropImage": false,
+    "backdropImagePath": "",
+    "backdropImageOpacity": 0.5,
+    "backdropWidth": 1366,
+    "backdropHeight": 768,
+    "backdropXOffset": 0.0,
+    "backdropYOffset": 0.0,
+    "xorigin": 50,
+    "yorigin": 50,
+    "eventToFunction": {},
+    "eventStubScript": null,
+    "parent": {"name":"spr_johnescapeenemy","path":"sprites/spr_johnescapeenemy/spr_johnescapeenemy.yy",},
+    "resourceVersion": "1.4",
+    "name": "spr_johnescapeenemy",
+    "tags": [],
+    "resourceType": "GMSequence",
+  },
+  "layers": [
+    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"ea0f5356-66eb-4cd6-ac12-7ea7f2d8de91","tags":[],"resourceType":"GMImageLayer",},
+  ],
+  "nineSlice": null,
+  "parent": {
+    "name": "baddie",
+    "path": "folders/Sprites/baddie.yy",
+  },
+  "resourceVersion": "1.0",
+  "name": "spr_johnescapeenemy",
+  "tags": [],
+  "resourceType": "GMSprite",
+}

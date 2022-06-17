@@ -87,7 +87,7 @@ else
 	global.timedgatetime = 0;
 
 // pizza time shaking
-if global.panicshake && global.panic && !instance_exists(obj_ghostcollectibles)
+if global.panicshake && global.panic && !instance_exists(obj_secretfound)
 {
 	if global.gameplay != 0
 		shake_mag_panic = 2;
@@ -190,7 +190,7 @@ if instance_exists(player) && player.state != states.timesup && player.state != 
 			chargesmooth = median(chargesmooth - 16, 0, chargesmooth + 16);
 			
 			// mach
-			if ((player.state == states.mach2 && global.gameplay != 0) or player.state == states.mach3 or player.state == states.tumble or player.state == states.rideweenie or player.state == states.machroll or player.state == states.rocket)
+			if ((player.state == states.mach2 && global.gameplay != 0) or player.state == states.mach3 or (player.state == states.tumble && global.gameplay == 0) or (player.state == states.rideweenie && global.gameplay == 0) or player.state == states.machroll or player.state == states.rocket)
 			{
 				var ch = sign(player.xscale) * 100, chspd = 2;
 				if global.gameplay != 0

@@ -1,7 +1,25 @@
 /// @description escape deactivate
-if escape && (!global.panic or (global.gameplay == 0 && object_index != obj_minijohn && object_index != obj_babybear))
+if global.gameplay == 0
 {
-	boundbox = false;
-	instance_deactivate_object(id);
+	if !global.panic && (object_index == obj_minijohn or object_index == obj_babybear)
+	{
+		boundbox = false;
+		instance_deactivate_object(id);
+	}
 }
-
+else if escape
+{
+	var b = false
+    with obj_escapespawn
+    {
+        if baddieID == other.id && state != 0
+            b = true
+    }
+	
+    if !b
+    {
+        instance_deactivate_object(id)
+        with instance_create(x, y, obj_escapespawn)
+            baddieID = other.id
+    }
+}
