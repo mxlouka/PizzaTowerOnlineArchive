@@ -27,19 +27,19 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"8e4d4d2b-a9f8-4202-bfbe-0a7e6dcc2d62","path":"sprites/spr_tv_bombpepPP/spr_tv_bombpepPP.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"8e4d4d2b-a9f8-4202-bfbe-0a7e6dcc2d62","path":"sprites/spr_tv_bombpepPP/spr_tv_bombpepPP.yy",},"LayerId":{"name":"42b69bd8-255c-4021-8bff-213f983f3756","path":"sprites/spr_tv_bombpepPP/spr_tv_bombpepPP.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"spr_tv_bombpepPP","path":"sprites/spr_tv_bombpepPP/spr_tv_bombpepPP.yy",},"resourceVersion":"1.0","name":"8e4d4d2b-a9f8-4202-bfbe-0a7e6dcc2d62","tags":[],"resourceType":"GMSpriteFrame",},
-    {"compositeImage":{"FrameId":{"name":"83116093-3ea7-4370-a885-caddf404ef40","path":"sprites/spr_tv_bombpepPP/spr_tv_bombpepPP.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"83116093-3ea7-4370-a885-caddf404ef40","path":"sprites/spr_tv_bombpepPP/spr_tv_bombpepPP.yy",},"LayerId":{"name":"42b69bd8-255c-4021-8bff-213f983f3756","path":"sprites/spr_tv_bombpepPP/spr_tv_bombpepPP.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"spr_tv_bombpepPP","path":"sprites/spr_tv_bombpepPP/spr_tv_bombpepPP.yy",},"resourceVersion":"1.0","name":"83116093-3ea7-4370-a885-caddf404ef40","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"74de3573-cd34-40f6-922e-27e69813bdd4","path":"sprites/spr_tv_bombpepPP/spr_tv_bombpepPP.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"74de3573-cd34-40f6-922e-27e69813bdd4","path":"sprites/spr_tv_bombpepPP/spr_tv_bombpepPP.yy",},"LayerId":{"name":"56c6b38c-39fb-4d13-adbc-74122988daea","path":"sprites/spr_tv_bombpepPP/spr_tv_bombpepPP.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"spr_tv_bombpepPP","path":"sprites/spr_tv_bombpepPP/spr_tv_bombpepPP.yy",},"resourceVersion":"1.0","name":"74de3573-cd34-40f6-922e-27e69813bdd4","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"747cc3bd-8046-47de-8799-673f01684c74","path":"sprites/spr_tv_bombpepPP/spr_tv_bombpepPP.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"747cc3bd-8046-47de-8799-673f01684c74","path":"sprites/spr_tv_bombpepPP/spr_tv_bombpepPP.yy",},"LayerId":{"name":"56c6b38c-39fb-4d13-adbc-74122988daea","path":"sprites/spr_tv_bombpepPP/spr_tv_bombpepPP.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"spr_tv_bombpepPP","path":"sprites/spr_tv_bombpepPP/spr_tv_bombpepPP.yy",},"resourceVersion":"1.0","name":"747cc3bd-8046-47de-8799-673f01684c74","tags":[],"resourceType":"GMSpriteFrame",},
   ],
   "sequence": {
     "spriteId": {"name":"spr_tv_bombpepPP","path":"sprites/spr_tv_bombpepPP/spr_tv_bombpepPP.yy",},
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 1.0,
-    "playbackSpeedType": 1,
+    "playbackSpeedType": 0,
     "autoRecord": true,
     "volume": 1.0,
     "length": 2.0,
@@ -47,8 +47,8 @@
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
       {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"bbed6c90-e15d-4c1d-b581-7169a44afe32","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"8e4d4d2b-a9f8-4202-bfbe-0a7e6dcc2d62","path":"sprites/spr_tv_bombpepPP/spr_tv_bombpepPP.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
-            {"id":"585ec066-d755-425e-9b7f-65ba8d42564e","Key":1.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"83116093-3ea7-4370-a885-caddf404ef40","path":"sprites/spr_tv_bombpepPP/spr_tv_bombpepPP.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"ae0fda46-0f71-49d6-849a-786fc19212d6","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"74de3573-cd34-40f6-922e-27e69813bdd4","path":"sprites/spr_tv_bombpepPP/spr_tv_bombpepPP.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"c95f0460-aa66-4f28-81f8-42492306b3b9","Key":1.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"747cc3bd-8046-47de-8799-673f01684c74","path":"sprites/spr_tv_bombpepPP/spr_tv_bombpepPP.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
           ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
     ],
     "visibleRange": null,
@@ -72,7 +72,7 @@
     "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"42b69bd8-255c-4021-8bff-213f983f3756","tags":[],"resourceType":"GMImageLayer",},
+    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"56c6b38c-39fb-4d13-adbc-74122988daea","tags":[],"resourceType":"GMImageLayer",},
   ],
   "nineSlice": null,
   "parent": {

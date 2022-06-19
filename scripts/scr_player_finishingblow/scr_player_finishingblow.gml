@@ -55,16 +55,19 @@ function scr_player_finishingblow()
             image_xscale = other.xscale
     }
 	
-	if punch_afterimage > 0
-		punch_afterimage--
-	else
+	if global.gameplay != 0
 	{
-		punch_afterimage = 5
-		with instance_create(x, y, obj_blueafterimage)
+		if punch_afterimage > 0
+			punch_afterimage--
+		else
 		{
-			sprite_index = other.sprite_index
-			image_index = other.image_index
-			image_xscale = other.xscale
+			punch_afterimage = 5
+			with instance_create(x, y, obj_blueafterimage)
+			{
+				sprite_index = other.sprite_index
+				image_index = other.image_index
+				image_xscale = other.xscale
+			}
 		}
 	}
 	

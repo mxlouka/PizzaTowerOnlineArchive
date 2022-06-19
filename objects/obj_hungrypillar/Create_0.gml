@@ -27,7 +27,7 @@ if global.gameplay != 0
 		spr_idle = spr_hungrypillar_NEW;
 		spr_angry = scr_stylecheck(2) ? spr_hungrypillar_angry_NEW : spr_hungrypillar_NEW;
 		spr_happy = spr_hungrypillar_NEW;
-		spr_dead = spr_hungrypillar_NEW;
+		spr_dead = spr_hungrypillar_dead_NEW;
 	}
 }
 else if check_sugary()

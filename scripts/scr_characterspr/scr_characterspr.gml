@@ -1609,7 +1609,7 @@ function scr_characterspr(char = character)
 				
 				spr_taunt = spr_playerPP_taunt;
 				spr_parry1 = spr_playerPP_parry1;
-				spr_parry2 = spr_playerPP_parry1;
+				spr_parry2 = spr_playerPP_parry2;
 				spr_parry3 = spr_playerPP_parry3;
 				
 				spr_suplexbump = spr_playerPP_suplexbump;

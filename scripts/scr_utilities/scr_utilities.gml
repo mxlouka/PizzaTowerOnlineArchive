@@ -101,14 +101,11 @@ function increase_combo()
 	
 	if global.gameplay != 0 && funny
 	{
+		global.style += 2 + global.combo;
+		
 		global.combo += 1;
 		global.combotime = 60;
 		global.heattime = 60;
-		
-		if obj_player.state == states.mach3
-			global.style += 10 + global.combo;
-		else
-			global.style += 5 + global.combo;
 		
 		with obj_player
 			if supercharge < 10 then supercharge++;

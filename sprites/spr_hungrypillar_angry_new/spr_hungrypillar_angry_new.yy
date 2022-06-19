@@ -44,7 +44,7 @@
     "spriteId": {"name":"spr_hungrypillar_angry_NEW","path":"sprites/spr_hungrypillar_angry_NEW/spr_hungrypillar_angry_NEW.yy",},
     "timeUnits": 1,
     "playback": 1,
-    "playbackSpeed": 1.0,
+    "playbackSpeed": 0.75,
     "playbackSpeedType": 1,
     "autoRecord": true,
     "volume": 1.0,

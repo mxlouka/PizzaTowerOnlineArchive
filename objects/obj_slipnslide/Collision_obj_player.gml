@@ -11,7 +11,7 @@ if (!drop && !instance_exists(obj_pepperman)) or global.gameplay != 0
 					movespeed = 4
 					sprite_index = spr_player_barrelslipnslide
 					image_index = 0
-				
+					
 					other.drop = true
 					other.vsp = -5
 				}
@@ -34,8 +34,9 @@ if (!drop && !instance_exists(obj_pepperman)) or global.gameplay != 0
 				vsp = -11;
 				image_index = 0;
 				state = states.slipbanan;
-				if movespeed < 8
-					movespeed = 8;
+				movespeed += 2;
+				if movespeed > 14
+					movespeed = 14;
 				instance_destroy(other);
 			}
 		}

@@ -9,6 +9,7 @@ if (place_meeting(x, y, obj_player1) or place_meeting(x, y, obj_antonball)) && o
 && sprite_index == spr_closed
 {
 	global.heattime = 60;
+	global.combotime = 60;
 	if content != obj_bigcollect
 		ds_list_add(global.saveroom, id);
 	

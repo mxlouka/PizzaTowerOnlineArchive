@@ -27,13 +27,21 @@ if sprite_index == spr_noise_button
 			global.minutes = 3
 			global.seconds = 29
 		}
-	
+		
 		if global.panicbg
 			scr_panicbg_init()
 		
 		global.wave = 0;
-		global.maxwave = (global.minutes * 60 + global.seconds) * 60;
-	
+		if global.gameplay == 0
+			global.maxwave = (global.minutes * 60 + global.seconds) * 60;
+		else
+		{
+			global.fill = 4000
+			global.maxwave = global.fill
+		    with obj_tv
+		        chunkmax = global.fill
+		}
+		
 		with obj_camera
 			alarm[1] = 60;
 		

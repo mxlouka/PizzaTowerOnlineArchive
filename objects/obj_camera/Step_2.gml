@@ -59,8 +59,11 @@ if global.combo > 0
 // spawn pizzaface
 if global.seconds <= 0 && global.minutes <= 0 && !ded
 {
-	alarm[1] = -1
-	alarm[2] = 3
+	if global.miniboss or global.snickchallenge or global.gameplay == 0
+	{
+		alarm[1] = -1;
+		alarm[2] = 1;
+	}
 	
 	if global.snickchallenge && !audio_is_playing(global.jukebox)
 		audio_stop_sound(global.music);

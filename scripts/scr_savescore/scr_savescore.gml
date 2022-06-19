@@ -3,15 +3,6 @@ function scr_savescore(namestring)
 	with obj_camera
 		alarm[4] = -1
 	
-	if global.combo > 0
-    {
-        global.combotime = 0
-        global.combo = 0
-		global.collect += global.comboscore;
-        scr_soundeffect(sfx_collecttopping);
-        global.comboscore = 0
-    }
-	
 	//Level rank saves
 	ini_open("saveData" + string(global.saveslot) + ".ini");
 	if !(namestring == "golf" && global.funmode)
@@ -42,7 +33,7 @@ function scr_savescore(namestring)
 		
 		// rank
 		var previousrank = ini_read_string("Ranks", namestring, "none");
-		if global.rank == "s"
+		if global.rank == "s" or global.rank == "eggplant"
 			ini_write_string("Ranks", namestring, global.rank)
 		if global.rank == "a" && previousrank != "s"
 			ini_write_string("Ranks", namestring, global.rank)
@@ -170,12 +161,7 @@ function endlevel()
 				global.rank = "d"
 		}
 		else
-		{
-			if room == custom_lvl_room
-				global.rank = "s";
-			else
-				global.rank = "d";
-		}
+			global.rank = "eggplant";
 	}
 	
 	// absolutely annihilate the snicks

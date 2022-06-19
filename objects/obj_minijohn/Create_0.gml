@@ -1,5 +1,6 @@
 event_inherited();
 
+underground = true;
 grav = 0.5;
 hsp = 0;
 vsp = 0;

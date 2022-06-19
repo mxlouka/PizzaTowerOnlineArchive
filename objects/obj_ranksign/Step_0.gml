@@ -7,5 +7,5 @@ switch string_lower(rank)
 	case "b": image_index = 2; break;
 	case "c": image_index = 3; break;
 	case "d": image_index = 4; break;
+	case "eggplant": image_index = 5; break;
 }
-

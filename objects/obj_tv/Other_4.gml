@@ -48,16 +48,16 @@ var layers = layer_get_all();
 for (var i = 0; i < array_length(layers); i++)
 {
 	// add to room bgs
-	var lbg = layer_background_get_id(l[i]);
+	var lbg = layer_background_get_id(layers[i]);
 	if lbg != -1
 	{
 		ds_list_add(global.roombgs, {
-			lay : l[i],
+			lay : layers[i],
 			bg : lbg,
-			x : layer_get_x(l[i]),
-			y : layer_get_y(l[i]),
-			hsp : layer_get_hspeed(l[i]),
-			vsp : layer_get_vspeed(l[i]),
+			x : layer_get_x(layers[i]),
+			y : layer_get_y(layers[i]),
+			hsp : layer_get_hspeed(layers[i]),
+			vsp : layer_get_vspeed(layers[i]),
 		});
 	}
 	
@@ -86,7 +86,6 @@ for (var i = 0; i < array_length(layers); i++)
 				var getch = asset_get_index(sprite_get_name(layer_background_get_sprite(layers_e[j])) + "_re");
 				if sprite_exists(getch)
 					layer_background_sprite(layers_e[j], getch);
-				break;
 			}
 			// tiles
 			else if layer_get_element_type(layers_e[j]) == layerelementtype_tilemap
@@ -94,7 +93,6 @@ for (var i = 0; i < array_length(layers); i++)
 				var getch = asset_get_index(tileset_get_name(tilemap_get_tileset(layers_e[j])) + "_re");
 				if getch != -1
 					tilemap_tileset(layers_e[j], getch);
-				break;
 			}
 			// assets
 			else if layer_get_element_type(layers_e[j]) == layerelementtype_sprite
@@ -103,8 +101,6 @@ for (var i = 0; i < array_length(layers); i++)
 				if sprite_exists(getch)
 					layer_sprite_change(layers_e[j], getch);
 			}
-			else
-				break;
 		}
 		else if global.panic
 		{
@@ -112,8 +108,6 @@ for (var i = 0; i < array_length(layers); i++)
 			&& layer_background_get_sprite(layers_e[j]) == bg_farm2
 				layer_hspeed(layers[i], -2);
 		}
-		else
-			break;
 	}
 }
 

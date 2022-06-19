@@ -91,7 +91,7 @@ function scr_collide_destructibles()
 	}
 		
 	// Pummel with cane
-	if character == "SP" && shotgunAnim && (state == states.handstandjump or state == states.freefall)
+	if character == "SP" && shotgunAnim && (state == states.handstandjump or state == states.freefall or state == states.freefallland)
 	{
 		var shotty = instance_place(x + hsp, y + vsp, obj_shotgunblock);
 		if shotty

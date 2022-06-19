@@ -88,7 +88,7 @@ if global.gameplay == 0
 				hudface = spr_pepinoHUD3hp
 			else if obj_player.sprite_index = spr_player_hurtidle or obj_player.sprite_index = spr_player_hurtwalk
 				hudface = spr_pepinoHUD1hp
-			else if global.panic = true or global.snickchallenge = true or global.miniboss = true
+			else if global.panic or global.snickchallenge or global.miniboss
 				hudface = spr_pepinoHUDpanic
 			else if obj_player.sprite_index = spr_shotgun_pullout
 				hudface = spr_pepinoHUDmenacing
@@ -435,6 +435,59 @@ else
 			pal_swap_reset();
 		}
 		
+		// rank bubble
+		var rx = hud_xx + 142
+	    var ry = hud_yy - 22
+		
+	    var rank_ix = 0
+		if global.srank == 0
+			rank_ix = 5;
+		else if _score >= global.srank
+	        rank_ix = 4
+	    else if _score >= global.arank
+	        rank_ix = 3
+	    else if _score >= global.brank
+	        rank_ix = 2
+	    else if _score >= global.crank
+	        rank_ix = 1
+		
+	    if previousrank != rank_ix
+	    {
+	        previousrank = rank_ix
+	        rank_scale = 3
+	    }
+	    rank_scale = Approach(rank_scale, 1, 0.2)
+		
+	    var spr_w = sprite_get_width(spr_ranks_hudfill)
+	    var spr_h = sprite_get_height(spr_ranks_hudfill)
+	    var spr_xo = sprite_get_xoffset(spr_ranks_hudfill)
+	    var spr_yo = sprite_get_yoffset(spr_ranks_hudfill)
+		
+	    var perc = 0
+	    switch rank_ix
+	    {
+	        default:
+	            perc = 1
+	            break
+	        case 3:
+	            perc = (_score - global.arank) / (global.srank - global.arank)
+	            break
+	        case 2:
+	            perc = (_score - global.brank) / (global.arank - global.brank)
+	            break
+	        case 1:
+	            perc = (_score - global.crank) / (global.brank - global.crank)
+	            break
+			case 0:
+	            perc = _score / global.crank
+	    }
+
+	    var t = spr_h * perc
+	    var top = spr_h - t
+		draw_sprite_ext(sugary ? spr_ranks_hudSP : spr_ranks_hud, rank_ix, rx, ry, rank_scale, rank_scale, 0, c_white, 1)
+		if rank_scale == 1 && global.srank > 0
+			draw_sprite_part(sugary ? spr_ranks_hudfillSP : spr_ranks_hudfill, rank_ix, 0, top, spr_w, spr_h - top, rx - spr_xo, ry - spr_yo + top)
+		
 		// text
 		draw_set_valign(fa_top)
 		draw_set_halign(fa_left)
@@ -470,16 +523,21 @@ else
 				break;
 		}
 		
-		var str = string(_score);
+		var cs = 0
+	    with obj_comboend
+	        cs += comboscore
+		
+	    var sc = (_score - global.comboscore) - cs
+		var str = string(sc);
 		var num = string_length(str);
 		var w = string_width(str);
 		var xx = hud_xx - w / 2;
-		if lastcollect != _score
+		if lastcollect != sc
 		{
 			color_array = array_create(num, 0);
 			for(var i = 0; i < array_length(color_array); i++)
 				color_array[i] = choose(irandom(3));
-			lastcollect = _score;
+			lastcollect = sc;
 		}
 		
 		draw_set_alpha(alpha);
@@ -497,6 +555,7 @@ else
 		pal_swap_reset();
 		
 		// bullet
+		/*
 		if instance_exists(obj_player) && global.gameplay == 1
 		{
 			var char = obj_player.character;
@@ -526,6 +585,7 @@ else
 				}
 			}
 		}
+		*/
 	}
 }
 

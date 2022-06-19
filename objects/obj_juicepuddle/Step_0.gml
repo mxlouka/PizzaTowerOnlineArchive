@@ -46,6 +46,9 @@ else
 					sprite_index = spr_slipbanan1;
 					vsp = -11;
 					image_index = 0;
+					movespeed += 2;
+					if movespeed > 14
+						movespeed = 14;
 					state = states.slipbanan;
 				}
 				instance_destroy(other);

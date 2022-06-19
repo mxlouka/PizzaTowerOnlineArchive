@@ -146,7 +146,7 @@ if instance_exists(ID)
 			
 			if object_index == obj_minijohn
 			{
-				if state != states.rage
+				if state != states.rage && state != states.punch
 					instance_destroy(other);
 			}
 		}

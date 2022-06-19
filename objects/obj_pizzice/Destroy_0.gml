@@ -11,4 +11,3 @@ if global.gameplay != 0 && ds_list_find_index(global.baddieroom, id) == -1
 		}
 	}
 }
-

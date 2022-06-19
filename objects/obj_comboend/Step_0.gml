@@ -11,7 +11,6 @@ else
         if comboscore < 0
             comboscore = 0
         create_collect(obj_player.x, obj_player.y - 100, scr_collectsprite())
-		global.collect += combominus
     }
     else if alarm[1] == -1
         alarm[1] = 50

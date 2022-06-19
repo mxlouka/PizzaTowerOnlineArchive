@@ -15,7 +15,7 @@
     "path": "audiogroups/audiogroup_default",
   },
   "soundFile": "mu_credits.ogg",
-  "duration": 155.789474,
+  "duration": 162.07655,
   "parent": {
     "name": "PTO extra",
     "path": "folders/Sounds/PTO extra.yy",

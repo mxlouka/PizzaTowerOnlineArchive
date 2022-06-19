@@ -15,3 +15,4 @@ if check_sugary()
 	sprite_index = spr_onewayblock_ss;
 
 momentum = [0, 0];
+image_speed = 0.35;

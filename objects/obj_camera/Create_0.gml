@@ -83,3 +83,6 @@ keyimg = 0;
 zoom = 0;
 angle = 0;
 limitcam = [0, 0, 960, 540];
+
+previousrank = 0
+rank_scale = 1

@@ -104,14 +104,13 @@ if ds_list_find_index(list, id) == -1
 					
 					with instance_create(x, y, obj_smallnumber)
 						number = string(num);
-					
-					global.collect += num;
 				}
 				else
 				{
 					num = 10 + round(10 * (global.combo * 0.5));
 					global.comboscore += num;
 				}
+				global.collect += num;
 			}
 		}
 	}

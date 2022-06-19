@@ -10,11 +10,15 @@ shader_reset()
 if global.modifier != -1
 {
 	if image_index >= image_number - 1
-		draw_sprite_ext(spr_rank_passed, image_index, x, y, image_xscale, image_yscale, image_angle, image_blend, image_alpha);
+		draw_sprite_ext(spr_rank_passed, -1, x, y, image_xscale, image_yscale, image_angle, image_blend, image_alpha);
+}
+else if global.rank == "eggplant"
+{
+	if image_index >= image_number - 1
+		draw_sprite_ext(spr_rankEGGPLANT, -1, x, y, image_xscale, image_yscale, image_angle, image_blend, image_alpha);
 }
 else
 {
 	if asset_get_type(sprite_get_name(sprite_index) + "_text") == asset_sprite
 		draw_sprite_ext(asset_get_index(sprite_get_name(sprite_index) + "_text"), image_index, x, y, image_xscale, image_yscale, image_angle, image_blend, image_alpha);
 }
-

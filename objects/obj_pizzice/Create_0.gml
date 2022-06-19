@@ -69,6 +69,5 @@ else
 	recoveryspr = spr_newpizzice_walk
 	grabbedspr = spr_newpizzice_stun
 	scaredspr = spr_newpizzice_stun
-	spr_dead = spr_newpizzice_gibs
+	spr_dead = spr_newpizzice_stun
 }
-

@@ -5,6 +5,7 @@
   },
   "solid": false,
   "visible": true,
+  "managed": true,
   "spriteMaskId": {
     "name": "spr_juicepuddledone",
     "path": "sprites/spr_juicepuddledone/spr_juicepuddledone.yy",

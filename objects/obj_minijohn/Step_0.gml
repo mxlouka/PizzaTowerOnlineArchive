@@ -10,6 +10,42 @@ switch state
 	// grabbed state here
 	case states.chase: scr_enemy_chase (); break;
 	case states.rage: scr_enemy_rage (); break;
+	
+	case states.punch:
+        if sprite_index == spr_minijohn_punchstart
+        {
+            image_speed = 0.35
+            hsp = Approach(hsp, 0, 1)
+            if floor(image_index) == image_number - 1
+            {
+                punchspd = 8
+                hsp = punchspd * image_xscale
+                sprite_index = spr_minijohn_punch
+                image_index = 0
+                image_speed = 0.25
+                with instance_create(x, y, obj_forkhitbox)
+                {
+                    sprite_index = spr_bighitbox
+                    mask_index = spr_bighitbox
+                    ID = other.id
+                }
+            }
+        }
+        else if sprite_index == spr_minijohn_punch
+        {
+            image_speed = 0.25
+            punchspd = Approach(punchspd, 0, 0.25)
+            hsp = punchspd * image_xscale
+            with instance_place(x + hsp, y, obj_destructibles)
+                instance_destroy()
+            if floor(image_index) == image_number - 1
+            {
+                state = states.chase
+                ragecooldown = 100
+                sprite_index = spr_minijohn_charge
+            }
+        }
+        break
 }
 
 if state == states.stun && stunned > 100 && !birdcreated
@@ -19,31 +55,43 @@ if state == states.stun && stunned > 100 && !birdcreated
 		ID = other.id
 }
 
-if global.stylethreshold >= 3 && ragecooldown <= 0
+if states.chase && ragecooldown <= 0 && global.gameplay != 0
 {
 	var player = instance_nearest(x, y, obj_player);
-	if state == states.chase && instance_exists(player)
+	if instance_exists(player)
 	{
 		if player.x > x - 400 && player.x < x + 400
 		&& player.y <= y + 60 && player.y >= y - 60
 		{
-			image_xscale = -sign(x - player.x);
-			sprite_index = spr_minijohn_rage1;
-			image_index = 0;
-			vsp = -8;
-			flash = true;
-			alarm[4] = 5;
-			ragecooldown = 100;
-			state = states.rage;
+			if x != player.x
+				image_xscale = -sign(x - player.x);
 			
-			create_heatattack_afterimage(x, y, sprite_index, image_index, image_xscale);
-			
-			with instance_create(x, y, obj_forkhitbox)
+			if elite
 			{
-				sprite_index = spr_bighitbox
-				mask_index = spr_bighitbox
-				ID = other.id
+				sprite_index = spr_minijohn_rage1;
+				image_index = 0;
+				vsp = -8;
+				flash = true;
+				alarm[4] = 5;
+				ragecooldown = 100;
+				state = states.rage;
+			
+				create_heatattack_afterimage(x, y, sprite_index, image_index, image_xscale);
+			
+				with instance_create(x, y, obj_forkhitbox)
+				{
+					sprite_index = spr_bighitbox
+					mask_index = spr_bighitbox
+					ID = other.id
+				}
 			}
+			else
+	        {
+	            sprite_index = spr_minijohn_punchstart
+	            image_index = 0
+	            ragecooldown = 100
+	            state = states.punch
+	        }
 		}
 	}
 }
@@ -58,7 +106,6 @@ if (flash == true && alarm[2] <= 0) {
    alarm[2] = 0.15 * room_speed; // Flashes for 0.8 seconds before turning back to normal
 }
 
-
 if state != states.chase
 	momentum = 0
 
@@ -66,7 +113,7 @@ if state != states.chase
 if state == states.walk or state == states.idle
 {
 	//Identify the player
-	var targetplayer = obj_player1
+	var targetplayer = playerobj
 
 	movespeed = 4
 	if global.gameplay == 0
@@ -74,18 +121,15 @@ if state == states.walk or state == states.idle
 		movespeed = 7
 		momentum = -image_xscale * (movespeed + 4)
 	}
-	image_xscale = -sign(x - targetplayer.x)
-	
+	if x != targetplayer.x
+		image_xscale = -sign(x - targetplayer.x)
 	state = states.chase
 }
 
-
-
-
-if  hitboxcreate = false && (state == states.chase) 
+if !hitboxcreate && state == states.chase && global.gameplay == 0
 {
 	hitboxcreate = true
-	with instance_create(x,y,obj_minijohn_hitbox)
+	with instance_create(x, y, obj_minijohn_hitbox)
 	{
 		sprite_index = other.sprite_index
 		ID = other.id
@@ -95,11 +139,10 @@ if  hitboxcreate = false && (state == states.chase)
 if state != states.grabbed
 	depth = 0
 
-
 if state != states.stun 
 	thrown = false
 
-if boundbox = false
+if !boundbox
 {
 	with instance_create(x,y,obj_baddiecollisionbox)
 	{

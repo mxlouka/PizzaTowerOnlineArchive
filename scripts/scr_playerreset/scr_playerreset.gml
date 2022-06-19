@@ -1,5 +1,7 @@
 function scr_playerreset()
 {
+	global.srank = 0;
+	
 	instance_destroy(obj_fakepeppino);
 	if ds_exists(global.baddietomb, ds_type_list)
 		ds_list_clear(global.baddietomb);

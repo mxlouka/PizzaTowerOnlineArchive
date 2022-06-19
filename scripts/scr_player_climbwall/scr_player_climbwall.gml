@@ -84,8 +84,11 @@ function scr_player_climbwall()
 				state = states.normal
 				movespeed = 0
 				
-				railmovespeed = 6
-				raildir = -xscale
+				if global.gameplay != 0
+				{
+					railmovespeed = 6
+					raildir = -xscale
+				}
 			}
 			
 			// back to ground

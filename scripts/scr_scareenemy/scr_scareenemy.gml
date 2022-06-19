@@ -19,7 +19,7 @@ function scr_scareenemy()
 				image_xscale = -sign(x - player.x)
 			scaredbuffer = 100 / (global.stylethreshold + 1)
 			if grounded
-				vsp = -5
+				vsp = global.gameplay == 0 ? -5 : -3
 			
 			if object_index == obj_coolpineapple
 			{

@@ -3,7 +3,7 @@ function ledge_bump()
 	// Clip up before bump
 	if global.gameplay != 0
 	{
-		var ht = 32;
+		var ht = 33;
 		if vsp < 0
 			ht = 22;
 		

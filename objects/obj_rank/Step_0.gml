@@ -8,7 +8,7 @@ if obj_player1.character == "P" // peppino
 		sprite_index = spr_rankB
 	if global.rank == "c"
 		sprite_index = spr_rankC
-	if global.rank == "d"
+	if global.rank == "d" or global.rank == "eggplant"
 		sprite_index = spr_rankD
 }
 else if obj_player1.character == "SP" // pizzelle
@@ -21,7 +21,7 @@ else if obj_player1.character == "SP" // pizzelle
 		sprite_index = spr_rankSPB
 	if global.rank == "c"
 		sprite_index = spr_rankSPC
-	if global.rank == "d"
+	if global.rank == "d" or global.rank == "eggplant"
 		sprite_index = spr_rankSPD
 }
 else if obj_player1.character == "PP" // pissino the greatest
@@ -34,7 +34,7 @@ else if obj_player1.character == "PP" // pissino the greatest
 		sprite_index = spr_rankPPB
 	if global.rank == "c"
 		sprite_index = spr_rankPPC
-	if global.rank == "d"
+	if global.rank == "d" or global.rank == "eggplant"
 		sprite_index = spr_rankPPD
 }
 else // noise
@@ -47,7 +47,7 @@ else // noise
 		sprite_index = spr_rankNB
 	if global.rank == "c"
 		sprite_index = spr_rankNC
-	if global.rank == "d"
+	if global.rank == "d" or global.rank == "eggplant"
 		sprite_index = spr_rankND
 }
 if global.rank == "yousuck"

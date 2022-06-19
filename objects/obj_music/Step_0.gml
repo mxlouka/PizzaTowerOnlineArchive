@@ -68,6 +68,8 @@ if global.panic && !(room == custom_lvl_room && global.disableescapemusic) && (!
 		}
 	}
 }
+if !global.panic
+	panicfadeoff = 0;
 
 // snick challenge
 if global.snickchallenge && !obj_pause.pause && !obj_camera.ded

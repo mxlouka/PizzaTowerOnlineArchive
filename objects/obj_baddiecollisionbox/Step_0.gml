@@ -41,23 +41,26 @@ if player && !player.cutscene && (player.state != states.firemouth or global.gam
 				image_index = 0
 				sprite_index = spr_player_chainsawhit
 			}
+			bad.instakilled = false;
+			
 			if bad.object_index != obj_tankOLD && !bad.killprotection
 			{
-				if state == states.mach3 or state == states.rocket or state == states.tumble
+				if state == states.mach3 or state == states.rocket or (state == states.tumble && (global.gameplay == 0 or sprite_index == spr_tumble))
 				or (state == states.freefall && freefallsmash > 10) or state == states.superslam
 				or state == states.chainsawbump or state == states.punch or state == states.firemouth
 				or state == states.knightpep or state == states.knightpepslopes or state == states.grab
 				or state == states.rideweenie or state == states.faceplant
 				{
-					bad.hp -= 99;
+					bad.hp -= 1;
 					bad.instakilled = true;
+					suplexmove = true;
 				}
 			}
 			if state != states.hurt
 				bad.grabbedby = 1;
 			
 			global.hit += 1;
-			if !grounded && state != states.freefall && key_jump2 && global.gameplay == 0
+			if !grounded && state != states.freefall && key_jump2
 			{
 				if state == states.mach2 or (state == states.mach3 && !fightball)
 					sprite_index = spr_mach2jump
@@ -115,19 +118,30 @@ if player && !player.cutscene && (player.state != states.firemouth or global.gam
 				{
 					bad.image_xscale = -xscale;
 					bad.hithsp = 0;
-				
-					if key_up
+					
+					if lag > 5
 					{
-						bad.hitvsp = -11;
-						bad.thrown_vertically = true;
+						if key_up
+						{
+							bad.hitvsp = -11;
+							bad.thrown_vertically = true;
+						}
+						else if key_down
+							bad.hitvsp = 11;
+						else
+						{
+							bad.hithsp = -8 * bad.image_xscale;
+							bad.hitvsp = -8;
+						}
 					}
-					else if key_down
-						bad.hitvsp = 11;
 					else
 					{
-						bad.hithsp = -8 * bad.image_xscale;
-						bad.hitvsp = -8;
+						bad.hithsp = xscale * (movespeed + 2)
+				        if abs(bad.hithsp) < 10
+				            bad.hithsp = xscale * 10
+				        bad.hitvsp = -5
 					}
+					
 					scr_hitthrow(bad, id, lag);
 					bad.invtime = 25;
 				}

@@ -21,14 +21,17 @@ if ds_list_find_index(global.saveroom, id) = -1
 		var var_struct = {
 			image_xscale : abs(other.image_xscale),
 			image_yscale : abs(other.image_yscale),
-			momentum : other.momentum,
-			sprite_index : dsprite == -1 ? sprite_index : dsprite
+			momentum : other.icemomentum
 		};
 		
 		repeat rep
 		{
 			with instance_create(x + irandom(sprite_width), y + irandom(sprite_height), obj_debris, var_struct)
+			{
+				if dsprite != -1
+					sprite_index = dsprite;
 				image_speed = dimage_speed;
+			}
 		}
 	}
 	scr_soundeffect(sfx_breakblock1, sfx_breakblock2)
