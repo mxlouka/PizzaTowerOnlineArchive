@@ -21,7 +21,7 @@ if ds_list_find_index(global.saveroom, id) = -1
 		var var_struct = {
 			image_xscale : abs(other.image_xscale),
 			image_yscale : abs(other.image_yscale),
-			momentum : other.icemomentum
+			momentum : other.momentum
 		};
 		
 		repeat rep

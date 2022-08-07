@@ -1,6 +1,6 @@
 {
   "ConfigValues": {
-    "debug": {"option_lastchanged":"12 May 2022 19:48:51","option_sci_usesci":"true","option_game_speed":"60",},
+    "debug": {"option_lastchanged":"12 May 2022 19:48:51","option_sci_usesci":"false","option_game_speed":"60",},
   },
   "option_gameguid": "ebf7bd96-5dd8-4c8d-abed-66a6ba177f20",
   "option_gameid": "0",
@@ -13,7 +13,6 @@
   "option_author": "",
   "option_collision_compatibility": true,
   "option_copy_on_write_enabled": true,
-  "option_lastchanged": "",
   "option_spine_licence": false,
   "option_template_image": "${base_options_dir}/main/template_image.png",
   "option_template_icon": "${base_options_dir}/main/template_icon.png",
