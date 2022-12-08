@@ -1,5 +1,6 @@
 if !debug
 {
+	// exit level editor
 	if !check_online() or gms_ini_game_read("game", "leveleditor") == false
 	{
 		event_perform(ev_alarm, 2);
@@ -7,6 +8,10 @@ if !debug
 	}
 }
 
+// tell the user that the servers are down but continue regardless
+show_message("The default level editor servers haven't been maintained, and they have shut down, sorry.");
+
+// level editor shit here
 enum reqtypes
 {
 	read_paging,
