@@ -8,9 +8,6 @@ if !debug
 	}
 }
 
-// tell the user that the servers are down but continue regardless
-show_message("The default level editor servers haven't been maintained, and they have shut down, sorry.");
-
 // level editor shit here
 enum reqtypes
 {

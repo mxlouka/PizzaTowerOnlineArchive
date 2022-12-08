@@ -6407,9 +6407,9 @@
   "Options": [
     {"name":"Linux","path":"options/linux/options_linux.yy",},
     {"name":"macOS","path":"options/mac/options_mac.yy",},
+    {"name":"Main","path":"options/main/options_main.yy",},
     {"name":"Windows","path":"options/windows/options_windows.yy",},
     {"name":"operagx","path":"options/operagx/options_operagx.yy",},
-    {"name":"Main","path":"options/main/options_main.yy",},
   ],
   "defaultScriptType": 1,
   "isEcma": false,
@@ -7590,7 +7590,6 @@
     {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"gcmt-dll.dll","ConfigValues":{"debug":{"CopyToMask":"0",},},"CopyToMask":0,"filePath":"datafiles/GMLive",},
     {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"neko.dll","ConfigValues":{"debug":{"CopyToMask":"0",},},"CopyToMask":0,"filePath":"datafiles/GMLive",},
     {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"gmlive-server.exe","ConfigValues":{"debug":{"CopyToMask":"0",},},"CopyToMask":0,"filePath":"datafiles/GMLive",},
-    {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"console-commands.txt","CopyToMask":-1,"filePath":"datafiles",},
   ],
   "MetaData": {
     "IDEVersion": "2022.11.0.54",

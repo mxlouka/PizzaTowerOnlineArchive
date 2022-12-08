@@ -13,5 +13,3 @@ if !global.richpresence
 }
 
 #macro DISCORD_APP_ID "828220751810265098"
-if !np_initdiscord(DISCORD_APP_ID, true, np_steam_app_id_empty)
-	show_error("NekoPresence init fail.", true);
